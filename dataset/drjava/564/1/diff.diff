@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/564/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/564/1/after.java
+@@ -2,4 +2,11 @@
+-  public synchronized boolean recallNextInteractionInHistory() {
+-    if (hasHistoryNext()) {
+-      moveHistoryNext(getCurrentInteraction());
+-      return true;
++  public boolean recallNextInteractionInHistory() {
++    acquireWriteLock();
++    try {
++      if (hasHistoryNext()) {
++        moveHistoryNext(getCurrentInteraction());
++        return true;
++      }
++      _beep.run();
++      return false;
++    } finally {
++      releaseWriteLock();
+@@ -7,2 +14,0 @@
+-    _beep.run();
+-    return false;

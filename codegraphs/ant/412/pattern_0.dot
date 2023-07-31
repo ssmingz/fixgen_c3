@@ -1,0 +1,267 @@
+digraph "Pattern" {
+0 [label="configure#?,Configuration#25:UPDATE
+configure#?,Configuration#18:UPDATE" shape=ellipse]
+1 [label="configure#?,Configuration#25:configure(m_value, newConfiguration)
+configure#?,Configuration#18:configure(m_aspectHandler, children[0])" shape=ellipse]
+2 [label="configure#?,Configuration#2:\{
+    final DefaultConfiguration newConfiguration = new DefaultConfiguration(configuration.getName(), configuration.getLocation());
+    final String[] attributes = configuration.getAttributeNames();
+    for (int i = 0; i < attributes.length; i++) \{
+        final String name = attributes[i];
+        final String value = configuration.getAttribute(name);
+        if (name.equals(\"id\") || name.equals(\"local-scope\")) \{
+            configure(this, name, value);
+        \} else \{
+            newConfiguration.setAttribute(name, value);
+        \}
+    \}
+    final Configuration[] children = configuration.getChildren();
+    for (int i = 0; i < children.length; i++) \{
+        newConfiguration.addChild(children[i]);
+    \}
+    try \{
+        m_value = newInstance(DataType.class, configuration.getName());
+    \} catch (final Exception e) \{
+        final String message = REZ.getString(\"type.no-create.error\");
+        throw new ConfigurationException(message, e);
+    \}
+    configure(m_value, newConfiguration);
+\}
+configure#?,Configuration#10:\{
+    final String typeName = children[0].getName();
+    try \{
+        m_aspectHandler = ((AspectHandler) (newInstance(AspectHandler.class, typeName)));
+    \} catch (final Exception e) \{
+        final String message = REZ.getString(\"facility.no-create.error\", typeName);
+        throw new ConfigurationException(message, e);
+    \}
+    configure(m_aspectHandler, children[0]);
+\}" shape=ellipse]
+3 [label="configure#?,Configuration#2:public void configure(final Configuration configuration) throws ConfigurationException \{
+    final DefaultConfiguration newConfiguration = new DefaultConfiguration(configuration.getName(), configuration.getLocation());
+    final String[] attributes = configuration.getAttributeNames();
+    for (int i = 0; i < attributes.length; i++) \{
+        final String name = attributes[i];
+        final String value = configuration.getAttribute(name);
+        if (name.equals(\"id\") || name.equals(\"local-scope\")) \{
+            configure(this, name, value);
+        \} else \{
+            newConfiguration.setAttribute(name, value);
+        \}
+    \}
+    final Configuration[] children = configuration.getChildren();
+    for (int i = 0; i < children.length; i++) \{
+        newConfiguration.addChild(children[i]);
+    \}
+    try \{
+        m_value = newInstance(DataType.class, configuration.getName());
+    \} catch (final Exception e) \{
+        final String message = REZ.getString(\"type.no-create.error\");
+        throw new ConfigurationException(message, e);
+    \}
+    configure(m_value, newConfiguration);
+\}" shape=ellipse]
+4 [label="configure#?,Configuration#3:final DefaultConfiguration newConfiguration = new DefaultConfiguration(configuration.getName(), configuration.getLocation())
+configure#?,Configuration#11:final String typeName = children[0].getName()" shape=ellipse]
+5 [label="configure#?,Configuration#5:final String[] attributes = configuration.getAttributeNames()
+configure#?,Configuration#12:try \{
+    m_aspectHandler = ((AspectHandler) (newInstance(AspectHandler.class, typeName)));
+\} catch (final Exception e) \{
+    final String message = REZ.getString(\"facility.no-create.error\", typeName);
+    throw new ConfigurationException(message, e);
+\}" shape=ellipse]
+6 [label="configure#?,Configuration#6:for (int i = 0; i < attributes.length; i++) \{
+    final String name = attributes[i];
+    final String value = configuration.getAttribute(name);
+    if (name.equals(\"id\") || name.equals(\"local-scope\")) \{
+        configure(this, name, value);
+    \} else \{
+        newConfiguration.setAttribute(name, value);
+    \}
+\}" shape=ellipse]
+7 [label="configure#?,Configuration#15:final Configuration[] children = configuration.getChildren()" shape=ellipse]
+8 [label="configure#?,Configuration#16:for (int i = 0; i < children.length; i++) \{
+    newConfiguration.addChild(children[i]);
+\}" shape=ellipse]
+9 [label="configure#?,Configuration#19:try \{
+    m_value = newInstance(DataType.class, configuration.getName());
+\} catch (final Exception e) \{
+    final String message = REZ.getString(\"type.no-create.error\");
+    throw new ConfigurationException(message, e);
+\}" shape=ellipse]
+10 [label="configure#?,Configuration#25:configure
+configure#?,Configuration#18:configure" shape=ellipse]
+11 [label="configure#?,Configuration#-1:
+configure#?,Configuration#-1:" shape=ellipse]
+12 [label="configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+13 [label="configure#?,Configuration#-1:PlaceHold
+configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+14 [label="configure#?,Configuration#25:configure(Configuration)
+configure#?,Configuration#18:configure(Configuration)" shape=ellipse]
+15 [label="configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+16 [label="configure#?,Configuration#-1:void" shape=ellipse]
+17 [label="configure#?,Configuration#-1:Configuration" shape=ellipse]
+18 [label="configure#?,Configuration#25:m_value
+configure#?,Configuration#18:m_aspectHandler" shape=ellipse]
+19 [label="configure#?,Configuration#20:m_value
+configure#?,Configuration#13:m_aspectHandler" shape=ellipse]
+20 [label="configure#?,Configuration#-1:m_value" shape=ellipse]
+21 [label="configure#?,Configuration#25:newConfiguration" shape=ellipse]
+22 [label="configure#?,Configuration#3:newConfiguration" shape=ellipse]
+23 [label="configure#?,Configuration#-1:newConfiguration
+configure#?,Configuration#20:final String message = REZ.getString(\"facility.multi-element.error\")" shape=ellipse]
+24 [label="configure#?,Configuration#25:configureElement(m_value, newConfiguration)
+configure#?,Configuration#18:configureElement(m_aspectHandler, children[0])" shape=ellipse]
+25 [label="configure#?,Configuration#10:children.length" shape=ellipse]
+26 [label="configure#?,Configuration#11:getName()" shape=ellipse]
+27 [label="configure#?,Configuration#-1:AspectHandler" shape=ellipse]
+28 [label="configure#?,Configuration#20:\"facility.multi-element.error\"" shape=ellipse]
+29 [label="configure#?,Configuration#11:children[0]" shape=ellipse]
+30 [label="configure#?,Configuration#18:children" shape=ellipse]
+31 [label="configure#?,Configuration#11:0" shape=ellipse]
+32 [label="configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+33 [label="configure#?,Configuration#13:AspectHandler.class" shape=ellipse]
+34 [label="configure#?,Configuration#21:throw new ConfigurationException(message)" shape=ellipse]
+35 [label="configure#?,Configuration#20:getString(java.lang.String)" shape=ellipse]
+36 [label="configure#?,Configuration#21:message" shape=ellipse]
+37 [label="configure#?,Configuration#12:\{
+    m_aspectHandler = ((AspectHandler) (newInstance(AspectHandler.class, typeName)));
+\}" shape=ellipse]
+38 [label="configure#?,Configuration#13:m_aspectHandler = ((AspectHandler) (newInstance(AspectHandler.class, typeName)))" shape=ellipse]
+39 [label="configure#?,Configuration#11:children[0].getName()" shape=ellipse]
+40 [label="configure#?,Configuration#-1:ConfigurationException(java.lang.String)" shape=ellipse]
+41 [label="configure#?,Configuration#10:if (1 == children.length) \{
+    final String typeName = children[0].getName();
+    try \{
+        m_aspectHandler = ((AspectHandler) (newInstance(AspectHandler.class, typeName)));
+    \} catch (final Exception e) \{
+        final String message = REZ.getString(\"facility.no-create.error\", typeName);
+        throw new ConfigurationException(message, e);
+    \}
+    configure(m_aspectHandler, children[0]);
+\} else \{
+    final String message = REZ.getString(\"facility.multi-element.error\");
+    throw new ConfigurationException(message);
+\}" shape=ellipse]
+42 [label="configure#?,Configuration#13:typeName" shape=ellipse]
+43 [label="configure#?,Configuration#21:new ConfigurationException(message)" shape=ellipse]
+44 [label="configure#?,Configuration#14: catch (final Exception e) \{
+    final String message = REZ.getString(\"facility.no-create.error\", typeName);
+    throw new ConfigurationException(message, e);
+\}" shape=ellipse]
+45 [label="configure#?,Configuration#20:REZ" shape=ellipse]
+46 [label="configure#?,Configuration#13:newInstance(java.lang.Class,java.lang.String)" shape=ellipse]
+47 [label="configure#?,Configuration#10:1" shape=ellipse]
+48 [label="configure#?,Configuration#14:final Exception e" shape=ellipse]
+49 [label="configure#?,Configuration#10:1 == children.length" shape=ellipse]
+50 [label="configure#?,Configuration#18:children[0]" shape=ellipse]
+51 [label="configure#?,Configuration#11:children" shape=ellipse]
+52 [label="configure#?,Configuration#13:((AspectHandler) (newInstance(AspectHandler.class, typeName)))" shape=ellipse]
+53 [label="configure#?,Configuration#19:\{
+    final String message = REZ.getString(\"facility.multi-element.error\");
+    throw new ConfigurationException(message);
+\}" shape=ellipse]
+54 [label="configure#?,Configuration#-1:" shape=ellipse]
+55 [label="configure#?,Configuration#20:REZ.getString(\"facility.multi-element.error\")" shape=ellipse]
+56 [label="configure#?,Configuration#18:0" shape=ellipse]
+0 -> 24 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 21 [label="AST:1"];
+1 -> 50 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="AST:1"];
+2 -> 9 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+4 -> 22 [label="AST:1"];
+4 -> 39 [label="AST:1"];
+5 -> 37 [label="AST:1"];
+5 -> 44 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+11 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 17 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+19 -> 18 [label="Define Use:2"];
+21 -> 23 [label="AST:1"];
+22 -> 21 [label="Define Use:1"];
+23 -> 55 [label="AST:1"];
+29 -> 51 [label="AST:1"];
+29 -> 31 [label="AST:1"];
+33 -> 27 [label="AST:1"];
+33 -> 19 [label="Data Dep:1"];
+34 -> 43 [label="AST:1"];
+37 -> 38 [label="AST:1"];
+38 -> 19 [label="AST:1"];
+38 -> 52 [label="AST:1"];
+39 -> 26 [label="AST:1"];
+39 -> 29 [label="AST:1"];
+41 -> 49 [label="AST:1"];
+41 -> 2 [label="AST:1"];
+41 -> 53 [label="AST:1"];
+42 -> 19 [label="Data Dep:1"];
+43 -> 36 [label="AST:1"];
+43 -> 40 [label="AST:1"];
+44 -> 48 [label="AST:1"];
+49 -> 25 [label="AST:1"];
+49 -> 26 [label="Control Dep:1"];
+49 -> 27 [label="Control Dep:1"];
+49 -> 28 [label="Control Dep:1"];
+49 -> 29 [label="Control Dep:1"];
+49 -> 30 [label="Control Dep:1"];
+49 -> 31 [label="Control Dep:1"];
+49 -> 32 [label="Control Dep:1"];
+49 -> 33 [label="Control Dep:1"];
+49 -> 34 [label="Control Dep:1"];
+49 -> 35 [label="Control Dep:1"];
+49 -> 36 [label="Control Dep:1"];
+49 -> 37 [label="Control Dep:1"];
+49 -> 38 [label="Control Dep:1"];
+49 -> 39 [label="Control Dep:1"];
+49 -> 40 [label="Control Dep:1"];
+49 -> 42 [label="Control Dep:1"];
+49 -> 43 [label="Control Dep:1"];
+49 -> 44 [label="Control Dep:1"];
+49 -> 45 [label="Control Dep:1"];
+49 -> 46 [label="Control Dep:1"];
+49 -> 47 [label="AST:1"];
+49 -> 48 [label="Control Dep:1"];
+49 -> 2 [label="Control Dep:1"];
+49 -> 4 [label="Control Dep:1"];
+49 -> 51 [label="Control Dep:1"];
+49 -> 5 [label="Control Dep:1"];
+49 -> 19 [label="Control Dep:1"];
+49 -> 52 [label="Control Dep:1"];
+49 -> 54 [label="Control Dep:1"];
+49 -> 1 [label="Control Dep:1"];
+49 -> 14 [label="Control Dep:1"];
+49 -> 11 [label="Control Dep:1"];
+49 -> 13 [label="Control Dep:1"];
+49 -> 18 [label="Control Dep:1"];
+49 -> 50 [label="Control Dep:1"];
+49 -> 56 [label="Control Dep:1"];
+49 -> 53 [label="Control Dep:1"];
+49 -> 23 [label="Control Dep:1"];
+49 -> 55 [label="Control Dep:1"];
+50 -> 30 [label="AST:1"];
+50 -> 56 [label="AST:1"];
+52 -> 33 [label="AST:1"];
+52 -> 42 [label="AST:1"];
+52 -> 46 [label="AST:1"];
+52 -> 54 [label="AST:1"];
+53 -> 34 [label="AST:1"];
+53 -> 23 [label="AST:1"];
+54 -> 32 [label="AST:1"];
+54 -> 19 [label="Data Dep:1"];
+55 -> 28 [label="AST:1"];
+55 -> 35 [label="AST:1"];
+55 -> 45 [label="AST:1"];
+}

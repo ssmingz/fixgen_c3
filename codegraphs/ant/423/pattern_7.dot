@@ -1,0 +1,66 @@
+digraph "Pattern" {
+0 [label="testReplaceTokens#?#2:INSERT
+testLineContains#?#2:INSERT" shape=ellipse]
+1 [label="testReplaceTokens#?#2:public void testReplaceTokens() throws IOException \{
+    executeTarget(\"testReplaceTokens\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/replacetokens.test\");
+    File result = new File(getProject().getProperty(\"output\"), \"replacetokens.test\");
+    assertTrue(FILE_UTILS.contentEquals(expected, result));
+\}
+testLineContains#?#2:public void testLineContains() throws IOException \{
+    executeTarget(\"testLineContains\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/linecontains.test\");
+    File result = new File(getProject().getProperty(\"output\"), \"linecontains.test\");
+    assertTrue(FILE_UTILS.contentEquals(expected, result));
+\}" shape=ellipse]
+2 [label="testReplaceTokens#?#2:testReplaceTokens
+testLineContains#?#2:testLineContains" shape=ellipse]
+3 [label="testReplaceTokens#?#2:void
+testLineContains#?#2:void" shape=ellipse]
+4 [label="testReplaceTokens#?#2:IOException
+testLineContains#?#2:IOException" shape=ellipse]
+5 [label="testReplaceTokens#?#-1:
+testLineContains#?#-1:" shape=ellipse]
+6 [label="testReplaceTokens#?#2:\{
+    executeTarget(\"testReplaceTokens\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/replacetokens.test\");
+    File result = new File(getProject().getProperty(\"output\"), \"replacetokens.test\");
+    assertTrue(FILE_UTILS.contentEquals(expected, result));
+\}
+testLineContains#?#2:\{
+    executeTarget(\"testLineContains\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/linecontains.test\");
+    File result = new File(getProject().getProperty(\"output\"), \"linecontains.test\");
+    assertTrue(FILE_UTILS.contentEquals(expected, result));
+\}" shape=ellipse]
+7 [label="testReplaceTokens#?#3:executeTarget(\"testReplaceTokens\")
+testLineContains#?#3:executeTarget(\"testLineContains\")" shape=ellipse]
+8 [label="testReplaceTokens#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/replacetokens.test\")
+testLineContains#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/linecontains.test\")" shape=ellipse]
+9 [label="testReplaceTokens#?#6:File result = new File(getProject().getProperty(\"output\"), \"replacetokens.test\")
+testLineContains#?#5:File result = new File(getProject().getProperty(\"output\"), \"linecontains.test\")" shape=ellipse]
+10 [label="testReplaceTokens#?#7:assertTrue(FILE_UTILS.contentEquals(expected, result))
+testLineContains#?#6:assertTrue(FILE_UTILS.contentEquals(expected, result))" shape=ellipse]
+11 [label="testReplaceTokens#?#2:VE: Modifiers_Method
+testLineContains#?#2:VE: Modifiers_Method" shape=ellipse]
+12 [label="testReplaceTokens#?#2:public
+testLineContains#?#2:public" shape=ellipse]
+13 [label="testReplaceTokens#?#2:VE: ThrownTypes_testReplaceTokens
+testLineContains#?#2:VE: ThrownTypes_testLineContains" shape=ellipse]
+14 [label="testReplaceTokens#?#2:@Test
+testLineContains#?#2:@Test" shape=ellipse]
+0 -> 14 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+6 -> 10 [label="AST:2"];
+}

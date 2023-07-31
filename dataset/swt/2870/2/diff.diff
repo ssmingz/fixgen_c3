@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2870/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2870/2/after.java
+@@ -83,1 +83,3 @@
+-        error(ERROR_CANNOT_SET_MENU);
++        int error = OS.GetLastError();
++        SWT.error(
++            ERROR_CANNOT_SET_MENU, null, (" [GetLastError=0x" + Integer.toHexString(error)) + "]");

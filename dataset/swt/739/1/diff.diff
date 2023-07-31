@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/739/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/739/1/after.java
+@@ -14,5 +14,9 @@
+-      AccessibleValueEvent event = new AccessibleValueEvent(accessible);
+-      event.value = getGValue(value);
+-      for (int i = 0, length = listeners.size(); i < length; i++) {
+-        AccessibleValueListener listener = ((AccessibleValueListener) (listeners.elementAt(i)));
+-        listener.getMinimumValue(event);
++      int length = listeners.size();
++      if (length > 0) {
++        AccessibleValueEvent event = new AccessibleValueEvent(accessible);
++        event.value = getGValue(value);
++        for (int i = 0; i < length; i++) {
++          AccessibleValueListener listener = ((AccessibleValueListener) (listeners.elementAt(i)));
++          listener.getMinimumValue(event);
++        }
++        setGValue(value, event.value);
+@@ -20,1 +24,0 @@
+-      setGValue(value, event.value);

@@ -1,0 +1,45 @@
+digraph "isValid#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@isValid" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@equalsIgnoreCase(java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@equalsIgnoreCase" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"CRC\"" shape=ellipse]
+5 [label="3:CtFieldReadImpl@algorithm" shape=ellipse]
+6 [label="3:CtInvocationImpl@\"CRC\".equalsIgnoreCase(algorithm)" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@equalsIgnoreCase(java.lang.String)" shape=ellipse]
+8 [label="3:CtVirtualElement@equalsIgnoreCase" shape=ellipse]
+9 [label="3:CtLiteralImpl@\"ADLER\"" shape=ellipse]
+10 [label="3:CtFieldReadImpl@algorithm" shape=ellipse]
+11 [label="3:CtInvocationImpl@\"ADLER\".equalsIgnoreCase(algorithm)" shape=ellipse]
+12 [label="3:CtBinaryOperatorImpl@\"CRC\".equalsIgnoreCase(algorithm) || \"ADLER\".equalsIgnoreCase(algorithm)" shape=ellipse]
+13 [label="3:CtReturnImpl@return \"CRC\".equalsIgnoreCase(algorithm) || \"ADLER\".equalsIgnoreCase(algorithm)" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    return \"CRC\".equalsIgnoreCase(algorithm) || \"ADLER\".equalsIgnoreCase(algorithm);
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@public boolean isValid() \{
+    return \"CRC\".equalsIgnoreCase(algorithm) || \"ADLER\".equalsIgnoreCase(algorithm);
+\}" shape=ellipse]
+16 [label="3:Update@UPDATE" shape=ellipse]
+17 [label="3:CtInvocationImpl@\"CRC\".equals(algorithm)" shape=ellipse]
+18 [label="3:Update@UPDATE" shape=ellipse]
+19 [label="3:CtInvocationImpl@\"ADLER\".equals(algorithm)" shape=ellipse]
+6 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 16 [label="Action"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 18 [label="Action"];
+12 -> 6 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 17 [label="Action"];
+18 -> 19 [label="Action"];
+}

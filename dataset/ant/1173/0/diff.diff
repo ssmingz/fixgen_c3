@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1173/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1173/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,4 @@
+-    expectFileContains(
+-        "replacestring", getProject().getProperty("output") + "/replacestring", "this is the moon");
++    buildRule.executeTarget("replacestring");
++    assertContains(
++        "this is the moon",
++        getFileString(buildRule.getProject().getProperty("output") + "/replacestring"));

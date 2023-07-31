@@ -1,0 +1,337 @@
+digraph "Pattern" {
+0 [label="getClassLoaderFromJar#?,File#9:INSERT
+execute#?#16:INSERT
+execute#?#16:INSERT" shape=ellipse]
+1 [label="getClassLoaderFromJar#?,File#2:protected ClassLoader getClassLoaderFromJar(File classjar) throws IOException, TaskException \{
+    Path lookupPath = new Path();
+    lookupPath.setLocation(classjar);
+    Path classpath = getCombinedClasspath();
+    if (classpath != null) \{
+        lookupPath.append(classpath);
+    \}
+    return new URLClassLoader(lookupPath.toURLs());
+\}
+execute#?#2:public void execute() throws TaskException \{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}
+execute#?#2:public void execute() throws TaskException \{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}" shape=ellipse]
+2 [label="getClassLoaderFromJar#?,File#2:getClassLoaderFromJar
+execute#?#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="getClassLoaderFromJar#?,File#2:ClassLoader
+execute#?#2:TaskException
+execute#?#2:TaskException" shape=ellipse]
+4 [label="getClassLoaderFromJar#?,File#-1:java.lang
+execute#?#-1:
+execute#?#-1:" shape=ellipse]
+5 [label="getClassLoaderFromJar#?,File#2:File classjar" shape=ellipse]
+6 [label="getClassLoaderFromJar#?,File#2:File" shape=ellipse]
+7 [label="getClassLoaderFromJar#?,File#2:IOException
+execute#?#2:void
+execute#?#2:void" shape=ellipse]
+8 [label="getClassLoaderFromJar#?,File#-1:" shape=ellipse]
+9 [label="getClassLoaderFromJar#?,File#2:TaskException" shape=ellipse]
+10 [label="getClassLoaderFromJar#?,File#-1:" shape=ellipse]
+11 [label="getClassLoaderFromJar#?,File#2:\{
+    Path lookupPath = new Path();
+    lookupPath.setLocation(classjar);
+    Path classpath = getCombinedClasspath();
+    if (classpath != null) \{
+        lookupPath.append(classpath);
+    \}
+    return new URLClassLoader(lookupPath.toURLs());
+\}
+execute#?#2:\{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}
+execute#?#2:\{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}" shape=ellipse]
+12 [label="getClassLoaderFromJar#?,File#3:Path lookupPath = new Path()
+execute#?#16:loader = new URLClassLoader(classpath.toURLs())
+execute#?#16:loader = new URLClassLoader(classpath.toURLs())" shape=ellipse]
+13 [label="getClassLoaderFromJar#?,File#4:lookupPath.setLocation(classjar)
+execute#?#47:compileList.clear()
+execute#?#47:compileList.clear()" shape=ellipse]
+14 [label="getClassLoaderFromJar#?,File#5:Path classpath = getCombinedClasspath()
+execute#?#15:Path classpath = adapter.getClasspath()
+execute#?#15:Path classpath = adapter.getClasspath()" shape=ellipse]
+15 [label="getClassLoaderFromJar#?,File#6:if (classpath != null) \{
+    lookupPath.append(classpath);
+\}
+execute#?#3:if (baseDir == null) \{
+    throw new TaskException(\"base attribute must be set!\");
+\}
+execute#?#3:if (baseDir == null) \{
+    throw new TaskException(\"base attribute must be set!\");
+\}" shape=ellipse]
+16 [label="getClassLoaderFromJar#?,File#9:return new URLClassLoader(lookupPath.toURLs())
+execute#?#27:int fileCount = compileList.size()
+execute#?#27:int fileCount = compileList.size()" shape=ellipse]
+17 [label="getClassLoaderFromJar#?,File#2:protected
+execute#?#2:VE: ThrownTypes_execute
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+18 [label="getClassLoaderFromJar#?,File#2:VE: Modifiers_Method
+execute#?#2:execute
+execute#?#2:execute" shape=ellipse]
+19 [label="getClassLoaderFromJar#?,File#2:VE: ThrownTypes_getClassLoaderFromJar
+execute#?#2:public
+execute#?#2:public" shape=ellipse]
+20 [label="getClassLoaderFromJar#?,File#9:final URL[] urls = PathUtil.toURLs(lookupPath)
+execute#?#16:final URL[] urls = PathUtil.toURLs(classpath)
+execute#?#16:final URL[] urls = PathUtil.toURLs(classpath)" shape=ellipse]
+21 [label="execute#?#6:if (!baseDir.exists()) \{
+    throw new TaskException(\"base does not exist!\");
+\}" shape=ellipse]
+22 [label="execute#?#13:RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this)" shape=ellipse]
+23 [label="execute#?#12:String compiler = getProperty(\"build.rmic\").toString()" shape=ellipse]
+24 [label="execute#?#37:if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+    if (idl) \{
+        getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+        getLogger().warn(\"sourcebase attribute will be ignored.\");
+    \} else \{
+        for (int j = 0; j < fileCount; j++) \{
+            moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+        \}
+    \}
+\}" shape=ellipse]
+25 [label="execute#?#9:if (verify) \{
+    getLogger().info(\"Verify has been turned on.\");
+\}" shape=ellipse]
+26 [label="execute#?#28:if (fileCount > 0) \{
+    getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+    if (!adapter.execute()) \{
+        throw new TaskException(FAIL_MSG);
+    \}
+\}" shape=ellipse]
+27 [label="execute#?#14:adapter.setRmic(this)" shape=ellipse]
+28 [label="execute#?#17:if (classname == null) \{
+    DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(baseDir, files, adapter.getMapper());
+\} else \{
+    scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+\}" shape=ellipse]
+29 [label="execute#?#13:RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this)" shape=ellipse]
+30 [label="execute#?#14:adapter.setRmic(this)" shape=ellipse]
+31 [label="execute#?#37:if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+    if (idl) \{
+        getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+        getLogger().warn(\"sourcebase attribute will be ignored.\");
+    \} else \{
+        for (int j = 0; j < fileCount; j++) \{
+            moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+        \}
+    \}
+\}" shape=ellipse]
+32 [label="execute#?#6:if (!baseDir.exists()) \{
+    throw new TaskException(\"base does not exist!\");
+\}" shape=ellipse]
+33 [label="execute#?#9:if (verify) \{
+    getLogger().info(\"Verify has been turned on.\");
+\}" shape=ellipse]
+34 [label="execute#?#12:String compiler = getProperty(\"build.rmic\").toString()" shape=ellipse]
+35 [label="execute#?#28:if (fileCount > 0) \{
+    getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+    if (!adapter.execute()) \{
+        throw new TaskException(FAIL_MSG);
+    \}
+\}" shape=ellipse]
+36 [label="execute#?#17:if (classname == null) \{
+    DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(baseDir, files, adapter.getMapper());
+\} else \{
+    scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+\}" shape=ellipse]
+0 -> 20 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 5 [label="AST:1"];
+1 -> 7 [label="AST:3"];
+1 -> 9 [label="AST:1"];
+1 -> 11 [label="AST:3"];
+1 -> 17 [label="AST:3"];
+1 -> 18 [label="AST:3"];
+1 -> 19 [label="AST:3"];
+3 -> 4 [label="AST:3"];
+5 -> 6 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+11 -> 14 [label="AST:3"];
+11 -> 15 [label="AST:3"];
+11 -> 16 [label="AST:3"];
+11 -> 21 [label="AST:1"];
+11 -> 22 [label="AST:1"];
+11 -> 23 [label="AST:1"];
+11 -> 24 [label="AST:1"];
+11 -> 25 [label="AST:1"];
+11 -> 26 [label="AST:1"];
+11 -> 27 [label="AST:1"];
+11 -> 28 [label="AST:1"];
+11 -> 29 [label="AST:1"];
+11 -> 30 [label="AST:1"];
+11 -> 31 [label="AST:1"];
+11 -> 32 [label="AST:1"];
+11 -> 33 [label="AST:1"];
+11 -> 34 [label="AST:1"];
+11 -> 35 [label="AST:1"];
+11 -> 36 [label="AST:1"];
+}

@@ -1,0 +1,128 @@
+digraph "getEditingRow#?" {
+0 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="3:CtVirtualElement@getEditingRow" shape=ellipse]
+2 [label="4:CtTypeReferenceImpl@Class<?>" shape=ellipse]
+3 [label="4:CtPackageReferenceImpl@java.lang" shape=ellipse]
+4 [label="4:CtWildcardReferenceImpl@?" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@getColumnClass(<unknown>)" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@Class<?>" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@null" shape=ellipse]
+8 [label="4:CtVirtualElement@getColumnClass" shape=ellipse]
+9 [label="4:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+11 [label="4:CtThisAccessImpl@" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+13 [label="4:CtFieldReferenceImpl@editingColumn" shape=ellipse]
+14 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+15 [label="4:CtFieldReadImpl@editingColumn" shape=ellipse]
+16 [label="4:CtInvocationImpl@getColumnClass(editingColumn)" shape=ellipse]
+17 [label="4:CtVirtualElement@editingClass" shape=ellipse]
+18 [label="4:CtLocalVariableImpl@final Class<?> editingClass = getColumnClass(editingColumn)" shape=ellipse]
+19 [label="5:CtVariableReadImpl@editingClass" shape=ellipse]
+20 [label="5:CtLocalVariableReferenceImpl@editingClass" shape=ellipse]
+21 [label="5:CtFieldReferenceImpl@TreeTableModel.class" shape=ellipse]
+22 [label="5:CtTypeReferenceImpl@TreeTableModel" shape=ellipse]
+23 [label="5:CtTypeReferenceImpl@Class" shape=ellipse]
+24 [label="5:CtFieldReadImpl@TreeTableModel.class" shape=ellipse]
+25 [label="5:CtTypeAccessImpl@TreeTableModel" shape=ellipse]
+26 [label="5:CtBinaryOperatorImpl@editingClass == TreeTableModel.class" shape=ellipse]
+27 [label="5:CtTypeReferenceImpl@boolean" shape=ellipse]
+28 [label="6:CtLiteralImpl@1" shape=ellipse]
+29 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+30 [label="6:CtUnaryOperatorImpl@-1" shape=ellipse]
+31 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+32 [label="6:CtReturnImpl@return -1" shape=ellipse]
+33 [label="5:CtBlockImpl@\{
+    return -1;
+\}" shape=ellipse]
+34 [label="8:CtFieldReferenceImpl@editingRow" shape=ellipse]
+35 [label="8:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+36 [label="8:CtFieldReadImpl@editingRow" shape=ellipse]
+37 [label="8:CtReturnImpl@return editingRow" shape=ellipse]
+38 [label="7:CtBlockImpl@\{
+    return editingRow;
+\}" shape=ellipse]
+39 [label="5:CtIfImpl@if (editingClass == TreeTableModel.class) \{
+    return -1;
+\} else \{
+    return editingRow;
+\}" shape=ellipse]
+40 [label="3:CtBlockImpl@\{
+    final Class<?> editingClass = getColumnClass(editingColumn);
+    if (editingClass == TreeTableModel.class) \{
+        return -1;
+    \} else \{
+        return editingRow;
+    \}
+\}" shape=ellipse]
+41 [label="3:CtMethodImpl@@Override
+public int getEditingRow() \{
+    final Class<?> editingClass = getColumnClass(editingColumn);
+    if (editingClass == TreeTableModel.class) \{
+        return -1;
+    \} else \{
+        return editingRow;
+    \}
+\}" shape=ellipse]
+42 [label="2:CtAnnotationImpl@@Override" shape=ellipse]
+43 [label="5:Update@UPDATE" shape=ellipse]
+44 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+45 [label="5:CtTypeReferenceImpl@ParseTreeTableModel" shape=ellipse]
+46 [label="5:CtTypeAccessImpl@ParseTreeTableModel" shape=ellipse]
+2 -> 3 [label="AST"];
+2 -> 4 [label="AST"];
+5 -> 6 [label="AST"];
+5 -> 7 [label="AST"];
+9 -> 10 [label="AST"];
+11 -> 12 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 17 [label="Data Dep"];
+13 -> 14 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 17 [label="Data Dep"];
+16 -> 8 [label="AST"];
+16 -> 11 [label="AST"];
+16 -> 5 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 19 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 2 [label="AST"];
+18 -> 16 [label="AST"];
+19 -> 20 [label="AST"];
+21 -> 22 [label="AST"];
+21 -> 23 [label="AST"];
+24 -> 25 [label="AST"];
+24 -> 21 [label="AST"];
+25 -> 43 [label="Action"];
+26 -> 27 [label="AST"];
+26 -> 19 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 33 [label="Control Dep"];
+26 -> 32 [label="Control Dep"];
+26 -> 30 [label="Control Dep"];
+26 -> 28 [label="Control Dep"];
+26 -> 38 [label="Control Dep"];
+26 -> 37 [label="Control Dep"];
+26 -> 36 [label="Control Dep"];
+28 -> 29 [label="AST"];
+30 -> 31 [label="AST"];
+30 -> 28 [label="AST"];
+32 -> 30 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 35 [label="AST"];
+36 -> 34 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 26 [label="AST"];
+39 -> 33 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 18 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 1 [label="AST"];
+41 -> 42 [label="AST"];
+41 -> 0 [label="AST"];
+41 -> 40 [label="AST"];
+43 -> 46 [label="Action"];
+45 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+}

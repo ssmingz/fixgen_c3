@@ -1,0 +1,380 @@
+digraph "Pattern" {
+0 [label="executeAsForked#?,CommandlineJava#-1:MOVE
+execute0#?#-1:MOVE
+execute#?#-1:MOVE" shape=ellipse]
+1 [label="executeAsForked#?,CommandlineJava#-1:PlaceHold
+execute0#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+2 [label="executeAsForked#?,CommandlineJava#-1:
+execute0#?#-1:
+execute#?#-1:
+execute#?#-1:" shape=ellipse]
+3 [label="executeAsForked#?,CommandlineJava#31:log(\"Executing: \" + commandline.toString(), MSG_VERBOSE)
+execute0#?#5:log(cmdl.toString(), MSG_VERBOSE)
+execute#?#10:log(\"Forking \" + commandline.toString(), MSG_VERBOSE)
+execute#?#40:log(cmdl.toString(), MSG_VERBOSE)" shape=ellipse]
+4 [label="executeAsForked#?,CommandlineJava#-1:PlaceHold
+execute0#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+5 [label="executeAsForked#?,CommandlineJava#-1:PlaceHold
+execute0#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+6 [label="executeAsForked#?,CommandlineJava#31:getLogger()
+execute0#?#5:getLogger()
+execute#?#10:getLogger()
+execute#?#40:getLogger().debug(cmdl.toString())" shape=ellipse]
+7 [label="execute#?#10:log(<unknown>,<unknown>)
+execute#?#-1:null" shape=ellipse]
+8 [label="execute#?#12:err == 1
+execute#?#40:cmdl" shape=ellipse]
+9 [label="execute#?#10:\"Forking \"" shape=ellipse]
+10 [label="execute#?#10:toString()
+execute#?#40:toString()" shape=ellipse]
+11 [label="execute#?#19:execute()
+execute#?#-1:null" shape=ellipse]
+12 [label="execute#?#-1:
+execute#?#3:Enumeration iter = optionalAttrs.keys()" shape=ellipse]
+13 [label="execute#?#12:if (err == 1) \{
+    throw new TaskException(\"ANTLR returned: \" + err);
+\}" shape=ellipse]
+14 [label="execute#?#12:1" shape=ellipse]
+15 [label="execute#?#18:exe.setClasspath(commandline.getClasspath())
+execute#?#41:exe.setCommandline(cmdl.getCommandline())" shape=ellipse]
+16 [label="execute#?#-1:PlaceHold" shape=ellipse]
+17 [label="execute#?#11:getCommandline()
+execute#?#-1:MSG_VERBOSE" shape=ellipse]
+18 [label="execute#?#17:commandline
+execute#?#31:final Path classpath = cmdl.createClasspath(getProject())" shape=ellipse]
+19 [label="execute#?#17:getJavaCommand()" shape=ellipse]
+20 [label="execute#?#17:exe
+execute#?#37:final Execute exe = new Execute()" shape=ellipse]
+21 [label="execute#?#18:getClasspath()" shape=ellipse]
+22 [label="execute#?#-1:PlaceHold" shape=ellipse]
+23 [label="execute#?#11:commandline
+execute#?#34:final Argument arg = cmdl.createVmArgument()" shape=ellipse]
+24 [label="execute#?#18:setClasspath()" shape=ellipse]
+25 [label="execute#?#18:exe" shape=ellipse]
+26 [label="execute#?#18:commandline
+execute#?#21:final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\")" shape=ellipse]
+27 [label="execute#?#10:\"Forking \" + commandline.toString()" shape=ellipse]
+28 [label="execute#?#12:err" shape=ellipse]
+29 [label="execute#?#-1:ExecuteJava()" shape=ellipse]
+30 [label="execute#?#5:target.lastModified() > getGeneratedFile().lastModified()" shape=ellipse]
+31 [label="execute#?#10:commandline
+execute#?#20:String targetName = target.getName()" shape=ellipse]
+32 [label="execute#?#17:setJavaCommand()" shape=ellipse]
+33 [label="execute#?#17:commandline.getJavaCommand()" shape=ellipse]
+34 [label="execute#?#11:run(commandline.getCommandline())
+execute#?#27:cmdl.createArgument().setValue(target.getAbsolutePath())" shape=ellipse]
+35 [label="execute#?#11:int err = run(commandline.getCommandline())" shape=ellipse]
+36 [label="execute#?#9:fork" shape=ellipse]
+37 [label="execute#?#9:if (fork) \{
+    log(\"Forking \" + commandline.toString(), MSG_VERBOSE);
+    int err = run(commandline.getCommandline());
+    if (err == 1) \{
+        throw new TaskException(\"ANTLR returned: \" + err);
+    \}
+\} else \{
+    ExecuteJava exe = new ExecuteJava();
+    exe.setJavaCommand(commandline.getJavaCommand());
+    exe.setClasspath(commandline.getClasspath());
+    exe.execute(getProject());
+\}
+execute#?#9:if ((target == null) || (!target.isFile())) \{
+    throw new TaskException(\"Invalid target: \" + target);
+\}" shape=ellipse]
+38 [label="execute#?#16:ExecuteJava exe = new ExecuteJava()
+execute#?#28:if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+    throw new TaskException(\"Javacchome not set.\");
+\}" shape=ellipse]
+39 [label="execute#?#19:getProject()" shape=ellipse]
+40 [label="execute#?#11:run(<unknown>)" shape=ellipse]
+41 [label="execute#?#-1:" shape=ellipse]
+42 [label="execute#?#19:exe" shape=ellipse]
+43 [label="execute#?#-1:fork" shape=ellipse]
+44 [label="execute#?#10:commandline.toString()" shape=ellipse]
+45 [label="execute#?#17:exe.setJavaCommand(commandline.getJavaCommand())" shape=ellipse]
+46 [label="execute#?#18:commandline.getClasspath()" shape=ellipse]
+47 [label="execute#?#10:MSG_VERBOSE" shape=ellipse]
+48 [label="execute#?#16:new ExecuteJava()" shape=ellipse]
+49 [label="execute#?#19:getProject()" shape=ellipse]
+50 [label="execute#?#9:\{
+    log(\"Forking \" + commandline.toString(), MSG_VERBOSE);
+    int err = run(commandline.getCommandline());
+    if (err == 1) \{
+        throw new TaskException(\"ANTLR returned: \" + err);
+    \}
+\}" shape=ellipse]
+51 [label="execute#?#19:exe.execute(getProject())" shape=ellipse]
+52 [label="execute#?#11:commandline.getCommandline()" shape=ellipse]
+53 [label="execute#?#15:\{
+    ExecuteJava exe = new ExecuteJava();
+    exe.setJavaCommand(commandline.getJavaCommand());
+    exe.setClasspath(commandline.getClasspath());
+    exe.execute(getProject());
+\}" shape=ellipse]
+54 [label="execute#?#23:if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+    getLogger().info((\"Target is already built - skipping (\" + target) + \")\");
+    return;
+\}" shape=ellipse]
+55 [label="execute#?#36:arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath())" shape=ellipse]
+56 [label="execute#?#40:cmdl.toString()" shape=ellipse]
+57 [label="execute#?#15:if (!outputDirectory.isDirectory()) \{
+    throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+\}" shape=ellipse]
+58 [label="execute#?#2:\{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new TaskException(\"Invalid target: \" + target);
+    \}
+    if (outputDirectory == null) \{
+        outputDirectory = new File(target.getParent());
+    \}
+    if (!outputDirectory.isDirectory()) \{
+        throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+    \}
+    cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+    String targetName = target.getName();
+    final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\");
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getLogger().info((\"Target is already built - skipping (\" + target) + \")\");
+        return;
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+        throw new TaskException(\"Javacchome not set.\");
+    \}
+    final Path classpath = cmdl.createClasspath(getProject());
+    classpath.createPathElement().setPath(javaccHome.getAbsolutePath() + \"/JavaCC.zip\");
+    classpath.addJavaRuntime();
+    final Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute exe = new Execute();
+    exe.setOutput(new LogOutputStream(this, Project.MSG_INFO));
+    exe.setError(new LogOutputStream(this, Project.MSG_INFO));
+    log(cmdl.toString(), MSG_VERBOSE);
+    exe.setCommandline(cmdl.getCommandline());
+    try \{
+        if (exe.execute() != 0) \{
+            throw new TaskException(\"JJTree failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new TaskException(\"Failed to launch JJTree: \" + e);
+    \}
+\}" shape=ellipse]
+59 [label="execute#?#18:cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'))" shape=ellipse]
+60 [label="execute#?#40:MSG_VERBOSE" shape=ellipse]
+61 [label="execute#?#33:classpath.addJavaRuntime()" shape=ellipse]
+62 [label="execute#?#2:public void execute() throws TaskException \{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new TaskException(\"Invalid target: \" + target);
+    \}
+    if (outputDirectory == null) \{
+        outputDirectory = new File(target.getParent());
+    \}
+    if (!outputDirectory.isDirectory()) \{
+        throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+    \}
+    cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+    String targetName = target.getName();
+    final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\");
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getLogger().info((\"Target is already built - skipping (\" + target) + \")\");
+        return;
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+        throw new TaskException(\"Javacchome not set.\");
+    \}
+    final Path classpath = cmdl.createClasspath(getProject());
+    classpath.createPathElement().setPath(javaccHome.getAbsolutePath() + \"/JavaCC.zip\");
+    classpath.addJavaRuntime();
+    final Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute exe = new Execute();
+    exe.setOutput(new LogOutputStream(this, Project.MSG_INFO));
+    exe.setError(new LogOutputStream(this, Project.MSG_INFO));
+    log(cmdl.toString(), MSG_VERBOSE);
+    exe.setCommandline(cmdl.getCommandline());
+    try \{
+        if (exe.execute() != 0) \{
+            throw new TaskException(\"JJTree failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new TaskException(\"Failed to launch JJTree: \" + e);
+    \}
+\}" shape=ellipse]
+63 [label="execute#?#4:while (iter.hasMoreElements()) \{
+    String name = ((String) (iter.nextElement()));
+    Object value = optionalAttrs.get(name);
+    cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+\} " shape=ellipse]
+64 [label="execute#?#42:try \{
+    if (exe.execute() != 0) \{
+        throw new TaskException(\"JJTree failed.\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to launch JJTree: \" + e);
+\}" shape=ellipse]
+65 [label="execute#?#12:if (outputDirectory == null) \{
+    outputDirectory = new File(target.getParent());
+\}" shape=ellipse]
+66 [label="execute#?#35:arg.setValue(\"-mx140M\")" shape=ellipse]
+67 [label="execute#?#38:exe.setOutput(new LogOutputStream(this, Project.MSG_INFO))" shape=ellipse]
+68 [label="execute#?#40:toString" shape=ellipse]
+69 [label="execute#?#32:classpath.createPathElement().setPath(javaccHome.getAbsolutePath() + \"/JavaCC.zip\")" shape=ellipse]
+70 [label="execute#?#39:exe.setError(new LogOutputStream(this, Project.MSG_INFO))" shape=ellipse]
+71 [label="execute#?#40:UPDATE" shape=ellipse]
+72 [label="execute#?#40:log" shape=ellipse]
+73 [label="execute#?#40:log(<unknown>,<unknown>)" shape=ellipse]
+0 -> 6 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:4"];
+3 -> 7 [label="AST:1"];
+3 -> 27 [label="AST:1"];
+3 -> 47 [label="AST:1"];
+3 -> 56 [label="AST:1"];
+3 -> 60 [label="AST:1"];
+3 -> 71 [label="Action:1"];
+3 -> 72 [label="AST:1"];
+3 -> 73 [label="AST:1"];
+8 -> 28 [label="AST:1"];
+8 -> 14 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+13 -> 8 [label="AST:1"];
+15 -> 25 [label="AST:1"];
+15 -> 24 [label="AST:1"];
+15 -> 46 [label="AST:1"];
+27 -> 9 [label="AST:1"];
+27 -> 44 [label="AST:1"];
+30 -> 37 [label="Control Dep:1"];
+30 -> 36 [label="Control Dep:1"];
+33 -> 18 [label="AST:1"];
+33 -> 19 [label="AST:1"];
+34 -> 41 [label="AST:1"];
+34 -> 40 [label="AST:1"];
+34 -> 52 [label="AST:1"];
+35 -> 34 [label="AST:1"];
+36 -> 7 [label="Control Dep:1"];
+36 -> 8 [label="Control Dep:1"];
+36 -> 9 [label="Control Dep:1"];
+36 -> 10 [label="Control Dep:1"];
+36 -> 11 [label="Control Dep:1"];
+36 -> 12 [label="Control Dep:1"];
+36 -> 13 [label="Control Dep:1"];
+36 -> 14 [label="Control Dep:1"];
+36 -> 15 [label="Control Dep:1"];
+36 -> 16 [label="Control Dep:1"];
+36 -> 17 [label="Control Dep:1"];
+36 -> 18 [label="Control Dep:1"];
+36 -> 19 [label="Control Dep:1"];
+36 -> 20 [label="Control Dep:1"];
+36 -> 21 [label="Control Dep:1"];
+36 -> 22 [label="Control Dep:1"];
+36 -> 23 [label="Control Dep:1"];
+36 -> 24 [label="Control Dep:1"];
+36 -> 25 [label="Control Dep:1"];
+36 -> 26 [label="Control Dep:1"];
+36 -> 27 [label="Control Dep:1"];
+36 -> 28 [label="Control Dep:1"];
+36 -> 29 [label="Control Dep:1"];
+36 -> 31 [label="Control Dep:1"];
+36 -> 32 [label="Control Dep:1"];
+36 -> 33 [label="Control Dep:1"];
+36 -> 34 [label="Control Dep:1"];
+36 -> 35 [label="Control Dep:1"];
+36 -> 43 [label="AST:1"];
+36 -> 50 [label="Control Dep:1"];
+36 -> 3 [label="Control Dep:1"];
+36 -> 2 [label="Control Dep:1"];
+36 -> 1 [label="Control Dep:1"];
+36 -> 44 [label="Control Dep:1"];
+36 -> 47 [label="Control Dep:1"];
+36 -> 40 [label="Control Dep:1"];
+36 -> 41 [label="Control Dep:1"];
+36 -> 52 [label="Control Dep:1"];
+36 -> 53 [label="Control Dep:1"];
+36 -> 38 [label="Control Dep:1"];
+36 -> 48 [label="Control Dep:1"];
+36 -> 45 [label="Control Dep:1"];
+36 -> 46 [label="Control Dep:1"];
+36 -> 51 [label="Control Dep:1"];
+36 -> 42 [label="Control Dep:1"];
+36 -> 39 [label="Control Dep:1"];
+36 -> 49 [label="Control Dep:1"];
+37 -> 36 [label="AST:1"];
+37 -> 50 [label="AST:1"];
+37 -> 53 [label="AST:1"];
+38 -> 48 [label="AST:1"];
+39 -> 12 [label="AST:1"];
+39 -> 49 [label="AST:1"];
+41 -> 22 [label="AST:1"];
+44 -> 10 [label="AST:1"];
+44 -> 31 [label="AST:1"];
+45 -> 20 [label="AST:1"];
+45 -> 32 [label="AST:1"];
+45 -> 33 [label="AST:1"];
+46 -> 21 [label="AST:1"];
+46 -> 26 [label="AST:1"];
+48 -> 29 [label="AST:1"];
+50 -> 13 [label="AST:1"];
+50 -> 35 [label="AST:1"];
+50 -> 3 [label="AST:1"];
+51 -> 11 [label="AST:1"];
+51 -> 39 [label="AST:1"];
+51 -> 42 [label="AST:1"];
+52 -> 17 [label="AST:1"];
+52 -> 23 [label="AST:1"];
+53 -> 15 [label="AST:1"];
+53 -> 38 [label="AST:1"];
+53 -> 45 [label="AST:1"];
+53 -> 51 [label="AST:1"];
+56 -> 68 [label="AST:1"];
+56 -> 8 [label="AST:1"];
+56 -> 10 [label="AST:1"];
+58 -> 54 [label="AST:1"];
+58 -> 55 [label="AST:1"];
+58 -> 57 [label="AST:1"];
+58 -> 12 [label="AST:1"];
+58 -> 63 [label="AST:1"];
+58 -> 37 [label="AST:1"];
+58 -> 65 [label="AST:1"];
+58 -> 59 [label="AST:1"];
+58 -> 31 [label="AST:1"];
+58 -> 26 [label="AST:1"];
+58 -> 34 [label="AST:1"];
+58 -> 38 [label="AST:1"];
+58 -> 18 [label="AST:1"];
+58 -> 69 [label="AST:1"];
+58 -> 61 [label="AST:1"];
+58 -> 23 [label="AST:1"];
+58 -> 66 [label="AST:1"];
+58 -> 20 [label="AST:1"];
+58 -> 67 [label="AST:1"];
+58 -> 70 [label="AST:1"];
+58 -> 3 [label="AST:1"];
+58 -> 15 [label="AST:1"];
+58 -> 64 [label="AST:1"];
+60 -> 17 [label="AST:1"];
+62 -> 58 [label="AST:1"];
+71 -> 6 [label="Action:1"];
+73 -> 7 [label="AST:1"];
+73 -> 11 [label="AST:1"];
+}

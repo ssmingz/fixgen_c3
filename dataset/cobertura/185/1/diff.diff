@@ -1,0 +1,29 @@
+--- D:\expdata\c3\dataset\cobertura\185\1/before.java
++++ D:\expdata\c3\dataset\cobertura\185\1/after.java
+@@ -16,8 +16,11 @@
+-    FileLocker fileLocker = new FileLocker(dataFile);
+-    try {
+-      if (fileLocker.lock()) {
+-        ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+-        if (datafileProjectData == null) {
+-          datafileProjectData = projectDataToSave;
+-        } else {
+-          datafileProjectData.merge(projectDataToSave);
++    synchronized (dataFile.getPath().intern()) {
++      FileLocker fileLocker = new FileLocker(dataFile);
++      try {
++        if (fileLocker.lock()) {
++          ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
++          if (datafileProjectData == null) {
++            datafileProjectData = projectDataToSave;
++          } else {
++            datafileProjectData.merge(projectDataToSave);
++          }
++          CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+@@ -25,1 +28,2 @@
+-        CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
++      } finally {
++        fileLocker.release();
+@@ -27,2 +31,0 @@
+-    } finally {
+-      fileLocker.release();

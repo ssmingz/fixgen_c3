@@ -1,0 +1,250 @@
+digraph "processBundle#?,String,int,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@processBundle" shape=ellipse]
+2 [label="2:CtParameterImpl@final String bundleFile" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@final int i" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+6 [label="2:CtParameterImpl@final boolean checkLoaded" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@BuildException" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+11 [label="4:CtVariableReadImpl@bundleFile" shape=ellipse]
+12 [label="4:CtLiteralImpl@\".properties\"" shape=ellipse]
+13 [label="4:CtBinaryOperatorImpl@bundleFile + \".properties\"" shape=ellipse]
+14 [label="4:CtConstructorCallImpl@new File(bundleFile + \".properties\")" shape=ellipse]
+15 [label="4:CtVirtualElement@propsFile" shape=ellipse]
+16 [label="4:CtLocalVariableImpl@final File propsFile = new File(bundleFile + \".properties\")" shape=ellipse]
+17 [label="5:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+18 [label="5:CtLiteralImpl@null" shape=ellipse]
+19 [label="5:CtVirtualElement@ins" shape=ellipse]
+20 [label="5:CtLocalVariableImpl@FileInputStream ins = null" shape=ellipse]
+21 [label="7:CtVariableWriteImpl@ins" shape=ellipse]
+22 [label="7:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+23 [label="7:CtVariableReadImpl@propsFile" shape=ellipse]
+24 [label="7:CtConstructorCallImpl@new FileInputStream(propsFile)" shape=ellipse]
+25 [label="7:CtAssignmentImpl@ins = new FileInputStream(propsFile)" shape=ellipse]
+26 [label="8:CtFieldWriteImpl@loaded" shape=ellipse]
+27 [label="8:CtLiteralImpl@true" shape=ellipse]
+28 [label="8:CtAssignmentImpl@loaded = true" shape=ellipse]
+29 [label="9:CtFieldReadImpl@bundleLastModified" shape=ellipse]
+30 [label="9:CtVariableReadImpl@i" shape=ellipse]
+31 [label="9:CtArrayWriteImpl@bundleLastModified[i]" shape=ellipse]
+32 [label="9:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+33 [label="9:CtVirtualElement@lastModified" shape=ellipse]
+34 [label="9:CtVariableReadImpl@propsFile" shape=ellipse]
+35 [label="9:CtInvocationImpl@propsFile.lastModified()" shape=ellipse]
+36 [label="9:CtAssignmentImpl@bundleLastModified[i] = propsFile.lastModified()" shape=ellipse]
+37 [label="10:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+38 [label="10:CtVirtualElement@log" shape=ellipse]
+39 [label="10:CtLiteralImpl@\"Using \"" shape=ellipse]
+40 [label="10:CtVariableReadImpl@propsFile" shape=ellipse]
+41 [label="10:CtBinaryOperatorImpl@\"Using \" + propsFile" shape=ellipse]
+42 [label="10:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+43 [label="10:CtInvocationImpl@log(\"Using \" + propsFile, MSG_DEBUG)" shape=ellipse]
+44 [label="11:CtExecutableReferenceImpl@loadResourceMap(<unknown>)" shape=ellipse]
+45 [label="11:CtVirtualElement@loadResourceMap" shape=ellipse]
+46 [label="11:CtVariableReadImpl@ins" shape=ellipse]
+47 [label="11:CtInvocationImpl@loadResourceMap(ins)" shape=ellipse]
+48 [label="6:CtBlockImpl@\{
+    ins = new FileInputStream(propsFile);
+    loaded = true;
+    bundleLastModified[i] = propsFile.lastModified();
+    log(\"Using \" + propsFile, MSG_DEBUG);
+    loadResourceMap(ins);
+\}" shape=ellipse]
+49 [label="12:CtVirtualElement@ioe" shape=ellipse]
+50 [label="12:CtTypeReferenceImpl@IOException" shape=ellipse]
+51 [label="12:CtCatchVariableImpl@IOException ioe" shape=ellipse]
+52 [label="13:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+53 [label="13:CtVirtualElement@log" shape=ellipse]
+54 [label="13:CtVariableReadImpl@propsFile" shape=ellipse]
+55 [label="13:CtLiteralImpl@\" not found.\"" shape=ellipse]
+56 [label="13:CtBinaryOperatorImpl@propsFile + \" not found.\"" shape=ellipse]
+57 [label="13:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+58 [label="13:CtInvocationImpl@log(propsFile + \" not found.\", MSG_DEBUG)" shape=ellipse]
+59 [label="14:CtFieldReadImpl@loaded" shape=ellipse]
+60 [label="14:CtUnaryOperatorImpl@(!loaded)" shape=ellipse]
+61 [label="14:CtVariableReadImpl@checkLoaded" shape=ellipse]
+62 [label="14:CtBinaryOperatorImpl@(!loaded) && checkLoaded" shape=ellipse]
+63 [label="15:CtTypeReferenceImpl@BuildException" shape=ellipse]
+64 [label="15:CtExecutableReferenceImpl@getMessage()" shape=ellipse]
+65 [label="15:CtVirtualElement@getMessage" shape=ellipse]
+66 [label="15:CtVariableReadImpl@ioe" shape=ellipse]
+67 [label="15:CtInvocationImpl@ioe.getMessage()" shape=ellipse]
+68 [label="15:CtFieldReadImpl@location" shape=ellipse]
+69 [label="15:CtConstructorCallImpl@new BuildException(ioe.getMessage(), location)" shape=ellipse]
+70 [label="15:CtThrowImpl@throw new BuildException(ioe.getMessage(), location)" shape=ellipse]
+71 [label="14:CtBlockImpl@\{
+    throw new BuildException(ioe.getMessage(), location);
+\}" shape=ellipse]
+72 [label="14:CtIfImpl@if ((!loaded) && checkLoaded) \{
+    throw new BuildException(ioe.getMessage(), location);
+\}" shape=ellipse]
+73 [label="12:CtBlockImpl@\{
+    log(propsFile + \" not found.\", MSG_DEBUG);
+    if ((!loaded) && checkLoaded) \{
+        throw new BuildException(ioe.getMessage(), location);
+    \}
+\}" shape=ellipse]
+74 [label="12:CtCatchImpl@ catch (IOException ioe) \{
+    log(propsFile + \" not found.\", MSG_DEBUG);
+    if ((!loaded) && checkLoaded) \{
+        throw new BuildException(ioe.getMessage(), location);
+    \}
+\}" shape=ellipse]
+75 [label="6:CtTryImpl@try \{
+    ins = new FileInputStream(propsFile);
+    loaded = true;
+    bundleLastModified[i] = propsFile.lastModified();
+    log(\"Using \" + propsFile, MSG_DEBUG);
+    loadResourceMap(ins);
+\} catch (IOException ioe) \{
+    log(propsFile + \" not found.\", MSG_DEBUG);
+    if ((!loaded) && checkLoaded) \{
+        throw new BuildException(ioe.getMessage(), location);
+    \}
+\}" shape=ellipse]
+76 [label="3:CtBlockImpl@\{
+    final File propsFile = new File(bundleFile + \".properties\");
+    FileInputStream ins = null;
+    try \{
+        ins = new FileInputStream(propsFile);
+        loaded = true;
+        bundleLastModified[i] = propsFile.lastModified();
+        log(\"Using \" + propsFile, MSG_DEBUG);
+        loadResourceMap(ins);
+    \} catch (IOException ioe) \{
+        log(propsFile + \" not found.\", MSG_DEBUG);
+        if ((!loaded) && checkLoaded) \{
+            throw new BuildException(ioe.getMessage(), location);
+        \}
+    \}
+\}" shape=ellipse]
+77 [label="2:CtMethodImpl@private void processBundle(final String bundleFile, final int i, final boolean checkLoaded) throws BuildException \{
+    final File propsFile = new File(bundleFile + \".properties\");
+    FileInputStream ins = null;
+    try \{
+        ins = new FileInputStream(propsFile);
+        loaded = true;
+        bundleLastModified[i] = propsFile.lastModified();
+        log(\"Using \" + propsFile, MSG_DEBUG);
+        loadResourceMap(ins);
+    \} catch (IOException ioe) \{
+        log(propsFile + \" not found.\", MSG_DEBUG);
+        if ((!loaded) && checkLoaded) \{
+            throw new BuildException(ioe.getMessage(), location);
+        \}
+    \}
+\}" shape=ellipse]
+78 [label="15:Delete@DELETE" shape=ellipse]
+79 [label="15:Insert@INSERT" shape=ellipse]
+80 [label="15:CtInvocationImpl@getLocation()" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+11 -> 15 [label="Data Dep"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 23 [label="Define-Use"];
+15 -> 34 [label="Define-Use"];
+15 -> 40 [label="Define-Use"];
+15 -> 54 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 9 [label="AST"];
+16 -> 14 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+21 -> 46 [label="Define-Use"];
+23 -> 21 [label="Data Dep"];
+24 -> 23 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 59 [label="Define-Use"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+34 -> 31 [label="Data Dep"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 32 [label="AST"];
+36 -> 31 [label="AST"];
+36 -> 35 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+43 -> 38 [label="AST"];
+43 -> 37 [label="AST"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 44 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 25 [label="AST"];
+48 -> 28 [label="AST"];
+48 -> 36 [label="AST"];
+48 -> 43 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 66 [label="Define-Use"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 73 [label="Control Dep"];
+51 -> 58 [label="Control Dep"];
+51 -> 52 [label="Control Dep"];
+51 -> 56 [label="Control Dep"];
+51 -> 54 [label="Control Dep"];
+51 -> 55 [label="Control Dep"];
+51 -> 57 [label="Control Dep"];
+51 -> 72 [label="Control Dep"];
+51 -> 62 [label="Control Dep"];
+51 -> 60 [label="Control Dep"];
+51 -> 59 [label="Control Dep"];
+51 -> 61 [label="Control Dep"];
+56 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+58 -> 53 [label="AST"];
+58 -> 52 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+60 -> 59 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 71 [label="Control Dep"];
+62 -> 70 [label="Control Dep"];
+62 -> 69 [label="Control Dep"];
+62 -> 67 [label="Control Dep"];
+62 -> 64 [label="Control Dep"];
+62 -> 66 [label="Control Dep"];
+62 -> 68 [label="Control Dep"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+67 -> 64 [label="AST"];
+68 -> 78 [label="Action"];
+69 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+69 -> 79 [label="Action"];
+70 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 62 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 58 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 51 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 48 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 16 [label="AST"];
+76 -> 20 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 1 [label="AST"];
+77 -> 0 [label="AST"];
+77 -> 2 [label="AST"];
+77 -> 4 [label="AST"];
+77 -> 6 [label="AST"];
+77 -> 8 [label="AST"];
+77 -> 76 [label="AST"];
+79 -> 80 [label="Action"];
+}

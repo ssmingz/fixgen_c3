@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="test7#?#2:INSERT
+testAntTypeTest#?#2:INSERT" shape=ellipse]
+1 [label="test7#?#2:public void test7() \{
+    expectLog(\"test7\", \"worked\");
+\}
+testAntTypeTest#?#2:public void testAntTypeTest() \{
+    expectLog(\"antTypeTest\", \"\");
+\}" shape=ellipse]
+2 [label="test7#?#2:test7
+testAntTypeTest#?#2:testAntTypeTest" shape=ellipse]
+3 [label="test7#?#2:void
+testAntTypeTest#?#2:void" shape=ellipse]
+4 [label="test7#?#2:\{
+    expectLog(\"test7\", \"worked\");
+\}
+testAntTypeTest#?#2:\{
+    expectLog(\"antTypeTest\", \"\");
+\}" shape=ellipse]
+5 [label="test7#?#3:expectLog(\"test7\", \"worked\")
+testAntTypeTest#?#3:expectLog(\"antTypeTest\", \"\")" shape=ellipse]
+6 [label="test7#?#2:public
+testAntTypeTest#?#2:public" shape=ellipse]
+7 [label="test7#?#2:VE: Modifiers_Method
+testAntTypeTest#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="test7#?#4:INSERT
+testAntTypeTest#?#4:INSERT" shape=ellipse]
+9 [label="test7#?#4:buildRule.executeTarget(\"test7\")
+testAntTypeTest#?#4:buildRule.executeTarget(\"antTypeTest\")" shape=ellipse]
+10 [label="test7#?#2:@Test
+testAntTypeTest#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

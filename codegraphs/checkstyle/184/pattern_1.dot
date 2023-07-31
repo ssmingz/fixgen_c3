@@ -1,0 +1,65 @@
+digraph "Pattern" {
+0 [label="test_generics_2#?#4:DELETE
+testTagsWithSubclassesAllowed#?#4:DELETE" shape=ellipse]
+1 [label="test_generics_2#?#4:checkConfig
+testTagsWithSubclassesAllowed#?#4:checkConfig" shape=ellipse]
+2 [label="test_generics_2#?#3:checkConfig
+testTagsWithSubclassesAllowed#?#3:checkConfig" shape=ellipse]
+3 [label="test_generics_2#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)
+testTagsWithSubclassesAllowed#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)" shape=ellipse]
+4 [label="test_generics_2#?#3:
+testTagsWithSubclassesAllowed#?#3:" shape=ellipse]
+5 [label="test_generics_2#?#3:JavadocMethodCheck.class
+testTagsWithSubclassesAllowed#?#3:JavadocMethodCheck.class" shape=ellipse]
+6 [label="test_generics_2#?#14:checkConfig
+testTagsWithSubclassesAllowed#?#34:checkConfig" shape=ellipse]
+7 [label="test_generics_2#?#4:checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\")
+testTagsWithSubclassesAllowed#?#4:checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\")" shape=ellipse]
+8 [label="test_generics_2#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"15:34: Expected @throws tag for 'RE'.\", \"23:37: Expected @throws tag for 'RE'.\", \"31:13: Expected @param tag for '<NPE>'.\", \"38:12: Unused @throws tag for 'E'.\", \"41:38: Expected @throws tag for 'RuntimeException'.\", \"42:13: Expected @throws tag for 'java.lang.RuntimeException'.\" \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}
+testTagsWithSubclassesAllowed#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"14:5: Missing a Javadoc comment.\", \"18:9: Unused @param tag for 'unused'.\", \"24: Expected an @return tag.\", \"33: Expected an @return tag.\", \"40:16: Expected @throws tag for 'Exception'.\", \"49:16: Expected @throws tag for 'Exception'.\", \"55:16: Expected @throws tag for 'Exception'.\", \"55:27: Expected @throws tag for 'NullPointerException'.\", \"60:22: Expected @param tag for 'aOne'.\", \"68:22: Expected @param tag for 'aOne'.\", \"72:9: Unused @param tag for 'WrongParam'.\", \"73:23: Expected @param tag for 'aOne'.\", \"73:33: Expected @param tag for 'aTwo'.\", \"78:8: Unused @param tag for 'Unneeded'.\", \"79: Unused Javadoc tag.\", \"87:8: Duplicate @return tag.\", \"109:23: Expected @param tag for 'aOne'.\", \"109:55: Expected @param tag for 'aFour'.\", \"109:66: Expected @param tag for 'aFive'.\", \"178:8: Unused @throws tag for 'ThreadDeath'.\", \"179:8: Unused @throws tag for 'ArrayStoreException'.\", \"256:28: Expected @throws tag for 'IOException'.\", \"262:8: Unused @param tag for 'aParam'.\", \"320:9: Missing a Javadoc comment.\", \"329:5: Missing a Javadoc comment.\", \"333: Unused Javadoc tag.\" \};
+    verify(checkConfig, getPath(\"InputTags.java\"), expected);
+\}" shape=ellipse]
+9 [label="test_generics_2#?#4:addAttribute
+testTagsWithSubclassesAllowed#?#4:addAttribute" shape=ellipse]
+10 [label="test_generics_2#?#4:addAttribute(java.lang.String,java.lang.String)
+testTagsWithSubclassesAllowed#?#4:addAttribute(java.lang.String,java.lang.String)" shape=ellipse]
+11 [label="test_generics_2#?#4:\"allowThrowsTagsForSubclasses\"
+testTagsWithSubclassesAllowed#?#4:\"allowThrowsTagsForSubclasses\"" shape=ellipse]
+12 [label="test_generics_2#?#4:\"true\"
+testTagsWithSubclassesAllowed#?#4:\"true\"" shape=ellipse]
+13 [label="test_generics_2#?#3:INSERT
+testTagsWithSubclassesAllowed#?#3:INSERT" shape=ellipse]
+14 [label="test_generics_2#?#3:mCheckConfig
+testTagsWithSubclassesAllowed#?#3:mCheckConfig" shape=ellipse]
+15 [label="test_generics_2#?#3:PlaceHold
+testTagsWithSubclassesAllowed#?#3:PlaceHold" shape=ellipse]
+16 [label="test_generics_2#?#3:
+testTagsWithSubclassesAllowed#?#3:" shape=ellipse]
+17 [label="test_generics_2#?#4:checkConfig
+testTagsWithSubclassesAllowed#?#4:checkConfig" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="Define Use:2"];
+2 -> 6 [label="Define Use:2"];
+3 -> 2 [label="AST:2"];
+4 -> 2 [label="Data Dep:2"];
+5 -> 2 [label="Data Dep:2"];
+7 -> 1 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+7 -> 13 [label="Action:2"];
+8 -> 3 [label="AST:2"];
+8 -> 7 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+}

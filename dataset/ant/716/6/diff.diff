@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/716/6/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/716/6/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,2 @@
+-    executeTarget("testFilterReaderHeadLinesSkip");
+-    File expected =
+-        FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/head-tail.headLinesSkip.test");
++    buildRule.executeTarget("testFilterReaderHeadLinesSkip");
++    File expected = buildRule.getProject().resolveFile("expected/head-tail.headLinesSkip.test");
+@@ -7,2 +7,4 @@
+-        new File(getProject().getProperty("output") + "/head-tail.filterReaderHeadLinesSkip.test");
+-    assertTrue(
++        new File(
++            buildRule.getProject().getProperty("output")
++                + "/head-tail.filterReaderHeadLinesSkip.test");
++    assertEquals(
+@@ -10,1 +12,2 @@
+-        FILE_UTILS.contentEquals(expected, result));
++        FileUtilities.getFileContents(expected),
++        FileUtilities.getFileContents(result));

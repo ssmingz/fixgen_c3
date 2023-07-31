@@ -1,0 +1,16 @@
+digraph "Pattern" {
+0 [label="testReplaceTokens#?#5:DELETE
+testLineContains#?#4:DELETE" shape=ellipse]
+1 [label="testReplaceTokens#?#5:FILE_UTILS
+testLineContains#?#4:FILE_UTILS" shape=ellipse]
+2 [label="testReplaceTokens#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/replacetokens.test\")
+testLineContains#?#4:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/linecontains.test\")" shape=ellipse]
+3 [label="testReplaceTokens#?#5:MOVE
+testLineContains#?#4:MOVE" shape=ellipse]
+4 [label="testReplaceTokens#?#-1:FILE_UTILS
+testLineContains#?#-1:FILE_UTILS" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="Action:2"];
+}

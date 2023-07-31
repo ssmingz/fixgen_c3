@@ -1,0 +1,279 @@
+digraph "Pattern" {
+0 [label="loadProperties#?,File#9:INSERT
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:INSERT
+loadPackages#?,CommandLine#5:INSERT
+loadConfig#?,CommandLine,Properties#6:INSERT" shape=ellipse]
+1 [label="loadProperties#?,File#9:IOException ex
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:Exception e
+loadPackages#?,CommandLine#5:CheckstyleException e
+loadConfig#?,CommandLine,Properties#6:CheckstyleException e" shape=ellipse]
+2 [label="loadProperties#?,File#9: catch (IOException ex) \{
+    System.out.println(\"Unable to load properties from file: \" + aFile.getAbsolutePath());
+    ex.printStackTrace(System.out);
+    System.exit(1);
+\}
+createChecker#?,Configuration,ModuleFactory,AuditListener#10: catch (Exception e) \{
+    System.out.println(\"Unable to create Checker: \" + e.getMessage());
+    e.printStackTrace(System.out);
+    System.exit(1);
+\}
+loadPackages#?,CommandLine#5: catch (CheckstyleException e) \{
+    System.out.println(\"Error loading package names file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}
+loadConfig#?,CommandLine,Properties#6: catch (CheckstyleException e) \{
+    System.out.println(\"Error loading configuration file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}" shape=ellipse]
+3 [label="loadProperties#?,File#4:try \{
+    FileInputStream fis = null;
+    fis = new FileInputStream(aFile);
+    properties.load(fis);
+    fis.close();
+\} catch (IOException ex) \{
+    System.out.println(\"Unable to load properties from file: \" + aFile.getAbsolutePath());
+    ex.printStackTrace(System.out);
+    System.exit(1);
+\}
+createChecker#?,Configuration,ModuleFactory,AuditListener#5:try \{
+    c = new Checker();
+    c.setModuleFactory(aFactory);
+    c.configure(aConfig);
+    c.addListener(aNosy);
+\} catch (Exception e) \{
+    System.out.println(\"Unable to create Checker: \" + e.getMessage());
+    e.printStackTrace(System.out);
+    System.exit(1);
+\}
+loadPackages#?,CommandLine#3:try \{
+    return PackageNamesLoader.loadModuleFactory(aLine.getOptionValue(\"n\"));
+\} catch (CheckstyleException e) \{
+    System.out.println(\"Error loading package names file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}
+loadConfig#?,CommandLine,Properties#3:try \{
+    return ConfigurationLoader.loadConfiguration(aLine.getOptionValue(\"c\"), new PropertiesExpander(aProps));
+\} catch (CheckstyleException e) \{
+    System.out.println(\"Error loading configuration file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}" shape=ellipse]
+4 [label="loadProperties#?,File#9:\{
+    System.out.println(\"Unable to load properties from file: \" + aFile.getAbsolutePath());
+    ex.printStackTrace(System.out);
+    System.exit(1);
+\}
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:\{
+    System.out.println(\"Unable to create Checker: \" + e.getMessage());
+    e.printStackTrace(System.out);
+    System.exit(1);
+\}
+loadPackages#?,CommandLine#5:\{
+    System.out.println(\"Error loading package names file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}
+loadConfig#?,CommandLine,Properties#6:\{
+    System.out.println(\"Error loading configuration file\");
+    e.printStackTrace(System.out);
+    System.exit(1);
+    return null;
+\}" shape=ellipse]
+5 [label="loadProperties#?,File#9:ex
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:e
+loadPackages#?,CommandLine#5:e
+loadConfig#?,CommandLine,Properties#6:e" shape=ellipse]
+6 [label="loadProperties#?,File#11:ex
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:e
+loadPackages#?,CommandLine#7:e
+loadConfig#?,CommandLine,Properties#8:e" shape=ellipse]
+7 [label="loadProperties#?,File#9:IOException
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:Exception
+loadPackages#?,CommandLine#5:CheckstyleException
+loadConfig#?,CommandLine,Properties#6:CheckstyleException" shape=ellipse]
+8 [label="loadProperties#?,File#9:
+createChecker#?,Configuration,ModuleFactory,AuditListener#10:java.lang
+loadPackages#?,CommandLine#5:
+loadConfig#?,CommandLine,Properties#6:" shape=ellipse]
+9 [label="loadProperties#?,File#10:System.out.println(\"Unable to load properties from file: \" + aFile.getAbsolutePath())
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:System.out.println(\"Unable to create Checker: \" + e.getMessage())
+loadPackages#?,CommandLine#6:System.out.println(\"Error loading package names file\")
+loadConfig#?,CommandLine,Properties#7:System.out.println(\"Error loading configuration file\")" shape=ellipse]
+10 [label="loadProperties#?,File#10:println
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:println
+loadPackages#?,CommandLine#6:println
+loadConfig#?,CommandLine,Properties#7:println" shape=ellipse]
+11 [label="loadProperties#?,File#10:System.out
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:System.out
+loadPackages#?,CommandLine#6:System.out
+loadConfig#?,CommandLine,Properties#7:System.out" shape=ellipse]
+12 [label="loadProperties#?,File#10:println(char[])
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:println(java.lang.String)
+loadPackages#?,CommandLine#6:println(java.lang.String)
+loadConfig#?,CommandLine,Properties#7:println(java.lang.String)" shape=ellipse]
+13 [label="loadProperties#?,File#10:\"Unable to load properties from file: \" + aFile.getAbsolutePath()
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:\"Unable to create Checker: \" + e.getMessage()" shape=ellipse]
+14 [label="loadProperties#?,File#10:\"Unable to load properties from file: \"
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:\"Unable to create Checker: \"
+loadPackages#?,CommandLine#7:System.out
+loadConfig#?,CommandLine,Properties#8:System.out" shape=ellipse]
+15 [label="loadProperties#?,File#10:String
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:String" shape=ellipse]
+16 [label="loadProperties#?,File#10:aFile.getAbsolutePath()" shape=ellipse]
+17 [label="loadProperties#?,File#10:getAbsolutePath
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:getMessage
+loadPackages#?,CommandLine#8:exit
+loadConfig#?,CommandLine,Properties#9:exit" shape=ellipse]
+18 [label="loadProperties#?,File#10:aFile
+createChecker#?,Configuration,ModuleFactory,AuditListener#12:System.out" shape=ellipse]
+19 [label="loadProperties#?,File#10:getAbsolutePath()
+createChecker#?,Configuration,ModuleFactory,AuditListener#11:getMessage()
+loadPackages#?,CommandLine#7:printStackTrace(java.io.PrintStream)
+loadConfig#?,CommandLine,Properties#8:printStackTrace(java.io.PrintStream)" shape=ellipse]
+20 [label="loadProperties#?,File#11:ex.printStackTrace(System.out)" shape=ellipse]
+21 [label="loadProperties#?,File#11:printStackTrace
+createChecker#?,Configuration,ModuleFactory,AuditListener#12:printStackTrace
+loadPackages#?,CommandLine#7:printStackTrace
+loadConfig#?,CommandLine,Properties#8:printStackTrace" shape=ellipse]
+22 [label="loadProperties#?,File#11:printStackTrace(java.io.PrintStream)
+createChecker#?,Configuration,ModuleFactory,AuditListener#12:printStackTrace(java.io.PrintStream)
+loadPackages#?,CommandLine#8:exit(int)
+loadConfig#?,CommandLine,Properties#9:exit(int)" shape=ellipse]
+23 [label="loadProperties#?,File#11:System.out
+createChecker#?,Configuration,ModuleFactory,AuditListener#13:System
+loadPackages#?,CommandLine#8:System
+loadConfig#?,CommandLine,Properties#9:System" shape=ellipse]
+24 [label="loadProperties#?,File#12:System.exit(1)" shape=ellipse]
+25 [label="loadProperties#?,File#12:exit
+createChecker#?,Configuration,ModuleFactory,AuditListener#13:exit" shape=ellipse]
+26 [label="loadProperties#?,File#12:System" shape=ellipse]
+27 [label="loadProperties#?,File#12:exit(int)
+createChecker#?,Configuration,ModuleFactory,AuditListener#13:exit(int)" shape=ellipse]
+28 [label="loadProperties#?,File#12:1
+createChecker#?,Configuration,ModuleFactory,AuditListener#13:1
+loadPackages#?,CommandLine#8:1
+loadConfig#?,CommandLine,Properties#9:1" shape=ellipse]
+29 [label="createChecker#?,Configuration,ModuleFactory,AuditListener#12:e" shape=ellipse]
+30 [label="createChecker#?,Configuration,ModuleFactory,AuditListener#11:e.getMessage()" shape=ellipse]
+31 [label="createChecker#?,Configuration,ModuleFactory,AuditListener#12:e.printStackTrace(System.out)" shape=ellipse]
+32 [label="createChecker#?,Configuration,ModuleFactory,AuditListener#13:System.exit(1)" shape=ellipse]
+33 [label="loadPackages#?,CommandLine#6:\"Error loading package names file\"" shape=ellipse]
+34 [label="loadPackages#?,CommandLine#7:e.printStackTrace(System.out)" shape=ellipse]
+35 [label="loadPackages#?,CommandLine#8:System.exit(1)" shape=ellipse]
+36 [label="loadPackages#?,CommandLine#9:return null" shape=ellipse]
+37 [label="loadPackages#?,CommandLine#9:null" shape=ellipse]
+38 [label="loadConfig#?,CommandLine,Properties#7:\"Error loading configuration file\"" shape=ellipse]
+39 [label="loadConfig#?,CommandLine,Properties#8:e.printStackTrace(System.out)" shape=ellipse]
+40 [label="loadConfig#?,CommandLine,Properties#9:System.exit(1)" shape=ellipse]
+41 [label="loadConfig#?,CommandLine,Properties#10:return null" shape=ellipse]
+42 [label="loadConfig#?,CommandLine,Properties#10:null" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 5 [label="AST:4"];
+1 -> 7 [label="AST:4"];
+1 -> 4 [label="Control Dep:4"];
+1 -> 9 [label="Control Dep:4"];
+1 -> 12 [label="Control Dep:4"];
+1 -> 11 [label="Control Dep:4"];
+1 -> 13 [label="Control Dep:2"];
+1 -> 14 [label="Control Dep:4"];
+1 -> 16 [label="Control Dep:1"];
+1 -> 19 [label="Control Dep:4"];
+1 -> 18 [label="Control Dep:2"];
+1 -> 20 [label="Control Dep:1"];
+1 -> 22 [label="Control Dep:4"];
+1 -> 6 [label="Control Dep:4"];
+1 -> 23 [label="Control Dep:4"];
+1 -> 24 [label="Control Dep:1"];
+1 -> 27 [label="Control Dep:2"];
+1 -> 26 [label="Control Dep:1"];
+1 -> 28 [label="Control Dep:4"];
+1 -> 29 [label="Control Dep:1"];
+1 -> 30 [label="Control Dep:1"];
+1 -> 31 [label="Control Dep:1"];
+1 -> 32 [label="Control Dep:1"];
+1 -> 33 [label="Control Dep:1"];
+1 -> 34 [label="Control Dep:1"];
+1 -> 35 [label="Control Dep:1"];
+1 -> 36 [label="Control Dep:1"];
+1 -> 37 [label="Control Dep:1"];
+1 -> 38 [label="Control Dep:1"];
+1 -> 39 [label="Control Dep:1"];
+1 -> 40 [label="Control Dep:1"];
+1 -> 41 [label="Control Dep:1"];
+1 -> 42 [label="Control Dep:1"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+4 -> 9 [label="AST:4"];
+4 -> 20 [label="AST:1"];
+4 -> 24 [label="AST:1"];
+4 -> 31 [label="AST:1"];
+4 -> 32 [label="AST:1"];
+4 -> 34 [label="AST:1"];
+4 -> 35 [label="AST:1"];
+4 -> 36 [label="AST:1"];
+4 -> 39 [label="AST:1"];
+4 -> 40 [label="AST:1"];
+4 -> 41 [label="AST:1"];
+5 -> 6 [label="Define Use:4"];
+5 -> 29 [label="Define Use:1"];
+7 -> 8 [label="AST:4"];
+9 -> 10 [label="AST:4"];
+9 -> 11 [label="AST:4"];
+9 -> 12 [label="AST:4"];
+9 -> 13 [label="AST:2"];
+9 -> 33 [label="AST:1"];
+9 -> 38 [label="AST:1"];
+13 -> 14 [label="AST:2"];
+13 -> 16 [label="AST:1"];
+13 -> 30 [label="AST:1"];
+14 -> 15 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+16 -> 18 [label="AST:1"];
+16 -> 19 [label="AST:1"];
+20 -> 6 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+24 -> 27 [label="AST:1"];
+24 -> 28 [label="AST:1"];
+30 -> 17 [label="AST:1"];
+30 -> 6 [label="AST:1"];
+30 -> 19 [label="AST:1"];
+31 -> 29 [label="AST:1"];
+31 -> 21 [label="AST:1"];
+31 -> 22 [label="AST:1"];
+31 -> 18 [label="AST:1"];
+32 -> 25 [label="AST:1"];
+32 -> 23 [label="AST:1"];
+32 -> 27 [label="AST:1"];
+32 -> 28 [label="AST:1"];
+34 -> 21 [label="AST:1"];
+34 -> 6 [label="AST:1"];
+34 -> 19 [label="AST:1"];
+34 -> 14 [label="AST:1"];
+35 -> 17 [label="AST:1"];
+35 -> 23 [label="AST:1"];
+35 -> 22 [label="AST:1"];
+35 -> 28 [label="AST:1"];
+36 -> 37 [label="AST:1"];
+39 -> 21 [label="AST:1"];
+39 -> 6 [label="AST:1"];
+39 -> 19 [label="AST:1"];
+39 -> 14 [label="AST:1"];
+40 -> 17 [label="AST:1"];
+40 -> 23 [label="AST:1"];
+40 -> 22 [label="AST:1"];
+40 -> 28 [label="AST:1"];
+41 -> 42 [label="AST:1"];
+}

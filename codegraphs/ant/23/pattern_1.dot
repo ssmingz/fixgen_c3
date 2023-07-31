@@ -1,0 +1,36 @@
+digraph "Pattern" {
+0 [label="testNoop#?#2:INSERT
+testPass#?#2:INSERT" shape=ellipse]
+1 [label="testNoop#?#2:public void testNoop() \{
+    executeTarget(\"noop\");
+\}
+testPass#?#2:public void testPass() \{
+    executeTarget(\"pass\");
+\}" shape=ellipse]
+2 [label="testNoop#?#2:testNoop
+testPass#?#2:testPass" shape=ellipse]
+3 [label="testNoop#?#2:void
+testPass#?#2:void" shape=ellipse]
+4 [label="testNoop#?#2:\{
+    executeTarget(\"noop\");
+\}
+testPass#?#2:\{
+    executeTarget(\"pass\");
+\}" shape=ellipse]
+5 [label="testNoop#?#3:executeTarget(\"noop\")
+testPass#?#3:executeTarget(\"pass\")" shape=ellipse]
+6 [label="testNoop#?#2:VE: Modifiers_Method
+testPass#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testNoop#?#2:public
+testPass#?#2:public" shape=ellipse]
+8 [label="testNoop#?#2:@Test
+testPass#?#2:@Test" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+}

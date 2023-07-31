@@ -1,0 +1,56 @@
+digraph "processLine#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@processLine" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@toString()" shape=ellipse]
+4 [label="3:CtVirtualElement@toString" shape=ellipse]
+5 [label="3:CtFieldReadImpl@line" shape=ellipse]
+6 [label="3:CtInvocationImpl@line.toString()" shape=ellipse]
+7 [label="3:CtVirtualElement@s" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@String s = line.toString()" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@log(java.lang.String)" shape=ellipse]
+10 [label="4:CtVirtualElement@log" shape=ellipse]
+11 [label="4:CtFieldReadImpl@project" shape=ellipse]
+12 [label="4:CtVariableReadImpl@s" shape=ellipse]
+13 [label="4:CtFieldReadImpl@msgOutputLevel" shape=ellipse]
+14 [label="4:CtInvocationImpl@project.log(s, msgOutputLevel)" shape=ellipse]
+15 [label="5:CtFieldWriteImpl@line" shape=ellipse]
+16 [label="5:CtTypeReferenceImpl@StringBuffer" shape=ellipse]
+17 [label="5:CtConstructorCallImpl@new StringBuffer()" shape=ellipse]
+18 [label="5:CtAssignmentImpl@line = new StringBuffer()" shape=ellipse]
+19 [label="2:CtBlockImpl@\{
+    String s = line.toString();
+    project.log(s, msgOutputLevel);
+    line = new StringBuffer();
+\}" shape=ellipse]
+20 [label="2:CtMethodImpl@private void processLine() \{
+    String s = line.toString();
+    project.log(s, msgOutputLevel);
+    line = new StringBuffer();
+\}" shape=ellipse]
+21 [label="4:Update@UPDATE" shape=ellipse]
+22 [label="4:CtFieldReadImpl@task" shape=ellipse]
+5 -> 7 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+7 -> 12 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 6 [label="AST"];
+11 -> 21 [label="Action"];
+14 -> 10 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 8 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 1 [label="AST"];
+20 -> 0 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 22 [label="Action"];
+}

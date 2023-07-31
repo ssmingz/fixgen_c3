@@ -1,0 +1,204 @@
+digraph "Pattern" {
+0 [label="writeManifest#?,ZipOutputStream,Manifest#18:INSERT
+writeServices#?,ZipOutputStream#18:INSERT" shape=ellipse]
+1 [label="writeManifest#?,ZipOutputStream,Manifest#17:super.zipFile(bais, zOut, MANIFEST_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE)
+writeServices#?,ZipOutputStream#11:super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE)" shape=ellipse]
+2 [label="writeManifest#?,ZipOutputStream,Manifest#16:\{
+    super.zipFile(bais, zOut, MANIFEST_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\}
+writeServices#?,ZipOutputStream#9:\{
+    is = service.getAsStream();
+    super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\}" shape=ellipse]
+3 [label="writeManifest#?,ZipOutputStream,Manifest#16:try \{
+    super.zipFile(bais, zOut, MANIFEST_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\} finally \{
+    FileUtils.close(bais);
+\}
+writeServices#?,ZipOutputStream#9:try \{
+    is = service.getAsStream();
+    super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\} finally \{
+    FileUtils.close(is);
+\}" shape=ellipse]
+4 [label="writeManifest#?,ZipOutputStream,Manifest#17:zipFile
+writeServices#?,ZipOutputStream#11:zipFile" shape=ellipse]
+5 [label="writeManifest#?,ZipOutputStream,Manifest#17:super
+writeServices#?,ZipOutputStream#11:super" shape=ellipse]
+6 [label="writeManifest#?,ZipOutputStream,Manifest#-1:" shape=ellipse]
+7 [label="writeManifest#?,ZipOutputStream,Manifest#17:zipFile(ByteArrayInputStream,ZipOutputStream,long,<unknown>)
+writeServices#?,ZipOutputStream#11:zipFile(InputStream,ZipOutputStream,long,<unknown>)" shape=ellipse]
+8 [label="writeManifest#?,ZipOutputStream,Manifest#-1:Object" shape=ellipse]
+9 [label="writeManifest#?,ZipOutputStream,Manifest#-1:ByteArrayInputStream" shape=ellipse]
+10 [label="writeManifest#?,ZipOutputStream,Manifest#-1:ZipOutputStream" shape=ellipse]
+11 [label="writeManifest#?,ZipOutputStream,Manifest#-1:long" shape=ellipse]
+12 [label="writeManifest#?,ZipOutputStream,Manifest#-1:null" shape=ellipse]
+13 [label="writeManifest#?,ZipOutputStream,Manifest#17:bais
+writeServices#?,ZipOutputStream#12:is" shape=ellipse]
+14 [label="writeManifest#?,ZipOutputStream,Manifest#15:bais
+writeServices#?,ZipOutputStream#10:is" shape=ellipse]
+15 [label="writeManifest#?,ZipOutputStream,Manifest#-1:bais" shape=ellipse]
+16 [label="writeManifest#?,ZipOutputStream,Manifest#17:zOut
+writeServices#?,ZipOutputStream#13:zOut" shape=ellipse]
+17 [label="writeManifest#?,ZipOutputStream,Manifest#-1:zOut" shape=ellipse]
+18 [label="writeManifest#?,ZipOutputStream,Manifest#17:MANIFEST_NAME
+writeServices#?,ZipOutputStream#17:DEFAULT_FILE_MODE" shape=ellipse]
+19 [label="writeManifest#?,ZipOutputStream,Manifest#-1:MANIFEST_NAME" shape=ellipse]
+20 [label="writeManifest#?,ZipOutputStream,Manifest#17:System.currentTimeMillis()
+writeServices#?,ZipOutputStream#15:System.currentTimeMillis()" shape=ellipse]
+21 [label="writeManifest#?,ZipOutputStream,Manifest#17:currentTimeMillis" shape=ellipse]
+22 [label="writeManifest#?,ZipOutputStream,Manifest#17:System
+writeServices#?,ZipOutputStream#15:System" shape=ellipse]
+23 [label="writeManifest#?,ZipOutputStream,Manifest#17:currentTimeMillis()
+writeServices#?,ZipOutputStream#15:currentTimeMillis()" shape=ellipse]
+24 [label="writeManifest#?,ZipOutputStream,Manifest#17:null
+writeServices#?,ZipOutputStream#16:null" shape=ellipse]
+25 [label="writeManifest#?,ZipOutputStream,Manifest#-1:<nulltype>" shape=ellipse]
+26 [label="writeManifest#?,ZipOutputStream,Manifest#17:DEFAULT_FILE_MODE" shape=ellipse]
+27 [label="writeManifest#?,ZipOutputStream,Manifest#-1:DEFAULT_FILE_MODE
+writeServices#?,ZipOutputStream#14:getType()" shape=ellipse]
+28 [label="writeManifest#?,ZipOutputStream,Manifest#18:null
+writeServices#?,ZipOutputStream#18:null" shape=ellipse]
+29 [label="writeServices#?,ZipOutputStream#6:hasNext" shape=ellipse]
+30 [label="writeServices#?,ZipOutputStream#19:close(InputStream)" shape=ellipse]
+31 [label="writeServices#?,ZipOutputStream#14:service.getType()" shape=ellipse]
+32 [label="writeServices#?,ZipOutputStream#6:while (serviceIterator.hasNext()) \{
+    service = ((Service) (serviceIterator.next()));
+    InputStream is = null;
+    try \{
+        is = service.getAsStream();
+        super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(is);
+    \}
+\} " shape=ellipse]
+33 [label="writeServices#?,ZipOutputStream#10:service.getAsStream()" shape=ellipse]
+34 [label="writeServices#?,ZipOutputStream#14:service" shape=ellipse]
+35 [label="writeServices#?,ZipOutputStream#19:FileUtils.close(is)" shape=ellipse]
+36 [label="writeServices#?,ZipOutputStream#6:\{
+    service = ((Service) (serviceIterator.next()));
+    InputStream is = null;
+    try \{
+        is = service.getAsStream();
+        super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(is);
+    \}
+\}" shape=ellipse]
+37 [label="writeServices#?,ZipOutputStream#10:is = service.getAsStream()" shape=ellipse]
+38 [label="writeServices#?,ZipOutputStream#18:\{
+    FileUtils.close(is);
+\}" shape=ellipse]
+39 [label="writeServices#?,ZipOutputStream#6:serviceIterator" shape=ellipse]
+40 [label="writeServices#?,ZipOutputStream#7:service = ((Service) (serviceIterator.next()))" shape=ellipse]
+41 [label="writeServices#?,ZipOutputStream#7:service" shape=ellipse]
+42 [label="writeServices#?,ZipOutputStream#19:is" shape=ellipse]
+43 [label="writeServices#?,ZipOutputStream#10:getAsStream()" shape=ellipse]
+44 [label="writeServices#?,ZipOutputStream#8:null" shape=ellipse]
+45 [label="writeServices#?,ZipOutputStream#10:service" shape=ellipse]
+46 [label="writeServices#?,ZipOutputStream#6:serviceIterator.hasNext()" shape=ellipse]
+47 [label="writeServices#?,ZipOutputStream#7:serviceIterator" shape=ellipse]
+48 [label="writeServices#?,ZipOutputStream#8:InputStream is = null" shape=ellipse]
+49 [label="writeServices#?,ZipOutputStream#7:next()" shape=ellipse]
+50 [label="writeServices#?,ZipOutputStream#19:FileUtils" shape=ellipse]
+51 [label="writeServices#?,ZipOutputStream#7:((Service) (serviceIterator.next()))" shape=ellipse]
+52 [label="writeServices#?,ZipOutputStream#14:\"META-INF/services/\"" shape=ellipse]
+53 [label="writeServices#?,ZipOutputStream#6:hasNext()" shape=ellipse]
+54 [label="writeServices#?,ZipOutputStream#14:\"META-INF/services/\" + service.getType()" shape=ellipse]
+0 -> 28 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 20 [label="AST:2"];
+1 -> 24 [label="AST:2"];
+1 -> 26 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 37 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 38 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 10 [label="AST:1"];
+7 -> 11 [label="AST:1"];
+7 -> 12 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+14 -> 13 [label="Define Use:2"];
+14 -> 42 [label="Define Use:1"];
+16 -> 17 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+20 -> 22 [label="AST:2"];
+20 -> 23 [label="AST:2"];
+24 -> 25 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+31 -> 34 [label="AST:1"];
+31 -> 27 [label="AST:1"];
+32 -> 46 [label="AST:1"];
+32 -> 36 [label="AST:1"];
+33 -> 45 [label="AST:1"];
+33 -> 43 [label="AST:1"];
+35 -> 30 [label="AST:1"];
+35 -> 50 [label="AST:1"];
+35 -> 42 [label="AST:1"];
+36 -> 40 [label="AST:1"];
+36 -> 48 [label="AST:1"];
+36 -> 3 [label="AST:1"];
+37 -> 33 [label="AST:1"];
+37 -> 14 [label="AST:1"];
+38 -> 35 [label="AST:1"];
+40 -> 41 [label="AST:1"];
+40 -> 51 [label="AST:1"];
+41 -> 34 [label="Define Use:1"];
+41 -> 45 [label="Define Use:1"];
+45 -> 14 [label="Data Dep:1"];
+46 -> 29 [label="AST:1"];
+46 -> 30 [label="Control Dep:1"];
+46 -> 31 [label="Control Dep:1"];
+46 -> 33 [label="Control Dep:1"];
+46 -> 34 [label="Control Dep:1"];
+46 -> 35 [label="Control Dep:1"];
+46 -> 36 [label="Control Dep:1"];
+46 -> 37 [label="Control Dep:1"];
+46 -> 38 [label="Control Dep:1"];
+46 -> 39 [label="AST:1"];
+46 -> 40 [label="Control Dep:1"];
+46 -> 41 [label="Control Dep:1"];
+46 -> 42 [label="Control Dep:1"];
+46 -> 43 [label="Control Dep:1"];
+46 -> 44 [label="Control Dep:1"];
+46 -> 45 [label="Control Dep:1"];
+46 -> 53 [label="AST:1"];
+46 -> 51 [label="Control Dep:1"];
+46 -> 49 [label="Control Dep:1"];
+46 -> 47 [label="Control Dep:1"];
+46 -> 48 [label="Control Dep:1"];
+46 -> 3 [label="Control Dep:1"];
+46 -> 2 [label="Control Dep:1"];
+46 -> 14 [label="Control Dep:1"];
+46 -> 1 [label="Control Dep:1"];
+46 -> 7 [label="Control Dep:1"];
+46 -> 5 [label="Control Dep:1"];
+46 -> 13 [label="Control Dep:1"];
+46 -> 16 [label="Control Dep:1"];
+46 -> 54 [label="Control Dep:1"];
+46 -> 52 [label="Control Dep:1"];
+46 -> 27 [label="Control Dep:1"];
+46 -> 20 [label="Control Dep:1"];
+46 -> 23 [label="Control Dep:1"];
+46 -> 22 [label="Control Dep:1"];
+46 -> 24 [label="Control Dep:1"];
+46 -> 18 [label="Control Dep:1"];
+46 -> 50 [label="Control Dep:1"];
+47 -> 41 [label="Data Dep:1"];
+48 -> 44 [label="AST:1"];
+51 -> 47 [label="AST:1"];
+51 -> 49 [label="AST:1"];
+54 -> 31 [label="AST:1"];
+54 -> 52 [label="AST:1"];
+}

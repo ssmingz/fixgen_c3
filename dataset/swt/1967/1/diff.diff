@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1967/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1967/1/after.java
+@@ -13,1 +13,2 @@
+-    while (OS.PeekMessage(msg, handle, WM_CHAR, WM_CHAR, PM_REMOVE)) {
++    int flags = OS.PM_REMOVE | OS.PM_NOYIELD;
++    while (OS.PeekMessage(msg, handle, WM_CHAR, WM_CHAR, flags)) {

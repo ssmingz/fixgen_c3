@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/631/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/631/1/after.java
+@@ -3,1 +3,6 @@
+-    return _doc._getFirstNonWSCharPos(pos);
++    _doc.acquireReadLock();
++    try {
++      return _doc._getFirstNonWSCharPos(pos);
++    } finally {
++      _doc.releaseReadLock();
++    }

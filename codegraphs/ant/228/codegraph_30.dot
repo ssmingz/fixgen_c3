@@ -1,0 +1,74 @@
+digraph "addConfiguredFile#?,FileName" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addConfiguredFile" shape=ellipse]
+2 [label="2:CtParameterImpl@FileName name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileName" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@getName()" shape=ellipse]
+5 [label="3:CtVirtualElement@getName" shape=ellipse]
+6 [label="3:CtVariableReadImpl@name" shape=ellipse]
+7 [label="3:CtInvocationImpl@name.getName()" shape=ellipse]
+8 [label="3:CtLiteralImpl@null" shape=ellipse]
+9 [label="3:CtBinaryOperatorImpl@name.getName() == null" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+11 [label="4:CtLiteralImpl@\"No name specified in nested file element\"" shape=ellipse]
+12 [label="4:CtConstructorCallImpl@new BuildException(\"No name specified in nested file element\")" shape=ellipse]
+13 [label="4:CtThrowImpl@throw new BuildException(\"No name specified in nested file element\")" shape=ellipse]
+14 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"No name specified in nested file element\");
+\}" shape=ellipse]
+15 [label="3:CtIfImpl@if (name.getName() == null) \{
+    throw new BuildException(\"No name specified in nested file element\");
+\}" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@addElement()" shape=ellipse]
+17 [label="6:CtVirtualElement@addElement" shape=ellipse]
+18 [label="6:CtFieldReadImpl@filenames" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@getName()" shape=ellipse]
+20 [label="6:CtVirtualElement@getName" shape=ellipse]
+21 [label="6:CtVariableReadImpl@name" shape=ellipse]
+22 [label="6:CtInvocationImpl@name.getName()" shape=ellipse]
+23 [label="6:CtInvocationImpl@filenames.addElement(name.getName())" shape=ellipse]
+24 [label="2:CtBlockImpl@\{
+    if (name.getName() == null) \{
+        throw new BuildException(\"No name specified in nested file element\");
+    \}
+    filenames.addElement(name.getName());
+\}" shape=ellipse]
+25 [label="2:CtMethodImpl@public void addConfiguredFile(FileName name) \{
+    if (name.getName() == null) \{
+        throw new BuildException(\"No name specified in nested file element\");
+    \}
+    filenames.addElement(name.getName());
+\}" shape=ellipse]
+26 [label="6:Update@UPDATE" shape=ellipse]
+27 [label="6:CtInvocationImpl@filenames.add(name.getName())" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 14 [label="Control Dep"];
+9 -> 13 [label="Control Dep"];
+9 -> 12 [label="Control Dep"];
+9 -> 11 [label="Control Dep"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+23 -> 17 [label="AST"];
+23 -> 18 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 26 [label="Action"];
+24 -> 15 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 1 [label="AST"];
+25 -> 0 [label="AST"];
+25 -> 2 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 27 [label="Action"];
+}

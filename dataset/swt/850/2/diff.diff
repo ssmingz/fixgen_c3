@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/850/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/850/2/after.java
+@@ -8,2 +8,4 @@
+-      int mask =
+-          (((OS.MK_LBUTTON | OS.MK_MBUTTON) | OS.MK_RBUTTON) | OS.MK_XBUTTON1) | OS.MK_XBUTTON2;
++      int mask = (OS.MK_LBUTTON | OS.MK_MBUTTON) | OS.MK_RBUTTON;
++      if (OS.GetSystemMetrics(SM_CMOUSEBUTTONS) > 3) {
++        mask |= OS.MK_XBUTTON1 | OS.MK_XBUTTON2;
++      }

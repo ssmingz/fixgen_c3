@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1/1/after.java
+@@ -2,0 +2,1 @@
++@Test
+@@ -3,4 +4,4 @@
+-    executeTarget("testTailSkip");
+-    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/head-tail.tailSkip.test");
+-    File result = new File(getProject().getProperty("output") + "/head-tail.tailSkip.test");
+-    assertTrue("testTailSkip: Result not like expected", FILE_UTILS.contentEquals(expected, result));
++    buildRule.executeTarget("testTailSkip");
++    File expected = buildRule.getProject().resolveFile("expected/head-tail.tailSkip.test");
++    File result = new File(buildRule.getProject().getProperty("output") + "/head-tail.tailSkip.test");
++    assertEquals("testTailSkip: Result not like expected", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result));

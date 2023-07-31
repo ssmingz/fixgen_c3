@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2552/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2552/3/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,5 +4,4 @@
+-    executeTarget("testStripJavaComments");
+-    File expected =
+-        FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/stripjavacomments.test");
+-    File result = new File(getProject().getProperty("output"), "stripjavacomments.test");
+-    assertTrue(FILE_UTILS.contentEquals(expected, result));
++    buildRule.executeTarget("testStripJavaComments");
++    File expected = buildRule.getProject().resolveFile("expected/stripjavacomments.test");
++    File result = new File(buildRule.getProject().getProperty("output"), "stripjavacomments.test");
++    assertEquals(FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result));

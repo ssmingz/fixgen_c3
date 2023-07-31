@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#4:DELETE
+visitToken#?,DetailAST#13:DELETE
+visitToken#?,DetailAST#4:DELETE" shape=ellipse]
+1 [label="visitToken#?,DetailAST#4:\"empty.statement\"
+visitToken#?,DetailAST#13:\"assignment.inner.avoid\"
+visitToken#?,DetailAST#4:\"inline.conditional.avoid\"" shape=ellipse]
+2 [label="visitToken#?,DetailAST#4:log(ast.getLineNo(), ast.getColumnNo(), \"empty.statement\")
+visitToken#?,DetailAST#13:log(ast.getLineNo(), ast.getColumnNo(), \"assignment.inner.avoid\")
+visitToken#?,DetailAST#4:log(ast.getLineNo(), ast.getColumnNo(), \"inline.conditional.avoid\")" shape=ellipse]
+3 [label="visitToken#?,DetailAST#3:\{
+    log(ast.getLineNo(), ast.getColumnNo(), \"empty.statement\");
+\}
+visitToken#?,DetailAST#3:\{
+    if (isInContext(ast, ALLOWED_ASSIGMENT_CONTEXT)) \{
+        return;
+    \}
+    if (isInNoBraceControlStatement(ast)) \{
+        return;
+    \}
+    if (isInWhileIdiom(ast)) \{
+        return;
+    \}
+    log(ast.getLineNo(), ast.getColumnNo(), \"assignment.inner.avoid\");
+\}
+visitToken#?,DetailAST#3:\{
+    log(ast.getLineNo(), ast.getColumnNo(), \"inline.conditional.avoid\");
+\}" shape=ellipse]
+4 [label="visitToken#?,DetailAST#4:log
+visitToken#?,DetailAST#13:log
+visitToken#?,DetailAST#4:log" shape=ellipse]
+5 [label="visitToken#?,DetailAST#4:
+visitToken#?,DetailAST#13:
+visitToken#?,DetailAST#4:" shape=ellipse]
+6 [label="visitToken#?,DetailAST#4:log(<unknown>,<unknown>,java.lang.String)
+visitToken#?,DetailAST#13:log(<unknown>,<unknown>,java.lang.String)
+visitToken#?,DetailAST#4:log(<unknown>,<unknown>,java.lang.String)" shape=ellipse]
+7 [label="visitToken#?,DetailAST#4:ast.getLineNo()
+visitToken#?,DetailAST#13:ast.getLineNo()
+visitToken#?,DetailAST#4:ast.getLineNo()" shape=ellipse]
+8 [label="visitToken#?,DetailAST#4:ast.getColumnNo()
+visitToken#?,DetailAST#13:ast.getColumnNo()
+visitToken#?,DetailAST#4:ast.getColumnNo()" shape=ellipse]
+9 [label="visitToken#?,DetailAST#4:INSERT
+visitToken#?,DetailAST#13:INSERT
+visitToken#?,DetailAST#4:INSERT" shape=ellipse]
+10 [label="visitToken#?,DetailAST#4:MSG_KEY
+visitToken#?,DetailAST#13:MSG_KEY
+visitToken#?,DetailAST#4:MSG_KEY" shape=ellipse]
+11 [label="visitToken#?,DetailAST#4:MSG_KEY
+visitToken#?,DetailAST#13:MSG_KEY
+visitToken#?,DetailAST#4:MSG_KEY" shape=ellipse]
+12 [label="visitToken#?,DetailAST#4:
+visitToken#?,DetailAST#13:
+visitToken#?,DetailAST#4:" shape=ellipse]
+13 [label="visitToken#?,DetailAST#4:String
+visitToken#?,DetailAST#13:String
+visitToken#?,DetailAST#4:String" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 13 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="AST:3"];
+2 -> 9 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+9 -> 10 [label="Action:3"];
+10 -> 11 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+}

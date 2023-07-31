@@ -1,0 +1,74 @@
+digraph "Pattern" {
+0 [label="TarBuffer#?,InputStream,int,int#5:DELETE
+TarBuffer#?,OutputStream,int,int#5:DELETE" shape=ellipse]
+1 [label="TarBuffer#?,InputStream,int,int#5:this.initialize(blockSize, recordSize)
+TarBuffer#?,OutputStream,int,int#5:this.initialize(blockSize, recordSize)" shape=ellipse]
+2 [label="TarBuffer#?,InputStream,int,int#2:\{
+    this.inStream = inStream;
+    this.outStream = null;
+    this.initialize(blockSize, recordSize);
+\}
+TarBuffer#?,OutputStream,int,int#2:\{
+    this.inStream = null;
+    this.outStream = outStream;
+    this.initialize(blockSize, recordSize);
+\}" shape=ellipse]
+3 [label="TarBuffer#?,InputStream,int,int#2:public  TarBuffer(InputStream inStream, int blockSize, int recordSize) \{
+    this.inStream = inStream;
+    this.outStream = null;
+    this.initialize(blockSize, recordSize);
+\}
+TarBuffer#?,OutputStream,int,int#2:public  TarBuffer(OutputStream outStream, int blockSize, int recordSize) \{
+    this.inStream = null;
+    this.outStream = outStream;
+    this.initialize(blockSize, recordSize);
+\}" shape=ellipse]
+4 [label="TarBuffer#?,InputStream,int,int#3:this.inStream = inStream
+TarBuffer#?,OutputStream,int,int#3:this.inStream = null" shape=ellipse]
+5 [label="TarBuffer#?,InputStream,int,int#4:this.outStream = null
+TarBuffer#?,OutputStream,int,int#4:this.outStream = outStream" shape=ellipse]
+6 [label="TarBuffer#?,InputStream,int,int#5:initialize
+TarBuffer#?,OutputStream,int,int#5:initialize" shape=ellipse]
+7 [label="TarBuffer#?,InputStream,int,int#5:this
+TarBuffer#?,OutputStream,int,int#5:this" shape=ellipse]
+8 [label="TarBuffer#?,InputStream,int,int#-1:PlaceHold
+TarBuffer#?,OutputStream,int,int#-1:PlaceHold" shape=ellipse]
+9 [label="TarBuffer#?,InputStream,int,int#-1:PlaceHold
+TarBuffer#?,OutputStream,int,int#-1:PlaceHold" shape=ellipse]
+10 [label="TarBuffer#?,InputStream,int,int#5:initialize(int,int)
+TarBuffer#?,OutputStream,int,int#5:initialize(int,int)" shape=ellipse]
+11 [label="TarBuffer#?,InputStream,int,int#-1:int
+TarBuffer#?,OutputStream,int,int#-1:int" shape=ellipse]
+12 [label="TarBuffer#?,InputStream,int,int#-1:int
+TarBuffer#?,OutputStream,int,int#-1:int" shape=ellipse]
+13 [label="TarBuffer#?,InputStream,int,int#5:blockSize
+TarBuffer#?,OutputStream,int,int#5:blockSize" shape=ellipse]
+14 [label="TarBuffer#?,InputStream,int,int#-1:blockSize
+TarBuffer#?,OutputStream,int,int#-1:blockSize" shape=ellipse]
+15 [label="TarBuffer#?,InputStream,int,int#5:MOVE
+TarBuffer#?,OutputStream,int,int#5:MOVE" shape=ellipse]
+16 [label="TarBuffer#?,InputStream,int,int#5:recordSize
+TarBuffer#?,OutputStream,int,int#5:recordSize" shape=ellipse]
+17 [label="TarBuffer#?,InputStream,int,int#-1:recordSize
+TarBuffer#?,OutputStream,int,int#-1:recordSize" shape=ellipse]
+18 [label="TarBuffer#?,InputStream,int,int#5:MOVE
+TarBuffer#?,OutputStream,int,int#5:MOVE" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="Action:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="Action:2"];
+}

@@ -1,0 +1,16 @@
+--- D:\expdata\c3\dataset\cobertura\18\0/before.java
++++ D:\expdata\c3\dataset\cobertura\18\0/after.java
+@@ -3,4 +3,9 @@
+-    LineData lineData = getLineData(lineNumber);
+-    if (lineData != null) {
+-      lineData.addSwitch(switchNumber, min, max);
+-      this.branches.put(new Integer(lineNumber), lineData);
++    lock.lock();
++    try {
++      LineData lineData = getLineData(lineNumber);
++      if (lineData != null) {
++        lineData.addSwitch(switchNumber, min, max);
++        this.branches.put(Integer.valueOf(lineNumber), lineData);
++      }
++    } finally {
++      lock.unlock();

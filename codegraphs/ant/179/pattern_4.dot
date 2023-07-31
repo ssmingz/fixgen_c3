@@ -1,0 +1,69 @@
+digraph "Pattern" {
+0 [label="testGZip#?#5:INSERT
+testFileResourceWithFilter#?#5:INSERT" shape=ellipse]
+1 [label="testGZip#?#4:getLog()
+testFileResourceWithFilter#?#4:getProject()" shape=ellipse]
+2 [label="testGZip#?#4:String log = getLog()" shape=ellipse]
+3 [label="testGZip#?#2:\{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}" shape=ellipse]
+4 [label="testGZip#?#4:log
+testFileResourceWithFilter#?#4:getProperty" shape=ellipse]
+5 [label="testGZip#?#4:String
+testFileResourceWithFilter#?#4:getProperty(java.lang.String)" shape=ellipse]
+6 [label="testGZip#?#4:getLog
+testFileResourceWithFilter#?#4:getProject" shape=ellipse]
+7 [label="testGZip#?#-1:" shape=ellipse]
+8 [label="testGZip#?#-1:PlaceHold
+testFileResourceWithFilter#?#-1:PlaceHold" shape=ellipse]
+9 [label="testGZip#?#-1:PlaceHold
+testFileResourceWithFilter#?#-1:PlaceHold" shape=ellipse]
+10 [label="testGZip#?#4:getLog()
+testFileResourceWithFilter#?#4:getProject()" shape=ellipse]
+11 [label="testGZip#?#-1:String" shape=ellipse]
+12 [label="testGZip#?#5:buildRule
+testFileResourceWithFilter#?#5:buildRule" shape=ellipse]
+13 [label="testGZip#?#5:log
+testFileResourceWithFilter#?#5:file1" shape=ellipse]
+14 [label="testGZip#?#7:log
+testFileResourceWithFilter#?#6:file1" shape=ellipse]
+15 [label="testGZip#?#8:log
+testFileResourceWithFilter#?#8:file1" shape=ellipse]
+16 [label="testGZip#?#10:log" shape=ellipse]
+17 [label="testGZip#?#11:log" shape=ellipse]
+18 [label="testFileResourceWithFilter#?#4:file1" shape=ellipse]
+19 [label="testFileResourceWithFilter#?#-1:" shape=ellipse]
+20 [label="testFileResourceWithFilter#?#4:\"to.dir\"" shape=ellipse]
+21 [label="testFileResourceWithFilter#?#4:getProject().getProperty(\"to.dir\")" shape=ellipse]
+22 [label="testFileResourceWithFilter#?#4:getProject().getProperty(\"to.dir\") + \"/fileNR.txt\"" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:1"];
+1 -> 10 [label="AST:2"];
+1 -> 19 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+7 -> 4 [label="Data Dep:1"];
+7 -> 8 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 13 [label="Data Dep:2"];
+13 -> 14 [label="Define Use:2"];
+13 -> 15 [label="Define Use:2"];
+13 -> 16 [label="Define Use:1"];
+13 -> 17 [label="Define Use:1"];
+19 -> 18 [label="Data Dep:1"];
+19 -> 8 [label="AST:1"];
+19 -> 9 [label="AST:1"];
+21 -> 20 [label="AST:1"];
+21 -> 4 [label="AST:1"];
+21 -> 1 [label="AST:1"];
+21 -> 5 [label="AST:1"];
+22 -> 21 [label="AST:1"];
+}

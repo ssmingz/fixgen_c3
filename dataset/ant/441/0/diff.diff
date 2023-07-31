@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/441/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/441/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,3 @@
+-    getProject().setProperty("enableEvents", "true");
+-    executeTarget(PASS_TEST_TARGET);
+-    assertTrue(
++    buildRule.getProject().setProperty("enableEvents", "true");
++    buildRule.executeTarget(PASS_TEST_TARGET);
++    assertContains(
+@@ -7,1 +8,2 @@
+-        hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + "endTest(") + PASS_TEST) + ")"));
++        ((JUnitTask.TESTLISTENER_PREFIX + "endTest(") + PASS_TEST) + ")",
++        buildRule.getFullLog());

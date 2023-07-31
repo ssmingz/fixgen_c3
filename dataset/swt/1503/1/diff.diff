@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1503/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1503/1/after.java
+@@ -36,1 +36,5 @@
+-          OS.gdk_window_set_back_pixmap(redrawWindow, 0, false);
++          if (OS.GTK3) {
++            OS.gdk_window_set_background_pattern(redrawWindow, 0);
++          } else {
++            OS.gdk_window_set_back_pixmap(redrawWindow, 0, false);
++          }

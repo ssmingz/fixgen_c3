@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2462/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2462/0/after.java
+@@ -14,2 +14,5 @@
+-      failureCause = e;
+-      throw e;
++      ExecutionException ee =
++          new ExecutionException(
++              (e.getClass().getName() + ": ") + e.getMessage(), e, target.getLocation());
++      failureCause = ee;
++      throw ee;

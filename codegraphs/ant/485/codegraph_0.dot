@@ -1,0 +1,226 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="3:CtFieldReadImpl@dir" shape=ellipse]
+5 [label="3:CtVirtualElement@savedDir" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@File savedDir = dir" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+8 [label="4:CtLiteralImpl@1" shape=ellipse]
+9 [label="4:CtUnaryOperatorImpl@-1" shape=ellipse]
+10 [label="4:CtVirtualElement@err" shape=ellipse]
+11 [label="4:CtLocalVariableImpl@int err = -1" shape=ellipse]
+12 [label="6:CtVariableWriteImpl@err" shape=ellipse]
+13 [label="6:CtExecutableReferenceImpl@executeJava()" shape=ellipse]
+14 [label="6:CtVirtualElement@executeJava" shape=ellipse]
+15 [label="6:CtInvocationImpl@executeJava()" shape=ellipse]
+16 [label="6:CtAssignmentImpl@err = executeJava()" shape=ellipse]
+17 [label="7:CtFieldReadImpl@fork" shape=ellipse]
+18 [label="7:CtExecutableReferenceImpl@isFailure(int)" shape=ellipse]
+19 [label="7:CtVirtualElement@isFailure" shape=ellipse]
+20 [label="7:CtTypeAccessImpl@Execute" shape=ellipse]
+21 [label="7:CtVariableReadImpl@err" shape=ellipse]
+22 [label="7:CtInvocationImpl@Execute.isFailure(err)" shape=ellipse]
+23 [label="7:CtBinaryOperatorImpl@fork && Execute.isFailure(err)" shape=ellipse]
+24 [label="8:CtFieldReadImpl@failOnError" shape=ellipse]
+25 [label="9:CtTypeReferenceImpl@BuildException" shape=ellipse]
+26 [label="9:CtLiteralImpl@\"Java returned: \"" shape=ellipse]
+27 [label="9:CtVariableReadImpl@err" shape=ellipse]
+28 [label="9:CtBinaryOperatorImpl@\"Java returned: \" + err" shape=ellipse]
+29 [label="9:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+30 [label="9:CtVirtualElement@getLocation" shape=ellipse]
+31 [label="9:CtInvocationImpl@getLocation()" shape=ellipse]
+32 [label="9:CtConstructorCallImpl@new BuildException(\"Java returned: \" + err, getLocation())" shape=ellipse]
+33 [label="9:CtThrowImpl@throw new BuildException(\"Java returned: \" + err, getLocation())" shape=ellipse]
+34 [label="8:CtBlockImpl@\{
+    throw new BuildException(\"Java returned: \" + err, getLocation());
+\}" shape=ellipse]
+35 [label="11:CtExecutableReferenceImpl@log(java.lang.String,<unknown>)" shape=ellipse]
+36 [label="11:CtVirtualElement@log" shape=ellipse]
+37 [label="11:CtLiteralImpl@\"Java Result: \"" shape=ellipse]
+38 [label="11:CtVariableReadImpl@err" shape=ellipse]
+39 [label="11:CtBinaryOperatorImpl@\"Java Result: \" + err" shape=ellipse]
+40 [label="11:CtTypeAccessImpl@MSG_ERR" shape=ellipse]
+41 [label="11:CtInvocationImpl@log(\"Java Result: \" + err, MSG_ERR)" shape=ellipse]
+42 [label="10:CtBlockImpl@\{
+    log(\"Java Result: \" + err, MSG_ERR);
+\}" shape=ellipse]
+43 [label="8:CtIfImpl@if (failOnError) \{
+    throw new BuildException(\"Java returned: \" + err, getLocation());
+\} else \{
+    log(\"Java Result: \" + err, MSG_ERR);
+\}" shape=ellipse]
+44 [label="7:CtBlockImpl@\{
+    if (failOnError) \{
+        throw new BuildException(\"Java returned: \" + err, getLocation());
+    \} else \{
+        log(\"Java Result: \" + err, MSG_ERR);
+    \}
+\}" shape=ellipse]
+45 [label="7:CtIfImpl@if (fork && Execute.isFailure(err)) \{
+    if (failOnError) \{
+        throw new BuildException(\"Java returned: \" + err, getLocation());
+    \} else \{
+        log(\"Java Result: \" + err, MSG_ERR);
+    \}
+\}" shape=ellipse]
+46 [label="14:CtExecutableReferenceImpl@maybeSetResultPropertyValue(int)" shape=ellipse]
+47 [label="14:CtVirtualElement@maybeSetResultPropertyValue" shape=ellipse]
+48 [label="14:CtVariableReadImpl@err" shape=ellipse]
+49 [label="14:CtInvocationImpl@maybeSetResultPropertyValue(err)" shape=ellipse]
+50 [label="5:CtBlockImpl@\{
+    err = executeJava();
+    if (fork && Execute.isFailure(err)) \{
+        if (failOnError) \{
+            throw new BuildException(\"Java returned: \" + err, getLocation());
+        \} else \{
+            log(\"Java Result: \" + err, MSG_ERR);
+        \}
+    \}
+    maybeSetResultPropertyValue(err);
+\}" shape=ellipse]
+51 [label="16:CtFieldWriteImpl@dir" shape=ellipse]
+52 [label="16:CtVariableReadImpl@savedDir" shape=ellipse]
+53 [label="16:CtAssignmentImpl@dir = savedDir" shape=ellipse]
+54 [label="15:CtBlockImpl@\{
+    dir = savedDir;
+\}" shape=ellipse]
+55 [label="5:CtTryImpl@try \{
+    err = executeJava();
+    if (fork && Execute.isFailure(err)) \{
+        if (failOnError) \{
+            throw new BuildException(\"Java returned: \" + err, getLocation());
+        \} else \{
+            log(\"Java Result: \" + err, MSG_ERR);
+        \}
+    \}
+    maybeSetResultPropertyValue(err);
+\} finally \{
+    dir = savedDir;
+\}" shape=ellipse]
+56 [label="2:CtBlockImpl@\{
+    File savedDir = dir;
+    int err = -1;
+    try \{
+        err = executeJava();
+        if (fork && Execute.isFailure(err)) \{
+            if (failOnError) \{
+                throw new BuildException(\"Java returned: \" + err, getLocation());
+            \} else \{
+                log(\"Java Result: \" + err, MSG_ERR);
+            \}
+        \}
+        maybeSetResultPropertyValue(err);
+    \} finally \{
+        dir = savedDir;
+    \}
+\}" shape=ellipse]
+57 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    File savedDir = dir;
+    int err = -1;
+    try \{
+        err = executeJava();
+        if (fork && Execute.isFailure(err)) \{
+            if (failOnError) \{
+                throw new BuildException(\"Java returned: \" + err, getLocation());
+            \} else \{
+                log(\"Java Result: \" + err, MSG_ERR);
+            \}
+        \}
+        maybeSetResultPropertyValue(err);
+    \} finally \{
+        dir = savedDir;
+    \}
+\}" shape=ellipse]
+58 [label="7:Delete@DELETE" shape=ellipse]
+59 [label="7:Insert@INSERT" shape=ellipse]
+60 [label="7:CtBinaryOperatorImpl@(err != 0)" shape=ellipse]
+61 [label="7:Move@MOVE" shape=ellipse]
+4 -> 5 [label="Data Dep"];
+5 -> 52 [label="Define-Use"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 9 [label="AST"];
+12 -> 21 [label="Define-Use"];
+12 -> 27 [label="Define-Use"];
+12 -> 38 [label="Define-Use"];
+12 -> 48 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 13 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+21 -> 61 [label="Action"];
+22 -> 19 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 18 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 58 [label="Action"];
+23 -> 17 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 44 [label="Control Dep"];
+23 -> 43 [label="Control Dep"];
+23 -> 24 [label="Control Dep"];
+23 -> 59 [label="Action"];
+24 -> 34 [label="Control Dep"];
+24 -> 33 [label="Control Dep"];
+24 -> 32 [label="Control Dep"];
+24 -> 28 [label="Control Dep"];
+24 -> 26 [label="Control Dep"];
+24 -> 27 [label="Control Dep"];
+24 -> 31 [label="Control Dep"];
+24 -> 29 [label="Control Dep"];
+24 -> 42 [label="Control Dep"];
+24 -> 41 [label="Control Dep"];
+24 -> 35 [label="Control Dep"];
+24 -> 39 [label="Control Dep"];
+24 -> 37 [label="Control Dep"];
+24 -> 38 [label="Control Dep"];
+24 -> 40 [label="Control Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 29 [label="AST"];
+32 -> 28 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 36 [label="AST"];
+41 -> 35 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 24 [label="AST"];
+43 -> 34 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 23 [label="AST"];
+45 -> 44 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 46 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 16 [label="AST"];
+50 -> 45 [label="AST"];
+50 -> 49 [label="AST"];
+52 -> 51 [label="Data Dep"];
+53 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 50 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 6 [label="AST"];
+56 -> 11 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 1 [label="AST"];
+57 -> 0 [label="AST"];
+57 -> 2 [label="AST"];
+57 -> 56 [label="AST"];
+59 -> 60 [label="Action"];
+61 -> 60 [label="Action"];
+}

@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1769/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1769/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -4,1 +5,2 @@
+-      executeTarget("prefix.fail");
++      buildRule.executeTarget("prefix.fail");
++      fail("Did not throw exception on invalid use of prefix");
+@@ -6,4 +8,2 @@
+-      assertTrue(
+-          "Prefix allowed on non-resource/file load - ",
+-          e.getMessage().indexOf("Prefix is only valid") != (-1));
+-      return;
++      assertContains(
++          "Prefix allowed on non-resource/file load - ", "Prefix is only valid", e.getMessage());
+@@ -11,1 +11,0 @@
+-    fail("Did not throw exception on invalid use of prefix");

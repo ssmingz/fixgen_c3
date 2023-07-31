@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/407/9/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/407/9/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,2 @@
+-    expectLogContaining("fork-timeout-not", "Package: org.apache.tools.ant.util.facade");
++    buildRule.executeTarget("fork-timeout-not");
++    AntAssert.assertContains("Package: org.apache.tools.ant.util.facade", buildRule.getLog());

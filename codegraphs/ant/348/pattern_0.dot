@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="testDelay#?#3:UPDATE
+testDoubleNotPresent#?#3:UPDATE" shape=ellipse]
+1 [label="testDelay#?#3:expectLogContaining(\"delay\", \"MyTask called\")
+testDoubleNotPresent#?#3:expectLogContaining(\"double-notpresent\", \"hi\")" shape=ellipse]
+2 [label="testDelay#?#2:\{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}
+testDoubleNotPresent#?#2:\{
+    expectLogContaining(\"double-notpresent\", \"hi\");
+\}" shape=ellipse]
+3 [label="testDelay#?#2:public void testDelay() \{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}
+testDoubleNotPresent#?#2:public void testDoubleNotPresent() \{
+    expectLogContaining(\"double-notpresent\", \"hi\");
+\}" shape=ellipse]
+4 [label="testDelay#?#3:expectLogContaining
+testDoubleNotPresent#?#3:expectLogContaining" shape=ellipse]
+5 [label="testDelay#?#-1:
+testDoubleNotPresent#?#-1:" shape=ellipse]
+6 [label="testDelay#?#-1:PlaceHold
+testDoubleNotPresent#?#-1:PlaceHold" shape=ellipse]
+7 [label="testDelay#?#-1:PlaceHold
+testDoubleNotPresent#?#-1:PlaceHold" shape=ellipse]
+8 [label="testDelay#?#3:expectLogContaining(java.lang.String,java.lang.String)
+testDoubleNotPresent#?#3:expectLogContaining(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testDelay#?#-1:String
+testDoubleNotPresent#?#-1:String" shape=ellipse]
+10 [label="testDelay#?#-1:String
+testDoubleNotPresent#?#-1:String" shape=ellipse]
+11 [label="testDelay#?#3:\"delay\"
+testDoubleNotPresent#?#3:\"double-notpresent\"" shape=ellipse]
+12 [label="testDelay#?#-1:String
+testDoubleNotPresent#?#-1:String" shape=ellipse]
+13 [label="testDelay#?#3:\"MyTask called\"
+testDoubleNotPresent#?#3:\"hi\"" shape=ellipse]
+14 [label="testDelay#?#-1:String
+testDoubleNotPresent#?#-1:String" shape=ellipse]
+15 [label="testDelay#?#5:assertContains(\"MyTask called\", buildRule.getLog())
+testDoubleNotPresent#?#5:assertContains(\"hi\", buildRule.getLog())" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

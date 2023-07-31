@@ -1,0 +1,36 @@
+digraph "Pattern" {
+0 [label="test3#?#33:UPDATE
+test2#?#35:UPDATE" shape=ellipse]
+1 [label="test3#?#33:project
+test2#?#35:project" shape=ellipse]
+2 [label="test3#?#33:project.executeTarget(\"test3\")
+test2#?#35:project.executeTarget(\"test2\")" shape=ellipse]
+3 [label="test3#?#2:\{
+    String[] expected = new String[]\{ \"**/*~\", \"**/#*#\", \"**/.#*\", \"**/%*%\", \"**/._*\", \"**/CVS/**\", \"**/.cvsignore\", \"**/SCCS\", \"**/SCCS/**\", \"**/vssver.scc\", \"**/.svn\", \"**/.svn/**\", \"**/.git\", \"**/.git/**\", \"**/.gitattributes\", \"**/.gitignore\", \"**/.gitmodules\", \"**/.hg\", \"**/.hg/**\", \"**/.hgignore\", \"**/.hgsub\", \"**/.hgsubstate\", \"**/.hgtags\", \"**/.bzr\", \"**/.bzr/**\", \"**/.bzrignore\", \"**/.DS_Store\" \};
+    project.executeTarget(\"test3\");
+    assertEquals(\"current default excludes\", expected, DirectoryScanner.getDefaultExcludes());
+\}
+test2#?#2:\{
+    String[] expected = new String[]\{ \"**/*~\", \"**/#*#\", \"**/.#*\", \"**/%*%\", \"**/._*\", \"**/CVS\", \"**/CVS/**\", \"**/.cvsignore\", \"**/SCCS\", \"**/SCCS/**\", \"**/vssver.scc\", \"**/.svn\", \"**/.svn/**\", \"**/.git\", \"**/.git/**\", \"**/.gitattributes\", \"**/.gitignore\", \"**/.gitmodules\", \"**/.hg\", \"**/.hg/**\", \"**/.hgignore\", \"**/.hgsub\", \"**/.hgsubstate\", \"**/.hgtags\", \"**/.bzr\", \"**/.bzr/**\", \"**/.bzrignore\", \"**/.DS_Store\", \"foo\" \};
+    project.executeTarget(\"test2\");
+    assertEquals(\"current default excludes\", expected, DirectoryScanner.getDefaultExcludes());
+\}" shape=ellipse]
+4 [label="test3#?#33:executeTarget
+test2#?#35:executeTarget" shape=ellipse]
+5 [label="test3#?#33:executeTarget(java.lang.String)
+test2#?#35:executeTarget(java.lang.String)" shape=ellipse]
+6 [label="test3#?#33:\"test3\"
+test2#?#35:\"test2\"" shape=ellipse]
+7 [label="test3#?#-1:project
+test2#?#-1:project" shape=ellipse]
+8 [label="test3#?#34:buildRule
+test2#?#36:buildRule" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

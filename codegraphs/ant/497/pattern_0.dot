@@ -1,0 +1,198 @@
+digraph "Pattern" {
+0 [label="setIncludesfile#?,String#6:DELETE
+setExcludesfile#?,String#6:DELETE
+readPatterns#?,File,Vector#13:DELETE
+setItems#?,String#3:DELETE
+setIgnore#?,String#3:DELETE" shape=ellipse]
+1 [label="setIncludesfile#?,String#6:project
+setExcludesfile#?,String#6:project
+readPatterns#?,File,Vector#13:project
+setItems#?,String#3:project
+setIgnore#?,String#3:project" shape=ellipse]
+2 [label="setIncludesfile#?,String#5:!incl.exists()
+setExcludesfile#?,String#5:!excl.exists()" shape=ellipse]
+3 [label="setIncludesfile#?,String#3:(includesfile != null) && (includesfile.length() > 0)
+setExcludesfile#?,String#3:(excludesfile != null) && (excludesfile.length() > 0)
+readPatterns#?,File,Vector#13:\"An error occured while reading from pattern file: \" + patternfile
+setItems#?,String#4:\"The items attribute is deprecated. \" + \"Please use the includes attribute.\"
+setIgnore#?,String#4:\"The ignore attribute is deprecated.\" + \"Please use the excludes attribute.\"" shape=ellipse]
+4 [label="setIncludesfile#?,String#5:if (!incl.exists()) \{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\} else \{
+    readPatterns(incl, includeList);
+\}
+setExcludesfile#?,String#5:if (!excl.exists()) \{
+    project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR);
+\} else \{
+    readPatterns(excl, excludeList);
+\}" shape=ellipse]
+5 [label="setIncludesfile#?,String#5:incl.exists()
+setExcludesfile#?,String#5:excl.exists()" shape=ellipse]
+6 [label="setIncludesfile#?,String#5:\{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\}
+setExcludesfile#?,String#5:\{
+    project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR);
+\}
+readPatterns#?,File,Vector#12:\{
+    project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+\}
+setItems#?,String#2:\{
+    project.log(\"The items attribute is deprecated. \" + \"Please use the includes attribute.\", MSG_WARN);
+    if (((itemString == null) || itemString.equals(\"*\")) || itemString.equals(\".\")) \{
+        createInclude().setName(\"**\");
+    \} else \{
+        StringTokenizer tok = new StringTokenizer(itemString, \", \");
+        while (tok.hasMoreTokens()) \{
+            String pattern = tok.nextToken().trim();
+            if (pattern.length() > 0) \{
+                createInclude().setName(pattern + \"/**\");
+            \}
+        \} 
+    \}
+\}
+setIgnore#?,String#2:\{
+    project.log(\"The ignore attribute is deprecated.\" + \"Please use the excludes attribute.\", MSG_WARN);
+    if ((ignoreString != null) && (ignoreString.length() > 0)) \{
+        Vector tmpExcludes = new Vector();
+        StringTokenizer tok = new StringTokenizer(ignoreString, \", \", false);
+        while (tok.hasMoreTokens()) \{
+            createExclude().setName((\"**/\" + tok.nextToken().trim()) + \"/**\");
+        \} 
+    \}
+\}" shape=ellipse]
+7 [label="setIncludesfile#?,String#6:project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR)
+setExcludesfile#?,String#6:project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR)" shape=ellipse]
+8 [label="setIncludesfile#?,String#6:log(java.lang.String)
+setExcludesfile#?,String#6:log(java.lang.String)
+readPatterns#?,File,Vector#13:log()
+setItems#?,String#3:log(java.lang.String)
+setIgnore#?,String#3:log(java.lang.String)" shape=ellipse]
+9 [label="setIncludesfile#?,String#6:(\"Includesfile \" + includesfile) + \" not found.\"
+setExcludesfile#?,String#6:(\"Excludesfile \" + excludesfile) + \" not found.\"" shape=ellipse]
+10 [label="setIncludesfile#?,String#6:(\"Includesfile \" + includesfile)
+setExcludesfile#?,String#6:(\"Excludesfile \" + excludesfile)" shape=ellipse]
+11 [label="setIncludesfile#?,String#6:\"Includesfile \"
+setExcludesfile#?,String#6:\"Excludesfile \"" shape=ellipse]
+12 [label="setIncludesfile#?,String#6:includesfile
+setExcludesfile#?,String#6:excludesfile
+readPatterns#?,File,Vector#12:ioe" shape=ellipse]
+13 [label="setIncludesfile#?,String#6:\" not found.\"
+setExcludesfile#?,String#6:\" not found.\"" shape=ellipse]
+14 [label="setIncludesfile#?,String#6:MSG_ERR
+setExcludesfile#?,String#6:MSG_ERR
+readPatterns#?,File,Vector#13:MSG_ERR
+setItems#?,String#4:MSG_WARN
+setIgnore#?,String#4:MSG_WARN" shape=ellipse]
+15 [label="setIncludesfile#?,String#7:\{
+    readPatterns(incl, includeList);
+\}
+setExcludesfile#?,String#7:\{
+    readPatterns(excl, excludeList);
+\}" shape=ellipse]
+16 [label="setIncludesfile#?,String#8:readPatterns(incl, includeList)
+setExcludesfile#?,String#8:readPatterns(excl, excludeList)" shape=ellipse]
+17 [label="setIncludesfile#?,String#8:readPatterns(<unknown>,<unknown>)
+setExcludesfile#?,String#8:readPatterns(<unknown>,<unknown>)
+readPatterns#?,File,Vector#12:IOException" shape=ellipse]
+18 [label="setIncludesfile#?,String#-1:
+setExcludesfile#?,String#-1:" shape=ellipse]
+19 [label="setIncludesfile#?,String#-1:PlaceHold
+setExcludesfile#?,String#-1:PlaceHold" shape=ellipse]
+20 [label="setIncludesfile#?,String#8:incl
+setExcludesfile#?,String#8:excl" shape=ellipse]
+21 [label="setIncludesfile#?,String#8:includeList
+setExcludesfile#?,String#8:excludeList" shape=ellipse]
+22 [label="setIncludesfile#?,String#-1:project
+setExcludesfile#?,String#-1:project
+readPatterns#?,File,Vector#-1:project
+setItems#?,String#-1:project
+setIgnore#?,String#-1:project" shape=ellipse]
+23 [label="readPatterns#?,File,Vector#12:IOException ioe" shape=ellipse]
+24 [label="readPatterns#?,File,Vector#13:\"An error occured while reading from pattern file: \"" shape=ellipse]
+25 [label="readPatterns#?,File,Vector#12: catch (IOException ioe) \{
+    project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+\}" shape=ellipse]
+26 [label="readPatterns#?,File,Vector#13:project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR)" shape=ellipse]
+27 [label="readPatterns#?,File,Vector#13:patternfile" shape=ellipse]
+28 [label="setItems#?,String#3:log
+setIgnore#?,String#3:log" shape=ellipse]
+29 [label="setItems#?,String#-1:INSERT
+setIgnore#?,String#-1:INSERT" shape=ellipse]
+30 [label="setItems#?,String#3:project.log(\"The items attribute is deprecated. \" + \"Please use the includes attribute.\", MSG_WARN)" shape=ellipse]
+31 [label="setIgnore#?,String#3:project.log(\"The ignore attribute is deprecated.\" + \"Please use the excludes attribute.\", MSG_WARN)" shape=ellipse]
+1 -> 0 [label="Action:5"];
+1 -> 22 [label="AST:5"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 5 [label="Control Dep:2"];
+3 -> 24 [label="AST:1"];
+3 -> 27 [label="AST:1"];
+4 -> 2 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 15 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 26 [label="AST:1"];
+6 -> 30 [label="AST:1"];
+6 -> 31 [label="AST:1"];
+7 -> 1 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 14 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 13 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 20 [label="AST:2"];
+16 -> 21 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+23 -> 12 [label="AST:1"];
+23 -> 17 [label="AST:1"];
+23 -> 6 [label="Control Dep:1"];
+23 -> 26 [label="Control Dep:1"];
+23 -> 8 [label="Control Dep:1"];
+23 -> 1 [label="Control Dep:1"];
+23 -> 3 [label="Control Dep:1"];
+23 -> 24 [label="Control Dep:1"];
+23 -> 27 [label="Control Dep:1"];
+23 -> 14 [label="Control Dep:1"];
+25 -> 23 [label="AST:1"];
+25 -> 6 [label="AST:1"];
+26 -> 1 [label="AST:1"];
+26 -> 8 [label="AST:1"];
+26 -> 3 [label="AST:1"];
+26 -> 14 [label="AST:1"];
+30 -> 28 [label="AST:1"];
+30 -> 29 [label="Action:1"];
+30 -> 1 [label="AST:1"];
+30 -> 8 [label="AST:1"];
+30 -> 3 [label="AST:1"];
+30 -> 14 [label="AST:1"];
+31 -> 28 [label="AST:1"];
+31 -> 1 [label="AST:1"];
+31 -> 8 [label="AST:1"];
+31 -> 3 [label="AST:1"];
+31 -> 14 [label="AST:1"];
+31 -> 29 [label="Action:1"];
+}

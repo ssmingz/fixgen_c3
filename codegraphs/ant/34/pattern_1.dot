@@ -1,0 +1,61 @@
+digraph "Pattern" {
+0 [label="isCaseSensitive#?#3:INSERT
+getDefaultexcludes#?#3:INSERT" shape=ellipse]
+1 [label="isCaseSensitive#?#2:public synchronized boolean isCaseSensitive() \{
+    return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive;
+\}
+getDefaultexcludes#?#2:public synchronized boolean getDefaultexcludes() \{
+    return isReference() ? getRef(getProject()).getDefaultexcludes() : useDefaultExcludes;
+\}" shape=ellipse]
+2 [label="isCaseSensitive#?#2:isCaseSensitive
+getDefaultexcludes#?#2:synchronized" shape=ellipse]
+3 [label="isCaseSensitive#?#2:boolean
+getDefaultexcludes#?#2:boolean" shape=ellipse]
+4 [label="isCaseSensitive#?#2:\{
+    return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive;
+\}
+getDefaultexcludes#?#2:\{
+    return isReference() ? getRef(getProject()).getDefaultexcludes() : useDefaultExcludes;
+\}" shape=ellipse]
+5 [label="isCaseSensitive#?#3:return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive
+getDefaultexcludes#?#3:return isReference() ? getRef(getProject()).getDefaultexcludes() : useDefaultExcludes" shape=ellipse]
+6 [label="isCaseSensitive#?#2:VE: Modifiers_Method
+getDefaultexcludes#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="isCaseSensitive#?#2:public
+getDefaultexcludes#?#2:public" shape=ellipse]
+8 [label="isCaseSensitive#?#2:synchronized
+getDefaultexcludes#?#2:getDefaultexcludes" shape=ellipse]
+9 [label="isCaseSensitive#?#6:INSERT
+getDefaultexcludes#?#6:INSERT" shape=ellipse]
+10 [label="isCaseSensitive#?#6:dieOnCircularReference()
+getDefaultexcludes#?#6:dieOnCircularReference()" shape=ellipse]
+11 [label="isCaseSensitive#?#7:INSERT
+getDefaultexcludes#?#7:INSERT" shape=ellipse]
+12 [label="isCaseSensitive#?#7:return caseSensitive
+getDefaultexcludes#?#7:return useDefaultExcludes" shape=ellipse]
+13 [label="isCaseSensitive#?#3:if (isReference()) \{
+    return getRef(getProject()).isCaseSensitive();
+\}
+getDefaultexcludes#?#3:if (isReference()) \{
+    return getRef(getProject()).getDefaultexcludes();
+\}" shape=ellipse]
+14 [label="isCaseSensitive#?#3:MOVE
+getDefaultexcludes#?#3:MOVE" shape=ellipse]
+15 [label="isCaseSensitive#?#3:isReference()
+getDefaultexcludes#?#3:isReference()" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="Action:2"];
+1 -> 11 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+9 -> 10 [label="Action:2"];
+11 -> 12 [label="Action:2"];
+14 -> 13 [label="Action:2"];
+15 -> 14 [label="Action:2"];
+}

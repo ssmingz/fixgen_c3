@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/539/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/539/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,6 @@
+-    expectBuildExceptionContaining("testEmpty", "missing property", "property");
++    try {
++      buildRule.executeTarget("testEmpty");
++      fail("BuildException expected: missing property");
++    } catch (BuildException ex) {
++      assertContains("property", ex.getMessage());
++    }

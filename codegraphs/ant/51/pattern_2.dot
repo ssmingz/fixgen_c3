@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="testSingleCopy#?#4:INSERT
+testOutputProperty#?#4:INSERT" shape=ellipse]
+1 [label="testSingleCopy#?#3:executeTarget(\"singlecopy\")
+testOutputProperty#?#3:executeTarget(\"testOutputProperty\")" shape=ellipse]
+2 [label="testSingleCopy#?#2:\{
+    executeTarget(\"singlecopy\");
+\}
+testOutputProperty#?#2:\{
+    executeTarget(\"testOutputProperty\");
+\}" shape=ellipse]
+3 [label="testSingleCopy#?#2:public void testSingleCopy() \{
+    executeTarget(\"singlecopy\");
+\}
+testOutputProperty#?#2:public void testOutputProperty() throws Exception \{
+    executeTarget(\"testOutputProperty\");
+\}" shape=ellipse]
+4 [label="testSingleCopy#?#3:executeTarget
+testOutputProperty#?#3:executeTarget" shape=ellipse]
+5 [label="testSingleCopy#?#-1:
+testOutputProperty#?#-1:" shape=ellipse]
+6 [label="testSingleCopy#?#-1:PlaceHold
+testOutputProperty#?#-1:PlaceHold" shape=ellipse]
+7 [label="testSingleCopy#?#-1:PlaceHold
+testOutputProperty#?#-1:PlaceHold" shape=ellipse]
+8 [label="testSingleCopy#?#3:executeTarget(java.lang.String)
+testOutputProperty#?#3:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testSingleCopy#?#-1:String
+testOutputProperty#?#-1:String" shape=ellipse]
+10 [label="testSingleCopy#?#3:\"singlecopy\"
+testOutputProperty#?#3:\"testOutputProperty\"" shape=ellipse]
+11 [label="testSingleCopy#?#-1:String
+testOutputProperty#?#-1:String" shape=ellipse]
+12 [label="testSingleCopy#?#4:buildRule
+testOutputProperty#?#4:buildRule" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+}

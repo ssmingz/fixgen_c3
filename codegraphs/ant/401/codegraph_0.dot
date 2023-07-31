@@ -1,0 +1,35 @@
+digraph "setReverse#?,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setReverse" shape=ellipse]
+2 [label="2:CtParameterImpl@boolean r" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@reverse" shape=ellipse]
+5 [label="3:CtVariableReadImpl@r" shape=ellipse]
+6 [label="3:CtAssignmentImpl@reverse = r" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    reverse = r;
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void setReverse(boolean r) \{
+    reverse = r;
+\}" shape=ellipse]
+9 [label="3:Delete@DELETE" shape=ellipse]
+10 [label="3:Insert@INSERT" shape=ellipse]
+11 [label="3:CtIfImpl@if (r) \{
+    cmd.addValue(\"-R\");
+\}" shape=ellipse]
+12 [label="3:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 4 [label="Data Dep"];
+5 -> 12 [label="Action"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 9 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 10 [label="Action"];
+10 -> 11 [label="Action"];
+12 -> 11 [label="Action"];
+}

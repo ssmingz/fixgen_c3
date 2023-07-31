@@ -1,0 +1,59 @@
+digraph "Pattern" {
+0 [label="cat#?,ResourceCollection#49:UPDATE
+execute#?,List#38:UPDATE
+writePropertyFile#?,Properties,File#10:UPDATE
+writeExternalArgs#?,Commandline#30:UPDATE" shape=ellipse]
+1 [label="cat#?,ResourceCollection#49:FILE_UTILS
+execute#?,List#38:FILE_UTILS
+writePropertyFile#?,Properties,File#10:FILE_UTILS
+writeExternalArgs#?,Commandline#30:FILE_UTILS" shape=ellipse]
+2 [label="cat#?,ResourceCollection#49:FILE_UTILS.close(os)
+execute#?,List#38:FILE_UTILS.close(writer)
+writePropertyFile#?,Properties,File#10:FILE_UTILS.close(bos)
+writeExternalArgs#?,Commandline#30:FILE_UTILS.close(optionsListWriter)" shape=ellipse]
+3 [label="cat#?,ResourceCollection#48:\{
+    FILE_UTILS.close(os);
+\}
+execute#?,List#37:\{
+    FILE_UTILS.close(writer);
+    try \{
+        FILE_UTILS.tryHardToDelete(casesFile);
+    \} catch (Exception e) \{
+        log(e.toString(), MSG_ERR);
+    \}
+\}
+writePropertyFile#?,Properties,File#9:\{
+    FILE_UTILS.close(bos);
+\}
+writeExternalArgs#?,Commandline#29:\{
+    FILE_UTILS.close(optionsListWriter);
+\}" shape=ellipse]
+4 [label="cat#?,ResourceCollection#49:close
+execute#?,List#38:close
+writePropertyFile#?,Properties,File#10:close
+writeExternalArgs#?,Commandline#30:close" shape=ellipse]
+5 [label="cat#?,ResourceCollection#49:close(OutputStream)
+execute#?,List#38:close(BufferedWriter)
+writePropertyFile#?,Properties,File#10:close(BufferedOutputStream)
+writeExternalArgs#?,Commandline#30:close(PrintWriter)" shape=ellipse]
+6 [label="cat#?,ResourceCollection#49:os
+execute#?,List#38:writer
+writePropertyFile#?,Properties,File#10:bos
+writeExternalArgs#?,Commandline#30:optionsListWriter" shape=ellipse]
+7 [label="cat#?,ResourceCollection#-1:FILE_UTILS
+execute#?,List#-1:FILE_UTILS
+writePropertyFile#?,Properties,File#-1:FILE_UTILS
+writeExternalArgs#?,Commandline#-1:FILE_UTILS" shape=ellipse]
+8 [label="cat#?,ResourceCollection#49:FileUtils
+execute#?,List#38:FileUtils
+writePropertyFile#?,Properties,File#10:FileUtils
+writeExternalArgs#?,Commandline#30:FileUtils" shape=ellipse]
+0 -> 8 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 7 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+}

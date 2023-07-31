@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testTimeout#?#2:INSERT
+testNoTimeout#?#2:INSERT" shape=ellipse]
+1 [label="testTimeout#?#2:public void testTimeout() \{
+    expectPropertySet(\"timeout\", \"timeout\");
+\}
+testNoTimeout#?#2:public void testNoTimeout() \{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}" shape=ellipse]
+2 [label="testTimeout#?#2:testTimeout
+testNoTimeout#?#2:testNoTimeout" shape=ellipse]
+3 [label="testTimeout#?#2:void
+testNoTimeout#?#2:void" shape=ellipse]
+4 [label="testTimeout#?#2:\{
+    expectPropertySet(\"timeout\", \"timeout\");
+\}
+testNoTimeout#?#2:\{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}" shape=ellipse]
+5 [label="testTimeout#?#3:expectPropertySet(\"timeout\", \"timeout\")
+testNoTimeout#?#3:expectPropertyUnset(\"notimeout\", \"timeout\")" shape=ellipse]
+6 [label="testTimeout#?#2:public
+testNoTimeout#?#2:public" shape=ellipse]
+7 [label="testTimeout#?#2:VE: Modifiers_Method
+testNoTimeout#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testTimeout#?#4:INSERT
+testNoTimeout#?#4:INSERT" shape=ellipse]
+9 [label="testTimeout#?#4:buildRule.executeTarget(\"timeout\")
+testNoTimeout#?#4:buildRule.executeTarget(\"notimeout\")" shape=ellipse]
+10 [label="testTimeout#?#2:@Test
+testNoTimeout#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

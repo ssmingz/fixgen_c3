@@ -1,0 +1,209 @@
+digraph "Pattern" {
+0 [label="launch#?,Project,String[],String[],File,boolean#8:INSERT
+spawn#?#3:INSERT
+execute#?#3:INSERT" shape=ellipse]
+1 [label="launch#?,Project,String[],String[],File,boolean#2:public static Process launch(Project project, String[] command, String[] env, File dir, boolean useVM) throws IOException \{
+    CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher;
+    if (!useVM) \{
+        launcher = shellLauncher;
+    \}
+    return launcher.exec(project, command, env, dir);
+\}
+spawn#?#2:public void spawn() throws IOException \{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    if (Os.isFamily(\"windows\")) \{
+        try \{
+            Thread.sleep(1000);
+        \} catch (InterruptedException e) \{
+            project.log(\"interruption in the sleep after having spawned a process\", MSG_VERBOSE);
+        \}
+    \}
+    project.log(\"spawned process \" + process.toString(), MSG_VERBOSE);
+\}
+execute#?#2:public int execute() throws IOException \{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    try \{
+        streamHandler.setProcessInputStream(process.getOutputStream());
+        streamHandler.setProcessOutputStream(process.getInputStream());
+        streamHandler.setProcessErrorStream(process.getErrorStream());
+    \} catch (IOException e) \{
+        process.destroy();
+        throw e;
+    \}
+    streamHandler.start();
+    try \{
+        processDestroyer.add(process);
+        if (watchdog != null) \{
+            watchdog.start(process);
+        \}
+        waitFor(process);
+        if (watchdog != null) \{
+            watchdog.stop();
+        \}
+        streamHandler.stop();
+        if (watchdog != null) \{
+            watchdog.checkException();
+        \}
+        return getExitValue();
+    \} finally \{
+        processDestroyer.remove(process);
+    \}
+\}" shape=ellipse]
+2 [label="launch#?,Project,String[],String[],File,boolean#2:launch
+spawn#?#2:public
+execute#?#2:public" shape=ellipse]
+3 [label="launch#?,Project,String[],String[],File,boolean#2:Process
+spawn#?#2:IOException
+execute#?#2:IOException" shape=ellipse]
+4 [label="launch#?,Project,String[],String[],File,boolean#-1:java.lang
+spawn#?#-1:
+execute#?#-1:" shape=ellipse]
+5 [label="launch#?,Project,String[],String[],File,boolean#3:Project project" shape=ellipse]
+6 [label="launch#?,Project,String[],String[],File,boolean#3:Project" shape=ellipse]
+7 [label="launch#?,Project,String[],String[],File,boolean#3:String[] command" shape=ellipse]
+8 [label="launch#?,Project,String[],String[],File,boolean#3:String[]" shape=ellipse]
+9 [label="launch#?,Project,String[],String[],File,boolean#3:String[] env" shape=ellipse]
+10 [label="launch#?,Project,String[],String[],File,boolean#3:String[]" shape=ellipse]
+11 [label="launch#?,Project,String[],String[],File,boolean#3:File dir" shape=ellipse]
+12 [label="launch#?,Project,String[],String[],File,boolean#3:File" shape=ellipse]
+13 [label="launch#?,Project,String[],String[],File,boolean#3:boolean useVM" shape=ellipse]
+14 [label="launch#?,Project,String[],String[],File,boolean#3:boolean" shape=ellipse]
+15 [label="launch#?,Project,String[],String[],File,boolean#3:IOException
+spawn#?#2:void
+execute#?#2:int" shape=ellipse]
+16 [label="launch#?,Project,String[],String[],File,boolean#-1:" shape=ellipse]
+17 [label="launch#?,Project,String[],String[],File,boolean#3:\{
+    CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher;
+    if (!useVM) \{
+        launcher = shellLauncher;
+    \}
+    return launcher.exec(project, command, env, dir);
+\}
+spawn#?#2:\{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    if (Os.isFamily(\"windows\")) \{
+        try \{
+            Thread.sleep(1000);
+        \} catch (InterruptedException e) \{
+            project.log(\"interruption in the sleep after having spawned a process\", MSG_VERBOSE);
+        \}
+    \}
+    project.log(\"spawned process \" + process.toString(), MSG_VERBOSE);
+\}
+execute#?#2:\{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    try \{
+        streamHandler.setProcessInputStream(process.getOutputStream());
+        streamHandler.setProcessOutputStream(process.getInputStream());
+        streamHandler.setProcessErrorStream(process.getErrorStream());
+    \} catch (IOException e) \{
+        process.destroy();
+        throw e;
+    \}
+    streamHandler.start();
+    try \{
+        processDestroyer.add(process);
+        if (watchdog != null) \{
+            watchdog.start(process);
+        \}
+        waitFor(process);
+        if (watchdog != null) \{
+            watchdog.stop();
+        \}
+        streamHandler.stop();
+        if (watchdog != null) \{
+            watchdog.checkException();
+        \}
+        return getExitValue();
+    \} finally \{
+        processDestroyer.remove(process);
+    \}
+\}" shape=ellipse]
+18 [label="launch#?,Project,String[],String[],File,boolean#4:CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher
+spawn#?#3:final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher)
+execute#?#3:final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher)" shape=ellipse]
+19 [label="launch#?,Project,String[],String[],File,boolean#5:if (!useVM) \{
+    launcher = shellLauncher;
+\}
+spawn#?#5:if (Os.isFamily(\"windows\")) \{
+    try \{
+        Thread.sleep(1000);
+    \} catch (InterruptedException e) \{
+        project.log(\"interruption in the sleep after having spawned a process\", MSG_VERBOSE);
+    \}
+\}
+execute#?#14:try \{
+    processDestroyer.add(process);
+    if (watchdog != null) \{
+        watchdog.start(process);
+    \}
+    waitFor(process);
+    if (watchdog != null) \{
+        watchdog.stop();
+    \}
+    streamHandler.stop();
+    if (watchdog != null) \{
+        watchdog.checkException();
+    \}
+    return getExitValue();
+\} finally \{
+    processDestroyer.remove(process);
+\}" shape=ellipse]
+20 [label="launch#?,Project,String[],String[],File,boolean#8:return launcher.exec(project, command, env, dir)
+execute#?#5:try \{
+    streamHandler.setProcessInputStream(process.getOutputStream());
+    streamHandler.setProcessOutputStream(process.getInputStream());
+    streamHandler.setProcessErrorStream(process.getErrorStream());
+\} catch (IOException e) \{
+    process.destroy();
+    throw e;
+\}" shape=ellipse]
+21 [label="launch#?,Project,String[],String[],File,boolean#2:static
+spawn#?#2:spawn
+execute#?#2:execute" shape=ellipse]
+22 [label="launch#?,Project,String[],String[],File,boolean#2:VE: Modifiers_Method
+spawn#?#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+23 [label="launch#?,Project,String[],String[],File,boolean#2:public
+spawn#?#2:VE: ThrownTypes_spawn
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+24 [label="launch#?,Project,String[],String[],File,boolean#2:VE: ThrownTypes_launch" shape=ellipse]
+25 [label="launch#?,Project,String[],String[],File,boolean#8:if ((dir != null) && (!dir.exists())) \{
+    throw new BuildException(dir + \" doesn't exists.\");
+\}
+spawn#?#3:if ((workingDirectory != null) && (!workingDirectory.exists())) \{
+    throw new BuildException(workingDirectory + \" doesn't exists.\");
+\}
+execute#?#3:if ((workingDirectory != null) && (!workingDirectory.exists())) \{
+    throw new BuildException(workingDirectory + \" doesn't exists.\");
+\}" shape=ellipse]
+26 [label="spawn#?#12:project.log(\"spawned process \" + process.toString(), MSG_VERBOSE)" shape=ellipse]
+27 [label="execute#?#13:streamHandler.start()" shape=ellipse]
+0 -> 25 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 5 [label="AST:1"];
+1 -> 7 [label="AST:1"];
+1 -> 9 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+1 -> 15 [label="AST:3"];
+1 -> 17 [label="AST:3"];
+1 -> 21 [label="AST:3"];
+1 -> 22 [label="AST:3"];
+1 -> 23 [label="AST:3"];
+1 -> 24 [label="AST:1"];
+3 -> 4 [label="AST:3"];
+5 -> 6 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+17 -> 18 [label="AST:3"];
+17 -> 19 [label="AST:3"];
+17 -> 20 [label="AST:2"];
+17 -> 26 [label="AST:1"];
+17 -> 27 [label="AST:1"];
+}

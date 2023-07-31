@@ -1,0 +1,100 @@
+digraph "Pattern" {
+0 [label="getOutStreamLines#?#6:DELETE
+getLines#?,String,String#3:DELETE" shape=ellipse]
+1 [label="getOutStreamLines#?#6:new ArrayList<String>()
+getLines#?,String,String#3:new ArrayList<String>()" shape=ellipse]
+2 [label="getOutStreamLines#?#6:final List<String> lineList = new ArrayList<String>()
+getLines#?,String,String#3:final List<String> lines = new ArrayList<String>()" shape=ellipse]
+3 [label="getOutStreamLines#?#2:\{
+    final byte[] bytes = outStream.toByteArray();
+    final ByteArrayInputStream inStream = new ByteArrayInputStream(bytes);
+    final BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+    final List<String> lineList = new ArrayList<String>();
+    while (true) \{
+        final String line = reader.readLine();
+        if (line == null) \{
+            break;
+        \}
+        lineList.add(line);
+    \} 
+    reader.close();
+    return lineList.toArray(new String[lineList.size()]);
+\}
+getLines#?,String,String#2:\{
+    final List<String> lines = new ArrayList<String>();
+    final FileInputStream fr = new FileInputStream(aFileName);
+    LineNumberReader lnr = null;
+    try \{
+        lnr = new LineNumberReader(new InputStreamReader(fr, aCharsetName));
+    \} catch (final UnsupportedEncodingException ex) \{
+        final String message = \"unsupported charset: \" + ex.getMessage();
+        throw new UnsupportedEncodingException(message);
+    \}
+    try \{
+        while (true) \{
+            final String l = lnr.readLine();
+            if (l == null) \{
+                break;
+            \}
+            lines.add(l);
+        \} 
+    \} finally \{
+        try \{
+            lnr.close();
+        \} catch (final IOException e) \{
+        \}
+    \}
+    return lines.toArray(new String[0]);
+\}" shape=ellipse]
+4 [label="getOutStreamLines#?#6:lineList
+getLines#?,String,String#3:lines" shape=ellipse]
+5 [label="getOutStreamLines#?#6:List<String>
+getLines#?,String,String#3:List<String>" shape=ellipse]
+6 [label="getOutStreamLines#?#6:INSERT
+getLines#?,String,String#3:INSERT" shape=ellipse]
+7 [label="getOutStreamLines#?#6:newArrayList
+getLines#?,String,String#3:newArrayList" shape=ellipse]
+8 [label="getOutStreamLines#?#6:Lists
+getLines#?,String,String#3:Lists" shape=ellipse]
+9 [label="getOutStreamLines#?#6:Lists
+getLines#?,String,String#3:Lists" shape=ellipse]
+10 [label="getOutStreamLines#?#6:
+getLines#?,String,String#3:" shape=ellipse]
+11 [label="getOutStreamLines#?#6:newArrayList()
+getLines#?,String,String#3:newArrayList()" shape=ellipse]
+12 [label="getOutStreamLines#?#6:Lists
+getLines#?,String,String#3:Lists" shape=ellipse]
+13 [label="getOutStreamLines#?#6:
+getLines#?,String,String#3:" shape=ellipse]
+14 [label="getOutStreamLines#?#6:List<String>
+getLines#?,String,String#3:List<String>" shape=ellipse]
+15 [label="getOutStreamLines#?#6:
+getLines#?,String,String#3:" shape=ellipse]
+16 [label="getOutStreamLines#?#6:String
+getLines#?,String,String#3:String" shape=ellipse]
+17 [label="getOutStreamLines#?#6:java.lang
+getLines#?,String,String#3:java.lang" shape=ellipse]
+18 [label="getOutStreamLines#?#6:ArrayList()
+getLines#?,String,String#3:ArrayList()" shape=ellipse]
+19 [label="getOutStreamLines#?#6:ArrayList<String>
+getLines#?,String,String#3:ArrayList<String>" shape=ellipse]
+20 [label="getOutStreamLines#?#6:ArrayList<String>
+getLines#?,String,String#3:ArrayList<String>" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 18 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+}

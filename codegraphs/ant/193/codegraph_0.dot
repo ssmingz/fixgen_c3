@@ -1,0 +1,228 @@
+digraph "toString#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@toString" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+3 [label="3:CtVirtualElement@isReference" shape=ellipse]
+4 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@toString()" shape=ellipse]
+6 [label="4:CtVirtualElement@toString" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@getRef()" shape=ellipse]
+8 [label="4:CtVirtualElement@getRef" shape=ellipse]
+9 [label="4:CtInvocationImpl@getRef()" shape=ellipse]
+10 [label="4:CtInvocationImpl@getRef().toString()" shape=ellipse]
+11 [label="4:CtReturnImpl@return getRef().toString()" shape=ellipse]
+12 [label="3:CtBlockImpl@\{
+    return getRef().toString();
+\}" shape=ellipse]
+13 [label="3:CtIfImpl@if (isReference()) \{
+    return getRef().toString();
+\}" shape=ellipse]
+14 [label="6:CtTypeReferenceImpl@Iterator" shape=ellipse]
+15 [label="6:CtExecutableReferenceImpl@iterator()" shape=ellipse]
+16 [label="6:CtVirtualElement@iterator" shape=ellipse]
+17 [label="6:CtInvocationImpl@iterator()" shape=ellipse]
+18 [label="6:CtVirtualElement@i" shape=ellipse]
+19 [label="6:CtLocalVariableImpl@Iterator i = iterator()" shape=ellipse]
+20 [label="7:CtExecutableReferenceImpl@hasNext()" shape=ellipse]
+21 [label="7:CtVirtualElement@hasNext" shape=ellipse]
+22 [label="7:CtVariableReadImpl@i" shape=ellipse]
+23 [label="7:CtInvocationImpl@i.hasNext()" shape=ellipse]
+24 [label="7:CtUnaryOperatorImpl@!i.hasNext()" shape=ellipse]
+25 [label="8:CtLiteralImpl@\"\"" shape=ellipse]
+26 [label="8:CtReturnImpl@return \"\"" shape=ellipse]
+27 [label="7:CtBlockImpl@\{
+    return \"\";
+\}" shape=ellipse]
+28 [label="7:CtIfImpl@if (!i.hasNext()) \{
+    return \"\";
+\}" shape=ellipse]
+29 [label="10:CtTypeReferenceImpl@StringBuffer" shape=ellipse]
+30 [label="10:CtTypeReferenceImpl@StringBuffer" shape=ellipse]
+31 [label="10:CtConstructorCallImpl@new StringBuffer()" shape=ellipse]
+32 [label="10:CtVirtualElement@sb" shape=ellipse]
+33 [label="10:CtLocalVariableImpl@StringBuffer sb = new StringBuffer()" shape=ellipse]
+34 [label="11:CtExecutableReferenceImpl@hasNext()" shape=ellipse]
+35 [label="11:CtVirtualElement@hasNext" shape=ellipse]
+36 [label="11:CtVariableReadImpl@i" shape=ellipse]
+37 [label="11:CtInvocationImpl@i.hasNext()" shape=ellipse]
+38 [label="12:CtExecutableReferenceImpl@length()" shape=ellipse]
+39 [label="12:CtVirtualElement@length" shape=ellipse]
+40 [label="12:CtVariableReadImpl@sb" shape=ellipse]
+41 [label="12:CtInvocationImpl@sb.length()" shape=ellipse]
+42 [label="12:CtLiteralImpl@0" shape=ellipse]
+43 [label="12:CtBinaryOperatorImpl@sb.length() > 0" shape=ellipse]
+44 [label="13:CtExecutableReferenceImpl@append(java.lang.Object)" shape=ellipse]
+45 [label="13:CtVirtualElement@append" shape=ellipse]
+46 [label="13:CtVariableReadImpl@sb" shape=ellipse]
+47 [label="13:CtTypeAccessImpl@pathSeparatorChar" shape=ellipse]
+48 [label="13:CtInvocationImpl@sb.append(pathSeparatorChar)" shape=ellipse]
+49 [label="12:CtBlockImpl@\{
+    sb.append(pathSeparatorChar);
+\}" shape=ellipse]
+50 [label="12:CtIfImpl@if (sb.length() > 0) \{
+    sb.append(pathSeparatorChar);
+\}" shape=ellipse]
+51 [label="15:CtExecutableReferenceImpl@append(java.lang.Object)" shape=ellipse]
+52 [label="15:CtVirtualElement@append" shape=ellipse]
+53 [label="15:CtVariableReadImpl@sb" shape=ellipse]
+54 [label="15:CtExecutableReferenceImpl@next()" shape=ellipse]
+55 [label="15:CtVirtualElement@next" shape=ellipse]
+56 [label="15:CtVariableReadImpl@i" shape=ellipse]
+57 [label="15:CtInvocationImpl@i.next()" shape=ellipse]
+58 [label="15:CtInvocationImpl@sb.append(i.next())" shape=ellipse]
+59 [label="11:CtBlockImpl@\{
+    if (sb.length() > 0) \{
+        sb.append(pathSeparatorChar);
+    \}
+    sb.append(i.next());
+\}" shape=ellipse]
+60 [label="11:CtWhileImpl@while (i.hasNext()) \{
+    if (sb.length() > 0) \{
+        sb.append(pathSeparatorChar);
+    \}
+    sb.append(i.next());
+\} " shape=ellipse]
+61 [label="17:CtExecutableReferenceImpl@toString()" shape=ellipse]
+62 [label="17:CtVirtualElement@toString" shape=ellipse]
+63 [label="17:CtVariableReadImpl@sb" shape=ellipse]
+64 [label="17:CtInvocationImpl@sb.toString()" shape=ellipse]
+65 [label="17:CtReturnImpl@return sb.toString()" shape=ellipse]
+66 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        return getRef().toString();
+    \}
+    Iterator i = iterator();
+    if (!i.hasNext()) \{
+        return \"\";
+    \}
+    StringBuffer sb = new StringBuffer();
+    while (i.hasNext()) \{
+        if (sb.length() > 0) \{
+            sb.append(pathSeparatorChar);
+        \}
+        sb.append(i.next());
+    \} 
+    return sb.toString();
+\}" shape=ellipse]
+67 [label="2:CtMethodImpl@public String toString() \{
+    if (isReference()) \{
+        return getRef().toString();
+    \}
+    Iterator i = iterator();
+    if (!i.hasNext()) \{
+        return \"\";
+    \}
+    StringBuffer sb = new StringBuffer();
+    while (i.hasNext()) \{
+        if (sb.length() > 0) \{
+            sb.append(pathSeparatorChar);
+        \}
+        sb.append(i.next());
+    \} 
+    return sb.toString();
+\}" shape=ellipse]
+68 [label="6:Insert@INSERT" shape=ellipse]
+69 [label="6:CtTypeReferenceImpl@Resource" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 12 [label="Control Dep"];
+4 -> 11 [label="Control Dep"];
+4 -> 10 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+9 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 4 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 68 [label="Action"];
+17 -> 16 [label="AST"];
+17 -> 15 [label="AST"];
+18 -> 22 [label="Define-Use"];
+18 -> 36 [label="Define-Use"];
+18 -> 56 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 17 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 27 [label="Control Dep"];
+24 -> 26 [label="Control Dep"];
+24 -> 25 [label="Control Dep"];
+26 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 24 [label="AST"];
+28 -> 27 [label="AST"];
+32 -> 40 [label="Define-Use"];
+32 -> 46 [label="Define-Use"];
+32 -> 53 [label="Define-Use"];
+32 -> 63 [label="Define-Use"];
+33 -> 32 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+37 -> 59 [label="Control Dep"];
+37 -> 50 [label="Control Dep"];
+37 -> 43 [label="Control Dep"];
+37 -> 41 [label="Control Dep"];
+37 -> 38 [label="Control Dep"];
+37 -> 40 [label="Control Dep"];
+37 -> 42 [label="Control Dep"];
+37 -> 58 [label="Control Dep"];
+37 -> 51 [label="Control Dep"];
+37 -> 53 [label="Control Dep"];
+37 -> 57 [label="Control Dep"];
+37 -> 54 [label="Control Dep"];
+37 -> 56 [label="Control Dep"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+41 -> 38 [label="AST"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+43 -> 49 [label="Control Dep"];
+43 -> 48 [label="Control Dep"];
+43 -> 44 [label="Control Dep"];
+43 -> 46 [label="Control Dep"];
+43 -> 47 [label="Control Dep"];
+48 -> 45 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 43 [label="AST"];
+50 -> 49 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+57 -> 54 [label="AST"];
+58 -> 52 [label="AST"];
+58 -> 53 [label="AST"];
+58 -> 51 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 50 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 37 [label="AST"];
+60 -> 59 [label="AST"];
+64 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+64 -> 61 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 13 [label="AST"];
+66 -> 19 [label="AST"];
+66 -> 28 [label="AST"];
+66 -> 33 [label="AST"];
+66 -> 60 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 1 [label="AST"];
+67 -> 0 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 69 [label="Action"];
+}

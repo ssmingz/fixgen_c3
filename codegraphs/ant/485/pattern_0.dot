@@ -1,0 +1,405 @@
+digraph "Pattern" {
+0 [label="execute#?#7:DELETE
+execute#?#21:DELETE" shape=ellipse]
+1 [label="execute#?#7:Execute.isFailure(err)
+execute#?#21:Execute.isFailure(err)" shape=ellipse]
+2 [label="execute#?#7:fork && Execute.isFailure(err)
+execute#?#8:targetIsOutOfDate || superGrammarIsOutOfDate" shape=ellipse]
+3 [label="execute#?#7:if (fork && Execute.isFailure(err)) \{
+    if (failOnError) \{
+        throw new BuildException(\"Java returned: \" + err, getLocation());
+    \} else \{
+        log(\"Java Result: \" + err, MSG_ERR);
+    \}
+\}
+execute#?#8:if (targetIsOutOfDate || superGrammarIsOutOfDate) \{
+    if (targetIsOutOfDate) \{
+        log(((\"Compiling \" + target) + \" as it is newer than \") + generatedFile, MSG_VERBOSE);
+    \} else if (superGrammarIsOutOfDate) \{
+        log(((((\"Compiling \" + target) + \" as \") + superGrammar) + \" is newer than \") + generatedFile, MSG_VERBOSE);
+    \}
+    populateAttributes();
+    commandline.createArgument().setValue(target.toString());
+    log(commandline.describeCommand(), MSG_VERBOSE);
+    int err = run(commandline.getCommandline());
+    if (Execute.isFailure(err)) \{
+        throw new BuildException(\"ANTLR returned: \" + err, getLocation());
+    \} else \{
+        String output = bos.toString();
+        if (output.indexOf(\"error:\") > (-1)) \{
+            throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+        \}
+    \}
+\} else \{
+    log((\"Skipped grammar file. Generated file \" + generatedFile) + \"is newer.\", MSG_VERBOSE);
+\}" shape=ellipse]
+4 [label="execute#?#7:fork
+execute#?#8:targetIsOutOfDate" shape=ellipse]
+5 [label="execute#?#7:\{
+    if (failOnError) \{
+        throw new BuildException(\"Java returned: \" + err, getLocation());
+    \} else \{
+        log(\"Java Result: \" + err, MSG_ERR);
+    \}
+\}
+execute#?#29:\{
+    log((\"Skipped grammar file. Generated file \" + generatedFile) + \"is newer.\", MSG_VERBOSE);
+\}" shape=ellipse]
+6 [label="execute#?#8:if (failOnError) \{
+    throw new BuildException(\"Java returned: \" + err, getLocation());
+\} else \{
+    log(\"Java Result: \" + err, MSG_ERR);
+\}" shape=ellipse]
+7 [label="execute#?#8:failOnError
+execute#?#18:commandline" shape=ellipse]
+8 [label="execute#?#7:INSERT" shape=ellipse]
+9 [label="execute#?#7:isFailure
+execute#?#21:isFailure" shape=ellipse]
+10 [label="execute#?#7:Execute" shape=ellipse]
+11 [label="execute#?#-1:Execute
+execute#?#-1:BuildException()" shape=ellipse]
+12 [label="execute#?#7:isFailure(int)" shape=ellipse]
+13 [label="execute#?#-1:Execute
+execute#?#26:getLocation()" shape=ellipse]
+14 [label="execute#?#-1:int
+execute#?#-1:int" shape=ellipse]
+15 [label="execute#?#7:err" shape=ellipse]
+16 [label="execute#?#6:err
+execute#?#-1:err" shape=ellipse]
+17 [label="execute#?#-1:err
+execute#?#26:output" shape=ellipse]
+18 [label="execute#?#7:MOVE" shape=ellipse]
+19 [label="execute#?#19:log(commandline.describeCommand(), MSG_VERBOSE)" shape=ellipse]
+20 [label="execute#?#24:output" shape=ellipse]
+21 [label="execute#?#24:toString()" shape=ellipse]
+22 [label="execute#?#26:\"ANTLR signaled an error: \" + output" shape=ellipse]
+23 [label="execute#?#-1:PlaceHold" shape=ellipse]
+24 [label="execute#?#30:(\"Skipped grammar file. Generated file \" + generatedFile)" shape=ellipse]
+25 [label="execute#?#22:\"ANTLR returned: \"" shape=ellipse]
+26 [label="execute#?#21:err" shape=ellipse]
+27 [label="execute#?#22:\"ANTLR returned: \" + err" shape=ellipse]
+28 [label="execute#?#-1:String" shape=ellipse]
+29 [label="execute#?#9:targetIsOutOfDate" shape=ellipse]
+30 [label="execute#?#25:output.indexOf(\"error:\")" shape=ellipse]
+31 [label="execute#?#18:setValue()" shape=ellipse]
+32 [label="execute#?#24:bos" shape=ellipse]
+33 [label="execute#?#-1:PlaceHold" shape=ellipse]
+34 [label="execute#?#30:log(<unknown>,<unknown>)" shape=ellipse]
+35 [label="execute#?#20:commandline" shape=ellipse]
+36 [label="execute#?#18:commandline.createArgument()" shape=ellipse]
+37 [label="execute#?#8:\{
+    if (targetIsOutOfDate) \{
+        log(((\"Compiling \" + target) + \" as it is newer than \") + generatedFile, MSG_VERBOSE);
+    \} else if (superGrammarIsOutOfDate) \{
+        log(((((\"Compiling \" + target) + \" as \") + superGrammar) + \" is newer than \") + generatedFile, MSG_VERBOSE);
+    \}
+    populateAttributes();
+    commandline.createArgument().setValue(target.toString());
+    log(commandline.describeCommand(), MSG_VERBOSE);
+    int err = run(commandline.getCommandline());
+    if (Execute.isFailure(err)) \{
+        throw new BuildException(\"ANTLR returned: \" + err, getLocation());
+    \} else \{
+        String output = bos.toString();
+        if (output.indexOf(\"error:\") > (-1)) \{
+            throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+        \}
+    \}
+\}" shape=ellipse]
+38 [label="execute#?#20:err" shape=ellipse]
+39 [label="execute#?#-1:output" shape=ellipse]
+40 [label="execute#?#-1:" shape=ellipse]
+41 [label="execute#?#25:indexOf(java.lang.String)" shape=ellipse]
+42 [label="execute#?#19:commandline" shape=ellipse]
+43 [label="execute#?#24:toString" shape=ellipse]
+44 [label="execute#?#-1:String" shape=ellipse]
+45 [label="execute#?#30:(\"Skipped grammar file. Generated file \" + generatedFile) + \"is newer.\"" shape=ellipse]
+46 [label="execute#?#-1:PlaceHold" shape=ellipse]
+47 [label="execute#?#19:MSG_VERBOSE" shape=ellipse]
+48 [label="execute#?#18:createArgument()" shape=ellipse]
+49 [label="execute#?#30:generatedFile" shape=ellipse]
+50 [label="execute#?#-1:BuildException()" shape=ellipse]
+51 [label="execute#?#26:throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation())" shape=ellipse]
+52 [label="execute#?#25:output" shape=ellipse]
+53 [label="execute#?#26:\"ANTLR signaled an error: \"" shape=ellipse]
+54 [label="execute#?#18:toString()" shape=ellipse]
+55 [label="execute#?#25:(-1)" shape=ellipse]
+56 [label="execute#?#23:\{
+    String output = bos.toString();
+    if (output.indexOf(\"error:\") > (-1)) \{
+        throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+    \}
+\}" shape=ellipse]
+57 [label="execute#?#25:if (output.indexOf(\"error:\") > (-1)) \{
+    throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+\}" shape=ellipse]
+58 [label="execute#?#-1:PlaceHold" shape=ellipse]
+59 [label="execute#?#-1:" shape=ellipse]
+60 [label="execute#?#25:\{
+    throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+\}" shape=ellipse]
+61 [label="execute#?#18:target" shape=ellipse]
+62 [label="execute#?#20:commandline.getCommandline()" shape=ellipse]
+63 [label="execute#?#30:MSG_VERBOSE" shape=ellipse]
+64 [label="execute#?#25:\"error:\"" shape=ellipse]
+65 [label="execute#?#21:Execute" shape=ellipse]
+66 [label="execute#?#19:log(<unknown>,<unknown>)" shape=ellipse]
+67 [label="execute#?#17:populateAttributes()" shape=ellipse]
+68 [label="execute#?#-1:int" shape=ellipse]
+69 [label="execute#?#22:getLocation()" shape=ellipse]
+70 [label="execute#?#25:output.indexOf(\"error:\") > (-1)" shape=ellipse]
+71 [label="execute#?#19:commandline.describeCommand()" shape=ellipse]
+72 [label="execute#?#22:getLocation()" shape=ellipse]
+73 [label="execute#?#9:if (targetIsOutOfDate) \{
+    log(((\"Compiling \" + target) + \" as it is newer than \") + generatedFile, MSG_VERBOSE);
+\} else if (superGrammarIsOutOfDate) \{
+    log(((((\"Compiling \" + target) + \" as \") + superGrammar) + \" is newer than \") + generatedFile, MSG_VERBOSE);
+\}" shape=ellipse]
+74 [label="execute#?#-1:" shape=ellipse]
+75 [label="execute#?#26:getLocation()" shape=ellipse]
+76 [label="execute#?#-1:String" shape=ellipse]
+77 [label="execute#?#8:superGrammarIsOutOfDate" shape=ellipse]
+78 [label="execute#?#18:target.toString()" shape=ellipse]
+79 [label="execute#?#30:\"is newer.\"" shape=ellipse]
+80 [label="execute#?#22:throw new BuildException(\"ANTLR returned: \" + err, getLocation())" shape=ellipse]
+81 [label="execute#?#26:new BuildException(\"ANTLR signaled an error: \" + output, getLocation())" shape=ellipse]
+82 [label="execute#?#-1:" shape=ellipse]
+83 [label="execute#?#17:populateAttributes()" shape=ellipse]
+84 [label="execute#?#20:run(<unknown>)" shape=ellipse]
+85 [label="execute#?#-1:" shape=ellipse]
+86 [label="execute#?#-1:boolean" shape=ellipse]
+87 [label="execute#?#18:commandline.createArgument().setValue(target.toString())" shape=ellipse]
+88 [label="execute#?#-1:PlaceHold" shape=ellipse]
+89 [label="execute#?#20:getCommandline()" shape=ellipse]
+90 [label="execute#?#21:if (Execute.isFailure(err)) \{
+    throw new BuildException(\"ANTLR returned: \" + err, getLocation());
+\} else \{
+    String output = bos.toString();
+    if (output.indexOf(\"error:\") > (-1)) \{
+        throw new BuildException(\"ANTLR signaled an error: \" + output, getLocation());
+    \}
+\}" shape=ellipse]
+91 [label="execute#?#24:String output = bos.toString()" shape=ellipse]
+92 [label="execute#?#22:new BuildException(\"ANTLR returned: \" + err, getLocation())" shape=ellipse]
+93 [label="execute#?#-1:PlaceHold" shape=ellipse]
+94 [label="execute#?#22:err" shape=ellipse]
+95 [label="execute#?#-1:String" shape=ellipse]
+96 [label="execute#?#30:log((\"Skipped grammar file. Generated file \" + generatedFile) + \"is newer.\", MSG_VERBOSE)" shape=ellipse]
+97 [label="execute#?#20:int err = run(commandline.getCommandline())" shape=ellipse]
+98 [label="execute#?#-1:boolean" shape=ellipse]
+99 [label="execute#?#-1:PlaceHold" shape=ellipse]
+100 [label="execute#?#20:run(commandline.getCommandline())" shape=ellipse]
+101 [label="execute#?#25:1" shape=ellipse]
+102 [label="execute#?#24:bos.toString()" shape=ellipse]
+103 [label="execute#?#21:\{
+    throw new BuildException(\"ANTLR returned: \" + err, getLocation());
+\}" shape=ellipse]
+104 [label="execute#?#-1:" shape=ellipse]
+105 [label="execute#?#21:isFailure(int)" shape=ellipse]
+106 [label="execute#?#30:\"Skipped grammar file. Generated file \"" shape=ellipse]
+107 [label="execute#?#19:describeCommand()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="AST:1"];
+1 -> 12 [label="AST:1"];
+1 -> 15 [label="AST:1"];
+1 -> 21 [label="Control Dep:1"];
+1 -> 25 [label="Control Dep:1"];
+1 -> 26 [label="AST:1"];
+1 -> 27 [label="Control Dep:1"];
+1 -> 30 [label="Control Dep:1"];
+1 -> 32 [label="Control Dep:1"];
+1 -> 41 [label="Control Dep:1"];
+1 -> 46 [label="Control Dep:1"];
+1 -> 50 [label="Control Dep:1"];
+1 -> 52 [label="Control Dep:1"];
+1 -> 55 [label="Control Dep:1"];
+1 -> 56 [label="Control Dep:1"];
+1 -> 57 [label="Control Dep:1"];
+1 -> 64 [label="Control Dep:1"];
+1 -> 65 [label="AST:1"];
+1 -> 69 [label="Control Dep:1"];
+1 -> 70 [label="Control Dep:1"];
+1 -> 72 [label="Control Dep:1"];
+1 -> 80 [label="Control Dep:1"];
+1 -> 91 [label="Control Dep:1"];
+1 -> 92 [label="Control Dep:1"];
+1 -> 94 [label="Control Dep:1"];
+1 -> 101 [label="Control Dep:1"];
+1 -> 102 [label="Control Dep:1"];
+1 -> 103 [label="Control Dep:1"];
+1 -> 104 [label="Control Dep:1"];
+1 -> 105 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="Control Dep:2"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Action:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 31 [label="Control Dep:1"];
+2 -> 34 [label="Control Dep:1"];
+2 -> 35 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:1"];
+2 -> 40 [label="Control Dep:1"];
+2 -> 42 [label="Control Dep:1"];
+2 -> 45 [label="Control Dep:1"];
+2 -> 47 [label="Control Dep:1"];
+2 -> 48 [label="Control Dep:1"];
+2 -> 49 [label="Control Dep:1"];
+2 -> 54 [label="Control Dep:1"];
+2 -> 58 [label="Control Dep:1"];
+2 -> 59 [label="Control Dep:1"];
+2 -> 61 [label="Control Dep:1"];
+2 -> 62 [label="Control Dep:1"];
+2 -> 63 [label="Control Dep:1"];
+2 -> 65 [label="Control Dep:1"];
+2 -> 66 [label="Control Dep:1"];
+2 -> 67 [label="Control Dep:1"];
+2 -> 71 [label="Control Dep:1"];
+2 -> 73 [label="Control Dep:1"];
+2 -> 74 [label="Control Dep:1"];
+2 -> 77 [label="AST:1"];
+2 -> 78 [label="Control Dep:1"];
+2 -> 79 [label="Control Dep:1"];
+2 -> 82 [label="Control Dep:1"];
+2 -> 83 [label="Control Dep:1"];
+2 -> 84 [label="Control Dep:1"];
+2 -> 86 [label="AST:1"];
+2 -> 87 [label="Control Dep:1"];
+2 -> 88 [label="Control Dep:1"];
+2 -> 89 [label="Control Dep:1"];
+2 -> 90 [label="Control Dep:1"];
+2 -> 93 [label="Control Dep:1"];
+2 -> 96 [label="Control Dep:1"];
+2 -> 97 [label="Control Dep:1"];
+2 -> 99 [label="Control Dep:1"];
+2 -> 100 [label="Control Dep:1"];
+2 -> 105 [label="Control Dep:1"];
+2 -> 106 [label="Control Dep:1"];
+2 -> 107 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 5 [label="AST:2"];
+3 -> 37 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+5 -> 96 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+15 -> 18 [label="Action:1"];
+16 -> 15 [label="Define Use:1"];
+19 -> 82 [label="AST:1"];
+19 -> 66 [label="AST:1"];
+19 -> 71 [label="AST:1"];
+19 -> 47 [label="AST:1"];
+20 -> 52 [label="Define Use:1"];
+20 -> 17 [label="Define Use:1"];
+22 -> 53 [label="AST:1"];
+22 -> 17 [label="AST:1"];
+24 -> 106 [label="AST:1"];
+24 -> 49 [label="AST:1"];
+25 -> 76 [label="AST:1"];
+27 -> 25 [label="AST:1"];
+27 -> 94 [label="AST:1"];
+30 -> 52 [label="AST:1"];
+30 -> 41 [label="AST:1"];
+30 -> 64 [label="AST:1"];
+32 -> 20 [label="Data Dep:1"];
+35 -> 38 [label="Data Dep:1"];
+36 -> 7 [label="AST:1"];
+36 -> 48 [label="AST:1"];
+37 -> 19 [label="AST:1"];
+37 -> 73 [label="AST:1"];
+37 -> 67 [label="AST:1"];
+37 -> 87 [label="AST:1"];
+37 -> 97 [label="AST:1"];
+37 -> 90 [label="AST:1"];
+38 -> 26 [label="Define Use:1"];
+38 -> 94 [label="Define Use:1"];
+40 -> 99 [label="AST:1"];
+41 -> 44 [label="AST:1"];
+41 -> 14 [label="AST:1"];
+41 -> 95 [label="AST:1"];
+45 -> 24 [label="AST:1"];
+45 -> 79 [label="AST:1"];
+51 -> 81 [label="AST:1"];
+52 -> 39 [label="AST:1"];
+55 -> 101 [label="AST:1"];
+56 -> 91 [label="AST:1"];
+56 -> 57 [label="AST:1"];
+57 -> 70 [label="AST:1"];
+57 -> 60 [label="AST:1"];
+59 -> 93 [label="AST:1"];
+60 -> 51 [label="AST:1"];
+62 -> 35 [label="AST:1"];
+62 -> 89 [label="AST:1"];
+64 -> 28 [label="AST:1"];
+67 -> 40 [label="AST:1"];
+67 -> 83 [label="AST:1"];
+69 -> 104 [label="AST:1"];
+69 -> 72 [label="AST:1"];
+70 -> 22 [label="Control Dep:1"];
+70 -> 23 [label="Control Dep:1"];
+70 -> 30 [label="AST:1"];
+70 -> 51 [label="Control Dep:1"];
+70 -> 53 [label="Control Dep:1"];
+70 -> 55 [label="AST:1"];
+70 -> 60 [label="Control Dep:1"];
+70 -> 98 [label="AST:1"];
+70 -> 81 [label="Control Dep:1"];
+70 -> 11 [label="Control Dep:1"];
+70 -> 17 [label="Control Dep:1"];
+70 -> 75 [label="Control Dep:1"];
+70 -> 13 [label="Control Dep:1"];
+70 -> 85 [label="Control Dep:1"];
+71 -> 42 [label="AST:1"];
+71 -> 107 [label="AST:1"];
+73 -> 29 [label="AST:1"];
+74 -> 38 [label="Data Dep:1"];
+74 -> 88 [label="AST:1"];
+75 -> 85 [label="AST:1"];
+75 -> 13 [label="AST:1"];
+78 -> 54 [label="AST:1"];
+78 -> 61 [label="AST:1"];
+80 -> 92 [label="AST:1"];
+81 -> 22 [label="AST:1"];
+81 -> 75 [label="AST:1"];
+81 -> 11 [label="AST:1"];
+82 -> 58 [label="AST:1"];
+85 -> 23 [label="AST:1"];
+87 -> 31 [label="AST:1"];
+87 -> 36 [label="AST:1"];
+87 -> 78 [label="AST:1"];
+90 -> 56 [label="AST:1"];
+90 -> 1 [label="AST:1"];
+90 -> 103 [label="AST:1"];
+91 -> 20 [label="AST:1"];
+91 -> 102 [label="AST:1"];
+92 -> 27 [label="AST:1"];
+92 -> 50 [label="AST:1"];
+92 -> 69 [label="AST:1"];
+94 -> 16 [label="AST:1"];
+96 -> 34 [label="AST:1"];
+96 -> 45 [label="AST:1"];
+96 -> 59 [label="AST:1"];
+96 -> 63 [label="AST:1"];
+97 -> 38 [label="AST:1"];
+97 -> 100 [label="AST:1"];
+100 -> 62 [label="AST:1"];
+100 -> 74 [label="AST:1"];
+100 -> 84 [label="AST:1"];
+101 -> 68 [label="AST:1"];
+102 -> 21 [label="AST:1"];
+102 -> 32 [label="AST:1"];
+102 -> 43 [label="AST:1"];
+103 -> 80 [label="AST:1"];
+104 -> 33 [label="AST:1"];
+104 -> 46 [label="AST:1"];
+}

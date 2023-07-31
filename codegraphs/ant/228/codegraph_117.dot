@@ -1,0 +1,169 @@
+digraph "setFiles#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setFiles" shape=ellipse]
+2 [label="2:CtParameterImpl@String filenames" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+6 [label="3:CtVirtualElement@isReference" shape=ellipse]
+7 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@tooManyAttributes()" shape=ellipse]
+9 [label="4:CtVirtualElement@tooManyAttributes" shape=ellipse]
+10 [label="4:CtInvocationImpl@tooManyAttributes()" shape=ellipse]
+11 [label="4:CtThrowImpl@throw tooManyAttributes()" shape=ellipse]
+12 [label="3:CtBlockImpl@\{
+    throw tooManyAttributes();
+\}" shape=ellipse]
+13 [label="3:CtIfImpl@if (isReference()) \{
+    throw tooManyAttributes();
+\}" shape=ellipse]
+14 [label="6:CtVariableReadImpl@filenames" shape=ellipse]
+15 [label="6:CtLiteralImpl@null" shape=ellipse]
+16 [label="6:CtBinaryOperatorImpl@(filenames != null)" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@length()" shape=ellipse]
+18 [label="6:CtVirtualElement@length" shape=ellipse]
+19 [label="6:CtVariableReadImpl@filenames" shape=ellipse]
+20 [label="6:CtInvocationImpl@filenames.length()" shape=ellipse]
+21 [label="6:CtLiteralImpl@0" shape=ellipse]
+22 [label="6:CtBinaryOperatorImpl@(filenames.length() > 0)" shape=ellipse]
+23 [label="6:CtBinaryOperatorImpl@(filenames != null) && (filenames.length() > 0)" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+25 [label="7:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+26 [label="7:CtVariableReadImpl@filenames" shape=ellipse]
+27 [label="7:CtLiteralImpl@\", \t\n\r\f\"" shape=ellipse]
+28 [label="7:CtLiteralImpl@false" shape=ellipse]
+29 [label="7:CtConstructorCallImpl@new StringTokenizer(filenames, \", \t\n\r\f\", false)" shape=ellipse]
+30 [label="7:CtVirtualElement@tok" shape=ellipse]
+31 [label="7:CtLocalVariableImpl@StringTokenizer tok = new StringTokenizer(filenames, \", \t\n\r\f\", false)" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@hasMoreTokens()" shape=ellipse]
+33 [label="8:CtVirtualElement@hasMoreTokens" shape=ellipse]
+34 [label="8:CtVariableReadImpl@tok" shape=ellipse]
+35 [label="8:CtInvocationImpl@tok.hasMoreTokens()" shape=ellipse]
+36 [label="9:CtExecutableReferenceImpl@addElement()" shape=ellipse]
+37 [label="9:CtVirtualElement@addElement" shape=ellipse]
+38 [label="9:CtThisAccessImpl@this" shape=ellipse]
+39 [label="9:CtFieldReadImpl@this.filenames" shape=ellipse]
+40 [label="9:CtExecutableReferenceImpl@nextToken()" shape=ellipse]
+41 [label="9:CtVirtualElement@nextToken" shape=ellipse]
+42 [label="9:CtVariableReadImpl@tok" shape=ellipse]
+43 [label="9:CtInvocationImpl@tok.nextToken()" shape=ellipse]
+44 [label="9:CtInvocationImpl@this.filenames.addElement(tok.nextToken())" shape=ellipse]
+45 [label="8:CtBlockImpl@\{
+    this.filenames.addElement(tok.nextToken());
+\}" shape=ellipse]
+46 [label="8:CtWhileImpl@while (tok.hasMoreTokens()) \{
+    this.filenames.addElement(tok.nextToken());
+\} " shape=ellipse]
+47 [label="6:CtBlockImpl@\{
+    StringTokenizer tok = new StringTokenizer(filenames, \", \t\n\r\f\", false);
+    while (tok.hasMoreTokens()) \{
+        this.filenames.addElement(tok.nextToken());
+    \} 
+\}" shape=ellipse]
+48 [label="6:CtIfImpl@if ((filenames != null) && (filenames.length() > 0)) \{
+    StringTokenizer tok = new StringTokenizer(filenames, \", \t\n\r\f\", false);
+    while (tok.hasMoreTokens()) \{
+        this.filenames.addElement(tok.nextToken());
+    \} 
+\}" shape=ellipse]
+49 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        throw tooManyAttributes();
+    \}
+    if ((filenames != null) && (filenames.length() > 0)) \{
+        StringTokenizer tok = new StringTokenizer(filenames, \", \t\n\r\f\", false);
+        while (tok.hasMoreTokens()) \{
+            this.filenames.addElement(tok.nextToken());
+        \} 
+    \}
+\}" shape=ellipse]
+50 [label="2:CtMethodImpl@public void setFiles(String filenames) throws TaskException \{
+    if (isReference()) \{
+        throw tooManyAttributes();
+    \}
+    if ((filenames != null) && (filenames.length() > 0)) \{
+        StringTokenizer tok = new StringTokenizer(filenames, \", \t\n\r\f\", false);
+        while (tok.hasMoreTokens()) \{
+            this.filenames.addElement(tok.nextToken());
+        \} 
+    \}
+\}" shape=ellipse]
+51 [label="9:Update@UPDATE" shape=ellipse]
+52 [label="9:CtInvocationImpl@this.filenames.add(tok.nextToken())" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 12 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 10 [label="Control Dep"];
+7 -> 8 [label="Control Dep"];
+10 -> 9 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 7 [label="AST"];
+13 -> 12 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 47 [label="Control Dep"];
+23 -> 31 [label="Control Dep"];
+23 -> 29 [label="Control Dep"];
+23 -> 26 [label="Control Dep"];
+23 -> 27 [label="Control Dep"];
+23 -> 28 [label="Control Dep"];
+23 -> 46 [label="Control Dep"];
+23 -> 35 [label="Control Dep"];
+23 -> 32 [label="Control Dep"];
+23 -> 34 [label="Control Dep"];
+26 -> 30 [label="Data Dep"];
+29 -> 26 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 34 [label="Define-Use"];
+30 -> 42 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 24 [label="AST"];
+31 -> 29 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 45 [label="Control Dep"];
+35 -> 44 [label="Control Dep"];
+35 -> 36 [label="Control Dep"];
+35 -> 39 [label="Control Dep"];
+35 -> 38 [label="Control Dep"];
+35 -> 43 [label="Control Dep"];
+35 -> 40 [label="Control Dep"];
+35 -> 42 [label="Control Dep"];
+39 -> 38 [label="AST"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+43 -> 40 [label="AST"];
+44 -> 37 [label="AST"];
+44 -> 39 [label="AST"];
+44 -> 36 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 51 [label="Action"];
+45 -> 44 [label="AST"];
+46 -> 35 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 31 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 23 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 13 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 1 [label="AST"];
+50 -> 0 [label="AST"];
+50 -> 2 [label="AST"];
+50 -> 4 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 52 [label="Action"];
+}

@@ -1,0 +1,57 @@
+digraph "checkParameters#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@checkParameters" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@checkParam(<unknown>)" shape=ellipse]
+4 [label="3:CtVirtualElement@checkParam" shape=ellipse]
+5 [label="3:CtFieldReadImpl@propertyfile" shape=ellipse]
+6 [label="3:CtInvocationImpl@checkParam(propertyfile)" shape=ellipse]
+7 [label="3:CtUnaryOperatorImpl@!checkParam(propertyfile)" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+9 [label="4:CtLiteralImpl@\"file token must not be null.\"" shape=ellipse]
+10 [label="4:CtFieldReadImpl@location" shape=ellipse]
+11 [label="4:CtConstructorCallImpl@new BuildException(\"file token must not be null.\", location)" shape=ellipse]
+12 [label="4:CtThrowImpl@throw new BuildException(\"file token must not be null.\", location)" shape=ellipse]
+13 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"file token must not be null.\", location);
+\}" shape=ellipse]
+14 [label="3:CtIfImpl@if (!checkParam(propertyfile)) \{
+    throw new BuildException(\"file token must not be null.\", location);
+\}" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    if (!checkParam(propertyfile)) \{
+        throw new BuildException(\"file token must not be null.\", location);
+    \}
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@private void checkParameters() throws BuildException \{
+    if (!checkParam(propertyfile)) \{
+        throw new BuildException(\"file token must not be null.\", location);
+    \}
+\}" shape=ellipse]
+17 [label="4:Delete@DELETE" shape=ellipse]
+18 [label="4:Insert@INSERT" shape=ellipse]
+19 [label="4:CtInvocationImpl@getLocation()" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 13 [label="Control Dep"];
+7 -> 12 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 9 [label="Control Dep"];
+7 -> 10 [label="Control Dep"];
+10 -> 17 [label="Action"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 18 [label="Action"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 7 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 19 [label="Action"];
+}

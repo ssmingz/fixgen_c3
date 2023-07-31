@@ -1,0 +1,109 @@
+digraph "Pattern" {
+0 [label="setUp#?#4:INSERT
+setUp#?#4:INSERT
+setUp#?#4:INSERT
+setUp#?#4:INSERT" shape=ellipse]
+1 [label="setUp#?#3:configureProject(\"src/etc/testcases/taskdefs/move.xml\")
+setUp#?#3:configureProject(\"src/etc/testcases/taskdefs/replace.xml\")
+setUp#?#3:configureProject(\"src/etc/testcases/taskdefs/java.xml\")
+setUp#?#3:configureProject(\"src/etc/testcases/taskdefs/property.xml\")" shape=ellipse]
+2 [label="setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/move.xml\");
+    project.executeTarget(\"setUp\");
+\}
+setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/replace.xml\");
+    project.executeTarget(\"setUp\");
+\}
+setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/java.xml\");
+    project.executeTarget(\"setUp\");
+    String runFatal = System.getProperty(\"junit.run.fatal.tests\");
+    if (runFatal != null) \{
+        runFatalTests = true;
+    \}
+\}
+setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/property.xml\");
+    project.executeTarget(\"setUp\");
+\}" shape=ellipse]
+3 [label="setUp#?#2:public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/move.xml\");
+    project.executeTarget(\"setUp\");
+\}
+setUp#?#2:public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/replace.xml\");
+    project.executeTarget(\"setUp\");
+\}
+setUp#?#2:public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/java.xml\");
+    project.executeTarget(\"setUp\");
+    String runFatal = System.getProperty(\"junit.run.fatal.tests\");
+    if (runFatal != null) \{
+        runFatalTests = true;
+    \}
+\}
+setUp#?#2:public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/property.xml\");
+    project.executeTarget(\"setUp\");
+\}" shape=ellipse]
+4 [label="setUp#?#4:project.executeTarget(\"setUp\")
+setUp#?#4:project.executeTarget(\"setUp\")
+setUp#?#4:project.executeTarget(\"setUp\")
+setUp#?#4:project.executeTarget(\"setUp\")" shape=ellipse]
+5 [label="setUp#?#3:configureProject
+setUp#?#3:configureProject
+setUp#?#3:configureProject
+setUp#?#3:configureProject" shape=ellipse]
+6 [label="setUp#?#-1:
+setUp#?#-1:
+setUp#?#-1:
+setUp#?#-1:" shape=ellipse]
+7 [label="setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold" shape=ellipse]
+8 [label="setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold
+setUp#?#-1:PlaceHold" shape=ellipse]
+9 [label="setUp#?#3:configureProject(java.lang.String)
+setUp#?#3:configureProject(java.lang.String)
+setUp#?#3:configureProject(java.lang.String)
+setUp#?#3:configureProject(java.lang.String)" shape=ellipse]
+10 [label="setUp#?#-1:String
+setUp#?#-1:String
+setUp#?#-1:String
+setUp#?#-1:String" shape=ellipse]
+11 [label="setUp#?#3:\"src/etc/testcases/taskdefs/move.xml\"
+setUp#?#3:\"src/etc/testcases/taskdefs/replace.xml\"
+setUp#?#3:\"src/etc/testcases/taskdefs/java.xml\"
+setUp#?#3:\"src/etc/testcases/taskdefs/property.xml\"" shape=ellipse]
+12 [label="setUp#?#-1:String
+setUp#?#-1:String
+setUp#?#-1:String
+setUp#?#-1:String" shape=ellipse]
+13 [label="setUp#?#4:buildRule
+setUp#?#4:buildRule
+setUp#?#4:buildRule
+setUp#?#4:buildRule" shape=ellipse]
+14 [label="setUp#?#6:if (runFatal != null) \{
+    runFatalTests = true;
+\}" shape=ellipse]
+15 [label="setUp#?#5:String runFatal = System.getProperty(\"junit.run.fatal.tests\")" shape=ellipse]
+0 -> 13 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 5 [label="AST:4"];
+1 -> 6 [label="AST:4"];
+1 -> 9 [label="AST:4"];
+1 -> 11 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 14 [label="AST:1"];
+2 -> 15 [label="AST:1"];
+3 -> 2 [label="AST:4"];
+6 -> 7 [label="AST:4"];
+6 -> 8 [label="AST:4"];
+9 -> 10 [label="AST:4"];
+11 -> 12 [label="AST:4"];
+}

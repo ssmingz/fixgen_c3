@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/759/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/759/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testNoDoubleSchemaLocation", "two locations for schemas", ERROR_TWO_LOCATIONS);
++    try {
++      buildRule.executeTarget("testNoDoubleSchemaLocation");
++      fail("Two locations for schemas");
++    } catch (BuildException ex) {
++      AntAssert.assertContains(ERROR_TWO_LOCATIONS, ex.getMessage());
++    }

@@ -1,0 +1,78 @@
+digraph "Pattern" {
+0 [label="testException#?#2:INSERT
+testNoDuplicateSchema#?#2:INSERT
+testNoName#?#2:INSERT" shape=ellipse]
+1 [label="testException#?#2:public void testException() \{
+    expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\");
+\}
+testNoDuplicateSchema#?#2:public void testNoDuplicateSchema() throws Exception \{
+    expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA);
+\}
+testNoName#?#2:public void testNoName() \{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+2 [label="testException#?#2:testException
+testNoDuplicateSchema#?#2:testNoDuplicateSchema
+testNoName#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="testException#?#2:void
+testNoDuplicateSchema#?#2:void
+testNoName#?#2:void" shape=ellipse]
+4 [label="testException#?#2:\{
+    expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\");
+\}
+testNoDuplicateSchema#?#2:\{
+    expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA);
+\}
+testNoName#?#2:\{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+5 [label="testException#?#3:expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\")
+testNoDuplicateSchema#?#3:expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA)
+testNoName#?#3:expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\")" shape=ellipse]
+6 [label="testException#?#2:VE: Modifiers_Method
+testNoDuplicateSchema#?#2:VE: Modifiers_Method
+testNoName#?#2:testNoName" shape=ellipse]
+7 [label="testException#?#2:public
+testNoDuplicateSchema#?#2:public
+testNoName#?#2:public" shape=ellipse]
+8 [label="testException#?#4:INSERT
+testNoDuplicateSchema#?#4:INSERT
+testNoName#?#4:INSERT" shape=ellipse]
+9 [label="testException#?#4:try \{
+    buildRule.executeTarget(\"exception\");
+    fail(\"Should have thrown an exception in the script\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"TypeError\", ex.getMessage());
+\}
+testNoDuplicateSchema#?#4:try \{
+    buildRule.executeTarget(\"testNoDuplicateSchema\");
+    fail(\"duplicate schemas with different values\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(ERROR_DUPLICATE_SCHEMA, ex.getMessage());
+\}
+testNoName#?#4:try \{
+    buildRule.executeTarget(\"noname\");
+    fail(\"Absence of name attribute not detected\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"scriptdef requires a name attribute\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testException#?#2:@Test
+testNoDuplicateSchema#?#2:@Test
+testNoName#?#2:@Test" shape=ellipse]
+11 [label="testNoDuplicateSchema#?#2:VE: ThrownTypes_testNoDuplicateSchema" shape=ellipse]
+12 [label="testNoDuplicateSchema#?#2:Exception" shape=ellipse]
+13 [label="testNoDuplicateSchema#?#-1:java.lang" shape=ellipse]
+0 -> 10 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="Action:3"];
+1 -> 11 [label="AST:1"];
+1 -> 12 [label="AST:1"];
+4 -> 5 [label="AST:3"];
+8 -> 9 [label="Action:3"];
+12 -> 13 [label="AST:1"];
+}

@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="testRunFailWithFailOnError#?#4:MOVE
+testExceptingFoe#?#4:MOVE" shape=ellipse]
+1 [label="testRunFailWithFailOnError#?#4:\"non zero return code\"
+testExceptingFoe#?#4:\"testExceptingFoe\"" shape=ellipse]
+2 [label="testRunFailWithFailOnError#?#3:expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\")
+testExceptingFoe#?#3:expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\")" shape=ellipse]
+3 [label="testRunFailWithFailOnError#?#2:\{
+    expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\");
+\}
+testExceptingFoe#?#2:\{
+    expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\");
+\}" shape=ellipse]
+4 [label="testRunFailWithFailOnError#?#3:expectBuildExceptionContaining
+testExceptingFoe#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testRunFailWithFailOnError#?#-1:
+testExceptingFoe#?#-1:" shape=ellipse]
+6 [label="testRunFailWithFailOnError#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testExceptingFoe#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testRunFailWithFailOnError#?#4:\"testRunFailWithFailOnError\"
+testExceptingFoe#?#4:\"passes exception through\"" shape=ellipse]
+8 [label="testRunFailWithFailOnError#?#4:\"Java returned:\"
+testExceptingFoe#?#4:\"Exception raised inside called program\"" shape=ellipse]
+9 [label="testRunFailWithFailOnError#?#3:DELETE
+testExceptingFoe#?#3:DELETE" shape=ellipse]
+10 [label="testRunFailWithFailOnError#?#-1:String
+testExceptingFoe#?#-1:String" shape=ellipse]
+11 [label="testRunFailWithFailOnError#?#6:\"Build exception should have been thrown - \" + \"non zero return code\"
+testExceptingFoe#?#6:\"Build exception should have been thrown - \" + \"passes exception through\"" shape=ellipse]
+12 [label="testRunFailWithFailOnError#?#4:MOVE" shape=ellipse]
+13 [label="testExceptingFoe#?#4:UPDATE" shape=ellipse]
+14 [label="testExceptingFoe#?#6:\"Build exception should have been thrown - \"" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 13 [label="Action:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+7 -> 12 [label="Action:1"];
+11 -> 14 [label="AST:1"];
+12 -> 11 [label="Action:1"];
+13 -> 14 [label="Action:1"];
+}

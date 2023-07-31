@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testAddConfigured#?#2:INSERT
+testAddConfiguredValue#?#2:INSERT" shape=ellipse]
+1 [label="testAddConfigured#?#2:public void testAddConfigured() \{
+    expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\");
+\}
+testAddConfiguredValue#?#2:public void testAddConfiguredValue() \{
+    expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\");
+\}" shape=ellipse]
+2 [label="testAddConfigured#?#2:testAddConfigured
+testAddConfiguredValue#?#2:testAddConfiguredValue" shape=ellipse]
+3 [label="testAddConfigured#?#2:void
+testAddConfiguredValue#?#2:void" shape=ellipse]
+4 [label="testAddConfigured#?#2:\{
+    expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\");
+\}
+testAddConfiguredValue#?#2:\{
+    expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\");
+\}" shape=ellipse]
+5 [label="testAddConfigured#?#3:expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\")
+testAddConfiguredValue#?#3:expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\")" shape=ellipse]
+6 [label="testAddConfigured#?#2:VE: Modifiers_Method
+testAddConfiguredValue#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testAddConfigured#?#2:public
+testAddConfiguredValue#?#2:public" shape=ellipse]
+8 [label="testAddConfigured#?#4:INSERT
+testAddConfiguredValue#?#4:INSERT" shape=ellipse]
+9 [label="testAddConfigured#?#4:buildRule.executeTarget(\"myaddconfigured\")
+testAddConfiguredValue#?#4:buildRule.executeTarget(\"myaddconfiguredvalue\")" shape=ellipse]
+10 [label="testAddConfigured#?#2:@Test
+testAddConfiguredValue#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

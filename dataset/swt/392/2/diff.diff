@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/392/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/392/2/after.java
+@@ -2,3 +2,3 @@
+-  boolean setBounds(int x, int y, int width, int height, boolean move, boolean resize) {
+-    boolean changed = super.setBounds(x, y, width, height, move, resize);
+-    if ((changed && resize) && (layout != null)) {
++  int setBounds(int x, int y, int width, int height, boolean move, boolean resize) {
++    int result = super.setBounds(x, y, width, height, move, resize);
++    if (((result & RESIZED) != 0) && (layout != null)) {
+@@ -7,1 +7,1 @@
+-    return changed;
++    return result;

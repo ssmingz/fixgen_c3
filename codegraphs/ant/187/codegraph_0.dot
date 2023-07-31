@@ -1,0 +1,54 @@
+digraph "testDuplicateTextName2#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testDuplicateTextName2" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectBuildException(java.lang.String,java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectBuildException" shape=ellipse]
+4 [label="4:CtLiteralImpl@\"duplicatetextname2\"" shape=ellipse]
+5 [label="5:CtLiteralImpl@\"the attribute name \\"text\\" has already been used by the text element\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\")" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void testDuplicateTextName2() \{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="6:CtInvocationImpl@fail(\"BuildException expected: the attribute name \\"text\\" has already been used by the text\" + \" element\")" shape=ellipse]
+11 [label="4:Update@UPDATE" shape=ellipse]
+12 [label="7:CtLiteralImpl@\"BuildException expected: the attribute name \\"text\\" has already been used by the text\"" shape=ellipse]
+13 [label="5:Update@UPDATE" shape=ellipse]
+14 [label="8:CtLiteralImpl@\" element\"" shape=ellipse]
+15 [label="2:Insert@INSERT" shape=ellipse]
+16 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+17 [label="4:Insert@INSERT" shape=ellipse]
+18 [label="4:CtTryImpl@try \{
+    buildRule.executeTarget(\"duplicatetextname2\");
+    fail(\"BuildException expected: the attribute name \\"text\\" has already been used by the text\" + \" element\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+19 [label="3:Move@MOVE" shape=ellipse]
+20 [label="4:Move@MOVE" shape=ellipse]
+21 [label="5:Move@MOVE" shape=ellipse]
+4 -> 11 [label="Action"];
+4 -> 20 [label="Action"];
+5 -> 13 [label="Action"];
+5 -> 21 [label="Action"];
+6 -> 3 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 9 [label="Action"];
+6 -> 19 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 15 [label="Action"];
+8 -> 17 [label="Action"];
+9 -> 10 [label="Action"];
+11 -> 12 [label="Action"];
+13 -> 14 [label="Action"];
+15 -> 16 [label="Action"];
+17 -> 18 [label="Action"];
+19 -> 18 [label="Action"];
+}

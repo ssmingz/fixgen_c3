@@ -1,0 +1,77 @@
+digraph "Pattern" {
+0 [label="testAntTypeTest#?#3:UPDATE
+test7#?#3:UPDATE
+testGlobal#?#3:UPDATE" shape=ellipse]
+1 [label="testAntTypeTest#?#3:expectLog(\"antTypeTest\", \"\")
+test7#?#3:expectLog(\"test7\", \"worked\")
+testGlobal#?#3:expectLog(\"testGlobal\", \"worked\")" shape=ellipse]
+2 [label="testAntTypeTest#?#2:\{
+    expectLog(\"antTypeTest\", \"\");
+\}
+test7#?#2:\{
+    expectLog(\"test7\", \"worked\");
+\}
+testGlobal#?#2:\{
+    expectLog(\"testGlobal\", \"worked\");
+\}" shape=ellipse]
+3 [label="testAntTypeTest#?#2:public void testAntTypeTest() \{
+    expectLog(\"antTypeTest\", \"\");
+\}
+test7#?#2:public void test7() \{
+    expectLog(\"test7\", \"worked\");
+\}
+testGlobal#?#2:public void testGlobal() \{
+    expectLog(\"testGlobal\", \"worked\");
+\}" shape=ellipse]
+4 [label="testAntTypeTest#?#3:expectLog
+test7#?#3:expectLog
+testGlobal#?#3:expectLog" shape=ellipse]
+5 [label="testAntTypeTest#?#-1:
+test7#?#-1:
+testGlobal#?#-1:" shape=ellipse]
+6 [label="testAntTypeTest#?#-1:PlaceHold
+test7#?#-1:PlaceHold
+testGlobal#?#-1:PlaceHold" shape=ellipse]
+7 [label="testAntTypeTest#?#-1:PlaceHold
+test7#?#-1:PlaceHold
+testGlobal#?#-1:PlaceHold" shape=ellipse]
+8 [label="testAntTypeTest#?#3:expectLog(java.lang.String,java.lang.String)
+test7#?#3:expectLog(java.lang.String,java.lang.String)
+testGlobal#?#3:expectLog(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testAntTypeTest#?#-1:String
+test7#?#-1:String
+testGlobal#?#-1:String" shape=ellipse]
+10 [label="testAntTypeTest#?#-1:String
+test7#?#-1:String
+testGlobal#?#-1:String" shape=ellipse]
+11 [label="testAntTypeTest#?#3:\"antTypeTest\"
+test7#?#3:\"test7\"
+testGlobal#?#3:\"testGlobal\"" shape=ellipse]
+12 [label="testAntTypeTest#?#-1:String
+test7#?#-1:String
+testGlobal#?#-1:String" shape=ellipse]
+13 [label="testAntTypeTest#?#3:\"\"
+test7#?#3:\"worked\"
+testGlobal#?#3:\"worked\"" shape=ellipse]
+14 [label="testAntTypeTest#?#-1:String
+test7#?#-1:String
+testGlobal#?#-1:String" shape=ellipse]
+15 [label="testAntTypeTest#?#5:assertEquals(\"\", buildRule.getLog())
+test7#?#5:assertEquals(\"worked\", buildRule.getLog())
+testGlobal#?#5:assertEquals(\"worked\", buildRule.getLog())" shape=ellipse]
+0 -> 15 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 13 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+}

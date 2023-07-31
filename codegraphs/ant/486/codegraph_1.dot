@@ -1,0 +1,138 @@
+digraph "setValue#?,Object,String,Context,Method[]" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setValue" shape=ellipse]
+2 [label="3:CtParameterImpl@final Object object" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Object" shape=ellipse]
+4 [label="3:CtParameterImpl@final String value" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtParameterImpl@final Context context" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@Context" shape=ellipse]
+8 [label="3:CtParameterImpl@final Method[] methods" shape=ellipse]
+9 [label="3:CtArrayTypeReferenceImpl@Method[]" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@ConfigurationException" shape=ellipse]
+11 [label="6:CtTypeReferenceImpl@Object" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@resolveProperty(java.lang.String,Context,boolean)" shape=ellipse]
+13 [label="6:CtVirtualElement@resolveProperty" shape=ellipse]
+14 [label="6:CtTypeAccessImpl@PropertyUtil" shape=ellipse]
+15 [label="6:CtVariableReadImpl@value" shape=ellipse]
+16 [label="6:CtVariableReadImpl@context" shape=ellipse]
+17 [label="6:CtLiteralImpl@false" shape=ellipse]
+18 [label="6:CtInvocationImpl@PropertyUtil.resolveProperty(value, context, false)" shape=ellipse]
+19 [label="6:CtVirtualElement@objectValue" shape=ellipse]
+20 [label="6:CtLocalVariableImpl@final Object objectValue = PropertyUtil.resolveProperty(value, context, false)" shape=ellipse]
+21 [label="7:CtExecutableReferenceImpl@setValue(java.lang.Object,java.lang.String,Context,Method[])" shape=ellipse]
+22 [label="7:CtVirtualElement@setValue" shape=ellipse]
+23 [label="7:CtVariableReadImpl@object" shape=ellipse]
+24 [label="7:CtVariableReadImpl@objectValue" shape=ellipse]
+25 [label="7:CtVariableReadImpl@methods" shape=ellipse]
+26 [label="7:CtVariableReadImpl@context" shape=ellipse]
+27 [label="7:CtInvocationImpl@setValue(object, objectValue, methods, context)" shape=ellipse]
+28 [label="5:CtBlockImpl@\{
+    final Object objectValue = PropertyUtil.resolveProperty(value, context, false);
+    setValue(object, objectValue, methods, context);
+\}" shape=ellipse]
+29 [label="8:CtVirtualElement@pe" shape=ellipse]
+30 [label="8:CtTypeReferenceImpl@PropertyException" shape=ellipse]
+31 [label="8:CtCatchVariableImpl@final PropertyException pe" shape=ellipse]
+32 [label="9:CtTypeReferenceImpl@ConfigurationException" shape=ellipse]
+33 [label="9:CtLiteralImpl@\"Error resolving property \"" shape=ellipse]
+34 [label="9:CtVariableReadImpl@value" shape=ellipse]
+35 [label="9:CtBinaryOperatorImpl@\"Error resolving property \" + value" shape=ellipse]
+36 [label="9:CtVariableReadImpl@pe" shape=ellipse]
+37 [label="9:CtConstructorCallImpl@new ConfigurationException(\"Error resolving property \" + value, pe)" shape=ellipse]
+38 [label="9:CtThrowImpl@throw new ConfigurationException(\"Error resolving property \" + value, pe)" shape=ellipse]
+39 [label="8:CtBlockImpl@\{
+    throw new ConfigurationException(\"Error resolving property \" + value, pe);
+\}" shape=ellipse]
+40 [label="8:CtCatchImpl@ catch (final PropertyException pe) \{
+    throw new ConfigurationException(\"Error resolving property \" + value, pe);
+\}" shape=ellipse]
+41 [label="5:CtTryImpl@try \{
+    final Object objectValue = PropertyUtil.resolveProperty(value, context, false);
+    setValue(object, objectValue, methods, context);
+\} catch (final PropertyException pe) \{
+    throw new ConfigurationException(\"Error resolving property \" + value, pe);
+\}" shape=ellipse]
+42 [label="4:CtBlockImpl@\{
+    try \{
+        final Object objectValue = PropertyUtil.resolveProperty(value, context, false);
+        setValue(object, objectValue, methods, context);
+    \} catch (final PropertyException pe) \{
+        throw new ConfigurationException(\"Error resolving property \" + value, pe);
+    \}
+\}" shape=ellipse]
+43 [label="2:CtMethodImpl@private void setValue(final Object object, final String value, final Context context, final Method[] methods) throws ConfigurationException \{
+    try \{
+        final Object objectValue = PropertyUtil.resolveProperty(value, context, false);
+        setValue(object, objectValue, methods, context);
+    \} catch (final PropertyException pe) \{
+        throw new ConfigurationException(\"Error resolving property \" + value, pe);
+    \}
+\}" shape=ellipse]
+44 [label="9:Update@UPDATE" shape=ellipse]
+45 [label="10:CtVariableReadImpl@message" shape=ellipse]
+46 [label="9:Delete@DELETE" shape=ellipse]
+47 [label="9:Insert@INSERT" shape=ellipse]
+48 [label="9:CtLocalVariableImpl@final String message = REZ.getString(\"bad-property-resolve.error\", value)" shape=ellipse]
+49 [label="9:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+15 -> 19 [label="Data Dep"];
+16 -> 19 [label="Data Dep"];
+18 -> 13 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 24 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 11 [label="AST"];
+20 -> 18 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 20 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 36 [label="Define-Use"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 39 [label="Control Dep"];
+31 -> 38 [label="Control Dep"];
+31 -> 37 [label="Control Dep"];
+31 -> 35 [label="Control Dep"];
+31 -> 33 [label="Control Dep"];
+31 -> 34 [label="Control Dep"];
+31 -> 36 [label="Control Dep"];
+34 -> 44 [label="Action"];
+34 -> 49 [label="Action"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 46 [label="Action"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 31 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 47 [label="Action"];
+41 -> 28 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 1 [label="AST"];
+43 -> 0 [label="AST"];
+43 -> 2 [label="AST"];
+43 -> 4 [label="AST"];
+43 -> 6 [label="AST"];
+43 -> 8 [label="AST"];
+43 -> 10 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 45 [label="Action"];
+47 -> 48 [label="Action"];
+49 -> 37 [label="Action"];
+}

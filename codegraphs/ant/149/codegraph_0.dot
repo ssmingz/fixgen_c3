@@ -1,0 +1,300 @@
+digraph "run#?,CommandlineJava" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@run" shape=ellipse]
+2 [label="2:CtParameterImpl@CommandlineJava command" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@CommandlineJava" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@ExecuteJava" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@ExecuteJava" shape=ellipse]
+7 [label="3:CtConstructorCallImpl@new ExecuteJava()" shape=ellipse]
+8 [label="3:CtVirtualElement@exe" shape=ellipse]
+9 [label="3:CtLocalVariableImpl@ExecuteJava exe = new ExecuteJava()" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@setJavaCommand()" shape=ellipse]
+11 [label="4:CtVirtualElement@setJavaCommand" shape=ellipse]
+12 [label="4:CtVariableReadImpl@exe" shape=ellipse]
+13 [label="4:CtExecutableReferenceImpl@getJavaCommand()" shape=ellipse]
+14 [label="4:CtVirtualElement@getJavaCommand" shape=ellipse]
+15 [label="4:CtVariableReadImpl@command" shape=ellipse]
+16 [label="4:CtInvocationImpl@command.getJavaCommand()" shape=ellipse]
+17 [label="4:CtInvocationImpl@exe.setJavaCommand(command.getJavaCommand())" shape=ellipse]
+18 [label="5:CtExecutableReferenceImpl@setClasspath()" shape=ellipse]
+19 [label="5:CtVirtualElement@setClasspath" shape=ellipse]
+20 [label="5:CtVariableReadImpl@exe" shape=ellipse]
+21 [label="5:CtExecutableReferenceImpl@getClasspath()" shape=ellipse]
+22 [label="5:CtVirtualElement@getClasspath" shape=ellipse]
+23 [label="5:CtVariableReadImpl@command" shape=ellipse]
+24 [label="5:CtInvocationImpl@command.getClasspath()" shape=ellipse]
+25 [label="5:CtInvocationImpl@exe.setClasspath(command.getClasspath())" shape=ellipse]
+26 [label="6:CtExecutableReferenceImpl@setSystemProperties()" shape=ellipse]
+27 [label="6:CtVirtualElement@setSystemProperties" shape=ellipse]
+28 [label="6:CtVariableReadImpl@exe" shape=ellipse]
+29 [label="6:CtExecutableReferenceImpl@getSystemProperties()" shape=ellipse]
+30 [label="6:CtVirtualElement@getSystemProperties" shape=ellipse]
+31 [label="6:CtVariableReadImpl@command" shape=ellipse]
+32 [label="6:CtInvocationImpl@command.getSystemProperties()" shape=ellipse]
+33 [label="6:CtInvocationImpl@exe.setSystemProperties(command.getSystemProperties())" shape=ellipse]
+34 [label="7:CtFieldReadImpl@out" shape=ellipse]
+35 [label="7:CtLiteralImpl@null" shape=ellipse]
+36 [label="7:CtBinaryOperatorImpl@out != null" shape=ellipse]
+37 [label="9:CtFieldWriteImpl@outStream" shape=ellipse]
+38 [label="9:CtTypeReferenceImpl@PrintStream" shape=ellipse]
+39 [label="9:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+40 [label="9:CtFieldReadImpl@out" shape=ellipse]
+41 [label="9:CtConstructorCallImpl@new FileOutputStream(out)" shape=ellipse]
+42 [label="9:CtConstructorCallImpl@new PrintStream(new FileOutputStream(out))" shape=ellipse]
+43 [label="9:CtAssignmentImpl@outStream = new PrintStream(new FileOutputStream(out))" shape=ellipse]
+44 [label="10:CtExecutableReferenceImpl@execute()" shape=ellipse]
+45 [label="10:CtVirtualElement@execute" shape=ellipse]
+46 [label="10:CtVariableReadImpl@exe" shape=ellipse]
+47 [label="10:CtFieldReadImpl@project" shape=ellipse]
+48 [label="10:CtInvocationImpl@exe.execute(project)" shape=ellipse]
+49 [label="8:CtBlockImpl@\{
+    outStream = new PrintStream(new FileOutputStream(out));
+    exe.execute(project);
+\}" shape=ellipse]
+50 [label="11:CtVirtualElement@io" shape=ellipse]
+51 [label="11:CtTypeReferenceImpl@IOException" shape=ellipse]
+52 [label="11:CtCatchVariableImpl@IOException io" shape=ellipse]
+53 [label="12:CtTypeReferenceImpl@BuildException" shape=ellipse]
+54 [label="12:CtVariableReadImpl@io" shape=ellipse]
+55 [label="12:CtFieldReadImpl@location" shape=ellipse]
+56 [label="12:CtConstructorCallImpl@new BuildException(io, location)" shape=ellipse]
+57 [label="12:CtThrowImpl@throw new BuildException(io, location)" shape=ellipse]
+58 [label="11:CtBlockImpl@\{
+    throw new BuildException(io, location);
+\}" shape=ellipse]
+59 [label="11:CtCatchImpl@ catch (IOException io) \{
+    throw new BuildException(io, location);
+\}" shape=ellipse]
+60 [label="14:CtFieldReadImpl@outStream" shape=ellipse]
+61 [label="14:CtLiteralImpl@null" shape=ellipse]
+62 [label="14:CtBinaryOperatorImpl@outStream != null" shape=ellipse]
+63 [label="15:CtExecutableReferenceImpl@close()" shape=ellipse]
+64 [label="15:CtVirtualElement@close" shape=ellipse]
+65 [label="15:CtFieldReadImpl@outStream" shape=ellipse]
+66 [label="15:CtInvocationImpl@outStream.close()" shape=ellipse]
+67 [label="14:CtBlockImpl@\{
+    outStream.close();
+\}" shape=ellipse]
+68 [label="14:CtIfImpl@if (outStream != null) \{
+    outStream.close();
+\}" shape=ellipse]
+69 [label="13:CtBlockImpl@\{
+    if (outStream != null) \{
+        outStream.close();
+    \}
+\}" shape=ellipse]
+70 [label="8:CtTryImpl@try \{
+    outStream = new PrintStream(new FileOutputStream(out));
+    exe.execute(project);
+\} catch (IOException io) \{
+    throw new BuildException(io, location);
+\} finally \{
+    if (outStream != null) \{
+        outStream.close();
+    \}
+\}" shape=ellipse]
+71 [label="7:CtBlockImpl@\{
+    try \{
+        outStream = new PrintStream(new FileOutputStream(out));
+        exe.execute(project);
+    \} catch (IOException io) \{
+        throw new BuildException(io, location);
+    \} finally \{
+        if (outStream != null) \{
+            outStream.close();
+        \}
+    \}
+\}" shape=ellipse]
+72 [label="19:CtExecutableReferenceImpl@execute()" shape=ellipse]
+73 [label="19:CtVirtualElement@execute" shape=ellipse]
+74 [label="19:CtVariableReadImpl@exe" shape=ellipse]
+75 [label="19:CtFieldReadImpl@project" shape=ellipse]
+76 [label="19:CtInvocationImpl@exe.execute(project)" shape=ellipse]
+77 [label="18:CtBlockImpl@\{
+    exe.execute(project);
+\}" shape=ellipse]
+78 [label="7:CtIfImpl@if (out != null) \{
+    try \{
+        outStream = new PrintStream(new FileOutputStream(out));
+        exe.execute(project);
+    \} catch (IOException io) \{
+        throw new BuildException(io, location);
+    \} finally \{
+        if (outStream != null) \{
+            outStream.close();
+        \}
+    \}
+\} else \{
+    exe.execute(project);
+\}" shape=ellipse]
+79 [label="2:CtBlockImpl@\{
+    ExecuteJava exe = new ExecuteJava();
+    exe.setJavaCommand(command.getJavaCommand());
+    exe.setClasspath(command.getClasspath());
+    exe.setSystemProperties(command.getSystemProperties());
+    if (out != null) \{
+        try \{
+            outStream = new PrintStream(new FileOutputStream(out));
+            exe.execute(project);
+        \} catch (IOException io) \{
+            throw new BuildException(io, location);
+        \} finally \{
+            if (outStream != null) \{
+                outStream.close();
+            \}
+        \}
+    \} else \{
+        exe.execute(project);
+    \}
+\}" shape=ellipse]
+80 [label="2:CtMethodImpl@private void run(CommandlineJava command) throws BuildException \{
+    ExecuteJava exe = new ExecuteJava();
+    exe.setJavaCommand(command.getJavaCommand());
+    exe.setClasspath(command.getClasspath());
+    exe.setSystemProperties(command.getSystemProperties());
+    if (out != null) \{
+        try \{
+            outStream = new PrintStream(new FileOutputStream(out));
+            exe.execute(project);
+        \} catch (IOException io) \{
+            throw new BuildException(io, location);
+        \} finally \{
+            if (outStream != null) \{
+                outStream.close();
+            \}
+        \}
+    \} else \{
+        exe.execute(project);
+    \}
+\}" shape=ellipse]
+81 [label="9:Insert@INSERT" shape=ellipse]
+82 [label="9:CtInvocationImpl@out.getAbsolutePath()" shape=ellipse]
+83 [label="9:Insert@INSERT" shape=ellipse]
+84 [label="9:CtFieldReadImpl@append" shape=ellipse]
+85 [label="9:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 12 [label="Define-Use"];
+8 -> 20 [label="Define-Use"];
+8 -> 28 [label="Define-Use"];
+8 -> 46 [label="Define-Use"];
+8 -> 74 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+17 -> 11 [label="AST"];
+17 -> 12 [label="AST"];
+17 -> 10 [label="AST"];
+17 -> 16 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 21 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 18 [label="AST"];
+25 -> 24 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 29 [label="AST"];
+33 -> 27 [label="AST"];
+33 -> 28 [label="AST"];
+33 -> 26 [label="AST"];
+33 -> 32 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 71 [label="Control Dep"];
+36 -> 70 [label="Control Dep"];
+36 -> 49 [label="Control Dep"];
+36 -> 43 [label="Control Dep"];
+36 -> 37 [label="Control Dep"];
+36 -> 42 [label="Control Dep"];
+36 -> 41 [label="Control Dep"];
+36 -> 40 [label="Control Dep"];
+36 -> 48 [label="Control Dep"];
+36 -> 44 [label="Control Dep"];
+36 -> 46 [label="Control Dep"];
+36 -> 47 [label="Control Dep"];
+36 -> 59 [label="Control Dep"];
+36 -> 52 [label="Control Dep"];
+36 -> 69 [label="Control Dep"];
+36 -> 68 [label="Control Dep"];
+36 -> 62 [label="Control Dep"];
+36 -> 60 [label="Control Dep"];
+36 -> 61 [label="Control Dep"];
+36 -> 77 [label="Control Dep"];
+36 -> 76 [label="Control Dep"];
+36 -> 72 [label="Control Dep"];
+36 -> 74 [label="Control Dep"];
+36 -> 75 [label="Control Dep"];
+37 -> 60 [label="Define-Use"];
+37 -> 65 [label="Define-Use"];
+40 -> 37 [label="Data Dep"];
+40 -> 85 [label="Action"];
+41 -> 40 [label="AST"];
+41 -> 81 [label="Action"];
+41 -> 83 [label="Action"];
+42 -> 41 [label="AST"];
+43 -> 37 [label="AST"];
+43 -> 42 [label="AST"];
+48 -> 45 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 54 [label="Define-Use"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 58 [label="Control Dep"];
+52 -> 57 [label="Control Dep"];
+52 -> 56 [label="Control Dep"];
+52 -> 54 [label="Control Dep"];
+52 -> 55 [label="Control Dep"];
+56 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 52 [label="AST"];
+59 -> 58 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 67 [label="Control Dep"];
+62 -> 66 [label="Control Dep"];
+62 -> 63 [label="Control Dep"];
+62 -> 65 [label="Control Dep"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 63 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 62 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 49 [label="AST"];
+70 -> 59 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+76 -> 73 [label="AST"];
+76 -> 74 [label="AST"];
+76 -> 72 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 36 [label="AST"];
+78 -> 71 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 9 [label="AST"];
+79 -> 17 [label="AST"];
+79 -> 25 [label="AST"];
+79 -> 33 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 1 [label="AST"];
+80 -> 0 [label="AST"];
+80 -> 2 [label="AST"];
+80 -> 4 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 82 [label="Action"];
+83 -> 84 [label="Action"];
+85 -> 82 [label="Action"];
+}

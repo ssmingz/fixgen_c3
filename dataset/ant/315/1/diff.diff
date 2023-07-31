@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/315/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/315/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectSpecificBuildException(
+-        "contains-incomplete1",
+-        "Missing contains attribute",
+-        "both string and substring are required in contains");
++    try {
++      buildRule.executeTarget("contains-incomplete1");
++      fail("BuildException should have been thrown - Missing contains attribute");
++    } catch (BuildException ex) {
++      assertEquals("both string and substring are required in contains", ex.getMessage());
++    }

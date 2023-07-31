@@ -1,0 +1,105 @@
+digraph "Pattern" {
+0 [label="setupComponents#?#18:DELETE
+initialize#?#9:DELETE
+createWorkspace#?,Map#5:DELETE" shape=ellipse]
+1 [label="setupComponents#?#18:m_parameters
+initialize#?#9:m_parameters
+createWorkspace#?,Map#5:m_parameters" shape=ellipse]
+2 [label="setupComponents#?#16:iterator.hasNext()
+initialize#?#9:setupObject(projServiceManager, m_serviceManager, m_parameters)
+createWorkspace#?,Map#5:setupObject(workspace, m_workspaceServiceManager, m_parameters)" shape=ellipse]
+3 [label="setupComponents#?#16:for (Iterator iterator = m_components.iterator(); iterator.hasNext();) \{
+    final Object component = iterator.next();
+    setupObject(component, m_serviceManager, m_parameters);
+\}" shape=ellipse]
+4 [label="setupComponents#?#16:hasNext
+initialize#?#9:setupObject
+createWorkspace#?,Map#5:setupObject" shape=ellipse]
+5 [label="setupComponents#?#16:iterator
+initialize#?#9:projServiceManager
+createWorkspace#?,Map#5:workspace" shape=ellipse]
+6 [label="setupComponents#?#16:hasNext()
+initialize#?#9:setupObject(<unknown>,<unknown>,<unknown>)
+createWorkspace#?,Map#5:setupObject(<unknown>,<unknown>,<unknown>)" shape=ellipse]
+7 [label="setupComponents#?#16:\{
+    final Object component = iterator.next();
+    setupObject(component, m_serviceManager, m_parameters);
+\}" shape=ellipse]
+8 [label="setupComponents#?#17:final Object component = iterator.next()" shape=ellipse]
+9 [label="setupComponents#?#17:iterator.next()" shape=ellipse]
+10 [label="setupComponents#?#17:next()" shape=ellipse]
+11 [label="setupComponents#?#17:iterator" shape=ellipse]
+12 [label="setupComponents#?#18:setupObject(component, m_serviceManager, m_parameters)" shape=ellipse]
+13 [label="setupComponents#?#18:setupObject(java.lang.Object,<unknown>,<unknown>)" shape=ellipse]
+14 [label="setupComponents#?#-1:" shape=ellipse]
+15 [label="setupComponents#?#-1:PlaceHold" shape=ellipse]
+16 [label="setupComponents#?#18:component" shape=ellipse]
+17 [label="setupComponents#?#18:m_serviceManager" shape=ellipse]
+18 [label="setupComponents#?#-1:m_parameters
+initialize#?#-1:m_parameters
+createWorkspace#?,Map#-1:m_parameters" shape=ellipse]
+19 [label="initialize#?#2:\{
+    setupComponents();
+    m_deployer = ((Deployer) (m_serviceManager.lookup(ROLE)));
+    m_typeManager = ((TypeManager) (m_serviceManager.lookup(ROLE)));
+    final ServiceManager projServiceManager = ((ServiceManager) (createService(ServiceManager.class, PREFIX + \"service.InstantiatingServiceManager\")));
+    setupObject(projServiceManager, m_serviceManager, m_parameters);
+    m_components.add(projServiceManager);
+    m_workspaceServiceManager = new MultiSourceServiceManager();
+    m_workspaceServiceManager.add(projServiceManager);
+    m_workspaceServiceManager.add(m_serviceManager);
+\}" shape=ellipse]
+20 [label="initialize#?#9:m_serviceManager" shape=ellipse]
+21 [label="initialize#?#-1:" shape=ellipse]
+22 [label="initialize#?#9:INSERT" shape=ellipse]
+23 [label="createWorkspace#?,Map#5:INSERT" shape=ellipse]
+24 [label="createWorkspace#?,Map#-1:" shape=ellipse]
+25 [label="createWorkspace#?,Map#2:\{
+    final Workspace workspace = ((Workspace) (createService(Workspace.class, PREFIX + \"workspace.DefaultWorkspace\")));
+    setupObject(workspace, m_workspaceServiceManager, m_parameters);
+    final PropertyStore propStore = createBaseStore(properties);
+    final ExecutionFrame frame = new DefaultExecutionFrame(getLogger(), propStore, m_workspaceServiceManager);
+    ((ExecutionContainer) (workspace)).setRootExecutionFrame(frame);
+    return workspace;
+\}" shape=ellipse]
+26 [label="createWorkspace#?,Map#5:m_workspaceServiceManager" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 18 [label="AST:3"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 20 [label="AST:1"];
+2 -> 21 [label="AST:1"];
+2 -> 22 [label="Action:1"];
+2 -> 23 [label="Action:1"];
+2 -> 24 [label="AST:1"];
+2 -> 26 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 12 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+12 -> 1 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+12 -> 17 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+19 -> 2 [label="AST:1"];
+25 -> 2 [label="AST:1"];
+}

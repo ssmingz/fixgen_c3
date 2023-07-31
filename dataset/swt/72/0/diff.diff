@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/72/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/72/0/after.java
+@@ -3,11 +3,1 @@
+-    NSPoint clickPoint = new NSPoint();
+-    OS.memmove(clickPoint, arg1, sizeof);
+-    NSTableView table = ((NSTableView) (view));
+-    int row = table.rowAtPoint(clickPoint);
+-    if (!table.isRowSelected(row)) {
+-      NSIndexSet set = ((NSIndexSet) (new NSIndexSet().alloc()));
+-      set = set.initWithIndex(row);
+-      table.selectRowIndexes(set, false);
+-      set.release();
+-    }
+-    return ((state & DRAG_DETECT) != 0) && hooks(DragDetect);
++    return ((getSelectionCount() > 0) && ((state & DRAG_DETECT) != 0)) && hooks(DragDetect);

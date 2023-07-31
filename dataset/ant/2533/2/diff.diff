@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2533/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2533/2/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectSpecificBuildException(
+-        "testNested5", "it is required to fail :-)", "Only one nested condition is allowed.");
++    try {
++      buildRule.executeTarget("testNested5");
++      fail("it is required to fail :-)");
++    } catch (BuildException ex) {
++      assertEquals("Only one nested condition is allowed.", ex.getMessage());
++    }

@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/973/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/973/1/after.java
+@@ -7,1 +7,6 @@
+-    CommandlineJava cmd = ((CommandlineJava) (getCommandline().clone()));
++    CommandlineJava cmd = null;
++    try {
++      cmd = ((CommandlineJava) (getCommandline().clone()));
++    } catch (CloneNotSupportedException e) {
++      throw new BuildException("This shouldn't happen", e, getLocation());
++    }

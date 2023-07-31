@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1259/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1259/2/after.java
+@@ -12,2 +12,6 @@
+-    TreeColumn column = parent.getColumn(index);
+-    index = ((int) (outlineView.columnWithIdentifier(column.nsColumn)));
++    if (parent.columnCount == 0) {
++      index = ((parent.style & SWT.CHECK) != 0) ? 1 : 0;
++    } else {
++      TreeColumn column = parent.getColumn(index);
++      index = ((int) (outlineView.columnWithIdentifier(column.nsColumn)));
++    }

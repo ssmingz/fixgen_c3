@@ -1,0 +1,13 @@
+class PlaceHold {
+  int atkText_get_text_before_offset(
+      int atkObject, int offset, int boundary_type, int start_offset, int end_offset) {
+    if (DEBUG) {
+      System.out.println("-->atkText_get_text_before_offset");
+    }
+    AccessibleObject object = getAccessibleObject(atkObject);
+    if (object == null) {
+      return 0;
+    }
+    return object.atkText_get_text_before_offset(offset, boundary_type, start_offset, end_offset);
+  }
+}

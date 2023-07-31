@@ -1,0 +1,25 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2854/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2854/1/after.java
+@@ -10,4 +10,12 @@
+-      AccessibleTableEvent event = new AccessibleTableEvent(accessible);
+-      for (int i = 0, length = listeners.size(); i < length; i++) {
+-        AccessibleTableListener listener = ((AccessibleTableListener) (listeners.elementAt(i)));
+-        listener.getColumnCount(event);
++      int length = listeners.size();
++      if (length > 0) {
++        AccessibleTableEvent event = new AccessibleTableEvent(accessible);
++        for (int i = 0; i < length; i++) {
++          AccessibleTableListener listener = ((AccessibleTableListener) (listeners.elementAt(i)));
++          listener.getColumnCount(event);
++        }
++        int result = (event.count == 0) ? -1 : index / event.count;
++        if (DEBUG) {
++          print("---> " + result);
++        }
++        return result;
+@@ -15,5 +23,0 @@
+-      int result = (event.count == 0) ? -1 : index / event.count;
+-      if (DEBUG) {
+-        print("---> " + result);
+-      }
+-      return result;

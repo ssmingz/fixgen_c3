@@ -1,0 +1,94 @@
+digraph "Pattern" {
+0 [label="execute#?#20:INSERT
+setFile#?,File#3:INSERT" shape=ellipse]
+1 [label="execute#?#2:public void execute() \{
+    if (nestedTask == null) \{
+        throw new BuildException(\"Missing nested element\");
+    \}
+    if (name == null) \{
+        throw new BuildException(\"Name not specified\");
+    \}
+    name = ProjectHelper.genComponentName(getURI(), name);
+    ComponentHelper helper = ComponentHelper.getComponentHelper(getProject());
+    String componentName = ProjectHelper.genComponentName(nestedTask.getNamespace(), nestedTask.getTag());
+    AntTypeDefinition def = helper.getDefinition(componentName);
+    if (def == null) \{
+        throw new BuildException(\"Unable to find typedef \" + componentName);
+    \}
+    PreSetDefinition newDef = new PreSetDefinition(def, nestedTask);
+    newDef.setName(name);
+    helper.addDataTypeDefinition(newDef);
+\}
+setFile#?,File#2:public void setFile(File v) \{
+    this.file = v;
+\}" shape=ellipse]
+2 [label="execute#?#2:execute
+setFile#?,File#2:setFile" shape=ellipse]
+3 [label="execute#?#2:void
+setFile#?,File#2:void" shape=ellipse]
+4 [label="execute#?#2:\{
+    if (nestedTask == null) \{
+        throw new BuildException(\"Missing nested element\");
+    \}
+    if (name == null) \{
+        throw new BuildException(\"Name not specified\");
+    \}
+    name = ProjectHelper.genComponentName(getURI(), name);
+    ComponentHelper helper = ComponentHelper.getComponentHelper(getProject());
+    String componentName = ProjectHelper.genComponentName(nestedTask.getNamespace(), nestedTask.getTag());
+    AntTypeDefinition def = helper.getDefinition(componentName);
+    if (def == null) \{
+        throw new BuildException(\"Unable to find typedef \" + componentName);
+    \}
+    PreSetDefinition newDef = new PreSetDefinition(def, nestedTask);
+    newDef.setName(name);
+    helper.addDataTypeDefinition(newDef);
+\}
+setFile#?,File#2:\{
+    this.file = v;
+\}" shape=ellipse]
+5 [label="execute#?#3:if (nestedTask == null) \{
+    throw new BuildException(\"Missing nested element\");
+\}
+setFile#?,File#3:this.file = v" shape=ellipse]
+6 [label="execute#?#6:if (name == null) \{
+    throw new BuildException(\"Name not specified\");
+\}" shape=ellipse]
+7 [label="execute#?#9:name = ProjectHelper.genComponentName(getURI(), name)" shape=ellipse]
+8 [label="execute#?#10:ComponentHelper helper = ComponentHelper.getComponentHelper(getProject())" shape=ellipse]
+9 [label="execute#?#11:String componentName = ProjectHelper.genComponentName(nestedTask.getNamespace(), nestedTask.getTag())" shape=ellipse]
+10 [label="execute#?#13:AntTypeDefinition def = helper.getDefinition(componentName)" shape=ellipse]
+11 [label="execute#?#14:if (def == null) \{
+    throw new BuildException(\"Unable to find typedef \" + componentName);
+\}" shape=ellipse]
+12 [label="execute#?#17:PreSetDefinition newDef = new PreSetDefinition(def, nestedTask)" shape=ellipse]
+13 [label="execute#?#18:newDef.setName(name)" shape=ellipse]
+14 [label="execute#?#19:helper.addDataTypeDefinition(newDef)" shape=ellipse]
+15 [label="execute#?#2:public
+setFile#?,File#2:public" shape=ellipse]
+16 [label="execute#?#2:VE: Modifiers_Method
+setFile#?,File#2:VE: Modifiers_Method" shape=ellipse]
+17 [label="execute#?#20:log(\"defining preset \" + name, MSG_VERBOSE)
+setFile#?,File#3:log(\"working file \" + v, MSG_VERBOSE)" shape=ellipse]
+18 [label="setFile#?,File#2:File v" shape=ellipse]
+19 [label="setFile#?,File#2:File" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 18 [label="AST:1"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:1"];
+4 -> 7 [label="AST:1"];
+4 -> 8 [label="AST:1"];
+4 -> 9 [label="AST:1"];
+4 -> 10 [label="AST:1"];
+4 -> 11 [label="AST:1"];
+4 -> 12 [label="AST:1"];
+4 -> 13 [label="AST:1"];
+4 -> 14 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+}

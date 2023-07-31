@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/709/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/709/1/after.java
+@@ -12,1 +12,3 @@
+-    sendMouseEvent(MouseExit, 0, hwnd, WM_MOUSELEAVE, wParam, lParam);
++    if (!sendMouseEvent(MouseExit, 0, hwnd, WM_MOUSELEAVE, wParam, lParam)) {
++      return LRESULT.ZERO;
++    }

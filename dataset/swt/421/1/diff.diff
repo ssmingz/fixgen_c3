@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/421/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/421/1/after.java
+@@ -3,1 +3,6 @@
+-    int index = OS.GetWindowLong(hwnd, GWL_USERDATA) - 1;
++    int index;
++    if (USE_PROPERTY) {
++      index = OS.GetProp(hwnd, SWT_OBJECT_INDEX) - 1;
++    } else {
++      index = OS.GetWindowLong(hwnd, GWL_USERDATA) - 1;
++    }

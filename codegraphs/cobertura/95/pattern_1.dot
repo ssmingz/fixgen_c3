@@ -1,0 +1,39 @@
+digraph "Pattern" {
+0 [label="main#?,String[]#34:UPDATE
+main#?,String[]#32:UPDATE" shape=ellipse]
+1 [label="main#?,String[]#34:args
+main#?,String[]#32:args" shape=ellipse]
+2 [label="main#?,String[]#14:hasCommandsFile
+main#?,String[]#12:hasCommandsFile" shape=ellipse]
+3 [label="main#?,String[]#34:arglist
+main#?,String[]#32:arglist" shape=ellipse]
+4 [label="main#?,String[]#34:args = ((String[]) (arglist.toArray(new String[arglist.size()])))
+main#?,String[]#32:args = ((String[]) (arglist.toArray(new String[arglist.size()])))" shape=ellipse]
+5 [label="main#?,String[]#34:arglist
+main#?,String[]#32:arglist" shape=ellipse]
+6 [label="main#?,String[]#6:args
+main#?,String[]#4:args" shape=ellipse]
+7 [label="main#?,String[]#6:String[]
+main#?,String[]#4:String[]" shape=ellipse]
+8 [label="main#?,String[]#6:String
+main#?,String[]#4:String" shape=ellipse]
+9 [label="main#?,String[]#6:java.lang
+main#?,String[]#4:java.lang" shape=ellipse]
+10 [label="main#?,String[]#34:args
+main#?,String[]#32:args" shape=ellipse]
+11 [label="main#?,String[]#36:args
+main#?,String[]#34:args" shape=ellipse]
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Define Use:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="Control Dep:2"];
+2 -> 3 [label="Control Dep:2"];
+3 -> 1 [label="Data Dep:2"];
+4 -> 1 [label="AST:2"];
+5 -> 0 [label="Action:2"];
+5 -> 1 [label="Data Dep:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="Define Use:2"];
+}

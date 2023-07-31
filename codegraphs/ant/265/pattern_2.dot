@@ -1,0 +1,256 @@
+digraph "Pattern" {
+0 [label="collectProjectHelpers#?#11:INSERT
+collectArgumentProcessors#?#9:INSERT
+parse#?,Project,Object,RootHandler#54:INSERT" shape=ellipse]
+1 [label="collectProjectHelpers#?#9:while (resources.hasMoreElements()) \{
+    URL resource = resources.nextElement();
+    projectHelper = getProjectHelperByService(resource.openStream());
+    registerProjectHelper(projectHelper);
+\} 
+collectArgumentProcessors#?#7:while (resources.hasMoreElements()) \{
+    URL resource = resources.nextElement();
+    ArgumentProcessor processor = getProcessorByService(resource.openStream());
+    registerArgumentProcessor(processor);
+\} " shape=ellipse]
+2 [label="collectProjectHelpers#?#7:classLoader != null
+collectArgumentProcessors#?#5:classLoader != null
+parse#?,Project,Object,RootHandler#44:buildFile != null" shape=ellipse]
+3 [label="collectProjectHelpers#?#7:if (classLoader != null) \{
+    Enumeration<URL> resources = classLoader.getResources(SERVICE_ID);
+    while (resources.hasMoreElements()) \{
+        URL resource = resources.nextElement();
+        projectHelper = getProjectHelperByService(resource.openStream());
+        registerProjectHelper(projectHelper);
+    \} 
+\}
+collectArgumentProcessors#?#5:if (classLoader != null) \{
+    Enumeration<URL> resources = classLoader.getResources(SERVICE_ID);
+    while (resources.hasMoreElements()) \{
+        URL resource = resources.nextElement();
+        ArgumentProcessor processor = getProcessorByService(resource.openStream());
+        registerArgumentProcessor(processor);
+    \} 
+\}" shape=ellipse]
+4 [label="collectProjectHelpers#?#-1:boolean
+collectArgumentProcessors#?#-1:boolean" shape=ellipse]
+5 [label="collectProjectHelpers#?#7:classLoader
+collectArgumentProcessors#?#5:classLoader" shape=ellipse]
+6 [label="collectProjectHelpers#?#7:null
+collectArgumentProcessors#?#5:null" shape=ellipse]
+7 [label="collectProjectHelpers#?#7:\{
+    Enumeration<URL> resources = classLoader.getResources(SERVICE_ID);
+    while (resources.hasMoreElements()) \{
+        URL resource = resources.nextElement();
+        projectHelper = getProjectHelperByService(resource.openStream());
+        registerProjectHelper(projectHelper);
+    \} 
+\}
+collectArgumentProcessors#?#5:\{
+    Enumeration<URL> resources = classLoader.getResources(SERVICE_ID);
+    while (resources.hasMoreElements()) \{
+        URL resource = resources.nextElement();
+        ArgumentProcessor processor = getProcessorByService(resource.openStream());
+        registerArgumentProcessor(processor);
+    \} 
+\}" shape=ellipse]
+8 [label="collectProjectHelpers#?#8:Enumeration<URL> resources = classLoader.getResources(SERVICE_ID)
+collectArgumentProcessors#?#6:Enumeration<URL> resources = classLoader.getResources(SERVICE_ID)
+parse#?,Project,Object,RootHandler#50:if (uri.startsWith(\"jar:file\") && ((pling = uri.indexOf(\"!/\")) > (-1))) \{
+    zf = new ZipFile(Locator.fromJarURI(uri), \"UTF-8\");
+    inputStream = zf.getInputStream(zf.getEntry(uri.substring(pling + 1)));
+\} else \{
+    inputStream = url.openStream();
+\}" shape=ellipse]
+9 [label="collectProjectHelpers#?#8:classLoader.getResources(SERVICE_ID)
+collectArgumentProcessors#?#6:classLoader.getResources(SERVICE_ID)" shape=ellipse]
+10 [label="collectProjectHelpers#?#8:getResources(java.lang.String)
+collectArgumentProcessors#?#6:getResources(java.lang.String)" shape=ellipse]
+11 [label="collectProjectHelpers#?#8:classLoader
+collectArgumentProcessors#?#6:classLoader" shape=ellipse]
+12 [label="collectProjectHelpers#?#8:SERVICE_ID
+collectArgumentProcessors#?#6:SERVICE_ID" shape=ellipse]
+13 [label="collectProjectHelpers#?#9:resources.hasMoreElements()
+collectArgumentProcessors#?#7:resources.hasMoreElements()
+parse#?,Project,Object,RootHandler#50:uri.startsWith(\"jar:file\")" shape=ellipse]
+14 [label="collectProjectHelpers#?#9:hasMoreElements()
+collectArgumentProcessors#?#7:hasMoreElements()" shape=ellipse]
+15 [label="collectProjectHelpers#?#9:resources
+collectArgumentProcessors#?#7:resources" shape=ellipse]
+16 [label="collectProjectHelpers#?#9:\{
+    URL resource = resources.nextElement();
+    projectHelper = getProjectHelperByService(resource.openStream());
+    registerProjectHelper(projectHelper);
+\}
+collectArgumentProcessors#?#7:\{
+    URL resource = resources.nextElement();
+    ArgumentProcessor processor = getProcessorByService(resource.openStream());
+    registerArgumentProcessor(processor);
+\}" shape=ellipse]
+17 [label="collectProjectHelpers#?#10:URL resource = resources.nextElement()
+collectArgumentProcessors#?#8:URL resource = resources.nextElement()" shape=ellipse]
+18 [label="collectProjectHelpers#?#11:projectHelper = getProjectHelperByService(resource.openStream())
+collectArgumentProcessors#?#9:ArgumentProcessor processor = getProcessorByService(resource.openStream())" shape=ellipse]
+19 [label="collectProjectHelpers#?#12:registerProjectHelper(projectHelper)
+collectArgumentProcessors#?#10:registerArgumentProcessor(processor)" shape=ellipse]
+20 [label="collectProjectHelpers#?#12:INSERT
+collectArgumentProcessors#?#10:INSERT
+parse#?,Project,Object,RootHandler#55:INSERT" shape=ellipse]
+21 [label="collectProjectHelpers#?#12:conn.setDefaultUseCaches(false)
+collectArgumentProcessors#?#10:conn.setDefaultUseCaches(false)" shape=ellipse]
+22 [label="collectProjectHelpers#?#11:URLConnection conn = resource.openConnection()
+collectArgumentProcessors#?#9:URLConnection conn = resource.openConnection()" shape=ellipse]
+23 [label="parse#?,Project,Object,RootHandler#54:inputStream = url.openStream()" shape=ellipse]
+24 [label="parse#?,Project,Object,RootHandler#52:zf.getEntry(uri.substring(pling + 1))" shape=ellipse]
+25 [label="parse#?,Project,Object,RootHandler#52:zf.getInputStream(zf.getEntry(uri.substring(pling + 1)))" shape=ellipse]
+26 [label="parse#?,Project,Object,RootHandler#52:pling + 1" shape=ellipse]
+27 [label="parse#?,Project,Object,RootHandler#54:url.openStream()" shape=ellipse]
+28 [label="parse#?,Project,Object,RootHandler#52:uri.substring(pling + 1)" shape=ellipse]
+29 [label="parse#?,Project,Object,RootHandler#51:zf = new ZipFile(Locator.fromJarURI(uri), \"UTF-8\")" shape=ellipse]
+30 [label="parse#?,Project,Object,RootHandler#52:pling" shape=ellipse]
+31 [label="parse#?,Project,Object,RootHandler#51:zf" shape=ellipse]
+32 [label="parse#?,Project,Object,RootHandler#52:1" shape=ellipse]
+33 [label="parse#?,Project,Object,RootHandler#50:((pling = uri.indexOf(\"!/\")) > (-1))" shape=ellipse]
+34 [label="parse#?,Project,Object,RootHandler#53:\{
+    inputStream = url.openStream();
+\}" shape=ellipse]
+35 [label="parse#?,Project,Object,RootHandler#52:substring(int)" shape=ellipse]
+36 [label="parse#?,Project,Object,RootHandler#54:openStream()" shape=ellipse]
+37 [label="parse#?,Project,Object,RootHandler#55:conn.setDefaultUseCaches(false)" shape=ellipse]
+38 [label="parse#?,Project,Object,RootHandler#51:Locator.fromJarURI(uri)" shape=ellipse]
+39 [label="parse#?,Project,Object,RootHandler#52:inputStream = zf.getInputStream(zf.getEntry(uri.substring(pling + 1)))" shape=ellipse]
+40 [label="parse#?,Project,Object,RootHandler#51:uri" shape=ellipse]
+41 [label="parse#?,Project,Object,RootHandler#51:\"UTF-8\"" shape=ellipse]
+42 [label="parse#?,Project,Object,RootHandler#50:\{
+    zf = new ZipFile(Locator.fromJarURI(uri), \"UTF-8\");
+    inputStream = zf.getInputStream(zf.getEntry(uri.substring(pling + 1)));
+\}" shape=ellipse]
+43 [label="parse#?,Project,Object,RootHandler#54:url" shape=ellipse]
+44 [label="parse#?,Project,Object,RootHandler#51:fromJarURI(java.lang.String)" shape=ellipse]
+45 [label="parse#?,Project,Object,RootHandler#-1:ZipFile()" shape=ellipse]
+46 [label="parse#?,Project,Object,RootHandler#51:new ZipFile(Locator.fromJarURI(uri), \"UTF-8\")" shape=ellipse]
+47 [label="parse#?,Project,Object,RootHandler#52:getEntry(java.lang.String)" shape=ellipse]
+48 [label="parse#?,Project,Object,RootHandler#52:zf" shape=ellipse]
+49 [label="parse#?,Project,Object,RootHandler#52:getInputStream()" shape=ellipse]
+50 [label="parse#?,Project,Object,RootHandler#52:zf" shape=ellipse]
+51 [label="parse#?,Project,Object,RootHandler#50:uri.startsWith(\"jar:file\") && ((pling = uri.indexOf(\"!/\")) > (-1))" shape=ellipse]
+52 [label="parse#?,Project,Object,RootHandler#54:inputStream" shape=ellipse]
+53 [label="parse#?,Project,Object,RootHandler#54:URLConnection conn = url.openConnection()" shape=ellipse]
+54 [label="parse#?,Project,Object,RootHandler#52:uri" shape=ellipse]
+55 [label="parse#?,Project,Object,RootHandler#52:inputStream" shape=ellipse]
+56 [label="parse#?,Project,Object,RootHandler#-1:boolean" shape=ellipse]
+57 [label="parse#?,Project,Object,RootHandler#51:Locator" shape=ellipse]
+0 -> 22 [label="Action:2"];
+0 -> 53 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 20 [label="Action:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:3"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 33 [label="Control Dep:1"];
+2 -> 51 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 7 [label="AST:2"];
+7 -> 1 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 34 [label="AST:1"];
+8 -> 42 [label="AST:1"];
+8 -> 51 [label="AST:1"];
+9 -> 11 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 16 [label="Control Dep:2"];
+13 -> 17 [label="Control Dep:2"];
+13 -> 18 [label="Control Dep:2"];
+13 -> 19 [label="Control Dep:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+16 -> 19 [label="AST:2"];
+20 -> 21 [label="Action:2"];
+20 -> 37 [label="Action:1"];
+23 -> 52 [label="AST:1"];
+23 -> 27 [label="AST:1"];
+24 -> 50 [label="AST:1"];
+24 -> 47 [label="AST:1"];
+24 -> 28 [label="AST:1"];
+25 -> 24 [label="AST:1"];
+25 -> 48 [label="AST:1"];
+25 -> 49 [label="AST:1"];
+26 -> 30 [label="AST:1"];
+26 -> 32 [label="AST:1"];
+27 -> 43 [label="AST:1"];
+27 -> 36 [label="AST:1"];
+28 -> 26 [label="AST:1"];
+28 -> 54 [label="AST:1"];
+28 -> 35 [label="AST:1"];
+29 -> 31 [label="AST:1"];
+29 -> 46 [label="AST:1"];
+30 -> 55 [label="Data Dep:1"];
+31 -> 48 [label="Define Use:1"];
+31 -> 50 [label="Define Use:1"];
+34 -> 23 [label="AST:1"];
+34 -> 0 [label="Action:1"];
+34 -> 20 [label="Action:1"];
+38 -> 57 [label="AST:1"];
+38 -> 44 [label="AST:1"];
+38 -> 40 [label="AST:1"];
+39 -> 25 [label="AST:1"];
+39 -> 55 [label="AST:1"];
+40 -> 31 [label="Data Dep:1"];
+42 -> 29 [label="AST:1"];
+42 -> 39 [label="AST:1"];
+43 -> 52 [label="Data Dep:1"];
+46 -> 38 [label="AST:1"];
+46 -> 41 [label="AST:1"];
+46 -> 45 [label="AST:1"];
+48 -> 55 [label="Data Dep:1"];
+50 -> 55 [label="Data Dep:1"];
+51 -> 23 [label="Control Dep:1"];
+51 -> 24 [label="Control Dep:1"];
+51 -> 25 [label="Control Dep:1"];
+51 -> 26 [label="Control Dep:1"];
+51 -> 27 [label="Control Dep:1"];
+51 -> 28 [label="Control Dep:1"];
+51 -> 29 [label="Control Dep:1"];
+51 -> 30 [label="Control Dep:1"];
+51 -> 31 [label="Control Dep:1"];
+51 -> 32 [label="Control Dep:1"];
+51 -> 33 [label="AST:1"];
+51 -> 34 [label="Control Dep:1"];
+51 -> 35 [label="Control Dep:1"];
+51 -> 36 [label="Control Dep:1"];
+51 -> 38 [label="Control Dep:1"];
+51 -> 39 [label="Control Dep:1"];
+51 -> 40 [label="Control Dep:1"];
+51 -> 41 [label="Control Dep:1"];
+51 -> 42 [label="Control Dep:1"];
+51 -> 43 [label="Control Dep:1"];
+51 -> 44 [label="Control Dep:1"];
+51 -> 45 [label="Control Dep:1"];
+51 -> 46 [label="Control Dep:1"];
+51 -> 47 [label="Control Dep:1"];
+51 -> 48 [label="Control Dep:1"];
+51 -> 49 [label="Control Dep:1"];
+51 -> 50 [label="Control Dep:1"];
+51 -> 56 [label="AST:1"];
+51 -> 13 [label="AST:1"];
+51 -> 57 [label="Control Dep:1"];
+51 -> 55 [label="Control Dep:1"];
+51 -> 54 [label="Control Dep:1"];
+51 -> 52 [label="Control Dep:1"];
+54 -> 55 [label="Data Dep:1"];
+}

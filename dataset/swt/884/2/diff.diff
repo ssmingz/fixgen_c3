@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/884/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/884/2/after.java
+@@ -13,1 +13,3 @@
+-    sendKeyEvent(KeyUp, xEvent);
++    if (!sendKeyEvent(KeyUp, xEvent)) {
++      OS.memmove(continue_to_dispatch, new int[1], 4);
++    }

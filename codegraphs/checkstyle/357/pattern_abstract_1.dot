@@ -1,0 +1,167 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 [label="locationInParent:ARGUMENT
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:\"ws.notFollowed\"
+value2:String" shape=ellipse]
+2 [label="locationInParent:CONDITION
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+3 [label="locationInParent:CONDITION
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:(PadOption.NOSPACE == getAbstractOption()) && Character.isWhitespace(line.charAt(after))
+value2:(PadOption.PlaceHold == getAbstractOption()) && java.lang.Character.isWhitespace(String.charAt(int))" shape=ellipse]
+4 [label="locationInParent:ARGUMENT
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:WS_FOLLOWED
+value2:WS_FOLLOWED" shape=ellipse]
+5 [label="locationInParent:ACCESSED_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:WS_FOLLOWED
+value2:WS_FOLLOWED" shape=ellipse]
+6 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:
+value2:" shape=ellipse]
+7 [label="locationInParent:STATEMENT
+nodeType:CtIfImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+8 [label="locationInParent:LEFT_OPERAND
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+9 [label="locationInParent:THEN
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:\{
+    log(DetailAST.getLineNo(), int, String, String);
+\}" shape=ellipse]
+10 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:log(DetailAST.getLineNo(), int, String, String)" shape=ellipse]
+11 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:log(<unknown>,int,java.lang.String,java.lang.String)
+value2:log(<unknown>,int,java.lang.String,java.lang.String)" shape=ellipse]
+12 [label="locationInParent:TARGET
+nodeType:CtThisAccessImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:
+value2:" shape=ellipse]
+13 [label="locationInParent:TARGET
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:PlaceHold
+value2:PlaceHold" shape=ellipse]
+14 [label="locationInParent:ARGUMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:DetailAST.getLineNo()" shape=ellipse]
+15 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:getLineNo()
+value2:getLineNo()" shape=ellipse]
+16 [label="locationInParent:TARGET
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value2:DetailAST" shape=ellipse]
+17 [label="locationInParent:ARGUMENT
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:after
+value2:int" shape=ellipse]
+18 [label="locationInParent:ARGUMENT
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String" shape=ellipse]
+19 [label="locationInParent:ARGUMENT
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:WS_NOT_FOLLOWED
+value2:WS_NOT_FOLLOWED" shape=ellipse]
+20 [label="locationInParent:ACCESSED_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:WS_NOT_FOLLOWED
+value2:WS_NOT_FOLLOWED" shape=ellipse]
+21 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:
+value2:" shape=ellipse]
+22 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 22 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 7 [label="Control Dep:2"];
+3 -> 8 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+4 -> 5 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+7 -> 2 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 1 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 14 [label="AST:2"];
+10 -> 17 [label="AST:2"];
+10 -> 18 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+}

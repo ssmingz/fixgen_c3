@@ -1,0 +1,6 @@
+--- D:\expdata\c3\dataset\junit\99\0/before.java
++++ D:\expdata\c3\dataset\junit\99\0/after.java
+@@ -9,1 +9,2 @@
+-    throw new ComparisonFailure(message, expected, actual);
++    String cleanMessage = (message == null) ? "" : message;
++    throw new ComparisonFailure(cleanMessage, expected, actual);

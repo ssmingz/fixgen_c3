@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3362/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3362/1/after.java
+@@ -68,0 +68,1 @@
++    int oldIndex = ((int) (((NSOutlineView) (view)).columnWithIdentifier(column.nsColumn)));
+@@ -79,2 +80,10 @@
+-    for (int i = index; i < columnCount; i++) {
+-      columns[i].sendEvent(Move);
++    NSArray array = ((NSOutlineView) (view)).tableColumns();
++    int arraySize = ((int) (array.count()));
++    for (int i = oldIndex; i < arraySize; i++) {
++      int columnId = array.objectAtIndex(i).id;
++      for (int j = 0; j < columnCount; j++) {
++        if (columns[j].nsColumn.id == columnId) {
++          columns[j].sendEvent(Move);
++          break;
++        }
++      }

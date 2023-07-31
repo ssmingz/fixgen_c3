@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2323/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2323/1/after.java
+@@ -3,8 +3,10 @@
+-    NSEvent event = new NSEvent(theEvent);
+-    NSTableView table = ((NSTableView) (view));
+-    NSIndexSet selectedRowIndexes = table.selectedRowIndexes();
+-    NSPoint mousePoint = view.convertPoint_fromView_(event.locationInWindow(), null);
+-    int row = table.rowAtPoint(mousePoint);
+-    if (selectedRowIndexes.containsIndex(row) == false) {
+-      NSIndexSet indexes = new NSIndexSet(NSIndexSet.indexSetWithIndex(row));
+-      table.selectRowIndexes(indexes, false);
++    if (id != headerView.id) {
++      NSEvent event = new NSEvent(theEvent);
++      NSTableView table = ((NSTableView) (view));
++      NSIndexSet selectedRowIndexes = table.selectedRowIndexes();
++      NSPoint mousePoint = view.convertPoint_fromView_(event.locationInWindow(), null);
++      int row = table.rowAtPoint(mousePoint);
++      if (selectedRowIndexes.containsIndex(row) == false) {
++        NSIndexSet indexes = new NSIndexSet(NSIndexSet.indexSetWithIndex(row));
++        table.selectRowIndexes(indexes, false);
++      }

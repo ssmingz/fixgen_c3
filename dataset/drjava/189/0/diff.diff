@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/189/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/189/0/after.java
+@@ -10,1 +10,10 @@
+-    _documentNavigator.removeDocument(doc);
++    try {
++      Utilities.invokeAndWait(
++          new Runnable() {
++            public void run() {
++              _documentNavigator.removeDocument(doc);
++            }
++          });
++    } catch (InterruptedException e) {
++      throw new UnexpectedException(e);
++    }

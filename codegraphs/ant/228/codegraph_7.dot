@@ -1,0 +1,813 @@
+digraph "zipFile#?,InputStream,ZipOutputStream,String,long" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@zipFile" shape=ellipse]
+2 [label="2:CtParameterImpl@InputStream in" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@InputStream" shape=ellipse]
+4 [label="2:CtParameterImpl@ZipOutputStream zOut" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@ZipOutputStream" shape=ellipse]
+6 [label="2:CtParameterImpl@String vPath" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+8 [label="2:CtParameterImpl@long lastModified" shape=ellipse]
+9 [label="2:CtTypeReferenceImpl@long" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@IOException" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@TaskException" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@ZipEntry" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@ZipEntry" shape=ellipse]
+14 [label="4:CtVariableReadImpl@vPath" shape=ellipse]
+15 [label="4:CtConstructorCallImpl@new ZipEntry(vPath)" shape=ellipse]
+16 [label="4:CtVirtualElement@ze" shape=ellipse]
+17 [label="4:CtLocalVariableImpl@ZipEntry ze = new ZipEntry(vPath)" shape=ellipse]
+18 [label="5:CtExecutableReferenceImpl@setTime(long)" shape=ellipse]
+19 [label="5:CtVirtualElement@setTime" shape=ellipse]
+20 [label="5:CtVariableReadImpl@ze" shape=ellipse]
+21 [label="5:CtVariableReadImpl@lastModified" shape=ellipse]
+22 [label="5:CtInvocationImpl@ze.setTime(lastModified)" shape=ellipse]
+23 [label="6:CtFieldReadImpl@doCompress" shape=ellipse]
+24 [label="6:CtUnaryOperatorImpl@!doCompress" shape=ellipse]
+25 [label="7:CtTypeReferenceImpl@long" shape=ellipse]
+26 [label="7:CtLiteralImpl@0" shape=ellipse]
+27 [label="7:CtVirtualElement@size" shape=ellipse]
+28 [label="7:CtLocalVariableImpl@long size = 0" shape=ellipse]
+29 [label="8:CtTypeReferenceImpl@CRC32" shape=ellipse]
+30 [label="8:CtTypeReferenceImpl@CRC32" shape=ellipse]
+31 [label="8:CtConstructorCallImpl@new CRC32()" shape=ellipse]
+32 [label="8:CtVirtualElement@cal" shape=ellipse]
+33 [label="8:CtLocalVariableImpl@CRC32 cal = new CRC32()" shape=ellipse]
+34 [label="9:CtExecutableReferenceImpl@markSupported()" shape=ellipse]
+35 [label="9:CtVirtualElement@markSupported" shape=ellipse]
+36 [label="9:CtVariableReadImpl@in" shape=ellipse]
+37 [label="9:CtInvocationImpl@in.markSupported()" shape=ellipse]
+38 [label="9:CtUnaryOperatorImpl@!in.markSupported()" shape=ellipse]
+39 [label="10:CtTypeReferenceImpl@ByteArrayOutputStream" shape=ellipse]
+40 [label="10:CtTypeReferenceImpl@ByteArrayOutputStream" shape=ellipse]
+41 [label="10:CtConstructorCallImpl@new ByteArrayOutputStream()" shape=ellipse]
+42 [label="10:CtVirtualElement@bos" shape=ellipse]
+43 [label="10:CtLocalVariableImpl@ByteArrayOutputStream bos = new ByteArrayOutputStream()" shape=ellipse]
+44 [label="11:CtVirtualElement@byte[]" shape=ellipse]
+45 [label="11:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+46 [label="11:CtNewArrayImpl@new byte[8 * 1024]" shape=ellipse]
+47 [label="11:CtBinaryOperatorImpl@8 * 1024" shape=ellipse]
+48 [label="11:CtVirtualElement@buffer" shape=ellipse]
+49 [label="11:CtLocalVariableImpl@byte[] buffer = new byte[8 * 1024]" shape=ellipse]
+50 [label="12:CtTypeReferenceImpl@int" shape=ellipse]
+51 [label="12:CtLiteralImpl@0" shape=ellipse]
+52 [label="12:CtVirtualElement@count" shape=ellipse]
+53 [label="12:CtLocalVariableImpl@int count = 0" shape=ellipse]
+54 [label="18:CtVariableReadImpl@count" shape=ellipse]
+55 [label="18:CtLiteralImpl@1" shape=ellipse]
+56 [label="18:CtUnaryOperatorImpl@(-1)" shape=ellipse]
+57 [label="18:CtBinaryOperatorImpl@count != (-1)" shape=ellipse]
+58 [label="14:CtVariableWriteImpl@size" shape=ellipse]
+59 [label="14:CtVariableReadImpl@count" shape=ellipse]
+60 [label="14:CtOperatorAssignmentImpl@size += count" shape=ellipse]
+61 [label="15:CtExecutableReferenceImpl@update(byte[],int,int)" shape=ellipse]
+62 [label="15:CtVirtualElement@update" shape=ellipse]
+63 [label="15:CtVariableReadImpl@cal" shape=ellipse]
+64 [label="15:CtVariableReadImpl@buffer" shape=ellipse]
+65 [label="15:CtLiteralImpl@0" shape=ellipse]
+66 [label="15:CtVariableReadImpl@count" shape=ellipse]
+67 [label="15:CtInvocationImpl@cal.update(buffer, 0, count)" shape=ellipse]
+68 [label="16:CtExecutableReferenceImpl@write(byte[],int,int)" shape=ellipse]
+69 [label="16:CtVirtualElement@write" shape=ellipse]
+70 [label="16:CtVariableReadImpl@bos" shape=ellipse]
+71 [label="16:CtVariableReadImpl@buffer" shape=ellipse]
+72 [label="16:CtLiteralImpl@0" shape=ellipse]
+73 [label="16:CtVariableReadImpl@count" shape=ellipse]
+74 [label="16:CtInvocationImpl@bos.write(buffer, 0, count)" shape=ellipse]
+75 [label="17:CtVariableWriteImpl@count" shape=ellipse]
+76 [label="17:CtExecutableReferenceImpl@read(byte[],int,int)" shape=ellipse]
+77 [label="17:CtVirtualElement@read" shape=ellipse]
+78 [label="17:CtVariableReadImpl@in" shape=ellipse]
+79 [label="17:CtVariableReadImpl@buffer" shape=ellipse]
+80 [label="17:CtLiteralImpl@0" shape=ellipse]
+81 [label="17:CtVariableReadImpl@buffer" shape=ellipse]
+82 [label="17:CtLocalVariableReferenceImpl@buffer" shape=ellipse]
+83 [label="17:CtFieldReadImpl@buffer.length" shape=ellipse]
+84 [label="17:CtInvocationImpl@in.read(buffer, 0, buffer.length)" shape=ellipse]
+85 [label="17:CtAssignmentImpl@count = in.read(buffer, 0, buffer.length)" shape=ellipse]
+86 [label="13:CtBlockImpl@\{
+    size += count;
+    cal.update(buffer, 0, count);
+    bos.write(buffer, 0, count);
+    count = in.read(buffer, 0, buffer.length);
+\}" shape=ellipse]
+87 [label="13:CtDoImpl@do \{
+    size += count;
+    cal.update(buffer, 0, count);
+    bos.write(buffer, 0, count);
+    count = in.read(buffer, 0, buffer.length);
+\} while (count != (-1) )" shape=ellipse]
+88 [label="19:CtVariableWriteImpl@in" shape=ellipse]
+89 [label="19:CtTypeReferenceImpl@ByteArrayInputStream" shape=ellipse]
+90 [label="19:CtExecutableReferenceImpl@toByteArray()" shape=ellipse]
+91 [label="19:CtVirtualElement@toByteArray" shape=ellipse]
+92 [label="19:CtVariableReadImpl@bos" shape=ellipse]
+93 [label="19:CtInvocationImpl@bos.toByteArray()" shape=ellipse]
+94 [label="19:CtConstructorCallImpl@new ByteArrayInputStream(bos.toByteArray())" shape=ellipse]
+95 [label="19:CtAssignmentImpl@in = new ByteArrayInputStream(bos.toByteArray())" shape=ellipse]
+96 [label="9:CtBlockImpl@\{
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        size += count;
+        cal.update(buffer, 0, count);
+        bos.write(buffer, 0, count);
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    in = new ByteArrayInputStream(bos.toByteArray());
+\}" shape=ellipse]
+97 [label="21:CtExecutableReferenceImpl@mark(int)" shape=ellipse]
+98 [label="21:CtVirtualElement@mark" shape=ellipse]
+99 [label="21:CtVariableReadImpl@in" shape=ellipse]
+100 [label="21:CtTypeAccessImpl@Integer" shape=ellipse]
+101 [label="21:CtFieldReadImpl@Integer.MAX_VALUE" shape=ellipse]
+102 [label="21:CtFieldReferenceImpl@java.lang.Integer.MAX_VALUE" shape=ellipse]
+103 [label="21:CtInvocationImpl@in.mark(Integer.MAX_VALUE)" shape=ellipse]
+104 [label="22:CtVirtualElement@byte[]" shape=ellipse]
+105 [label="22:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+106 [label="22:CtNewArrayImpl@new byte[8 * 1024]" shape=ellipse]
+107 [label="22:CtBinaryOperatorImpl@8 * 1024" shape=ellipse]
+108 [label="22:CtVirtualElement@buffer" shape=ellipse]
+109 [label="22:CtLocalVariableImpl@byte[] buffer = new byte[8 * 1024]" shape=ellipse]
+110 [label="23:CtTypeReferenceImpl@int" shape=ellipse]
+111 [label="23:CtLiteralImpl@0" shape=ellipse]
+112 [label="23:CtVirtualElement@count" shape=ellipse]
+113 [label="23:CtLocalVariableImpl@int count = 0" shape=ellipse]
+114 [label="28:CtVariableReadImpl@count" shape=ellipse]
+115 [label="28:CtLiteralImpl@1" shape=ellipse]
+116 [label="28:CtUnaryOperatorImpl@(-1)" shape=ellipse]
+117 [label="28:CtBinaryOperatorImpl@count != (-1)" shape=ellipse]
+118 [label="25:CtVariableWriteImpl@size" shape=ellipse]
+119 [label="25:CtVariableReadImpl@count" shape=ellipse]
+120 [label="25:CtOperatorAssignmentImpl@size += count" shape=ellipse]
+121 [label="26:CtExecutableReferenceImpl@update(byte[],int,int)" shape=ellipse]
+122 [label="26:CtVirtualElement@update" shape=ellipse]
+123 [label="26:CtVariableReadImpl@cal" shape=ellipse]
+124 [label="26:CtVariableReadImpl@buffer" shape=ellipse]
+125 [label="26:CtLiteralImpl@0" shape=ellipse]
+126 [label="26:CtVariableReadImpl@count" shape=ellipse]
+127 [label="26:CtInvocationImpl@cal.update(buffer, 0, count)" shape=ellipse]
+128 [label="27:CtVariableWriteImpl@count" shape=ellipse]
+129 [label="27:CtExecutableReferenceImpl@read(byte[],int,int)" shape=ellipse]
+130 [label="27:CtVirtualElement@read" shape=ellipse]
+131 [label="27:CtVariableReadImpl@in" shape=ellipse]
+132 [label="27:CtVariableReadImpl@buffer" shape=ellipse]
+133 [label="27:CtLiteralImpl@0" shape=ellipse]
+134 [label="27:CtVariableReadImpl@buffer" shape=ellipse]
+135 [label="27:CtLocalVariableReferenceImpl@buffer" shape=ellipse]
+136 [label="27:CtFieldReadImpl@buffer.length" shape=ellipse]
+137 [label="27:CtInvocationImpl@in.read(buffer, 0, buffer.length)" shape=ellipse]
+138 [label="27:CtAssignmentImpl@count = in.read(buffer, 0, buffer.length)" shape=ellipse]
+139 [label="24:CtBlockImpl@\{
+    size += count;
+    cal.update(buffer, 0, count);
+    count = in.read(buffer, 0, buffer.length);
+\}" shape=ellipse]
+140 [label="24:CtDoImpl@do \{
+    size += count;
+    cal.update(buffer, 0, count);
+    count = in.read(buffer, 0, buffer.length);
+\} while (count != (-1) )" shape=ellipse]
+141 [label="29:CtExecutableReferenceImpl@reset()" shape=ellipse]
+142 [label="29:CtVirtualElement@reset" shape=ellipse]
+143 [label="29:CtVariableReadImpl@in" shape=ellipse]
+144 [label="29:CtInvocationImpl@in.reset()" shape=ellipse]
+145 [label="20:CtBlockImpl@\{
+    in.mark(Integer.MAX_VALUE);
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        size += count;
+        cal.update(buffer, 0, count);
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    in.reset();
+\}" shape=ellipse]
+146 [label="9:CtIfImpl@if (!in.markSupported()) \{
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        size += count;
+        cal.update(buffer, 0, count);
+        bos.write(buffer, 0, count);
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    in = new ByteArrayInputStream(bos.toByteArray());
+\} else \{
+    in.mark(Integer.MAX_VALUE);
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        size += count;
+        cal.update(buffer, 0, count);
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    in.reset();
+\}" shape=ellipse]
+147 [label="31:CtExecutableReferenceImpl@setSize(long)" shape=ellipse]
+148 [label="31:CtVirtualElement@setSize" shape=ellipse]
+149 [label="31:CtVariableReadImpl@ze" shape=ellipse]
+150 [label="31:CtVariableReadImpl@size" shape=ellipse]
+151 [label="31:CtInvocationImpl@ze.setSize(size)" shape=ellipse]
+152 [label="32:CtExecutableReferenceImpl@setCrc()" shape=ellipse]
+153 [label="32:CtVirtualElement@setCrc" shape=ellipse]
+154 [label="32:CtVariableReadImpl@ze" shape=ellipse]
+155 [label="32:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+156 [label="32:CtVirtualElement@getValue" shape=ellipse]
+157 [label="32:CtVariableReadImpl@cal" shape=ellipse]
+158 [label="32:CtInvocationImpl@cal.getValue()" shape=ellipse]
+159 [label="32:CtInvocationImpl@ze.setCrc(cal.getValue())" shape=ellipse]
+160 [label="6:CtBlockImpl@\{
+    long size = 0;
+    CRC32 cal = new CRC32();
+    if (!in.markSupported()) \{
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8 * 1024];
+        int count = 0;
+        do \{
+            size += count;
+            cal.update(buffer, 0, count);
+            bos.write(buffer, 0, count);
+            count = in.read(buffer, 0, buffer.length);
+        \} while (count != (-1) );
+        in = new ByteArrayInputStream(bos.toByteArray());
+    \} else \{
+        in.mark(Integer.MAX_VALUE);
+        byte[] buffer = new byte[8 * 1024];
+        int count = 0;
+        do \{
+            size += count;
+            cal.update(buffer, 0, count);
+            count = in.read(buffer, 0, buffer.length);
+        \} while (count != (-1) );
+        in.reset();
+    \}
+    ze.setSize(size);
+    ze.setCrc(cal.getValue());
+\}" shape=ellipse]
+161 [label="6:CtIfImpl@if (!doCompress) \{
+    long size = 0;
+    CRC32 cal = new CRC32();
+    if (!in.markSupported()) \{
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[8 * 1024];
+        int count = 0;
+        do \{
+            size += count;
+            cal.update(buffer, 0, count);
+            bos.write(buffer, 0, count);
+            count = in.read(buffer, 0, buffer.length);
+        \} while (count != (-1) );
+        in = new ByteArrayInputStream(bos.toByteArray());
+    \} else \{
+        in.mark(Integer.MAX_VALUE);
+        byte[] buffer = new byte[8 * 1024];
+        int count = 0;
+        do \{
+            size += count;
+            cal.update(buffer, 0, count);
+            count = in.read(buffer, 0, buffer.length);
+        \} while (count != (-1) );
+        in.reset();
+    \}
+    ze.setSize(size);
+    ze.setCrc(cal.getValue());
+\}" shape=ellipse]
+162 [label="34:CtExecutableReferenceImpl@putNextEntry(ZipEntry)" shape=ellipse]
+163 [label="34:CtVirtualElement@putNextEntry" shape=ellipse]
+164 [label="34:CtVariableReadImpl@zOut" shape=ellipse]
+165 [label="34:CtVariableReadImpl@ze" shape=ellipse]
+166 [label="34:CtInvocationImpl@zOut.putNextEntry(ze)" shape=ellipse]
+167 [label="35:CtVirtualElement@byte[]" shape=ellipse]
+168 [label="35:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+169 [label="35:CtNewArrayImpl@new byte[8 * 1024]" shape=ellipse]
+170 [label="35:CtBinaryOperatorImpl@8 * 1024" shape=ellipse]
+171 [label="35:CtVirtualElement@buffer" shape=ellipse]
+172 [label="35:CtLocalVariableImpl@byte[] buffer = new byte[8 * 1024]" shape=ellipse]
+173 [label="36:CtTypeReferenceImpl@int" shape=ellipse]
+174 [label="36:CtLiteralImpl@0" shape=ellipse]
+175 [label="36:CtVirtualElement@count" shape=ellipse]
+176 [label="36:CtLocalVariableImpl@int count = 0" shape=ellipse]
+177 [label="42:CtVariableReadImpl@count" shape=ellipse]
+178 [label="42:CtLiteralImpl@1" shape=ellipse]
+179 [label="42:CtUnaryOperatorImpl@(-1)" shape=ellipse]
+180 [label="42:CtBinaryOperatorImpl@count != (-1)" shape=ellipse]
+181 [label="38:CtVariableReadImpl@count" shape=ellipse]
+182 [label="38:CtLiteralImpl@0" shape=ellipse]
+183 [label="38:CtBinaryOperatorImpl@count != 0" shape=ellipse]
+184 [label="39:CtExecutableReferenceImpl@write(byte[],int,int)" shape=ellipse]
+185 [label="39:CtVirtualElement@write" shape=ellipse]
+186 [label="39:CtVariableReadImpl@zOut" shape=ellipse]
+187 [label="39:CtVariableReadImpl@buffer" shape=ellipse]
+188 [label="39:CtLiteralImpl@0" shape=ellipse]
+189 [label="39:CtVariableReadImpl@count" shape=ellipse]
+190 [label="39:CtInvocationImpl@zOut.write(buffer, 0, count)" shape=ellipse]
+191 [label="38:CtBlockImpl@\{
+    zOut.write(buffer, 0, count);
+\}" shape=ellipse]
+192 [label="38:CtIfImpl@if (count != 0) \{
+    zOut.write(buffer, 0, count);
+\}" shape=ellipse]
+193 [label="41:CtVariableWriteImpl@count" shape=ellipse]
+194 [label="41:CtExecutableReferenceImpl@read(byte[],int,int)" shape=ellipse]
+195 [label="41:CtVirtualElement@read" shape=ellipse]
+196 [label="41:CtVariableReadImpl@in" shape=ellipse]
+197 [label="41:CtVariableReadImpl@buffer" shape=ellipse]
+198 [label="41:CtLiteralImpl@0" shape=ellipse]
+199 [label="41:CtVariableReadImpl@buffer" shape=ellipse]
+200 [label="41:CtLocalVariableReferenceImpl@buffer" shape=ellipse]
+201 [label="41:CtFieldReadImpl@buffer.length" shape=ellipse]
+202 [label="41:CtInvocationImpl@in.read(buffer, 0, buffer.length)" shape=ellipse]
+203 [label="41:CtAssignmentImpl@count = in.read(buffer, 0, buffer.length)" shape=ellipse]
+204 [label="37:CtBlockImpl@\{
+    if (count != 0) \{
+        zOut.write(buffer, 0, count);
+    \}
+    count = in.read(buffer, 0, buffer.length);
+\}" shape=ellipse]
+205 [label="37:CtDoImpl@do \{
+    if (count != 0) \{
+        zOut.write(buffer, 0, count);
+    \}
+    count = in.read(buffer, 0, buffer.length);
+\} while (count != (-1) )" shape=ellipse]
+206 [label="43:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+207 [label="43:CtVirtualElement@addElement" shape=ellipse]
+208 [label="43:CtFieldReadImpl@addedFiles" shape=ellipse]
+209 [label="43:CtVariableReadImpl@vPath" shape=ellipse]
+210 [label="43:CtInvocationImpl@addedFiles.addElement(vPath)" shape=ellipse]
+211 [label="3:CtBlockImpl@\{
+    ZipEntry ze = new ZipEntry(vPath);
+    ze.setTime(lastModified);
+    if (!doCompress) \{
+        long size = 0;
+        CRC32 cal = new CRC32();
+        if (!in.markSupported()) \{
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[8 * 1024];
+            int count = 0;
+            do \{
+                size += count;
+                cal.update(buffer, 0, count);
+                bos.write(buffer, 0, count);
+                count = in.read(buffer, 0, buffer.length);
+            \} while (count != (-1) );
+            in = new ByteArrayInputStream(bos.toByteArray());
+        \} else \{
+            in.mark(Integer.MAX_VALUE);
+            byte[] buffer = new byte[8 * 1024];
+            int count = 0;
+            do \{
+                size += count;
+                cal.update(buffer, 0, count);
+                count = in.read(buffer, 0, buffer.length);
+            \} while (count != (-1) );
+            in.reset();
+        \}
+        ze.setSize(size);
+        ze.setCrc(cal.getValue());
+    \}
+    zOut.putNextEntry(ze);
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        if (count != 0) \{
+            zOut.write(buffer, 0, count);
+        \}
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    addedFiles.addElement(vPath);
+\}" shape=ellipse]
+212 [label="2:CtMethodImpl@protected void zipFile(InputStream in, ZipOutputStream zOut, String vPath, long lastModified) throws IOException, TaskException \{
+    ZipEntry ze = new ZipEntry(vPath);
+    ze.setTime(lastModified);
+    if (!doCompress) \{
+        long size = 0;
+        CRC32 cal = new CRC32();
+        if (!in.markSupported()) \{
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[8 * 1024];
+            int count = 0;
+            do \{
+                size += count;
+                cal.update(buffer, 0, count);
+                bos.write(buffer, 0, count);
+                count = in.read(buffer, 0, buffer.length);
+            \} while (count != (-1) );
+            in = new ByteArrayInputStream(bos.toByteArray());
+        \} else \{
+            in.mark(Integer.MAX_VALUE);
+            byte[] buffer = new byte[8 * 1024];
+            int count = 0;
+            do \{
+                size += count;
+                cal.update(buffer, 0, count);
+                count = in.read(buffer, 0, buffer.length);
+            \} while (count != (-1) );
+            in.reset();
+        \}
+        ze.setSize(size);
+        ze.setCrc(cal.getValue());
+    \}
+    zOut.putNextEntry(ze);
+    byte[] buffer = new byte[8 * 1024];
+    int count = 0;
+    do \{
+        if (count != 0) \{
+            zOut.write(buffer, 0, count);
+        \}
+        count = in.read(buffer, 0, buffer.length);
+    \} while (count != (-1) );
+    addedFiles.addElement(vPath);
+\}" shape=ellipse]
+213 [label="43:Update@UPDATE" shape=ellipse]
+214 [label="43:CtInvocationImpl@addedFiles.add(vPath)" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+14 -> 16 [label="Data Dep"];
+15 -> 14 [label="AST"];
+16 -> 20 [label="Define-Use"];
+16 -> 149 [label="Define-Use"];
+16 -> 154 [label="Define-Use"];
+16 -> 165 [label="Define-Use"];
+17 -> 16 [label="AST"];
+17 -> 12 [label="AST"];
+17 -> 15 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 18 [label="AST"];
+22 -> 21 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 160 [label="Control Dep"];
+24 -> 28 [label="Control Dep"];
+24 -> 26 [label="Control Dep"];
+24 -> 33 [label="Control Dep"];
+24 -> 31 [label="Control Dep"];
+24 -> 146 [label="Control Dep"];
+24 -> 38 [label="Control Dep"];
+24 -> 37 [label="Control Dep"];
+24 -> 34 [label="Control Dep"];
+24 -> 36 [label="Control Dep"];
+24 -> 151 [label="Control Dep"];
+24 -> 147 [label="Control Dep"];
+24 -> 149 [label="Control Dep"];
+24 -> 150 [label="Control Dep"];
+24 -> 159 [label="Control Dep"];
+24 -> 152 [label="Control Dep"];
+24 -> 154 [label="Control Dep"];
+24 -> 158 [label="Control Dep"];
+24 -> 155 [label="Control Dep"];
+24 -> 157 [label="Control Dep"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 26 [label="AST"];
+32 -> 63 [label="Define-Use"];
+32 -> 123 [label="Define-Use"];
+32 -> 157 [label="Define-Use"];
+33 -> 32 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 96 [label="Control Dep"];
+38 -> 43 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+38 -> 49 [label="Control Dep"];
+38 -> 45 [label="Control Dep"];
+38 -> 46 [label="Control Dep"];
+38 -> 53 [label="Control Dep"];
+38 -> 51 [label="Control Dep"];
+38 -> 87 [label="Control Dep"];
+38 -> 57 [label="Control Dep"];
+38 -> 54 [label="Control Dep"];
+38 -> 56 [label="Control Dep"];
+38 -> 55 [label="Control Dep"];
+38 -> 95 [label="Control Dep"];
+38 -> 88 [label="Control Dep"];
+38 -> 94 [label="Control Dep"];
+38 -> 93 [label="Control Dep"];
+38 -> 90 [label="Control Dep"];
+38 -> 92 [label="Control Dep"];
+38 -> 145 [label="Control Dep"];
+38 -> 103 [label="Control Dep"];
+38 -> 97 [label="Control Dep"];
+38 -> 99 [label="Control Dep"];
+38 -> 101 [label="Control Dep"];
+38 -> 100 [label="Control Dep"];
+38 -> 109 [label="Control Dep"];
+38 -> 105 [label="Control Dep"];
+38 -> 106 [label="Control Dep"];
+38 -> 113 [label="Control Dep"];
+38 -> 111 [label="Control Dep"];
+38 -> 140 [label="Control Dep"];
+38 -> 117 [label="Control Dep"];
+38 -> 114 [label="Control Dep"];
+38 -> 116 [label="Control Dep"];
+38 -> 115 [label="Control Dep"];
+38 -> 144 [label="Control Dep"];
+38 -> 141 [label="Control Dep"];
+38 -> 143 [label="Control Dep"];
+42 -> 70 [label="Define-Use"];
+42 -> 92 [label="Define-Use"];
+43 -> 42 [label="AST"];
+43 -> 39 [label="AST"];
+43 -> 41 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 47 [label="AST"];
+48 -> 64 [label="Define-Use"];
+48 -> 71 [label="Define-Use"];
+48 -> 79 [label="Define-Use"];
+48 -> 81 [label="Define-Use"];
+48 -> 124 [label="Define-Use"];
+48 -> 132 [label="Define-Use"];
+48 -> 134 [label="Define-Use"];
+49 -> 48 [label="AST"];
+49 -> 45 [label="AST"];
+49 -> 46 [label="AST"];
+52 -> 54 [label="Define-Use"];
+52 -> 59 [label="Define-Use"];
+52 -> 66 [label="Define-Use"];
+52 -> 73 [label="Define-Use"];
+53 -> 52 [label="AST"];
+53 -> 50 [label="AST"];
+53 -> 51 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 54 [label="AST"];
+57 -> 56 [label="AST"];
+57 -> 86 [label="Control Dep"];
+57 -> 60 [label="Control Dep"];
+57 -> 58 [label="Control Dep"];
+57 -> 59 [label="Control Dep"];
+57 -> 67 [label="Control Dep"];
+57 -> 61 [label="Control Dep"];
+57 -> 63 [label="Control Dep"];
+57 -> 64 [label="Control Dep"];
+57 -> 65 [label="Control Dep"];
+57 -> 66 [label="Control Dep"];
+57 -> 74 [label="Control Dep"];
+57 -> 68 [label="Control Dep"];
+57 -> 70 [label="Control Dep"];
+57 -> 71 [label="Control Dep"];
+57 -> 72 [label="Control Dep"];
+57 -> 73 [label="Control Dep"];
+57 -> 85 [label="Control Dep"];
+57 -> 75 [label="Control Dep"];
+57 -> 84 [label="Control Dep"];
+57 -> 76 [label="Control Dep"];
+57 -> 78 [label="Control Dep"];
+57 -> 79 [label="Control Dep"];
+57 -> 80 [label="Control Dep"];
+57 -> 83 [label="Control Dep"];
+57 -> 81 [label="Control Dep"];
+59 -> 58 [label="Data Dep"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+67 -> 62 [label="AST"];
+67 -> 63 [label="AST"];
+67 -> 61 [label="AST"];
+67 -> 64 [label="AST"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+74 -> 69 [label="AST"];
+74 -> 70 [label="AST"];
+74 -> 68 [label="AST"];
+74 -> 71 [label="AST"];
+74 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 114 [label="Define-Use"];
+75 -> 119 [label="Define-Use"];
+75 -> 126 [label="Define-Use"];
+78 -> 75 [label="Data Dep"];
+79 -> 75 [label="Data Dep"];
+81 -> 82 [label="AST"];
+83 -> 81 [label="AST"];
+83 -> 75 [label="Data Dep"];
+84 -> 77 [label="AST"];
+84 -> 78 [label="AST"];
+84 -> 76 [label="AST"];
+84 -> 79 [label="AST"];
+84 -> 80 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 75 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 60 [label="AST"];
+86 -> 67 [label="AST"];
+86 -> 74 [label="AST"];
+86 -> 85 [label="AST"];
+87 -> 57 [label="AST"];
+87 -> 86 [label="AST"];
+88 -> 99 [label="Define-Use"];
+88 -> 131 [label="Define-Use"];
+88 -> 143 [label="Define-Use"];
+88 -> 196 [label="Define-Use"];
+92 -> 88 [label="Data Dep"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+93 -> 90 [label="AST"];
+94 -> 93 [label="AST"];
+95 -> 88 [label="AST"];
+95 -> 94 [label="AST"];
+96 -> 43 [label="AST"];
+96 -> 49 [label="AST"];
+96 -> 53 [label="AST"];
+96 -> 87 [label="AST"];
+96 -> 95 [label="AST"];
+101 -> 100 [label="AST"];
+101 -> 102 [label="AST"];
+103 -> 98 [label="AST"];
+103 -> 99 [label="AST"];
+103 -> 97 [label="AST"];
+103 -> 101 [label="AST"];
+105 -> 104 [label="AST"];
+106 -> 107 [label="AST"];
+108 -> 124 [label="Define-Use"];
+108 -> 132 [label="Define-Use"];
+108 -> 134 [label="Define-Use"];
+109 -> 108 [label="AST"];
+109 -> 105 [label="AST"];
+109 -> 106 [label="AST"];
+112 -> 114 [label="Define-Use"];
+112 -> 119 [label="Define-Use"];
+112 -> 126 [label="Define-Use"];
+113 -> 112 [label="AST"];
+113 -> 110 [label="AST"];
+113 -> 111 [label="AST"];
+116 -> 115 [label="AST"];
+117 -> 114 [label="AST"];
+117 -> 116 [label="AST"];
+117 -> 139 [label="Control Dep"];
+117 -> 120 [label="Control Dep"];
+117 -> 118 [label="Control Dep"];
+117 -> 119 [label="Control Dep"];
+117 -> 127 [label="Control Dep"];
+117 -> 121 [label="Control Dep"];
+117 -> 123 [label="Control Dep"];
+117 -> 124 [label="Control Dep"];
+117 -> 125 [label="Control Dep"];
+117 -> 126 [label="Control Dep"];
+117 -> 138 [label="Control Dep"];
+117 -> 128 [label="Control Dep"];
+117 -> 137 [label="Control Dep"];
+117 -> 129 [label="Control Dep"];
+117 -> 131 [label="Control Dep"];
+117 -> 132 [label="Control Dep"];
+117 -> 133 [label="Control Dep"];
+117 -> 136 [label="Control Dep"];
+117 -> 134 [label="Control Dep"];
+118 -> 150 [label="Define-Use"];
+119 -> 118 [label="Data Dep"];
+120 -> 118 [label="AST"];
+120 -> 119 [label="AST"];
+127 -> 122 [label="AST"];
+127 -> 123 [label="AST"];
+127 -> 121 [label="AST"];
+127 -> 124 [label="AST"];
+127 -> 125 [label="AST"];
+127 -> 126 [label="AST"];
+131 -> 128 [label="Data Dep"];
+132 -> 128 [label="Data Dep"];
+134 -> 135 [label="AST"];
+136 -> 134 [label="AST"];
+136 -> 128 [label="Data Dep"];
+137 -> 130 [label="AST"];
+137 -> 131 [label="AST"];
+137 -> 129 [label="AST"];
+137 -> 132 [label="AST"];
+137 -> 133 [label="AST"];
+137 -> 136 [label="AST"];
+138 -> 128 [label="AST"];
+138 -> 137 [label="AST"];
+139 -> 120 [label="AST"];
+139 -> 127 [label="AST"];
+139 -> 138 [label="AST"];
+140 -> 117 [label="AST"];
+140 -> 139 [label="AST"];
+144 -> 142 [label="AST"];
+144 -> 143 [label="AST"];
+144 -> 141 [label="AST"];
+145 -> 103 [label="AST"];
+145 -> 109 [label="AST"];
+145 -> 113 [label="AST"];
+145 -> 140 [label="AST"];
+145 -> 144 [label="AST"];
+146 -> 38 [label="AST"];
+146 -> 96 [label="AST"];
+146 -> 145 [label="AST"];
+151 -> 148 [label="AST"];
+151 -> 149 [label="AST"];
+151 -> 147 [label="AST"];
+151 -> 150 [label="AST"];
+158 -> 156 [label="AST"];
+158 -> 157 [label="AST"];
+158 -> 155 [label="AST"];
+159 -> 153 [label="AST"];
+159 -> 154 [label="AST"];
+159 -> 152 [label="AST"];
+159 -> 158 [label="AST"];
+160 -> 28 [label="AST"];
+160 -> 33 [label="AST"];
+160 -> 146 [label="AST"];
+160 -> 151 [label="AST"];
+160 -> 159 [label="AST"];
+161 -> 24 [label="AST"];
+161 -> 160 [label="AST"];
+166 -> 163 [label="AST"];
+166 -> 164 [label="AST"];
+166 -> 162 [label="AST"];
+166 -> 165 [label="AST"];
+168 -> 167 [label="AST"];
+169 -> 170 [label="AST"];
+171 -> 187 [label="Define-Use"];
+171 -> 197 [label="Define-Use"];
+171 -> 199 [label="Define-Use"];
+172 -> 171 [label="AST"];
+172 -> 168 [label="AST"];
+172 -> 169 [label="AST"];
+175 -> 177 [label="Define-Use"];
+175 -> 181 [label="Define-Use"];
+175 -> 189 [label="Define-Use"];
+176 -> 175 [label="AST"];
+176 -> 173 [label="AST"];
+176 -> 174 [label="AST"];
+179 -> 178 [label="AST"];
+180 -> 177 [label="AST"];
+180 -> 179 [label="AST"];
+180 -> 204 [label="Control Dep"];
+180 -> 192 [label="Control Dep"];
+180 -> 183 [label="Control Dep"];
+180 -> 181 [label="Control Dep"];
+180 -> 182 [label="Control Dep"];
+180 -> 203 [label="Control Dep"];
+180 -> 193 [label="Control Dep"];
+180 -> 202 [label="Control Dep"];
+180 -> 194 [label="Control Dep"];
+180 -> 196 [label="Control Dep"];
+180 -> 197 [label="Control Dep"];
+180 -> 198 [label="Control Dep"];
+180 -> 201 [label="Control Dep"];
+180 -> 199 [label="Control Dep"];
+183 -> 181 [label="AST"];
+183 -> 182 [label="AST"];
+183 -> 191 [label="Control Dep"];
+183 -> 190 [label="Control Dep"];
+183 -> 184 [label="Control Dep"];
+183 -> 186 [label="Control Dep"];
+183 -> 187 [label="Control Dep"];
+183 -> 188 [label="Control Dep"];
+183 -> 189 [label="Control Dep"];
+190 -> 185 [label="AST"];
+190 -> 186 [label="AST"];
+190 -> 184 [label="AST"];
+190 -> 187 [label="AST"];
+190 -> 188 [label="AST"];
+190 -> 189 [label="AST"];
+191 -> 190 [label="AST"];
+192 -> 183 [label="AST"];
+192 -> 191 [label="AST"];
+196 -> 193 [label="Data Dep"];
+197 -> 193 [label="Data Dep"];
+199 -> 200 [label="AST"];
+201 -> 199 [label="AST"];
+201 -> 193 [label="Data Dep"];
+202 -> 195 [label="AST"];
+202 -> 196 [label="AST"];
+202 -> 194 [label="AST"];
+202 -> 197 [label="AST"];
+202 -> 198 [label="AST"];
+202 -> 201 [label="AST"];
+203 -> 193 [label="AST"];
+203 -> 202 [label="AST"];
+204 -> 192 [label="AST"];
+204 -> 203 [label="AST"];
+205 -> 180 [label="AST"];
+205 -> 204 [label="AST"];
+210 -> 207 [label="AST"];
+210 -> 208 [label="AST"];
+210 -> 206 [label="AST"];
+210 -> 209 [label="AST"];
+210 -> 213 [label="Action"];
+211 -> 17 [label="AST"];
+211 -> 22 [label="AST"];
+211 -> 161 [label="AST"];
+211 -> 166 [label="AST"];
+211 -> 172 [label="AST"];
+211 -> 176 [label="AST"];
+211 -> 205 [label="AST"];
+211 -> 210 [label="AST"];
+212 -> 1 [label="AST"];
+212 -> 0 [label="AST"];
+212 -> 2 [label="AST"];
+212 -> 4 [label="AST"];
+212 -> 6 [label="AST"];
+212 -> 8 [label="AST"];
+212 -> 10 [label="AST"];
+212 -> 11 [label="AST"];
+212 -> 211 [label="AST"];
+213 -> 214 [label="Action"];
+}

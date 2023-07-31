@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1860/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1860/0/after.java
+@@ -5,1 +5,5 @@
+-    return new Point(((int) (frame.width)), ((int) (frame.height)));
++    Point point = new Point(((int) (frame.width)), ((int) (frame.height)));
++    float scaleFactor = view.window().userSpaceScaleFactor();
++    point.x /= scaleFactor;
++    point.y /= scaleFactor;
++    return point;

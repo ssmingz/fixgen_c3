@@ -1,0 +1,251 @@
+digraph "Pattern" {
+0 [label="getDirectoryScanner#?,Project#3:INSERT
+execute#?#9:INSERT
+execute#?#13:INSERT" shape=ellipse]
+1 [label="getDirectoryScanner#?,Project#2:public DirectoryScanner getDirectoryScanner(Project p) \{
+    if (!dir.exists()) \{
+        throw new BuildException(dir.getAbsolutePath() + \" not found.\");
+    \}
+    if (!dir.isDirectory()) \{
+        throw new BuildException(dir.getAbsolutePath() + \" is not a directory.\");
+    \}
+    DirectoryScanner ds = new DirectoryScanner();
+    ds.setBasedir(dir);
+    for (int i = 0; i < additionalPatterns.size(); i++) \{
+        Object o = additionalPatterns.elementAt(i);
+        if (o instanceof PatternSet) \{
+            defaultPatterns.append(((PatternSet) (o)));
+        \} else \{
+            Reference r = ((Reference) (o));
+            o = r.getReferencedObject(p);
+            if (o instanceof PatternSet) \{
+                defaultPatterns.append(((PatternSet) (o)));
+            \} else \{
+                String msg = r.getRefId() + \" doesn\'t denote a patternset\";
+                throw new BuildException(msg);
+            \}
+        \}
+    \}
+    ds.setIncludes(defaultPatterns.getIncludePatterns(p));
+    ds.setExcludes(defaultPatterns.getExcludePatterns(p));
+    if (useDefaultExcludes) \{
+        ds.addDefaultExcludes();
+    \}
+    ds.scan();
+    return ds;
+\}
+execute#?#2:public void execute() throws BuildException \{
+    if (countConditions() > 1) \{
+        throw new BuildException(\"You must not nest more than one condition into <condition>\");
+    \}
+    if (countConditions() < 1) \{
+        throw new BuildException(\"You must nest a condition into <condition>\");
+    \}
+    Condition c = ((Condition) (getConditions().nextElement()));
+    if (c.eval()) \{
+        getProject().setNewProperty(property, value);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    if (\"expand\".equals(taskType)) \{
+        log(\"!! expand is deprecated. Use unzip instead. !!\");
+    \}
+    Touch touch = ((Touch) (project.createTask(\"touch\")));
+    touch.setOwningTarget(target);
+    touch.setTaskName(getTaskName());
+    touch.setLocation(getLocation());
+    if (source == null) \{
+        throw new BuildException(\"Source attribute must be specified\");
+    \}
+    if (source.isDirectory()) \{
+        DirectoryScanner ds = super.getDirectoryScanner(source);
+        String[] files = ds.getIncludedFiles();
+        for (int i = 0; i < files.length; ++i) \{
+            File file = new File(source, files[i]);
+            expandFile(touch, file, dest);
+        \}
+    \} else \{
+        expandFile(touch, source, dest);
+    \}
+\}" shape=ellipse]
+2 [label="getDirectoryScanner#?,Project#2:getDirectoryScanner
+execute#?#2:VE: ThrownTypes_execute
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+3 [label="getDirectoryScanner#?,Project#2:DirectoryScanner
+execute#?#2:BuildException
+execute#?#2:BuildException" shape=ellipse]
+4 [label="getDirectoryScanner#?,Project#-1:
+execute#?#-1:
+execute#?#-1:" shape=ellipse]
+5 [label="getDirectoryScanner#?,Project#2:Project p" shape=ellipse]
+6 [label="getDirectoryScanner#?,Project#2:Project" shape=ellipse]
+7 [label="getDirectoryScanner#?,Project#2:\{
+    if (!dir.exists()) \{
+        throw new BuildException(dir.getAbsolutePath() + \" not found.\");
+    \}
+    if (!dir.isDirectory()) \{
+        throw new BuildException(dir.getAbsolutePath() + \" is not a directory.\");
+    \}
+    DirectoryScanner ds = new DirectoryScanner();
+    ds.setBasedir(dir);
+    for (int i = 0; i < additionalPatterns.size(); i++) \{
+        Object o = additionalPatterns.elementAt(i);
+        if (o instanceof PatternSet) \{
+            defaultPatterns.append(((PatternSet) (o)));
+        \} else \{
+            Reference r = ((Reference) (o));
+            o = r.getReferencedObject(p);
+            if (o instanceof PatternSet) \{
+                defaultPatterns.append(((PatternSet) (o)));
+            \} else \{
+                String msg = r.getRefId() + \" doesn\'t denote a patternset\";
+                throw new BuildException(msg);
+            \}
+        \}
+    \}
+    ds.setIncludes(defaultPatterns.getIncludePatterns(p));
+    ds.setExcludes(defaultPatterns.getExcludePatterns(p));
+    if (useDefaultExcludes) \{
+        ds.addDefaultExcludes();
+    \}
+    ds.scan();
+    return ds;
+\}
+execute#?#2:\{
+    if (countConditions() > 1) \{
+        throw new BuildException(\"You must not nest more than one condition into <condition>\");
+    \}
+    if (countConditions() < 1) \{
+        throw new BuildException(\"You must nest a condition into <condition>\");
+    \}
+    Condition c = ((Condition) (getConditions().nextElement()));
+    if (c.eval()) \{
+        getProject().setNewProperty(property, value);
+    \}
+\}
+execute#?#2:\{
+    if (\"expand\".equals(taskType)) \{
+        log(\"!! expand is deprecated. Use unzip instead. !!\");
+    \}
+    Touch touch = ((Touch) (project.createTask(\"touch\")));
+    touch.setOwningTarget(target);
+    touch.setTaskName(getTaskName());
+    touch.setLocation(getLocation());
+    if (source == null) \{
+        throw new BuildException(\"Source attribute must be specified\");
+    \}
+    if (source.isDirectory()) \{
+        DirectoryScanner ds = super.getDirectoryScanner(source);
+        String[] files = ds.getIncludedFiles();
+        for (int i = 0; i < files.length; ++i) \{
+            File file = new File(source, files[i]);
+            expandFile(touch, file, dest);
+        \}
+    \} else \{
+        expandFile(touch, source, dest);
+    \}
+\}" shape=ellipse]
+8 [label="getDirectoryScanner#?,Project#3:if (!dir.exists()) \{
+    throw new BuildException(dir.getAbsolutePath() + \" not found.\");
+\}
+execute#?#3:if (countConditions() > 1) \{
+    throw new BuildException(\"You must not nest more than one condition into <condition>\");
+\}
+execute#?#10:if (source == null) \{
+    throw new BuildException(\"Source attribute must be specified\");
+\}" shape=ellipse]
+9 [label="getDirectoryScanner#?,Project#6:if (!dir.isDirectory()) \{
+    throw new BuildException(dir.getAbsolutePath() + \" is not a directory.\");
+\}
+execute#?#6:if (countConditions() < 1) \{
+    throw new BuildException(\"You must nest a condition into <condition>\");
+\}
+execute#?#3:if (\"expand\".equals(taskType)) \{
+    log(\"!! expand is deprecated. Use unzip instead. !!\");
+\}" shape=ellipse]
+10 [label="getDirectoryScanner#?,Project#9:DirectoryScanner ds = new DirectoryScanner()
+execute#?#9:Condition c = ((Condition) (getConditions().nextElement()))
+execute#?#13:if (source.isDirectory()) \{
+    DirectoryScanner ds = super.getDirectoryScanner(source);
+    String[] files = ds.getIncludedFiles();
+    for (int i = 0; i < files.length; ++i) \{
+        File file = new File(source, files[i]);
+        expandFile(touch, file, dest);
+    \}
+\} else \{
+    expandFile(touch, source, dest);
+\}" shape=ellipse]
+11 [label="getDirectoryScanner#?,Project#10:ds.setBasedir(dir)
+execute#?#7:touch.setOwningTarget(target)" shape=ellipse]
+12 [label="getDirectoryScanner#?,Project#11:for (int i = 0; i < additionalPatterns.size(); i++) \{
+    Object o = additionalPatterns.elementAt(i);
+    if (o instanceof PatternSet) \{
+        defaultPatterns.append(((PatternSet) (o)));
+    \} else \{
+        Reference r = ((Reference) (o));
+        o = r.getReferencedObject(p);
+        if (o instanceof PatternSet) \{
+            defaultPatterns.append(((PatternSet) (o)));
+        \} else \{
+            String msg = r.getRefId() + \" doesn\'t denote a patternset\";
+            throw new BuildException(msg);
+        \}
+    \}
+\}" shape=ellipse]
+13 [label="getDirectoryScanner#?,Project#26:ds.setIncludes(defaultPatterns.getIncludePatterns(p))
+execute#?#9:touch.setLocation(getLocation())" shape=ellipse]
+14 [label="getDirectoryScanner#?,Project#27:ds.setExcludes(defaultPatterns.getExcludePatterns(p))
+execute#?#8:touch.setTaskName(getTaskName())" shape=ellipse]
+15 [label="getDirectoryScanner#?,Project#28:if (useDefaultExcludes) \{
+    ds.addDefaultExcludes();
+\}
+execute#?#10:if (c.eval()) \{
+    getProject().setNewProperty(property, value);
+\}
+execute#?#6:Touch touch = ((Touch) (project.createTask(\"touch\")))" shape=ellipse]
+16 [label="getDirectoryScanner#?,Project#31:ds.scan()" shape=ellipse]
+17 [label="getDirectoryScanner#?,Project#32:return ds" shape=ellipse]
+18 [label="getDirectoryScanner#?,Project#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+19 [label="getDirectoryScanner#?,Project#2:public
+execute#?#2:public
+execute#?#2:public" shape=ellipse]
+20 [label="getDirectoryScanner#?,Project#3:if (dir == null) \{
+    throw new BuildException(\"No directory specified for fileset.\");
+\}
+execute#?#9:if (property == null) \{
+    throw new BuildException(\"The property attribute is required.\");
+\}
+execute#?#13:if (dest == null) \{
+    throw new BuildException(\"Dest attribute must be specified\");
+\}" shape=ellipse]
+21 [label="execute#?#2:execute" shape=ellipse]
+22 [label="execute#?#2:void" shape=ellipse]
+23 [label="execute#?#2:execute" shape=ellipse]
+24 [label="execute#?#2:void" shape=ellipse]
+0 -> 20 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 5 [label="AST:1"];
+1 -> 7 [label="AST:3"];
+1 -> 18 [label="AST:3"];
+1 -> 19 [label="AST:3"];
+1 -> 21 [label="AST:1"];
+1 -> 22 [label="AST:1"];
+1 -> 23 [label="AST:1"];
+1 -> 24 [label="AST:1"];
+3 -> 4 [label="AST:3"];
+5 -> 6 [label="AST:1"];
+7 -> 8 [label="AST:3"];
+7 -> 9 [label="AST:3"];
+7 -> 10 [label="AST:3"];
+7 -> 11 [label="AST:2"];
+7 -> 12 [label="AST:1"];
+7 -> 13 [label="AST:2"];
+7 -> 14 [label="AST:2"];
+7 -> 15 [label="AST:3"];
+7 -> 16 [label="AST:1"];
+7 -> 17 [label="AST:1"];
+}

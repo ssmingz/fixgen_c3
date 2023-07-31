@@ -1,0 +1,29 @@
+digraph "TraXLiaison#?" {
+0 [label="2:CtVirtualElement@TraXLiaison" shape=ellipse]
+1 [label="2:CtTypeReferenceImpl@Exception" shape=ellipse]
+2 [label="3:CtFieldWriteImpl@tfactory" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@newInstance()" shape=ellipse]
+4 [label="3:CtVirtualElement@newInstance" shape=ellipse]
+5 [label="3:CtTypeAccessImpl@TransformerFactory" shape=ellipse]
+6 [label="3:CtInvocationImpl@TransformerFactory.newInstance()" shape=ellipse]
+7 [label="3:CtAssignmentImpl@tfactory = TransformerFactory.newInstance()" shape=ellipse]
+8 [label="2:CtBlockImpl@\{
+    tfactory = TransformerFactory.newInstance();
+\}" shape=ellipse]
+9 [label="2:CtMethodImpl@public  TraXLiaison() throws Exception \{
+    tfactory = TransformerFactory.newInstance();
+\}" shape=ellipse]
+10 [label="4:Insert@INSERT" shape=ellipse]
+11 [label="4:CtInvocationImpl@tfactory.setErrorListener(this)" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+7 -> 2 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 0 [label="AST"];
+9 -> 1 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 10 [label="Action"];
+10 -> 11 [label="Action"];
+}

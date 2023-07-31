@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/928/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/928/2/after.java
+@@ -64,1 +64,3 @@
+-      error(ERROR_CANNOT_SET_TEXT);
++      int error = OS.GetLastError();
++      SWT.error(
++          ERROR_CANNOT_SET_TEXT, null, (" [GetLastError=0x" + Integer.toHexString(error)) + "]");

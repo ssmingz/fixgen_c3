@@ -1,0 +1,107 @@
+digraph "Pattern" {
+0 [label="getNestedCreator#?,Project,Object,String#4:INSERT
+storeElement#?,Project,Object,Object,String#7:INSERT" shape=ellipse]
+1 [label="getNestedCreator#?,Project,Object,String#4:((NestedCreator) (nestedCreators.get(elementName)))
+storeElement#?,Project,Object,Object,String#7:((NestedCreator) (nestedCreators.get(elementName)))" shape=ellipse]
+2 [label="getNestedCreator#?,Project,Object,String#4:NestedCreator nc = ((NestedCreator) (nestedCreators.get(elementName)))
+storeElement#?,Project,Object,Object,String#7:NestedCreator ns = ((NestedCreator) (nestedCreators.get(elementName)))" shape=ellipse]
+3 [label="getNestedCreator#?,Project,Object,String#3:\{
+    NestedCreator nc = ((NestedCreator) (nestedCreators.get(elementName)));
+    if (nc == null) \{
+        nc = createAddTypeCreator(project, parent, elementName);
+    \}
+    if ((nc == null) && (parent instanceof DynamicConfigurator)) \{
+        DynamicConfigurator dc = ((DynamicConfigurator) (parent));
+        final Object nestedElement = dc.createDynamicElement(elementName);
+        if (nestedElement != null) \{
+            nc = new NestedCreator() \{
+                public boolean isPolyMorphic() \{
+                    return false;
+                \}
+
+                public Class getElementClass() \{
+                    return null;
+                \}
+
+                public Object create(Project project, Object parent, Object ignore) \{
+                    return nestedElement;
+                \}
+
+                public void store(Object parent, Object child) \{
+                \}
+            \};
+        \}
+    \}
+    if (nc == null) \{
+        throwNotSupported(project, parent, elementName);
+    \}
+    return nc;
+\}
+storeElement#?,Project,Object,Object,String#3:\{
+    if (elementName == null) \{
+        return;
+    \}
+    NestedCreator ns = ((NestedCreator) (nestedCreators.get(elementName)));
+    if (ns == null) \{
+        return;
+    \}
+    try \{
+        ns.store(parent, child);
+    \} catch (IllegalAccessException ie) \{
+        throw new BuildException(ie);
+    \} catch (InstantiationException ine) \{
+        throw new BuildException(ine);
+    \} catch (InvocationTargetException ite) \{
+        Throwable t = ite.getTargetException();
+        if (t instanceof BuildException) \{
+            throw ((BuildException) (t));
+        \}
+        throw new BuildException(t);
+    \}
+\}" shape=ellipse]
+4 [label="getNestedCreator#?,Project,Object,String#4:nc
+storeElement#?,Project,Object,Object,String#7:ns" shape=ellipse]
+5 [label="getNestedCreator#?,Project,Object,String#4:NestedCreator
+storeElement#?,Project,Object,Object,String#7:NestedCreator" shape=ellipse]
+6 [label="getNestedCreator#?,Project,Object,String#4:get
+storeElement#?,Project,Object,Object,String#7:get" shape=ellipse]
+7 [label="getNestedCreator#?,Project,Object,String#4:NestedCreator
+storeElement#?,Project,Object,Object,String#7:NestedCreator" shape=ellipse]
+8 [label="getNestedCreator#?,Project,Object,String#4:nestedCreators
+storeElement#?,Project,Object,Object,String#7:nestedCreators" shape=ellipse]
+9 [label="getNestedCreator#?,Project,Object,String#-1:nestedCreators
+storeElement#?,Project,Object,Object,String#-1:nestedCreators" shape=ellipse]
+10 [label="getNestedCreator#?,Project,Object,String#4:get(java.lang.String)
+storeElement#?,Project,Object,Object,String#7:get(java.lang.String)" shape=ellipse]
+11 [label="getNestedCreator#?,Project,Object,String#-1:nestedCreators
+storeElement#?,Project,Object,Object,String#-1:nestedCreators" shape=ellipse]
+12 [label="getNestedCreator#?,Project,Object,String#-1:String
+storeElement#?,Project,Object,Object,String#-1:String" shape=ellipse]
+13 [label="getNestedCreator#?,Project,Object,String#4:elementName
+storeElement#?,Project,Object,Object,String#7:elementName" shape=ellipse]
+14 [label="getNestedCreator#?,Project,Object,String#-1:elementName
+storeElement#?,Project,Object,Object,String#-1:elementName" shape=ellipse]
+15 [label="getNestedCreator#?,Project,Object,String#4:MOVE
+storeElement#?,Project,Object,Object,String#7:MOVE" shape=ellipse]
+16 [label="getNestedCreator#?,Project,Object,String#4:elementName.toLowerCase(US)
+storeElement#?,Project,Object,Object,String#7:elementName.toLowerCase(US)" shape=ellipse]
+0 -> 16 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 4 [label="Data Dep:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+13 -> 4 [label="Data Dep:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="Action:2"];
+15 -> 16 [label="Action:2"];
+}

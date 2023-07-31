@@ -1,0 +1,63 @@
+digraph "Pattern" {
+0 [label="storeElement#?,Project,Object,Object,String#7:UPDATE
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:UPDATE" shape=ellipse]
+1 [label="storeElement#?,Project,Object,Object,String#7:US
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:US" shape=ellipse]
+2 [label="storeElement#?,Project,Object,Object,String#7:elementName.toLowerCase(US)
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:name.toLowerCase(US)" shape=ellipse]
+3 [label="storeElement#?,Project,Object,Object,String#7:((NestedCreator) (nestedCreators.get(elementName.toLowerCase(US))))
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:((NestedCreator) (nestedCreators.get(name.toLowerCase(US))))" shape=ellipse]
+4 [label="storeElement#?,Project,Object,Object,String#7:toLowerCase" shape=ellipse]
+5 [label="storeElement#?,Project,Object,Object,String#7:elementName
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:name" shape=ellipse]
+6 [label="storeElement#?,Project,Object,Object,String#7:toLowerCase(java.util.Locale)
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:toLowerCase(java.util.Locale)" shape=ellipse]
+7 [label="storeElement#?,Project,Object,Object,String#-1:US
+getNestedCreator#?,Project,String,Object,String,UnknownElement#-1:US" shape=ellipse]
+8 [label="storeElement#?,Project,Object,Object,String#8:ENGLISH
+getNestedCreator#?,Project,String,Object,String,UnknownElement#15:ENGLISH" shape=ellipse]
+9 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#14:uri.equals(parentUri)" shape=ellipse]
+10 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#14:\{
+    nc = ((NestedCreator) (nestedCreators.get(name.toLowerCase(US))));
+\}" shape=ellipse]
+11 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#15:get()" shape=ellipse]
+12 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#14:(uri.length() == 0)" shape=ellipse]
+13 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#15:nc" shape=ellipse]
+14 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#15:nestedCreators" shape=ellipse]
+15 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#14:if (uri.equals(parentUri) || (uri.length() == 0)) \{
+    nc = ((NestedCreator) (nestedCreators.get(name.toLowerCase(US))));
+\}" shape=ellipse]
+16 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#15:nc = ((NestedCreator) (nestedCreators.get(name.toLowerCase(US))))" shape=ellipse]
+17 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#-1:boolean" shape=ellipse]
+18 [label="getNestedCreator#?,Project,String,Object,String,UnknownElement#14:uri.equals(parentUri) || (uri.length() == 0)" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 11 [label="AST:1"];
+3 -> 14 [label="AST:1"];
+5 -> 13 [label="Data Dep:1"];
+10 -> 16 [label="AST:1"];
+14 -> 13 [label="Data Dep:1"];
+15 -> 10 [label="AST:1"];
+15 -> 18 [label="AST:1"];
+16 -> 13 [label="AST:1"];
+16 -> 3 [label="AST:1"];
+18 -> 9 [label="AST:1"];
+18 -> 10 [label="Control Dep:1"];
+18 -> 11 [label="Control Dep:1"];
+18 -> 12 [label="AST:1"];
+18 -> 13 [label="Control Dep:1"];
+18 -> 14 [label="Control Dep:1"];
+18 -> 16 [label="Control Dep:1"];
+18 -> 17 [label="AST:1"];
+18 -> 3 [label="Control Dep:1"];
+18 -> 2 [label="Control Dep:1"];
+18 -> 6 [label="Control Dep:1"];
+18 -> 5 [label="Control Dep:1"];
+18 -> 1 [label="Control Dep:1"];
+}

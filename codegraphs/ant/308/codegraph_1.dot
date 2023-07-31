@@ -1,0 +1,33 @@
+digraph "getIncrementalParameter#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getIncrementalParameter" shape=ellipse]
+2 [label="3:CtLiteralImpl@\"/incremental\"" shape=ellipse]
+3 [label="3:CtFieldReadImpl@_incremental" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"+\"" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"-\"" shape=ellipse]
+6 [label="3:CtConditionalImpl@(_incremental ? \"+\" : \"-\")" shape=ellipse]
+7 [label="3:CtBinaryOperatorImpl@\"/incremental\" + (_incremental ? \"+\" : \"-\")" shape=ellipse]
+8 [label="3:CtReturnImpl@return \"/incremental\" + (_incremental ? \"+\" : \"-\")" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    return \"/incremental\" + (_incremental ? \"+\" : \"-\");
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@protected String getIncrementalParameter() \{
+    return \"/incremental\" + (_incremental ? \"+\" : \"-\");
+\}" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="3:CtFieldReadImpl@incremental" shape=ellipse]
+3 -> 4 [label="Control Dep"];
+3 -> 5 [label="Control Dep"];
+3 -> 11 [label="Action"];
+6 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 2 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 12 [label="Action"];
+}

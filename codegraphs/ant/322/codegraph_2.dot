@@ -1,0 +1,103 @@
+digraph "tokenize#?,String" {
+0 [label="2:CtTypeReferenceImpl@Vector" shape=ellipse]
+1 [label="2:CtVirtualElement@tokenize" shape=ellipse]
+2 [label="2:CtParameterImpl@String args" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@Vector" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Vector" shape=ellipse]
+6 [label="3:CtConstructorCallImpl@new Vector()" shape=ellipse]
+7 [label="3:CtVirtualElement@v" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@Vector v = new Vector()" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+11 [label="4:CtVariableReadImpl@args" shape=ellipse]
+12 [label="4:CtLiteralImpl@\" \"" shape=ellipse]
+13 [label="4:CtConstructorCallImpl@new StringTokenizer(args, \" \")" shape=ellipse]
+14 [label="4:CtVirtualElement@t" shape=ellipse]
+15 [label="4:CtLocalVariableImpl@StringTokenizer t = new StringTokenizer(args, \" \")" shape=ellipse]
+16 [label="5:CtExecutableReferenceImpl@hasMoreTokens()" shape=ellipse]
+17 [label="5:CtVirtualElement@hasMoreTokens" shape=ellipse]
+18 [label="5:CtVariableReadImpl@t" shape=ellipse]
+19 [label="5:CtInvocationImpl@t.hasMoreTokens()" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@addElement()" shape=ellipse]
+21 [label="6:CtVirtualElement@addElement" shape=ellipse]
+22 [label="6:CtVariableReadImpl@v" shape=ellipse]
+23 [label="6:CtExecutableReferenceImpl@nextToken()" shape=ellipse]
+24 [label="6:CtVirtualElement@nextToken" shape=ellipse]
+25 [label="6:CtVariableReadImpl@t" shape=ellipse]
+26 [label="6:CtInvocationImpl@t.nextToken()" shape=ellipse]
+27 [label="6:CtInvocationImpl@v.addElement(t.nextToken())" shape=ellipse]
+28 [label="5:CtBlockImpl@\{
+    v.addElement(t.nextToken());
+\}" shape=ellipse]
+29 [label="5:CtWhileImpl@while (t.hasMoreTokens()) \{
+    v.addElement(t.nextToken());
+\} " shape=ellipse]
+30 [label="8:CtVariableReadImpl@v" shape=ellipse]
+31 [label="8:CtReturnImpl@return v" shape=ellipse]
+32 [label="2:CtBlockImpl@\{
+    Vector v = new Vector();
+    StringTokenizer t = new StringTokenizer(args, \" \");
+    while (t.hasMoreTokens()) \{
+        v.addElement(t.nextToken());
+    \} 
+    return v;
+\}" shape=ellipse]
+33 [label="2:CtMethodImpl@protected Vector tokenize(String args) \{
+    Vector v = new Vector();
+    StringTokenizer t = new StringTokenizer(args, \" \");
+    while (t.hasMoreTokens()) \{
+        v.addElement(t.nextToken());
+    \} 
+    return v;
+\}" shape=ellipse]
+34 [label="4:Insert@INSERT" shape=ellipse]
+35 [label="4:CtIfImpl@if (args == null) \{
+    return v;
+\}" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 22 [label="Define-Use"];
+7 -> 30 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 6 [label="AST"];
+11 -> 14 [label="Data Dep"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 18 [label="Define-Use"];
+14 -> 25 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 13 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 16 [label="AST"];
+19 -> 28 [label="Control Dep"];
+19 -> 27 [label="Control Dep"];
+19 -> 20 [label="Control Dep"];
+19 -> 22 [label="Control Dep"];
+19 -> 26 [label="Control Dep"];
+19 -> 23 [label="Control Dep"];
+19 -> 25 [label="Control Dep"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 20 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 19 [label="AST"];
+29 -> 28 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 8 [label="AST"];
+32 -> 15 [label="AST"];
+32 -> 29 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 1 [label="AST"];
+33 -> 0 [label="AST"];
+33 -> 2 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 34 [label="Action"];
+34 -> 35 [label="Action"];
+}

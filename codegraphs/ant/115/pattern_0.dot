@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="TarBuffer#?,InputStream,int,int#3:DELETE
+TarBuffer#?,OutputStream,int,int#4:DELETE" shape=ellipse]
+1 [label="TarBuffer#?,InputStream,int,int#3:this.inStream = inStream
+TarBuffer#?,OutputStream,int,int#4:this.outStream = outStream" shape=ellipse]
+2 [label="TarBuffer#?,InputStream,int,int#2:\{
+    this.inStream = inStream;
+    this.outStream = null;
+    this.initialize(blockSize, recordSize);
+\}
+TarBuffer#?,OutputStream,int,int#2:\{
+    this.inStream = null;
+    this.outStream = outStream;
+    this.initialize(blockSize, recordSize);
+\}" shape=ellipse]
+3 [label="TarBuffer#?,InputStream,int,int#2:public  TarBuffer(InputStream inStream, int blockSize, int recordSize) \{
+    this.inStream = inStream;
+    this.outStream = null;
+    this.initialize(blockSize, recordSize);
+\}
+TarBuffer#?,OutputStream,int,int#2:public  TarBuffer(OutputStream outStream, int blockSize, int recordSize) \{
+    this.inStream = null;
+    this.outStream = outStream;
+    this.initialize(blockSize, recordSize);
+\}" shape=ellipse]
+4 [label="TarBuffer#?,InputStream,int,int#4:this.outStream = null
+TarBuffer#?,OutputStream,int,int#3:this.inStream = null" shape=ellipse]
+5 [label="TarBuffer#?,InputStream,int,int#5:this.initialize(blockSize, recordSize)
+TarBuffer#?,OutputStream,int,int#5:this.initialize(blockSize, recordSize)" shape=ellipse]
+6 [label="TarBuffer#?,InputStream,int,int#3:this.inStream
+TarBuffer#?,OutputStream,int,int#4:this.outStream" shape=ellipse]
+7 [label="TarBuffer#?,InputStream,int,int#3:inStream
+TarBuffer#?,OutputStream,int,int#4:outStream" shape=ellipse]
+8 [label="TarBuffer#?,InputStream,int,int#3:this
+TarBuffer#?,OutputStream,int,int#4:this" shape=ellipse]
+9 [label="TarBuffer#?,InputStream,int,int#-1:inStream
+TarBuffer#?,OutputStream,int,int#-1:outStream" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+7 -> 6 [label="Data Dep:2"];
+9 -> 7 [label="Define Use:2"];
+}

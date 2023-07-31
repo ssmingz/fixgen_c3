@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3011/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3011/1/after.java
+@@ -5,2 +5,6 @@
+-    if ((oldRowIndex == 0) && (items[oldRowIndex].length == 1)) {
+-      return;
++    boolean resize = false;
++    if (items[oldRowIndex].length == 1) {
++      resize = true;
++      if (oldRowIndex == 0) {
++        return;
++      }
+@@ -18,0 +22,1 @@
++      resize = true;
+@@ -21,1 +26,5 @@
+-    relayout();
++    if (resize) {
++      relayout();
++    } else {
++      layoutItems();
++    }

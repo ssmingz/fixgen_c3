@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/702/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/702/1/after.java
+@@ -4,1 +4,5 @@
+-    return Color.win32_new(display, getBackgroundPixel());
++    Control control = findBackgroundControl();
++    if (control == null) {
++      control = this;
++    }
++    return Color.win32_new(display, control.getBackgroundPixel());

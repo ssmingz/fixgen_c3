@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="buildFinished#?,BuildEvent#-1:UPDATE
+taskFinished#?,BuildEvent#-1:UPDATE
+targetFinished#?,BuildEvent#-1:UPDATE" shape=ellipse]
+1 [label="buildFinished#?,BuildEvent#-1:PlaceHold
+taskFinished#?,BuildEvent#-1:PlaceHold
+targetFinished#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+2 [label="buildFinished#?,BuildEvent#-1:
+taskFinished#?,BuildEvent#-1:
+targetFinished#?,BuildEvent#-1:" shape=ellipse]
+3 [label="buildFinished#?,BuildEvent#4:formatTime(totalTime)
+taskFinished#?,BuildEvent#4:formatTime(totalTime)
+targetFinished#?,BuildEvent#4:formatTime(totalTime)" shape=ellipse]
+4 [label="buildFinished#?,BuildEvent#-1:PlaceHold
+taskFinished#?,BuildEvent#-1:PlaceHold
+targetFinished#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+5 [label="buildFinished#?,BuildEvent#-1:PlaceHold
+taskFinished#?,BuildEvent#-1:PlaceHold
+targetFinished#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+6 [label="buildFinished#?,BuildEvent#4:DefaultLogger
+taskFinished#?,BuildEvent#4:DefaultLogger
+targetFinished#?,BuildEvent#4:DefaultLogger" shape=ellipse]
+0 -> 6 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+}

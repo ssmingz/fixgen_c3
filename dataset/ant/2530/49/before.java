@@ -1,0 +1,16 @@
+class PlaceHold {
+  public int getClassEntry(String className) {
+    int index = -1;
+    final int size = entries.size();
+    for (int i = 0; (i < size) && (index == (-1)); ++i) {
+      Object element = entries.elementAt(i);
+      if (element instanceof ClassCPInfo) {
+        ClassCPInfo classinfo = ((ClassCPInfo) (element));
+        if (classinfo.getClassName().equals(className)) {
+          index = i;
+        }
+      }
+    }
+    return index;
+  }
+}

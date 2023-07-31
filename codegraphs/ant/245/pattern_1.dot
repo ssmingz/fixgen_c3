@@ -1,0 +1,79 @@
+digraph "Pattern" {
+0 [label="testDefaultExecutor#?#2:INSERT
+testPropertyExpansion#?#2:INSERT" shape=ellipse]
+1 [label="testDefaultExecutor#?#2:public void testDefaultExecutor() \{
+    getProject().executeTargets(TARGET_NAMES);
+    assertEquals(4, targetCount);
+\}
+testPropertyExpansion#?#2:public void testPropertyExpansion() \{
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"$\", \"$\");
+    assertExpandsTo(\"$$-\", \"$-\");
+    assertExpandsTo(\"$$\", \"$\");
+    project.setProperty(\"expanded\", \"EXPANDED\");
+    assertExpandsTo(\"a$\{expanded\}b\", \"aEXPANDEDb\");
+    assertExpandsTo(\"$\{expanded\}$\{expanded\}\", \"EXPANDEDEXPANDED\");
+    assertExpandsTo(\"$$$\", \"$$\");
+    assertExpandsTo(\"$$$$-\", \"$$-\");
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"Class$$subclass\", \"Class$subclass\");
+\}" shape=ellipse]
+2 [label="testDefaultExecutor#?#2:testDefaultExecutor
+testPropertyExpansion#?#2:testPropertyExpansion" shape=ellipse]
+3 [label="testDefaultExecutor#?#2:void
+testPropertyExpansion#?#2:void" shape=ellipse]
+4 [label="testDefaultExecutor#?#2:\{
+    getProject().executeTargets(TARGET_NAMES);
+    assertEquals(4, targetCount);
+\}
+testPropertyExpansion#?#2:\{
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"$\", \"$\");
+    assertExpandsTo(\"$$-\", \"$-\");
+    assertExpandsTo(\"$$\", \"$\");
+    project.setProperty(\"expanded\", \"EXPANDED\");
+    assertExpandsTo(\"a$\{expanded\}b\", \"aEXPANDEDb\");
+    assertExpandsTo(\"$\{expanded\}$\{expanded\}\", \"EXPANDEDEXPANDED\");
+    assertExpandsTo(\"$$$\", \"$$\");
+    assertExpandsTo(\"$$$$-\", \"$$-\");
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"Class$$subclass\", \"Class$subclass\");
+\}" shape=ellipse]
+5 [label="testDefaultExecutor#?#3:getProject().executeTargets(TARGET_NAMES)
+testPropertyExpansion#?#7:project.setProperty(\"expanded\", \"EXPANDED\")" shape=ellipse]
+6 [label="testDefaultExecutor#?#4:assertEquals(4, targetCount)
+testPropertyExpansion#?#13:assertExpandsTo(\"Class$$subclass\", \"Class$subclass\")" shape=ellipse]
+7 [label="testDefaultExecutor#?#2:public
+testPropertyExpansion#?#2:public" shape=ellipse]
+8 [label="testDefaultExecutor#?#2:VE: Modifiers_Method
+testPropertyExpansion#?#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="testDefaultExecutor#?#2:@Test
+testPropertyExpansion#?#2:@Test" shape=ellipse]
+10 [label="testPropertyExpansion#?#10:assertExpandsTo(\"$$$\", \"$$\")" shape=ellipse]
+11 [label="testPropertyExpansion#?#8:assertExpandsTo(\"a$\{expanded\}b\", \"aEXPANDEDb\")" shape=ellipse]
+12 [label="testPropertyExpansion#?#9:assertExpandsTo(\"$\{expanded\}$\{expanded\}\", \"EXPANDEDEXPANDED\")" shape=ellipse]
+13 [label="testPropertyExpansion#?#4:assertExpandsTo(\"$\", \"$\")" shape=ellipse]
+14 [label="testPropertyExpansion#?#5:assertExpandsTo(\"$$-\", \"$-\")" shape=ellipse]
+15 [label="testPropertyExpansion#?#6:assertExpandsTo(\"$$\", \"$\")" shape=ellipse]
+16 [label="testPropertyExpansion#?#11:assertExpandsTo(\"$$$$-\", \"$$-\")" shape=ellipse]
+17 [label="testPropertyExpansion#?#12:assertExpandsTo(\"\", \"\")" shape=ellipse]
+18 [label="testPropertyExpansion#?#3:assertExpandsTo(\"\", \"\")" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 10 [label="AST:1"];
+4 -> 11 [label="AST:1"];
+4 -> 12 [label="AST:1"];
+4 -> 13 [label="AST:1"];
+4 -> 14 [label="AST:1"];
+4 -> 15 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+4 -> 17 [label="AST:1"];
+4 -> 18 [label="AST:1"];
+}

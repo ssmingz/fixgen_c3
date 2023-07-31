@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/812/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/812/1/after.java
+@@ -153,1 +153,4 @@
+-      exe.execute();
++      int ret = exe.execute();
++      if ((ret != 0) && failOnError) {
++        throw new BuildException("Javadoc returned " + ret, location);
++      }

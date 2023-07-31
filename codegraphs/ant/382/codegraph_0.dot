@@ -1,0 +1,33 @@
+digraph "selectorElements#?" {
+0 [label="2:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+1 [label="2:CtVirtualElement@selectorElements" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@elements()" shape=ellipse]
+3 [label="3:CtVirtualElement@elements" shape=ellipse]
+4 [label="3:CtFieldReadImpl@selectorsList" shape=ellipse]
+5 [label="3:CtInvocationImpl@selectorsList.elements()" shape=ellipse]
+6 [label="3:CtReturnImpl@return selectorsList.elements()" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    return selectorsList.elements();
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public Enumeration selectorElements() \{
+    return selectorsList.elements();
+\}" shape=ellipse]
+9 [label="3:Insert@INSERT" shape=ellipse]
+10 [label="3:CtIfImpl@if (isReference()) \{
+    return ((AbstractSelectorContainer) (getCheckedRef())).selectorElements();
+\}" shape=ellipse]
+11 [label="6:Insert@INSERT" shape=ellipse]
+12 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 2 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 9 [label="Action"];
+8 -> 11 [label="Action"];
+9 -> 10 [label="Action"];
+11 -> 12 [label="Action"];
+}

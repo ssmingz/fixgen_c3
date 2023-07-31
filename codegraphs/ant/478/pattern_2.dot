@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="testBadPattern#?#-1:MOVE
+testNolanguage#?#-1:MOVE" shape=ellipse]
+1 [label="testBadPattern#?#-1:PlaceHold
+testNolanguage#?#-1:PlaceHold" shape=ellipse]
+2 [label="testBadPattern#?#-1:
+testNolanguage#?#-1:" shape=ellipse]
+3 [label="testBadPattern#?#3:expectBuildExceptionContaining(\"testBadPattern\", \"No parsing exception thrown\", \"Unparseable\")
+testNolanguage#?#3:expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\")" shape=ellipse]
+4 [label="testBadPattern#?#-1:PlaceHold
+testNolanguage#?#-1:PlaceHold" shape=ellipse]
+5 [label="testBadPattern#?#-1:PlaceHold
+testNolanguage#?#-1:PlaceHold" shape=ellipse]
+6 [label="testBadPattern#?#6:fail(\"No parsing exception thrown\")
+testNolanguage#?#6:fail(\"Absence of language attribute not detected\")" shape=ellipse]
+7 [label="testBadPattern#?#3:MOVE
+testNolanguage#?#5:MOVE" shape=ellipse]
+8 [label="testBadPattern#?#3:\"No parsing exception thrown\"
+testNolanguage#?#5:\"Absence of language attribute not detected\"" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+7 -> 6 [label="Action:2"];
+8 -> 7 [label="Action:2"];
+}

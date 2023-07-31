@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/693/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/693/3/after.java
+@@ -3,11 +3,1 @@
+-    if (eventTable == null) {
+-      return;
+-    }
+-    Display display = getDisplay();
+-    event.type = eventType;
+-    event.display = display;
+-    event.widget = this;
+-    if (event.time == 0) {
+-      event.time = ((int) (OS.GetLastUserEventTime() * 1000.0));
+-    }
+-    eventTable.sendEvent(event);
++    sendEvent(eventType, event, true);

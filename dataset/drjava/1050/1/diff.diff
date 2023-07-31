@@ -1,0 +1,24 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1050/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1050/1/after.java
+@@ -2,1 +2,1 @@
+-  public Node visit(InnerClassAllocation node) {
++  public Object visit(InnerClassAllocation node) {
+@@ -5,1 +5,1 @@
+-    LinkedList<Expression> arguments = null;
++    LinkedList arguments = null;
+@@ -7,2 +7,2 @@
+-      arguments = new LinkedList<Expression>();
+-      Iterator<Expression> it = node.getArguments().iterator();
++      arguments = new LinkedList();
++      Iterator it = node.getArguments().iterator();
+@@ -10,1 +10,1 @@
+-        arguments.add(((Expression) (it.next().acceptVisitor(this))));
++        arguments.add(((Expression) (((Expression) (it.next())).acceptVisitor(this))));
+@@ -14,2 +14,2 @@
+-    LinkedList<Node> members = new LinkedList<Node>();
+-    Iterator<Node> it = node.getMembers().iterator();
++    LinkedList members = new LinkedList();
++    Iterator it = node.getMembers().iterator();
+@@ -17,1 +17,1 @@
+-      members.add(it.next().acceptVisitor(this));
++      members.add(((Node) (((Node) (it.next())).acceptVisitor(this))));

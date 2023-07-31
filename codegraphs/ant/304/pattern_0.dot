@@ -1,0 +1,64 @@
+digraph "Pattern" {
+0 [label="testNoSrc#?#4:DELETE
+testSrcIsDir#?#3:DELETE
+testSrcIsMissing#?#3:DELETE
+testBothSrc#?#4:DELETE" shape=ellipse]
+1 [label="testNoSrc#?#4:\"you must specify either a source file or a URL\"
+testSrcIsDir#?#3:\"is a directory\"
+testSrcIsMissing#?#3:\"does not exist\"
+testBothSrc#?#4:\"both a source file and a URL\"" shape=ellipse]
+2 [label="testNoSrc#?#3:expectBuildExceptionContaining(\"testNoSrc\", \"expected failure\", \"you must specify either a source file or a URL\")
+testSrcIsDir#?#3:expectBuildExceptionContaining(\"testSrcIsDir\", \"expected failure\", \"is a directory\")
+testSrcIsMissing#?#3:expectBuildExceptionContaining(\"testSrcIsMissing\", \"expected failure\", \"does not exist\")
+testBothSrc#?#3:expectBuildExceptionContaining(\"testBothSrc\", \"expected failure\", \"both a source file and a URL\")" shape=ellipse]
+3 [label="testNoSrc#?#2:\{
+    expectBuildExceptionContaining(\"testNoSrc\", \"expected failure\", \"you must specify either a source file or a URL\");
+\}
+testSrcIsDir#?#2:\{
+    expectBuildExceptionContaining(\"testSrcIsDir\", \"expected failure\", \"is a directory\");
+\}
+testSrcIsMissing#?#2:\{
+    expectBuildExceptionContaining(\"testSrcIsMissing\", \"expected failure\", \"does not exist\");
+\}
+testBothSrc#?#2:\{
+    expectBuildExceptionContaining(\"testBothSrc\", \"expected failure\", \"both a source file and a URL\");
+\}" shape=ellipse]
+4 [label="testNoSrc#?#3:expectBuildExceptionContaining
+testSrcIsDir#?#3:expectBuildExceptionContaining
+testSrcIsMissing#?#3:expectBuildExceptionContaining
+testBothSrc#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testNoSrc#?#-1:
+testSrcIsDir#?#-1:
+testSrcIsMissing#?#-1:
+testBothSrc#?#-1:" shape=ellipse]
+6 [label="testNoSrc#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testSrcIsDir#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testSrcIsMissing#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testBothSrc#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testNoSrc#?#4:\"testNoSrc\"
+testSrcIsDir#?#3:\"testSrcIsDir\"
+testSrcIsMissing#?#3:\"testSrcIsMissing\"
+testBothSrc#?#4:\"testBothSrc\"" shape=ellipse]
+8 [label="testNoSrc#?#4:\"expected failure\"
+testSrcIsDir#?#3:\"expected failure\"
+testSrcIsMissing#?#3:\"expected failure\"
+testBothSrc#?#4:\"expected failure\"" shape=ellipse]
+9 [label="testNoSrc#?#3:INSERT
+testSrcIsDir#?#3:INSERT
+testSrcIsMissing#?#3:INSERT
+testBothSrc#?#3:INSERT" shape=ellipse]
+10 [label="testNoSrc#?#-1:String
+testSrcIsDir#?#-1:String
+testSrcIsMissing#?#-1:String
+testBothSrc#?#-1:String" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 10 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="AST:4"];
+2 -> 8 [label="AST:4"];
+2 -> 9 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+}

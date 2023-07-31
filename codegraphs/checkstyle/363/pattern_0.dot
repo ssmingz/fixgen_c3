@@ -1,0 +1,394 @@
+digraph "Pattern" {
+0 [label="getTypeParameterNames#?,DetailAST#4:DELETE
+getThrows#?,DetailAST#3:DELETE
+getLines#?,String,String#3:DELETE
+getOutStreamLines#?#6:DELETE
+getParameters#?,DetailAST#4:DELETE
+visitToken#?,DetailAST#4:DELETE
+getTypeParameters#?,DetailAST#4:DELETE" shape=ellipse]
+1 [label="getTypeParameterNames#?,DetailAST#4:new ArrayList<String>()
+getThrows#?,DetailAST#3:new ArrayList<ExceptionInfo>()
+getLines#?,String,String#3:new ArrayList<String>()
+getOutStreamLines#?#6:new ArrayList<String>()
+getParameters#?,DetailAST#4:new ArrayList<DetailAST>()
+visitToken#?,DetailAST#4:new ArrayList<DetailAST>()
+reportCComment#?,int,int,int,int#9:new ArrayList<TextBlock>()
+getTypeParameters#?,DetailAST#4:new ArrayList<DetailAST>()" shape=ellipse]
+2 [label="getTypeParameterNames#?,DetailAST#4:final List<String> typeParamNames = new ArrayList<String>()
+getThrows#?,DetailAST#3:final List<ExceptionInfo> retVal = new ArrayList<ExceptionInfo>()
+getLines#?,String,String#3:final List<String> lines = new ArrayList<String>()
+getOutStreamLines#?#6:final List<String> lineList = new ArrayList<String>()
+getParameters#?,DetailAST#4:final List<DetailAST> retVal = new ArrayList<DetailAST>()
+visitToken#?,DetailAST#4:final List<DetailAST> mods = new ArrayList<DetailAST>()
+reportCComment#?,int,int,int,int#9:final List<TextBlock> entries = new ArrayList<TextBlock>()
+getTypeParameters#?,DetailAST#4:final List<DetailAST> typeParams = new ArrayList<DetailAST>()" shape=ellipse]
+3 [label="getTypeParameterNames#?,DetailAST#2:\{
+    final DetailAST typeParameters = aNode.findFirstToken(TYPE_PARAMETERS);
+    final List<String> typeParamNames = new ArrayList<String>();
+    if (typeParameters != null) \{
+        final DetailAST typeParam = typeParameters.findFirstToken(TYPE_PARAMETER);
+        typeParamNames.add(typeParam.findFirstToken(IDENT).getText());
+        DetailAST sibling = ((DetailAST) (typeParam.getNextSibling()));
+        while (sibling != null) \{
+            if (sibling.getType() == TokenTypes.TYPE_PARAMETER) \{
+                typeParamNames.add(sibling.findFirstToken(IDENT).getText());
+            \}
+            sibling = ((DetailAST) (sibling.getNextSibling()));
+        \} 
+    \}
+    return typeParamNames;
+\}
+getThrows#?,DetailAST#2:\{
+    final List<ExceptionInfo> retVal = new ArrayList<ExceptionInfo>();
+    final DetailAST throwsAST = aAST.findFirstToken(LITERAL_THROWS);
+    if (throwsAST != null) \{
+        DetailAST child = ((DetailAST) (throwsAST.getFirstChild()));
+        while (child != null) \{
+            if ((child.getType() == TokenTypes.IDENT) || (child.getType() == TokenTypes.DOT)) \{
+                final FullIdent fi = FullIdent.createFullIdent(child);
+                final ExceptionInfo ei = new ExceptionInfo(new Token(fi), getCurrentClassName());
+                retVal.add(ei);
+            \}
+            child = ((DetailAST) (child.getNextSibling()));
+        \} 
+    \}
+    return retVal;
+\}
+getLines#?,String,String#2:\{
+    final List<String> lines = new ArrayList<String>();
+    final FileInputStream fr = new FileInputStream(aFileName);
+    LineNumberReader lnr = null;
+    try \{
+        lnr = new LineNumberReader(new InputStreamReader(fr, aCharsetName));
+    \} catch (final UnsupportedEncodingException ex) \{
+        final String message = \"unsupported charset: \" + ex.getMessage();
+        throw new UnsupportedEncodingException(message);
+    \}
+    try \{
+        while (true) \{
+            final String l = lnr.readLine();
+            if (l == null) \{
+                break;
+            \}
+            lines.add(l);
+        \} 
+    \} finally \{
+        try \{
+            lnr.close();
+        \} catch (final IOException e) \{
+        \}
+    \}
+    return lines.toArray(new String[0]);
+\}
+getOutStreamLines#?#2:\{
+    final byte[] bytes = outStream.toByteArray();
+    final ByteArrayInputStream inStream = new ByteArrayInputStream(bytes);
+    final BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+    final List<String> lineList = new ArrayList<String>();
+    while (true) \{
+        final String line = reader.readLine();
+        if (line == null) \{
+            break;
+        \}
+        lineList.add(line);
+    \} 
+    reader.close();
+    return lineList.toArray(new String[lineList.size()]);
+\}
+getParameters#?,DetailAST#2:\{
+    final DetailAST params = aAST.findFirstToken(PARAMETERS);
+    final List<DetailAST> retVal = new ArrayList<DetailAST>();
+    DetailAST child = ((DetailAST) (params.getFirstChild()));
+    while (child != null) \{
+        if (child.getType() == TokenTypes.PARAMETER_DEF) \{
+            final DetailAST ident = child.findFirstToken(IDENT);
+            retVal.add(ident);
+        \}
+        child = ((DetailAST) (child.getNextSibling()));
+    \} 
+    return retVal;
+\}
+visitToken#?,DetailAST#3:\{
+    final List<DetailAST> mods = new ArrayList<DetailAST>();
+    AST modifier = aAST.getFirstChild();
+    while (modifier != null) \{
+        mods.add(((DetailAST) (modifier)));
+        modifier = modifier.getNextSibling();
+    \} 
+    if (!mods.isEmpty()) \{
+        final DetailAST error = checkOrderSuggestedByJLS(mods);
+        if (error != null) \{
+            if (error.getType() == TokenTypes.ANNOTATION) \{
+                log(error.getLineNo(), error.getColumnNo(), \"annotation.order\", error.getFirstChild().getText() + error.getFirstChild().getNextSibling().getText());
+            \} else \{
+                log(error.getLineNo(), error.getColumnNo(), \"mod.order\", error.getText());
+            \}
+        \}
+    \}
+\}
+reportCComment#?,int,int,int,int#8:\{
+    final List<TextBlock> entries = new ArrayList<TextBlock>();
+    entries.add(comment);
+    mCComments.put(aStartLineNo, entries);
+\}
+getTypeParameters#?,DetailAST#2:\{
+    final DetailAST typeParameters = aNode.findFirstToken(TYPE_PARAMETERS);
+    final List<DetailAST> typeParams = new ArrayList<DetailAST>();
+    if (typeParameters != null) \{
+        final DetailAST typeParam = typeParameters.findFirstToken(TYPE_PARAMETER);
+        typeParams.add(typeParam);
+        DetailAST sibling = ((DetailAST) (typeParam.getNextSibling()));
+        while (sibling != null) \{
+            if (sibling.getType() == TokenTypes.TYPE_PARAMETER) \{
+                typeParams.add(sibling);
+            \}
+            sibling = ((DetailAST) (sibling.getNextSibling()));
+        \} 
+    \}
+    return typeParams;
+\}" shape=ellipse]
+4 [label="getTypeParameterNames#?,DetailAST#4:typeParamNames
+getThrows#?,DetailAST#3:retVal
+getLines#?,String,String#3:lines
+getOutStreamLines#?#6:lineList
+getParameters#?,DetailAST#4:retVal
+visitToken#?,DetailAST#4:mods
+reportCComment#?,int,int,int,int#9:entries
+getTypeParameters#?,DetailAST#4:typeParams" shape=ellipse]
+5 [label="getTypeParameterNames#?,DetailAST#4:List<String>
+getThrows#?,DetailAST#3:List<ExceptionInfo>
+getLines#?,String,String#3:List<String>
+getOutStreamLines#?#6:List<String>
+getParameters#?,DetailAST#4:List<DetailAST>
+visitToken#?,DetailAST#4:List<DetailAST>
+reportCComment#?,int,int,int,int#9:List<TextBlock>
+getTypeParameters#?,DetailAST#4:List<DetailAST>" shape=ellipse]
+6 [label="getTypeParameterNames#?,DetailAST#4:INSERT
+getThrows#?,DetailAST#3:INSERT
+getLines#?,String,String#3:INSERT
+getOutStreamLines#?#6:INSERT
+getParameters#?,DetailAST#4:INSERT
+visitToken#?,DetailAST#4:INSERT
+reportCComment#?,int,int,int,int#9:INSERT
+getTypeParameters#?,DetailAST#4:INSERT" shape=ellipse]
+7 [label="getTypeParameterNames#?,DetailAST#4:newArrayList
+getThrows#?,DetailAST#3:newArrayList
+getLines#?,String,String#3:newArrayList
+getOutStreamLines#?#6:newArrayList
+getParameters#?,DetailAST#4:newArrayList
+visitToken#?,DetailAST#4:newArrayList
+reportCComment#?,int,int,int,int#9:newArrayList
+getTypeParameters#?,DetailAST#4:newArrayList" shape=ellipse]
+8 [label="getTypeParameterNames#?,DetailAST#4:Lists
+getThrows#?,DetailAST#3:Lists
+getLines#?,String,String#3:Lists
+getOutStreamLines#?#6:Lists
+getParameters#?,DetailAST#4:Lists
+visitToken#?,DetailAST#4:Lists
+reportCComment#?,int,int,int,int#9:Lists
+getTypeParameters#?,DetailAST#4:Lists" shape=ellipse]
+9 [label="getTypeParameterNames#?,DetailAST#4:Lists
+getThrows#?,DetailAST#3:Lists
+getLines#?,String,String#3:Lists
+getOutStreamLines#?#6:Lists
+getParameters#?,DetailAST#4:Lists
+visitToken#?,DetailAST#4:Lists
+getTypeParameters#?,DetailAST#4:Lists" shape=ellipse]
+10 [label="getTypeParameterNames#?,DetailAST#4:
+getThrows#?,DetailAST#3:
+getLines#?,String,String#3:
+getOutStreamLines#?#6:
+getParameters#?,DetailAST#4:
+visitToken#?,DetailAST#4:
+reportCComment#?,int,int,int,int#9:
+getTypeParameters#?,DetailAST#4:" shape=ellipse]
+11 [label="getTypeParameterNames#?,DetailAST#4:newArrayList()
+getThrows#?,DetailAST#3:newArrayList()
+getLines#?,String,String#3:newArrayList()
+getOutStreamLines#?#6:newArrayList()
+getParameters#?,DetailAST#4:newArrayList()
+visitToken#?,DetailAST#4:newArrayList()
+reportCComment#?,int,int,int,int#9:newArrayList()
+getTypeParameters#?,DetailAST#4:newArrayList()" shape=ellipse]
+12 [label="getTypeParameterNames#?,DetailAST#4:Lists
+getThrows#?,DetailAST#3:Lists
+getLines#?,String,String#3:Lists
+getOutStreamLines#?#6:Lists
+getParameters#?,DetailAST#4:Lists
+visitToken#?,DetailAST#4:Lists
+reportCComment#?,int,int,int,int#9:List<TextBlock>
+getTypeParameters#?,DetailAST#4:Lists" shape=ellipse]
+13 [label="getTypeParameterNames#?,DetailAST#4:
+getThrows#?,DetailAST#3:
+getLines#?,String,String#3:
+getOutStreamLines#?#6:
+getParameters#?,DetailAST#4:
+visitToken#?,DetailAST#4:
+reportCComment#?,int,int,int,int#9:
+getTypeParameters#?,DetailAST#4:" shape=ellipse]
+14 [label="getTypeParameterNames#?,DetailAST#4:List<String>
+getThrows#?,DetailAST#3:List<ExceptionInfo>
+getLines#?,String,String#3:List<String>
+getOutStreamLines#?#6:List<String>
+getParameters#?,DetailAST#4:List<DetailAST>
+visitToken#?,DetailAST#4:List<DetailAST>
+getTypeParameters#?,DetailAST#4:List<DetailAST>" shape=ellipse]
+15 [label="getTypeParameterNames#?,DetailAST#4:
+getThrows#?,DetailAST#3:
+getLines#?,String,String#3:
+getOutStreamLines#?#6:
+getParameters#?,DetailAST#4:
+visitToken#?,DetailAST#4:
+reportCComment#?,int,int,int,int#9:
+getTypeParameters#?,DetailAST#4:" shape=ellipse]
+16 [label="getTypeParameterNames#?,DetailAST#4:String
+getThrows#?,DetailAST#3:ExceptionInfo
+getLines#?,String,String#3:String
+getOutStreamLines#?#6:String
+getParameters#?,DetailAST#4:DetailAST
+visitToken#?,DetailAST#4:DetailAST
+reportCComment#?,int,int,int,int#6:get(int)
+getTypeParameters#?,DetailAST#4:DetailAST" shape=ellipse]
+17 [label="getTypeParameterNames#?,DetailAST#4:java.lang
+getThrows#?,DetailAST#3:
+getLines#?,String,String#3:java.lang
+getOutStreamLines#?#6:java.lang
+getParameters#?,DetailAST#4:
+visitToken#?,DetailAST#4:
+getTypeParameters#?,DetailAST#4:" shape=ellipse]
+18 [label="getTypeParameterNames#?,DetailAST#4:ArrayList()
+getThrows#?,DetailAST#3:ArrayList()
+getLines#?,String,String#3:ArrayList()
+getOutStreamLines#?#6:ArrayList()
+getParameters#?,DetailAST#4:ArrayList()
+visitToken#?,DetailAST#4:ArrayList()
+reportCComment#?,int,int,int,int#9:ArrayList()
+getTypeParameters#?,DetailAST#4:ArrayList()" shape=ellipse]
+19 [label="getTypeParameterNames#?,DetailAST#4:ArrayList<String>
+getThrows#?,DetailAST#3:ArrayList<ExceptionInfo>
+getLines#?,String,String#3:ArrayList<String>
+getOutStreamLines#?#6:ArrayList<String>
+getParameters#?,DetailAST#4:ArrayList<DetailAST>
+visitToken#?,DetailAST#4:ArrayList<DetailAST>
+getTypeParameters#?,DetailAST#4:ArrayList<DetailAST>" shape=ellipse]
+20 [label="getTypeParameterNames#?,DetailAST#4:ArrayList<String>
+getThrows#?,DetailAST#3:ArrayList<ExceptionInfo>
+getLines#?,String,String#3:ArrayList<String>
+getOutStreamLines#?#6:ArrayList<String>
+getParameters#?,DetailAST#4:ArrayList<DetailAST>
+visitToken#?,DetailAST#4:ArrayList<DetailAST>
+getTypeParameters#?,DetailAST#4:ArrayList<DetailAST>" shape=ellipse]
+21 [label="reportCComment#?,int,int,int,int#5:mCComments.containsKey(aStartLineNo)" shape=ellipse]
+22 [label="reportCComment#?,int,int,int,int#5:if (mCComments.containsKey(aStartLineNo)) \{
+    final List<TextBlock> entries = mCComments.get(aStartLineNo);
+    entries.add(comment);
+\} else \{
+    final List<TextBlock> entries = new ArrayList<TextBlock>();
+    entries.add(comment);
+    mCComments.put(aStartLineNo, entries);
+\}" shape=ellipse]
+23 [label="reportCComment#?,int,int,int,int#5:mCComments" shape=ellipse]
+24 [label="reportCComment#?,int,int,int,int#11:mCComments" shape=ellipse]
+25 [label="reportCComment#?,int,int,int,int#5:aStartLineNo" shape=ellipse]
+26 [label="reportCComment#?,int,int,int,int#5:\{
+    final List<TextBlock> entries = mCComments.get(aStartLineNo);
+    entries.add(comment);
+\}" shape=ellipse]
+27 [label="reportCComment#?,int,int,int,int#6:mCComments.get(aStartLineNo)" shape=ellipse]
+28 [label="reportCComment#?,int,int,int,int#11:mCComments.put(aStartLineNo, entries)" shape=ellipse]
+29 [label="reportCComment#?,int,int,int,int#6:mCComments" shape=ellipse]
+30 [label="reportCComment#?,int,int,int,int#6:aStartLineNo" shape=ellipse]
+31 [label="reportCComment#?,int,int,int,int#9:" shape=ellipse]
+32 [label="reportCComment#?,int,int,int,int#10:entries.add(comment)" shape=ellipse]
+33 [label="reportCComment#?,int,int,int,int#7:entries.add(comment)" shape=ellipse]
+34 [label="reportCComment#?,int,int,int,int#10:comment" shape=ellipse]
+35 [label="reportCComment#?,int,int,int,int#7:entries" shape=ellipse]
+36 [label="reportCComment#?,int,int,int,int#10:entries" shape=ellipse]
+37 [label="reportCComment#?,int,int,int,int#11:aStartLineNo" shape=ellipse]
+38 [label="reportCComment#?,int,int,int,int#11:entries" shape=ellipse]
+39 [label="reportCComment#?,int,int,int,int#7:comment" shape=ellipse]
+40 [label="reportCComment#?,int,int,int,int#5:containsKey" shape=ellipse]
+41 [label="reportCComment#?,int,int,int,int#11:put(int,List)" shape=ellipse]
+42 [label="reportCComment#?,int,int,int,int#9:Lists" shape=ellipse]
+43 [label="reportCComment#?,int,int,int,int#7:add(Comment)" shape=ellipse]
+44 [label="reportCComment#?,int,int,int,int#10:add(Comment)" shape=ellipse]
+45 [label="reportCComment#?,int,int,int,int#5:containsKey(int)" shape=ellipse]
+46 [label="reportCComment#?,int,int,int,int#6:final List<TextBlock> entries = mCComments.get(aStartLineNo)" shape=ellipse]
+47 [label="reportCComment#?,int,int,int,int#9:TextBlock" shape=ellipse]
+48 [label="reportCComment#?,int,int,int,int#9:TextBlock" shape=ellipse]
+1 -> 0 [label="Action:7"];
+1 -> 18 [label="AST:8"];
+2 -> 1 [label="AST:8"];
+2 -> 4 [label="AST:8"];
+2 -> 5 [label="AST:8"];
+2 -> 6 [label="Action:8"];
+3 -> 2 [label="AST:8"];
+3 -> 28 [label="AST:1"];
+3 -> 32 [label="AST:1"];
+4 -> 36 [label="Define Use:1"];
+4 -> 38 [label="Define Use:1"];
+5 -> 31 [label="AST:1"];
+5 -> 48 [label="AST:1"];
+8 -> 9 [label="AST:7"];
+9 -> 10 [label="AST:7"];
+11 -> 12 [label="AST:8"];
+11 -> 14 [label="AST:7"];
+11 -> 42 [label="AST:1"];
+12 -> 13 [label="AST:8"];
+12 -> 47 [label="AST:1"];
+14 -> 15 [label="AST:7"];
+14 -> 16 [label="AST:7"];
+16 -> 17 [label="AST:7"];
+18 -> 19 [label="AST:7"];
+18 -> 20 [label="AST:7"];
+21 -> 40 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+21 -> 45 [label="AST:1"];
+21 -> 25 [label="AST:1"];
+21 -> 26 [label="Control Dep:1"];
+21 -> 46 [label="Control Dep:1"];
+21 -> 27 [label="Control Dep:1"];
+21 -> 16 [label="Control Dep:1"];
+21 -> 29 [label="Control Dep:1"];
+21 -> 30 [label="Control Dep:1"];
+21 -> 33 [label="Control Dep:1"];
+21 -> 43 [label="Control Dep:1"];
+21 -> 35 [label="Control Dep:1"];
+21 -> 39 [label="Control Dep:1"];
+21 -> 3 [label="Control Dep:1"];
+21 -> 2 [label="Control Dep:1"];
+21 -> 1 [label="Control Dep:1"];
+21 -> 18 [label="Control Dep:1"];
+21 -> 32 [label="Control Dep:1"];
+21 -> 44 [label="Control Dep:1"];
+21 -> 36 [label="Control Dep:1"];
+21 -> 34 [label="Control Dep:1"];
+21 -> 28 [label="Control Dep:1"];
+21 -> 41 [label="Control Dep:1"];
+21 -> 24 [label="Control Dep:1"];
+21 -> 37 [label="Control Dep:1"];
+21 -> 38 [label="Control Dep:1"];
+21 -> 8 [label="Control Dep:1"];
+21 -> 11 [label="Control Dep:1"];
+22 -> 21 [label="AST:1"];
+22 -> 26 [label="AST:1"];
+22 -> 3 [label="AST:1"];
+26 -> 46 [label="AST:1"];
+26 -> 33 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 16 [label="AST:1"];
+27 -> 30 [label="AST:1"];
+28 -> 24 [label="AST:1"];
+28 -> 41 [label="AST:1"];
+28 -> 37 [label="AST:1"];
+28 -> 38 [label="AST:1"];
+32 -> 36 [label="AST:1"];
+32 -> 44 [label="AST:1"];
+32 -> 34 [label="AST:1"];
+33 -> 35 [label="AST:1"];
+33 -> 43 [label="AST:1"];
+33 -> 39 [label="AST:1"];
+42 -> 10 [label="AST:1"];
+46 -> 27 [label="AST:1"];
+47 -> 15 [label="AST:1"];
+}

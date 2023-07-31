@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/20/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/20/0/after.java
+@@ -6,1 +6,2 @@
+-        throw new TaskException(((((("Error configuring task " + taskModel.getName()) + " at ") + taskModel.getLocation()) + "(Reason: ") + throwable.getMessage()) + ")", throwable);
++        final String message = REZ.getString("config.error", taskModel.getName(), taskModel.getLocation(), throwable.getMessage());
++        throw new TaskException(message, throwable);

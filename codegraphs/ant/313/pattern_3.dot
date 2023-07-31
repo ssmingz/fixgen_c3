@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="testNoTarget#?#4:INSERT
+testCalledFromTopLevelAnt#?#4:INSERT" shape=ellipse]
+1 [label="testNoTarget#?#3:configureProject(\"src/etc/testcases/core/topleveltasks/notarget.xml\")
+testCalledFromTopLevelAnt#?#3:configureProject(\"src/etc/testcases/core/topleveltasks/toplevelant.xml\")" shape=ellipse]
+2 [label="testNoTarget#?#2:\{
+    configureProject(\"src/etc/testcases/core/topleveltasks/notarget.xml\");
+    expectLog(\"\", \"Called\");
+\}
+testCalledFromTopLevelAnt#?#2:\{
+    configureProject(\"src/etc/testcases/core/topleveltasks/toplevelant.xml\");
+    expectLog(\"\", \"Called\");
+\}" shape=ellipse]
+3 [label="testNoTarget#?#2:public void testNoTarget() \{
+    configureProject(\"src/etc/testcases/core/topleveltasks/notarget.xml\");
+    expectLog(\"\", \"Called\");
+\}
+testCalledFromTopLevelAnt#?#2:public void testCalledFromTopLevelAnt() \{
+    configureProject(\"src/etc/testcases/core/topleveltasks/toplevelant.xml\");
+    expectLog(\"\", \"Called\");
+\}" shape=ellipse]
+4 [label="testNoTarget#?#4:expectLog(\"\", \"Called\")
+testCalledFromTopLevelAnt#?#4:expectLog(\"\", \"Called\")" shape=ellipse]
+5 [label="testNoTarget#?#3:configureProject
+testCalledFromTopLevelAnt#?#3:configureProject" shape=ellipse]
+6 [label="testNoTarget#?#-1:
+testCalledFromTopLevelAnt#?#-1:" shape=ellipse]
+7 [label="testNoTarget#?#-1:PlaceHold
+testCalledFromTopLevelAnt#?#-1:PlaceHold" shape=ellipse]
+8 [label="testNoTarget#?#-1:PlaceHold
+testCalledFromTopLevelAnt#?#-1:PlaceHold" shape=ellipse]
+9 [label="testNoTarget#?#3:configureProject(java.lang.String)
+testCalledFromTopLevelAnt#?#3:configureProject(java.lang.String)" shape=ellipse]
+10 [label="testNoTarget#?#-1:String
+testCalledFromTopLevelAnt#?#-1:String" shape=ellipse]
+11 [label="testNoTarget#?#3:\"src/etc/testcases/core/topleveltasks/notarget.xml\"
+testCalledFromTopLevelAnt#?#3:\"src/etc/testcases/core/topleveltasks/toplevelant.xml\"" shape=ellipse]
+12 [label="testNoTarget#?#-1:String
+testCalledFromTopLevelAnt#?#-1:String" shape=ellipse]
+13 [label="testNoTarget#?#4:buildRule
+testCalledFromTopLevelAnt#?#4:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

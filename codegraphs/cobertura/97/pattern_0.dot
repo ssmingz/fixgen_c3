@@ -1,0 +1,126 @@
+digraph "Pattern" {
+0 [label="getBranchCoverageRate#?#7:INSERT
+getLineCoverageRate#?#7:INSERT
+getLineCoverageRate#?,String#7:INSERT
+getNumberOfValidBranches#?#6:INSERT
+getNumberOfCoveredBranches#?#6:INSERT
+getNumberOfValidLines#?#6:INSERT
+getNumberOfCoveredLines#?#6:INSERT" shape=ellipse]
+1 [label="getBranchCoverageRate#?#7:Iterator
+getLineCoverageRate#?#7:Iterator
+getLineCoverageRate#?,String#7:Iterator
+getNumberOfValidBranches#?#6:Iterator
+getNumberOfCoveredBranches#?#6:Iterator
+getNumberOfValidLines#?#6:Iterator
+getNumberOfCoveredLines#?#6:Iterator" shape=ellipse]
+2 [label="getBranchCoverageRate#?#7:Iterator iter = this.children.values().iterator()
+getLineCoverageRate#?#7:Iterator iter = this.children.values().iterator()
+getLineCoverageRate#?,String#7:Iterator iter = children.values().iterator()
+getNumberOfValidBranches#?#6:Iterator iter = this.children.values().iterator()
+getNumberOfCoveredBranches#?#6:Iterator iter = this.children.values().iterator()
+getNumberOfValidLines#?#6:Iterator iter = this.children.values().iterator()
+getNumberOfCoveredLines#?#6:Iterator iter = this.children.values().iterator()" shape=ellipse]
+3 [label="getBranchCoverageRate#?#6:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfValidBranches();
+        numberCovered += coverageContainer.getNumberOfCoveredBranches();
+    \} 
+\}
+getLineCoverageRate#?#6:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfValidLines();
+        numberCovered += coverageContainer.getNumberOfCoveredLines();
+    \} 
+\}
+getLineCoverageRate#?,String#6:\{
+    Iterator iter = children.values().iterator();
+    while (iter.hasNext()) \{
+        LineData next = ((LineData) (iter.next()));
+        if (methodNameAndDescriptor.equals(next.getMethodName() + next.getMethodDescriptor())) \{
+            total++;
+            if (next.getHits() > 0) \{
+                hits++;
+            \}
+        \}
+    \} 
+    if (total == 0) \{
+        return 1.0;
+    \}
+    return ((double) (hits)) / total;
+\}
+getNumberOfValidBranches#?#5:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfValidBranches();
+    \} 
+\}
+getNumberOfCoveredBranches#?#5:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfCoveredBranches();
+    \} 
+\}
+getNumberOfValidLines#?#5:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfValidLines();
+    \} 
+\}
+getNumberOfCoveredLines#?#5:\{
+    Iterator iter = this.children.values().iterator();
+    while (iter.hasNext()) \{
+        CoverageData coverageContainer = ((CoverageData) (iter.next()));
+        number += coverageContainer.getNumberOfCoveredLines();
+    \} 
+\}" shape=ellipse]
+4 [label="getBranchCoverageRate#?#7:iter
+getLineCoverageRate#?#7:iter
+getLineCoverageRate#?,String#7:iter
+getNumberOfValidBranches#?#6:iter
+getNumberOfCoveredBranches#?#6:iter
+getNumberOfValidLines#?#6:iter
+getNumberOfCoveredLines#?#6:iter" shape=ellipse]
+5 [label="getBranchCoverageRate#?#7:this.children.values().iterator()
+getLineCoverageRate#?#7:this.children.values().iterator()
+getLineCoverageRate#?,String#7:children.values().iterator()
+getNumberOfValidBranches#?#6:this.children.values().iterator()
+getNumberOfCoveredBranches#?#6:this.children.values().iterator()
+getNumberOfValidLines#?#6:this.children.values().iterator()
+getNumberOfCoveredLines#?#6:this.children.values().iterator()" shape=ellipse]
+6 [label="getBranchCoverageRate#?#7:
+getLineCoverageRate#?#7:
+getLineCoverageRate#?,String#7:
+getNumberOfValidBranches#?#6:
+getNumberOfCoveredBranches#?#6:
+getNumberOfValidLines#?#6:
+getNumberOfCoveredLines#?#6:" shape=ellipse]
+7 [label="getBranchCoverageRate#?#7:CoverageData
+getLineCoverageRate#?#7:CoverageData
+getLineCoverageRate#?,String#7:CoverageData
+getNumberOfValidBranches#?#6:CoverageData
+getNumberOfCoveredBranches#?#6:CoverageData
+getNumberOfValidLines#?#6:CoverageData
+getNumberOfCoveredLines#?#6:CoverageData" shape=ellipse]
+8 [label="getBranchCoverageRate#?#7:
+getLineCoverageRate#?#7:
+getLineCoverageRate#?,String#7:
+getNumberOfValidBranches#?#6:
+getNumberOfCoveredBranches#?#6:
+getNumberOfValidLines#?#6:
+getNumberOfCoveredLines#?#6:" shape=ellipse]
+0 -> 7 [label="Action:7"];
+1 -> 0 [label="Action:7"];
+1 -> 6 [label="AST:7"];
+2 -> 1 [label="AST:7"];
+2 -> 4 [label="AST:7"];
+2 -> 5 [label="AST:7"];
+3 -> 2 [label="AST:7"];
+7 -> 8 [label="AST:7"];
+}

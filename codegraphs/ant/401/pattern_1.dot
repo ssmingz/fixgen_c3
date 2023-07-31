@@ -1,0 +1,53 @@
+digraph "Pattern" {
+0 [label="setReverse#?,boolean#3:INSERT
+setQuiet#?,boolean#3:INSERT" shape=ellipse]
+1 [label="setReverse#?,boolean#2:public void setReverse(boolean r) \{
+    reverse = r;
+\}
+setQuiet#?,boolean#2:public void setQuiet(boolean q) \{
+    quiet = q;
+\}" shape=ellipse]
+2 [label="setReverse#?,boolean#2:setReverse
+setQuiet#?,boolean#2:setQuiet" shape=ellipse]
+3 [label="setReverse#?,boolean#2:void
+setQuiet#?,boolean#2:void" shape=ellipse]
+4 [label="setReverse#?,boolean#2:boolean r
+setQuiet#?,boolean#2:boolean q" shape=ellipse]
+5 [label="setReverse#?,boolean#2:boolean
+setQuiet#?,boolean#2:boolean" shape=ellipse]
+6 [label="setReverse#?,boolean#2:\{
+    reverse = r;
+\}
+setQuiet#?,boolean#2:\{
+    quiet = q;
+\}" shape=ellipse]
+7 [label="setReverse#?,boolean#3:reverse = r
+setQuiet#?,boolean#3:quiet = q" shape=ellipse]
+8 [label="setReverse#?,boolean#2:public
+setQuiet#?,boolean#2:public" shape=ellipse]
+9 [label="setReverse#?,boolean#2:VE: Modifiers_Method
+setQuiet#?,boolean#2:VE: Modifiers_Method" shape=ellipse]
+10 [label="setReverse#?,boolean#3:if (r) \{
+    cmd.addValue(\"-R\");
+\}
+setQuiet#?,boolean#3:if (q) \{
+    cmd.addValue(\"-s\");
+\}" shape=ellipse]
+11 [label="setReverse#?,boolean#3:MOVE
+setQuiet#?,boolean#3:MOVE" shape=ellipse]
+12 [label="setReverse#?,boolean#3:r
+setQuiet#?,boolean#3:q" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+11 -> 10 [label="Action:2"];
+12 -> 11 [label="Action:2"];
+}

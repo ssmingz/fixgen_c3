@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3692/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3692/2/after.java
+@@ -6,0 +6,1 @@
++    int ptr = OS.gtk_entry_get_text(handle);
+@@ -7,1 +8,1 @@
+-      end_pos = OS.g_utf8_strlen(OS.gtk_entry_get_text(handle), -1);
++      end_pos = OS.g_utf8_strlen(ptr, -1);
+@@ -9,1 +10,3 @@
+-    String newText = verifyText("", ((int) (start_pos)), ((int) (end_pos)));
++    int start = ((int) (OS.g_utf8_offset_to_utf16_offset(ptr, start_pos)));
++    int end = ((int) (OS.g_utf8_offset_to_utf16_offset(ptr, end_pos)));
++    String newText = verifyText("", start, end);

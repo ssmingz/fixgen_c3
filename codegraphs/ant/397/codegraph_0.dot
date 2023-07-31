@@ -1,0 +1,131 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@createCommand()" shape=ellipse]
+5 [label="3:CtVirtualElement@createCommand" shape=ellipse]
+6 [label="3:CtInvocationImpl@createCommand()" shape=ellipse]
+7 [label="3:CtVirtualElement@cmd" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@final Commandline cmd = createCommand()" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@Execute" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Execute" shape=ellipse]
+11 [label="4:CtConstructorCallImpl@new Execute()" shape=ellipse]
+12 [label="4:CtVirtualElement@exe" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@final Execute exe = new Execute()" shape=ellipse]
+14 [label="5:CtExecutableReferenceImpl@setWorkingDirectory()" shape=ellipse]
+15 [label="5:CtVirtualElement@setWorkingDirectory" shape=ellipse]
+16 [label="5:CtVariableReadImpl@exe" shape=ellipse]
+17 [label="5:CtFieldReadImpl@m_topDir" shape=ellipse]
+18 [label="5:CtInvocationImpl@exe.setWorkingDirectory(m_topDir)" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@setCommandline(Commandline)" shape=ellipse]
+20 [label="6:CtVirtualElement@setCommandline" shape=ellipse]
+21 [label="6:CtVariableReadImpl@exe" shape=ellipse]
+22 [label="6:CtVariableReadImpl@cmd" shape=ellipse]
+23 [label="6:CtInvocationImpl@exe.setCommandline(cmd)" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+25 [label="7:CtLiteralImpl@\"Building the RPM based on the \"" shape=ellipse]
+26 [label="7:CtFieldReadImpl@m_specFile" shape=ellipse]
+27 [label="7:CtBinaryOperatorImpl@(\"Building the RPM based on the \" + m_specFile)" shape=ellipse]
+28 [label="7:CtLiteralImpl@\" file\"" shape=ellipse]
+29 [label="7:CtBinaryOperatorImpl@(\"Building the RPM based on the \" + m_specFile) + \" file\"" shape=ellipse]
+30 [label="7:CtVirtualElement@message" shape=ellipse]
+31 [label="7:CtLocalVariableImpl@final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\"" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@info(java.lang.String)" shape=ellipse]
+33 [label="8:CtVirtualElement@info" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+35 [label="8:CtVirtualElement@getContext" shape=ellipse]
+36 [label="8:CtInvocationImpl@getContext()" shape=ellipse]
+37 [label="8:CtVariableReadImpl@message" shape=ellipse]
+38 [label="8:CtInvocationImpl@getContext().info(message)" shape=ellipse]
+39 [label="9:CtExecutableReferenceImpl@execute()" shape=ellipse]
+40 [label="9:CtVirtualElement@execute" shape=ellipse]
+41 [label="9:CtVariableReadImpl@exe" shape=ellipse]
+42 [label="9:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+43 [label="9:CtVirtualElement@getContext" shape=ellipse]
+44 [label="9:CtInvocationImpl@getContext()" shape=ellipse]
+45 [label="9:CtInvocationImpl@exe.execute(getContext())" shape=ellipse]
+46 [label="2:CtBlockImpl@\{
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setWorkingDirectory(m_topDir);
+    exe.setCommandline(cmd);
+    final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\";
+    getContext().info(message);
+    exe.execute(getContext());
+\}" shape=ellipse]
+47 [label="2:CtMethodImpl@public void execute() throws TaskException \{
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setWorkingDirectory(m_topDir);
+    exe.setCommandline(cmd);
+    final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\";
+    getContext().info(message);
+    exe.execute(getContext());
+\}" shape=ellipse]
+48 [label="3:Update@UPDATE" shape=ellipse]
+49 [label="3:CtLocalVariableImpl@final Execute exe = createCommand()" shape=ellipse]
+50 [label="3:Update@UPDATE" shape=ellipse]
+51 [label="3:CtTypeReferenceImpl@Execute" shape=ellipse]
+52 [label="4:Delete@DELETE" shape=ellipse]
+53 [label="6:Delete@DELETE" shape=ellipse]
+3 -> 50 [label="Action"];
+6 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+7 -> 22 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 48 [label="Action"];
+12 -> 16 [label="Define-Use"];
+12 -> 21 [label="Define-Use"];
+12 -> 41 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 52 [label="Action"];
+18 -> 15 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 17 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 53 [label="Action"];
+26 -> 30 [label="Data Dep"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 37 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 24 [label="AST"];
+31 -> 29 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 34 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 32 [label="AST"];
+38 -> 37 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 42 [label="AST"];
+45 -> 40 [label="AST"];
+45 -> 41 [label="AST"];
+45 -> 39 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 8 [label="AST"];
+46 -> 13 [label="AST"];
+46 -> 18 [label="AST"];
+46 -> 23 [label="AST"];
+46 -> 31 [label="AST"];
+46 -> 38 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 1 [label="AST"];
+47 -> 0 [label="AST"];
+47 -> 2 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 49 [label="Action"];
+49 -> 51 [label="AST"];
+50 -> 51 [label="Action"];
+}

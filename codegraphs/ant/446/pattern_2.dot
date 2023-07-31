@@ -1,0 +1,22 @@
+digraph "Pattern" {
+0 [label="testRunFailWithFailOnError#?#-1:MOVE
+testExceptingFoe#?#-1:MOVE" shape=ellipse]
+1 [label="testRunFailWithFailOnError#?#-1:PlaceHold
+testExceptingFoe#?#-1:PlaceHold" shape=ellipse]
+2 [label="testRunFailWithFailOnError#?#-1:
+testExceptingFoe#?#-1:" shape=ellipse]
+3 [label="testRunFailWithFailOnError#?#3:expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\")
+testExceptingFoe#?#3:expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\")" shape=ellipse]
+4 [label="testRunFailWithFailOnError#?#-1:PlaceHold
+testExceptingFoe#?#-1:PlaceHold" shape=ellipse]
+5 [label="testRunFailWithFailOnError#?#-1:PlaceHold
+testExceptingFoe#?#-1:PlaceHold" shape=ellipse]
+6 [label="testRunFailWithFailOnError#?#6:fail(\"Build exception should have been thrown - \" + \"non zero return code\")
+testExceptingFoe#?#6:fail(\"Build exception should have been thrown - \" + \"passes exception through\")" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

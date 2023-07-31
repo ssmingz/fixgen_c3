@@ -1,0 +1,11 @@
+--- D:\expdata\c3\dataset\checkstyle\62\0/before.java
++++ D:\expdata\c3\dataset\checkstyle\62\0/after.java
+@@ -14,7 +14,1 @@
+-      if (headerReader != null) {
+-        try {
+-          headerReader.close();
+-        } catch (final IOException ex) {
+-          throw new ConversionException("unable to close header file " + aFileName, ex);
+-        }
+-      }
++      Utils.closeQuietly(headerReader);

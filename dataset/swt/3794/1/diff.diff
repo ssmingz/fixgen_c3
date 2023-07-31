@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3794/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3794/1/after.java
+@@ -7,2 +7,7 @@
+-    this.day = day;
+-    OS.gtk_calendar_select_day(handle, day);
++    if ((style & SWT.CALENDAR) != 0) {
++      this.day = day;
++      OS.gtk_calendar_select_day(handle, day);
++    } else {
++      calendar.set(Calendar.DAY_OF_MONTH, day);
++      updateControl();
++    }

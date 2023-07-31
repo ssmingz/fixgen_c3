@@ -1,0 +1,87 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Server" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@getServer()" shape=ellipse]
+5 [label="3:CtVirtualElement@getServer" shape=ellipse]
+6 [label="3:CtInvocationImpl@getServer()" shape=ellipse]
+7 [label="3:CtVirtualElement@s" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@Server s = getServer()" shape=ellipse]
+9 [label="5:CtExecutableReferenceImpl@runServer(<unknown>)" shape=ellipse]
+10 [label="5:CtVirtualElement@runServer" shape=ellipse]
+11 [label="5:CtVariableReadImpl@s" shape=ellipse]
+12 [label="5:CtInvocationImpl@runServer(s)" shape=ellipse]
+13 [label="4:CtBlockImpl@\{
+    runServer(s);
+\}" shape=ellipse]
+14 [label="7:CtExecutableReferenceImpl@disconnect()" shape=ellipse]
+15 [label="7:CtVirtualElement@disconnect" shape=ellipse]
+16 [label="7:CtVariableReadImpl@s" shape=ellipse]
+17 [label="7:CtInvocationImpl@s.disconnect()" shape=ellipse]
+18 [label="6:CtBlockImpl@\{
+    s.disconnect();
+\}" shape=ellipse]
+19 [label="4:CtTryImpl@try \{
+    runServer(s);
+\} finally \{
+    s.disconnect();
+\}" shape=ellipse]
+20 [label="9:CtExecutableReferenceImpl@log(<unknown>)" shape=ellipse]
+21 [label="9:CtVirtualElement@log" shape=ellipse]
+22 [label="9:CtFieldReadImpl@checkedOut" shape=ellipse]
+23 [label="9:CtLiteralImpl@\" files checked out.\"" shape=ellipse]
+24 [label="9:CtBinaryOperatorImpl@checkedOut + \" files checked out.\"" shape=ellipse]
+25 [label="9:CtInvocationImpl@log(checkedOut + \" files checked out.\")" shape=ellipse]
+26 [label="2:CtBlockImpl@\{
+    Server s = getServer();
+    try \{
+        runServer(s);
+    \} finally \{
+        s.disconnect();
+    \}
+    log(checkedOut + \" files checked out.\");
+\}" shape=ellipse]
+27 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    Server s = getServer();
+    try \{
+        runServer(s);
+    \} finally \{
+        s.disconnect();
+    \}
+    log(checkedOut + \" files checked out.\");
+\}" shape=ellipse]
+28 [label="3:Insert@INSERT" shape=ellipse]
+29 [label="3:CtInvocationImpl@log(\"DEPRECATED - The starteam task is deprecated.  Use stcheckout instead.\", MSG_WARN)" shape=ellipse]
+6 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+7 -> 11 [label="Define-Use"];
+7 -> 16 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 14 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 13 [label="AST"];
+19 -> 18 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 8 [label="AST"];
+26 -> 19 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 1 [label="AST"];
+27 -> 0 [label="AST"];
+27 -> 2 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 28 [label="Action"];
+28 -> 29 [label="Action"];
+}

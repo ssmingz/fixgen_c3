@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="copy#?,File#18:UPDATE
+testCopy#?#20:UPDATE" shape=ellipse]
+1 [label="copy#?,File#18:\"percentagesorttype.js\"
+testCopy#?#20:\"percentagesorttype.js\"" shape=ellipse]
+2 [label="copy#?,File#18:copyResourceFromJar(\"percentagesorttype.js\", jsOutputDir)" shape=ellipse]
+3 [label="copy#?,File#2:\{
+    File cssOutputDir = new File(destinationDir, \"css\");
+    File imagesOutputDir = new File(destinationDir, \"images\");
+    File jsOutputDir = new File(destinationDir, \"js\");
+    destinationDir.mkdirs();
+    cssOutputDir.mkdir();
+    imagesOutputDir.mkdir();
+    jsOutputDir.mkdir();
+    copyResourceFromJar(\"help.css\", cssOutputDir);
+    copyResourceFromJar(\"main.css\", cssOutputDir);
+    copyResourceFromJar(\"sortabletable.css\", cssOutputDir);
+    copyResourceFromJar(\"source-viewer.css\", cssOutputDir);
+    copyResourceFromJar(\"tooltip.css\", cssOutputDir);
+    copyResourceFromJar(\"blank.png\", imagesOutputDir);
+    copyResourceFromJar(\"downsimple.png\", imagesOutputDir);
+    copyResourceFromJar(\"upsimple.png\", imagesOutputDir);
+    copyResourceFromJar(\"percentagesorttype.js\", jsOutputDir);
+    copyResourceFromJar(\"popup.js\", jsOutputDir);
+    copyResourceFromJar(\"sortabletable.js\", jsOutputDir);
+    copyResourceFromJar(\"stringbuilder.js\", jsOutputDir);
+    copyResourceFromJar(\"help.html\", destinationDir);
+    copyResourceFromJar(\"index.html\", destinationDir);
+\}" shape=ellipse]
+4 [label="copy#?,File#18:copyResourceFromJar" shape=ellipse]
+5 [label="copy#?,File#18:
+testCopy#?#20:jsDir" shape=ellipse]
+6 [label="copy#?,File#18:copyResourceFromJar(java.lang.String,<unknown>)
+testCopy#?#20:File()" shape=ellipse]
+7 [label="copy#?,File#18:jsOutputDir" shape=ellipse]
+8 [label="copy#?,File#18:String
+testCopy#?#20:String" shape=ellipse]
+9 [label="testCopy#?#20:new File(jsDir, \"percentagesorttype.js\")" shape=ellipse]
+10 [label="testCopy#?#20:new File(jsDir, \"percentagesorttype.js\").isFile()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+9 -> 6 [label="AST:1"];
+9 -> 5 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+10 -> 9 [label="AST:1"];
+}

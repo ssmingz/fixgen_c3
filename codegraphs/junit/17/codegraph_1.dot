@@ -1,0 +1,54 @@
+digraph "failWithHelpfulMessageForNonStaticClassRule#?" {
+0 [label="3:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="3:CtVirtualElement@failWithHelpfulMessageForNonStaticClassRule" shape=ellipse]
+2 [label="4:CtExecutableReferenceImpl@assertClassHasFailureMessage(java.lang.Class,java.lang.String)" shape=ellipse]
+3 [label="4:CtTypeReferenceImpl@Class<TestWithNonStaticClassRule>" shape=ellipse]
+4 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+5 [label="4:CtVirtualElement@assertClassHasFailureMessage" shape=ellipse]
+6 [label="4:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+8 [label="4:CtThisAccessImpl@" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+10 [label="5:CtFieldReferenceImpl@TestWithNonStaticClassRule.class" shape=ellipse]
+11 [label="5:CtTypeReferenceImpl@TestWithNonStaticClassRule" shape=ellipse]
+12 [label="5:CtTypeReferenceImpl@Class" shape=ellipse]
+13 [label="5:CtFieldReadImpl@TestWithNonStaticClassRule.class" shape=ellipse]
+14 [label="5:CtTypeAccessImpl@TestWithNonStaticClassRule" shape=ellipse]
+15 [label="5:CtLiteralImpl@\"The @ClassRule 'temporaryFolder' must be static.\"" shape=ellipse]
+16 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+17 [label="4:CtInvocationImpl@assertClassHasFailureMessage(TestWithNonStaticClassRule.class, \"The @ClassRule 'temporaryFolder' must be static.\")" shape=ellipse]
+18 [label="3:CtBlockImpl@\{
+    assertClassHasFailureMessage(TestWithNonStaticClassRule.class, \"The @ClassRule 'temporaryFolder' must be static.\");
+\}" shape=ellipse]
+19 [label="3:CtMethodImpl@@Test
+public void failWithHelpfulMessageForNonStaticClassRule() \{
+    assertClassHasFailureMessage(TestWithNonStaticClassRule.class, \"The @ClassRule 'temporaryFolder' must be static.\");
+\}" shape=ellipse]
+20 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+21 [label="5:Insert@INSERT" shape=ellipse]
+22 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+23 [label="5:CtLiteralImpl@2" shape=ellipse]
+2 -> 3 [label="AST"];
+2 -> 4 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+8 -> 6 [label="AST"];
+10 -> 11 [label="AST"];
+10 -> 12 [label="AST"];
+13 -> 14 [label="AST"];
+13 -> 10 [label="AST"];
+15 -> 16 [label="AST"];
+17 -> 5 [label="AST"];
+17 -> 8 [label="AST"];
+17 -> 2 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 21 [label="Action"];
+18 -> 17 [label="AST"];
+19 -> 1 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 0 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 23 [label="Action"];
+23 -> 22 [label="AST"];
+}

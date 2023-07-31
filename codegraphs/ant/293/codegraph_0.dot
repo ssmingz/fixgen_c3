@@ -1,0 +1,78 @@
+digraph "testNoAppend#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testNoAppend" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@executeTarget" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"noappend\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@executeTarget(\"noappend\")" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@assertTrue(<unknown>)" shape=ellipse]
+8 [label="4:CtVirtualElement@assertTrue" shape=ellipse]
+9 [label="5:CtExecutableReferenceImpl@contentEquals(boolean)" shape=ellipse]
+10 [label="5:CtVirtualElement@contentEquals" shape=ellipse]
+11 [label="5:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@resolveFile()" shape=ellipse]
+13 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+14 [label="6:CtFieldReadImpl@project" shape=ellipse]
+15 [label="6:CtFieldReadImpl@REC_IN" shape=ellipse]
+16 [label="6:CtLiteralImpl@\"rectest1.result\"" shape=ellipse]
+17 [label="6:CtBinaryOperatorImpl@REC_IN + \"rectest1.result\"" shape=ellipse]
+18 [label="6:CtInvocationImpl@project.resolveFile(REC_IN + \"rectest1.result\")" shape=ellipse]
+19 [label="7:CtExecutableReferenceImpl@resolveFile()" shape=ellipse]
+20 [label="7:CtVirtualElement@resolveFile" shape=ellipse]
+21 [label="7:CtFieldReadImpl@project" shape=ellipse]
+22 [label="7:CtFieldReadImpl@REC_DIR" shape=ellipse]
+23 [label="7:CtLiteralImpl@\"rectest1.log\"" shape=ellipse]
+24 [label="7:CtBinaryOperatorImpl@REC_DIR + \"rectest1.log\"" shape=ellipse]
+25 [label="7:CtInvocationImpl@project.resolveFile(REC_DIR + \"rectest1.log\")" shape=ellipse]
+26 [label="8:CtLiteralImpl@true" shape=ellipse]
+27 [label="5:CtInvocationImpl@FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true)" shape=ellipse]
+28 [label="4:CtInvocationImpl@assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true))" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    executeTarget(\"noappend\");
+    assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true));
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public void testNoAppend() throws IOException \{
+    executeTarget(\"noappend\");
+    assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true));
+\}" shape=ellipse]
+31 [label="7:Delete@DELETE" shape=ellipse]
+32 [label="7:Insert@INSERT" shape=ellipse]
+33 [label="7:CtConstructorCallImpl@new File(getOutputDir(), \"rectest1.log\")" shape=ellipse]
+34 [label="7:Move@MOVE" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+23 -> 34 [label="Action"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 31 [label="Action"];
+27 -> 10 [label="AST"];
+27 -> 11 [label="AST"];
+27 -> 9 [label="AST"];
+27 -> 18 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 32 [label="Action"];
+28 -> 8 [label="AST"];
+28 -> 7 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 6 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 29 [label="AST"];
+32 -> 33 [label="Action"];
+34 -> 33 [label="Action"];
+}

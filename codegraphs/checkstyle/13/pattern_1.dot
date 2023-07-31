@@ -1,0 +1,177 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#11:INSERT
+finishTree#?,DetailAST#8:INSERT" shape=ellipse]
+1 [label="visitToken#?,DetailAST#11:log(parent.getLineNo(), parent.getColumnNo(), \"simplify.expression\")
+finishTree#?,DetailAST#8:log(equalsAST.getLineNo(), equalsAST.getColumnNo(), \"equals.noHashCode\")" shape=ellipse]
+2 [label="visitToken#?,DetailAST#5:parent.getType()" shape=ellipse]
+3 [label="visitToken#?,DetailAST#5:switch (parent.getType()) \{
+    case TokenTypes.NOT_EQUAL :
+    case TokenTypes.EQUAL :
+    case TokenTypes.LNOT :
+    case TokenTypes.LOR :
+    case TokenTypes.LAND :
+        log(parent.getLineNo(), parent.getColumnNo(), \"simplify.expression\");
+        break;
+    default :
+        break;
+\}
+finishTree#?,DetailAST#6:if (!objBlockWithHashCode.contains(objBlock)) \{
+    final DetailAST equalsAST = objBlockEquals.get(objBlock);
+    log(equalsAST.getLineNo(), equalsAST.getColumnNo(), \"equals.noHashCode\");
+\}" shape=ellipse]
+4 [label="visitToken#?,DetailAST#5:getType" shape=ellipse]
+5 [label="visitToken#?,DetailAST#5:parent
+finishTree#?,DetailAST#8:equalsAST" shape=ellipse]
+6 [label="visitToken#?,DetailAST#5:getType()
+finishTree#?,DetailAST#7:get(DetailAST)" shape=ellipse]
+7 [label="visitToken#?,DetailAST#6:case TokenTypes.NOT_EQUAL :" shape=ellipse]
+8 [label="visitToken#?,DetailAST#6:TokenTypes.NOT_EQUAL
+finishTree#?,DetailAST#8:equalsAST" shape=ellipse]
+9 [label="visitToken#?,DetailAST#7:case TokenTypes.EQUAL :" shape=ellipse]
+10 [label="visitToken#?,DetailAST#7:TokenTypes.EQUAL
+finishTree#?,DetailAST#7:objBlockEquals" shape=ellipse]
+11 [label="visitToken#?,DetailAST#8:case TokenTypes.LNOT :" shape=ellipse]
+12 [label="visitToken#?,DetailAST#8:TokenTypes.LNOT
+finishTree#?,DetailAST#7:objBlock" shape=ellipse]
+13 [label="visitToken#?,DetailAST#9:case TokenTypes.LOR :" shape=ellipse]
+14 [label="visitToken#?,DetailAST#9:TokenTypes.LOR
+finishTree#?,DetailAST#8:PlaceHold" shape=ellipse]
+15 [label="visitToken#?,DetailAST#10:case TokenTypes.LAND :
+    log(parent.getLineNo(), parent.getColumnNo(), \"simplify.expression\");
+    break;" shape=ellipse]
+16 [label="visitToken#?,DetailAST#10:TokenTypes.LAND" shape=ellipse]
+17 [label="visitToken#?,DetailAST#11:log(<unknown>,<unknown>,java.lang.String)
+finishTree#?,DetailAST#8:log(<unknown>,<unknown>,java.lang.String)" shape=ellipse]
+18 [label="visitToken#?,DetailAST#11:" shape=ellipse]
+19 [label="visitToken#?,DetailAST#11:PlaceHold" shape=ellipse]
+20 [label="visitToken#?,DetailAST#11:parent.getLineNo()" shape=ellipse]
+21 [label="visitToken#?,DetailAST#11:getLineNo()
+finishTree#?,DetailAST#8:getLineNo()" shape=ellipse]
+22 [label="visitToken#?,DetailAST#11:parent" shape=ellipse]
+23 [label="visitToken#?,DetailAST#11:parent.getColumnNo()" shape=ellipse]
+24 [label="visitToken#?,DetailAST#11:getColumnNo()
+finishTree#?,DetailAST#8:getColumnNo()" shape=ellipse]
+25 [label="visitToken#?,DetailAST#11:parent" shape=ellipse]
+26 [label="visitToken#?,DetailAST#11:\"simplify.expression\"
+finishTree#?,DetailAST#8:\"equals.noHashCode\"" shape=ellipse]
+27 [label="visitToken#?,DetailAST#12:break
+finishTree#?,DetailAST#7:final DetailAST equalsAST = objBlockEquals.get(objBlock)" shape=ellipse]
+28 [label="visitToken#?,DetailAST#13:default :
+    break;" shape=ellipse]
+29 [label="visitToken#?,DetailAST#14:break" shape=ellipse]
+30 [label="visitToken#?,DetailAST#11:MSG_KEY
+finishTree#?,DetailAST#8:MSG_KEY" shape=ellipse]
+31 [label="visitToken#?,DetailAST#11:MSG_KEY
+finishTree#?,DetailAST#8:MSG_KEY" shape=ellipse]
+32 [label="visitToken#?,DetailAST#11:
+finishTree#?,DetailAST#8:" shape=ellipse]
+33 [label="visitToken#?,DetailAST#11:log
+finishTree#?,DetailAST#8:log" shape=ellipse]
+34 [label="finishTree#?,DetailAST#6:!objBlockWithHashCode.contains(objBlock)" shape=ellipse]
+35 [label="finishTree#?,DetailAST#5:equalsDefs" shape=ellipse]
+36 [label="finishTree#?,DetailAST#6:objBlockWithHashCode.contains(objBlock)" shape=ellipse]
+37 [label="finishTree#?,DetailAST#6:\{
+    final DetailAST equalsAST = objBlockEquals.get(objBlock);
+    log(equalsAST.getLineNo(), equalsAST.getColumnNo(), \"equals.noHashCode\");
+\}" shape=ellipse]
+38 [label="finishTree#?,DetailAST#7:objBlockEquals.get(objBlock)" shape=ellipse]
+39 [label="finishTree#?,DetailAST#8:" shape=ellipse]
+40 [label="finishTree#?,DetailAST#8:equalsAST.getLineNo()" shape=ellipse]
+41 [label="finishTree#?,DetailAST#8:equalsAST.getColumnNo()" shape=ellipse]
+0 -> 30 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 33 [label="AST:2"];
+1 -> 18 [label="AST:1"];
+1 -> 17 [label="AST:2"];
+1 -> 20 [label="AST:1"];
+1 -> 23 [label="AST:1"];
+1 -> 26 [label="AST:2"];
+1 -> 39 [label="AST:1"];
+1 -> 40 [label="AST:1"];
+1 -> 41 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+3 -> 9 [label="AST:1"];
+3 -> 11 [label="AST:1"];
+3 -> 13 [label="AST:1"];
+3 -> 15 [label="AST:1"];
+3 -> 28 [label="AST:1"];
+3 -> 34 [label="AST:1"];
+3 -> 37 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+15 -> 1 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 27 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+23 -> 25 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+27 -> 38 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+30 -> 31 [label="AST:2"];
+31 -> 32 [label="AST:2"];
+34 -> 36 [label="AST:1"];
+34 -> 37 [label="Control Dep:1"];
+34 -> 27 [label="Control Dep:1"];
+34 -> 38 [label="Control Dep:1"];
+34 -> 6 [label="Control Dep:1"];
+34 -> 10 [label="Control Dep:1"];
+34 -> 12 [label="Control Dep:1"];
+34 -> 1 [label="Control Dep:1"];
+34 -> 17 [label="Control Dep:1"];
+34 -> 39 [label="Control Dep:1"];
+34 -> 14 [label="Control Dep:1"];
+34 -> 40 [label="Control Dep:1"];
+34 -> 21 [label="Control Dep:1"];
+34 -> 5 [label="Control Dep:1"];
+34 -> 41 [label="Control Dep:1"];
+34 -> 24 [label="Control Dep:1"];
+34 -> 8 [label="Control Dep:1"];
+34 -> 26 [label="Control Dep:1"];
+34 -> 30 [label="Control Dep:1"];
+35 -> 34 [label="Control Dep:1"];
+35 -> 3 [label="Control Dep:1"];
+35 -> 36 [label="Control Dep:1"];
+37 -> 27 [label="AST:1"];
+37 -> 1 [label="AST:1"];
+38 -> 10 [label="AST:1"];
+38 -> 6 [label="AST:1"];
+38 -> 12 [label="AST:1"];
+39 -> 14 [label="AST:1"];
+40 -> 5 [label="AST:1"];
+40 -> 21 [label="AST:1"];
+41 -> 8 [label="AST:1"];
+41 -> 24 [label="AST:1"];
+}

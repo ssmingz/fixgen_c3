@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1795/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1795/0/after.java
+@@ -8,1 +8,5 @@
+-    OS.gtk_fixed_set_has_window(fixedHandle, true);
++    if (OS.GTK_VERSION >= OS.VERSION(2, 18, 0)) {
++      OS.gtk_widget_set_has_window(fixedHandle, true);
++    } else {
++      OS.gtk_fixed_set_has_window(fixedHandle, true);
++    }

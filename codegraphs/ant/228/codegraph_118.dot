@@ -1,0 +1,31 @@
+digraph "addTargetfilelist#?,FileList" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addTargetfilelist" shape=ellipse]
+2 [label="2:CtParameterImpl@FileList fl" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileList" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addElement(FileList)" shape=ellipse]
+5 [label="3:CtVirtualElement@addElement" shape=ellipse]
+6 [label="3:CtFieldReadImpl@targetFileLists" shape=ellipse]
+7 [label="3:CtVariableReadImpl@fl" shape=ellipse]
+8 [label="3:CtInvocationImpl@targetFileLists.addElement(fl)" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    targetFileLists.addElement(fl);
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void addTargetfilelist(FileList fl) \{
+    targetFileLists.addElement(fl);
+\}" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="3:CtInvocationImpl@targetFileLists.add(fl)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 11 [label="Action"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 2 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 12 [label="Action"];
+}

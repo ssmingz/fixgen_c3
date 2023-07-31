@@ -1,0 +1,109 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@debug" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+6 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+7 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+8 [label="3:CtLiteralImpl@\"Using symantec java compiler\"" shape=ellipse]
+9 [label="3:CtInvocationImpl@getLogger().debug(\"Using symantec java compiler\")" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@setupJavacCommand()" shape=ellipse]
+12 [label="4:CtVirtualElement@setupJavacCommand" shape=ellipse]
+13 [label="4:CtInvocationImpl@setupJavacCommand()" shape=ellipse]
+14 [label="4:CtVirtualElement@cmd" shape=ellipse]
+15 [label="4:CtLocalVariableImpl@Commandline cmd = setupJavacCommand()" shape=ellipse]
+16 [label="5:CtExecutableReferenceImpl@setExecutable(java.lang.String)" shape=ellipse]
+17 [label="5:CtVirtualElement@setExecutable" shape=ellipse]
+18 [label="5:CtVariableReadImpl@cmd" shape=ellipse]
+19 [label="5:CtLiteralImpl@\"sj\"" shape=ellipse]
+20 [label="5:CtInvocationImpl@cmd.setExecutable(\"sj\")" shape=ellipse]
+21 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+22 [label="6:CtExecutableReferenceImpl@size()" shape=ellipse]
+23 [label="6:CtVirtualElement@size" shape=ellipse]
+24 [label="6:CtVariableReadImpl@cmd" shape=ellipse]
+25 [label="6:CtInvocationImpl@cmd.size()" shape=ellipse]
+26 [label="6:CtFieldReadImpl@m_compileList.length" shape=ellipse]
+27 [label="6:CtBinaryOperatorImpl@cmd.size() - m_compileList.length" shape=ellipse]
+28 [label="6:CtVirtualElement@firstFileName" shape=ellipse]
+29 [label="6:CtLocalVariableImpl@int firstFileName = cmd.size() - m_compileList.length" shape=ellipse]
+30 [label="7:CtExecutableReferenceImpl@executeExternalCompile(<unknown>,int)" shape=ellipse]
+31 [label="7:CtVirtualElement@executeExternalCompile" shape=ellipse]
+32 [label="7:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+33 [label="7:CtVirtualElement@getCommandline" shape=ellipse]
+34 [label="7:CtVariableReadImpl@cmd" shape=ellipse]
+35 [label="7:CtInvocationImpl@cmd.getCommandline()" shape=ellipse]
+36 [label="7:CtVariableReadImpl@firstFileName" shape=ellipse]
+37 [label="7:CtInvocationImpl@executeExternalCompile(cmd.getCommandline(), firstFileName)" shape=ellipse]
+38 [label="7:CtLiteralImpl@0" shape=ellipse]
+39 [label="7:CtBinaryOperatorImpl@executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+40 [label="7:CtReturnImpl@return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+41 [label="2:CtBlockImpl@\{
+    getLogger().debug(\"Using symantec java compiler\");
+    Commandline cmd = setupJavacCommand();
+    cmd.setExecutable(\"sj\");
+    int firstFileName = cmd.size() - m_compileList.length;
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+42 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    getLogger().debug(\"Using symantec java compiler\");
+    Commandline cmd = setupJavacCommand();
+    cmd.setExecutable(\"sj\");
+    int firstFileName = cmd.size() - m_compileList.length;
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+43 [label="3:Update@UPDATE" shape=ellipse]
+44 [label="3:CtInvocationImpl@getTaskContext()" shape=ellipse]
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 43 [label="Action"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 3 [label="AST"];
+9 -> 8 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 11 [label="AST"];
+14 -> 18 [label="Define-Use"];
+14 -> 24 [label="Define-Use"];
+14 -> 34 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 16 [label="AST"];
+20 -> 19 [label="AST"];
+24 -> 28 [label="Data Dep"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+26 -> 28 [label="Data Dep"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 36 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 21 [label="AST"];
+29 -> 27 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 32 [label="AST"];
+37 -> 31 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 9 [label="AST"];
+41 -> 15 [label="AST"];
+41 -> 20 [label="AST"];
+41 -> 29 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 1 [label="AST"];
+42 -> 0 [label="AST"];
+42 -> 2 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 44 [label="Action"];
+}

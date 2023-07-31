@@ -1,0 +1,96 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 [label="locationInParent:ARGUMENT
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String" shape=ellipse]
+2 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:log(DetailAST.getLineNo(), DetailAST.getColumnNo(), String)" shape=ellipse]
+3 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+4 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:log
+value2:log(DetailAST.getLineNo(), DetailAST.getColumnNo(), String)" shape=ellipse]
+5 [label="locationInParent:TARGET
+nodeType:CtThisAccessImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:
+value2:" shape=ellipse]
+6 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:log(<unknown>,<unknown>,java.lang.String)
+value2:log(<unknown>,<unknown>,java.lang.String)" shape=ellipse]
+7 [label="locationInParent:ARGUMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:ast.getLineNo()
+value2:DetailAST.getLineNo()" shape=ellipse]
+8 [label="locationInParent:ARGUMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:ast.getColumnNo()
+value2:DetailAST.getColumnNo()" shape=ellipse]
+9 [label="locationInParent:ACTION
+nodeType:Insert
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:INSERT
+value2:" shape=ellipse]
+10 [label="locationInParent:ARGUMENT
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:MSG_KEY
+value2:MSG_KEY" shape=ellipse]
+11 [label="locationInParent:ACCESSED_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:MSG_KEY
+value2:MSG_KEY" shape=ellipse]
+12 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:
+value2:" shape=ellipse]
+13 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 13 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="AST:3"];
+2 -> 9 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+9 -> 10 [label="Action:3"];
+10 -> 11 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+}

@@ -1,0 +1,95 @@
+digraph "getConstructorParameterCount#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getConstructorParameterCount" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@List<ParameterSignature>" shape=ellipse]
+3 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@ParameterSignature" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@signatures()" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@ParameterSignature" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@List<ParameterSignature>" shape=ellipse]
+8 [label="4:CtVirtualElement@signatures" shape=ellipse]
+9 [label="4:CtTypeAccessImpl@ParameterSignature" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@ParameterSignature" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@getOnlyConstructor()" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@fClass" shape=ellipse]
+13 [label="4:CtVirtualElement@getOnlyConstructor" shape=ellipse]
+14 [label="4:CtFieldReferenceImpl@fClass" shape=ellipse]
+15 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+16 [label="4:CtFieldReadImpl@fClass" shape=ellipse]
+17 [label="4:CtInvocationImpl@fClass.getOnlyConstructor()" shape=ellipse]
+18 [label="4:CtInvocationImpl@ParameterSignature.signatures(fClass.getOnlyConstructor())" shape=ellipse]
+19 [label="3:CtVirtualElement@signatures" shape=ellipse]
+20 [label="3:CtLocalVariableImpl@List<ParameterSignature> signatures = ParameterSignature.signatures(fClass.getOnlyConstructor())" shape=ellipse]
+21 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@size()" shape=ellipse]
+23 [label="5:CtTypeReferenceImpl@List<ParameterSignature>" shape=ellipse]
+24 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+25 [label="5:CtVirtualElement@size" shape=ellipse]
+26 [label="5:CtVariableReadImpl@signatures" shape=ellipse]
+27 [label="5:CtLocalVariableReferenceImpl@signatures" shape=ellipse]
+28 [label="5:CtInvocationImpl@signatures.size()" shape=ellipse]
+29 [label="5:CtVirtualElement@constructorParameterCount" shape=ellipse]
+30 [label="5:CtLocalVariableImpl@int constructorParameterCount = signatures.size()" shape=ellipse]
+31 [label="6:CtVariableReadImpl@constructorParameterCount" shape=ellipse]
+32 [label="6:CtLocalVariableReferenceImpl@constructorParameterCount" shape=ellipse]
+33 [label="6:CtReturnImpl@return constructorParameterCount" shape=ellipse]
+34 [label="2:CtBlockImpl@\{
+    List<ParameterSignature> signatures = ParameterSignature.signatures(fClass.getOnlyConstructor());
+    int constructorParameterCount = signatures.size();
+    return constructorParameterCount;
+\}" shape=ellipse]
+35 [label="2:CtMethodImpl@private int getConstructorParameterCount() \{
+    List<ParameterSignature> signatures = ParameterSignature.signatures(fClass.getOnlyConstructor());
+    int constructorParameterCount = signatures.size();
+    return constructorParameterCount;
+\}" shape=ellipse]
+36 [label="4:Update@UPDATE" shape=ellipse]
+37 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+38 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+39 [label="3:CtFieldReferenceImpl@clazz" shape=ellipse]
+40 [label="3:CtFieldReadImpl@clazz" shape=ellipse]
+2 -> 3 [label="AST"];
+2 -> 4 [label="AST"];
+5 -> 6 [label="AST"];
+5 -> 7 [label="AST"];
+9 -> 10 [label="AST"];
+11 -> 12 [label="AST"];
+14 -> 15 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 19 [label="Data Dep"];
+16 -> 36 [label="Action"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 11 [label="AST"];
+18 -> 8 [label="AST"];
+18 -> 9 [label="AST"];
+18 -> 5 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 26 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 2 [label="AST"];
+20 -> 18 [label="AST"];
+22 -> 23 [label="AST"];
+22 -> 24 [label="AST"];
+26 -> 27 [label="AST"];
+26 -> 29 [label="Data Dep"];
+28 -> 25 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 22 [label="AST"];
+29 -> 31 [label="Define-Use"];
+30 -> 29 [label="AST"];
+30 -> 21 [label="AST"];
+30 -> 28 [label="AST"];
+31 -> 32 [label="AST"];
+33 -> 31 [label="AST"];
+34 -> 20 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 1 [label="AST"];
+35 -> 0 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 40 [label="Action"];
+38 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+}

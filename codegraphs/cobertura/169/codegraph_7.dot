@@ -1,0 +1,140 @@
+digraph "contains#?,String" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@contains" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@containsKey(java.lang.String)" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+7 [label="3:CtVirtualElement@containsKey" shape=ellipse]
+8 [label="3:CtFieldReferenceImpl@children" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+10 [label="3:CtFieldReadImpl@this.children" shape=ellipse]
+11 [label="3:CtThisAccessImpl@this" shape=ellipse]
+12 [label="3:CtVariableReadImpl@name" shape=ellipse]
+13 [label="3:CtParameterReferenceImpl@name" shape=ellipse]
+14 [label="3:CtInvocationImpl@this.children.containsKey(name)" shape=ellipse]
+15 [label="3:CtReturnImpl@return this.children.containsKey(name)" shape=ellipse]
+16 [label="2:CtBlockImpl@\{
+    return this.children.containsKey(name);
+\}" shape=ellipse]
+17 [label="2:CtMethodImpl@public boolean contains(String name) \{
+    return this.children.containsKey(name);
+\}" shape=ellipse]
+18 [label="3:Insert@INSERT" shape=ellipse]
+19 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+20 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+21 [label="3:CtFieldReferenceImpl@lock" shape=ellipse]
+22 [label="3:CtFieldReadImpl@lock" shape=ellipse]
+23 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+24 [label="3:CtTypeReferenceImpl@lock" shape=ellipse]
+25 [label="3:CtExecutableReferenceImpl@lock()" shape=ellipse]
+26 [label="3:CtInvocationImpl@lock.lock()" shape=ellipse]
+27 [label="3:CtVirtualElement@lock" shape=ellipse]
+28 [label="4:Insert@INSERT" shape=ellipse]
+29 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+30 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+31 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+32 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+33 [label="5:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+34 [label="5:CtThisAccessImpl@this" shape=ellipse]
+35 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+36 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+37 [label="5:CtFieldReferenceImpl@children" shape=ellipse]
+38 [label="5:CtFieldReadImpl@this.children" shape=ellipse]
+39 [label="5:CtTypeReferenceImpl@boolean" shape=ellipse]
+40 [label="5:CtPackageReferenceImpl@java.lang" shape=ellipse]
+41 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+42 [label="5:CtExecutableReferenceImpl@containsKey(java.lang.String)" shape=ellipse]
+43 [label="5:CtPackageReferenceImpl@java.lang" shape=ellipse]
+44 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+45 [label="5:CtParameterReferenceImpl@name" shape=ellipse]
+46 [label="5:CtVariableReadImpl@name" shape=ellipse]
+47 [label="5:CtInvocationImpl@this.children.containsKey(name)" shape=ellipse]
+48 [label="5:CtVirtualElement@containsKey" shape=ellipse]
+49 [label="5:CtReturnImpl@return this.children.containsKey(name)" shape=ellipse]
+50 [label="4:CtBlockImpl@\{
+    return this.children.containsKey(name);
+\}" shape=ellipse]
+51 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+52 [label="7:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+53 [label="7:CtFieldReferenceImpl@lock" shape=ellipse]
+54 [label="7:CtFieldReadImpl@lock" shape=ellipse]
+55 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+56 [label="7:CtTypeReferenceImpl@lock" shape=ellipse]
+57 [label="7:CtExecutableReferenceImpl@unlock()" shape=ellipse]
+58 [label="7:CtInvocationImpl@lock.unlock()" shape=ellipse]
+59 [label="7:CtVirtualElement@unlock" shape=ellipse]
+60 [label="6:CtBlockImpl@\{
+    lock.unlock();
+\}" shape=ellipse]
+61 [label="4:CtTryImpl@try \{
+
+\} finally \{
+    lock.unlock();
+\}" shape=ellipse]
+62 [label="3:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 6 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 11 [label="AST"];
+10 -> 8 [label="AST"];
+12 -> 13 [label="AST"];
+14 -> 7 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 12 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 62 [label="Action"];
+16 -> 15 [label="AST"];
+16 -> 18 [label="Action"];
+16 -> 28 [label="Action"];
+17 -> 1 [label="AST"];
+17 -> 0 [label="AST"];
+17 -> 2 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 26 [label="Action"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 27 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+28 -> 61 [label="Action"];
+30 -> 29 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 33 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 34 [label="AST"];
+38 -> 37 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 41 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 48 [label="AST"];
+47 -> 38 [label="AST"];
+47 -> 42 [label="AST"];
+47 -> 46 [label="AST"];
+49 -> 47 [label="AST"];
+50 -> 49 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 59 [label="AST"];
+58 -> 54 [label="AST"];
+58 -> 57 [label="AST"];
+60 -> 58 [label="AST"];
+61 -> 50 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 61 [label="Action"];
+}

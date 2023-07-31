@@ -1,0 +1,271 @@
+digraph "print#?,PrintStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@print" shape=ellipse]
+2 [label="2:CtParameterImpl@PrintStream out" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@PrintStream" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="3:CtFieldReadImpl@messageSource" shape=ellipse]
+6 [label="3:CtLiteralImpl@null" shape=ellipse]
+7 [label="3:CtBinaryOperatorImpl@messageSource != null" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@FileReader" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@FileReader" shape=ellipse]
+10 [label="4:CtFieldReadImpl@messageSource" shape=ellipse]
+11 [label="4:CtConstructorCallImpl@new FileReader(messageSource)" shape=ellipse]
+12 [label="4:CtVirtualElement@freader" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@FileReader freader = new FileReader(messageSource)" shape=ellipse]
+14 [label="6:CtTypeReferenceImpl@BufferedReader" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@BufferedReader" shape=ellipse]
+16 [label="6:CtVariableReadImpl@freader" shape=ellipse]
+17 [label="6:CtConstructorCallImpl@new BufferedReader(freader)" shape=ellipse]
+18 [label="6:CtVirtualElement@in" shape=ellipse]
+19 [label="6:CtLocalVariableImpl@BufferedReader in = new BufferedReader(freader)" shape=ellipse]
+20 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+21 [label="7:CtLiteralImpl@null" shape=ellipse]
+22 [label="7:CtVirtualElement@line" shape=ellipse]
+23 [label="7:CtLocalVariableImpl@String line = null" shape=ellipse]
+24 [label="8:CtVariableWriteImpl@line" shape=ellipse]
+25 [label="8:CtExecutableReferenceImpl@readLine()" shape=ellipse]
+26 [label="8:CtVirtualElement@readLine" shape=ellipse]
+27 [label="8:CtVariableReadImpl@in" shape=ellipse]
+28 [label="8:CtInvocationImpl@in.readLine()" shape=ellipse]
+29 [label="8:CtAssignmentImpl@(line = in.readLine())" shape=ellipse]
+30 [label="8:CtLiteralImpl@null" shape=ellipse]
+31 [label="8:CtBinaryOperatorImpl@(line = in.readLine()) != null" shape=ellipse]
+32 [label="9:CtExecutableReferenceImpl@println()" shape=ellipse]
+33 [label="9:CtVirtualElement@println" shape=ellipse]
+34 [label="9:CtVariableReadImpl@out" shape=ellipse]
+35 [label="9:CtExecutableReferenceImpl@replaceProperties(java.lang.String)" shape=ellipse]
+36 [label="9:CtVirtualElement@replaceProperties" shape=ellipse]
+37 [label="9:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+38 [label="9:CtVirtualElement@getProject" shape=ellipse]
+39 [label="9:CtInvocationImpl@getProject()" shape=ellipse]
+40 [label="9:CtVariableReadImpl@line" shape=ellipse]
+41 [label="9:CtInvocationImpl@getProject().replaceProperties(line)" shape=ellipse]
+42 [label="9:CtInvocationImpl@out.println(getProject().replaceProperties(line))" shape=ellipse]
+43 [label="8:CtBlockImpl@\{
+    out.println(getProject().replaceProperties(line));
+\}" shape=ellipse]
+44 [label="8:CtWhileImpl@while ((line = in.readLine()) != null) \{
+    out.println(getProject().replaceProperties(line));
+\} " shape=ellipse]
+45 [label="5:CtBlockImpl@\{
+    BufferedReader in = new BufferedReader(freader);
+    String line = null;
+    while ((line = in.readLine()) != null) \{
+        out.println(getProject().replaceProperties(line));
+    \} 
+\}" shape=ellipse]
+46 [label="12:CtExecutableReferenceImpl@close()" shape=ellipse]
+47 [label="12:CtVirtualElement@close" shape=ellipse]
+48 [label="12:CtVariableReadImpl@freader" shape=ellipse]
+49 [label="12:CtInvocationImpl@freader.close()" shape=ellipse]
+50 [label="11:CtBlockImpl@\{
+    freader.close();
+\}" shape=ellipse]
+51 [label="5:CtTryImpl@try \{
+    BufferedReader in = new BufferedReader(freader);
+    String line = null;
+    while ((line = in.readLine()) != null) \{
+        out.println(getProject().replaceProperties(line));
+    \} 
+\} finally \{
+    freader.close();
+\}" shape=ellipse]
+52 [label="3:CtBlockImpl@\{
+    FileReader freader = new FileReader(messageSource);
+    try \{
+        BufferedReader in = new BufferedReader(freader);
+        String line = null;
+        while ((line = in.readLine()) != null) \{
+            out.println(getProject().replaceProperties(line));
+        \} 
+    \} finally \{
+        freader.close();
+    \}
+\}" shape=ellipse]
+53 [label="15:CtExecutableReferenceImpl@println()" shape=ellipse]
+54 [label="15:CtVirtualElement@println" shape=ellipse]
+55 [label="15:CtVariableReadImpl@out" shape=ellipse]
+56 [label="15:CtExecutableReferenceImpl@replaceProperties()" shape=ellipse]
+57 [label="15:CtVirtualElement@replaceProperties" shape=ellipse]
+58 [label="15:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+59 [label="15:CtVirtualElement@getProject" shape=ellipse]
+60 [label="15:CtInvocationImpl@getProject()" shape=ellipse]
+61 [label="15:CtExecutableReferenceImpl@toString()" shape=ellipse]
+62 [label="15:CtVirtualElement@toString" shape=ellipse]
+63 [label="15:CtFieldReadImpl@buffer" shape=ellipse]
+64 [label="15:CtInvocationImpl@buffer.toString()" shape=ellipse]
+65 [label="15:CtInvocationImpl@getProject().replaceProperties(buffer.toString())" shape=ellipse]
+66 [label="15:CtInvocationImpl@out.println(getProject().replaceProperties(buffer.toString()))" shape=ellipse]
+67 [label="14:CtBlockImpl@\{
+    out.println(getProject().replaceProperties(buffer.toString()));
+\}" shape=ellipse]
+68 [label="3:CtIfImpl@if (messageSource != null) \{
+    FileReader freader = new FileReader(messageSource);
+    try \{
+        BufferedReader in = new BufferedReader(freader);
+        String line = null;
+        while ((line = in.readLine()) != null) \{
+            out.println(getProject().replaceProperties(line));
+        \} 
+    \} finally \{
+        freader.close();
+    \}
+\} else \{
+    out.println(getProject().replaceProperties(buffer.toString()));
+\}" shape=ellipse]
+69 [label="2:CtBlockImpl@\{
+    if (messageSource != null) \{
+        FileReader freader = new FileReader(messageSource);
+        try \{
+            BufferedReader in = new BufferedReader(freader);
+            String line = null;
+            while ((line = in.readLine()) != null) \{
+                out.println(getProject().replaceProperties(line));
+            \} 
+        \} finally \{
+            freader.close();
+        \}
+    \} else \{
+        out.println(getProject().replaceProperties(buffer.toString()));
+    \}
+\}" shape=ellipse]
+70 [label="2:CtMethodImpl@public void print(PrintStream out) throws IOException \{
+    if (messageSource != null) \{
+        FileReader freader = new FileReader(messageSource);
+        try \{
+            BufferedReader in = new BufferedReader(freader);
+            String line = null;
+            while ((line = in.readLine()) != null) \{
+                out.println(getProject().replaceProperties(line));
+            \} 
+        \} finally \{
+            freader.close();
+        \}
+    \} else \{
+        out.println(getProject().replaceProperties(buffer.toString()));
+    \}
+\}" shape=ellipse]
+71 [label="15:Update@UPDATE" shape=ellipse]
+72 [label="15:CtInvocationImpl@buffer.substring(0)" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 52 [label="Control Dep"];
+7 -> 13 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 10 [label="Control Dep"];
+7 -> 51 [label="Control Dep"];
+7 -> 45 [label="Control Dep"];
+7 -> 19 [label="Control Dep"];
+7 -> 17 [label="Control Dep"];
+7 -> 16 [label="Control Dep"];
+7 -> 23 [label="Control Dep"];
+7 -> 21 [label="Control Dep"];
+7 -> 44 [label="Control Dep"];
+7 -> 31 [label="Control Dep"];
+7 -> 29 [label="Control Dep"];
+7 -> 24 [label="Control Dep"];
+7 -> 28 [label="Control Dep"];
+7 -> 25 [label="Control Dep"];
+7 -> 27 [label="Control Dep"];
+7 -> 30 [label="Control Dep"];
+7 -> 50 [label="Control Dep"];
+7 -> 49 [label="Control Dep"];
+7 -> 46 [label="Control Dep"];
+7 -> 48 [label="Control Dep"];
+7 -> 67 [label="Control Dep"];
+7 -> 66 [label="Control Dep"];
+7 -> 53 [label="Control Dep"];
+7 -> 55 [label="Control Dep"];
+7 -> 65 [label="Control Dep"];
+7 -> 56 [label="Control Dep"];
+7 -> 60 [label="Control Dep"];
+7 -> 58 [label="Control Dep"];
+7 -> 64 [label="Control Dep"];
+7 -> 61 [label="Control Dep"];
+7 -> 63 [label="Control Dep"];
+10 -> 12 [label="Data Dep"];
+11 -> 10 [label="AST"];
+12 -> 16 [label="Define-Use"];
+12 -> 48 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 11 [label="AST"];
+16 -> 18 [label="Data Dep"];
+17 -> 16 [label="AST"];
+18 -> 27 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 17 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 40 [label="Define-Use"];
+27 -> 24 [label="Data Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+29 -> 24 [label="AST"];
+29 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 43 [label="Control Dep"];
+31 -> 42 [label="Control Dep"];
+31 -> 32 [label="Control Dep"];
+31 -> 34 [label="Control Dep"];
+31 -> 41 [label="Control Dep"];
+31 -> 35 [label="Control Dep"];
+31 -> 39 [label="Control Dep"];
+31 -> 37 [label="Control Dep"];
+31 -> 40 [label="Control Dep"];
+39 -> 38 [label="AST"];
+39 -> 37 [label="AST"];
+41 -> 36 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 35 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 34 [label="AST"];
+42 -> 32 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 31 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 19 [label="AST"];
+45 -> 23 [label="AST"];
+45 -> 44 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+49 -> 46 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 45 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 13 [label="AST"];
+52 -> 51 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 58 [label="AST"];
+64 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+64 -> 61 [label="AST"];
+64 -> 71 [label="Action"];
+65 -> 57 [label="AST"];
+65 -> 60 [label="AST"];
+65 -> 56 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 54 [label="AST"];
+66 -> 55 [label="AST"];
+66 -> 53 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 7 [label="AST"];
+68 -> 52 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 1 [label="AST"];
+70 -> 0 [label="AST"];
+70 -> 2 [label="AST"];
+70 -> 4 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 72 [label="Action"];
+}

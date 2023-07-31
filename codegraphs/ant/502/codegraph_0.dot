@@ -1,0 +1,284 @@
+digraph "testSpawn#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testSpawn" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@FileUtils" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@newFileUtils()" shape=ellipse]
+4 [label="3:CtVirtualElement@newFileUtils" shape=ellipse]
+5 [label="3:CtTypeAccessImpl@FileUtils" shape=ellipse]
+6 [label="3:CtInvocationImpl@FileUtils.newFileUtils()" shape=ellipse]
+7 [label="3:CtVirtualElement@fileutils" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@FileUtils fileutils = FileUtils.newFileUtils()" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@createTempFile(java.lang.String,java.lang.String)" shape=ellipse]
+11 [label="4:CtVirtualElement@createTempFile" shape=ellipse]
+12 [label="4:CtVariableReadImpl@fileutils" shape=ellipse]
+13 [label="4:CtLiteralImpl@\"spawn\"" shape=ellipse]
+14 [label="4:CtLiteralImpl@\"log\"" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+16 [label="4:CtVirtualElement@getBaseDir" shape=ellipse]
+17 [label="4:CtFieldReadImpl@project" shape=ellipse]
+18 [label="4:CtInvocationImpl@project.getBaseDir()" shape=ellipse]
+19 [label="4:CtInvocationImpl@fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir())" shape=ellipse]
+20 [label="4:CtVirtualElement@logFile" shape=ellipse]
+21 [label="4:CtLocalVariableImpl@File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir())" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@assertTrue(java.lang.String,<unknown>)" shape=ellipse]
+23 [label="5:CtVirtualElement@assertTrue" shape=ellipse]
+24 [label="5:CtLiteralImpl@\"log file not existing\"" shape=ellipse]
+25 [label="5:CtExecutableReferenceImpl@exists()" shape=ellipse]
+26 [label="5:CtVirtualElement@exists" shape=ellipse]
+27 [label="5:CtVariableReadImpl@logFile" shape=ellipse]
+28 [label="5:CtInvocationImpl@logFile.exists()" shape=ellipse]
+29 [label="5:CtUnaryOperatorImpl@!logFile.exists()" shape=ellipse]
+30 [label="5:CtInvocationImpl@assertTrue(\"log file not existing\", !logFile.exists())" shape=ellipse]
+31 [label="6:CtExecutableReferenceImpl@setProperty(java.lang.String)" shape=ellipse]
+32 [label="6:CtVirtualElement@setProperty" shape=ellipse]
+33 [label="6:CtFieldReadImpl@project" shape=ellipse]
+34 [label="6:CtLiteralImpl@\"logFile\"" shape=ellipse]
+35 [label="6:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+36 [label="6:CtVirtualElement@getAbsolutePath" shape=ellipse]
+37 [label="6:CtVariableReadImpl@logFile" shape=ellipse]
+38 [label="6:CtInvocationImpl@logFile.getAbsolutePath()" shape=ellipse]
+39 [label="6:CtInvocationImpl@project.setProperty(\"logFile\", logFile.getAbsolutePath())" shape=ellipse]
+40 [label="7:CtExecutableReferenceImpl@setProperty(java.lang.String)" shape=ellipse]
+41 [label="7:CtVirtualElement@setProperty" shape=ellipse]
+42 [label="7:CtFieldReadImpl@project" shape=ellipse]
+43 [label="7:CtLiteralImpl@\"timeToWait\"" shape=ellipse]
+44 [label="7:CtExecutableReferenceImpl@toString(long)" shape=ellipse]
+45 [label="7:CtVirtualElement@toString" shape=ellipse]
+46 [label="7:CtTypeAccessImpl@Long" shape=ellipse]
+47 [label="7:CtTypeAccessImpl@TIME_TO_WAIT" shape=ellipse]
+48 [label="7:CtInvocationImpl@Long.toString(TIME_TO_WAIT)" shape=ellipse]
+49 [label="7:CtInvocationImpl@project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT))" shape=ellipse]
+50 [label="8:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+51 [label="8:CtVirtualElement@executeTarget" shape=ellipse]
+52 [label="8:CtFieldReadImpl@project" shape=ellipse]
+53 [label="8:CtLiteralImpl@\"testSpawn\"" shape=ellipse]
+54 [label="8:CtInvocationImpl@project.executeTarget(\"testSpawn\")" shape=ellipse]
+55 [label="10:CtExecutableReferenceImpl@sleep(long)" shape=ellipse]
+56 [label="10:CtVirtualElement@sleep" shape=ellipse]
+57 [label="10:CtTypeAccessImpl@Thread" shape=ellipse]
+58 [label="10:CtFieldReadImpl@TIME_TO_WAIT" shape=ellipse]
+59 [label="10:CtLiteralImpl@1000" shape=ellipse]
+60 [label="10:CtBinaryOperatorImpl@(TIME_TO_WAIT * 1000)" shape=ellipse]
+61 [label="10:CtFieldReadImpl@SECURITY_MARGIN" shape=ellipse]
+62 [label="10:CtBinaryOperatorImpl@(TIME_TO_WAIT * 1000) + SECURITY_MARGIN" shape=ellipse]
+63 [label="10:CtInvocationImpl@Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN)" shape=ellipse]
+64 [label="9:CtBlockImpl@\{
+    Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+\}" shape=ellipse]
+65 [label="11:CtVirtualElement@ex" shape=ellipse]
+66 [label="11:CtTypeReferenceImpl@Exception" shape=ellipse]
+67 [label="11:CtCatchVariableImpl@Exception ex" shape=ellipse]
+68 [label="12:CtExecutableReferenceImpl@println(java.lang.String)" shape=ellipse]
+69 [label="12:CtVirtualElement@println" shape=ellipse]
+70 [label="12:CtTypeAccessImpl@System" shape=ellipse]
+71 [label="12:CtFieldReadImpl@System.out" shape=ellipse]
+72 [label="12:CtFieldReferenceImpl@java.lang.System.out" shape=ellipse]
+73 [label="12:CtLiteralImpl@\"my sleep was interrupted\"" shape=ellipse]
+74 [label="12:CtInvocationImpl@System.out.println(\"my sleep was interrupted\")" shape=ellipse]
+75 [label="11:CtBlockImpl@\{
+    System.out.println(\"my sleep was interrupted\");
+\}" shape=ellipse]
+76 [label="11:CtCatchImpl@ catch (Exception ex) \{
+    System.out.println(\"my sleep was interrupted\");
+\}" shape=ellipse]
+77 [label="9:CtTryImpl@try \{
+    Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+\} catch (Exception ex) \{
+    System.out.println(\"my sleep was interrupted\");
+\}" shape=ellipse]
+78 [label="14:CtExecutableReferenceImpl@exists()" shape=ellipse]
+79 [label="14:CtVirtualElement@exists" shape=ellipse]
+80 [label="14:CtVariableReadImpl@logFile" shape=ellipse]
+81 [label="14:CtInvocationImpl@logFile.exists()" shape=ellipse]
+82 [label="14:CtUnaryOperatorImpl@!logFile.exists()" shape=ellipse]
+83 [label="15:CtExecutableReferenceImpl@println(java.lang.String)" shape=ellipse]
+84 [label="15:CtVirtualElement@println" shape=ellipse]
+85 [label="15:CtTypeAccessImpl@System" shape=ellipse]
+86 [label="15:CtFieldReadImpl@System.out" shape=ellipse]
+87 [label="15:CtFieldReferenceImpl@java.lang.System.out" shape=ellipse]
+88 [label="16:CtLiteralImpl@\"suggestion: increase the constant\"" shape=ellipse]
+89 [label="17:CtLiteralImpl@\" SECURITY_MARGIN to give more time for java to start.\"" shape=ellipse]
+90 [label="16:CtBinaryOperatorImpl@\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\"" shape=ellipse]
+91 [label="15:CtInvocationImpl@System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\")" shape=ellipse]
+92 [label="14:CtBlockImpl@\{
+    System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+\}" shape=ellipse]
+93 [label="14:CtIfImpl@if (!logFile.exists()) \{
+    System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+\}" shape=ellipse]
+94 [label="19:CtExecutableReferenceImpl@assertTrue(java.lang.String,<unknown>)" shape=ellipse]
+95 [label="19:CtVirtualElement@assertTrue" shape=ellipse]
+96 [label="19:CtLiteralImpl@\"log file exists\"" shape=ellipse]
+97 [label="19:CtExecutableReferenceImpl@exists()" shape=ellipse]
+98 [label="19:CtVirtualElement@exists" shape=ellipse]
+99 [label="19:CtVariableReadImpl@logFile" shape=ellipse]
+100 [label="19:CtInvocationImpl@logFile.exists()" shape=ellipse]
+101 [label="19:CtInvocationImpl@assertTrue(\"log file exists\", logFile.exists())" shape=ellipse]
+102 [label="2:CtBlockImpl@\{
+    FileUtils fileutils = FileUtils.newFileUtils();
+    File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir());
+    assertTrue(\"log file not existing\", !logFile.exists());
+    project.setProperty(\"logFile\", logFile.getAbsolutePath());
+    project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT));
+    project.executeTarget(\"testSpawn\");
+    try \{
+        Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+    \} catch (Exception ex) \{
+        System.out.println(\"my sleep was interrupted\");
+    \}
+    if (!logFile.exists()) \{
+        System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+    \}
+    assertTrue(\"log file exists\", logFile.exists());
+\}" shape=ellipse]
+103 [label="2:CtMethodImpl@public void testSpawn() \{
+    FileUtils fileutils = FileUtils.newFileUtils();
+    File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir());
+    assertTrue(\"log file not existing\", !logFile.exists());
+    project.setProperty(\"logFile\", logFile.getAbsolutePath());
+    project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT));
+    project.executeTarget(\"testSpawn\");
+    try \{
+        Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+    \} catch (Exception ex) \{
+        System.out.println(\"my sleep was interrupted\");
+    \}
+    if (!logFile.exists()) \{
+        System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+    \}
+    assertTrue(\"log file exists\", logFile.exists());
+\}" shape=ellipse]
+104 [label="3:Delete@DELETE" shape=ellipse]
+105 [label="4:Delete@DELETE" shape=ellipse]
+106 [label="3:Insert@INSERT" shape=ellipse]
+107 [label="3:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+7 -> 12 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 104 [label="Action"];
+12 -> 20 [label="Data Dep"];
+12 -> 105 [label="Action"];
+17 -> 20 [label="Data Dep"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+19 -> 11 [label="AST"];
+19 -> 12 [label="AST"];
+19 -> 10 [label="AST"];
+19 -> 13 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 106 [label="Action"];
+20 -> 27 [label="Define-Use"];
+20 -> 37 [label="Define-Use"];
+20 -> 80 [label="Define-Use"];
+20 -> 99 [label="Define-Use"];
+21 -> 20 [label="AST"];
+21 -> 9 [label="AST"];
+21 -> 19 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 23 [label="AST"];
+30 -> 22 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 29 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 35 [label="AST"];
+39 -> 32 [label="AST"];
+39 -> 33 [label="AST"];
+39 -> 31 [label="AST"];
+39 -> 34 [label="AST"];
+39 -> 38 [label="AST"];
+48 -> 45 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 41 [label="AST"];
+49 -> 42 [label="AST"];
+49 -> 40 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 48 [label="AST"];
+54 -> 51 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 50 [label="AST"];
+54 -> 53 [label="AST"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 56 [label="AST"];
+63 -> 57 [label="AST"];
+63 -> 55 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+67 -> 75 [label="Control Dep"];
+67 -> 74 [label="Control Dep"];
+67 -> 68 [label="Control Dep"];
+67 -> 71 [label="Control Dep"];
+67 -> 70 [label="Control Dep"];
+67 -> 73 [label="Control Dep"];
+71 -> 70 [label="AST"];
+71 -> 72 [label="AST"];
+74 -> 69 [label="AST"];
+74 -> 71 [label="AST"];
+74 -> 68 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 67 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 64 [label="AST"];
+77 -> 76 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+81 -> 78 [label="AST"];
+82 -> 81 [label="AST"];
+82 -> 92 [label="Control Dep"];
+82 -> 91 [label="Control Dep"];
+82 -> 83 [label="Control Dep"];
+82 -> 86 [label="Control Dep"];
+82 -> 85 [label="Control Dep"];
+82 -> 90 [label="Control Dep"];
+82 -> 88 [label="Control Dep"];
+82 -> 89 [label="Control Dep"];
+86 -> 85 [label="AST"];
+86 -> 87 [label="AST"];
+90 -> 88 [label="AST"];
+90 -> 89 [label="AST"];
+91 -> 84 [label="AST"];
+91 -> 86 [label="AST"];
+91 -> 83 [label="AST"];
+91 -> 90 [label="AST"];
+92 -> 91 [label="AST"];
+93 -> 82 [label="AST"];
+93 -> 92 [label="AST"];
+100 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+100 -> 97 [label="AST"];
+101 -> 95 [label="AST"];
+101 -> 94 [label="AST"];
+101 -> 96 [label="AST"];
+101 -> 100 [label="AST"];
+102 -> 8 [label="AST"];
+102 -> 21 [label="AST"];
+102 -> 30 [label="AST"];
+102 -> 39 [label="AST"];
+102 -> 49 [label="AST"];
+102 -> 54 [label="AST"];
+102 -> 77 [label="AST"];
+102 -> 93 [label="AST"];
+102 -> 101 [label="AST"];
+103 -> 1 [label="AST"];
+103 -> 0 [label="AST"];
+103 -> 102 [label="AST"];
+106 -> 107 [label="Action"];
+}

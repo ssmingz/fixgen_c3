@@ -1,0 +1,9 @@
+--- D:\expdata\c3\dataset\junit\87\1/before.java
++++ D:\expdata\c3\dataset\junit\87\1/after.java
+@@ -3,1 +3,5 @@
+-  public void checkPermission(Permission perm, Object context) {}
++  public void checkPermission(Permission perm, Object context) {
++    if (originalSecurityManager != null) {
++      originalSecurityManager.checkPermission(perm, context);
++    }
++  }

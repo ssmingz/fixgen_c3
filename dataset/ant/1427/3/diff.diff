@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1427/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1427/3/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,3 @@
+-    configureProject("src/etc/testcases/core/topleveltasks/targetlevelant.xml");
+-    expectLog("foo", "Called");
++    buildRule.configureProject("src/etc/testcases/core/topleveltasks/targetlevelant.xml");
++    buildRule.executeTarget("foo");
++    assertEquals("Called", buildRule.getLog());

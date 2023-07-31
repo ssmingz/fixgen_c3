@@ -1,0 +1,377 @@
+digraph "Pattern" {
+0 [label="createIndexList#?,ZipOutputStream#37:INSERT
+execute#?#55:INSERT" shape=ellipse]
+1 [label="createIndexList#?,ZipOutputStream#2:private void createIndexList(ZipOutputStream zOut) throws IOException \{
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    PrintWriter writer = new PrintWriter(new OutputStreamWriter(baos, \"UTF8\"));
+    writer.println(\"JarIndex-Version: 1.0\");
+    writer.println();
+    writer.println(zipFile.getName());
+    writeIndexLikeList(new ArrayList(addedDirs.keySet()), rootEntries, writer);
+    writer.println();
+    if (indexJars != null) \{
+        Manifest mf = createManifest();
+        Manifest.Attribute classpath = mf.getMainSection().getAttribute(ATTRIBUTE_CLASSPATH);
+        String[] cpEntries = null;
+        if ((classpath != null) && (classpath.getValue() != null)) \{
+            StringTokenizer tok = new StringTokenizer(classpath.getValue(), \" \");
+            cpEntries = new String[tok.countTokens()];
+            int c = 0;
+            while (tok.hasMoreTokens()) \{
+                cpEntries[c++] = tok.nextToken();
+            \} 
+        \}
+        String[] indexJarEntries = indexJars.list();
+        for (int i = 0; i < indexJarEntries.length; i++) \{
+            String name = findJarName(indexJarEntries[i], cpEntries);
+            if (name != null) \{
+                ArrayList dirs = new ArrayList();
+                ArrayList files = new ArrayList();
+                grabFilesAndDirs(indexJarEntries[i], dirs, files);
+                if ((dirs.size() + files.size()) > 0) \{
+                    writer.println(name);
+                    writeIndexLikeList(dirs, files, writer);
+                    writer.println();
+                \}
+            \}
+        \}
+    \}
+    writer.close();
+    ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+    try \{
+        super.zipFile(bais, zOut, INDEX_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(bais);
+    \}
+\}" shape=ellipse]
+2 [label="createIndexList#?,ZipOutputStream#2:createIndexList" shape=ellipse]
+3 [label="createIndexList#?,ZipOutputStream#2:void" shape=ellipse]
+4 [label="createIndexList#?,ZipOutputStream#2:ZipOutputStream zOut" shape=ellipse]
+5 [label="createIndexList#?,ZipOutputStream#2:ZipOutputStream" shape=ellipse]
+6 [label="createIndexList#?,ZipOutputStream#2:IOException" shape=ellipse]
+7 [label="createIndexList#?,ZipOutputStream#-1:" shape=ellipse]
+8 [label="createIndexList#?,ZipOutputStream#2:\{
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    PrintWriter writer = new PrintWriter(new OutputStreamWriter(baos, \"UTF8\"));
+    writer.println(\"JarIndex-Version: 1.0\");
+    writer.println();
+    writer.println(zipFile.getName());
+    writeIndexLikeList(new ArrayList(addedDirs.keySet()), rootEntries, writer);
+    writer.println();
+    if (indexJars != null) \{
+        Manifest mf = createManifest();
+        Manifest.Attribute classpath = mf.getMainSection().getAttribute(ATTRIBUTE_CLASSPATH);
+        String[] cpEntries = null;
+        if ((classpath != null) && (classpath.getValue() != null)) \{
+            StringTokenizer tok = new StringTokenizer(classpath.getValue(), \" \");
+            cpEntries = new String[tok.countTokens()];
+            int c = 0;
+            while (tok.hasMoreTokens()) \{
+                cpEntries[c++] = tok.nextToken();
+            \} 
+        \}
+        String[] indexJarEntries = indexJars.list();
+        for (int i = 0; i < indexJarEntries.length; i++) \{
+            String name = findJarName(indexJarEntries[i], cpEntries);
+            if (name != null) \{
+                ArrayList dirs = new ArrayList();
+                ArrayList files = new ArrayList();
+                grabFilesAndDirs(indexJarEntries[i], dirs, files);
+                if ((dirs.size() + files.size()) > 0) \{
+                    writer.println(name);
+                    writeIndexLikeList(dirs, files, writer);
+                    writer.println();
+                \}
+            \}
+        \}
+    \}
+    writer.close();
+    ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+    try \{
+        super.zipFile(bais, zOut, INDEX_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(bais);
+    \}
+\}
+execute#?#2:\{
+    if (manifestFile == null) \{
+        throw new BuildException(\"the file attribute is required\");
+    \}
+    Manifest toWrite = Manifest.getDefaultManifest();
+    Manifest current = null;
+    BuildException error = null;
+    if (manifestFile.exists()) \{
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        try \{
+            fis = new FileInputStream(manifestFile);
+            if (encoding == null) \{
+                isr = new InputStreamReader(fis, \"UTF-8\");
+            \} else \{
+                isr = new InputStreamReader(fis, encoding);
+            \}
+            current = new Manifest(isr);
+        \} catch (ManifestException m) \{
+            error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+        \} catch (IOException e) \{
+            error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+        \} finally \{
+            FileUtils.close(isr);
+        \}
+    \}
+    for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+        log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+    \}
+    try \{
+        if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+            if (current != null) \{
+                toWrite.merge(current);
+            \} else if (error != null) \{
+                throw error;
+            \}
+        \}
+        toWrite.merge(nestedManifest);
+    \} catch (ManifestException m) \{
+        throw new BuildException(\"Manifest is invalid\", m, getLocation());
+    \}
+    if (toWrite.equals(current)) \{
+        log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+        return;
+    \}
+    PrintWriter w = null;
+    try \{
+        FileOutputStream fos = new FileOutputStream(manifestFile);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+        w = new PrintWriter(osw);
+        toWrite.write(w);
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(w);
+    \}
+\}" shape=ellipse]
+9 [label="createIndexList#?,ZipOutputStream#3:ByteArrayOutputStream baos = new ByteArrayOutputStream()
+execute#?#3:if (manifestFile == null) \{
+    throw new BuildException(\"the file attribute is required\");
+\}" shape=ellipse]
+10 [label="createIndexList#?,ZipOutputStream#4:PrintWriter writer = new PrintWriter(new OutputStreamWriter(baos, \"UTF8\"))
+execute#?#9:if (manifestFile.exists()) \{
+    FileInputStream fis = null;
+    InputStreamReader isr = null;
+    try \{
+        fis = new FileInputStream(manifestFile);
+        if (encoding == null) \{
+            isr = new InputStreamReader(fis, \"UTF-8\");
+        \} else \{
+            isr = new InputStreamReader(fis, encoding);
+        \}
+        current = new Manifest(isr);
+    \} catch (ManifestException m) \{
+        error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+    \} catch (IOException e) \{
+        error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(isr);
+    \}
+\}" shape=ellipse]
+11 [label="createIndexList#?,ZipOutputStream#5:writer.println(\"JarIndex-Version: 1.0\")" shape=ellipse]
+12 [label="createIndexList#?,ZipOutputStream#6:writer.println()" shape=ellipse]
+13 [label="createIndexList#?,ZipOutputStream#7:writer.println(zipFile.getName())" shape=ellipse]
+14 [label="createIndexList#?,ZipOutputStream#8:writeIndexLikeList(new ArrayList(addedDirs.keySet()), rootEntries, writer)" shape=ellipse]
+15 [label="createIndexList#?,ZipOutputStream#9:writer.println()" shape=ellipse]
+16 [label="createIndexList#?,ZipOutputStream#10:if (indexJars != null) \{
+    Manifest mf = createManifest();
+    Manifest.Attribute classpath = mf.getMainSection().getAttribute(ATTRIBUTE_CLASSPATH);
+    String[] cpEntries = null;
+    if ((classpath != null) && (classpath.getValue() != null)) \{
+        StringTokenizer tok = new StringTokenizer(classpath.getValue(), \" \");
+        cpEntries = new String[tok.countTokens()];
+        int c = 0;
+        while (tok.hasMoreTokens()) \{
+            cpEntries[c++] = tok.nextToken();
+        \} 
+    \}
+    String[] indexJarEntries = indexJars.list();
+    for (int i = 0; i < indexJarEntries.length; i++) \{
+        String name = findJarName(indexJarEntries[i], cpEntries);
+        if (name != null) \{
+            ArrayList dirs = new ArrayList();
+            ArrayList files = new ArrayList();
+            grabFilesAndDirs(indexJarEntries[i], dirs, files);
+            if ((dirs.size() + files.size()) > 0) \{
+                writer.println(name);
+                writeIndexLikeList(dirs, files, writer);
+                writer.println();
+            \}
+        \}
+    \}
+\}
+execute#?#33:try \{
+    if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+        if (current != null) \{
+            toWrite.merge(current);
+        \} else if (error != null) \{
+            throw error;
+        \}
+    \}
+    toWrite.merge(nestedManifest);
+\} catch (ManifestException m) \{
+    throw new BuildException(\"Manifest is invalid\", m, getLocation());
+\}" shape=ellipse]
+17 [label="createIndexList#?,ZipOutputStream#37:writer.close()" shape=ellipse]
+18 [label="createIndexList#?,ZipOutputStream#38:ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray())
+execute#?#6:Manifest toWrite = Manifest.getDefaultManifest()" shape=ellipse]
+19 [label="createIndexList#?,ZipOutputStream#39:try \{
+    super.zipFile(bais, zOut, INDEX_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\} finally \{
+    FileUtils.close(bais);
+\}
+execute#?#45:if (toWrite.equals(current)) \{
+    log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+    return;
+\}" shape=ellipse]
+20 [label="createIndexList#?,ZipOutputStream#2:private" shape=ellipse]
+21 [label="createIndexList#?,ZipOutputStream#2:VE: ThrownTypes_createIndexList" shape=ellipse]
+22 [label="createIndexList#?,ZipOutputStream#2:VE: Modifiers_Method" shape=ellipse]
+23 [label="createIndexList#?,ZipOutputStream#37:if (writer.checkError()) \{
+    throw new IOException(\"Encountered an error writing jar index\");
+\}
+execute#?#55:if (w.checkError()) \{
+    throw new IOException(\"Encountered an error writing manifest\");
+\}" shape=ellipse]
+24 [label="execute#?#55:IOException e" shape=ellipse]
+25 [label="execute#?#55:\{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+26 [label="execute#?#58:FileUtils.close(w)" shape=ellipse]
+27 [label="execute#?#7:Manifest current = null" shape=ellipse]
+28 [label="execute#?#57:\{
+    FileUtils.close(w);
+\}" shape=ellipse]
+29 [label="execute#?#53:w = new PrintWriter(osw)" shape=ellipse]
+30 [label="execute#?#54:toWrite.write(w)" shape=ellipse]
+31 [label="execute#?#8:BuildException error = null" shape=ellipse]
+32 [label="execute#?#49:PrintWriter w = null" shape=ellipse]
+33 [label="execute#?#30:for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+    log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+\}" shape=ellipse]
+34 [label="execute#?#50:\{
+    FileOutputStream fos = new FileOutputStream(manifestFile);
+    OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+    w = new PrintWriter(osw);
+    toWrite.write(w);
+\}" shape=ellipse]
+35 [label="execute#?#51:FileOutputStream fos = new FileOutputStream(manifestFile)" shape=ellipse]
+36 [label="execute#?#55: catch (IOException e) \{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+37 [label="execute#?#50:try \{
+    FileOutputStream fos = new FileOutputStream(manifestFile);
+    OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+    w = new PrintWriter(osw);
+    toWrite.write(w);
+\} catch (IOException e) \{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\} finally \{
+    FileUtils.close(w);
+\}" shape=ellipse]
+38 [label="execute#?#52:OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING)" shape=ellipse]
+39 [label="execute#?#2:public void execute() throws BuildException \{
+    if (manifestFile == null) \{
+        throw new BuildException(\"the file attribute is required\");
+    \}
+    Manifest toWrite = Manifest.getDefaultManifest();
+    Manifest current = null;
+    BuildException error = null;
+    if (manifestFile.exists()) \{
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        try \{
+            fis = new FileInputStream(manifestFile);
+            if (encoding == null) \{
+                isr = new InputStreamReader(fis, \"UTF-8\");
+            \} else \{
+                isr = new InputStreamReader(fis, encoding);
+            \}
+            current = new Manifest(isr);
+        \} catch (ManifestException m) \{
+            error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+        \} catch (IOException e) \{
+            error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+        \} finally \{
+            FileUtils.close(isr);
+        \}
+    \}
+    for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+        log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+    \}
+    try \{
+        if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+            if (current != null) \{
+                toWrite.merge(current);
+            \} else if (error != null) \{
+                throw error;
+            \}
+        \}
+        toWrite.merge(nestedManifest);
+    \} catch (ManifestException m) \{
+        throw new BuildException(\"Manifest is invalid\", m, getLocation());
+    \}
+    if (toWrite.equals(current)) \{
+        log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+        return;
+    \}
+    PrintWriter w = null;
+    try \{
+        FileOutputStream fos = new FileOutputStream(manifestFile);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+        w = new PrintWriter(osw);
+        toWrite.write(w);
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(w);
+    \}
+\}" shape=ellipse]
+0 -> 23 [label="Action:2"];
+1 -> 0 [label="Action:1"];
+1 -> 2 [label="AST:1"];
+1 -> 3 [label="AST:1"];
+1 -> 4 [label="AST:1"];
+1 -> 6 [label="AST:1"];
+1 -> 8 [label="AST:1"];
+1 -> 20 [label="AST:1"];
+1 -> 21 [label="AST:1"];
+1 -> 22 [label="AST:1"];
+4 -> 5 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="AST:1"];
+8 -> 12 [label="AST:1"];
+8 -> 13 [label="AST:1"];
+8 -> 14 [label="AST:1"];
+8 -> 15 [label="AST:1"];
+8 -> 16 [label="AST:2"];
+8 -> 17 [label="AST:1"];
+8 -> 18 [label="AST:2"];
+8 -> 19 [label="AST:2"];
+8 -> 27 [label="AST:1"];
+8 -> 31 [label="AST:1"];
+8 -> 32 [label="AST:1"];
+8 -> 33 [label="AST:1"];
+8 -> 37 [label="AST:1"];
+24 -> 25 [label="Control Dep:1"];
+28 -> 26 [label="AST:1"];
+34 -> 29 [label="AST:1"];
+34 -> 30 [label="AST:1"];
+34 -> 35 [label="AST:1"];
+34 -> 38 [label="AST:1"];
+36 -> 24 [label="AST:1"];
+36 -> 25 [label="AST:1"];
+37 -> 28 [label="AST:1"];
+37 -> 34 [label="AST:1"];
+37 -> 36 [label="AST:1"];
+37 -> 0 [label="Action:1"];
+39 -> 8 [label="AST:1"];
+}

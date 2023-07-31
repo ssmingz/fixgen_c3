@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/557/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/557/1/after.java
+@@ -3,5 +3,1 @@
+-    if (isReference()) {
+-      return new ClassfileSet(((ClassfileSet) (getRef(getProject()))));
+-    } else {
+-      return new ClassfileSet(this);
+-    }
++    return new ClassfileSet(isReference() ? ((ClassfileSet) (getRef(getProject()))) : this);

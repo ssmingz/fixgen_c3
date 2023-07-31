@@ -1,0 +1,126 @@
+digraph "Pattern" {
+0 [label="touchIteratively#?,SwitchData,int#5:INSERT
+testXMLReportWithNonSourceLines#?#5:INSERT" shape=ellipse]
+1 [label="touchIteratively#?,SwitchData,int#5:data.touchBranch(i)
+testXMLReportWithNonSourceLines#?#5:cd.touch(7777)" shape=ellipse]
+2 [label="touchIteratively#?,SwitchData,int#3:i < 2000" shape=ellipse]
+3 [label="touchIteratively#?,SwitchData,int#3:for (int i = 0; i < 2000; i++) \{
+    Thread.yield();
+    data.touchBranch(i);
+\}" shape=ellipse]
+4 [label="touchIteratively#?,SwitchData,int#3:boolean
+testXMLReportWithNonSourceLines#?#5:ClassData" shape=ellipse]
+5 [label="touchIteratively#?,SwitchData,int#3:i
+testXMLReportWithNonSourceLines#?#4:cd" shape=ellipse]
+6 [label="touchIteratively#?,SwitchData,int#3:2000" shape=ellipse]
+7 [label="touchIteratively#?,SwitchData,int#3:\{
+    Thread.yield();
+    data.touchBranch(i);
+\}
+testXMLReportWithNonSourceLines#?#2:\{
+    ProjectData projectData = new ProjectData();
+    ClassData cd = projectData.getOrCreateClassData(XMLReport.class.getName());
+    cd.touch(7777);
+    File reportDir = File.createTempFile(\"XMLReportTest\", \"\");
+    reportDir.delete();
+    reportDir.mkdir();
+    FileFinder fileFinder = new FileFinder();
+    ComplexityCalculator complexity = new ComplexityCalculator(fileFinder);
+    new XMLReport(projectData, reportDir, fileFinder, complexity);
+    File coverageFile = new File(reportDir, \"coverage.xml\");
+    JUnitXMLHelper.readXmlFile(coverageFile, true);
+    coverageFile.delete();
+    reportDir.delete();
+\}" shape=ellipse]
+8 [label="touchIteratively#?,SwitchData,int#4:Thread.yield()
+testXMLReportWithNonSourceLines#?#14:coverageFile.delete()" shape=ellipse]
+9 [label="touchIteratively#?,SwitchData,int#4:yield()" shape=ellipse]
+10 [label="touchIteratively#?,SwitchData,int#4:Thread" shape=ellipse]
+11 [label="touchIteratively#?,SwitchData,int#5:touchBranch(int)" shape=ellipse]
+12 [label="touchIteratively#?,SwitchData,int#5:data" shape=ellipse]
+13 [label="touchIteratively#?,SwitchData,int#5:i" shape=ellipse]
+14 [label="touchIteratively#?,SwitchData,int#5:1
+testXMLReportWithNonSourceLines#?#5:1" shape=ellipse]
+15 [label="touchIteratively#?,SwitchData,int#5:int
+testXMLReportWithNonSourceLines#?#5:int" shape=ellipse]
+16 [label="touchIteratively#?,SwitchData,int#5:touchBranch
+testXMLReportWithNonSourceLines#?#5:touch" shape=ellipse]
+17 [label="testXMLReportWithNonSourceLines#?#10:ComplexityCalculator complexity = new ComplexityCalculator(fileFinder)" shape=ellipse]
+18 [label="testXMLReportWithNonSourceLines#?#7:reportDir.delete()" shape=ellipse]
+19 [label="testXMLReportWithNonSourceLines#?#8:reportDir.mkdir()" shape=ellipse]
+20 [label="testXMLReportWithNonSourceLines#?#11:new XMLReport(projectData, reportDir, fileFinder, complexity)" shape=ellipse]
+21 [label="testXMLReportWithNonSourceLines#?#13:JUnitXMLHelper.readXmlFile(coverageFile, true)" shape=ellipse]
+22 [label="testXMLReportWithNonSourceLines#?#15:reportDir.delete()" shape=ellipse]
+23 [label="testXMLReportWithNonSourceLines#?#5:cd" shape=ellipse]
+24 [label="testXMLReportWithNonSourceLines#?#5:7777" shape=ellipse]
+25 [label="testXMLReportWithNonSourceLines#?#4:ClassData cd = projectData.getOrCreateClassData(XMLReport.class.getName())" shape=ellipse]
+26 [label="testXMLReportWithNonSourceLines#?#5:cd" shape=ellipse]
+27 [label="testXMLReportWithNonSourceLines#?#2:public void testXMLReportWithNonSourceLines() throws Exception \{
+    ProjectData projectData = new ProjectData();
+    ClassData cd = projectData.getOrCreateClassData(XMLReport.class.getName());
+    cd.touch(7777);
+    File reportDir = File.createTempFile(\"XMLReportTest\", \"\");
+    reportDir.delete();
+    reportDir.mkdir();
+    FileFinder fileFinder = new FileFinder();
+    ComplexityCalculator complexity = new ComplexityCalculator(fileFinder);
+    new XMLReport(projectData, reportDir, fileFinder, complexity);
+    File coverageFile = new File(reportDir, \"coverage.xml\");
+    JUnitXMLHelper.readXmlFile(coverageFile, true);
+    coverageFile.delete();
+    reportDir.delete();
+\}" shape=ellipse]
+28 [label="testXMLReportWithNonSourceLines#?#12:File coverageFile = new File(reportDir, \"coverage.xml\")" shape=ellipse]
+29 [label="testXMLReportWithNonSourceLines#?#6:File reportDir = File.createTempFile(\"XMLReportTest\", \"\")" shape=ellipse]
+30 [label="testXMLReportWithNonSourceLines#?#5:int" shape=ellipse]
+31 [label="testXMLReportWithNonSourceLines#?#5:int" shape=ellipse]
+32 [label="testXMLReportWithNonSourceLines#?#9:FileFinder fileFinder = new FileFinder()" shape=ellipse]
+33 [label="testXMLReportWithNonSourceLines#?#5:touch(int)" shape=ellipse]
+34 [label="testXMLReportWithNonSourceLines#?#3:ProjectData projectData = new ProjectData()" shape=ellipse]
+0 -> 14 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 16 [label="AST:2"];
+1 -> 12 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+1 -> 23 [label="AST:1"];
+1 -> 24 [label="AST:1"];
+1 -> 33 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+5 -> 23 [label="Define Use:1"];
+7 -> 1 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 17 [label="AST:1"];
+7 -> 18 [label="AST:1"];
+7 -> 19 [label="AST:1"];
+7 -> 20 [label="AST:1"];
+7 -> 21 [label="AST:1"];
+7 -> 22 [label="AST:1"];
+7 -> 25 [label="AST:1"];
+7 -> 28 [label="AST:1"];
+7 -> 29 [label="AST:1"];
+7 -> 32 [label="AST:1"];
+7 -> 34 [label="AST:1"];
+8 -> 10 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+14 -> 15 [label="AST:2"];
+23 -> 26 [label="AST:1"];
+24 -> 31 [label="AST:1"];
+25 -> 5 [label="AST:1"];
+27 -> 7 [label="AST:1"];
+33 -> 30 [label="AST:1"];
+33 -> 4 [label="AST:1"];
+}

@@ -1,0 +1,187 @@
+digraph "Pattern" {
+0 [label="testTearDownSetupFails#?#10:DELETE
+testRunAndTearDownFails#?#15:DELETE
+testTearDownAfterError#?#5:DELETE" shape=ellipse]
+1 [label="testTearDownSetupFails#?#10:assert !fails.fTornDown
+testRunAndTearDownFails#?#15:assert fails.fTornDown
+testTearDownAfterError#?#5:assert fails.fTornDown" shape=ellipse]
+2 [label="testTearDownSetupFails#?#2:\{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void setUp() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert !fails.fTornDown;
+\}
+testRunAndTearDownFails#?#2:\{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void tearDown() \{
+            super.tearDown();
+            throw new Error();
+        \}
+
+        protected void runTest() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert fails.fTornDown;
+\}
+testTearDownAfterError#?#2:\{
+    TornDown fails = new TornDown(\"fails\");
+    verifyError(fails);
+    assert fails.fTornDown;
+\}" shape=ellipse]
+3 [label="testTearDownSetupFails#?#2:public void testTearDownSetupFails() \{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void setUp() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert !fails.fTornDown;
+\}
+testRunAndTearDownFails#?#2:public void testRunAndTearDownFails() \{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void tearDown() \{
+            super.tearDown();
+            throw new Error();
+        \}
+
+        protected void runTest() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert fails.fTornDown;
+\}
+testTearDownAfterError#?#2:public void testTearDownAfterError() \{
+    TornDown fails = new TornDown(\"fails\");
+    verifyError(fails);
+    assert fails.fTornDown;
+\}" shape=ellipse]
+4 [label="testTearDownSetupFails#?#3:TornDown fails = new TornDown(\"fails\") \{
+    protected void setUp() \{
+        throw new Error();
+    \}
+\}
+testRunAndTearDownFails#?#3:TornDown fails = new TornDown(\"fails\") \{
+    protected void tearDown() \{
+        super.tearDown();
+        throw new Error();
+    \}
+
+    protected void runTest() \{
+        throw new Error();
+    \}
+\}
+testTearDownAfterError#?#3:TornDown fails = new TornDown(\"fails\")" shape=ellipse]
+5 [label="testTearDownSetupFails#?#9:verifyError(fails)
+testRunAndTearDownFails#?#14:verifyError(fails)
+testTearDownAfterError#?#4:verifyError(fails)" shape=ellipse]
+6 [label="testTearDownSetupFails#?#10:INSERT
+testRunAndTearDownFails#?#15:INSERT
+testTearDownAfterError#?#5:INSERT" shape=ellipse]
+7 [label="testTearDownSetupFails#?#10:assertTrue()
+testRunAndTearDownFails#?#15:assertTrue()
+testTearDownAfterError#?#5:assertTrue()" shape=ellipse]
+8 [label="testTearDownSetupFails#?#10:assertTrue
+testRunAndTearDownFails#?#15:assertTrue
+testTearDownAfterError#?#5:assertTrue" shape=ellipse]
+9 [label="testTearDownSetupFails#?#10:
+testRunAndTearDownFails#?#15:
+testTearDownAfterError#?#5:" shape=ellipse]
+10 [label="testTearDownSetupFails#?#10:PlaceHold
+testRunAndTearDownFails#?#15:PlaceHold
+testTearDownAfterError#?#5:PlaceHold" shape=ellipse]
+11 [label="testTearDownSetupFails#?#10:
+testRunAndTearDownFails#?#15:
+testTearDownAfterError#?#5:" shape=ellipse]
+12 [label="testTearDownSetupFails#?#10:PlaceHold
+testRunAndTearDownFails#?#15:PlaceHold
+testTearDownAfterError#?#5:PlaceHold" shape=ellipse]
+13 [label="testTearDownSetupFails#?#10:PlaceHold
+testRunAndTearDownFails#?#15:PlaceHold
+testTearDownAfterError#?#5:PlaceHold" shape=ellipse]
+14 [label="testTearDownSetupFails#?#10:
+testRunAndTearDownFails#?#15:
+testTearDownAfterError#?#5:" shape=ellipse]
+15 [label="testTearDownSetupFails#?#10:assertTrue(<unknown>)
+testRunAndTearDownFails#?#15:assertTrue(<unknown>)
+testTearDownAfterError#?#5:assertTrue(<unknown>)" shape=ellipse]
+16 [label="testTearDownSetupFails#?#10:null
+testRunAndTearDownFails#?#15:null
+testTearDownAfterError#?#5:null" shape=ellipse]
+17 [label="testTearDownSetupFails#?#10:!fails.fTornDown
+testRunAndTearDownFails#?#15:fails.fTornDown
+testTearDownAfterError#?#5:fails.fTornDown" shape=ellipse]
+18 [label="testTearDownSetupFails#?#10:fails.fTornDown
+testRunAndTearDownFails#?#15:fails
+testTearDownAfterError#?#5:fails" shape=ellipse]
+19 [label="testTearDownSetupFails#?#10:fails" shape=ellipse]
+20 [label="testTearDownSetupFails#?#10:fails
+testRunAndTearDownFails#?#15:fTornDown
+testTearDownAfterError#?#5:fTornDown" shape=ellipse]
+21 [label="testTearDownSetupFails#?#10:TornDown" shape=ellipse]
+22 [label="testTearDownSetupFails#?#10:
+testRunAndTearDownFails#?#15:
+testTearDownAfterError#?#5:" shape=ellipse]
+23 [label="testTearDownSetupFails#?#10:fTornDown
+testRunAndTearDownFails#?#15:fails
+testTearDownAfterError#?#5:fails" shape=ellipse]
+24 [label="testTearDownSetupFails#?#10:!fails.fTornDown" shape=ellipse]
+25 [label="testTearDownSetupFails#?#10:fails.fTornDown
+testRunAndTearDownFails#?#15:fails
+testTearDownAfterError#?#5:fails" shape=ellipse]
+26 [label="testTearDownSetupFails#?#10:MOVE
+testRunAndTearDownFails#?#15:MOVE
+testTearDownAfterError#?#5:MOVE" shape=ellipse]
+27 [label="testRunAndTearDownFails#?#15:fTornDown" shape=ellipse]
+28 [label="testRunAndTearDownFails#?#15:fails.fTornDown" shape=ellipse]
+29 [label="testRunAndTearDownFails#?#15:TornDown" shape=ellipse]
+30 [label="testTearDownAfterError#?#5:fTornDown" shape=ellipse]
+31 [label="testTearDownAfterError#?#5:fails.fTornDown" shape=ellipse]
+32 [label="testTearDownAfterError#?#5:TornDown" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 24 [label="AST:1"];
+1 -> 28 [label="AST:1"];
+1 -> 31 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+6 -> 7 [label="Action:3"];
+7 -> 8 [label="AST:3"];
+7 -> 9 [label="AST:3"];
+7 -> 15 [label="AST:3"];
+7 -> 17 [label="AST:3"];
+9 -> 10 [label="AST:3"];
+9 -> 12 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+17 -> 18 [label="AST:3"];
+17 -> 27 [label="AST:1"];
+17 -> 30 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 23 [label="AST:3"];
+19 -> 20 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+23 -> 29 [label="AST:1"];
+23 -> 32 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+24 -> 26 [label="Action:1"];
+26 -> 7 [label="Action:3"];
+28 -> 25 [label="AST:1"];
+28 -> 20 [label="AST:1"];
+28 -> 26 [label="Action:1"];
+29 -> 22 [label="AST:1"];
+31 -> 25 [label="AST:1"];
+31 -> 20 [label="AST:1"];
+31 -> 26 [label="Action:1"];
+32 -> 22 [label="AST:1"];
+}

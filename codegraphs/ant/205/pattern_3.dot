@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="testResultPropertyZeroNoFork#?#4:INSERT
+testResultPropertyNonZeroNoFork#?#4:INSERT" shape=ellipse]
+1 [label="testResultPropertyZeroNoFork#?#3:executeTarget(\"testResultPropertyZeroNoFork\")
+testResultPropertyNonZeroNoFork#?#3:executeTarget(\"testResultPropertyNonZeroNoFork\")" shape=ellipse]
+2 [label="testResultPropertyZeroNoFork#?#2:\{
+    executeTarget(\"testResultPropertyZeroNoFork\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZeroNoFork#?#2:\{
+    executeTarget(\"testResultPropertyNonZeroNoFork\");
+    assertEquals(\"-1\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+3 [label="testResultPropertyZeroNoFork#?#2:public void testResultPropertyZeroNoFork() \{
+    executeTarget(\"testResultPropertyZeroNoFork\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZeroNoFork#?#2:public void testResultPropertyNonZeroNoFork() \{
+    executeTarget(\"testResultPropertyNonZeroNoFork\");
+    assertEquals(\"-1\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+4 [label="testResultPropertyZeroNoFork#?#4:assertEquals(\"0\", project.getProperty(\"exitcode\"))
+testResultPropertyNonZeroNoFork#?#4:assertEquals(\"-1\", project.getProperty(\"exitcode\"))" shape=ellipse]
+5 [label="testResultPropertyZeroNoFork#?#3:executeTarget
+testResultPropertyNonZeroNoFork#?#3:executeTarget" shape=ellipse]
+6 [label="testResultPropertyZeroNoFork#?#-1:
+testResultPropertyNonZeroNoFork#?#-1:" shape=ellipse]
+7 [label="testResultPropertyZeroNoFork#?#-1:PlaceHold
+testResultPropertyNonZeroNoFork#?#-1:PlaceHold" shape=ellipse]
+8 [label="testResultPropertyZeroNoFork#?#-1:PlaceHold
+testResultPropertyNonZeroNoFork#?#-1:PlaceHold" shape=ellipse]
+9 [label="testResultPropertyZeroNoFork#?#3:executeTarget(java.lang.String)
+testResultPropertyNonZeroNoFork#?#3:executeTarget(java.lang.String)" shape=ellipse]
+10 [label="testResultPropertyZeroNoFork#?#-1:String
+testResultPropertyNonZeroNoFork#?#-1:String" shape=ellipse]
+11 [label="testResultPropertyZeroNoFork#?#3:\"testResultPropertyZeroNoFork\"
+testResultPropertyNonZeroNoFork#?#3:\"testResultPropertyNonZeroNoFork\"" shape=ellipse]
+12 [label="testResultPropertyZeroNoFork#?#-1:String
+testResultPropertyNonZeroNoFork#?#-1:String" shape=ellipse]
+13 [label="testResultPropertyZeroNoFork#?#4:buildRule
+testResultPropertyNonZeroNoFork#?#4:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

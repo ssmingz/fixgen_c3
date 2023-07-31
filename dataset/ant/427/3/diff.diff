@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/427/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/427/3/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectSpecificBuildException(
+-        "implicit.explicit",
+-        "Only one element allowed when using implicit elements",
+-        "Only one element allowed when using implicit elements");
++    try {
++      buildRule.executeTarget("implicit.explicit");
++      fail("BuildException expected: Only one element allowed when using implicit elements");
++    } catch (BuildException ex) {
++      assertEquals("Only one element allowed when using implicit elements", ex.getMessage());
++    }

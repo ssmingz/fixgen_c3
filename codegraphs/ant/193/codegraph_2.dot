@@ -1,0 +1,381 @@
+digraph "testLazyLoading#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testLazyLoading" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@Exception" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@StringResourceCollection" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@StringResourceCollection" shape=ellipse]
+5 [label="3:CtConstructorCallImpl@new StringResourceCollection()" shape=ellipse]
+6 [label="3:CtVirtualElement@collectionTest" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@StringResourceCollection collectionTest = new StringResourceCollection()" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@LazyResourceCollectionWrapper" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@LazyResourceCollectionWrapper" shape=ellipse]
+10 [label="4:CtConstructorCallImpl@new LazyResourceCollectionWrapper()" shape=ellipse]
+11 [label="4:CtVirtualElement@lazyCollection" shape=ellipse]
+12 [label="4:CtLocalVariableImpl@LazyResourceCollectionWrapper lazyCollection = new LazyResourceCollectionWrapper()" shape=ellipse]
+13 [label="5:CtExecutableReferenceImpl@add(StringResourceCollection)" shape=ellipse]
+14 [label="5:CtVirtualElement@add" shape=ellipse]
+15 [label="5:CtVariableReadImpl@lazyCollection" shape=ellipse]
+16 [label="5:CtVariableReadImpl@collectionTest" shape=ellipse]
+17 [label="5:CtInvocationImpl@lazyCollection.add(collectionTest)" shape=ellipse]
+18 [label="6:CtTypeReferenceImpl@Iterator" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@iterator()" shape=ellipse]
+20 [label="6:CtVirtualElement@iterator" shape=ellipse]
+21 [label="6:CtVariableReadImpl@lazyCollection" shape=ellipse]
+22 [label="6:CtInvocationImpl@lazyCollection.iterator()" shape=ellipse]
+23 [label="6:CtVirtualElement@it" shape=ellipse]
+24 [label="6:CtLocalVariableImpl@Iterator it = lazyCollection.iterator()" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@assertOneCreatedIterator(<unknown>)" shape=ellipse]
+26 [label="7:CtVirtualElement@assertOneCreatedIterator" shape=ellipse]
+27 [label="7:CtVariableReadImpl@collectionTest" shape=ellipse]
+28 [label="7:CtInvocationImpl@assertOneCreatedIterator(collectionTest)" shape=ellipse]
+29 [label="8:CtTypeReferenceImpl@StringResourceIterator" shape=ellipse]
+30 [label="9:CtExecutableReferenceImpl@get(int)" shape=ellipse]
+31 [label="9:CtVirtualElement@get" shape=ellipse]
+32 [label="9:CtVariableReadImpl@collectionTest" shape=ellipse]
+33 [label="9:CtLocalVariableReferenceImpl@collectionTest" shape=ellipse]
+34 [label="9:CtFieldReadImpl@collectionTest.createdIterators" shape=ellipse]
+35 [label="9:CtLiteralImpl@0" shape=ellipse]
+36 [label="9:CtInvocationImpl@((StringResourceIterator) (collectionTest.createdIterators.get(0)))" shape=ellipse]
+37 [label="9:CtTypeReferenceImpl@StringResourceIterator" shape=ellipse]
+38 [label="8:CtVirtualElement@stringResourceIterator" shape=ellipse]
+39 [label="8:CtLocalVariableImpl@StringResourceIterator stringResourceIterator = ((StringResourceIterator) (collectionTest.createdIterators.get(0)))" shape=ellipse]
+40 [label="10:CtExecutableReferenceImpl@assertEquals(java.lang.String,int,<unknown>)" shape=ellipse]
+41 [label="10:CtVirtualElement@assertEquals" shape=ellipse]
+42 [label="10:CtLiteralImpl@\"A resource was loaded without iterating\"" shape=ellipse]
+43 [label="10:CtLiteralImpl@1" shape=ellipse]
+44 [label="10:CtVariableReadImpl@stringResourceIterator" shape=ellipse]
+45 [label="10:CtLocalVariableReferenceImpl@stringResourceIterator" shape=ellipse]
+46 [label="10:CtFieldReadImpl@stringResourceIterator.cursor" shape=ellipse]
+47 [label="10:CtInvocationImpl@assertEquals(\"A resource was loaded without iterating\", 1, stringResourceIterator.cursor)" shape=ellipse]
+48 [label="11:CtTypeReferenceImpl@StringResource" shape=ellipse]
+49 [label="11:CtExecutableReferenceImpl@next()" shape=ellipse]
+50 [label="11:CtVirtualElement@next" shape=ellipse]
+51 [label="11:CtVariableReadImpl@it" shape=ellipse]
+52 [label="11:CtInvocationImpl@((StringResource) (it.next()))" shape=ellipse]
+53 [label="11:CtTypeReferenceImpl@StringResource" shape=ellipse]
+54 [label="11:CtVirtualElement@r" shape=ellipse]
+55 [label="11:CtLocalVariableImpl@StringResource r = ((StringResource) (it.next()))" shape=ellipse]
+56 [label="12:CtExecutableReferenceImpl@assertOneCreatedIterator(<unknown>)" shape=ellipse]
+57 [label="12:CtVirtualElement@assertOneCreatedIterator" shape=ellipse]
+58 [label="12:CtVariableReadImpl@collectionTest" shape=ellipse]
+59 [label="12:CtInvocationImpl@assertOneCreatedIterator(collectionTest)" shape=ellipse]
+60 [label="13:CtExecutableReferenceImpl@assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+61 [label="13:CtVirtualElement@assertEquals" shape=ellipse]
+62 [label="13:CtLiteralImpl@\"r1\"" shape=ellipse]
+63 [label="13:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+64 [label="13:CtVirtualElement@getValue" shape=ellipse]
+65 [label="13:CtVariableReadImpl@r" shape=ellipse]
+66 [label="13:CtInvocationImpl@r.getValue()" shape=ellipse]
+67 [label="13:CtInvocationImpl@assertEquals(\"r1\", r.getValue())" shape=ellipse]
+68 [label="14:CtExecutableReferenceImpl@assertEquals(java.lang.String,int,<unknown>)" shape=ellipse]
+69 [label="14:CtVirtualElement@assertEquals" shape=ellipse]
+70 [label="14:CtLiteralImpl@\"Iterating once load more than 1 resource\"" shape=ellipse]
+71 [label="14:CtLiteralImpl@2" shape=ellipse]
+72 [label="14:CtVariableReadImpl@stringResourceIterator" shape=ellipse]
+73 [label="14:CtLocalVariableReferenceImpl@stringResourceIterator" shape=ellipse]
+74 [label="14:CtFieldReadImpl@stringResourceIterator.cursor" shape=ellipse]
+75 [label="14:CtInvocationImpl@assertEquals(\"Iterating once load more than 1 resource\", 2, stringResourceIterator.cursor)" shape=ellipse]
+76 [label="15:CtVariableWriteImpl@r" shape=ellipse]
+77 [label="15:CtExecutableReferenceImpl@next()" shape=ellipse]
+78 [label="15:CtVirtualElement@next" shape=ellipse]
+79 [label="15:CtVariableReadImpl@it" shape=ellipse]
+80 [label="15:CtInvocationImpl@((StringResource) (it.next()))" shape=ellipse]
+81 [label="15:CtTypeReferenceImpl@StringResource" shape=ellipse]
+82 [label="15:CtAssignmentImpl@r = ((StringResource) (it.next()))" shape=ellipse]
+83 [label="16:CtExecutableReferenceImpl@assertOneCreatedIterator(<unknown>)" shape=ellipse]
+84 [label="16:CtVirtualElement@assertOneCreatedIterator" shape=ellipse]
+85 [label="16:CtVariableReadImpl@collectionTest" shape=ellipse]
+86 [label="16:CtInvocationImpl@assertOneCreatedIterator(collectionTest)" shape=ellipse]
+87 [label="17:CtExecutableReferenceImpl@assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+88 [label="17:CtVirtualElement@assertEquals" shape=ellipse]
+89 [label="17:CtLiteralImpl@\"r2\"" shape=ellipse]
+90 [label="17:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+91 [label="17:CtVirtualElement@getValue" shape=ellipse]
+92 [label="17:CtVariableReadImpl@r" shape=ellipse]
+93 [label="17:CtInvocationImpl@r.getValue()" shape=ellipse]
+94 [label="17:CtInvocationImpl@assertEquals(\"r2\", r.getValue())" shape=ellipse]
+95 [label="18:CtExecutableReferenceImpl@assertEquals(java.lang.String,int,<unknown>)" shape=ellipse]
+96 [label="18:CtVirtualElement@assertEquals" shape=ellipse]
+97 [label="18:CtLiteralImpl@\"Iterating twice load more than 2 resources\"" shape=ellipse]
+98 [label="18:CtLiteralImpl@3" shape=ellipse]
+99 [label="18:CtVariableReadImpl@stringResourceIterator" shape=ellipse]
+100 [label="18:CtLocalVariableReferenceImpl@stringResourceIterator" shape=ellipse]
+101 [label="18:CtFieldReadImpl@stringResourceIterator.cursor" shape=ellipse]
+102 [label="18:CtInvocationImpl@assertEquals(\"Iterating twice load more than 2 resources\", 3, stringResourceIterator.cursor)" shape=ellipse]
+103 [label="19:CtVariableWriteImpl@r" shape=ellipse]
+104 [label="19:CtExecutableReferenceImpl@next()" shape=ellipse]
+105 [label="19:CtVirtualElement@next" shape=ellipse]
+106 [label="19:CtVariableReadImpl@it" shape=ellipse]
+107 [label="19:CtInvocationImpl@((StringResource) (it.next()))" shape=ellipse]
+108 [label="19:CtTypeReferenceImpl@StringResource" shape=ellipse]
+109 [label="19:CtAssignmentImpl@r = ((StringResource) (it.next()))" shape=ellipse]
+110 [label="20:CtExecutableReferenceImpl@assertOneCreatedIterator(<unknown>)" shape=ellipse]
+111 [label="20:CtVirtualElement@assertOneCreatedIterator" shape=ellipse]
+112 [label="20:CtVariableReadImpl@collectionTest" shape=ellipse]
+113 [label="20:CtInvocationImpl@assertOneCreatedIterator(collectionTest)" shape=ellipse]
+114 [label="21:CtExecutableReferenceImpl@assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+115 [label="21:CtVirtualElement@assertEquals" shape=ellipse]
+116 [label="21:CtLiteralImpl@\"r3\"" shape=ellipse]
+117 [label="21:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+118 [label="21:CtVirtualElement@getValue" shape=ellipse]
+119 [label="21:CtVariableReadImpl@r" shape=ellipse]
+120 [label="21:CtInvocationImpl@r.getValue()" shape=ellipse]
+121 [label="21:CtInvocationImpl@assertEquals(\"r3\", r.getValue())" shape=ellipse]
+122 [label="22:CtExecutableReferenceImpl@assertEquals(java.lang.String,int,<unknown>)" shape=ellipse]
+123 [label="22:CtVirtualElement@assertEquals" shape=ellipse]
+124 [label="22:CtLiteralImpl@\"Iterating 3 times load more than 3 resources\"" shape=ellipse]
+125 [label="22:CtLiteralImpl@3" shape=ellipse]
+126 [label="22:CtVariableReadImpl@stringResourceIterator" shape=ellipse]
+127 [label="22:CtLocalVariableReferenceImpl@stringResourceIterator" shape=ellipse]
+128 [label="22:CtFieldReadImpl@stringResourceIterator.cursor" shape=ellipse]
+129 [label="22:CtInvocationImpl@assertEquals(\"Iterating 3 times load more than 3 resources\", 3, stringResourceIterator.cursor)" shape=ellipse]
+130 [label="24:CtExecutableReferenceImpl@next()" shape=ellipse]
+131 [label="24:CtVirtualElement@next" shape=ellipse]
+132 [label="24:CtVariableReadImpl@it" shape=ellipse]
+133 [label="24:CtInvocationImpl@it.next()" shape=ellipse]
+134 [label="25:CtExecutableReferenceImpl@fail(java.lang.String)" shape=ellipse]
+135 [label="25:CtVirtualElement@fail" shape=ellipse]
+136 [label="25:CtLiteralImpl@\"NoSuchElementException shoudl have been raised\"" shape=ellipse]
+137 [label="25:CtInvocationImpl@fail(\"NoSuchElementException shoudl have been raised\")" shape=ellipse]
+138 [label="23:CtBlockImpl@\{
+    it.next();
+    fail(\"NoSuchElementException shoudl have been raised\");
+\}" shape=ellipse]
+139 [label="26:CtVirtualElement@e" shape=ellipse]
+140 [label="26:CtTypeReferenceImpl@NoSuchElementException" shape=ellipse]
+141 [label="26:CtCatchVariableImpl@NoSuchElementException e" shape=ellipse]
+142 [label="26:CtBlockImpl@\{
+\}" shape=ellipse]
+143 [label="26:CtCatchImpl@ catch (NoSuchElementException e) \{
+\}" shape=ellipse]
+144 [label="23:CtTryImpl@try \{
+    it.next();
+    fail(\"NoSuchElementException shoudl have been raised\");
+\} catch (NoSuchElementException e) \{
+\}" shape=ellipse]
+145 [label="2:CtBlockImpl@\{
+    StringResourceCollection collectionTest = new StringResourceCollection();
+    LazyResourceCollectionWrapper lazyCollection = new LazyResourceCollectionWrapper();
+    lazyCollection.add(collectionTest);
+    Iterator it = lazyCollection.iterator();
+    assertOneCreatedIterator(collectionTest);
+    StringResourceIterator stringResourceIterator = ((StringResourceIterator) (collectionTest.createdIterators.get(0)));
+    assertEquals(\"A resource was loaded without iterating\", 1, stringResourceIterator.cursor);
+    StringResource r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r1\", r.getValue());
+    assertEquals(\"Iterating once load more than 1 resource\", 2, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r2\", r.getValue());
+    assertEquals(\"Iterating twice load more than 2 resources\", 3, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r3\", r.getValue());
+    assertEquals(\"Iterating 3 times load more than 3 resources\", 3, stringResourceIterator.cursor);
+    try \{
+        it.next();
+        fail(\"NoSuchElementException shoudl have been raised\");
+    \} catch (NoSuchElementException e) \{
+    \}
+\}" shape=ellipse]
+146 [label="2:CtMethodImpl@public void testLazyLoading() throws Exception \{
+    StringResourceCollection collectionTest = new StringResourceCollection();
+    LazyResourceCollectionWrapper lazyCollection = new LazyResourceCollectionWrapper();
+    lazyCollection.add(collectionTest);
+    Iterator it = lazyCollection.iterator();
+    assertOneCreatedIterator(collectionTest);
+    StringResourceIterator stringResourceIterator = ((StringResourceIterator) (collectionTest.createdIterators.get(0)));
+    assertEquals(\"A resource was loaded without iterating\", 1, stringResourceIterator.cursor);
+    StringResource r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r1\", r.getValue());
+    assertEquals(\"Iterating once load more than 1 resource\", 2, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r2\", r.getValue());
+    assertEquals(\"Iterating twice load more than 2 resources\", 3, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r3\", r.getValue());
+    assertEquals(\"Iterating 3 times load more than 3 resources\", 3, stringResourceIterator.cursor);
+    try \{
+        it.next();
+        fail(\"NoSuchElementException shoudl have been raised\");
+    \} catch (NoSuchElementException e) \{
+    \}
+\}" shape=ellipse]
+147 [label="6:Insert@INSERT" shape=ellipse]
+148 [label="6:CtTypeReferenceImpl@Resource" shape=ellipse]
+6 -> 16 [label="Define-Use"];
+6 -> 27 [label="Define-Use"];
+6 -> 32 [label="Define-Use"];
+6 -> 58 [label="Define-Use"];
+6 -> 85 [label="Define-Use"];
+6 -> 112 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+11 -> 15 [label="Define-Use"];
+11 -> 21 [label="Define-Use"];
+12 -> 11 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 10 [label="AST"];
+17 -> 14 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 147 [label="Action"];
+21 -> 23 [label="Data Dep"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+23 -> 51 [label="Define-Use"];
+23 -> 79 [label="Define-Use"];
+23 -> 106 [label="Define-Use"];
+23 -> 132 [label="Define-Use"];
+24 -> 23 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 22 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+32 -> 33 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 38 [label="Data Dep"];
+36 -> 31 [label="AST"];
+36 -> 37 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 30 [label="AST"];
+36 -> 35 [label="AST"];
+38 -> 44 [label="Define-Use"];
+38 -> 72 [label="Define-Use"];
+38 -> 99 [label="Define-Use"];
+38 -> 126 [label="Define-Use"];
+39 -> 38 [label="AST"];
+39 -> 29 [label="AST"];
+39 -> 36 [label="AST"];
+44 -> 45 [label="AST"];
+46 -> 44 [label="AST"];
+47 -> 41 [label="AST"];
+47 -> 40 [label="AST"];
+47 -> 42 [label="AST"];
+47 -> 43 [label="AST"];
+47 -> 46 [label="AST"];
+51 -> 54 [label="Data Dep"];
+52 -> 50 [label="AST"];
+52 -> 53 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 49 [label="AST"];
+54 -> 65 [label="Define-Use"];
+55 -> 54 [label="AST"];
+55 -> 48 [label="AST"];
+55 -> 52 [label="AST"];
+59 -> 57 [label="AST"];
+59 -> 56 [label="AST"];
+59 -> 58 [label="AST"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 63 [label="AST"];
+67 -> 61 [label="AST"];
+67 -> 60 [label="AST"];
+67 -> 62 [label="AST"];
+67 -> 66 [label="AST"];
+72 -> 73 [label="AST"];
+74 -> 72 [label="AST"];
+75 -> 69 [label="AST"];
+75 -> 68 [label="AST"];
+75 -> 70 [label="AST"];
+75 -> 71 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 92 [label="Define-Use"];
+79 -> 76 [label="Data Dep"];
+80 -> 78 [label="AST"];
+80 -> 81 [label="AST"];
+80 -> 79 [label="AST"];
+80 -> 77 [label="AST"];
+82 -> 76 [label="AST"];
+82 -> 80 [label="AST"];
+86 -> 84 [label="AST"];
+86 -> 83 [label="AST"];
+86 -> 85 [label="AST"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+93 -> 90 [label="AST"];
+94 -> 88 [label="AST"];
+94 -> 87 [label="AST"];
+94 -> 89 [label="AST"];
+94 -> 93 [label="AST"];
+99 -> 100 [label="AST"];
+101 -> 99 [label="AST"];
+102 -> 96 [label="AST"];
+102 -> 95 [label="AST"];
+102 -> 97 [label="AST"];
+102 -> 98 [label="AST"];
+102 -> 101 [label="AST"];
+103 -> 119 [label="Define-Use"];
+106 -> 103 [label="Data Dep"];
+107 -> 105 [label="AST"];
+107 -> 108 [label="AST"];
+107 -> 106 [label="AST"];
+107 -> 104 [label="AST"];
+109 -> 103 [label="AST"];
+109 -> 107 [label="AST"];
+113 -> 111 [label="AST"];
+113 -> 110 [label="AST"];
+113 -> 112 [label="AST"];
+120 -> 118 [label="AST"];
+120 -> 119 [label="AST"];
+120 -> 117 [label="AST"];
+121 -> 115 [label="AST"];
+121 -> 114 [label="AST"];
+121 -> 116 [label="AST"];
+121 -> 120 [label="AST"];
+126 -> 127 [label="AST"];
+128 -> 126 [label="AST"];
+129 -> 123 [label="AST"];
+129 -> 122 [label="AST"];
+129 -> 124 [label="AST"];
+129 -> 125 [label="AST"];
+129 -> 128 [label="AST"];
+133 -> 131 [label="AST"];
+133 -> 132 [label="AST"];
+133 -> 130 [label="AST"];
+137 -> 135 [label="AST"];
+137 -> 134 [label="AST"];
+137 -> 136 [label="AST"];
+138 -> 133 [label="AST"];
+138 -> 137 [label="AST"];
+141 -> 139 [label="AST"];
+141 -> 140 [label="AST"];
+141 -> 142 [label="Control Dep"];
+143 -> 141 [label="AST"];
+143 -> 142 [label="AST"];
+144 -> 138 [label="AST"];
+144 -> 143 [label="AST"];
+145 -> 7 [label="AST"];
+145 -> 12 [label="AST"];
+145 -> 17 [label="AST"];
+145 -> 24 [label="AST"];
+145 -> 28 [label="AST"];
+145 -> 39 [label="AST"];
+145 -> 47 [label="AST"];
+145 -> 55 [label="AST"];
+145 -> 59 [label="AST"];
+145 -> 67 [label="AST"];
+145 -> 75 [label="AST"];
+145 -> 82 [label="AST"];
+145 -> 86 [label="AST"];
+145 -> 94 [label="AST"];
+145 -> 102 [label="AST"];
+145 -> 109 [label="AST"];
+145 -> 113 [label="AST"];
+145 -> 121 [label="AST"];
+145 -> 129 [label="AST"];
+145 -> 144 [label="AST"];
+146 -> 1 [label="AST"];
+146 -> 0 [label="AST"];
+146 -> 2 [label="AST"];
+146 -> 145 [label="AST"];
+147 -> 148 [label="Action"];
+}

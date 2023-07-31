@@ -1,0 +1,249 @@
+digraph "loadResource#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@loadResource" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Properties" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@Properties" shape=ellipse]
+7 [label="3:CtConstructorCallImpl@new Properties()" shape=ellipse]
+8 [label="3:CtVirtualElement@props" shape=ellipse]
+9 [label="3:CtLocalVariableImpl@Properties props = new Properties()" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+11 [label="4:CtVirtualElement@debug" shape=ellipse]
+12 [label="4:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+13 [label="4:CtVirtualElement@getContext" shape=ellipse]
+14 [label="4:CtInvocationImpl@getContext()" shape=ellipse]
+15 [label="4:CtLiteralImpl@\"Resource Loading \"" shape=ellipse]
+16 [label="4:CtVariableReadImpl@name" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@\"Resource Loading \" + name" shape=ellipse]
+18 [label="4:CtInvocationImpl@getContext().debug(\"Resource Loading \" + name)" shape=ellipse]
+19 [label="6:CtTypeReferenceImpl@ClassLoader" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@createClassLoader()" shape=ellipse]
+21 [label="6:CtVirtualElement@createClassLoader" shape=ellipse]
+22 [label="6:CtTypeAccessImpl@PathUtil" shape=ellipse]
+23 [label="6:CtFieldReadImpl@m_classpath" shape=ellipse]
+24 [label="6:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+25 [label="6:CtVirtualElement@getContext" shape=ellipse]
+26 [label="6:CtInvocationImpl@getContext()" shape=ellipse]
+27 [label="6:CtInvocationImpl@PathUtil.createClassLoader(m_classpath, getContext())" shape=ellipse]
+28 [label="6:CtVirtualElement@classLoader" shape=ellipse]
+29 [label="6:CtLocalVariableImpl@final ClassLoader classLoader = PathUtil.createClassLoader(m_classpath, getContext())" shape=ellipse]
+30 [label="7:CtTypeReferenceImpl@InputStream" shape=ellipse]
+31 [label="7:CtExecutableReferenceImpl@getResourceAsStream(java.lang.String)" shape=ellipse]
+32 [label="7:CtVirtualElement@getResourceAsStream" shape=ellipse]
+33 [label="7:CtVariableReadImpl@classLoader" shape=ellipse]
+34 [label="7:CtVariableReadImpl@name" shape=ellipse]
+35 [label="7:CtInvocationImpl@classLoader.getResourceAsStream(name)" shape=ellipse]
+36 [label="7:CtVirtualElement@is" shape=ellipse]
+37 [label="7:CtLocalVariableImpl@final InputStream is = classLoader.getResourceAsStream(name)" shape=ellipse]
+38 [label="8:CtVariableReadImpl@is" shape=ellipse]
+39 [label="8:CtLiteralImpl@null" shape=ellipse]
+40 [label="8:CtBinaryOperatorImpl@is != null" shape=ellipse]
+41 [label="9:CtExecutableReferenceImpl@load(InputStream)" shape=ellipse]
+42 [label="9:CtVirtualElement@load" shape=ellipse]
+43 [label="9:CtVariableReadImpl@props" shape=ellipse]
+44 [label="9:CtVariableReadImpl@is" shape=ellipse]
+45 [label="9:CtInvocationImpl@props.load(is)" shape=ellipse]
+46 [label="10:CtExecutableReferenceImpl@addProperties(<unknown>)" shape=ellipse]
+47 [label="10:CtVirtualElement@addProperties" shape=ellipse]
+48 [label="10:CtVariableReadImpl@props" shape=ellipse]
+49 [label="10:CtInvocationImpl@addProperties(props)" shape=ellipse]
+50 [label="8:CtBlockImpl@\{
+    props.load(is);
+    addProperties(props);
+\}" shape=ellipse]
+51 [label="12:CtExecutableReferenceImpl@warn(java.lang.String)" shape=ellipse]
+52 [label="12:CtVirtualElement@warn" shape=ellipse]
+53 [label="12:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+54 [label="12:CtVirtualElement@getContext" shape=ellipse]
+55 [label="12:CtInvocationImpl@getContext()" shape=ellipse]
+56 [label="12:CtLiteralImpl@\"Unable to find resource \"" shape=ellipse]
+57 [label="12:CtVariableReadImpl@name" shape=ellipse]
+58 [label="12:CtBinaryOperatorImpl@\"Unable to find resource \" + name" shape=ellipse]
+59 [label="12:CtInvocationImpl@getContext().warn(\"Unable to find resource \" + name)" shape=ellipse]
+60 [label="11:CtBlockImpl@\{
+    getContext().warn(\"Unable to find resource \" + name);
+\}" shape=ellipse]
+61 [label="8:CtIfImpl@if (is != null) \{
+    props.load(is);
+    addProperties(props);
+\} else \{
+    getContext().warn(\"Unable to find resource \" + name);
+\}" shape=ellipse]
+62 [label="5:CtBlockImpl@\{
+    final ClassLoader classLoader = PathUtil.createClassLoader(m_classpath, getContext());
+    final InputStream is = classLoader.getResourceAsStream(name);
+    if (is != null) \{
+        props.load(is);
+        addProperties(props);
+    \} else \{
+        getContext().warn(\"Unable to find resource \" + name);
+    \}
+\}" shape=ellipse]
+63 [label="14:CtVirtualElement@ex" shape=ellipse]
+64 [label="14:CtTypeReferenceImpl@IOException" shape=ellipse]
+65 [label="14:CtCatchVariableImpl@IOException ex" shape=ellipse]
+66 [label="15:CtTypeReferenceImpl@TaskException" shape=ellipse]
+67 [label="15:CtLiteralImpl@\"Error\"" shape=ellipse]
+68 [label="15:CtVariableReadImpl@ex" shape=ellipse]
+69 [label="15:CtConstructorCallImpl@new TaskException(\"Error\", ex)" shape=ellipse]
+70 [label="15:CtThrowImpl@throw new TaskException(\"Error\", ex)" shape=ellipse]
+71 [label="14:CtBlockImpl@\{
+    throw new TaskException(\"Error\", ex);
+\}" shape=ellipse]
+72 [label="14:CtCatchImpl@ catch (IOException ex) \{
+    throw new TaskException(\"Error\", ex);
+\}" shape=ellipse]
+73 [label="5:CtTryImpl@try \{
+    final ClassLoader classLoader = PathUtil.createClassLoader(m_classpath, getContext());
+    final InputStream is = classLoader.getResourceAsStream(name);
+    if (is != null) \{
+        props.load(is);
+        addProperties(props);
+    \} else \{
+        getContext().warn(\"Unable to find resource \" + name);
+    \}
+\} catch (IOException ex) \{
+    throw new TaskException(\"Error\", ex);
+\}" shape=ellipse]
+74 [label="2:CtBlockImpl@\{
+    Properties props = new Properties();
+    getContext().debug(\"Resource Loading \" + name);
+    try \{
+        final ClassLoader classLoader = PathUtil.createClassLoader(m_classpath, getContext());
+        final InputStream is = classLoader.getResourceAsStream(name);
+        if (is != null) \{
+            props.load(is);
+            addProperties(props);
+        \} else \{
+            getContext().warn(\"Unable to find resource \" + name);
+        \}
+    \} catch (IOException ex) \{
+        throw new TaskException(\"Error\", ex);
+    \}
+\}" shape=ellipse]
+75 [label="2:CtMethodImpl@protected void loadResource(String name) throws TaskException \{
+    Properties props = new Properties();
+    getContext().debug(\"Resource Loading \" + name);
+    try \{
+        final ClassLoader classLoader = PathUtil.createClassLoader(m_classpath, getContext());
+        final InputStream is = classLoader.getResourceAsStream(name);
+        if (is != null) \{
+            props.load(is);
+            addProperties(props);
+        \} else \{
+            getContext().warn(\"Unable to find resource \" + name);
+        \}
+    \} catch (IOException ex) \{
+        throw new TaskException(\"Error\", ex);
+    \}
+\}" shape=ellipse]
+76 [label="6:Update@UPDATE" shape=ellipse]
+77 [label="6:CtTypeAccessImpl@FileListUtil" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 43 [label="Define-Use"];
+8 -> 48 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 12 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 11 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 10 [label="AST"];
+18 -> 17 [label="AST"];
+22 -> 76 [label="Action"];
+23 -> 28 [label="Data Dep"];
+26 -> 25 [label="AST"];
+26 -> 24 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 20 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 33 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 19 [label="AST"];
+29 -> 27 [label="AST"];
+33 -> 36 [label="Data Dep"];
+34 -> 36 [label="Data Dep"];
+35 -> 32 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 31 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 38 [label="Define-Use"];
+36 -> 44 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 35 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 50 [label="Control Dep"];
+40 -> 45 [label="Control Dep"];
+40 -> 41 [label="Control Dep"];
+40 -> 43 [label="Control Dep"];
+40 -> 44 [label="Control Dep"];
+40 -> 49 [label="Control Dep"];
+40 -> 46 [label="Control Dep"];
+40 -> 48 [label="Control Dep"];
+40 -> 60 [label="Control Dep"];
+40 -> 59 [label="Control Dep"];
+40 -> 51 [label="Control Dep"];
+40 -> 55 [label="Control Dep"];
+40 -> 53 [label="Control Dep"];
+40 -> 58 [label="Control Dep"];
+40 -> 56 [label="Control Dep"];
+40 -> 57 [label="Control Dep"];
+45 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 41 [label="AST"];
+45 -> 44 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 46 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 45 [label="AST"];
+50 -> 49 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 53 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 52 [label="AST"];
+59 -> 55 [label="AST"];
+59 -> 51 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 40 [label="AST"];
+61 -> 50 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 29 [label="AST"];
+62 -> 37 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 68 [label="Define-Use"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+65 -> 71 [label="Control Dep"];
+65 -> 70 [label="Control Dep"];
+65 -> 69 [label="Control Dep"];
+65 -> 67 [label="Control Dep"];
+65 -> 68 [label="Control Dep"];
+69 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 65 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 62 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 9 [label="AST"];
+74 -> 18 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 1 [label="AST"];
+75 -> 0 [label="AST"];
+75 -> 2 [label="AST"];
+75 -> 4 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 77 [label="Action"];
+}

@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1559/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1559/0/after.java
+@@ -4,2 +4,5 @@
+-    log("starting test: " + test);
+-    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_STARTED, testName));
++    TestRunEvent evt = new TestRunEvent(id, TestRunEvent.TEST_STARTED, testName);
++    if (debug) {
++      debugFormatter.onTestStarted(evt);
++    }
++    fireEvent(evt);

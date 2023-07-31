@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="setIncremental#?,boolean#3:UPDATE
+getIncrementalParameter#?#3:UPDATE
+getIncremental#?#3:UPDATE" shape=ellipse]
+1 [label="setIncremental#?,boolean#3:_incremental
+getIncrementalParameter#?#3:_incremental
+getIncremental#?#3:_incremental" shape=ellipse]
+2 [label="setIncremental#?,boolean#3:f" shape=ellipse]
+3 [label="setIncremental#?,boolean#3:_incremental = f
+getIncremental#?#3:return _incremental" shape=ellipse]
+4 [label="setIncremental#?,boolean#-1:f" shape=ellipse]
+5 [label="setIncremental#?,boolean#-1:_incremental
+getIncrementalParameter#?#-1:_incremental
+getIncremental#?#-1:_incremental" shape=ellipse]
+6 [label="setIncremental#?,boolean#-1:PlaceHold" shape=ellipse]
+7 [label="setIncremental#?,boolean#3:incremental
+getIncrementalParameter#?#3:incremental
+getIncremental#?#3:incremental" shape=ellipse]
+8 [label="getIncrementalParameter#?#3:\"-\"" shape=ellipse]
+9 [label="getIncrementalParameter#?#3:\"/incremental\" + (_incremental ? \"+\" : \"-\")" shape=ellipse]
+10 [label="getIncrementalParameter#?#3:(_incremental ? \"+\" : \"-\")" shape=ellipse]
+11 [label="getIncrementalParameter#?#3:\"+\"" shape=ellipse]
+12 [label="getIncremental#?#2:\{
+    return _incremental;
+\}" shape=ellipse]
+0 -> 7 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="Control Dep:1"];
+1 -> 11 [label="Control Dep:1"];
+2 -> 1 [label="Data Dep:1"];
+2 -> 4 [label="AST:1"];
+3 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+10 -> 8 [label="AST:1"];
+10 -> 1 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 3 [label="AST:1"];
+}

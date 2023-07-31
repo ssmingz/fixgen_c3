@@ -1,0 +1,25 @@
+digraph "Pattern" {
+0 [label="shouldCreateFailureUponUnknownOption#?#11:UPDATE
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:UPDATE" shape=ellipse]
+1 [label="shouldCreateFailureUponUnknownOption#?#11:\"initializationError: \"
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:\"initializationError: \"" shape=ellipse]
+2 [label="shouldCreateFailureUponUnknownOption#?#11:containsString(\"initializationError: \")
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:containsString(\"initializationError: \")" shape=ellipse]
+3 [label="shouldCreateFailureUponUnknownOption#?#10:allOf(containsString(\"initializationError: \"), containsString(CommandLineParserError.class.getName()), containsString(unknownOption))
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#9:allOf(containsString(\"initializationError: \"), containsString(CommandLineParserError.class.getName()), containsString(\"--filter value not specified\"))" shape=ellipse]
+4 [label="shouldCreateFailureUponUnknownOption#?#11:containsString
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:containsString" shape=ellipse]
+5 [label="shouldCreateFailureUponUnknownOption#?#11:
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:" shape=ellipse]
+6 [label="shouldCreateFailureUponUnknownOption#?#11:containsString(java.lang.String)
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:containsString(java.lang.String)" shape=ellipse]
+7 [label="shouldCreateFailureUponUnknownOption#?#11:String
+shouldCreateFailureUponBaldFilterOptionNotFollowedByValue#?#10:String" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

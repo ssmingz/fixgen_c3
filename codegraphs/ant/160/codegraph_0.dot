@@ -1,0 +1,33 @@
+digraph "testBothSrc#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testBothSrc" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@Exception" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@expectBuildExceptionContaining" shape=ellipse]
+5 [label="4:CtLiteralImpl@\"testBothSrc\"" shape=ellipse]
+6 [label="4:CtLiteralImpl@\"expected failure\"" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"both a source file and a URL\"" shape=ellipse]
+8 [label="3:CtInvocationImpl@expectBuildExceptionContaining(\"testBothSrc\", \"expected failure\", \"both a source file and a URL\")" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    expectBuildExceptionContaining(\"testBothSrc\", \"expected failure\", \"both a source file and a URL\");
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void testBothSrc() throws Exception \{
+    expectBuildExceptionContaining(\"testBothSrc\", \"expected failure\", \"both a source file and a URL\");
+\}" shape=ellipse]
+11 [label="4:Delete@DELETE" shape=ellipse]
+12 [label="3:Insert@INSERT" shape=ellipse]
+13 [label="3:CtTypeAccessImpl@ERROR_BOTH_DECLARED" shape=ellipse]
+7 -> 11 [label="Action"];
+8 -> 4 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 12 [label="Action"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 2 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 13 [label="Action"];
+}

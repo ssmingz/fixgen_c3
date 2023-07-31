@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1634/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1634/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,7 @@
+-    expectBuildExceptionContaining(
+-        "test-parent-level2-too-deep", "nopath", "No suitable relative path from ");
+-    assertPropertyUnset("jar.classpath");
++    try {
++      buildRule.executeTarget("test-parent-level2-too-deep");
++      fail("Build exception should have been thrown on no suitable path");
++    } catch (BuildException ex) {
++      assertContains("No suitable relative path from ", ex.getMessage());
++    }
++    assertNull(buildRule.getProject().getProperty("jar.classpath"));

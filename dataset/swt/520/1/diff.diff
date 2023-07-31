@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/520/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/520/1/after.java
+@@ -6,6 +6,11 @@
+-    focus(true);
+-    if ((data.background & 0xff000000) == 0) {
+-      OS.RGBForeColor(data.background);
+-      fRect.set(x, y, width, height);
+-      OS.PaintRoundRect(fRect.getData(), ((short) (arcWidth)), ((short) (arcHeight)));
+-    } else {
++    try {
++      if (focus(true, null)) {
++        if ((data.background & 0xff000000) == 0) {
++          OS.RGBForeColor(data.background);
++          fRect.set(x, y, width, height);
++          OS.PaintRoundRect(fRect.getData(), ((short) (arcWidth)), ((short) (arcHeight)));
++        } else {
++        }
++      }
++    } finally {
++      unfocus(true);
+@@ -13,1 +18,0 @@
+-    unfocus(true);

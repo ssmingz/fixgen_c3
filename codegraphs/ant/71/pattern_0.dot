@@ -1,0 +1,80 @@
+digraph "Pattern" {
+0 [label="getClassLoaderFromJar#?,File#9:UPDATE
+execute#?#16:UPDATE
+execute#?#16:UPDATE" shape=ellipse]
+1 [label="getClassLoaderFromJar#?,File#9:lookupPath
+execute#?#16:classpath
+execute#?#16:classpath" shape=ellipse]
+2 [label="getClassLoaderFromJar#?,File#3:lookupPath
+execute#?#15:classpath
+execute#?#15:classpath" shape=ellipse]
+3 [label="getClassLoaderFromJar#?,File#3:Path lookupPath = new Path()
+execute#?#15:Path classpath = adapter.getClasspath()
+execute#?#15:Path classpath = adapter.getClasspath()" shape=ellipse]
+4 [label="getClassLoaderFromJar#?,File#4:lookupPath" shape=ellipse]
+5 [label="getClassLoaderFromJar#?,File#7:lookupPath" shape=ellipse]
+6 [label="getClassLoaderFromJar#?,File#9:lookupPath.toURLs()
+execute#?#16:classpath.toURLs()
+execute#?#16:classpath.toURLs()" shape=ellipse]
+7 [label="getClassLoaderFromJar#?,File#9:new URLClassLoader(lookupPath.toURLs())
+execute#?#16:new URLClassLoader(classpath.toURLs())
+execute#?#16:new URLClassLoader(classpath.toURLs())" shape=ellipse]
+8 [label="getClassLoaderFromJar#?,File#9:toURLs
+execute#?#16:toURLs
+execute#?#16:toURLs" shape=ellipse]
+9 [label="getClassLoaderFromJar#?,File#9:toURLs()
+execute#?#16:toURLs()
+execute#?#16:toURLs()" shape=ellipse]
+10 [label="getClassLoaderFromJar#?,File#9:DELETE
+execute#?#16:DELETE
+execute#?#16:DELETE" shape=ellipse]
+11 [label="getClassLoaderFromJar#?,File#-1:lookupPath
+execute#?#-1:classpath
+execute#?#-1:classpath" shape=ellipse]
+12 [label="getClassLoaderFromJar#?,File#9:MOVE
+execute#?#16:MOVE
+execute#?#16:MOVE" shape=ellipse]
+13 [label="getClassLoaderFromJar#?,File#10:urls
+execute#?#17:urls
+execute#?#17:urls" shape=ellipse]
+14 [label="getClassLoaderFromJar#?,File#9:urls
+execute#?#16:urls
+execute#?#16:urls" shape=ellipse]
+15 [label="getClassLoaderFromJar#?,File#9:lookupPath
+execute#?#16:classpath
+execute#?#16:classpath" shape=ellipse]
+16 [label="execute#?#16:loader
+execute#?#-1:loader" shape=ellipse]
+17 [label="execute#?#16:loader = new URLClassLoader(classpath.toURLs())" shape=ellipse]
+18 [label="execute#?#15:adapter" shape=ellipse]
+19 [label="execute#?#-1:loader" shape=ellipse]
+20 [label="execute#?#16:loader" shape=ellipse]
+21 [label="execute#?#15:adapter" shape=ellipse]
+22 [label="execute#?#16:loader = new URLClassLoader(classpath.toURLs())" shape=ellipse]
+0 -> 13 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 11 [label="AST:3"];
+1 -> 12 [label="Action:3"];
+1 -> 16 [label="Data Dep:1"];
+1 -> 20 [label="Data Dep:1"];
+2 -> 1 [label="Define Use:3"];
+2 -> 4 [label="Define Use:1"];
+2 -> 5 [label="Define Use:1"];
+3 -> 2 [label="AST:3"];
+6 -> 1 [label="AST:3"];
+6 -> 8 [label="AST:3"];
+6 -> 9 [label="AST:3"];
+6 -> 10 [label="Action:3"];
+7 -> 6 [label="AST:3"];
+12 -> 7 [label="Action:3"];
+14 -> 13 [label="Define Use:3"];
+15 -> 14 [label="Data Dep:3"];
+16 -> 19 [label="AST:1"];
+17 -> 16 [label="AST:1"];
+17 -> 7 [label="AST:1"];
+18 -> 2 [label="Data Dep:1"];
+20 -> 16 [label="AST:1"];
+21 -> 2 [label="Data Dep:1"];
+22 -> 20 [label="AST:1"];
+22 -> 7 [label="AST:1"];
+}

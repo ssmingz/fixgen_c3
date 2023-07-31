@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1413/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1413/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,2 @@
+-    expectLogContaining("test-property-override-inheritall-start", "The value of test is 4");
++    buildRule.executeTarget("test-property-override-inheritall-start");
++    AntAssert.assertContains("The value of test is 4", buildRule.getLog());

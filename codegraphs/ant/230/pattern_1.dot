@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="testAntTypeTest#?#2:INSERT
+test7#?#2:INSERT
+testGlobal#?#2:INSERT" shape=ellipse]
+1 [label="testAntTypeTest#?#2:public void testAntTypeTest() \{
+    expectLog(\"antTypeTest\", \"\");
+\}
+test7#?#2:public void test7() \{
+    expectLog(\"test7\", \"worked\");
+\}
+testGlobal#?#2:public void testGlobal() \{
+    expectLog(\"testGlobal\", \"worked\");
+\}" shape=ellipse]
+2 [label="testAntTypeTest#?#2:testAntTypeTest
+test7#?#2:test7
+testGlobal#?#2:testGlobal" shape=ellipse]
+3 [label="testAntTypeTest#?#2:void
+test7#?#2:void
+testGlobal#?#2:void" shape=ellipse]
+4 [label="testAntTypeTest#?#2:\{
+    expectLog(\"antTypeTest\", \"\");
+\}
+test7#?#2:\{
+    expectLog(\"test7\", \"worked\");
+\}
+testGlobal#?#2:\{
+    expectLog(\"testGlobal\", \"worked\");
+\}" shape=ellipse]
+5 [label="testAntTypeTest#?#3:expectLog(\"antTypeTest\", \"\")
+test7#?#3:expectLog(\"test7\", \"worked\")
+testGlobal#?#3:expectLog(\"testGlobal\", \"worked\")" shape=ellipse]
+6 [label="testAntTypeTest#?#2:public
+test7#?#2:public
+testGlobal#?#2:public" shape=ellipse]
+7 [label="testAntTypeTest#?#2:VE: Modifiers_Method
+test7#?#2:VE: Modifiers_Method
+testGlobal#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testAntTypeTest#?#4:INSERT
+test7#?#4:INSERT
+testGlobal#?#4:INSERT" shape=ellipse]
+9 [label="testAntTypeTest#?#4:buildRule.executeTarget(\"antTypeTest\")
+test7#?#4:buildRule.executeTarget(\"test7\")
+testGlobal#?#4:buildRule.executeTarget(\"testGlobal\")" shape=ellipse]
+10 [label="testAntTypeTest#?#2:@Test
+test7#?#2:@Test
+testGlobal#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="Action:3"];
+4 -> 5 [label="AST:3"];
+8 -> 9 [label="Action:3"];
+}

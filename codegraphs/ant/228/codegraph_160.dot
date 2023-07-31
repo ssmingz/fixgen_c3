@@ -1,0 +1,49 @@
+digraph "createFormat#?" {
+0 [label="2:CtTypeReferenceImpl@CustomFormat" shape=ellipse]
+1 [label="2:CtVirtualElement@createFormat" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@CustomFormat" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@CustomFormat" shape=ellipse]
+4 [label="3:CtFieldReadImpl@prefix" shape=ellipse]
+5 [label="3:CtConstructorCallImpl@new CustomFormat(prefix)" shape=ellipse]
+6 [label="3:CtVirtualElement@cts" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@CustomFormat cts = new CustomFormat(prefix)" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@addElement(CustomFormat)" shape=ellipse]
+9 [label="4:CtVirtualElement@addElement" shape=ellipse]
+10 [label="4:CtFieldReadImpl@customFormats" shape=ellipse]
+11 [label="4:CtVariableReadImpl@cts" shape=ellipse]
+12 [label="4:CtInvocationImpl@customFormats.addElement(cts)" shape=ellipse]
+13 [label="5:CtVariableReadImpl@cts" shape=ellipse]
+14 [label="5:CtReturnImpl@return cts" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    CustomFormat cts = new CustomFormat(prefix);
+    customFormats.addElement(cts);
+    return cts;
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public CustomFormat createFormat() \{
+    CustomFormat cts = new CustomFormat(prefix);
+    customFormats.addElement(cts);
+    return cts;
+\}" shape=ellipse]
+17 [label="4:Update@UPDATE" shape=ellipse]
+18 [label="4:CtInvocationImpl@customFormats.add(cts)" shape=ellipse]
+4 -> 6 [label="Data Dep"];
+5 -> 4 [label="AST"];
+6 -> 11 [label="Define-Use"];
+6 -> 13 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 2 [label="AST"];
+7 -> 5 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 17 [label="Action"];
+14 -> 13 [label="AST"];
+15 -> 7 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

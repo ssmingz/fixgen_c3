@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="visitVariableDef#?,DetailAST#4:UPDATE
+mustCheckName#?,DetailAST#8:UPDATE" shape=ellipse]
+1 [label="visitVariableDef#?,DetailAST#4:ScopeUtils.inInterfaceOrAnnotationBlock(variableDef)
+mustCheckName#?,DetailAST#8:ScopeUtils.inInterfaceOrAnnotationBlock(ast)" shape=ellipse]
+2 [label="visitVariableDef#?,DetailAST#3:final boolean inInterfaceOrAnnotationBlock = ScopeUtils.inInterfaceOrAnnotationBlock(variableDef)" shape=ellipse]
+3 [label="visitVariableDef#?,DetailAST#2:\{
+    final boolean inInterfaceOrAnnotationBlock = ScopeUtils.inInterfaceOrAnnotationBlock(variableDef);
+    if ((!inInterfaceOrAnnotationBlock) && (!hasIgnoreAnnotation(variableDef))) \{
+        final DetailAST varNameAST = variableDef.findFirstToken(TYPE).getNextSibling();
+        final String varName = varNameAST.getText();
+        if (!hasProperAccessModifier(variableDef, varName)) \{
+            log(varNameAST.getLineNo(), varNameAST.getColumnNo(), MSG_KEY, varName);
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="visitVariableDef#?,DetailAST#3:inInterfaceOrAnnotationBlock
+mustCheckName#?,DetailAST#8:ast" shape=ellipse]
+5 [label="visitVariableDef#?,DetailAST#3:boolean
+mustCheckName#?,DetailAST#8:isInInterfaceOrAnnotationBlock(DetailAST)" shape=ellipse]
+6 [label="visitVariableDef#?,DetailAST#4:inInterfaceOrAnnotationBlock
+mustCheckName#?,DetailAST#8:inInterfaceOrAnnotationBlock" shape=ellipse]
+7 [label="visitVariableDef#?,DetailAST#4:ScopeUtils
+mustCheckName#?,DetailAST#8:ScopeUtils" shape=ellipse]
+8 [label="visitVariableDef#?,DetailAST#4:ScopeUtils
+mustCheckName#?,DetailAST#8:ScopeUtils" shape=ellipse]
+9 [label="visitVariableDef#?,DetailAST#4:inInterfaceOrAnnotationBlock(DetailAST)
+mustCheckName#?,DetailAST#8:inInterfaceOrAnnotationBlock(DetailAST)" shape=ellipse]
+10 [label="visitVariableDef#?,DetailAST#4:ScopeUtils
+mustCheckName#?,DetailAST#8:ScopeUtils" shape=ellipse]
+11 [label="visitVariableDef#?,DetailAST#4:boolean
+mustCheckName#?,DetailAST#8:DetailAST" shape=ellipse]
+12 [label="visitVariableDef#?,DetailAST#4:DetailAST" shape=ellipse]
+13 [label="visitVariableDef#?,DetailAST#4:variableDef
+mustCheckName#?,DetailAST#8:ast" shape=ellipse]
+14 [label="visitVariableDef#?,DetailAST#4:variableDef" shape=ellipse]
+15 [label="visitVariableDef#?,DetailAST#4:isInInterfaceOrAnnotationBlock
+mustCheckName#?,DetailAST#8:isInInterfaceOrAnnotationBlock" shape=ellipse]
+16 [label="visitVariableDef#?,DetailAST#4:isInInterfaceOrAnnotationBlock(DetailAST)
+mustCheckName#?,DetailAST#8:" shape=ellipse]
+17 [label="visitVariableDef#?,DetailAST#4:ScopeUtils" shape=ellipse]
+18 [label="visitVariableDef#?,DetailAST#4:
+mustCheckName#?,DetailAST#8:" shape=ellipse]
+19 [label="visitVariableDef#?,DetailAST#4:DetailAST" shape=ellipse]
+20 [label="visitVariableDef#?,DetailAST#4:" shape=ellipse]
+21 [label="mustCheckName#?,DetailAST#8:(!ScopeUtils.inInterfaceOrAnnotationBlock(ast))" shape=ellipse]
+22 [label="mustCheckName#?,DetailAST#7:((isStatic && (!isFinal)) && shouldCheckInScope(modifiersAST)) && (!ScopeUtils.inInterfaceOrAnnotationBlock(ast))" shape=ellipse]
+23 [label="mustCheckName#?,DetailAST#8:DetailAST" shape=ellipse]
+24 [label="mustCheckName#?,DetailAST#8:ScopeUtils" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+5 -> 23 [label="AST:1"];
+5 -> 24 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+9 -> 12 [label="AST:1"];
+13 -> 4 [label="Data Dep:1"];
+13 -> 14 [label="AST:1"];
+13 -> 4 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+16 -> 19 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 1 [label="AST:1"];
+22 -> 21 [label="AST:1"];
+23 -> 18 [label="AST:1"];
+24 -> 16 [label="AST:1"];
+}

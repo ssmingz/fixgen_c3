@@ -1,0 +1,35 @@
+digraph "setFileLastModified#?,File,long" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setFileLastModified" shape=ellipse]
+2 [label="2:CtParameterImpl@File file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@long time" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@long" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@setLastModified(FileResource,long)" shape=ellipse]
+7 [label="3:CtVirtualElement@setLastModified" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+9 [label="3:CtVariableReadImpl@file" shape=ellipse]
+10 [label="3:CtConstructorCallImpl@new FileResource(file)" shape=ellipse]
+11 [label="3:CtVariableReadImpl@time" shape=ellipse]
+12 [label="3:CtInvocationImpl@setLastModified(new FileResource(file), time)" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    setLastModified(new FileResource(file), time);
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public void setFileLastModified(File file, long time) \{
+    setLastModified(new FileResource(file), time);
+\}" shape=ellipse]
+15 [label="3:CtTypeAccessImpl@ResourceUtils" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 7 [label="AST"];
+12 -> 6 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 13 [label="AST"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/928/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/928/1/after.java
+@@ -36,1 +36,5 @@
+-          error(ERROR_CANNOT_SET_SELECTION);
++          int error = OS.GetLastError();
++          SWT.error(
++              ERROR_CANNOT_SET_SELECTION,
++              null,
++              (" [GetLastError=0x" + Integer.toHexString(error)) + "]");

@@ -1,0 +1,86 @@
+digraph "createPatternSet#?" {
+0 [label="2:CtTypeReferenceImpl@PatternSet" shape=ellipse]
+1 [label="2:CtVirtualElement@createPatternSet" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+3 [label="3:CtVirtualElement@isReference" shape=ellipse]
+4 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@noChildrenAllowed()" shape=ellipse]
+6 [label="4:CtVirtualElement@noChildrenAllowed" shape=ellipse]
+7 [label="4:CtInvocationImpl@noChildrenAllowed()" shape=ellipse]
+8 [label="4:CtThrowImpl@throw noChildrenAllowed()" shape=ellipse]
+9 [label="3:CtBlockImpl@\{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+10 [label="3:CtIfImpl@if (isReference()) \{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+11 [label="6:CtTypeReferenceImpl@PatternSet" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@PatternSet" shape=ellipse]
+13 [label="6:CtConstructorCallImpl@new PatternSet()" shape=ellipse]
+14 [label="6:CtVirtualElement@patterns" shape=ellipse]
+15 [label="6:CtLocalVariableImpl@PatternSet patterns = new PatternSet()" shape=ellipse]
+16 [label="7:CtExecutableReferenceImpl@addElement(PatternSet)" shape=ellipse]
+17 [label="7:CtVirtualElement@addElement" shape=ellipse]
+18 [label="7:CtFieldReadImpl@additionalPatterns" shape=ellipse]
+19 [label="7:CtVariableReadImpl@patterns" shape=ellipse]
+20 [label="7:CtInvocationImpl@additionalPatterns.addElement(patterns)" shape=ellipse]
+21 [label="8:CtFieldWriteImpl@directoryScanner" shape=ellipse]
+22 [label="8:CtLiteralImpl@null" shape=ellipse]
+23 [label="8:CtAssignmentImpl@directoryScanner = null" shape=ellipse]
+24 [label="9:CtVariableReadImpl@patterns" shape=ellipse]
+25 [label="9:CtReturnImpl@return patterns" shape=ellipse]
+26 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    PatternSet patterns = new PatternSet();
+    additionalPatterns.addElement(patterns);
+    directoryScanner = null;
+    return patterns;
+\}" shape=ellipse]
+27 [label="2:CtMethodImpl@public synchronized PatternSet createPatternSet() \{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    PatternSet patterns = new PatternSet();
+    additionalPatterns.addElement(patterns);
+    directoryScanner = null;
+    return patterns;
+\}" shape=ellipse]
+28 [label="7:Update@UPDATE" shape=ellipse]
+29 [label="7:CtInvocationImpl@additionalPatterns.add(patterns)" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 9 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+14 -> 19 [label="Define-Use"];
+14 -> 24 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 11 [label="AST"];
+15 -> 13 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 16 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 28 [label="Action"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 10 [label="AST"];
+26 -> 15 [label="AST"];
+26 -> 20 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 1 [label="AST"];
+27 -> 0 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 29 [label="Action"];
+}

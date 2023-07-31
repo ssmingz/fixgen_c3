@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testNoFile#?#3:MOVE
+testEmpty#?#3:MOVE" shape=ellipse]
+1 [label="testNoFile#?#3:\"file\"
+testEmpty#?#3:\"property\"" shape=ellipse]
+2 [label="testNoFile#?#3:expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\")
+testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\")" shape=ellipse]
+3 [label="testNoFile#?#2:\{
+    expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\");
+\}
+testEmpty#?#2:\{
+    expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\");
+\}" shape=ellipse]
+4 [label="testNoFile#?#3:expectBuildExceptionContaining
+testEmpty#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testNoFile#?#-1:
+testEmpty#?#-1:" shape=ellipse]
+6 [label="testNoFile#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testEmpty#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testNoFile#?#3:\"testNoFile\"
+testEmpty#?#3:\"missing property\"" shape=ellipse]
+8 [label="testNoFile#?#3:\"missing file\"
+testEmpty#?#3:\"testEmpty\"" shape=ellipse]
+9 [label="testNoFile#?#3:DELETE
+testEmpty#?#3:DELETE" shape=ellipse]
+10 [label="testNoFile#?#-1:String
+testEmpty#?#-1:String" shape=ellipse]
+11 [label="testNoFile#?#8:assertContains(\"file\", ex.getMessage())
+testEmpty#?#8:assertContains(\"property\", ex.getMessage())" shape=ellipse]
+12 [label="testNoFile#?#7:BuildException ex
+testEmpty#?#7:BuildException ex" shape=ellipse]
+13 [label="testNoFile#?#7:\{
+    assertContains(\"file\", ex.getMessage());
+\}
+testEmpty#?#7:\{
+    assertContains(\"property\", ex.getMessage());
+\}" shape=ellipse]
+14 [label="testNoFile#?#8:assertContains(java.lang.String,<unknown>)
+testEmpty#?#8:assertContains(java.lang.String,<unknown>)" shape=ellipse]
+15 [label="testNoFile#?#-1:
+testEmpty#?#-1:" shape=ellipse]
+16 [label="testNoFile#?#-1:PlaceHold
+testEmpty#?#-1:PlaceHold" shape=ellipse]
+17 [label="testNoFile#?#8:ex.getMessage()
+testEmpty#?#8:ex.getMessage()" shape=ellipse]
+18 [label="testNoFile#?#8:getMessage()
+testEmpty#?#8:getMessage()" shape=ellipse]
+19 [label="testNoFile#?#8:ex
+testEmpty#?#8:ex" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+11 -> 15 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+11 -> 17 [label="AST:2"];
+12 -> 11 [label="Control Dep:2"];
+12 -> 13 [label="Control Dep:2"];
+12 -> 14 [label="Control Dep:2"];
+12 -> 15 [label="Control Dep:2"];
+12 -> 16 [label="Control Dep:2"];
+12 -> 17 [label="Control Dep:2"];
+12 -> 18 [label="Control Dep:2"];
+12 -> 19 [label="Control Dep:2"];
+13 -> 11 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+}

@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/1/after.java
+@@ -12,1 +12,6 @@
+-    _notifier.projectRunnableChanged();
++    Utilities.invokeLater(
++        new Runnable() {
++          public void run() {
++            _notifier.projectRunnableChanged();
++          }
++        });

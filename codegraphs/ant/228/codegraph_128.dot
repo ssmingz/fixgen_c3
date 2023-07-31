@@ -1,0 +1,45 @@
+digraph "cc#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@cc" shape=ellipse]
+2 [label="2:CtParameterImpl@String cc" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@sendRcpt(java.lang.String)" shape=ellipse]
+6 [label="3:CtVirtualElement@sendRcpt" shape=ellipse]
+7 [label="3:CtVariableReadImpl@cc" shape=ellipse]
+8 [label="3:CtInvocationImpl@sendRcpt(cc)" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+10 [label="4:CtVirtualElement@addElement" shape=ellipse]
+11 [label="4:CtThisAccessImpl@this" shape=ellipse]
+12 [label="4:CtFieldReadImpl@this.cc" shape=ellipse]
+13 [label="4:CtVariableReadImpl@cc" shape=ellipse]
+14 [label="4:CtInvocationImpl@this.cc.addElement(cc)" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    sendRcpt(cc);
+    this.cc.addElement(cc);
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public void cc(String cc) throws IOException \{
+    sendRcpt(cc);
+    this.cc.addElement(cc);
+\}" shape=ellipse]
+17 [label="4:Update@UPDATE" shape=ellipse]
+18 [label="4:CtInvocationImpl@this.cc.add(cc)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+12 -> 11 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 17 [label="Action"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 4 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

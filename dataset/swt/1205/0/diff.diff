@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1205/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1205/0/after.java
+@@ -3,1 +3,7 @@
+-    traverse(TRAVERSE_TAB_NEXT);
++    getDisplay()
++        .asyncExec(
++            new Runnable() {
++              public void run() {
++                traverse(TRAVERSE_TAB_NEXT);
++              }
++            });

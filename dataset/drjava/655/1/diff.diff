@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/1/after.java
+@@ -2,3 +2,4 @@
+-  public void setPrivateAccessible(boolean allow) {
+-    if (!_restart) {
+-      return;
++  public boolean setPrivateAccessible(boolean allow) {
++    InterpreterJVMRemoteI remote = _accessInterpreterJVM();
++    if (remote == null) {
++      return false;
+@@ -6,1 +7,0 @@
+-    InterpreterJVMRemoteI slave = ensureInterpreterConnected();
+@@ -8,3 +8,5 @@
+-      slave.setPrivateAccessible(allow);
+-    } catch (RemoteException re) {
+-      _threwException(re);
++      remote.setPrivateAccessible(allow);
++      return true;
++    } catch (RemoteException e) {
++      _handleRemoteException(e);
++      return false;

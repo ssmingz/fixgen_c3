@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="testTransferParameterUnsetWithIf#?#4:UPDATE
+testNewerStylesheet#?#3:UPDATE" shape=ellipse]
+1 [label="testTransferParameterUnsetWithIf#?#4:\"out/out.xml\"
+testNewerStylesheet#?#3:\"out/out.xml\"" shape=ellipse]
+2 [label="testTransferParameterUnsetWithIf#?#3:expectFileContains(\"testTransferParameterUnsetWithIf\", \"out/out.xml\", \"undefined='undefined default value'\")
+testNewerStylesheet#?#3:expectFileContains(\"testNewerStylesheet\", \"out/out.xml\", \"new-value\")" shape=ellipse]
+3 [label="testTransferParameterUnsetWithIf#?#2:\{
+    expectFileContains(\"testTransferParameterUnsetWithIf\", \"out/out.xml\", \"undefined='undefined default value'\");
+\}
+testNewerStylesheet#?#2:\{
+    expectFileContains(\"testNewerStylesheet\", \"out/out.xml\", \"new-value\");
+\}" shape=ellipse]
+4 [label="testTransferParameterUnsetWithIf#?#3:expectFileContains
+testNewerStylesheet#?#3:expectFileContains" shape=ellipse]
+5 [label="testTransferParameterUnsetWithIf#?#-1:
+testNewerStylesheet#?#-1:" shape=ellipse]
+6 [label="testTransferParameterUnsetWithIf#?#3:expectFileContains(java.lang.String,java.lang.String,java.lang.String)
+testNewerStylesheet#?#3:expectFileContains(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testTransferParameterUnsetWithIf#?#4:\"testTransferParameterUnsetWithIf\"
+testNewerStylesheet#?#3:\"testNewerStylesheet\"" shape=ellipse]
+8 [label="testTransferParameterUnsetWithIf#?#4:\"undefined='undefined default value'\"
+testNewerStylesheet#?#3:\"new-value\"" shape=ellipse]
+9 [label="testTransferParameterUnsetWithIf#?#5:INSERT
+testNewerStylesheet#?#4:INSERT" shape=ellipse]
+10 [label="testTransferParameterUnsetWithIf#?#-1:String
+testNewerStylesheet#?#-1:String" shape=ellipse]
+11 [label="testTransferParameterUnsetWithIf#?#4:MOVE
+testNewerStylesheet#?#3:MOVE" shape=ellipse]
+12 [label="testTransferParameterUnsetWithIf#?#5:getOutputDir().getAbsoluteFile() + \"/out.xml\"
+testNewerStylesheet#?#4:getOutputDir().getAbsoluteFile() + \"/out.xml\"" shape=ellipse]
+13 [label="testTransferParameterUnsetWithIf#?#5:\"/out.xml\"
+testNewerStylesheet#?#4:\"/out.xml\"" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+9 -> 12 [label="Action:2"];
+11 -> 12 [label="Action:2"];
+12 -> 13 [label="AST:2"];
+}

@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testExcepting#?#2:INSERT
+testExceptingFork#?#2:INSERT" shape=ellipse]
+1 [label="testExcepting#?#2:public void testExcepting() \{
+    expectLogContaining(\"testExcepting\", \"Exception raised inside called program\");
+\}
+testExceptingFork#?#2:public void testExceptingFork() \{
+    expectLogContaining(\"testExceptingFork\", \"Java Result:\");
+\}" shape=ellipse]
+2 [label="testExcepting#?#2:testExcepting
+testExceptingFork#?#2:testExceptingFork" shape=ellipse]
+3 [label="testExcepting#?#2:void
+testExceptingFork#?#2:void" shape=ellipse]
+4 [label="testExcepting#?#2:\{
+    expectLogContaining(\"testExcepting\", \"Exception raised inside called program\");
+\}
+testExceptingFork#?#2:\{
+    expectLogContaining(\"testExceptingFork\", \"Java Result:\");
+\}" shape=ellipse]
+5 [label="testExcepting#?#3:expectLogContaining(\"testExcepting\", \"Exception raised inside called program\")
+testExceptingFork#?#3:expectLogContaining(\"testExceptingFork\", \"Java Result:\")" shape=ellipse]
+6 [label="testExcepting#?#2:VE: Modifiers_Method
+testExceptingFork#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testExcepting#?#2:public
+testExceptingFork#?#2:public" shape=ellipse]
+8 [label="testExcepting#?#4:INSERT
+testExceptingFork#?#4:INSERT" shape=ellipse]
+9 [label="testExcepting#?#4:buildRule.executeTarget(\"testExcepting\")
+testExceptingFork#?#4:buildRule.executeTarget(\"testExceptingFork\")" shape=ellipse]
+10 [label="testExcepting#?#2:@Test
+testExceptingFork#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

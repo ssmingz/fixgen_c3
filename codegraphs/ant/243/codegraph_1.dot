@@ -1,0 +1,281 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@log(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@log" shape=ellipse]
+5 [label="3:CtFieldReadImpl@attributes" shape=ellipse]
+6 [label="3:CtLiteralImpl@\"Using kjc compiler\"" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+8 [label="3:CtInvocationImpl@attributes.log(\"Using kjc compiler\", MSG_VERBOSE)" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@setupKjcCommand()" shape=ellipse]
+11 [label="4:CtVirtualElement@setupKjcCommand" shape=ellipse]
+12 [label="4:CtInvocationImpl@setupKjcCommand()" shape=ellipse]
+13 [label="4:CtVirtualElement@cmd" shape=ellipse]
+14 [label="4:CtLocalVariableImpl@Commandline cmd = setupKjcCommand()" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@Class" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@forName(java.lang.String)" shape=ellipse]
+17 [label="6:CtVirtualElement@forName" shape=ellipse]
+18 [label="6:CtTypeAccessImpl@Class" shape=ellipse]
+19 [label="6:CtLiteralImpl@\"at.dms.kjc.Main\"" shape=ellipse]
+20 [label="6:CtInvocationImpl@Class.forName(\"at.dms.kjc.Main\")" shape=ellipse]
+21 [label="6:CtVirtualElement@c" shape=ellipse]
+22 [label="6:CtLocalVariableImpl@Class c = Class.forName(\"at.dms.kjc.Main\")" shape=ellipse]
+23 [label="7:CtTypeReferenceImpl@Method" shape=ellipse]
+24 [label="7:CtExecutableReferenceImpl@getMethod(java.lang.String,java.lang.Class[])" shape=ellipse]
+25 [label="7:CtVirtualElement@getMethod" shape=ellipse]
+26 [label="7:CtVariableReadImpl@c" shape=ellipse]
+27 [label="7:CtLiteralImpl@\"compile\"" shape=ellipse]
+28 [label="7:CtNewArrayImpl@new Class[]\{ String[].class \}" shape=ellipse]
+29 [label="7:CtFieldReadImpl@String[].class" shape=ellipse]
+30 [label="7:CtInvocationImpl@c.getMethod(\"compile\", new Class[]\{ String[].class \})" shape=ellipse]
+31 [label="7:CtVirtualElement@compile" shape=ellipse]
+32 [label="7:CtLocalVariableImpl@Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \})" shape=ellipse]
+33 [label="8:CtTypeReferenceImpl@Boolean" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@invoke(<unknown>,java.lang.Object[])" shape=ellipse]
+35 [label="8:CtVirtualElement@invoke" shape=ellipse]
+36 [label="8:CtVariableReadImpl@compile" shape=ellipse]
+37 [label="8:CtLiteralImpl@null" shape=ellipse]
+38 [label="8:CtNewArrayImpl@new Object[]\{ cmd.getArguments() \}" shape=ellipse]
+39 [label="8:CtInvocationImpl@cmd.getArguments()" shape=ellipse]
+40 [label="8:CtInvocationImpl@((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})))" shape=ellipse]
+41 [label="8:CtTypeReferenceImpl@Boolean" shape=ellipse]
+42 [label="8:CtVirtualElement@ok" shape=ellipse]
+43 [label="8:CtLocalVariableImpl@Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})))" shape=ellipse]
+44 [label="9:CtExecutableReferenceImpl@booleanValue()" shape=ellipse]
+45 [label="9:CtVirtualElement@booleanValue" shape=ellipse]
+46 [label="9:CtVariableReadImpl@ok" shape=ellipse]
+47 [label="9:CtInvocationImpl@ok.booleanValue()" shape=ellipse]
+48 [label="9:CtReturnImpl@return ok.booleanValue()" shape=ellipse]
+49 [label="5:CtBlockImpl@\{
+    Class c = Class.forName(\"at.dms.kjc.Main\");
+    Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+    Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+    return ok.booleanValue();
+\}" shape=ellipse]
+50 [label="10:CtVirtualElement@ex" shape=ellipse]
+51 [label="10:CtTypeReferenceImpl@ClassNotFoundException" shape=ellipse]
+52 [label="10:CtCatchVariableImpl@ClassNotFoundException ex" shape=ellipse]
+53 [label="11:CtTypeReferenceImpl@TaskException" shape=ellipse]
+54 [label="12:CtLiteralImpl@\"Cannot use kjc compiler, as it is not available\"" shape=ellipse]
+55 [label="13:CtLiteralImpl@\" A common solution is to set the environment variable\"" shape=ellipse]
+56 [label="12:CtBinaryOperatorImpl@(\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\")" shape=ellipse]
+57 [label="14:CtLiteralImpl@\" CLASSPATH to your kjc archive (kjc.jar).\"" shape=ellipse]
+58 [label="12:CtBinaryOperatorImpl@(\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\"" shape=ellipse]
+59 [label="11:CtConstructorCallImpl@new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\")" shape=ellipse]
+60 [label="11:CtThrowImpl@throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\")" shape=ellipse]
+61 [label="10:CtBlockImpl@\{
+    throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+\}" shape=ellipse]
+62 [label="10:CtCatchImpl@ catch (ClassNotFoundException ex) \{
+    throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+\}" shape=ellipse]
+63 [label="15:CtVirtualElement@ex" shape=ellipse]
+64 [label="15:CtTypeReferenceImpl@Exception" shape=ellipse]
+65 [label="15:CtCatchVariableImpl@Exception ex" shape=ellipse]
+66 [label="16:CtVariableReadImpl@ex" shape=ellipse]
+67 [label="16:CtTypeAccessImpl@TaskException" shape=ellipse]
+68 [label="16:CtTypeReferenceImpl@TaskException" shape=ellipse]
+69 [label="16:CtBinaryOperatorImpl@ex instanceof TaskException" shape=ellipse]
+70 [label="17:CtVariableReadImpl@((TaskException) (ex))" shape=ellipse]
+71 [label="17:CtTypeReferenceImpl@TaskException" shape=ellipse]
+72 [label="17:CtThrowImpl@throw ((TaskException) (ex))" shape=ellipse]
+73 [label="16:CtBlockImpl@\{
+    throw ((TaskException) (ex));
+\}" shape=ellipse]
+74 [label="19:CtTypeReferenceImpl@TaskException" shape=ellipse]
+75 [label="19:CtLiteralImpl@\"Error starting kjc compiler: \"" shape=ellipse]
+76 [label="19:CtVariableReadImpl@ex" shape=ellipse]
+77 [label="19:CtConstructorCallImpl@new TaskException(\"Error starting kjc compiler: \", ex)" shape=ellipse]
+78 [label="19:CtThrowImpl@throw new TaskException(\"Error starting kjc compiler: \", ex)" shape=ellipse]
+79 [label="18:CtBlockImpl@\{
+    throw new TaskException(\"Error starting kjc compiler: \", ex);
+\}" shape=ellipse]
+80 [label="16:CtIfImpl@if (ex instanceof TaskException) \{
+    throw ((TaskException) (ex));
+\} else \{
+    throw new TaskException(\"Error starting kjc compiler: \", ex);
+\}" shape=ellipse]
+81 [label="15:CtBlockImpl@\{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting kjc compiler: \", ex);
+    \}
+\}" shape=ellipse]
+82 [label="15:CtCatchImpl@ catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting kjc compiler: \", ex);
+    \}
+\}" shape=ellipse]
+83 [label="5:CtTryImpl@try \{
+    Class c = Class.forName(\"at.dms.kjc.Main\");
+    Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+    Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+    return ok.booleanValue();
+\} catch (ClassNotFoundException ex) \{
+    throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+\} catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting kjc compiler: \", ex);
+    \}
+\}" shape=ellipse]
+84 [label="2:CtBlockImpl@\{
+    attributes.log(\"Using kjc compiler\", MSG_VERBOSE);
+    Commandline cmd = setupKjcCommand();
+    try \{
+        Class c = Class.forName(\"at.dms.kjc.Main\");
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting kjc compiler: \", ex);
+        \}
+    \}
+\}" shape=ellipse]
+85 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    attributes.log(\"Using kjc compiler\", MSG_VERBOSE);
+    Commandline cmd = setupKjcCommand();
+    try \{
+        Class c = Class.forName(\"at.dms.kjc.Main\");
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting kjc compiler: \", ex);
+        \}
+    \}
+\}" shape=ellipse]
+86 [label="3:Update@UPDATE" shape=ellipse]
+87 [label="3:CtInvocationImpl@getLogger().debug(\"Using kjc compiler\")" shape=ellipse]
+8 -> 4 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 86 [label="Action"];
+12 -> 11 [label="AST"];
+12 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 16 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 26 [label="Define-Use"];
+22 -> 21 [label="AST"];
+22 -> 15 [label="AST"];
+22 -> 20 [label="AST"];
+26 -> 31 [label="Data Dep"];
+28 -> 29 [label="AST"];
+29 -> 31 [label="Data Dep"];
+30 -> 25 [label="AST"];
+30 -> 26 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 28 [label="AST"];
+31 -> 36 [label="Define-Use"];
+32 -> 31 [label="AST"];
+32 -> 23 [label="AST"];
+32 -> 30 [label="AST"];
+36 -> 42 [label="Data Dep"];
+38 -> 39 [label="AST"];
+40 -> 35 [label="AST"];
+40 -> 41 [label="AST"];
+40 -> 36 [label="AST"];
+40 -> 34 [label="AST"];
+40 -> 37 [label="AST"];
+40 -> 38 [label="AST"];
+42 -> 46 [label="Define-Use"];
+43 -> 42 [label="AST"];
+43 -> 33 [label="AST"];
+43 -> 40 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 22 [label="AST"];
+49 -> 32 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 48 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 61 [label="Control Dep"];
+52 -> 60 [label="Control Dep"];
+52 -> 59 [label="Control Dep"];
+52 -> 58 [label="Control Dep"];
+52 -> 56 [label="Control Dep"];
+52 -> 54 [label="Control Dep"];
+52 -> 55 [label="Control Dep"];
+52 -> 57 [label="Control Dep"];
+56 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 52 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 66 [label="Define-Use"];
+63 -> 70 [label="Define-Use"];
+63 -> 76 [label="Define-Use"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+65 -> 81 [label="Control Dep"];
+65 -> 80 [label="Control Dep"];
+65 -> 69 [label="Control Dep"];
+65 -> 66 [label="Control Dep"];
+65 -> 67 [label="Control Dep"];
+67 -> 68 [label="AST"];
+69 -> 66 [label="AST"];
+69 -> 67 [label="AST"];
+69 -> 73 [label="Control Dep"];
+69 -> 72 [label="Control Dep"];
+69 -> 70 [label="Control Dep"];
+69 -> 79 [label="Control Dep"];
+69 -> 78 [label="Control Dep"];
+69 -> 77 [label="Control Dep"];
+69 -> 75 [label="Control Dep"];
+69 -> 76 [label="Control Dep"];
+70 -> 71 [label="AST"];
+72 -> 70 [label="AST"];
+73 -> 72 [label="AST"];
+77 -> 75 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 69 [label="AST"];
+80 -> 73 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 65 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 49 [label="AST"];
+83 -> 62 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 8 [label="AST"];
+84 -> 14 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 1 [label="AST"];
+85 -> 0 [label="AST"];
+85 -> 2 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 87 [label="Action"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/900/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/900/1/after.java
+@@ -4,1 +4,5 @@
+-      getHighlighter().removeHighlight(_matchHighlight);
++      if (CodeStatus.DEVELOPMENT) {
++        _highlightManager.removeHighlight(((HighlightManager.HighlightInfo) (_matchHighlight)));
++      } else {
++        getHighlighter().removeHighlight(_matchHighlight);
++      }

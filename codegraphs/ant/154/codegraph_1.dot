@@ -1,0 +1,138 @@
+digraph "iterator#?" {
+0 [label="2:CtTypeReferenceImpl@Iterator" shape=ellipse]
+1 [label="2:CtVirtualElement@iterator" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+3 [label="3:CtVirtualElement@isReference" shape=ellipse]
+4 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@iterator()" shape=ellipse]
+6 [label="4:CtVirtualElement@iterator" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@getCheckedRef()" shape=ellipse]
+8 [label="4:CtVirtualElement@getCheckedRef" shape=ellipse]
+9 [label="4:CtInvocationImpl@((Path) (getCheckedRef()))" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Path" shape=ellipse]
+11 [label="4:CtInvocationImpl@((Path) (getCheckedRef())).iterator()" shape=ellipse]
+12 [label="4:CtReturnImpl@return ((Path) (getCheckedRef())).iterator()" shape=ellipse]
+13 [label="3:CtBlockImpl@\{
+    return ((Path) (getCheckedRef())).iterator();
+\}" shape=ellipse]
+14 [label="3:CtIfImpl@if (isReference()) \{
+    return ((Path) (getCheckedRef())).iterator();
+\}" shape=ellipse]
+15 [label="6:CtExecutableReferenceImpl@dieOnCircularReference()" shape=ellipse]
+16 [label="6:CtVirtualElement@dieOnCircularReference" shape=ellipse]
+17 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+18 [label="7:CtExecutableReferenceImpl@getPreserveBC()" shape=ellipse]
+19 [label="7:CtVirtualElement@getPreserveBC" shape=ellipse]
+20 [label="7:CtInvocationImpl@getPreserveBC()" shape=ellipse]
+21 [label="8:CtTypeReferenceImpl@FileResourceIterator" shape=ellipse]
+22 [label="8:CtLiteralImpl@null" shape=ellipse]
+23 [label="8:CtExecutableReferenceImpl@list()" shape=ellipse]
+24 [label="8:CtVirtualElement@list" shape=ellipse]
+25 [label="8:CtInvocationImpl@list()" shape=ellipse]
+26 [label="8:CtConstructorCallImpl@new FileResourceIterator(null, list())" shape=ellipse]
+27 [label="8:CtReturnImpl@return new FileResourceIterator(null, list())" shape=ellipse]
+28 [label="7:CtBlockImpl@\{
+    return new FileResourceIterator(null, list());
+\}" shape=ellipse]
+29 [label="7:CtIfImpl@if (getPreserveBC()) \{
+    return new FileResourceIterator(null, list());
+\}" shape=ellipse]
+30 [label="10:CtFieldReadImpl@union" shape=ellipse]
+31 [label="10:CtLiteralImpl@null" shape=ellipse]
+32 [label="10:CtBinaryOperatorImpl@union == null" shape=ellipse]
+33 [label="10:CtFieldReadImpl@EMPTY_ITERATOR" shape=ellipse]
+34 [label="10:CtExecutableReferenceImpl@iterator()" shape=ellipse]
+35 [label="10:CtVirtualElement@iterator" shape=ellipse]
+36 [label="10:CtExecutableReferenceImpl@assertFilesystemOnly(<unknown>)" shape=ellipse]
+37 [label="10:CtVirtualElement@assertFilesystemOnly" shape=ellipse]
+38 [label="10:CtFieldReadImpl@union" shape=ellipse]
+39 [label="10:CtInvocationImpl@assertFilesystemOnly(union)" shape=ellipse]
+40 [label="10:CtInvocationImpl@assertFilesystemOnly(union).iterator()" shape=ellipse]
+41 [label="10:CtConditionalImpl@union == null ? EMPTY_ITERATOR : assertFilesystemOnly(union).iterator()" shape=ellipse]
+42 [label="10:CtReturnImpl@return union == null ? EMPTY_ITERATOR : assertFilesystemOnly(union).iterator()" shape=ellipse]
+43 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        return ((Path) (getCheckedRef())).iterator();
+    \}
+    dieOnCircularReference();
+    if (getPreserveBC()) \{
+        return new FileResourceIterator(null, list());
+    \}
+    return union == null ? EMPTY_ITERATOR : assertFilesystemOnly(union).iterator();
+\}" shape=ellipse]
+44 [label="2:CtMethodImpl@public final synchronized Iterator iterator() \{
+    if (isReference()) \{
+        return ((Path) (getCheckedRef())).iterator();
+    \}
+    dieOnCircularReference();
+    if (getPreserveBC()) \{
+        return new FileResourceIterator(null, list());
+    \}
+    return union == null ? EMPTY_ITERATOR : assertFilesystemOnly(union).iterator();
+\}" shape=ellipse]
+45 [label="8:Insert@INSERT" shape=ellipse]
+46 [label="8:CtInvocationImpl@getProject()" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 13 [label="Control Dep"];
+4 -> 12 [label="Control Dep"];
+4 -> 11 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+9 -> 8 [label="AST"];
+9 -> 10 [label="AST"];
+9 -> 7 [label="AST"];
+11 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 15 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 28 [label="Control Dep"];
+20 -> 27 [label="Control Dep"];
+20 -> 26 [label="Control Dep"];
+20 -> 22 [label="Control Dep"];
+20 -> 25 [label="Control Dep"];
+20 -> 23 [label="Control Dep"];
+25 -> 24 [label="AST"];
+25 -> 23 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 45 [label="Action"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 20 [label="AST"];
+29 -> 28 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 33 [label="Control Dep"];
+32 -> 40 [label="Control Dep"];
+32 -> 34 [label="Control Dep"];
+32 -> 39 [label="Control Dep"];
+32 -> 36 [label="Control Dep"];
+32 -> 38 [label="Control Dep"];
+39 -> 37 [label="AST"];
+39 -> 36 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 35 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 34 [label="AST"];
+41 -> 32 [label="AST"];
+41 -> 33 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 14 [label="AST"];
+43 -> 17 [label="AST"];
+43 -> 29 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 1 [label="AST"];
+44 -> 0 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 46 [label="Action"];
+}

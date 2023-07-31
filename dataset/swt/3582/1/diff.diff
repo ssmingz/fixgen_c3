@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3582/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3582/1/after.java
+@@ -24,2 +24,4 @@
+-    Rectangle bounds = getCellBounds(columnIndex);
+-    parent.redraw(bounds.x, bounds.y, bounds.width, bounds.height, false);
++    if (isInViewport()) {
++      Rectangle bounds = getCellBounds(columnIndex);
++      parent.redraw(bounds.x, bounds.y, bounds.width, bounds.height, false);
++    }

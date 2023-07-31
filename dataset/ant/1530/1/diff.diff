@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1530/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1530/1/after.java
+@@ -6,1 +6,5 @@
+-    return _resources.getString(getKey(clazz, name));
++    try {
++      return _resources.getString(getKey(clazz, name));
++    } catch (MissingResourceException ex) {
++      return null;
++    }

@@ -1,0 +1,82 @@
+digraph "Pattern" {
+0 [label="addFirstListener#?,RunListener#6:UPDATE
+SafeNotifier#?#3:UPDATE
+fireTestFailure#?,Failure#3:UPDATE
+removeListener#?,RunListener#6:UPDATE
+addListener#?,RunListener#6:UPDATE" shape=ellipse]
+1 [label="addFirstListener#?,RunListener#6:fListeners
+SafeNotifier#?#3:fListeners
+fireTestFailure#?,Failure#3:fListeners
+removeListener#?,RunListener#6:fListeners
+addListener#?,RunListener#6:fListeners" shape=ellipse]
+2 [label="addFirstListener#?,RunListener#6:fListeners.add(0, wrapIfNotThreadSafe(listener))
+SafeNotifier#?#3:(fListeners)
+fireTestFailure#?,Failure#3:fireTestFailures(fListeners, asList(failure))
+removeListener#?,RunListener#6:fListeners.remove(wrapIfNotThreadSafe(listener))
+addListener#?,RunListener#6:fListeners.add(wrapIfNotThreadSafe(listener))" shape=ellipse]
+3 [label="addFirstListener#?,RunListener#2:\{
+    if (listener == null) \{
+        throw new NullPointerException(\"Cannot add a null listener\");
+    \}
+    fListeners.add(0, wrapIfNotThreadSafe(listener));
+\}
+SafeNotifier#?#2:\{
+    (fListeners);
+\}
+fireTestFailure#?,Failure#2:\{
+    fireTestFailures(fListeners, asList(failure));
+\}
+removeListener#?,RunListener#2:\{
+    if (listener == null) \{
+        throw new NullPointerException(\"Cannot remove a null listener\");
+    \}
+    fListeners.remove(wrapIfNotThreadSafe(listener));
+\}
+addListener#?,RunListener#2:\{
+    if (listener == null) \{
+        throw new NullPointerException(\"Cannot add a null listener\");
+    \}
+    fListeners.add(wrapIfNotThreadSafe(listener));
+\}" shape=ellipse]
+4 [label="addFirstListener#?,RunListener#6:add
+SafeNotifier#?#3:
+fireTestFailure#?,Failure#3:fireTestFailures
+removeListener#?,RunListener#6:remove
+addListener#?,RunListener#6:add" shape=ellipse]
+5 [label="addFirstListener#?,RunListener#6:add(int)
+SafeNotifier#?#3:()
+fireTestFailure#?,Failure#3:fireTestFailures(<unknown>,<unknown>)
+removeListener#?,RunListener#6:remove()
+addListener#?,RunListener#6:add()" shape=ellipse]
+6 [label="addFirstListener#?,RunListener#6:0" shape=ellipse]
+7 [label="addFirstListener#?,RunListener#6:wrapIfNotThreadSafe(listener)
+fireTestFailure#?,Failure#3:asList(failure)
+removeListener#?,RunListener#6:wrapIfNotThreadSafe(listener)
+addListener#?,RunListener#6:wrapIfNotThreadSafe(listener)" shape=ellipse]
+8 [label="addFirstListener#?,RunListener#6:fListeners
+SafeNotifier#?#3:fListeners
+fireTestFailure#?,Failure#3:fListeners
+removeListener#?,RunListener#6:fListeners
+addListener#?,RunListener#6:fListeners" shape=ellipse]
+9 [label="addFirstListener#?,RunListener#6:PlaceHold
+SafeNotifier#?#3:PlaceHold
+fireTestFailure#?,Failure#3:PlaceHold
+removeListener#?,RunListener#6:PlaceHold
+addListener#?,RunListener#6:PlaceHold" shape=ellipse]
+10 [label="addFirstListener#?,RunListener#6:listeners
+SafeNotifier#?#3:listeners
+fireTestFailure#?,Failure#3:listeners
+removeListener#?,RunListener#6:listeners
+addListener#?,RunListener#6:listeners" shape=ellipse]
+11 [label="fireTestFailure#?,Failure#3:" shape=ellipse]
+1 -> 0 [label="Action:5"];
+1 -> 8 [label="AST:5"];
+2 -> 1 [label="AST:5"];
+2 -> 4 [label="AST:5"];
+2 -> 5 [label="AST:5"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:4"];
+2 -> 11 [label="AST:1"];
+3 -> 2 [label="AST:5"];
+8 -> 9 [label="AST:5"];
+}

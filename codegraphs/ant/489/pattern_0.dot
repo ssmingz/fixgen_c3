@@ -1,0 +1,133 @@
+digraph "Pattern" {
+0 [label="createTask#?,String,ExecutionFrame#8:UPDATE
+execute#?,Project,String,ProjectEntry#15:UPDATE
+create#?,String#7:UPDATE" shape=ellipse]
+1 [label="createTask#?,String,ExecutionFrame#8:name
+execute#?,Project,String,ProjectEntry#16:message
+create#?,String#7:name" shape=ellipse]
+2 [label="createTask#?,String,ExecutionFrame#7:final TypeException te
+create#?,String#6:final Exception e" shape=ellipse]
+3 [label="createTask#?,String,ExecutionFrame#7: catch (final TypeException te) \{
+    throw new TaskException(\"Unable to create task \" + name, te);
+\}
+create#?,String#6: catch (final Exception e) \{
+    throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e);
+\}" shape=ellipse]
+4 [label="createTask#?,String,ExecutionFrame#7:te
+execute#?,Project,String,ProjectEntry#14:target
+create#?,String#6:e" shape=ellipse]
+5 [label="createTask#?,String,ExecutionFrame#7:TypeException
+execute#?,Project,String,ProjectEntry#-1:TaskException(java.lang.String)
+create#?,String#6:Exception" shape=ellipse]
+6 [label="createTask#?,String,ExecutionFrame#7:\{
+    throw new TaskException(\"Unable to create task \" + name, te);
+\}
+execute#?,Project,String,ProjectEntry#14:\{
+    throw new TaskException(\"Unable to find target \" + targetName);
+\}
+create#?,String#6:\{
+    throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e);
+\}" shape=ellipse]
+7 [label="createTask#?,String,ExecutionFrame#8:throw new TaskException(\"Unable to create task \" + name, te)
+execute#?,Project,String,ProjectEntry#15:throw new TaskException(\"Unable to find target \" + targetName)
+create#?,String#7:throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e)" shape=ellipse]
+8 [label="createTask#?,String,ExecutionFrame#8:new TaskException(\"Unable to create task \" + name, te)
+create#?,String#7:new TypeException((\"Unable to instantiate '\" + name) + \"'\", e)" shape=ellipse]
+9 [label="createTask#?,String,ExecutionFrame#-1:TaskException()
+create#?,String#-1:TypeException(java.lang.String,java.lang.Exception)" shape=ellipse]
+10 [label="createTask#?,String,ExecutionFrame#8:\"Unable to create task \" + name" shape=ellipse]
+11 [label="createTask#?,String,ExecutionFrame#8:\"Unable to create task \"
+execute#?,Project,String,ProjectEntry#15:\"Unable to find target \"
+create#?,String#7:\"Unable to instantiate '\"" shape=ellipse]
+12 [label="createTask#?,String,ExecutionFrame#8:te
+create#?,String#7:e" shape=ellipse]
+13 [label="createTask#?,String,ExecutionFrame#7:VE: Modifiers_CatchVariable
+create#?,String#6:VE: Modifiers_CatchVariable" shape=ellipse]
+14 [label="createTask#?,String,ExecutionFrame#7:final
+create#?,String#6:final" shape=ellipse]
+15 [label="createTask#?,String,ExecutionFrame#-1:name
+create#?,String#-1:name" shape=ellipse]
+16 [label="createTask#?,String,ExecutionFrame#8:MOVE
+create#?,String#7:MOVE" shape=ellipse]
+17 [label="createTask#?,String,ExecutionFrame#9:message
+execute#?,Project,String,ProjectEntry#15:targetName
+create#?,String#8:message" shape=ellipse]
+18 [label="createTask#?,String,ExecutionFrame#8:message
+create#?,String#7:message" shape=ellipse]
+19 [label="createTask#?,String,ExecutionFrame#8:name
+execute#?,Project,String,ProjectEntry#15:targetName
+create#?,String#7:name" shape=ellipse]
+20 [label="execute#?,Project,String,ProjectEntry#15:\"Unable to find target \" + targetName" shape=ellipse]
+21 [label="execute#?,Project,String,ProjectEntry#14:if (null == target) \{
+    throw new TaskException(\"Unable to find target \" + targetName);
+\}" shape=ellipse]
+22 [label="execute#?,Project,String,ProjectEntry#15:message" shape=ellipse]
+23 [label="execute#?,Project,String,ProjectEntry#14:null == target" shape=ellipse]
+24 [label="execute#?,Project,String,ProjectEntry#-1:targetName" shape=ellipse]
+25 [label="execute#?,Project,String,ProjectEntry#15:MOVE" shape=ellipse]
+26 [label="execute#?,Project,String,ProjectEntry#14:null" shape=ellipse]
+27 [label="execute#?,Project,String,ProjectEntry#15:new TaskException(\"Unable to find target \" + targetName)" shape=ellipse]
+28 [label="create#?,String#7:(\"Unable to instantiate '\" + name) + \"'\"" shape=ellipse]
+29 [label="create#?,String#7:(\"Unable to instantiate '\" + name)" shape=ellipse]
+30 [label="create#?,String#7:\"'\"" shape=ellipse]
+0 -> 17 [label="Action:2"];
+0 -> 1 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="Action:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="AST:2"];
+2 -> 14 [label="AST:2"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+4 -> 12 [label="Define Use:2"];
+6 -> 7 [label="AST:3"];
+7 -> 8 [label="AST:2"];
+7 -> 27 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:1"];
+8 -> 12 [label="AST:2"];
+8 -> 28 [label="AST:1"];
+10 -> 1 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+16 -> 8 [label="Action:2"];
+17 -> 0 [label="Action:1"];
+17 -> 24 [label="AST:1"];
+17 -> 25 [label="Action:1"];
+18 -> 17 [label="Define Use:2"];
+19 -> 18 [label="Data Dep:2"];
+19 -> 22 [label="Data Dep:1"];
+20 -> 11 [label="AST:1"];
+20 -> 17 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+21 -> 6 [label="AST:1"];
+22 -> 1 [label="Define Use:1"];
+23 -> 20 [label="Control Dep:1"];
+23 -> 26 [label="AST:1"];
+23 -> 4 [label="AST:1"];
+23 -> 6 [label="Control Dep:1"];
+23 -> 7 [label="Control Dep:1"];
+23 -> 27 [label="Control Dep:1"];
+23 -> 5 [label="Control Dep:1"];
+23 -> 11 [label="Control Dep:1"];
+23 -> 17 [label="Control Dep:1"];
+25 -> 27 [label="Action:1"];
+27 -> 20 [label="AST:1"];
+27 -> 5 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+28 -> 30 [label="AST:1"];
+29 -> 11 [label="AST:1"];
+29 -> 1 [label="AST:1"];
+}

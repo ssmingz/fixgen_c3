@@ -1,0 +1,429 @@
+digraph "attach#?,File,PrintStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@attach" shape=ellipse]
+2 [label="2:CtParameterImpl@File file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@PrintStream out" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@PrintStream" shape=ellipse]
+6 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@exists()" shape=ellipse]
+8 [label="3:CtVirtualElement@exists" shape=ellipse]
+9 [label="3:CtVariableReadImpl@file" shape=ellipse]
+10 [label="3:CtInvocationImpl@file.exists()" shape=ellipse]
+11 [label="3:CtUnaryOperatorImpl@(!file.exists())" shape=ellipse]
+12 [label="3:CtExecutableReferenceImpl@canRead()" shape=ellipse]
+13 [label="3:CtVirtualElement@canRead" shape=ellipse]
+14 [label="3:CtVariableReadImpl@file" shape=ellipse]
+15 [label="3:CtInvocationImpl@file.canRead()" shape=ellipse]
+16 [label="3:CtUnaryOperatorImpl@(!file.canRead())" shape=ellipse]
+17 [label="3:CtBinaryOperatorImpl@(!file.exists()) || (!file.canRead())" shape=ellipse]
+18 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+19 [label="5:CtLiteralImpl@\"File \\"\"" shape=ellipse]
+20 [label="5:CtExecutableReferenceImpl@getName()" shape=ellipse]
+21 [label="5:CtVirtualElement@getName" shape=ellipse]
+22 [label="5:CtVariableReadImpl@file" shape=ellipse]
+23 [label="5:CtInvocationImpl@file.getName()" shape=ellipse]
+24 [label="5:CtBinaryOperatorImpl@(\"File \\"\" + file.getName())" shape=ellipse]
+25 [label="5:CtLiteralImpl@\"\\" does not exist or is not readable.\"" shape=ellipse]
+26 [label="5:CtBinaryOperatorImpl@(\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\"" shape=ellipse]
+27 [label="4:CtConstructorCallImpl@new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")" shape=ellipse]
+28 [label="4:CtThrowImpl@throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")" shape=ellipse]
+29 [label="3:CtBlockImpl@\{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}" shape=ellipse]
+30 [label="3:CtIfImpl@if ((!file.exists()) || (!file.canRead())) \{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}" shape=ellipse]
+31 [label="7:CtFieldReadImpl@includeFileNames" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@println()" shape=ellipse]
+33 [label="8:CtVirtualElement@println" shape=ellipse]
+34 [label="8:CtVariableReadImpl@out" shape=ellipse]
+35 [label="8:CtInvocationImpl@out.println()" shape=ellipse]
+36 [label="9:CtTypeReferenceImpl@String" shape=ellipse]
+37 [label="9:CtExecutableReferenceImpl@getName()" shape=ellipse]
+38 [label="9:CtVirtualElement@getName" shape=ellipse]
+39 [label="9:CtVariableReadImpl@file" shape=ellipse]
+40 [label="9:CtInvocationImpl@file.getName()" shape=ellipse]
+41 [label="9:CtVirtualElement@filename" shape=ellipse]
+42 [label="9:CtLocalVariableImpl@String filename = file.getName()" shape=ellipse]
+43 [label="10:CtTypeReferenceImpl@int" shape=ellipse]
+44 [label="10:CtExecutableReferenceImpl@length()" shape=ellipse]
+45 [label="10:CtVirtualElement@length" shape=ellipse]
+46 [label="10:CtVariableReadImpl@filename" shape=ellipse]
+47 [label="10:CtInvocationImpl@filename.length()" shape=ellipse]
+48 [label="10:CtVirtualElement@filenamelength" shape=ellipse]
+49 [label="10:CtLocalVariableImpl@int filenamelength = filename.length()" shape=ellipse]
+50 [label="11:CtExecutableReferenceImpl@println(java.lang.String)" shape=ellipse]
+51 [label="11:CtVirtualElement@println" shape=ellipse]
+52 [label="11:CtVariableReadImpl@out" shape=ellipse]
+53 [label="11:CtVariableReadImpl@filename" shape=ellipse]
+54 [label="11:CtInvocationImpl@out.println(filename)" shape=ellipse]
+55 [label="12:CtTypeReferenceImpl@int" shape=ellipse]
+56 [label="12:CtLiteralImpl@0" shape=ellipse]
+57 [label="12:CtVirtualElement@star" shape=ellipse]
+58 [label="12:CtLocalVariableImpl@int star = 0" shape=ellipse]
+59 [label="12:CtVariableReadImpl@star" shape=ellipse]
+60 [label="12:CtVariableReadImpl@filenamelength" shape=ellipse]
+61 [label="12:CtBinaryOperatorImpl@star < filenamelength" shape=ellipse]
+62 [label="12:CtVariableWriteImpl@star" shape=ellipse]
+63 [label="12:CtUnaryOperatorImpl@star++" shape=ellipse]
+64 [label="13:CtExecutableReferenceImpl@print(char)" shape=ellipse]
+65 [label="13:CtVirtualElement@print" shape=ellipse]
+66 [label="13:CtVariableReadImpl@out" shape=ellipse]
+67 [label="13:CtLiteralImpl@'='" shape=ellipse]
+68 [label="13:CtInvocationImpl@out.print('=')" shape=ellipse]
+69 [label="12:CtBlockImpl@\{
+    out.print('=');
+\}" shape=ellipse]
+70 [label="12:CtForImpl@for (int star = 0; star < filenamelength; star++) \{
+    out.print('=');
+\}" shape=ellipse]
+71 [label="15:CtExecutableReferenceImpl@println()" shape=ellipse]
+72 [label="15:CtVirtualElement@println" shape=ellipse]
+73 [label="15:CtVariableReadImpl@out" shape=ellipse]
+74 [label="15:CtInvocationImpl@out.println()" shape=ellipse]
+75 [label="7:CtBlockImpl@\{
+    out.println();
+    String filename = file.getName();
+    int filenamelength = filename.length();
+    out.println(filename);
+    for (int star = 0; star < filenamelength; star++) \{
+        out.print('=');
+    \}
+    out.println();
+\}" shape=ellipse]
+76 [label="7:CtIfImpl@if (includeFileNames) \{
+    out.println();
+    String filename = file.getName();
+    int filenamelength = filename.length();
+    out.println(filename);
+    for (int star = 0; star < filenamelength; star++) \{
+        out.print('=');
+    \}
+    out.println();
+\}" shape=ellipse]
+77 [label="17:CtTypeReferenceImpl@int" shape=ellipse]
+78 [label="17:CtVirtualElement@length" shape=ellipse]
+79 [label="17:CtLocalVariableImpl@int length" shape=ellipse]
+80 [label="18:CtVirtualElement@byte[]" shape=ellipse]
+81 [label="18:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+82 [label="18:CtNewArrayImpl@new byte[1024]" shape=ellipse]
+83 [label="18:CtLiteralImpl@1024" shape=ellipse]
+84 [label="18:CtVirtualElement@buf" shape=ellipse]
+85 [label="18:CtLocalVariableImpl@byte[] buf = new byte[1024]" shape=ellipse]
+86 [label="19:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+87 [label="19:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+88 [label="19:CtVariableReadImpl@file" shape=ellipse]
+89 [label="19:CtConstructorCallImpl@new FileInputStream(file)" shape=ellipse]
+90 [label="19:CtVirtualElement@finstr" shape=ellipse]
+91 [label="19:CtLocalVariableImpl@FileInputStream finstr = new FileInputStream(file)" shape=ellipse]
+92 [label="21:CtTypeReferenceImpl@BufferedInputStream" shape=ellipse]
+93 [label="21:CtTypeReferenceImpl@BufferedInputStream" shape=ellipse]
+94 [label="21:CtVariableReadImpl@finstr" shape=ellipse]
+95 [label="21:CtVariableReadImpl@buf" shape=ellipse]
+96 [label="21:CtLocalVariableReferenceImpl@buf" shape=ellipse]
+97 [label="21:CtFieldReadImpl@buf.length" shape=ellipse]
+98 [label="21:CtConstructorCallImpl@new BufferedInputStream(finstr, buf.length)" shape=ellipse]
+99 [label="21:CtVirtualElement@in" shape=ellipse]
+100 [label="21:CtLocalVariableImpl@BufferedInputStream in = new BufferedInputStream(finstr, buf.length)" shape=ellipse]
+101 [label="22:CtVariableWriteImpl@length" shape=ellipse]
+102 [label="22:CtExecutableReferenceImpl@read(byte[])" shape=ellipse]
+103 [label="22:CtVirtualElement@read" shape=ellipse]
+104 [label="22:CtVariableReadImpl@in" shape=ellipse]
+105 [label="22:CtVariableReadImpl@buf" shape=ellipse]
+106 [label="22:CtInvocationImpl@in.read(buf)" shape=ellipse]
+107 [label="22:CtAssignmentImpl@(length = in.read(buf))" shape=ellipse]
+108 [label="22:CtLiteralImpl@1" shape=ellipse]
+109 [label="22:CtUnaryOperatorImpl@(-1)" shape=ellipse]
+110 [label="22:CtBinaryOperatorImpl@(length = in.read(buf)) != (-1)" shape=ellipse]
+111 [label="23:CtExecutableReferenceImpl@write(byte[],int,int)" shape=ellipse]
+112 [label="23:CtVirtualElement@write" shape=ellipse]
+113 [label="23:CtVariableReadImpl@out" shape=ellipse]
+114 [label="23:CtVariableReadImpl@buf" shape=ellipse]
+115 [label="23:CtLiteralImpl@0" shape=ellipse]
+116 [label="23:CtVariableReadImpl@length" shape=ellipse]
+117 [label="23:CtInvocationImpl@out.write(buf, 0, length)" shape=ellipse]
+118 [label="22:CtBlockImpl@\{
+    out.write(buf, 0, length);
+\}" shape=ellipse]
+119 [label="22:CtWhileImpl@while ((length = in.read(buf)) != (-1)) \{
+    out.write(buf, 0, length);
+\} " shape=ellipse]
+120 [label="20:CtBlockImpl@\{
+    BufferedInputStream in = new BufferedInputStream(finstr, buf.length);
+    while ((length = in.read(buf)) != (-1)) \{
+        out.write(buf, 0, length);
+    \} 
+\}" shape=ellipse]
+121 [label="26:CtExecutableReferenceImpl@close()" shape=ellipse]
+122 [label="26:CtVirtualElement@close" shape=ellipse]
+123 [label="26:CtVariableReadImpl@finstr" shape=ellipse]
+124 [label="26:CtInvocationImpl@finstr.close()" shape=ellipse]
+125 [label="25:CtBlockImpl@\{
+    finstr.close();
+\}" shape=ellipse]
+126 [label="20:CtTryImpl@try \{
+    BufferedInputStream in = new BufferedInputStream(finstr, buf.length);
+    while ((length = in.read(buf)) != (-1)) \{
+        out.write(buf, 0, length);
+    \} 
+\} finally \{
+    finstr.close();
+\}" shape=ellipse]
+127 [label="2:CtBlockImpl@\{
+    if ((!file.exists()) || (!file.canRead())) \{
+        throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+    \}
+    if (includeFileNames) \{
+        out.println();
+        String filename = file.getName();
+        int filenamelength = filename.length();
+        out.println(filename);
+        for (int star = 0; star < filenamelength; star++) \{
+            out.print('=');
+        \}
+        out.println();
+    \}
+    int length;
+    byte[] buf = new byte[1024];
+    FileInputStream finstr = new FileInputStream(file);
+    try \{
+        BufferedInputStream in = new BufferedInputStream(finstr, buf.length);
+        while ((length = in.read(buf)) != (-1)) \{
+            out.write(buf, 0, length);
+        \} 
+    \} finally \{
+        finstr.close();
+    \}
+\}" shape=ellipse]
+128 [label="2:CtMethodImpl@protected void attach(File file, PrintStream out) throws IOException \{
+    if ((!file.exists()) || (!file.canRead())) \{
+        throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+    \}
+    if (includeFileNames) \{
+        out.println();
+        String filename = file.getName();
+        int filenamelength = filename.length();
+        out.println(filename);
+        for (int star = 0; star < filenamelength; star++) \{
+            out.print('=');
+        \}
+        out.println();
+    \}
+    int length;
+    byte[] buf = new byte[1024];
+    FileInputStream finstr = new FileInputStream(file);
+    try \{
+        BufferedInputStream in = new BufferedInputStream(finstr, buf.length);
+        while ((length = in.read(buf)) != (-1)) \{
+            out.write(buf, 0, length);
+        \} 
+    \} finally \{
+        finstr.close();
+    \}
+\}" shape=ellipse]
+129 [label="5:Update@UPDATE" shape=ellipse]
+130 [label="5:CtLiteralImpl@\"\\" does not exist or is not \"" shape=ellipse]
+131 [label="5:Insert@INSERT" shape=ellipse]
+132 [label="5:CtBinaryOperatorImpl@((\"File \\"\" + file.getName()) + \"\\" does not exist or is not \") + \"readable.\"" shape=ellipse]
+133 [label="5:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 11 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 29 [label="Control Dep"];
+17 -> 28 [label="Control Dep"];
+17 -> 27 [label="Control Dep"];
+17 -> 26 [label="Control Dep"];
+17 -> 24 [label="Control Dep"];
+17 -> 19 [label="Control Dep"];
+17 -> 23 [label="Control Dep"];
+17 -> 20 [label="Control Dep"];
+17 -> 22 [label="Control Dep"];
+17 -> 25 [label="Control Dep"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 129 [label="Action"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 133 [label="Action"];
+27 -> 26 [label="AST"];
+27 -> 131 [label="Action"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 17 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 75 [label="Control Dep"];
+31 -> 35 [label="Control Dep"];
+31 -> 32 [label="Control Dep"];
+31 -> 34 [label="Control Dep"];
+31 -> 42 [label="Control Dep"];
+31 -> 40 [label="Control Dep"];
+31 -> 37 [label="Control Dep"];
+31 -> 39 [label="Control Dep"];
+31 -> 49 [label="Control Dep"];
+31 -> 47 [label="Control Dep"];
+31 -> 44 [label="Control Dep"];
+31 -> 46 [label="Control Dep"];
+31 -> 54 [label="Control Dep"];
+31 -> 50 [label="Control Dep"];
+31 -> 52 [label="Control Dep"];
+31 -> 53 [label="Control Dep"];
+31 -> 70 [label="Control Dep"];
+31 -> 58 [label="Control Dep"];
+31 -> 56 [label="Control Dep"];
+31 -> 61 [label="Control Dep"];
+31 -> 59 [label="Control Dep"];
+31 -> 60 [label="Control Dep"];
+31 -> 63 [label="Control Dep"];
+31 -> 62 [label="Control Dep"];
+31 -> 74 [label="Control Dep"];
+31 -> 71 [label="Control Dep"];
+31 -> 73 [label="Control Dep"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 32 [label="AST"];
+39 -> 41 [label="Data Dep"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 37 [label="AST"];
+41 -> 46 [label="Define-Use"];
+41 -> 53 [label="Define-Use"];
+42 -> 41 [label="AST"];
+42 -> 36 [label="AST"];
+42 -> 40 [label="AST"];
+46 -> 48 [label="Data Dep"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 60 [label="Define-Use"];
+49 -> 48 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 47 [label="AST"];
+54 -> 51 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 50 [label="AST"];
+54 -> 53 [label="AST"];
+57 -> 59 [label="Define-Use"];
+58 -> 57 [label="AST"];
+58 -> 55 [label="AST"];
+58 -> 56 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+61 -> 69 [label="Control Dep"];
+61 -> 68 [label="Control Dep"];
+61 -> 64 [label="Control Dep"];
+61 -> 66 [label="Control Dep"];
+61 -> 67 [label="Control Dep"];
+63 -> 62 [label="AST"];
+68 -> 65 [label="AST"];
+68 -> 66 [label="AST"];
+68 -> 64 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 58 [label="AST"];
+70 -> 61 [label="AST"];
+70 -> 63 [label="AST"];
+70 -> 69 [label="AST"];
+74 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+74 -> 71 [label="AST"];
+75 -> 35 [label="AST"];
+75 -> 42 [label="AST"];
+75 -> 49 [label="AST"];
+75 -> 54 [label="AST"];
+75 -> 70 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 31 [label="AST"];
+76 -> 75 [label="AST"];
+78 -> 97 [label="Define-Use"];
+79 -> 78 [label="AST"];
+79 -> 77 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 83 [label="AST"];
+84 -> 95 [label="Define-Use"];
+84 -> 105 [label="Define-Use"];
+84 -> 114 [label="Define-Use"];
+85 -> 84 [label="AST"];
+85 -> 81 [label="AST"];
+85 -> 82 [label="AST"];
+88 -> 90 [label="Data Dep"];
+89 -> 88 [label="AST"];
+90 -> 94 [label="Define-Use"];
+90 -> 123 [label="Define-Use"];
+91 -> 90 [label="AST"];
+91 -> 86 [label="AST"];
+91 -> 89 [label="AST"];
+94 -> 99 [label="Data Dep"];
+95 -> 96 [label="AST"];
+97 -> 95 [label="AST"];
+97 -> 99 [label="Data Dep"];
+98 -> 94 [label="AST"];
+98 -> 97 [label="AST"];
+99 -> 104 [label="Define-Use"];
+100 -> 99 [label="AST"];
+100 -> 92 [label="AST"];
+100 -> 98 [label="AST"];
+101 -> 116 [label="Define-Use"];
+104 -> 101 [label="Data Dep"];
+105 -> 101 [label="Data Dep"];
+106 -> 103 [label="AST"];
+106 -> 104 [label="AST"];
+106 -> 102 [label="AST"];
+106 -> 105 [label="AST"];
+107 -> 101 [label="AST"];
+107 -> 106 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 107 [label="AST"];
+110 -> 109 [label="AST"];
+110 -> 118 [label="Control Dep"];
+110 -> 117 [label="Control Dep"];
+110 -> 111 [label="Control Dep"];
+110 -> 113 [label="Control Dep"];
+110 -> 114 [label="Control Dep"];
+110 -> 115 [label="Control Dep"];
+110 -> 116 [label="Control Dep"];
+117 -> 112 [label="AST"];
+117 -> 113 [label="AST"];
+117 -> 111 [label="AST"];
+117 -> 114 [label="AST"];
+117 -> 115 [label="AST"];
+117 -> 116 [label="AST"];
+118 -> 117 [label="AST"];
+119 -> 110 [label="AST"];
+119 -> 118 [label="AST"];
+120 -> 100 [label="AST"];
+120 -> 119 [label="AST"];
+124 -> 122 [label="AST"];
+124 -> 123 [label="AST"];
+124 -> 121 [label="AST"];
+125 -> 124 [label="AST"];
+126 -> 120 [label="AST"];
+126 -> 125 [label="AST"];
+127 -> 30 [label="AST"];
+127 -> 76 [label="AST"];
+127 -> 79 [label="AST"];
+127 -> 85 [label="AST"];
+127 -> 91 [label="AST"];
+127 -> 126 [label="AST"];
+128 -> 1 [label="AST"];
+128 -> 0 [label="AST"];
+128 -> 2 [label="AST"];
+128 -> 4 [label="AST"];
+128 -> 6 [label="AST"];
+128 -> 127 [label="AST"];
+129 -> 130 [label="Action"];
+131 -> 132 [label="Action"];
+133 -> 132 [label="Action"];
+}

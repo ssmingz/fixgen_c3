@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/240/14/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/240/14/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testNoJarNoClassname", "parameter validation", "Classname must not be null.");
++    try {
++      buildRule.executeTarget("testNoJarNoClassname");
++      fail("Build exception should have been thrown - parameter validation");
++    } catch (BuildException ex) {
++      assertContains("Classname must not be null.", ex.getMessage());
++    }

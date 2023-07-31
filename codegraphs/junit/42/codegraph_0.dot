@@ -1,0 +1,112 @@
+digraph "addFirstListener#?,RunListener" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addFirstListener" shape=ellipse]
+2 [label="2:CtParameterImpl@RunListener listener" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@RunListener" shape=ellipse]
+4 [label="3:CtVariableReadImpl@listener" shape=ellipse]
+5 [label="3:CtParameterReferenceImpl@listener" shape=ellipse]
+6 [label="3:CtLiteralImpl@null" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@<nulltype>" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@listener == null" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@java.lang.NullPointerException(java.lang.String)" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@NullPointerException" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@NullPointerException" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+13 [label="4:CtLiteralImpl@\"Cannot add a null listener\"" shape=ellipse]
+14 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+15 [label="4:CtConstructorCallImpl@new NullPointerException(\"Cannot add a null listener\")" shape=ellipse]
+16 [label="4:CtThrowImpl@throw new NullPointerException(\"Cannot add a null listener\")" shape=ellipse]
+17 [label="3:CtBlockImpl@\{
+    throw new NullPointerException(\"Cannot add a null listener\");
+\}" shape=ellipse]
+18 [label="3:CtIfImpl@if (listener == null) \{
+    throw new NullPointerException(\"Cannot add a null listener\");
+\}" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@add(int)" shape=ellipse]
+20 [label="6:CtTypeReferenceImpl@fListeners" shape=ellipse]
+21 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+22 [label="6:CtVirtualElement@add" shape=ellipse]
+23 [label="6:CtFieldReferenceImpl@fListeners" shape=ellipse]
+24 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+25 [label="6:CtFieldReadImpl@fListeners" shape=ellipse]
+26 [label="6:CtLiteralImpl@0" shape=ellipse]
+27 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+28 [label="6:CtExecutableReferenceImpl@wrapIfNotThreadSafe(<unknown>)" shape=ellipse]
+29 [label="6:CtTypeReferenceImpl@null" shape=ellipse]
+30 [label="6:CtVirtualElement@wrapIfNotThreadSafe" shape=ellipse]
+31 [label="6:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+32 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+33 [label="6:CtThisAccessImpl@" shape=ellipse]
+34 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+35 [label="6:CtVariableReadImpl@listener" shape=ellipse]
+36 [label="6:CtParameterReferenceImpl@listener" shape=ellipse]
+37 [label="6:CtInvocationImpl@wrapIfNotThreadSafe(listener)" shape=ellipse]
+38 [label="6:CtInvocationImpl@fListeners.add(0, wrapIfNotThreadSafe(listener))" shape=ellipse]
+39 [label="2:CtBlockImpl@\{
+    if (listener == null) \{
+        throw new NullPointerException(\"Cannot add a null listener\");
+    \}
+    fListeners.add(0, wrapIfNotThreadSafe(listener));
+\}" shape=ellipse]
+40 [label="2:CtMethodImpl@public void addFirstListener(RunListener listener) \{
+    if (listener == null) \{
+        throw new NullPointerException(\"Cannot add a null listener\");
+    \}
+    fListeners.add(0, wrapIfNotThreadSafe(listener));
+\}" shape=ellipse]
+41 [label="6:Update@UPDATE" shape=ellipse]
+42 [label="6:CtPackageReferenceImpl@" shape=ellipse]
+43 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+44 [label="6:CtFieldReferenceImpl@listeners" shape=ellipse]
+45 [label="6:CtFieldReadImpl@listeners" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 17 [label="Control Dep"];
+8 -> 16 [label="Control Dep"];
+8 -> 15 [label="Control Dep"];
+8 -> 9 [label="Control Dep"];
+8 -> 13 [label="Control Dep"];
+9 -> 10 [label="AST"];
+9 -> 11 [label="AST"];
+9 -> 12 [label="AST"];
+13 -> 14 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 13 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 8 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 21 [label="AST"];
+23 -> 24 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 41 [label="Action"];
+26 -> 27 [label="AST"];
+28 -> 29 [label="AST"];
+31 -> 32 [label="AST"];
+33 -> 34 [label="AST"];
+33 -> 31 [label="AST"];
+35 -> 36 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 28 [label="AST"];
+37 -> 35 [label="AST"];
+38 -> 22 [label="AST"];
+38 -> 25 [label="AST"];
+38 -> 19 [label="AST"];
+38 -> 26 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 18 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 1 [label="AST"];
+40 -> 0 [label="AST"];
+40 -> 2 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 45 [label="Action"];
+43 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+}

@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2099/6/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2099/6/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "doubleAttributeDef",
+-        "Should have detected duplicate attribute definition",
+-        "attr1 attribute more than once");
++    try {
++      buildRule.executeTarget("doubleAttributeDef");
++      fail("Should have detected duplicate attirbute definition");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("attr1 attribute more than once", ex.getMessage());
++    }

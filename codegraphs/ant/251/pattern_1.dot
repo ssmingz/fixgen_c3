@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testDoubleDefault#?#2:INSERT
+testDefaultTest#?#2:INSERT" shape=ellipse]
+1 [label="testDoubleDefault#?#2:public void testDoubleDefault() \{
+    expectLog(\"doubledefault\", \"attribute is falseattribute is true\");
+\}
+testDefaultTest#?#2:public void testDefaultTest() \{
+    expectLog(\"defaulttest\", \"attribute is false\");
+\}" shape=ellipse]
+2 [label="testDoubleDefault#?#2:testDoubleDefault
+testDefaultTest#?#2:testDefaultTest" shape=ellipse]
+3 [label="testDoubleDefault#?#2:void
+testDefaultTest#?#2:void" shape=ellipse]
+4 [label="testDoubleDefault#?#2:\{
+    expectLog(\"doubledefault\", \"attribute is falseattribute is true\");
+\}
+testDefaultTest#?#2:\{
+    expectLog(\"defaulttest\", \"attribute is false\");
+\}" shape=ellipse]
+5 [label="testDoubleDefault#?#3:expectLog(\"doubledefault\", \"attribute is falseattribute is true\")
+testDefaultTest#?#3:expectLog(\"defaulttest\", \"attribute is false\")" shape=ellipse]
+6 [label="testDoubleDefault#?#2:public
+testDefaultTest#?#2:public" shape=ellipse]
+7 [label="testDoubleDefault#?#2:VE: Modifiers_Method
+testDefaultTest#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testDoubleDefault#?#4:INSERT
+testDefaultTest#?#4:INSERT" shape=ellipse]
+9 [label="testDoubleDefault#?#4:buildRule.executeTarget(\"doubledefault\")
+testDefaultTest#?#4:buildRule.executeTarget(\"defaulttest\")" shape=ellipse]
+10 [label="testDoubleDefault#?#2:@Test
+testDefaultTest#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

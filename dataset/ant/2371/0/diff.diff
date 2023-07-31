@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2371/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2371/0/after.java
+@@ -8,4 +8,6 @@
+-    configure(test, config);
+-    final ConfigTestIdResolve expected = new ConfigTestIdResolve();
+-    expected.setSomeProp("some indirect value");
+-    assertEquals(expected, test);
++    try {
++      configure(test, config);
++    } catch (ConfigurationException e) {
++      return;
++    }
++    fail("-ref pattern on attributes no longer supported");

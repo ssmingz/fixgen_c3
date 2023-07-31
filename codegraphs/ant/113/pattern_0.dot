@@ -1,0 +1,31 @@
+digraph "Pattern" {
+0 [label="getClasspath#?#3:DELETE
+createClasspath#?#3:DELETE" shape=ellipse]
+1 [label="getClasspath#?#3:cpDelegate
+createClasspath#?#3:this.cpDelegate" shape=ellipse]
+2 [label="getClasspath#?#3:cpDelegate.getClasspath()
+createClasspath#?#3:this.cpDelegate.createClasspath()" shape=ellipse]
+3 [label="getClasspath#?#3:return cpDelegate.getClasspath()
+createClasspath#?#3:return this.cpDelegate.createClasspath()" shape=ellipse]
+4 [label="getClasspath#?#3:getClasspath
+createClasspath#?#3:createClasspath" shape=ellipse]
+5 [label="getClasspath#?#3:getClasspath()
+createClasspath#?#3:createClasspath()" shape=ellipse]
+6 [label="getClasspath#?#3:INSERT
+createClasspath#?#3:INSERT" shape=ellipse]
+7 [label="getClasspath#?#-1:cpDelegate
+createClasspath#?#-1:cpDelegate" shape=ellipse]
+8 [label="createClasspath#?#3:this" shape=ellipse]
+9 [label="createClasspath#?#-1:PlaceHold" shape=ellipse]
+10 [label="createClasspath#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+8 -> 10 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+}

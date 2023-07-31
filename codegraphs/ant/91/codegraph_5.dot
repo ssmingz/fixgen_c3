@@ -1,0 +1,820 @@
+digraph "buildFinished#?,BuildEvent" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@buildFinished" shape=ellipse]
+2 [label="2:CtParameterImpl@BuildEvent event" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@BuildEvent" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@buildFinished(BuildEvent)" shape=ellipse]
+5 [label="3:CtVirtualElement@buildFinished" shape=ellipse]
+6 [label="3:CtSuperAccessImpl@super" shape=ellipse]
+7 [label="3:CtVariableReadImpl@event" shape=ellipse]
+8 [label="3:CtInvocationImpl@super.buildFinished(event)" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@Project" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+11 [label="4:CtVirtualElement@getProject" shape=ellipse]
+12 [label="4:CtVariableReadImpl@event" shape=ellipse]
+13 [label="4:CtInvocationImpl@event.getProject()" shape=ellipse]
+14 [label="4:CtVirtualElement@project" shape=ellipse]
+15 [label="4:CtLocalVariableImpl@Project project = event.getProject()" shape=ellipse]
+16 [label="5:CtTypeReferenceImpl@Hashtable" shape=ellipse]
+17 [label="5:CtExecutableReferenceImpl@getProperties()" shape=ellipse]
+18 [label="5:CtVirtualElement@getProperties" shape=ellipse]
+19 [label="5:CtVariableReadImpl@project" shape=ellipse]
+20 [label="5:CtInvocationImpl@project.getProperties()" shape=ellipse]
+21 [label="5:CtVirtualElement@properties" shape=ellipse]
+22 [label="5:CtLocalVariableImpl@Hashtable properties = project.getProperties()" shape=ellipse]
+23 [label="6:CtTypeReferenceImpl@Properties" shape=ellipse]
+24 [label="6:CtTypeReferenceImpl@Properties" shape=ellipse]
+25 [label="6:CtConstructorCallImpl@new Properties()" shape=ellipse]
+26 [label="6:CtVirtualElement@fileProperties" shape=ellipse]
+27 [label="6:CtLocalVariableImpl@Properties fileProperties = new Properties()" shape=ellipse]
+28 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@get(java.lang.String)" shape=ellipse]
+30 [label="7:CtVirtualElement@get" shape=ellipse]
+31 [label="7:CtVariableReadImpl@properties" shape=ellipse]
+32 [label="7:CtLiteralImpl@\"MailLogger.properties.file\"" shape=ellipse]
+33 [label="7:CtInvocationImpl@((String) (properties.get(\"MailLogger.properties.file\")))" shape=ellipse]
+34 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+35 [label="7:CtVirtualElement@filename" shape=ellipse]
+36 [label="7:CtLocalVariableImpl@String filename = ((String) (properties.get(\"MailLogger.properties.file\")))" shape=ellipse]
+37 [label="8:CtVariableReadImpl@filename" shape=ellipse]
+38 [label="8:CtLiteralImpl@null" shape=ellipse]
+39 [label="8:CtBinaryOperatorImpl@filename != null" shape=ellipse]
+40 [label="9:CtTypeReferenceImpl@InputStream" shape=ellipse]
+41 [label="9:CtLiteralImpl@null" shape=ellipse]
+42 [label="9:CtVirtualElement@is" shape=ellipse]
+43 [label="9:CtLocalVariableImpl@InputStream is = null" shape=ellipse]
+44 [label="11:CtVariableWriteImpl@is" shape=ellipse]
+45 [label="11:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+46 [label="11:CtVariableReadImpl@filename" shape=ellipse]
+47 [label="11:CtConstructorCallImpl@new FileInputStream(filename)" shape=ellipse]
+48 [label="11:CtAssignmentImpl@is = new FileInputStream(filename)" shape=ellipse]
+49 [label="12:CtExecutableReferenceImpl@load(InputStream)" shape=ellipse]
+50 [label="12:CtVirtualElement@load" shape=ellipse]
+51 [label="12:CtVariableReadImpl@fileProperties" shape=ellipse]
+52 [label="12:CtVariableReadImpl@is" shape=ellipse]
+53 [label="12:CtInvocationImpl@fileProperties.load(is)" shape=ellipse]
+54 [label="10:CtBlockImpl@\{
+    is = new FileInputStream(filename);
+    fileProperties.load(is);
+\}" shape=ellipse]
+55 [label="13:CtVirtualElement@ioe" shape=ellipse]
+56 [label="13:CtTypeReferenceImpl@IOException" shape=ellipse]
+57 [label="13:CtCatchVariableImpl@IOException ioe" shape=ellipse]
+58 [label="13:CtBlockImpl@\{
+\}" shape=ellipse]
+59 [label="13:CtCatchImpl@ catch (IOException ioe) \{
+\}" shape=ellipse]
+60 [label="15:CtVariableReadImpl@is" shape=ellipse]
+61 [label="15:CtLiteralImpl@null" shape=ellipse]
+62 [label="15:CtBinaryOperatorImpl@is != null" shape=ellipse]
+63 [label="17:CtExecutableReferenceImpl@close()" shape=ellipse]
+64 [label="17:CtVirtualElement@close" shape=ellipse]
+65 [label="17:CtVariableReadImpl@is" shape=ellipse]
+66 [label="17:CtInvocationImpl@is.close()" shape=ellipse]
+67 [label="16:CtBlockImpl@\{
+    is.close();
+\}" shape=ellipse]
+68 [label="18:CtVirtualElement@e" shape=ellipse]
+69 [label="18:CtTypeReferenceImpl@IOException" shape=ellipse]
+70 [label="18:CtCatchVariableImpl@IOException e" shape=ellipse]
+71 [label="18:CtBlockImpl@\{
+\}" shape=ellipse]
+72 [label="18:CtCatchImpl@ catch (IOException e) \{
+\}" shape=ellipse]
+73 [label="16:CtTryImpl@try \{
+    is.close();
+\} catch (IOException e) \{
+\}" shape=ellipse]
+74 [label="15:CtBlockImpl@\{
+    try \{
+        is.close();
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+75 [label="15:CtIfImpl@if (is != null) \{
+    try \{
+        is.close();
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+76 [label="14:CtBlockImpl@\{
+    if (is != null) \{
+        try \{
+            is.close();
+        \} catch (IOException e) \{
+        \}
+    \}
+\}" shape=ellipse]
+77 [label="10:CtTryImpl@try \{
+    is = new FileInputStream(filename);
+    fileProperties.load(is);
+\} catch (IOException ioe) \{
+\} finally \{
+    if (is != null) \{
+        try \{
+            is.close();
+        \} catch (IOException e) \{
+        \}
+    \}
+\}" shape=ellipse]
+78 [label="8:CtBlockImpl@\{
+    InputStream is = null;
+    try \{
+        is = new FileInputStream(filename);
+        fileProperties.load(is);
+    \} catch (IOException ioe) \{
+    \} finally \{
+        if (is != null) \{
+            try \{
+                is.close();
+            \} catch (IOException e) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+79 [label="8:CtIfImpl@if (filename != null) \{
+    InputStream is = null;
+    try \{
+        is = new FileInputStream(filename);
+        fileProperties.load(is);
+    \} catch (IOException ioe) \{
+    \} finally \{
+        if (is != null) \{
+            try \{
+                is.close();
+            \} catch (IOException e) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+80 [label="23:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+81 [label="23:CtExecutableReferenceImpl@keys()" shape=ellipse]
+82 [label="23:CtVirtualElement@keys" shape=ellipse]
+83 [label="23:CtVariableReadImpl@fileProperties" shape=ellipse]
+84 [label="23:CtInvocationImpl@fileProperties.keys()" shape=ellipse]
+85 [label="23:CtVirtualElement@e" shape=ellipse]
+86 [label="23:CtLocalVariableImpl@Enumeration e = fileProperties.keys()" shape=ellipse]
+87 [label="23:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+88 [label="23:CtVirtualElement@hasMoreElements" shape=ellipse]
+89 [label="23:CtVariableReadImpl@e" shape=ellipse]
+90 [label="23:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+91 [label="24:CtTypeReferenceImpl@String" shape=ellipse]
+92 [label="24:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+93 [label="24:CtVirtualElement@nextElement" shape=ellipse]
+94 [label="24:CtVariableReadImpl@e" shape=ellipse]
+95 [label="24:CtInvocationImpl@((String) (e.nextElement()))" shape=ellipse]
+96 [label="24:CtTypeReferenceImpl@String" shape=ellipse]
+97 [label="24:CtVirtualElement@key" shape=ellipse]
+98 [label="24:CtLocalVariableImpl@String key = ((String) (e.nextElement()))" shape=ellipse]
+99 [label="25:CtTypeReferenceImpl@String" shape=ellipse]
+100 [label="25:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+101 [label="25:CtVirtualElement@getProperty" shape=ellipse]
+102 [label="25:CtVariableReadImpl@fileProperties" shape=ellipse]
+103 [label="25:CtVariableReadImpl@key" shape=ellipse]
+104 [label="25:CtInvocationImpl@fileProperties.getProperty(key)" shape=ellipse]
+105 [label="25:CtVirtualElement@value" shape=ellipse]
+106 [label="25:CtLocalVariableImpl@String value = fileProperties.getProperty(key)" shape=ellipse]
+107 [label="26:CtExecutableReferenceImpl@put(java.lang.String)" shape=ellipse]
+108 [label="26:CtVirtualElement@put" shape=ellipse]
+109 [label="26:CtVariableReadImpl@properties" shape=ellipse]
+110 [label="26:CtVariableReadImpl@key" shape=ellipse]
+111 [label="26:CtExecutableReferenceImpl@replaceProperties(java.lang.String)" shape=ellipse]
+112 [label="26:CtVirtualElement@replaceProperties" shape=ellipse]
+113 [label="26:CtVariableReadImpl@project" shape=ellipse]
+114 [label="26:CtVariableReadImpl@value" shape=ellipse]
+115 [label="26:CtInvocationImpl@project.replaceProperties(value)" shape=ellipse]
+116 [label="26:CtInvocationImpl@properties.put(key, project.replaceProperties(value))" shape=ellipse]
+117 [label="23:CtBlockImpl@\{
+    String key = ((String) (e.nextElement()));
+    String value = fileProperties.getProperty(key);
+    properties.put(key, project.replaceProperties(value));
+\}" shape=ellipse]
+118 [label="23:CtForImpl@for (Enumeration e = fileProperties.keys(); e.hasMoreElements();) \{
+    String key = ((String) (e.nextElement()));
+    String value = fileProperties.getProperty(key);
+    properties.put(key, project.replaceProperties(value));
+\}" shape=ellipse]
+119 [label="28:CtTypeReferenceImpl@boolean" shape=ellipse]
+120 [label="28:CtExecutableReferenceImpl@getException()" shape=ellipse]
+121 [label="28:CtVirtualElement@getException" shape=ellipse]
+122 [label="28:CtVariableReadImpl@event" shape=ellipse]
+123 [label="28:CtInvocationImpl@event.getException()" shape=ellipse]
+124 [label="28:CtLiteralImpl@null" shape=ellipse]
+125 [label="28:CtBinaryOperatorImpl@event.getException() == null" shape=ellipse]
+126 [label="28:CtVirtualElement@success" shape=ellipse]
+127 [label="28:CtLocalVariableImpl@boolean success = event.getException() == null" shape=ellipse]
+128 [label="29:CtTypeReferenceImpl@String" shape=ellipse]
+129 [label="29:CtVariableReadImpl@success" shape=ellipse]
+130 [label="29:CtLiteralImpl@\"success\"" shape=ellipse]
+131 [label="29:CtLiteralImpl@\"failure\"" shape=ellipse]
+132 [label="29:CtConditionalImpl@(success) ? \"success\" : \"failure\"" shape=ellipse]
+133 [label="29:CtVirtualElement@prefix" shape=ellipse]
+134 [label="29:CtLocalVariableImpl@String prefix = (success) ? \"success\" : \"failure\"" shape=ellipse]
+135 [label="31:CtTypeReferenceImpl@boolean" shape=ellipse]
+136 [label="31:CtExecutableReferenceImpl@toBoolean()" shape=ellipse]
+137 [label="31:CtVirtualElement@toBoolean" shape=ellipse]
+138 [label="31:CtTypeAccessImpl@Project" shape=ellipse]
+139 [label="31:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,java.lang.String)" shape=ellipse]
+140 [label="31:CtVirtualElement@getValue" shape=ellipse]
+141 [label="31:CtVariableReadImpl@properties" shape=ellipse]
+142 [label="31:CtVariableReadImpl@prefix" shape=ellipse]
+143 [label="31:CtLiteralImpl@\".notify\"" shape=ellipse]
+144 [label="31:CtBinaryOperatorImpl@prefix + \".notify\"" shape=ellipse]
+145 [label="31:CtLiteralImpl@\"on\"" shape=ellipse]
+146 [label="31:CtInvocationImpl@getValue(properties, prefix + \".notify\", \"on\")" shape=ellipse]
+147 [label="31:CtInvocationImpl@Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"))" shape=ellipse]
+148 [label="31:CtVirtualElement@notify" shape=ellipse]
+149 [label="31:CtLocalVariableImpl@boolean notify = Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"))" shape=ellipse]
+150 [label="32:CtVariableReadImpl@notify" shape=ellipse]
+151 [label="32:CtUnaryOperatorImpl@!notify" shape=ellipse]
+152 [label="33:CtReturnImpl@return" shape=ellipse]
+153 [label="32:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+154 [label="32:CtIfImpl@if (!notify) \{
+    return;
+\}" shape=ellipse]
+155 [label="35:CtTypeReferenceImpl@String" shape=ellipse]
+156 [label="35:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,java.lang.String)" shape=ellipse]
+157 [label="35:CtVirtualElement@getValue" shape=ellipse]
+158 [label="35:CtVariableReadImpl@properties" shape=ellipse]
+159 [label="35:CtLiteralImpl@\"mailhost\"" shape=ellipse]
+160 [label="35:CtLiteralImpl@\"localhost\"" shape=ellipse]
+161 [label="35:CtInvocationImpl@getValue(properties, \"mailhost\", \"localhost\")" shape=ellipse]
+162 [label="35:CtVirtualElement@mailhost" shape=ellipse]
+163 [label="35:CtLocalVariableImpl@String mailhost = getValue(properties, \"mailhost\", \"localhost\")" shape=ellipse]
+164 [label="36:CtTypeReferenceImpl@int" shape=ellipse]
+165 [label="36:CtExecutableReferenceImpl@parseInt(java.lang.String)" shape=ellipse]
+166 [label="36:CtVirtualElement@parseInt" shape=ellipse]
+167 [label="36:CtTypeAccessImpl@Integer" shape=ellipse]
+168 [label="36:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,<unknown>)" shape=ellipse]
+169 [label="36:CtVirtualElement@getValue" shape=ellipse]
+170 [label="36:CtVariableReadImpl@properties" shape=ellipse]
+171 [label="36:CtLiteralImpl@\"port\"" shape=ellipse]
+172 [label="36:CtExecutableReferenceImpl@valueOf(char[])" shape=ellipse]
+173 [label="36:CtVirtualElement@valueOf" shape=ellipse]
+174 [label="36:CtTypeAccessImpl@String" shape=ellipse]
+175 [label="36:CtTypeAccessImpl@DEFAULT_PORT" shape=ellipse]
+176 [label="36:CtInvocationImpl@String.valueOf(DEFAULT_PORT)" shape=ellipse]
+177 [label="36:CtInvocationImpl@getValue(properties, \"port\", String.valueOf(DEFAULT_PORT))" shape=ellipse]
+178 [label="36:CtInvocationImpl@Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)))" shape=ellipse]
+179 [label="36:CtVirtualElement@port" shape=ellipse]
+180 [label="36:CtLocalVariableImpl@int port = Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)))" shape=ellipse]
+181 [label="37:CtTypeReferenceImpl@String" shape=ellipse]
+182 [label="37:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,<unknown>)" shape=ellipse]
+183 [label="37:CtVirtualElement@getValue" shape=ellipse]
+184 [label="37:CtVariableReadImpl@properties" shape=ellipse]
+185 [label="37:CtLiteralImpl@\"from\"" shape=ellipse]
+186 [label="37:CtLiteralImpl@null" shape=ellipse]
+187 [label="37:CtInvocationImpl@getValue(properties, \"from\", null)" shape=ellipse]
+188 [label="37:CtVirtualElement@from" shape=ellipse]
+189 [label="37:CtLocalVariableImpl@String from = getValue(properties, \"from\", null)" shape=ellipse]
+190 [label="38:CtTypeReferenceImpl@String" shape=ellipse]
+191 [label="38:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,<unknown>)" shape=ellipse]
+192 [label="38:CtVirtualElement@getValue" shape=ellipse]
+193 [label="38:CtVariableReadImpl@properties" shape=ellipse]
+194 [label="38:CtVariableReadImpl@prefix" shape=ellipse]
+195 [label="38:CtLiteralImpl@\".to\"" shape=ellipse]
+196 [label="38:CtBinaryOperatorImpl@prefix + \".to\"" shape=ellipse]
+197 [label="38:CtLiteralImpl@null" shape=ellipse]
+198 [label="38:CtInvocationImpl@getValue(properties, prefix + \".to\", null)" shape=ellipse]
+199 [label="38:CtVirtualElement@toList" shape=ellipse]
+200 [label="38:CtLocalVariableImpl@String toList = getValue(properties, prefix + \".to\", null)" shape=ellipse]
+201 [label="39:CtTypeReferenceImpl@String" shape=ellipse]
+202 [label="40:CtExecutableReferenceImpl@getValue(<unknown>,java.lang.String,java.lang.Object)" shape=ellipse]
+203 [label="40:CtVirtualElement@getValue" shape=ellipse]
+204 [label="40:CtVariableReadImpl@properties" shape=ellipse]
+205 [label="40:CtVariableReadImpl@prefix" shape=ellipse]
+206 [label="40:CtLiteralImpl@\".subject\"" shape=ellipse]
+207 [label="40:CtBinaryOperatorImpl@prefix + \".subject\"" shape=ellipse]
+208 [label="40:CtVariableReadImpl@success" shape=ellipse]
+209 [label="40:CtLiteralImpl@\"Build Success\"" shape=ellipse]
+210 [label="40:CtLiteralImpl@\"Build Failure\"" shape=ellipse]
+211 [label="40:CtConditionalImpl@success ? \"Build Success\" : \"Build Failure\"" shape=ellipse]
+212 [label="40:CtInvocationImpl@getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\")" shape=ellipse]
+213 [label="39:CtVirtualElement@subject" shape=ellipse]
+214 [label="39:CtLocalVariableImpl@String subject = getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\")" shape=ellipse]
+215 [label="41:CtExecutableReferenceImpl@sendMail(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,<unknown>)" shape=ellipse]
+216 [label="41:CtVirtualElement@sendMail" shape=ellipse]
+217 [label="41:CtVariableReadImpl@mailhost" shape=ellipse]
+218 [label="41:CtVariableReadImpl@port" shape=ellipse]
+219 [label="41:CtVariableReadImpl@from" shape=ellipse]
+220 [label="41:CtVariableReadImpl@toList" shape=ellipse]
+221 [label="41:CtVariableReadImpl@subject" shape=ellipse]
+222 [label="41:CtExecutableReferenceImpl@toString()" shape=ellipse]
+223 [label="41:CtVirtualElement@toString" shape=ellipse]
+224 [label="41:CtFieldReadImpl@buffer" shape=ellipse]
+225 [label="41:CtInvocationImpl@buffer.toString()" shape=ellipse]
+226 [label="41:CtInvocationImpl@sendMail(mailhost, port, from, toList, subject, buffer.toString())" shape=ellipse]
+227 [label="30:CtBlockImpl@\{
+    boolean notify = Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"));
+    if (!notify) \{
+        return;
+    \}
+    String mailhost = getValue(properties, \"mailhost\", \"localhost\");
+    int port = Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)));
+    String from = getValue(properties, \"from\", null);
+    String toList = getValue(properties, prefix + \".to\", null);
+    String subject = getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\");
+    sendMail(mailhost, port, from, toList, subject, buffer.toString());
+\}" shape=ellipse]
+228 [label="42:CtVirtualElement@e" shape=ellipse]
+229 [label="42:CtTypeReferenceImpl@Exception" shape=ellipse]
+230 [label="42:CtCatchVariableImpl@Exception e" shape=ellipse]
+231 [label="43:CtExecutableReferenceImpl@println(java.lang.String)" shape=ellipse]
+232 [label="43:CtVirtualElement@println" shape=ellipse]
+233 [label="43:CtTypeAccessImpl@System" shape=ellipse]
+234 [label="43:CtFieldReadImpl@System.out" shape=ellipse]
+235 [label="43:CtFieldReferenceImpl@java.lang.System.out" shape=ellipse]
+236 [label="43:CtLiteralImpl@\"MailLogger failed to send e-mail!\"" shape=ellipse]
+237 [label="43:CtInvocationImpl@System.out.println(\"MailLogger failed to send e-mail!\")" shape=ellipse]
+238 [label="44:CtExecutableReferenceImpl@printStackTrace(java.io.PrintStream)" shape=ellipse]
+239 [label="44:CtVirtualElement@printStackTrace" shape=ellipse]
+240 [label="44:CtVariableReadImpl@e" shape=ellipse]
+241 [label="44:CtTypeAccessImpl@System" shape=ellipse]
+242 [label="44:CtFieldReadImpl@System.err" shape=ellipse]
+243 [label="44:CtFieldReferenceImpl@java.lang.System.err" shape=ellipse]
+244 [label="44:CtInvocationImpl@e.printStackTrace(System.err)" shape=ellipse]
+245 [label="42:CtBlockImpl@\{
+    System.out.println(\"MailLogger failed to send e-mail!\");
+    e.printStackTrace(System.err);
+\}" shape=ellipse]
+246 [label="42:CtCatchImpl@ catch (Exception e) \{
+    System.out.println(\"MailLogger failed to send e-mail!\");
+    e.printStackTrace(System.err);
+\}" shape=ellipse]
+247 [label="30:CtTryImpl@try \{
+    boolean notify = Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"));
+    if (!notify) \{
+        return;
+    \}
+    String mailhost = getValue(properties, \"mailhost\", \"localhost\");
+    int port = Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)));
+    String from = getValue(properties, \"from\", null);
+    String toList = getValue(properties, prefix + \".to\", null);
+    String subject = getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\");
+    sendMail(mailhost, port, from, toList, subject, buffer.toString());
+\} catch (Exception e) \{
+    System.out.println(\"MailLogger failed to send e-mail!\");
+    e.printStackTrace(System.err);
+\}" shape=ellipse]
+248 [label="2:CtBlockImpl@\{
+    super.buildFinished(event);
+    Project project = event.getProject();
+    Hashtable properties = project.getProperties();
+    Properties fileProperties = new Properties();
+    String filename = ((String) (properties.get(\"MailLogger.properties.file\")));
+    if (filename != null) \{
+        InputStream is = null;
+        try \{
+            is = new FileInputStream(filename);
+            fileProperties.load(is);
+        \} catch (IOException ioe) \{
+        \} finally \{
+            if (is != null) \{
+                try \{
+                    is.close();
+                \} catch (IOException e) \{
+                \}
+            \}
+        \}
+    \}
+    for (Enumeration e = fileProperties.keys(); e.hasMoreElements();) \{
+        String key = ((String) (e.nextElement()));
+        String value = fileProperties.getProperty(key);
+        properties.put(key, project.replaceProperties(value));
+    \}
+    boolean success = event.getException() == null;
+    String prefix = (success) ? \"success\" : \"failure\";
+    try \{
+        boolean notify = Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"));
+        if (!notify) \{
+            return;
+        \}
+        String mailhost = getValue(properties, \"mailhost\", \"localhost\");
+        int port = Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)));
+        String from = getValue(properties, \"from\", null);
+        String toList = getValue(properties, prefix + \".to\", null);
+        String subject = getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\");
+        sendMail(mailhost, port, from, toList, subject, buffer.toString());
+    \} catch (Exception e) \{
+        System.out.println(\"MailLogger failed to send e-mail!\");
+        e.printStackTrace(System.err);
+    \}
+\}" shape=ellipse]
+249 [label="2:CtMethodImpl@public void buildFinished(BuildEvent event) \{
+    super.buildFinished(event);
+    Project project = event.getProject();
+    Hashtable properties = project.getProperties();
+    Properties fileProperties = new Properties();
+    String filename = ((String) (properties.get(\"MailLogger.properties.file\")));
+    if (filename != null) \{
+        InputStream is = null;
+        try \{
+            is = new FileInputStream(filename);
+            fileProperties.load(is);
+        \} catch (IOException ioe) \{
+        \} finally \{
+            if (is != null) \{
+                try \{
+                    is.close();
+                \} catch (IOException e) \{
+                \}
+            \}
+        \}
+    \}
+    for (Enumeration e = fileProperties.keys(); e.hasMoreElements();) \{
+        String key = ((String) (e.nextElement()));
+        String value = fileProperties.getProperty(key);
+        properties.put(key, project.replaceProperties(value));
+    \}
+    boolean success = event.getException() == null;
+    String prefix = (success) ? \"success\" : \"failure\";
+    try \{
+        boolean notify = Project.toBoolean(getValue(properties, prefix + \".notify\", \"on\"));
+        if (!notify) \{
+            return;
+        \}
+        String mailhost = getValue(properties, \"mailhost\", \"localhost\");
+        int port = Integer.parseInt(getValue(properties, \"port\", String.valueOf(DEFAULT_PORT)));
+        String from = getValue(properties, \"from\", null);
+        String toList = getValue(properties, prefix + \".to\", null);
+        String subject = getValue(properties, prefix + \".subject\", success ? \"Build Success\" : \"Build Failure\");
+        sendMail(mailhost, port, from, toList, subject, buffer.toString());
+    \} catch (Exception e) \{
+        System.out.println(\"MailLogger failed to send e-mail!\");
+        e.printStackTrace(System.err);
+    \}
+\}" shape=ellipse]
+250 [label="41:Update@UPDATE" shape=ellipse]
+251 [label="41:CtInvocationImpl@buffer.substring(0)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+12 -> 14 [label="Data Dep"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 10 [label="AST"];
+14 -> 19 [label="Define-Use"];
+14 -> 113 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 13 [label="AST"];
+19 -> 21 [label="Data Dep"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+21 -> 31 [label="Define-Use"];
+21 -> 109 [label="Define-Use"];
+21 -> 141 [label="Define-Use"];
+21 -> 158 [label="Define-Use"];
+21 -> 170 [label="Define-Use"];
+21 -> 184 [label="Define-Use"];
+21 -> 193 [label="Define-Use"];
+21 -> 204 [label="Define-Use"];
+22 -> 21 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 20 [label="AST"];
+26 -> 51 [label="Define-Use"];
+26 -> 83 [label="Define-Use"];
+26 -> 102 [label="Define-Use"];
+27 -> 26 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 25 [label="AST"];
+31 -> 35 [label="Data Dep"];
+33 -> 30 [label="AST"];
+33 -> 34 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 32 [label="AST"];
+35 -> 37 [label="Define-Use"];
+35 -> 46 [label="Define-Use"];
+36 -> 35 [label="AST"];
+36 -> 28 [label="AST"];
+36 -> 33 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 78 [label="Control Dep"];
+39 -> 43 [label="Control Dep"];
+39 -> 41 [label="Control Dep"];
+39 -> 77 [label="Control Dep"];
+39 -> 54 [label="Control Dep"];
+39 -> 48 [label="Control Dep"];
+39 -> 44 [label="Control Dep"];
+39 -> 47 [label="Control Dep"];
+39 -> 46 [label="Control Dep"];
+39 -> 53 [label="Control Dep"];
+39 -> 49 [label="Control Dep"];
+39 -> 51 [label="Control Dep"];
+39 -> 52 [label="Control Dep"];
+39 -> 59 [label="Control Dep"];
+39 -> 57 [label="Control Dep"];
+39 -> 76 [label="Control Dep"];
+39 -> 75 [label="Control Dep"];
+39 -> 62 [label="Control Dep"];
+39 -> 60 [label="Control Dep"];
+39 -> 61 [label="Control Dep"];
+43 -> 42 [label="AST"];
+43 -> 40 [label="AST"];
+43 -> 41 [label="AST"];
+44 -> 52 [label="Define-Use"];
+44 -> 60 [label="Define-Use"];
+44 -> 65 [label="Define-Use"];
+46 -> 44 [label="Data Dep"];
+47 -> 46 [label="AST"];
+48 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+53 -> 50 [label="AST"];
+53 -> 51 [label="AST"];
+53 -> 49 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 48 [label="AST"];
+54 -> 53 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+57 -> 58 [label="Control Dep"];
+59 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 74 [label="Control Dep"];
+62 -> 73 [label="Control Dep"];
+62 -> 67 [label="Control Dep"];
+62 -> 66 [label="Control Dep"];
+62 -> 63 [label="Control Dep"];
+62 -> 65 [label="Control Dep"];
+62 -> 72 [label="Control Dep"];
+62 -> 70 [label="Control Dep"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 63 [label="AST"];
+67 -> 66 [label="AST"];
+70 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+70 -> 71 [label="Control Dep"];
+72 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 67 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 62 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 54 [label="AST"];
+77 -> 59 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 43 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 39 [label="AST"];
+79 -> 78 [label="AST"];
+83 -> 85 [label="Data Dep"];
+84 -> 82 [label="AST"];
+84 -> 83 [label="AST"];
+84 -> 81 [label="AST"];
+85 -> 89 [label="Define-Use"];
+85 -> 94 [label="Define-Use"];
+86 -> 85 [label="AST"];
+86 -> 80 [label="AST"];
+86 -> 84 [label="AST"];
+90 -> 88 [label="AST"];
+90 -> 89 [label="AST"];
+90 -> 87 [label="AST"];
+90 -> 117 [label="Control Dep"];
+90 -> 98 [label="Control Dep"];
+90 -> 95 [label="Control Dep"];
+90 -> 92 [label="Control Dep"];
+90 -> 94 [label="Control Dep"];
+90 -> 106 [label="Control Dep"];
+90 -> 104 [label="Control Dep"];
+90 -> 100 [label="Control Dep"];
+90 -> 102 [label="Control Dep"];
+90 -> 103 [label="Control Dep"];
+90 -> 116 [label="Control Dep"];
+90 -> 107 [label="Control Dep"];
+90 -> 109 [label="Control Dep"];
+90 -> 110 [label="Control Dep"];
+90 -> 115 [label="Control Dep"];
+90 -> 111 [label="Control Dep"];
+90 -> 113 [label="Control Dep"];
+90 -> 114 [label="Control Dep"];
+94 -> 97 [label="Data Dep"];
+95 -> 93 [label="AST"];
+95 -> 96 [label="AST"];
+95 -> 94 [label="AST"];
+95 -> 92 [label="AST"];
+97 -> 103 [label="Define-Use"];
+97 -> 110 [label="Define-Use"];
+98 -> 97 [label="AST"];
+98 -> 91 [label="AST"];
+98 -> 95 [label="AST"];
+102 -> 105 [label="Data Dep"];
+103 -> 105 [label="Data Dep"];
+104 -> 101 [label="AST"];
+104 -> 102 [label="AST"];
+104 -> 100 [label="AST"];
+104 -> 103 [label="AST"];
+105 -> 114 [label="Define-Use"];
+106 -> 105 [label="AST"];
+106 -> 99 [label="AST"];
+106 -> 104 [label="AST"];
+115 -> 112 [label="AST"];
+115 -> 113 [label="AST"];
+115 -> 111 [label="AST"];
+115 -> 114 [label="AST"];
+116 -> 108 [label="AST"];
+116 -> 109 [label="AST"];
+116 -> 107 [label="AST"];
+116 -> 110 [label="AST"];
+116 -> 115 [label="AST"];
+117 -> 98 [label="AST"];
+117 -> 106 [label="AST"];
+117 -> 116 [label="AST"];
+118 -> 86 [label="AST"];
+118 -> 90 [label="AST"];
+118 -> 117 [label="AST"];
+122 -> 126 [label="Data Dep"];
+123 -> 121 [label="AST"];
+123 -> 122 [label="AST"];
+123 -> 120 [label="AST"];
+125 -> 123 [label="AST"];
+125 -> 124 [label="AST"];
+126 -> 129 [label="Define-Use"];
+126 -> 208 [label="Define-Use"];
+127 -> 126 [label="AST"];
+127 -> 119 [label="AST"];
+127 -> 125 [label="AST"];
+129 -> 130 [label="Control Dep"];
+129 -> 131 [label="Control Dep"];
+129 -> 133 [label="Data Dep"];
+132 -> 129 [label="AST"];
+132 -> 130 [label="AST"];
+132 -> 131 [label="AST"];
+133 -> 142 [label="Define-Use"];
+133 -> 194 [label="Define-Use"];
+133 -> 205 [label="Define-Use"];
+134 -> 133 [label="AST"];
+134 -> 128 [label="AST"];
+134 -> 132 [label="AST"];
+141 -> 148 [label="Data Dep"];
+142 -> 148 [label="Data Dep"];
+144 -> 142 [label="AST"];
+144 -> 143 [label="AST"];
+146 -> 140 [label="AST"];
+146 -> 139 [label="AST"];
+146 -> 141 [label="AST"];
+146 -> 144 [label="AST"];
+146 -> 145 [label="AST"];
+147 -> 137 [label="AST"];
+147 -> 138 [label="AST"];
+147 -> 136 [label="AST"];
+147 -> 146 [label="AST"];
+148 -> 150 [label="Define-Use"];
+149 -> 148 [label="AST"];
+149 -> 135 [label="AST"];
+149 -> 147 [label="AST"];
+151 -> 150 [label="AST"];
+151 -> 153 [label="Control Dep"];
+151 -> 152 [label="Control Dep"];
+153 -> 152 [label="AST"];
+154 -> 151 [label="AST"];
+154 -> 153 [label="AST"];
+158 -> 162 [label="Data Dep"];
+161 -> 157 [label="AST"];
+161 -> 156 [label="AST"];
+161 -> 158 [label="AST"];
+161 -> 159 [label="AST"];
+161 -> 160 [label="AST"];
+162 -> 217 [label="Define-Use"];
+163 -> 162 [label="AST"];
+163 -> 155 [label="AST"];
+163 -> 161 [label="AST"];
+170 -> 179 [label="Data Dep"];
+176 -> 173 [label="AST"];
+176 -> 174 [label="AST"];
+176 -> 172 [label="AST"];
+176 -> 175 [label="AST"];
+177 -> 169 [label="AST"];
+177 -> 168 [label="AST"];
+177 -> 170 [label="AST"];
+177 -> 171 [label="AST"];
+177 -> 176 [label="AST"];
+178 -> 166 [label="AST"];
+178 -> 167 [label="AST"];
+178 -> 165 [label="AST"];
+178 -> 177 [label="AST"];
+179 -> 218 [label="Define-Use"];
+180 -> 179 [label="AST"];
+180 -> 164 [label="AST"];
+180 -> 178 [label="AST"];
+184 -> 188 [label="Data Dep"];
+187 -> 183 [label="AST"];
+187 -> 182 [label="AST"];
+187 -> 184 [label="AST"];
+187 -> 185 [label="AST"];
+187 -> 186 [label="AST"];
+188 -> 219 [label="Define-Use"];
+189 -> 188 [label="AST"];
+189 -> 181 [label="AST"];
+189 -> 187 [label="AST"];
+193 -> 199 [label="Data Dep"];
+194 -> 199 [label="Data Dep"];
+196 -> 194 [label="AST"];
+196 -> 195 [label="AST"];
+198 -> 192 [label="AST"];
+198 -> 191 [label="AST"];
+198 -> 193 [label="AST"];
+198 -> 196 [label="AST"];
+198 -> 197 [label="AST"];
+199 -> 220 [label="Define-Use"];
+200 -> 199 [label="AST"];
+200 -> 190 [label="AST"];
+200 -> 198 [label="AST"];
+204 -> 213 [label="Data Dep"];
+205 -> 213 [label="Data Dep"];
+207 -> 205 [label="AST"];
+207 -> 206 [label="AST"];
+208 -> 209 [label="Control Dep"];
+208 -> 210 [label="Control Dep"];
+208 -> 213 [label="Data Dep"];
+211 -> 208 [label="AST"];
+211 -> 209 [label="AST"];
+211 -> 210 [label="AST"];
+212 -> 203 [label="AST"];
+212 -> 202 [label="AST"];
+212 -> 204 [label="AST"];
+212 -> 207 [label="AST"];
+212 -> 211 [label="AST"];
+213 -> 221 [label="Define-Use"];
+214 -> 213 [label="AST"];
+214 -> 201 [label="AST"];
+214 -> 212 [label="AST"];
+225 -> 223 [label="AST"];
+225 -> 224 [label="AST"];
+225 -> 222 [label="AST"];
+225 -> 250 [label="Action"];
+226 -> 216 [label="AST"];
+226 -> 215 [label="AST"];
+226 -> 217 [label="AST"];
+226 -> 218 [label="AST"];
+226 -> 219 [label="AST"];
+226 -> 220 [label="AST"];
+226 -> 221 [label="AST"];
+226 -> 225 [label="AST"];
+227 -> 149 [label="AST"];
+227 -> 154 [label="AST"];
+227 -> 163 [label="AST"];
+227 -> 180 [label="AST"];
+227 -> 189 [label="AST"];
+227 -> 200 [label="AST"];
+227 -> 214 [label="AST"];
+227 -> 226 [label="AST"];
+228 -> 240 [label="Define-Use"];
+230 -> 228 [label="AST"];
+230 -> 229 [label="AST"];
+230 -> 245 [label="Control Dep"];
+230 -> 237 [label="Control Dep"];
+230 -> 231 [label="Control Dep"];
+230 -> 234 [label="Control Dep"];
+230 -> 233 [label="Control Dep"];
+230 -> 236 [label="Control Dep"];
+230 -> 244 [label="Control Dep"];
+230 -> 238 [label="Control Dep"];
+230 -> 240 [label="Control Dep"];
+230 -> 242 [label="Control Dep"];
+230 -> 241 [label="Control Dep"];
+234 -> 233 [label="AST"];
+234 -> 235 [label="AST"];
+237 -> 232 [label="AST"];
+237 -> 234 [label="AST"];
+237 -> 231 [label="AST"];
+237 -> 236 [label="AST"];
+242 -> 241 [label="AST"];
+242 -> 243 [label="AST"];
+244 -> 239 [label="AST"];
+244 -> 240 [label="AST"];
+244 -> 238 [label="AST"];
+244 -> 242 [label="AST"];
+245 -> 237 [label="AST"];
+245 -> 244 [label="AST"];
+246 -> 230 [label="AST"];
+246 -> 245 [label="AST"];
+247 -> 227 [label="AST"];
+247 -> 246 [label="AST"];
+248 -> 8 [label="AST"];
+248 -> 15 [label="AST"];
+248 -> 22 [label="AST"];
+248 -> 27 [label="AST"];
+248 -> 36 [label="AST"];
+248 -> 79 [label="AST"];
+248 -> 118 [label="AST"];
+248 -> 127 [label="AST"];
+248 -> 134 [label="AST"];
+248 -> 247 [label="AST"];
+249 -> 1 [label="AST"];
+249 -> 0 [label="AST"];
+249 -> 2 [label="AST"];
+249 -> 248 [label="AST"];
+250 -> 251 [label="Action"];
+}

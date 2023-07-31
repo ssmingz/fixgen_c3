@@ -1,0 +1,47 @@
+digraph "Pattern" {
+0 [label="getNumberOfValidBranches#?#8:INSERT
+getNumberOfCoveredBranches#?#8:INSERT" shape=ellipse]
+1 [label="getNumberOfValidBranches#?#8:i.next()
+getNumberOfCoveredBranches#?#8:i.next()" shape=ellipse]
+2 [label="getNumberOfValidBranches#?#8:i.next().getNumberOfValidBranches()
+getNumberOfCoveredBranches#?#8:i.next().getNumberOfCoveredBranches()" shape=ellipse]
+3 [label="getNumberOfValidBranches#?#8:number += i.next().getNumberOfValidBranches()
+getNumberOfCoveredBranches#?#8:number += i.next().getNumberOfCoveredBranches()" shape=ellipse]
+4 [label="getNumberOfValidBranches#?#8:getNumberOfValidBranches
+getNumberOfCoveredBranches#?#8:getNumberOfCoveredBranches" shape=ellipse]
+5 [label="getNumberOfValidBranches#?#8:getNumberOfValidBranches()
+getNumberOfCoveredBranches#?#8:getNumberOfCoveredBranches()" shape=ellipse]
+6 [label="getNumberOfValidBranches#?#8:next
+getNumberOfCoveredBranches#?#8:next" shape=ellipse]
+7 [label="getNumberOfValidBranches#?#8:i
+getNumberOfCoveredBranches#?#8:i" shape=ellipse]
+8 [label="getNumberOfValidBranches#?#6:i
+getNumberOfCoveredBranches#?#6:i" shape=ellipse]
+9 [label="getNumberOfValidBranches#?#8:i
+getNumberOfCoveredBranches#?#8:i" shape=ellipse]
+10 [label="getNumberOfValidBranches#?#8:number
+getNumberOfCoveredBranches#?#8:number" shape=ellipse]
+11 [label="getNumberOfValidBranches#?#8:next()
+getNumberOfCoveredBranches#?#8:next()" shape=ellipse]
+12 [label="getNumberOfValidBranches#?#8:Iterator<LineData>
+getNumberOfCoveredBranches#?#8:Iterator<LineData>" shape=ellipse]
+13 [label="getNumberOfValidBranches#?#8:LineData
+getNumberOfCoveredBranches#?#8:LineData" shape=ellipse]
+14 [label="getNumberOfValidBranches#?#8:
+getNumberOfCoveredBranches#?#8:" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 10 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="Data Dep:2"];
+8 -> 7 [label="Define Use:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

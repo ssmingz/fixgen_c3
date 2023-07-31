@@ -1,0 +1,923 @@
+digraph "resolveExecutable#?,String,boolean" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@resolveExecutable" shape=ellipse]
+2 [label="2:CtParameterImpl@String exec" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@boolean mustSearchPath" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+6 [label="3:CtFieldReadImpl@resolveExecutable" shape=ellipse]
+7 [label="3:CtUnaryOperatorImpl@!resolveExecutable" shape=ellipse]
+8 [label="4:CtVariableReadImpl@exec" shape=ellipse]
+9 [label="4:CtReturnImpl@return exec" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    return exec;
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (!resolveExecutable) \{
+    return exec;
+\}" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+13 [label="6:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+14 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+15 [label="6:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+17 [label="6:CtVirtualElement@getBaseDir" shape=ellipse]
+18 [label="6:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+19 [label="6:CtVirtualElement@getProject" shape=ellipse]
+20 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+21 [label="6:CtInvocationImpl@getProject().getBaseDir()" shape=ellipse]
+22 [label="6:CtVariableReadImpl@exec" shape=ellipse]
+23 [label="6:CtInvocationImpl@FILE_UTILS.resolveFile(getProject().getBaseDir(), exec)" shape=ellipse]
+24 [label="6:CtVirtualElement@executableFile" shape=ellipse]
+25 [label="6:CtLocalVariableImpl@File executableFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), exec)" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@exists()" shape=ellipse]
+27 [label="7:CtVirtualElement@exists" shape=ellipse]
+28 [label="7:CtVariableReadImpl@executableFile" shape=ellipse]
+29 [label="7:CtInvocationImpl@executableFile.exists()" shape=ellipse]
+30 [label="8:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+31 [label="8:CtVirtualElement@getAbsolutePath" shape=ellipse]
+32 [label="8:CtVariableReadImpl@executableFile" shape=ellipse]
+33 [label="8:CtInvocationImpl@executableFile.getAbsolutePath()" shape=ellipse]
+34 [label="8:CtReturnImpl@return executableFile.getAbsolutePath()" shape=ellipse]
+35 [label="7:CtBlockImpl@\{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+36 [label="7:CtIfImpl@if (executableFile.exists()) \{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+37 [label="10:CtFieldReadImpl@dir" shape=ellipse]
+38 [label="10:CtLiteralImpl@null" shape=ellipse]
+39 [label="10:CtBinaryOperatorImpl@dir != null" shape=ellipse]
+40 [label="11:CtVariableWriteImpl@executableFile" shape=ellipse]
+41 [label="11:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+42 [label="11:CtVirtualElement@resolveFile" shape=ellipse]
+43 [label="11:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+44 [label="11:CtFieldReadImpl@dir" shape=ellipse]
+45 [label="11:CtVariableReadImpl@exec" shape=ellipse]
+46 [label="11:CtInvocationImpl@FILE_UTILS.resolveFile(dir, exec)" shape=ellipse]
+47 [label="11:CtAssignmentImpl@executableFile = FILE_UTILS.resolveFile(dir, exec)" shape=ellipse]
+48 [label="12:CtExecutableReferenceImpl@exists()" shape=ellipse]
+49 [label="12:CtVirtualElement@exists" shape=ellipse]
+50 [label="12:CtVariableReadImpl@executableFile" shape=ellipse]
+51 [label="12:CtInvocationImpl@executableFile.exists()" shape=ellipse]
+52 [label="13:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+53 [label="13:CtVirtualElement@getAbsolutePath" shape=ellipse]
+54 [label="13:CtVariableReadImpl@executableFile" shape=ellipse]
+55 [label="13:CtInvocationImpl@executableFile.getAbsolutePath()" shape=ellipse]
+56 [label="13:CtReturnImpl@return executableFile.getAbsolutePath()" shape=ellipse]
+57 [label="12:CtBlockImpl@\{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+58 [label="12:CtIfImpl@if (executableFile.exists()) \{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+59 [label="10:CtBlockImpl@\{
+    executableFile = FILE_UTILS.resolveFile(dir, exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+\}" shape=ellipse]
+60 [label="10:CtIfImpl@if (dir != null) \{
+    executableFile = FILE_UTILS.resolveFile(dir, exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+\}" shape=ellipse]
+61 [label="16:CtVariableReadImpl@mustSearchPath" shape=ellipse]
+62 [label="17:CtTypeReferenceImpl@Path" shape=ellipse]
+63 [label="17:CtLiteralImpl@null" shape=ellipse]
+64 [label="17:CtVirtualElement@p" shape=ellipse]
+65 [label="17:CtLocalVariableImpl@Path p = null" shape=ellipse]
+66 [label="18:CtVirtualElement@String[]" shape=ellipse]
+67 [label="18:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+68 [label="18:CtExecutableReferenceImpl@getVariables()" shape=ellipse]
+69 [label="18:CtVirtualElement@getVariables" shape=ellipse]
+70 [label="18:CtFieldReadImpl@env" shape=ellipse]
+71 [label="18:CtInvocationImpl@env.getVariables()" shape=ellipse]
+72 [label="18:CtVirtualElement@environment" shape=ellipse]
+73 [label="18:CtLocalVariableImpl@String[] environment = env.getVariables()" shape=ellipse]
+74 [label="19:CtVariableReadImpl@environment" shape=ellipse]
+75 [label="19:CtLiteralImpl@null" shape=ellipse]
+76 [label="19:CtBinaryOperatorImpl@environment != null" shape=ellipse]
+77 [label="20:CtTypeReferenceImpl@int" shape=ellipse]
+78 [label="20:CtLiteralImpl@0" shape=ellipse]
+79 [label="20:CtVirtualElement@i" shape=ellipse]
+80 [label="20:CtLocalVariableImpl@int i = 0" shape=ellipse]
+81 [label="20:CtVariableReadImpl@i" shape=ellipse]
+82 [label="20:CtVariableReadImpl@environment" shape=ellipse]
+83 [label="20:CtLocalVariableReferenceImpl@environment" shape=ellipse]
+84 [label="20:CtFieldReadImpl@environment.length" shape=ellipse]
+85 [label="20:CtBinaryOperatorImpl@i < environment.length" shape=ellipse]
+86 [label="20:CtVariableWriteImpl@i" shape=ellipse]
+87 [label="20:CtUnaryOperatorImpl@i++" shape=ellipse]
+88 [label="21:CtExecutableReferenceImpl@isPath(java.lang.String)" shape=ellipse]
+89 [label="21:CtVirtualElement@isPath" shape=ellipse]
+90 [label="21:CtVariableReadImpl@environment" shape=ellipse]
+91 [label="21:CtVariableReadImpl@i" shape=ellipse]
+92 [label="21:CtArrayReadImpl@environment[i]" shape=ellipse]
+93 [label="21:CtInvocationImpl@isPath(environment[i])" shape=ellipse]
+94 [label="22:CtVariableWriteImpl@p" shape=ellipse]
+95 [label="22:CtTypeReferenceImpl@Path" shape=ellipse]
+96 [label="22:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+97 [label="22:CtVirtualElement@getProject" shape=ellipse]
+98 [label="22:CtInvocationImpl@getProject()" shape=ellipse]
+99 [label="22:CtExecutableReferenceImpl@substring(int)" shape=ellipse]
+100 [label="22:CtVirtualElement@substring" shape=ellipse]
+101 [label="22:CtVariableReadImpl@environment" shape=ellipse]
+102 [label="22:CtVariableReadImpl@i" shape=ellipse]
+103 [label="22:CtArrayReadImpl@environment[i]" shape=ellipse]
+104 [label="22:CtLiteralImpl@5" shape=ellipse]
+105 [label="22:CtInvocationImpl@environment[i].substring(5)" shape=ellipse]
+106 [label="22:CtConstructorCallImpl@new Path(getProject(), environment[i].substring(5))" shape=ellipse]
+107 [label="22:CtAssignmentImpl@p = new Path(getProject(), environment[i].substring(5))" shape=ellipse]
+108 [label="23:CtBreakImpl@break" shape=ellipse]
+109 [label="21:CtBlockImpl@\{
+    p = new Path(getProject(), environment[i].substring(5));
+    break;
+\}" shape=ellipse]
+110 [label="21:CtIfImpl@if (isPath(environment[i])) \{
+    p = new Path(getProject(), environment[i].substring(5));
+    break;
+\}" shape=ellipse]
+111 [label="20:CtBlockImpl@\{
+    if (isPath(environment[i])) \{
+        p = new Path(getProject(), environment[i].substring(5));
+        break;
+    \}
+\}" shape=ellipse]
+112 [label="20:CtForImpl@for (int i = 0; i < environment.length; i++) \{
+    if (isPath(environment[i])) \{
+        p = new Path(getProject(), environment[i].substring(5));
+        break;
+    \}
+\}" shape=ellipse]
+113 [label="19:CtBlockImpl@\{
+    for (int i = 0; i < environment.length; i++) \{
+        if (isPath(environment[i])) \{
+            p = new Path(getProject(), environment[i].substring(5));
+            break;
+        \}
+    \}
+\}" shape=ellipse]
+114 [label="19:CtIfImpl@if (environment != null) \{
+    for (int i = 0; i < environment.length; i++) \{
+        if (isPath(environment[i])) \{
+            p = new Path(getProject(), environment[i].substring(5));
+            break;
+        \}
+    \}
+\}" shape=ellipse]
+115 [label="27:CtVariableReadImpl@p" shape=ellipse]
+116 [label="27:CtLiteralImpl@null" shape=ellipse]
+117 [label="27:CtBinaryOperatorImpl@p == null" shape=ellipse]
+118 [label="28:CtTypeReferenceImpl@Vector" shape=ellipse]
+119 [label="28:CtExecutableReferenceImpl@getProcEnvironment()" shape=ellipse]
+120 [label="28:CtVirtualElement@getProcEnvironment" shape=ellipse]
+121 [label="28:CtTypeAccessImpl@Execute" shape=ellipse]
+122 [label="28:CtInvocationImpl@Execute.getProcEnvironment()" shape=ellipse]
+123 [label="28:CtVirtualElement@envVars" shape=ellipse]
+124 [label="28:CtLocalVariableImpl@Vector envVars = Execute.getProcEnvironment()" shape=ellipse]
+125 [label="29:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+126 [label="29:CtExecutableReferenceImpl@elements()" shape=ellipse]
+127 [label="29:CtVirtualElement@elements" shape=ellipse]
+128 [label="29:CtVariableReadImpl@envVars" shape=ellipse]
+129 [label="29:CtInvocationImpl@envVars.elements()" shape=ellipse]
+130 [label="29:CtVirtualElement@e" shape=ellipse]
+131 [label="29:CtLocalVariableImpl@Enumeration e = envVars.elements()" shape=ellipse]
+132 [label="30:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+133 [label="30:CtVirtualElement@hasMoreElements" shape=ellipse]
+134 [label="30:CtVariableReadImpl@e" shape=ellipse]
+135 [label="30:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+136 [label="31:CtTypeReferenceImpl@String" shape=ellipse]
+137 [label="31:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+138 [label="31:CtVirtualElement@nextElement" shape=ellipse]
+139 [label="31:CtVariableReadImpl@e" shape=ellipse]
+140 [label="31:CtInvocationImpl@((String) (e.nextElement()))" shape=ellipse]
+141 [label="31:CtTypeReferenceImpl@String" shape=ellipse]
+142 [label="31:CtVirtualElement@line" shape=ellipse]
+143 [label="31:CtLocalVariableImpl@String line = ((String) (e.nextElement()))" shape=ellipse]
+144 [label="32:CtExecutableReferenceImpl@isPath(java.lang.String)" shape=ellipse]
+145 [label="32:CtVirtualElement@isPath" shape=ellipse]
+146 [label="32:CtVariableReadImpl@line" shape=ellipse]
+147 [label="32:CtInvocationImpl@isPath(line)" shape=ellipse]
+148 [label="33:CtVariableWriteImpl@p" shape=ellipse]
+149 [label="33:CtTypeReferenceImpl@Path" shape=ellipse]
+150 [label="33:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+151 [label="33:CtVirtualElement@getProject" shape=ellipse]
+152 [label="33:CtInvocationImpl@getProject()" shape=ellipse]
+153 [label="33:CtExecutableReferenceImpl@substring(int)" shape=ellipse]
+154 [label="33:CtVirtualElement@substring" shape=ellipse]
+155 [label="33:CtVariableReadImpl@line" shape=ellipse]
+156 [label="33:CtLiteralImpl@5" shape=ellipse]
+157 [label="33:CtInvocationImpl@line.substring(5)" shape=ellipse]
+158 [label="33:CtConstructorCallImpl@new Path(getProject(), line.substring(5))" shape=ellipse]
+159 [label="33:CtAssignmentImpl@p = new Path(getProject(), line.substring(5))" shape=ellipse]
+160 [label="34:CtBreakImpl@break" shape=ellipse]
+161 [label="32:CtBlockImpl@\{
+    p = new Path(getProject(), line.substring(5));
+    break;
+\}" shape=ellipse]
+162 [label="32:CtIfImpl@if (isPath(line)) \{
+    p = new Path(getProject(), line.substring(5));
+    break;
+\}" shape=ellipse]
+163 [label="30:CtBlockImpl@\{
+    String line = ((String) (e.nextElement()));
+    if (isPath(line)) \{
+        p = new Path(getProject(), line.substring(5));
+        break;
+    \}
+\}" shape=ellipse]
+164 [label="30:CtWhileImpl@while (e.hasMoreElements()) \{
+    String line = ((String) (e.nextElement()));
+    if (isPath(line)) \{
+        p = new Path(getProject(), line.substring(5));
+        break;
+    \}
+\} " shape=ellipse]
+165 [label="27:CtBlockImpl@\{
+    Vector envVars = Execute.getProcEnvironment();
+    Enumeration e = envVars.elements();
+    while (e.hasMoreElements()) \{
+        String line = ((String) (e.nextElement()));
+        if (isPath(line)) \{
+            p = new Path(getProject(), line.substring(5));
+            break;
+        \}
+    \} 
+\}" shape=ellipse]
+166 [label="27:CtIfImpl@if (p == null) \{
+    Vector envVars = Execute.getProcEnvironment();
+    Enumeration e = envVars.elements();
+    while (e.hasMoreElements()) \{
+        String line = ((String) (e.nextElement()));
+        if (isPath(line)) \{
+            p = new Path(getProject(), line.substring(5));
+            break;
+        \}
+    \} 
+\}" shape=ellipse]
+167 [label="38:CtVariableReadImpl@p" shape=ellipse]
+168 [label="38:CtLiteralImpl@null" shape=ellipse]
+169 [label="38:CtBinaryOperatorImpl@p != null" shape=ellipse]
+170 [label="39:CtVirtualElement@String[]" shape=ellipse]
+171 [label="39:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+172 [label="39:CtExecutableReferenceImpl@list()" shape=ellipse]
+173 [label="39:CtVirtualElement@list" shape=ellipse]
+174 [label="39:CtVariableReadImpl@p" shape=ellipse]
+175 [label="39:CtInvocationImpl@p.list()" shape=ellipse]
+176 [label="39:CtVirtualElement@dirs" shape=ellipse]
+177 [label="39:CtLocalVariableImpl@String[] dirs = p.list()" shape=ellipse]
+178 [label="40:CtTypeReferenceImpl@int" shape=ellipse]
+179 [label="40:CtLiteralImpl@0" shape=ellipse]
+180 [label="40:CtVirtualElement@i" shape=ellipse]
+181 [label="40:CtLocalVariableImpl@int i = 0" shape=ellipse]
+182 [label="40:CtVariableReadImpl@i" shape=ellipse]
+183 [label="40:CtVariableReadImpl@dirs" shape=ellipse]
+184 [label="40:CtLocalVariableReferenceImpl@dirs" shape=ellipse]
+185 [label="40:CtFieldReadImpl@dirs.length" shape=ellipse]
+186 [label="40:CtBinaryOperatorImpl@i < dirs.length" shape=ellipse]
+187 [label="40:CtVariableWriteImpl@i" shape=ellipse]
+188 [label="40:CtUnaryOperatorImpl@i++" shape=ellipse]
+189 [label="41:CtVariableWriteImpl@executableFile" shape=ellipse]
+190 [label="41:CtExecutableReferenceImpl@resolveFile(File,java.lang.String)" shape=ellipse]
+191 [label="41:CtVirtualElement@resolveFile" shape=ellipse]
+192 [label="41:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+193 [label="41:CtTypeReferenceImpl@File" shape=ellipse]
+194 [label="41:CtVariableReadImpl@dirs" shape=ellipse]
+195 [label="41:CtVariableReadImpl@i" shape=ellipse]
+196 [label="41:CtArrayReadImpl@dirs[i]" shape=ellipse]
+197 [label="41:CtConstructorCallImpl@new File(dirs[i])" shape=ellipse]
+198 [label="41:CtVariableReadImpl@exec" shape=ellipse]
+199 [label="41:CtInvocationImpl@FILE_UTILS.resolveFile(new File(dirs[i]), exec)" shape=ellipse]
+200 [label="41:CtAssignmentImpl@executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec)" shape=ellipse]
+201 [label="42:CtExecutableReferenceImpl@exists()" shape=ellipse]
+202 [label="42:CtVirtualElement@exists" shape=ellipse]
+203 [label="42:CtVariableReadImpl@executableFile" shape=ellipse]
+204 [label="42:CtInvocationImpl@executableFile.exists()" shape=ellipse]
+205 [label="43:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+206 [label="43:CtVirtualElement@getAbsolutePath" shape=ellipse]
+207 [label="43:CtVariableReadImpl@executableFile" shape=ellipse]
+208 [label="43:CtInvocationImpl@executableFile.getAbsolutePath()" shape=ellipse]
+209 [label="43:CtReturnImpl@return executableFile.getAbsolutePath()" shape=ellipse]
+210 [label="42:CtBlockImpl@\{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+211 [label="42:CtIfImpl@if (executableFile.exists()) \{
+    return executableFile.getAbsolutePath();
+\}" shape=ellipse]
+212 [label="40:CtBlockImpl@\{
+    executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+\}" shape=ellipse]
+213 [label="40:CtForImpl@for (int i = 0; i < dirs.length; i++) \{
+    executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+\}" shape=ellipse]
+214 [label="38:CtBlockImpl@\{
+    String[] dirs = p.list();
+    for (int i = 0; i < dirs.length; i++) \{
+        executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+        if (executableFile.exists()) \{
+            return executableFile.getAbsolutePath();
+        \}
+    \}
+\}" shape=ellipse]
+215 [label="38:CtIfImpl@if (p != null) \{
+    String[] dirs = p.list();
+    for (int i = 0; i < dirs.length; i++) \{
+        executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+        if (executableFile.exists()) \{
+            return executableFile.getAbsolutePath();
+        \}
+    \}
+\}" shape=ellipse]
+216 [label="16:CtBlockImpl@\{
+    Path p = null;
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            if (isPath(environment[i])) \{
+                p = new Path(getProject(), environment[i].substring(5));
+                break;
+            \}
+        \}
+    \}
+    if (p == null) \{
+        Vector envVars = Execute.getProcEnvironment();
+        Enumeration e = envVars.elements();
+        while (e.hasMoreElements()) \{
+            String line = ((String) (e.nextElement()));
+            if (isPath(line)) \{
+                p = new Path(getProject(), line.substring(5));
+                break;
+            \}
+        \} 
+    \}
+    if (p != null) \{
+        String[] dirs = p.list();
+        for (int i = 0; i < dirs.length; i++) \{
+            executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+            if (executableFile.exists()) \{
+                return executableFile.getAbsolutePath();
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+217 [label="16:CtIfImpl@if (mustSearchPath) \{
+    Path p = null;
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            if (isPath(environment[i])) \{
+                p = new Path(getProject(), environment[i].substring(5));
+                break;
+            \}
+        \}
+    \}
+    if (p == null) \{
+        Vector envVars = Execute.getProcEnvironment();
+        Enumeration e = envVars.elements();
+        while (e.hasMoreElements()) \{
+            String line = ((String) (e.nextElement()));
+            if (isPath(line)) \{
+                p = new Path(getProject(), line.substring(5));
+                break;
+            \}
+        \} 
+    \}
+    if (p != null) \{
+        String[] dirs = p.list();
+        for (int i = 0; i < dirs.length; i++) \{
+            executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+            if (executableFile.exists()) \{
+                return executableFile.getAbsolutePath();
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+218 [label="48:CtVariableReadImpl@exec" shape=ellipse]
+219 [label="48:CtReturnImpl@return exec" shape=ellipse]
+220 [label="2:CtBlockImpl@\{
+    if (!resolveExecutable) \{
+        return exec;
+    \}
+    File executableFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+    if (dir != null) \{
+        executableFile = FILE_UTILS.resolveFile(dir, exec);
+        if (executableFile.exists()) \{
+            return executableFile.getAbsolutePath();
+        \}
+    \}
+    if (mustSearchPath) \{
+        Path p = null;
+        String[] environment = env.getVariables();
+        if (environment != null) \{
+            for (int i = 0; i < environment.length; i++) \{
+                if (isPath(environment[i])) \{
+                    p = new Path(getProject(), environment[i].substring(5));
+                    break;
+                \}
+            \}
+        \}
+        if (p == null) \{
+            Vector envVars = Execute.getProcEnvironment();
+            Enumeration e = envVars.elements();
+            while (e.hasMoreElements()) \{
+                String line = ((String) (e.nextElement()));
+                if (isPath(line)) \{
+                    p = new Path(getProject(), line.substring(5));
+                    break;
+                \}
+            \} 
+        \}
+        if (p != null) \{
+            String[] dirs = p.list();
+            for (int i = 0; i < dirs.length; i++) \{
+                executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+                if (executableFile.exists()) \{
+                    return executableFile.getAbsolutePath();
+                \}
+            \}
+        \}
+    \}
+    return exec;
+\}" shape=ellipse]
+221 [label="2:CtMethodImpl@protected String resolveExecutable(String exec, boolean mustSearchPath) \{
+    if (!resolveExecutable) \{
+        return exec;
+    \}
+    File executableFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), exec);
+    if (executableFile.exists()) \{
+        return executableFile.getAbsolutePath();
+    \}
+    if (dir != null) \{
+        executableFile = FILE_UTILS.resolveFile(dir, exec);
+        if (executableFile.exists()) \{
+            return executableFile.getAbsolutePath();
+        \}
+    \}
+    if (mustSearchPath) \{
+        Path p = null;
+        String[] environment = env.getVariables();
+        if (environment != null) \{
+            for (int i = 0; i < environment.length; i++) \{
+                if (isPath(environment[i])) \{
+                    p = new Path(getProject(), environment[i].substring(5));
+                    break;
+                \}
+            \}
+        \}
+        if (p == null) \{
+            Vector envVars = Execute.getProcEnvironment();
+            Enumeration e = envVars.elements();
+            while (e.hasMoreElements()) \{
+                String line = ((String) (e.nextElement()));
+                if (isPath(line)) \{
+                    p = new Path(getProject(), line.substring(5));
+                    break;
+                \}
+            \} 
+        \}
+        if (p != null) \{
+            String[] dirs = p.list();
+            for (int i = 0; i < dirs.length; i++) \{
+                executableFile = FILE_UTILS.resolveFile(new File(dirs[i]), exec);
+                if (executableFile.exists()) \{
+                    return executableFile.getAbsolutePath();
+                \}
+            \}
+        \}
+    \}
+    return exec;
+\}" shape=ellipse]
+222 [label="6:Update@UPDATE" shape=ellipse]
+223 [label="6:CtInvocationImpl@getProject().resolveFile(exec)" shape=ellipse]
+224 [label="6:Delete@DELETE" shape=ellipse]
+225 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 10 [label="Control Dep"];
+7 -> 9 [label="Control Dep"];
+7 -> 8 [label="Control Dep"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 18 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 16 [label="AST"];
+21 -> 222 [label="Action"];
+21 -> 225 [label="Action"];
+22 -> 24 [label="Data Dep"];
+23 -> 14 [label="AST"];
+23 -> 15 [label="AST"];
+23 -> 13 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 224 [label="Action"];
+24 -> 28 [label="Define-Use"];
+24 -> 32 [label="Define-Use"];
+24 -> 50 [label="Define-Use"];
+24 -> 54 [label="Define-Use"];
+25 -> 24 [label="AST"];
+25 -> 12 [label="AST"];
+25 -> 23 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 26 [label="AST"];
+29 -> 35 [label="Control Dep"];
+29 -> 34 [label="Control Dep"];
+29 -> 33 [label="Control Dep"];
+29 -> 30 [label="Control Dep"];
+29 -> 32 [label="Control Dep"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 30 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 29 [label="AST"];
+36 -> 35 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 59 [label="Control Dep"];
+39 -> 47 [label="Control Dep"];
+39 -> 40 [label="Control Dep"];
+39 -> 46 [label="Control Dep"];
+39 -> 41 [label="Control Dep"];
+39 -> 43 [label="Control Dep"];
+39 -> 44 [label="Control Dep"];
+39 -> 45 [label="Control Dep"];
+39 -> 58 [label="Control Dep"];
+39 -> 51 [label="Control Dep"];
+39 -> 48 [label="Control Dep"];
+39 -> 50 [label="Control Dep"];
+40 -> 50 [label="Define-Use"];
+40 -> 54 [label="Define-Use"];
+44 -> 40 [label="Data Dep"];
+45 -> 40 [label="Data Dep"];
+46 -> 42 [label="AST"];
+46 -> 43 [label="AST"];
+46 -> 41 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 40 [label="AST"];
+47 -> 46 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 48 [label="AST"];
+51 -> 57 [label="Control Dep"];
+51 -> 56 [label="Control Dep"];
+51 -> 55 [label="Control Dep"];
+51 -> 52 [label="Control Dep"];
+51 -> 54 [label="Control Dep"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 52 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 51 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 47 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 39 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 216 [label="Control Dep"];
+61 -> 65 [label="Control Dep"];
+61 -> 63 [label="Control Dep"];
+61 -> 73 [label="Control Dep"];
+61 -> 67 [label="Control Dep"];
+61 -> 71 [label="Control Dep"];
+61 -> 68 [label="Control Dep"];
+61 -> 70 [label="Control Dep"];
+61 -> 114 [label="Control Dep"];
+61 -> 76 [label="Control Dep"];
+61 -> 74 [label="Control Dep"];
+61 -> 75 [label="Control Dep"];
+61 -> 166 [label="Control Dep"];
+61 -> 117 [label="Control Dep"];
+61 -> 115 [label="Control Dep"];
+61 -> 116 [label="Control Dep"];
+61 -> 215 [label="Control Dep"];
+61 -> 169 [label="Control Dep"];
+61 -> 167 [label="Control Dep"];
+61 -> 168 [label="Control Dep"];
+64 -> 115 [label="Define-Use"];
+64 -> 167 [label="Define-Use"];
+64 -> 174 [label="Define-Use"];
+65 -> 64 [label="AST"];
+65 -> 62 [label="AST"];
+65 -> 63 [label="AST"];
+67 -> 66 [label="AST"];
+70 -> 72 [label="Data Dep"];
+71 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+71 -> 68 [label="AST"];
+72 -> 74 [label="Define-Use"];
+72 -> 82 [label="Define-Use"];
+72 -> 90 [label="Define-Use"];
+72 -> 92 [label="Define-Use"];
+72 -> 101 [label="Define-Use"];
+72 -> 103 [label="Define-Use"];
+73 -> 72 [label="AST"];
+73 -> 67 [label="AST"];
+73 -> 71 [label="AST"];
+76 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+76 -> 113 [label="Control Dep"];
+76 -> 112 [label="Control Dep"];
+76 -> 80 [label="Control Dep"];
+76 -> 78 [label="Control Dep"];
+76 -> 85 [label="Control Dep"];
+76 -> 81 [label="Control Dep"];
+76 -> 84 [label="Control Dep"];
+76 -> 82 [label="Control Dep"];
+76 -> 87 [label="Control Dep"];
+76 -> 86 [label="Control Dep"];
+79 -> 81 [label="Define-Use"];
+79 -> 91 [label="Define-Use"];
+79 -> 102 [label="Define-Use"];
+79 -> 182 [label="Define-Use"];
+79 -> 195 [label="Define-Use"];
+80 -> 79 [label="AST"];
+80 -> 77 [label="AST"];
+80 -> 78 [label="AST"];
+82 -> 83 [label="AST"];
+84 -> 82 [label="AST"];
+85 -> 81 [label="AST"];
+85 -> 84 [label="AST"];
+85 -> 111 [label="Control Dep"];
+85 -> 110 [label="Control Dep"];
+85 -> 93 [label="Control Dep"];
+85 -> 88 [label="Control Dep"];
+85 -> 92 [label="Control Dep"];
+85 -> 90 [label="Control Dep"];
+85 -> 91 [label="Control Dep"];
+86 -> 91 [label="Define-Use"];
+86 -> 102 [label="Define-Use"];
+86 -> 182 [label="Define-Use"];
+86 -> 195 [label="Define-Use"];
+87 -> 86 [label="AST"];
+92 -> 90 [label="AST"];
+92 -> 91 [label="AST"];
+93 -> 89 [label="AST"];
+93 -> 88 [label="AST"];
+93 -> 92 [label="AST"];
+93 -> 109 [label="Control Dep"];
+93 -> 107 [label="Control Dep"];
+93 -> 94 [label="Control Dep"];
+93 -> 106 [label="Control Dep"];
+93 -> 98 [label="Control Dep"];
+93 -> 96 [label="Control Dep"];
+93 -> 105 [label="Control Dep"];
+93 -> 99 [label="Control Dep"];
+93 -> 103 [label="Control Dep"];
+93 -> 101 [label="Control Dep"];
+93 -> 102 [label="Control Dep"];
+93 -> 104 [label="Control Dep"];
+93 -> 108 [label="Control Dep"];
+94 -> 115 [label="Define-Use"];
+94 -> 167 [label="Define-Use"];
+94 -> 174 [label="Define-Use"];
+98 -> 97 [label="AST"];
+98 -> 96 [label="AST"];
+103 -> 101 [label="AST"];
+103 -> 102 [label="AST"];
+103 -> 94 [label="Data Dep"];
+105 -> 100 [label="AST"];
+105 -> 103 [label="AST"];
+105 -> 99 [label="AST"];
+105 -> 104 [label="AST"];
+106 -> 98 [label="AST"];
+106 -> 105 [label="AST"];
+107 -> 94 [label="AST"];
+107 -> 106 [label="AST"];
+109 -> 107 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 93 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 80 [label="AST"];
+112 -> 85 [label="AST"];
+112 -> 87 [label="AST"];
+112 -> 111 [label="AST"];
+113 -> 112 [label="AST"];
+114 -> 76 [label="AST"];
+114 -> 113 [label="AST"];
+117 -> 115 [label="AST"];
+117 -> 116 [label="AST"];
+117 -> 165 [label="Control Dep"];
+117 -> 124 [label="Control Dep"];
+117 -> 122 [label="Control Dep"];
+117 -> 119 [label="Control Dep"];
+117 -> 121 [label="Control Dep"];
+117 -> 131 [label="Control Dep"];
+117 -> 129 [label="Control Dep"];
+117 -> 126 [label="Control Dep"];
+117 -> 128 [label="Control Dep"];
+117 -> 164 [label="Control Dep"];
+117 -> 135 [label="Control Dep"];
+117 -> 132 [label="Control Dep"];
+117 -> 134 [label="Control Dep"];
+122 -> 120 [label="AST"];
+122 -> 121 [label="AST"];
+122 -> 119 [label="AST"];
+123 -> 128 [label="Define-Use"];
+124 -> 123 [label="AST"];
+124 -> 118 [label="AST"];
+124 -> 122 [label="AST"];
+128 -> 130 [label="Data Dep"];
+129 -> 127 [label="AST"];
+129 -> 128 [label="AST"];
+129 -> 126 [label="AST"];
+130 -> 134 [label="Define-Use"];
+130 -> 139 [label="Define-Use"];
+131 -> 130 [label="AST"];
+131 -> 125 [label="AST"];
+131 -> 129 [label="AST"];
+135 -> 133 [label="AST"];
+135 -> 134 [label="AST"];
+135 -> 132 [label="AST"];
+135 -> 163 [label="Control Dep"];
+135 -> 143 [label="Control Dep"];
+135 -> 140 [label="Control Dep"];
+135 -> 137 [label="Control Dep"];
+135 -> 139 [label="Control Dep"];
+135 -> 162 [label="Control Dep"];
+135 -> 147 [label="Control Dep"];
+135 -> 144 [label="Control Dep"];
+135 -> 146 [label="Control Dep"];
+139 -> 142 [label="Data Dep"];
+140 -> 138 [label="AST"];
+140 -> 141 [label="AST"];
+140 -> 139 [label="AST"];
+140 -> 137 [label="AST"];
+142 -> 146 [label="Define-Use"];
+142 -> 155 [label="Define-Use"];
+143 -> 142 [label="AST"];
+143 -> 136 [label="AST"];
+143 -> 140 [label="AST"];
+147 -> 145 [label="AST"];
+147 -> 144 [label="AST"];
+147 -> 146 [label="AST"];
+147 -> 161 [label="Control Dep"];
+147 -> 159 [label="Control Dep"];
+147 -> 148 [label="Control Dep"];
+147 -> 158 [label="Control Dep"];
+147 -> 152 [label="Control Dep"];
+147 -> 150 [label="Control Dep"];
+147 -> 157 [label="Control Dep"];
+147 -> 153 [label="Control Dep"];
+147 -> 155 [label="Control Dep"];
+147 -> 156 [label="Control Dep"];
+147 -> 160 [label="Control Dep"];
+148 -> 167 [label="Define-Use"];
+148 -> 174 [label="Define-Use"];
+152 -> 151 [label="AST"];
+152 -> 150 [label="AST"];
+155 -> 148 [label="Data Dep"];
+157 -> 154 [label="AST"];
+157 -> 155 [label="AST"];
+157 -> 153 [label="AST"];
+157 -> 156 [label="AST"];
+158 -> 152 [label="AST"];
+158 -> 157 [label="AST"];
+159 -> 148 [label="AST"];
+159 -> 158 [label="AST"];
+161 -> 159 [label="AST"];
+161 -> 160 [label="AST"];
+162 -> 147 [label="AST"];
+162 -> 161 [label="AST"];
+163 -> 143 [label="AST"];
+163 -> 162 [label="AST"];
+164 -> 135 [label="AST"];
+164 -> 163 [label="AST"];
+165 -> 124 [label="AST"];
+165 -> 131 [label="AST"];
+165 -> 164 [label="AST"];
+166 -> 117 [label="AST"];
+166 -> 165 [label="AST"];
+169 -> 167 [label="AST"];
+169 -> 168 [label="AST"];
+169 -> 214 [label="Control Dep"];
+169 -> 177 [label="Control Dep"];
+169 -> 171 [label="Control Dep"];
+169 -> 175 [label="Control Dep"];
+169 -> 172 [label="Control Dep"];
+169 -> 174 [label="Control Dep"];
+169 -> 213 [label="Control Dep"];
+169 -> 181 [label="Control Dep"];
+169 -> 179 [label="Control Dep"];
+169 -> 186 [label="Control Dep"];
+169 -> 182 [label="Control Dep"];
+169 -> 185 [label="Control Dep"];
+169 -> 183 [label="Control Dep"];
+169 -> 188 [label="Control Dep"];
+169 -> 187 [label="Control Dep"];
+171 -> 170 [label="AST"];
+174 -> 176 [label="Data Dep"];
+175 -> 173 [label="AST"];
+175 -> 174 [label="AST"];
+175 -> 172 [label="AST"];
+176 -> 183 [label="Define-Use"];
+176 -> 194 [label="Define-Use"];
+176 -> 196 [label="Define-Use"];
+177 -> 176 [label="AST"];
+177 -> 171 [label="AST"];
+177 -> 175 [label="AST"];
+180 -> 182 [label="Define-Use"];
+180 -> 195 [label="Define-Use"];
+181 -> 180 [label="AST"];
+181 -> 178 [label="AST"];
+181 -> 179 [label="AST"];
+183 -> 184 [label="AST"];
+185 -> 183 [label="AST"];
+186 -> 182 [label="AST"];
+186 -> 185 [label="AST"];
+186 -> 212 [label="Control Dep"];
+186 -> 200 [label="Control Dep"];
+186 -> 189 [label="Control Dep"];
+186 -> 199 [label="Control Dep"];
+186 -> 190 [label="Control Dep"];
+186 -> 192 [label="Control Dep"];
+186 -> 197 [label="Control Dep"];
+186 -> 196 [label="Control Dep"];
+186 -> 194 [label="Control Dep"];
+186 -> 195 [label="Control Dep"];
+186 -> 198 [label="Control Dep"];
+186 -> 211 [label="Control Dep"];
+186 -> 204 [label="Control Dep"];
+186 -> 201 [label="Control Dep"];
+186 -> 203 [label="Control Dep"];
+187 -> 195 [label="Define-Use"];
+188 -> 187 [label="AST"];
+189 -> 203 [label="Define-Use"];
+189 -> 207 [label="Define-Use"];
+196 -> 194 [label="AST"];
+196 -> 195 [label="AST"];
+196 -> 189 [label="Data Dep"];
+197 -> 196 [label="AST"];
+198 -> 189 [label="Data Dep"];
+199 -> 191 [label="AST"];
+199 -> 192 [label="AST"];
+199 -> 190 [label="AST"];
+199 -> 197 [label="AST"];
+199 -> 198 [label="AST"];
+200 -> 189 [label="AST"];
+200 -> 199 [label="AST"];
+204 -> 202 [label="AST"];
+204 -> 203 [label="AST"];
+204 -> 201 [label="AST"];
+204 -> 210 [label="Control Dep"];
+204 -> 209 [label="Control Dep"];
+204 -> 208 [label="Control Dep"];
+204 -> 205 [label="Control Dep"];
+204 -> 207 [label="Control Dep"];
+208 -> 206 [label="AST"];
+208 -> 207 [label="AST"];
+208 -> 205 [label="AST"];
+209 -> 208 [label="AST"];
+210 -> 209 [label="AST"];
+211 -> 204 [label="AST"];
+211 -> 210 [label="AST"];
+212 -> 200 [label="AST"];
+212 -> 211 [label="AST"];
+213 -> 181 [label="AST"];
+213 -> 186 [label="AST"];
+213 -> 188 [label="AST"];
+213 -> 212 [label="AST"];
+214 -> 177 [label="AST"];
+214 -> 213 [label="AST"];
+215 -> 169 [label="AST"];
+215 -> 214 [label="AST"];
+216 -> 65 [label="AST"];
+216 -> 73 [label="AST"];
+216 -> 114 [label="AST"];
+216 -> 166 [label="AST"];
+216 -> 215 [label="AST"];
+217 -> 61 [label="AST"];
+217 -> 216 [label="AST"];
+219 -> 218 [label="AST"];
+220 -> 11 [label="AST"];
+220 -> 25 [label="AST"];
+220 -> 36 [label="AST"];
+220 -> 60 [label="AST"];
+220 -> 217 [label="AST"];
+220 -> 219 [label="AST"];
+221 -> 1 [label="AST"];
+221 -> 0 [label="AST"];
+221 -> 2 [label="AST"];
+221 -> 4 [label="AST"];
+221 -> 220 [label="AST"];
+222 -> 223 [label="Action"];
+225 -> 25 [label="Action"];
+}

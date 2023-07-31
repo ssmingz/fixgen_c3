@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3790/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3790/1/after.java
+@@ -8,4 +8,3 @@
+-    GtkAdjustment adjustment = new GtkAdjustment();
+-    OS.memmove(adjustment, hAdjustment, sizeof);
+-    adjustment.upper = ((float) (value));
+-    OS.memmove(hAdjustment, adjustment, sizeof);
++    GtkAdjustment adjustment = new GtkAdjustment(hAdjustment);
++    adjustment.upper = ((double) (value));
++    OS.memmove(hAdjustment, adjustment);

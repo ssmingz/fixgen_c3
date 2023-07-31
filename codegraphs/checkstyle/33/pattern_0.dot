@@ -1,0 +1,109 @@
+digraph "Pattern" {
+0 [label="testPackageHtml#?#3:UPDATE
+testImport#?#3:UPDATE" shape=ellipse]
+1 [label="testPackageHtml#?#3:mConfig.setRequirePackageHtml(true)
+testImport#?#3:mConfig.setIgnoreImportLength(true)" shape=ellipse]
+2 [label="testPackageHtml#?#2:\{
+    mConfig.setRequirePackageHtml(true);
+    mConfig.setJavadocScope(PRIVATE);
+    final Checker c = createChecker();
+    final String packageHtmlPath = getPath(\"package.html\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testImport#?#2:\{
+    mConfig.setIgnoreImportLength(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputImport.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+3 [label="testPackageHtml#?#2:public void testPackageHtml() throws Exception \{
+    mConfig.setRequirePackageHtml(true);
+    mConfig.setJavadocScope(PRIVATE);
+    final Checker c = createChecker();
+    final String packageHtmlPath = getPath(\"package.html\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testImport#?#2:public void testImport() throws Exception \{
+    mConfig.setIgnoreImportLength(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputImport.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+4 [label="testPackageHtml#?#4:mConfig.setJavadocScope(PRIVATE)
+testImport#?#21:verify(c, filepath, expected)" shape=ellipse]
+5 [label="testPackageHtml#?#5:final Checker c = createChecker()
+testImport#?#4:final Checker c = createChecker()" shape=ellipse]
+6 [label="testPackageHtml#?#6:final String packageHtmlPath = getPath(\"package.html\")
+testImport#?#5:final String filepath = getPath(\"InputImport.java\")" shape=ellipse]
+7 [label="testPackageHtml#?#7:final String filepath = getPath(\"InputScopeAnonInner.java\")
+testImport#?#7:final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \}" shape=ellipse]
+8 [label="testPackageHtml#?#8:assertNotNull(c)
+testImport#?#6:assertNotNull(c)" shape=ellipse]
+9 [label="testPackageHtml#?#9:final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \}" shape=ellipse]
+10 [label="testPackageHtml#?#21:verify(c, filepath, expected)" shape=ellipse]
+11 [label="testPackageHtml#?#3:setRequirePackageHtml
+testImport#?#3:setIgnoreImportLength" shape=ellipse]
+12 [label="testPackageHtml#?#3:mConfig
+testImport#?#3:mConfig" shape=ellipse]
+13 [label="testPackageHtml#?#3:mConfig
+testImport#?#3:mConfig" shape=ellipse]
+14 [label="testPackageHtml#?#3:setRequirePackageHtml(boolean)
+testImport#?#3:setIgnoreImportLength(boolean)" shape=ellipse]
+15 [label="testPackageHtml#?#3:mConfig
+testImport#?#3:mConfig" shape=ellipse]
+16 [label="testPackageHtml#?#3:boolean
+testImport#?#3:boolean" shape=ellipse]
+17 [label="testPackageHtml#?#3:true
+testImport#?#3:true" shape=ellipse]
+18 [label="testPackageHtml#?#3:boolean
+testImport#?#3:boolean" shape=ellipse]
+19 [label="testPackageHtml#?#3:setBooleanFlag
+testImport#?#3:setBooleanFlag" shape=ellipse]
+20 [label="testPackageHtml#?#3:setBooleanFlag(boolean)
+testImport#?#3:setBooleanFlag(boolean)" shape=ellipse]
+21 [label="testPackageHtml#?#3:mConfig
+testImport#?#3:mConfig" shape=ellipse]
+22 [label="testPackageHtml#?#3:
+testImport#?#3:" shape=ellipse]
+23 [label="testPackageHtml#?#3:boolean
+testImport#?#3:boolean" shape=ellipse]
+24 [label="testPackageHtml#?#3:REQUIRE_PACKAGE_HTML_PROP
+testImport#?#3:IGNORE_IMPORT_LENGTH_PROP" shape=ellipse]
+25 [label="testPackageHtml#?#3:REQUIRE_PACKAGE_HTML_PROP
+testImport#?#3:IGNORE_IMPORT_LENGTH_PROP" shape=ellipse]
+26 [label="testPackageHtml#?#3:
+testImport#?#3:" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:1"];
+2 -> 10 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+20 -> 23 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+24 -> 25 [label="AST:2"];
+25 -> 26 [label="AST:2"];
+}

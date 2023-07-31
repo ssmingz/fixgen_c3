@@ -1,0 +1,25 @@
+digraph "Pattern" {
+0 [label="logError#?,String#3:UPDATE
+logVerbose#?,String#3:UPDATE" shape=ellipse]
+1 [label="logError#?,String#3:_owner
+logVerbose#?,String#3:_owner" shape=ellipse]
+2 [label="logError#?,String#3:_owner.getProject()
+logVerbose#?,String#3:_owner.getProject()" shape=ellipse]
+3 [label="logError#?,String#3:_owner.getProject().log(msg, MSG_ERR)
+logVerbose#?,String#3:_owner.getProject().log(msg, MSG_VERBOSE)" shape=ellipse]
+4 [label="logError#?,String#3:getProject
+logVerbose#?,String#3:getProject" shape=ellipse]
+5 [label="logError#?,String#3:getProject()
+logVerbose#?,String#3:getProject()" shape=ellipse]
+6 [label="logError#?,String#-1:_owner
+logVerbose#?,String#-1:_owner" shape=ellipse]
+7 [label="logError#?,String#3:owner
+logVerbose#?,String#3:owner" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

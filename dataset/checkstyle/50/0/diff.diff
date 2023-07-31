@@ -1,0 +1,13 @@
+--- D:\expdata\c3\dataset\checkstyle\50\0/before.java
++++ D:\expdata\c3\dataset\checkstyle\50\0/after.java
+@@ -6,4 +6,6 @@
+-      final Iterator it = mListeners.iterator();
+-      while (it.hasNext()) {
+-        final AuditListener listener = ((AuditListener) (it.next()));
+-        listener.addError(evt);
++      if (accept(evt)) {
++        final Iterator it = mListeners.iterator();
++        while (it.hasNext()) {
++          final AuditListener listener = ((AuditListener) (it.next()));
++          listener.addError(evt);
++        }

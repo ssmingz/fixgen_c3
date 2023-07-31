@@ -1,0 +1,65 @@
+digraph "Pattern" {
+0 [label="testSame#?#4:DELETE
+testAlone#?#4:DELETE" shape=ellipse]
+1 [label="testSame#?#4:checkConfig
+testAlone#?#4:checkConfig" shape=ellipse]
+2 [label="testSame#?#3:checkConfig
+testAlone#?#3:checkConfig" shape=ellipse]
+3 [label="testSame#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)
+testAlone#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)" shape=ellipse]
+4 [label="testSame#?#3:
+testAlone#?#3:" shape=ellipse]
+5 [label="testSame#?#3:RightCurlyCheck.class
+testAlone#?#3:RightCurlyCheck.class" shape=ellipse]
+6 [label="testSame#?#12:checkConfig
+testAlone#?#6:checkConfig" shape=ellipse]
+7 [label="testSame#?#4:checkConfig.addAttribute(\"option\", SAME.toString())
+testAlone#?#4:checkConfig.addAttribute(\"option\", ALONE.toString())" shape=ellipse]
+8 [label="testSame#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", SAME.toString());
+    final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}
+testAlone#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", ALONE.toString());
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}" shape=ellipse]
+9 [label="testSame#?#4:addAttribute
+testAlone#?#4:addAttribute" shape=ellipse]
+10 [label="testSame#?#4:addAttribute(java.lang.String)
+testAlone#?#4:addAttribute(java.lang.String)" shape=ellipse]
+11 [label="testSame#?#4:\"option\"
+testAlone#?#4:\"option\"" shape=ellipse]
+12 [label="testSame#?#4:SAME.toString()
+testAlone#?#4:ALONE.toString()" shape=ellipse]
+13 [label="testSame#?#3:INSERT
+testAlone#?#3:INSERT" shape=ellipse]
+14 [label="testSame#?#3:mCheckConfig
+testAlone#?#3:mCheckConfig" shape=ellipse]
+15 [label="testSame#?#3:PlaceHold
+testAlone#?#3:PlaceHold" shape=ellipse]
+16 [label="testSame#?#3:
+testAlone#?#3:" shape=ellipse]
+17 [label="testSame#?#4:checkConfig
+testAlone#?#4:checkConfig" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="Define Use:2"];
+2 -> 6 [label="Define Use:2"];
+3 -> 2 [label="AST:2"];
+4 -> 2 [label="Data Dep:2"];
+5 -> 2 [label="Data Dep:2"];
+7 -> 1 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+7 -> 13 [label="Action:2"];
+8 -> 3 [label="AST:2"];
+8 -> 7 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+}

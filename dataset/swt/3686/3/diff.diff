@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3686/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3686/3/after.java
+@@ -2,1 +2,9 @@
+-  public void test_getXORMode() {}
++  public void test_getXORMode() {
++    PerformanceMeter meter = createMeter();
++    meter.start();
++    for (int i = 0; i < COUNT; i++) {
++      gc.getXORMode();
++    }
++    meter.stop();
++    disposeMeter(meter);
++  }

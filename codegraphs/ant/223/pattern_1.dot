@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="testPassthrough#?#2:INSERT
+testAntClasspathDest#?#2:INSERT
+testInheritPath#?#2:INSERT" shape=ellipse]
+1 [label="testPassthrough#?#2:public void testPassthrough() \{
+    executeTarget(\"testPassthrough\");
+\}
+testAntClasspathDest#?#2:public void testAntClasspathDest() throws Exception \{
+    executeTarget(\"testAntClasspathDest\");
+\}
+testInheritPath#?#2:public void testInheritPath() \{
+    executeTarget(\"testInheritPath\");
+\}" shape=ellipse]
+2 [label="testPassthrough#?#2:testPassthrough
+testAntClasspathDest#?#2:VE: Modifiers_Method
+testInheritPath#?#2:testInheritPath" shape=ellipse]
+3 [label="testPassthrough#?#2:void
+testAntClasspathDest#?#2:void
+testInheritPath#?#2:void" shape=ellipse]
+4 [label="testPassthrough#?#2:\{
+    executeTarget(\"testPassthrough\");
+\}
+testAntClasspathDest#?#2:\{
+    executeTarget(\"testAntClasspathDest\");
+\}
+testInheritPath#?#2:\{
+    executeTarget(\"testInheritPath\");
+\}" shape=ellipse]
+5 [label="testPassthrough#?#3:executeTarget(\"testPassthrough\")
+testAntClasspathDest#?#3:executeTarget(\"testAntClasspathDest\")
+testInheritPath#?#3:executeTarget(\"testInheritPath\")" shape=ellipse]
+6 [label="testPassthrough#?#2:VE: Modifiers_Method
+testAntClasspathDest#?#2:VE: ThrownTypes_testAntClasspathDest
+testInheritPath#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testPassthrough#?#2:public
+testAntClasspathDest#?#2:public
+testInheritPath#?#2:public" shape=ellipse]
+8 [label="testPassthrough#?#2:@Test
+testAntClasspathDest#?#2:@Test
+testInheritPath#?#2:@Test" shape=ellipse]
+9 [label="testAntClasspathDest#?#2:testAntClasspathDest" shape=ellipse]
+10 [label="testAntClasspathDest#?#-1:java.lang" shape=ellipse]
+11 [label="testAntClasspathDest#?#2:Exception" shape=ellipse]
+0 -> 8 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 9 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+4 -> 5 [label="AST:3"];
+11 -> 10 [label="AST:1"];
+}

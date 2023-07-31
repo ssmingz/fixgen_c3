@@ -1,0 +1,219 @@
+digraph "Pattern" {
+0 [label="doFileOperations#?#40:UPDATE
+doResourceOperations#?,Map#35:UPDATE" shape=ellipse]
+1 [label="doFileOperations#?#40:ioe.getMessage()
+doResourceOperations#?,Map#35:ioe.getMessage()" shape=ellipse]
+2 [label="doFileOperations#?#37:IOException ioe
+doResourceOperations#?,Map#32:IOException ioe" shape=ellipse]
+3 [label="doFileOperations#?#12:i < toFiles.length
+doResourceOperations#?,Map#11:i < toFiles.length" shape=ellipse]
+4 [label="doFileOperations#?#37: catch (IOException ioe) \{
+    String msg = ((((\"Failed to copy \" + fromFile) + \" to \") + toFile) + \" due to \") + ioe.getMessage();
+    File targetFile = new File(toFile);
+    if (targetFile.exists() && (!targetFile.delete())) \{
+        msg += \" and I couldn't delete the corrupt \" + toFile;
+    \}
+    if (failonerror) \{
+        throw new BuildException(msg, ioe, getLocation());
+    \}
+    log(msg, MSG_ERR);
+\}
+doResourceOperations#?,Map#32: catch (IOException ioe) \{
+    String msg = ((((\"Failed to copy \" + fromResource) + \" to \") + toFile) + \" due to \") + ioe.getMessage();
+    File targetFile = new File(toFile);
+    if (targetFile.exists() && (!targetFile.delete())) \{
+        msg += \" and I couldn't delete the corrupt \" + toFile;
+    \}
+    if (failonerror) \{
+        throw new BuildException(msg, ioe, getLocation());
+    \}
+    log(msg, MSG_ERR);
+\}" shape=ellipse]
+5 [label="doFileOperations#?#37:ioe
+doResourceOperations#?,Map#32:ioe" shape=ellipse]
+6 [label="doFileOperations#?#37:IOException
+doResourceOperations#?,Map#32:IOException" shape=ellipse]
+7 [label="doFileOperations#?#37:\{
+    String msg = ((((\"Failed to copy \" + fromFile) + \" to \") + toFile) + \" due to \") + ioe.getMessage();
+    File targetFile = new File(toFile);
+    if (targetFile.exists() && (!targetFile.delete())) \{
+        msg += \" and I couldn't delete the corrupt \" + toFile;
+    \}
+    if (failonerror) \{
+        throw new BuildException(msg, ioe, getLocation());
+    \}
+    log(msg, MSG_ERR);
+\}
+doResourceOperations#?,Map#32:\{
+    String msg = ((((\"Failed to copy \" + fromResource) + \" to \") + toFile) + \" due to \") + ioe.getMessage();
+    File targetFile = new File(toFile);
+    if (targetFile.exists() && (!targetFile.delete())) \{
+        msg += \" and I couldn't delete the corrupt \" + toFile;
+    \}
+    if (failonerror) \{
+        throw new BuildException(msg, ioe, getLocation());
+    \}
+    log(msg, MSG_ERR);
+\}" shape=ellipse]
+8 [label="doFileOperations#?#38:String msg = ((((\"Failed to copy \" + fromFile) + \" to \") + toFile) + \" due to \") + ioe.getMessage()
+doResourceOperations#?,Map#33:String msg = ((((\"Failed to copy \" + fromResource) + \" to \") + toFile) + \" due to \") + ioe.getMessage()" shape=ellipse]
+9 [label="doFileOperations#?#39:((((\"Failed to copy \" + fromFile) + \" to \") + toFile) + \" due to \") + ioe.getMessage()
+doResourceOperations#?,Map#34:((((\"Failed to copy \" + fromResource) + \" to \") + toFile) + \" due to \") + ioe.getMessage()" shape=ellipse]
+10 [label="doFileOperations#?#39:((((\"Failed to copy \" + fromFile) + \" to \") + toFile) + \" due to \")
+doResourceOperations#?,Map#34:((((\"Failed to copy \" + fromResource) + \" to \") + toFile) + \" due to \")" shape=ellipse]
+11 [label="doFileOperations#?#39:(((\"Failed to copy \" + fromFile) + \" to \") + toFile)
+doResourceOperations#?,Map#34:(((\"Failed to copy \" + fromResource) + \" to \") + toFile)" shape=ellipse]
+12 [label="doFileOperations#?#39:((\"Failed to copy \" + fromFile) + \" to \")
+doResourceOperations#?,Map#34:((\"Failed to copy \" + fromResource) + \" to \")" shape=ellipse]
+13 [label="doFileOperations#?#39:(\"Failed to copy \" + fromFile)
+doResourceOperations#?,Map#34:(\"Failed to copy \" + fromResource)" shape=ellipse]
+14 [label="doFileOperations#?#39:\"Failed to copy \"
+doResourceOperations#?,Map#34:\"Failed to copy \"" shape=ellipse]
+15 [label="doFileOperations#?#39:fromFile
+doResourceOperations#?,Map#34:fromResource" shape=ellipse]
+16 [label="doFileOperations#?#39:\" to \"
+doResourceOperations#?,Map#34:\" to \"" shape=ellipse]
+17 [label="doFileOperations#?#39:toFile
+doResourceOperations#?,Map#34:toFile" shape=ellipse]
+18 [label="doFileOperations#?#39:\" due to \"
+doResourceOperations#?,Map#34:\" due to \"" shape=ellipse]
+19 [label="doFileOperations#?#40:getMessage()
+doResourceOperations#?,Map#35:getMessage()" shape=ellipse]
+20 [label="doFileOperations#?#40:ioe
+doResourceOperations#?,Map#35:ioe" shape=ellipse]
+21 [label="doFileOperations#?#41:File targetFile = new File(toFile)
+doResourceOperations#?,Map#36:File targetFile = new File(toFile)" shape=ellipse]
+22 [label="doFileOperations#?#41:new File(toFile)
+doResourceOperations#?,Map#36:new File(toFile)" shape=ellipse]
+23 [label="doFileOperations#?#-1:File(java.lang.String)
+doResourceOperations#?,Map#-1:File(java.lang.String)" shape=ellipse]
+24 [label="doFileOperations#?#41:toFile
+doResourceOperations#?,Map#36:toFile" shape=ellipse]
+25 [label="doFileOperations#?#42:if (targetFile.exists() && (!targetFile.delete())) \{
+    msg += \" and I couldn't delete the corrupt \" + toFile;
+\}
+doResourceOperations#?,Map#37:if (targetFile.exists() && (!targetFile.delete())) \{
+    msg += \" and I couldn't delete the corrupt \" + toFile;
+\}" shape=ellipse]
+26 [label="doFileOperations#?#42:targetFile.exists() && (!targetFile.delete())
+doResourceOperations#?,Map#37:targetFile.exists() && (!targetFile.delete())" shape=ellipse]
+27 [label="doFileOperations#?#42:targetFile.exists()
+doResourceOperations#?,Map#37:targetFile.exists()" shape=ellipse]
+28 [label="doFileOperations#?#42:exists()
+doResourceOperations#?,Map#37:exists()" shape=ellipse]
+29 [label="doFileOperations#?#42:targetFile
+doResourceOperations#?,Map#37:targetFile" shape=ellipse]
+30 [label="doFileOperations#?#42:(!targetFile.delete())
+doResourceOperations#?,Map#37:(!targetFile.delete())" shape=ellipse]
+31 [label="doFileOperations#?#42:targetFile.delete()
+doResourceOperations#?,Map#37:targetFile.delete()" shape=ellipse]
+32 [label="doFileOperations#?#42:delete()
+doResourceOperations#?,Map#37:delete()" shape=ellipse]
+33 [label="doFileOperations#?#42:targetFile
+doResourceOperations#?,Map#37:targetFile" shape=ellipse]
+34 [label="doFileOperations#?#45:if (failonerror) \{
+    throw new BuildException(msg, ioe, getLocation());
+\}
+doResourceOperations#?,Map#40:if (failonerror) \{
+    throw new BuildException(msg, ioe, getLocation());
+\}" shape=ellipse]
+35 [label="doFileOperations#?#45:failonerror
+doResourceOperations#?,Map#40:failonerror" shape=ellipse]
+36 [label="doFileOperations#?#48:log(msg, MSG_ERR)
+doResourceOperations#?,Map#43:log(msg, MSG_ERR)" shape=ellipse]
+37 [label="doFileOperations#?#48:log(java.lang.String,<unknown>)
+doResourceOperations#?,Map#43:log(java.lang.String,<unknown>)" shape=ellipse]
+38 [label="doFileOperations#?#-1:
+doResourceOperations#?,Map#-1:" shape=ellipse]
+39 [label="doFileOperations#?#-1:PlaceHold
+doResourceOperations#?,Map#-1:PlaceHold" shape=ellipse]
+40 [label="doFileOperations#?#48:msg
+doResourceOperations#?,Map#43:msg" shape=ellipse]
+41 [label="doFileOperations#?#48:MSG_ERR
+doResourceOperations#?,Map#43:MSG_ERR" shape=ellipse]
+42 [label="doFileOperations#?#40:getMessage
+doResourceOperations#?,Map#35:getMessage" shape=ellipse]
+43 [label="doFileOperations#?#39:getDueTo(ioe)
+doResourceOperations#?,Map#35:getDueTo(ioe)" shape=ellipse]
+0 -> 43 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 42 [label="AST:2"];
+1 -> 20 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+2 -> 22 [label="Control Dep:2"];
+2 -> 23 [label="Control Dep:2"];
+2 -> 24 [label="Control Dep:2"];
+2 -> 25 [label="Control Dep:2"];
+2 -> 26 [label="Control Dep:2"];
+2 -> 27 [label="Control Dep:2"];
+2 -> 28 [label="Control Dep:2"];
+2 -> 29 [label="Control Dep:2"];
+2 -> 30 [label="Control Dep:2"];
+2 -> 31 [label="Control Dep:2"];
+2 -> 32 [label="Control Dep:2"];
+2 -> 33 [label="Control Dep:2"];
+2 -> 34 [label="Control Dep:2"];
+2 -> 35 [label="Control Dep:2"];
+2 -> 36 [label="Control Dep:2"];
+2 -> 37 [label="Control Dep:2"];
+2 -> 38 [label="Control Dep:2"];
+2 -> 39 [label="Control Dep:2"];
+2 -> 40 [label="Control Dep:2"];
+2 -> 41 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+5 -> 20 [label="Define Use:2"];
+7 -> 8 [label="AST:2"];
+7 -> 21 [label="AST:2"];
+7 -> 25 [label="AST:2"];
+7 -> 34 [label="AST:2"];
+7 -> 36 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+9 -> 1 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 18 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 17 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 16 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+22 -> 24 [label="AST:2"];
+25 -> 26 [label="AST:2"];
+26 -> 27 [label="AST:2"];
+26 -> 30 [label="AST:2"];
+27 -> 29 [label="AST:2"];
+27 -> 28 [label="AST:2"];
+30 -> 31 [label="AST:2"];
+31 -> 33 [label="AST:2"];
+31 -> 32 [label="AST:2"];
+34 -> 35 [label="AST:2"];
+36 -> 38 [label="AST:2"];
+36 -> 37 [label="AST:2"];
+36 -> 40 [label="AST:2"];
+36 -> 41 [label="AST:2"];
+38 -> 39 [label="AST:2"];
+}

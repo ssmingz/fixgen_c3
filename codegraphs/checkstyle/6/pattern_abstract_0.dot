@@ -1,0 +1,111 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Update
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:UPDATE
+value2:" shape=ellipse]
+1 [label="locationInParent:TYPE_MEMBER
+nodeType:CtMethodImpl
+nodeType2:CtExecutableImpl
+nodeType3:CtExecutableImpl" shape=ellipse]
+2 [label="locationInParent:METHOD_DEC_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object" shape=ellipse]
+3 [label="locationInParent:ANNOTATION
+nodeType:CtAnnotationImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:@Test
+value2:@Test" shape=ellipse]
+4 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:void
+value2:void" shape=ellipse]
+5 [label="locationInParent:THROWN
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:Exception
+value2:java.lang.Exception" shape=ellipse]
+6 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:java.lang
+value2:java.lang" shape=ellipse]
+7 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+8 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:final int expectedCapitalCount = Integer" shape=ellipse]
+9 [label="locationInParent:STATEMENT
+nodeType:CtAssignmentImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:warningMessage = getCheckMessage(MSG_KEY, expectedCapitalCount)
+value2:PlaceHold = getCheckMessage(MSG_KEY, int)" shape=ellipse]
+10 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:final DefaultConfiguration checkConfig = createCheckConfig(AbbreviationAsWordInNameCheck.class)
+value2:final DefaultConfiguration checkConfig = createCheckConfig(AbbreviationAsWordInNameCheck.class)" shape=ellipse]
+11 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:checkConfig.addAttribute(\"allowedAbbreviationLength\", String.valueOf(expectedCapitalCount))
+value2:DefaultConfiguration.addAttribute(String, java.lang.String.valueOf(int))" shape=ellipse]
+12 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:DefaultConfiguration.addAttribute(String, String)" shape=ellipse]
+13 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:checkConfig.addAttribute(\"tokens\", \"CLASS_DEF\")
+value2:DefaultConfiguration.addAttribute(String, String)" shape=ellipse]
+14 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:checkConfig.addAttribute(\"ignoreOverriddenMethods\", \"true\")
+value2:DefaultConfiguration.addAttribute(String, String)" shape=ellipse]
+15 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+16 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:verify(checkConfig, getPath(\"naming/InputAbbreviationAsWordInTypeNameCheck.java\"), expected)
+value2:verify(DefaultConfiguration, getPath(String), String[])" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+7 -> 13 [label="AST:2"];
+7 -> 14 [label="AST:2"];
+7 -> 15 [label="AST:2"];
+7 -> 16 [label="AST:2"];
+}

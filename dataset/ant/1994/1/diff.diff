@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1994/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1994/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test6", "target is file");
++    try {
++      buildRule.executeTarget("test6");
++      fail("target is file");
++    } catch (BuildException ex) {
++    }

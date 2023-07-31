@@ -1,0 +1,80 @@
+digraph "testEncoding#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testEncoding" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@getJavaVersion()" shape=ellipse]
+4 [label="3:CtVirtualElement@getJavaVersion" shape=ellipse]
+5 [label="3:CtFieldReadImpl@project" shape=ellipse]
+6 [label="3:CtInvocationImpl@project.getJavaVersion()" shape=ellipse]
+7 [label="3:CtFieldReadImpl@Project.JAVA_1_1" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@project.getJavaVersion() == Project.JAVA_1_1" shape=ellipse]
+9 [label="4:CtReturnImpl@return" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (project.getJavaVersion() == Project.JAVA_1_1) \{
+    return;
+\}" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+13 [label="6:CtVirtualElement@executeTarget" shape=ellipse]
+14 [label="6:CtLiteralImpl@\"testEncoding\"" shape=ellipse]
+15 [label="6:CtInvocationImpl@executeTarget(\"testEncoding\")" shape=ellipse]
+16 [label="7:CtExecutableReferenceImpl@assertEqualContent(<unknown>,<unknown>)" shape=ellipse]
+17 [label="7:CtVirtualElement@assertEqualContent" shape=ellipse]
+18 [label="8:CtTypeReferenceImpl@File" shape=ellipse]
+19 [label="8:CtLiteralImpl@\"src/etc/testcases/taskdefs/fixcrlf/expected/input.lf.utf16\"" shape=ellipse]
+20 [label="8:CtConstructorCallImpl@new File(\"src/etc/testcases/taskdefs/fixcrlf/expected/input.lf.utf16\")" shape=ellipse]
+21 [label="9:CtTypeReferenceImpl@File" shape=ellipse]
+22 [label="9:CtLiteralImpl@\"src/etc/testcases/taskdefs/fixcrlf/result/input.crlf.utf16\"" shape=ellipse]
+23 [label="9:CtConstructorCallImpl@new File(\"src/etc/testcases/taskdefs/fixcrlf/result/input.crlf.utf16\")" shape=ellipse]
+24 [label="7:CtInvocationImpl@assertEqualContent(new File(\"src/etc/testcases/taskdefs/fixcrlf/expected/input.lf.utf16\"), new File(\"src/etc/testcases/taskdefs/fixcrlf/result/input.crlf.utf16\"))" shape=ellipse]
+25 [label="2:CtBlockImpl@\{
+    if (project.getJavaVersion() == Project.JAVA_1_1) \{
+        return;
+    \}
+    executeTarget(\"testEncoding\");
+    assertEqualContent(new File(\"src/etc/testcases/taskdefs/fixcrlf/expected/input.lf.utf16\"), new File(\"src/etc/testcases/taskdefs/fixcrlf/result/input.crlf.utf16\"));
+\}" shape=ellipse]
+26 [label="2:CtMethodImpl@public void testEncoding() throws IOException \{
+    if (project.getJavaVersion() == Project.JAVA_1_1) \{
+        return;
+    \}
+    executeTarget(\"testEncoding\");
+    assertEqualContent(new File(\"src/etc/testcases/taskdefs/fixcrlf/expected/input.lf.utf16\"), new File(\"src/etc/testcases/taskdefs/fixcrlf/result/input.crlf.utf16\"));
+\}" shape=ellipse]
+27 [label="3:Update@UPDATE" shape=ellipse]
+28 [label="3:CtInvocationImpl@JavaEnvUtils.isJavaVersion(JAVA_1_1)" shape=ellipse]
+29 [label="3:Delete@DELETE" shape=ellipse]
+30 [label="3:Move@MOVE" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 27 [label="Action"];
+6 -> 30 [label="Action"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 10 [label="Control Dep"];
+8 -> 9 [label="Control Dep"];
+8 -> 29 [label="Action"];
+10 -> 9 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 14 [label="AST"];
+20 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 17 [label="AST"];
+24 -> 16 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 11 [label="AST"];
+25 -> 15 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 1 [label="AST"];
+26 -> 0 [label="AST"];
+26 -> 2 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 28 [label="Action"];
+30 -> 11 [label="Action"];
+}

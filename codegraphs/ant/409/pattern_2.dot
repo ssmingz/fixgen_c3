@@ -1,0 +1,28 @@
+digraph "Pattern" {
+0 [label="testFilterReaderBeforeAfter#?#6:UPDATE
+testConcatFilterBeforeAfter#?#6:UPDATE" shape=ellipse]
+1 [label="testFilterReaderBeforeAfter#?#6:FILE_BEGINNING_WITH
+testConcatFilterBeforeAfter#?#6:FILE_BEGINNING_WITH" shape=ellipse]
+2 [label="testFilterReaderBeforeAfter#?#6:resultContent.startsWith(FILE_BEGINNING_WITH)
+testConcatFilterBeforeAfter#?#6:resultContent.startsWith(FILE_BEGINNING_WITH)" shape=ellipse]
+3 [label="testFilterReaderBeforeAfter#?#6:assertTrue(\"First 5 lines differs.\", resultContent.startsWith(FILE_BEGINNING_WITH))
+testConcatFilterBeforeAfter#?#6:assertTrue(\"First 5 lines differs.\", resultContent.startsWith(FILE_BEGINNING_WITH))" shape=ellipse]
+4 [label="testFilterReaderBeforeAfter#?#6:startsWith
+testConcatFilterBeforeAfter#?#6:startsWith" shape=ellipse]
+5 [label="testFilterReaderBeforeAfter#?#6:resultContent
+testConcatFilterBeforeAfter#?#6:resultContent" shape=ellipse]
+6 [label="testFilterReaderBeforeAfter#?#6:startsWith(java.lang.String)
+testConcatFilterBeforeAfter#?#6:startsWith(java.lang.String)" shape=ellipse]
+7 [label="testFilterReaderBeforeAfter#?#-1:FILE_BEGINNING_WITH
+testConcatFilterBeforeAfter#?#-1:FILE_BEGINNING_WITH" shape=ellipse]
+8 [label="testFilterReaderBeforeAfter#?#6:FILE_PREPEND_WITH
+testConcatFilterBeforeAfter#?#6:FILE_PREPEND_WITH" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

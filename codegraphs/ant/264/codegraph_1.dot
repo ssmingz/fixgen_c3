@@ -1,0 +1,95 @@
+digraph "processLine#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@processLine" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@toString()" shape=ellipse]
+4 [label="3:CtVirtualElement@toString" shape=ellipse]
+5 [label="3:CtFieldReadImpl@line" shape=ellipse]
+6 [label="3:CtInvocationImpl@line.toString()" shape=ellipse]
+7 [label="3:CtVirtualElement@s" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@String s = line.toString()" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@indexOf(java.lang.String)" shape=ellipse]
+10 [label="4:CtVirtualElement@indexOf" shape=ellipse]
+11 [label="4:CtVariableReadImpl@s" shape=ellipse]
+12 [label="4:CtLiteralImpl@\"error\"" shape=ellipse]
+13 [label="4:CtInvocationImpl@s.indexOf(\"error\")" shape=ellipse]
+14 [label="4:CtLiteralImpl@1" shape=ellipse]
+15 [label="4:CtUnaryOperatorImpl@(-1)" shape=ellipse]
+16 [label="4:CtBinaryOperatorImpl@s.indexOf(\"error\") > (-1)" shape=ellipse]
+17 [label="5:CtFieldWriteImpl@errorFlag" shape=ellipse]
+18 [label="5:CtLiteralImpl@true" shape=ellipse]
+19 [label="5:CtAssignmentImpl@errorFlag = true" shape=ellipse]
+20 [label="4:CtBlockImpl@\{
+    errorFlag = true;
+\}" shape=ellipse]
+21 [label="4:CtIfImpl@if (s.indexOf(\"error\") > (-1)) \{
+    errorFlag = true;
+\}" shape=ellipse]
+22 [label="7:CtExecutableReferenceImpl@log(java.lang.String)" shape=ellipse]
+23 [label="7:CtVirtualElement@log" shape=ellipse]
+24 [label="7:CtFieldReadImpl@project" shape=ellipse]
+25 [label="7:CtVariableReadImpl@s" shape=ellipse]
+26 [label="7:CtInvocationImpl@project.log(s)" shape=ellipse]
+27 [label="8:CtFieldWriteImpl@line" shape=ellipse]
+28 [label="8:CtTypeReferenceImpl@StringBuffer" shape=ellipse]
+29 [label="8:CtConstructorCallImpl@new StringBuffer()" shape=ellipse]
+30 [label="8:CtAssignmentImpl@line = new StringBuffer()" shape=ellipse]
+31 [label="2:CtBlockImpl@\{
+    String s = line.toString();
+    if (s.indexOf(\"error\") > (-1)) \{
+        errorFlag = true;
+    \}
+    project.log(s);
+    line = new StringBuffer();
+\}" shape=ellipse]
+32 [label="2:CtMethodImpl@private void processLine() \{
+    String s = line.toString();
+    if (s.indexOf(\"error\") > (-1)) \{
+        errorFlag = true;
+    \}
+    project.log(s);
+    line = new StringBuffer();
+\}" shape=ellipse]
+33 [label="7:Update@UPDATE" shape=ellipse]
+34 [label="7:CtFieldReadImpl@task" shape=ellipse]
+5 -> 7 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+7 -> 11 [label="Define-Use"];
+7 -> 25 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 6 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 20 [label="Control Dep"];
+16 -> 19 [label="Control Dep"];
+16 -> 17 [label="Control Dep"];
+16 -> 18 [label="Control Dep"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 16 [label="AST"];
+21 -> 20 [label="AST"];
+24 -> 33 [label="Action"];
+26 -> 23 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 8 [label="AST"];
+31 -> 21 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 1 [label="AST"];
+32 -> 0 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 34 [label="Action"];
+}

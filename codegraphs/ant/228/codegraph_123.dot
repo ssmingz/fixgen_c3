@@ -1,0 +1,49 @@
+digraph "addPropertyset#?,PropertySet" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addPropertyset" shape=ellipse]
+2 [label="2:CtParameterImpl@PropertySet ref" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@PropertySet" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@assertNotReference()" shape=ellipse]
+5 [label="3:CtVirtualElement@assertNotReference" shape=ellipse]
+6 [label="3:CtInvocationImpl@assertNotReference()" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@setChecked(boolean)" shape=ellipse]
+8 [label="4:CtVirtualElement@setChecked" shape=ellipse]
+9 [label="4:CtLiteralImpl@false" shape=ellipse]
+10 [label="4:CtInvocationImpl@setChecked(false)" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@addElement(PropertySet)" shape=ellipse]
+12 [label="5:CtVirtualElement@addElement" shape=ellipse]
+13 [label="5:CtFieldReadImpl@setRefs" shape=ellipse]
+14 [label="5:CtVariableReadImpl@ref" shape=ellipse]
+15 [label="5:CtInvocationImpl@setRefs.addElement(ref)" shape=ellipse]
+16 [label="2:CtBlockImpl@\{
+    assertNotReference();
+    setChecked(false);
+    setRefs.addElement(ref);
+\}" shape=ellipse]
+17 [label="2:CtMethodImpl@public void addPropertyset(PropertySet ref) \{
+    assertNotReference();
+    setChecked(false);
+    setRefs.addElement(ref);
+\}" shape=ellipse]
+18 [label="5:Update@UPDATE" shape=ellipse]
+19 [label="5:CtInvocationImpl@setRefs.add(ref)" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 7 [label="AST"];
+10 -> 9 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 18 [label="Action"];
+16 -> 6 [label="AST"];
+16 -> 10 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 1 [label="AST"];
+17 -> 0 [label="AST"];
+17 -> 2 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 19 [label="Action"];
+}

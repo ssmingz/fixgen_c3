@@ -1,0 +1,103 @@
+digraph "Pattern" {
+0 [label="execute#?#10:INSERT
+execute#?#8:INSERT" shape=ellipse]
+1 [label="execute#?#9:new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)
+execute#?#8:new BuildException(msg, location)" shape=ellipse]
+2 [label="execute#?#8:!srcDir.exists()" shape=ellipse]
+3 [label="execute#?#6:i < list.length
+execute#?#7:\"Failed executing: \" + commandLine.toString()" shape=ellipse]
+4 [label="execute#?#8:if (!srcDir.exists()) \{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}" shape=ellipse]
+5 [label="execute#?#8:srcDir.exists()" shape=ellipse]
+6 [label="execute#?#8:\{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}
+execute#?#6:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+7 [label="execute#?#9:throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)
+execute#?#8:throw new BuildException(msg, location)" shape=ellipse]
+8 [label="execute#?#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+9 [label="execute#?#9:(\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\"
+execute#?#8:location" shape=ellipse]
+10 [label="execute#?#9:(\"srcdir \\"\" + srcDir.getPath())" shape=ellipse]
+11 [label="execute#?#9:\"srcdir \\"\"
+execute#?#7:commandLine" shape=ellipse]
+12 [label="execute#?#9:srcDir.getPath()" shape=ellipse]
+13 [label="execute#?#9:getPath()
+execute#?#7:toString()" shape=ellipse]
+14 [label="execute#?#9:srcDir
+execute#?#6:result" shape=ellipse]
+15 [label="execute#?#9:\"\\" does not exist!\"" shape=ellipse]
+16 [label="execute#?#9:location
+execute#?#8:msg" shape=ellipse]
+17 [label="execute#?#10:getLocation()
+execute#?#8:getLocation()" shape=ellipse]
+18 [label="execute#?#6:if (result == 255) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+19 [label="execute#?#7:commandLine.toString()" shape=ellipse]
+20 [label="execute#?#6:255" shape=ellipse]
+21 [label="execute#?#6:result == 255" shape=ellipse]
+22 [label="execute#?#7:\"Failed executing: \"" shape=ellipse]
+23 [label="execute#?#7:String msg = \"Failed executing: \" + commandLine.toString()" shape=ellipse]
+24 [label="execute#?#-1:boolean" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+3 -> 19 [label="AST:1"];
+3 -> 22 [label="AST:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+6 -> 23 [label="AST:1"];
+7 -> 1 [label="AST:2"];
+9 -> 10 [label="AST:1"];
+9 -> 15 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+18 -> 21 [label="AST:1"];
+18 -> 6 [label="AST:1"];
+19 -> 11 [label="AST:1"];
+19 -> 13 [label="AST:1"];
+21 -> 19 [label="Control Dep:1"];
+21 -> 20 [label="AST:1"];
+21 -> 24 [label="AST:1"];
+21 -> 14 [label="AST:1"];
+21 -> 6 [label="Control Dep:1"];
+21 -> 23 [label="Control Dep:1"];
+21 -> 3 [label="Control Dep:1"];
+21 -> 22 [label="Control Dep:1"];
+21 -> 13 [label="Control Dep:1"];
+21 -> 11 [label="Control Dep:1"];
+21 -> 7 [label="Control Dep:1"];
+21 -> 1 [label="Control Dep:1"];
+21 -> 8 [label="Control Dep:1"];
+21 -> 16 [label="Control Dep:1"];
+21 -> 9 [label="Control Dep:1"];
+23 -> 3 [label="AST:1"];
+}

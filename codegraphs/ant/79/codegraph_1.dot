@@ -1,0 +1,152 @@
+digraph "initChecksum#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@initChecksum" shape=ellipse]
+2 [label="3:CtFieldReadImpl@checksum" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtBinaryOperatorImpl@checksum != null" shape=ellipse]
+5 [label="4:CtReturnImpl@return" shape=ellipse]
+6 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+7 [label="3:CtIfImpl@if (checksum != null) \{
+    return;
+\}" shape=ellipse]
+8 [label="6:CtExecutableReferenceImpl@equalsIgnoreCase(java.lang.String)" shape=ellipse]
+9 [label="6:CtVirtualElement@equalsIgnoreCase" shape=ellipse]
+10 [label="6:CtLiteralImpl@\"CRC\"" shape=ellipse]
+11 [label="6:CtFieldReadImpl@algorithm" shape=ellipse]
+12 [label="6:CtInvocationImpl@\"CRC\".equalsIgnoreCase(algorithm)" shape=ellipse]
+13 [label="7:CtFieldWriteImpl@checksum" shape=ellipse]
+14 [label="7:CtTypeReferenceImpl@CRC32" shape=ellipse]
+15 [label="7:CtConstructorCallImpl@new CRC32()" shape=ellipse]
+16 [label="7:CtAssignmentImpl@checksum = new CRC32()" shape=ellipse]
+17 [label="6:CtBlockImpl@\{
+    checksum = new CRC32();
+\}" shape=ellipse]
+18 [label="8:CtExecutableReferenceImpl@equalsIgnoreCase(java.lang.String)" shape=ellipse]
+19 [label="8:CtVirtualElement@equalsIgnoreCase" shape=ellipse]
+20 [label="8:CtLiteralImpl@\"ADLER\"" shape=ellipse]
+21 [label="8:CtFieldReadImpl@algorithm" shape=ellipse]
+22 [label="8:CtInvocationImpl@\"ADLER\".equalsIgnoreCase(algorithm)" shape=ellipse]
+23 [label="9:CtFieldWriteImpl@checksum" shape=ellipse]
+24 [label="9:CtTypeReferenceImpl@Adler32" shape=ellipse]
+25 [label="9:CtConstructorCallImpl@new Adler32()" shape=ellipse]
+26 [label="9:CtAssignmentImpl@checksum = new Adler32()" shape=ellipse]
+27 [label="8:CtBlockImpl@\{
+    checksum = new Adler32();
+\}" shape=ellipse]
+28 [label="11:CtTypeReferenceImpl@BuildException" shape=ellipse]
+29 [label="11:CtTypeReferenceImpl@NoSuchAlgorithmException" shape=ellipse]
+30 [label="11:CtConstructorCallImpl@new NoSuchAlgorithmException()" shape=ellipse]
+31 [label="11:CtConstructorCallImpl@new BuildException(new NoSuchAlgorithmException())" shape=ellipse]
+32 [label="11:CtThrowImpl@throw new BuildException(new NoSuchAlgorithmException())" shape=ellipse]
+33 [label="10:CtBlockImpl@\{
+    throw new BuildException(new NoSuchAlgorithmException());
+\}" shape=ellipse]
+34 [label="8:CtIfImpl@if (\"ADLER\".equalsIgnoreCase(algorithm)) \{
+    checksum = new Adler32();
+\} else \{
+    throw new BuildException(new NoSuchAlgorithmException());
+\}" shape=ellipse]
+35 [label="8:CtBlockImpl@
+    if (\"ADLER\".equalsIgnoreCase(algorithm)) \{
+        checksum = new Adler32();
+    \} else \{
+        throw new BuildException(new NoSuchAlgorithmException());
+    \}
+" shape=ellipse]
+36 [label="6:CtIfImpl@if (\"CRC\".equalsIgnoreCase(algorithm)) \{
+    checksum = new CRC32();
+\} else if (\"ADLER\".equalsIgnoreCase(algorithm)) \{
+    checksum = new Adler32();
+\} else \{
+    throw new BuildException(new NoSuchAlgorithmException());
+\}" shape=ellipse]
+37 [label="2:CtBlockImpl@\{
+    if (checksum != null) \{
+        return;
+    \}
+    if (\"CRC\".equalsIgnoreCase(algorithm)) \{
+        checksum = new CRC32();
+    \} else if (\"ADLER\".equalsIgnoreCase(algorithm)) \{
+        checksum = new Adler32();
+    \} else \{
+        throw new BuildException(new NoSuchAlgorithmException());
+    \}
+\}" shape=ellipse]
+38 [label="2:CtMethodImpl@public void initChecksum() \{
+    if (checksum != null) \{
+        return;
+    \}
+    if (\"CRC\".equalsIgnoreCase(algorithm)) \{
+        checksum = new CRC32();
+    \} else if (\"ADLER\".equalsIgnoreCase(algorithm)) \{
+        checksum = new Adler32();
+    \} else \{
+        throw new BuildException(new NoSuchAlgorithmException());
+    \}
+\}" shape=ellipse]
+39 [label="6:Update@UPDATE" shape=ellipse]
+40 [label="6:CtInvocationImpl@\"CRC\".equals(algorithm)" shape=ellipse]
+41 [label="8:Update@UPDATE" shape=ellipse]
+42 [label="8:CtInvocationImpl@\"ADLER\".equals(algorithm)" shape=ellipse]
+4 -> 2 [label="AST"];
+4 -> 3 [label="AST"];
+4 -> 6 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+6 -> 5 [label="AST"];
+7 -> 4 [label="AST"];
+7 -> 6 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 17 [label="Control Dep"];
+12 -> 16 [label="Control Dep"];
+12 -> 13 [label="Control Dep"];
+12 -> 15 [label="Control Dep"];
+12 -> 35 [label="Control Dep"];
+12 -> 34 [label="Control Dep"];
+12 -> 22 [label="Control Dep"];
+12 -> 18 [label="Control Dep"];
+12 -> 20 [label="Control Dep"];
+12 -> 21 [label="Control Dep"];
+12 -> 39 [label="Action"];
+16 -> 13 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 18 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 27 [label="Control Dep"];
+22 -> 26 [label="Control Dep"];
+22 -> 23 [label="Control Dep"];
+22 -> 25 [label="Control Dep"];
+22 -> 33 [label="Control Dep"];
+22 -> 32 [label="Control Dep"];
+22 -> 31 [label="Control Dep"];
+22 -> 30 [label="Control Dep"];
+22 -> 41 [label="Action"];
+26 -> 23 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 22 [label="AST"];
+34 -> 27 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 12 [label="AST"];
+36 -> 17 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 7 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 1 [label="AST"];
+38 -> 0 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 40 [label="Action"];
+40 -> 42 [label="Control Dep"];
+41 -> 42 [label="Action"];
+}

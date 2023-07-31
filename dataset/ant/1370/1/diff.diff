@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1370/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1370/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    getProject().setProperty(ENABLE_TESTLISTENER_EVENTS, "true");
+-    executeTarget(PASS_TEST_TARGET);
+-    assertTrue(
+-        "expecting full log to have BuildListener events", hasBuildListenerEvents(getFullLog()));
++    buildRule.getProject().setProperty(ENABLE_TESTLISTENER_EVENTS, "true");
++    buildRule.executeTarget(PASS_TEST_TARGET);
++    assertContains(
++        "expecting full log to have BuildListener events",
++        TESTLISTENER_PREFIX,
++        buildRule.getFullLog());

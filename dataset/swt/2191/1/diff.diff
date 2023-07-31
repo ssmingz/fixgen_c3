@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2191/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2191/1/after.java
+@@ -2,1 +2,9 @@
+-  public void test_getLineStyle() {}
++  public void test_getLineStyle() {
++    PerformanceMeter meter = createMeter();
++    meter.start();
++    for (int i = 0; i < COUNT; i++) {
++      gc.getLineStyle();
++    }
++    meter.stop();
++    disposeMeter(meter);
++  }

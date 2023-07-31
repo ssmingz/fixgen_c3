@@ -1,0 +1,137 @@
+digraph "Pattern" {
+0 [label="getClassName#?,String#5:DELETE
+setValue#?,Object,String,Context,Method[]#9:DELETE
+createFactory#?,String#17:DELETE" shape=ellipse]
+1 [label="getClassName#?,String#5:(\"Malconfigured factory, no clasname for '\" + name) + \"'\"
+setValue#?,Object,String,Context,Method[]#9:\"Error resolving property \" + value
+createFactory#?,String#17:((\"Role '\" + role) + \"' does not specify \") + \"accessible work interface\"" shape=ellipse]
+2 [label="getClassName#?,String#4:null == className" shape=ellipse]
+3 [label="getClassName#?,String#4:if (null == className) \{
+    throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\");
+\}
+setValue#?,Object,String,Context,Method[]#9:throw new ConfigurationException(\"Error resolving property \" + value, pe)
+createFactory#?,String#16:throw new TypeException(((\"Role '\" + role) + \"' does not specify \") + \"accessible work interface\")" shape=ellipse]
+4 [label="getClassName#?,String#-1:boolean
+setValue#?,Object,String,Context,Method[]#-1:ConfigurationException()
+createFactory#?,String#-1:TypeException(java.lang.String)" shape=ellipse]
+5 [label="getClassName#?,String#4:null
+createFactory#?,String#17:\"Role '\"" shape=ellipse]
+6 [label="getClassName#?,String#4:className
+setValue#?,Object,String,Context,Method[]#8:pe
+createFactory#?,String#15:e" shape=ellipse]
+7 [label="getClassName#?,String#4:\{
+    throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\");
+\}" shape=ellipse]
+8 [label="getClassName#?,String#5:throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\")" shape=ellipse]
+9 [label="getClassName#?,String#5:new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\")" shape=ellipse]
+10 [label="getClassName#?,String#-1:TypeException(java.lang.String)
+setValue#?,Object,String,Context,Method[]#8:PropertyException
+createFactory#?,String#15:Exception" shape=ellipse]
+11 [label="getClassName#?,String#5:(\"Malconfigured factory, no clasname for '\" + name)
+createFactory#?,String#17:((\"Role '\" + role) + \"' does not specify \")" shape=ellipse]
+12 [label="getClassName#?,String#5:\"Malconfigured factory, no clasname for '\"
+createFactory#?,String#17:\"' does not specify \"" shape=ellipse]
+13 [label="getClassName#?,String#5:name" shape=ellipse]
+14 [label="getClassName#?,String#5:\"'\"
+setValue#?,Object,String,Context,Method[]#9:\"Error resolving property \"
+createFactory#?,String#17:\"accessible work interface\"" shape=ellipse]
+15 [label="getClassName#?,String#-1:String
+setValue#?,Object,String,Context,Method[]#-1:String
+createFactory#?,String#-1:String" shape=ellipse]
+16 [label="setValue#?,Object,String,Context,Method[]#9:pe
+createFactory#?,String#17:role" shape=ellipse]
+17 [label="setValue#?,Object,String,Context,Method[]#8:final
+createFactory#?,String#15:final" shape=ellipse]
+18 [label="setValue#?,Object,String,Context,Method[]#8:VE: Modifiers_CatchVariable
+createFactory#?,String#15:VE: Modifiers_CatchVariable" shape=ellipse]
+19 [label="setValue#?,Object,String,Context,Method[]#9:value" shape=ellipse]
+20 [label="setValue#?,Object,String,Context,Method[]#9:new ConfigurationException(\"Error resolving property \" + value, pe)" shape=ellipse]
+21 [label="setValue#?,Object,String,Context,Method[]#8:final PropertyException pe" shape=ellipse]
+22 [label="setValue#?,Object,String,Context,Method[]#8:\{
+    throw new ConfigurationException(\"Error resolving property \" + value, pe);
+\}" shape=ellipse]
+23 [label="setValue#?,Object,String,Context,Method[]#8: catch (final PropertyException pe) \{
+    throw new ConfigurationException(\"Error resolving property \" + value, pe);
+\}
+createFactory#?,String#15: catch (final Exception e) \{
+    throw new TypeException(((\"Role '\" + role) + \"' does not specify \") + \"accessible work interface\");
+\}" shape=ellipse]
+24 [label="createFactory#?,String#15:\{
+    throw new TypeException(((\"Role '\" + role) + \"' does not specify \") + \"accessible work interface\");
+\}" shape=ellipse]
+25 [label="createFactory#?,String#11:null == factory" shape=ellipse]
+26 [label="createFactory#?,String#17:(\"Role '\" + role)" shape=ellipse]
+27 [label="createFactory#?,String#16:new TypeException(((\"Role '\" + role) + \"' does not specify \") + \"accessible work interface\")" shape=ellipse]
+28 [label="createFactory#?,String#15:final Exception e" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 15 [label="AST:3"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="AST:3"];
+1 -> 19 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+3 -> 20 [label="AST:1"];
+3 -> 27 [label="AST:1"];
+6 -> 16 [label="Define Use:1"];
+7 -> 8 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:1"];
+11 -> 26 [label="AST:1"];
+20 -> 16 [label="AST:1"];
+20 -> 4 [label="AST:1"];
+20 -> 1 [label="AST:1"];
+21 -> 16 [label="Control Dep:1"];
+21 -> 17 [label="AST:1"];
+21 -> 18 [label="AST:1"];
+21 -> 19 [label="Control Dep:1"];
+21 -> 20 [label="Control Dep:1"];
+21 -> 6 [label="AST:1"];
+21 -> 10 [label="AST:1"];
+21 -> 22 [label="Control Dep:1"];
+21 -> 3 [label="Control Dep:1"];
+21 -> 4 [label="Control Dep:1"];
+21 -> 1 [label="Control Dep:1"];
+21 -> 14 [label="Control Dep:1"];
+22 -> 3 [label="AST:1"];
+23 -> 21 [label="AST:1"];
+23 -> 22 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 28 [label="AST:1"];
+24 -> 3 [label="AST:1"];
+25 -> 23 [label="Control Dep:1"];
+25 -> 28 [label="Control Dep:1"];
+26 -> 5 [label="AST:1"];
+26 -> 16 [label="AST:1"];
+27 -> 4 [label="AST:1"];
+27 -> 1 [label="AST:1"];
+28 -> 24 [label="Control Dep:1"];
+28 -> 26 [label="Control Dep:1"];
+28 -> 27 [label="Control Dep:1"];
+28 -> 6 [label="AST:1"];
+28 -> 10 [label="AST:1"];
+28 -> 3 [label="Control Dep:1"];
+28 -> 4 [label="Control Dep:1"];
+28 -> 1 [label="Control Dep:1"];
+28 -> 11 [label="Control Dep:1"];
+28 -> 5 [label="Control Dep:1"];
+28 -> 16 [label="Control Dep:1"];
+28 -> 12 [label="Control Dep:1"];
+28 -> 14 [label="Control Dep:1"];
+28 -> 18 [label="AST:1"];
+28 -> 17 [label="AST:1"];
+}

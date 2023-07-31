@@ -1,0 +1,75 @@
+digraph "Pattern" {
+0 [label="testDosLineOutput#?#3:UPDATE
+testUnixLineOutput#?#3:UPDATE" shape=ellipse]
+1 [label="testDosLineOutput#?#3:expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\")
+testUnixLineOutput#?#3:expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\")" shape=ellipse]
+2 [label="testDosLineOutput#?#2:\{
+    expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\");
+\}
+testUnixLineOutput#?#2:\{
+    expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\");
+\}" shape=ellipse]
+3 [label="testDosLineOutput#?#2:public void testDosLineOutput() throws IOException \{
+    expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\");
+\}
+testUnixLineOutput#?#2:public void testUnixLineOutput() throws IOException \{
+    expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\");
+\}" shape=ellipse]
+4 [label="testDosLineOutput#?#3:expectFileContains
+testUnixLineOutput#?#3:expectFileContains" shape=ellipse]
+5 [label="testDosLineOutput#?#-1:
+testUnixLineOutput#?#-1:" shape=ellipse]
+6 [label="testDosLineOutput#?#-1:PlaceHold
+testUnixLineOutput#?#-1:PlaceHold" shape=ellipse]
+7 [label="testDosLineOutput#?#-1:PlaceHold
+testUnixLineOutput#?#-1:PlaceHold" shape=ellipse]
+8 [label="testDosLineOutput#?#3:expectFileContains(java.lang.String,<unknown>,java.lang.String)
+testUnixLineOutput#?#3:expectFileContains(java.lang.String,<unknown>,java.lang.String)" shape=ellipse]
+9 [label="testDosLineOutput#?#-1:String
+testUnixLineOutput#?#-1:String" shape=ellipse]
+10 [label="testDosLineOutput#?#-1:null
+testUnixLineOutput#?#-1:null" shape=ellipse]
+11 [label="testDosLineOutput#?#-1:String
+testUnixLineOutput#?#-1:String" shape=ellipse]
+12 [label="testDosLineOutput#?#4:\"doslineoutput\"
+testUnixLineOutput#?#4:\"unixlineoutput\"" shape=ellipse]
+13 [label="testDosLineOutput#?#-1:String
+testUnixLineOutput#?#-1:String" shape=ellipse]
+14 [label="testDosLineOutput#?#4:UPDATE
+testUnixLineOutput#?#4:UPDATE" shape=ellipse]
+15 [label="testDosLineOutput#?#5:getProject().getProperty(\"output\") + \"/doslineoutput\"
+testUnixLineOutput#?#5:getProject().getProperty(\"output\") + \"/unixlineoutput\"" shape=ellipse]
+16 [label="testDosLineOutput#?#5:getProject().getProperty(\"output\")
+testUnixLineOutput#?#5:getProject().getProperty(\"output\")" shape=ellipse]
+17 [label="testDosLineOutput#?#5:\"/doslineoutput\"
+testUnixLineOutput#?#5:\"/unixlineoutput\"" shape=ellipse]
+18 [label="testDosLineOutput#?#5:MOVE
+testUnixLineOutput#?#5:MOVE" shape=ellipse]
+19 [label="testDosLineOutput#?#6:\"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\"
+testUnixLineOutput#?#6:\"\nThis\nis\na\nnumber\nof\nwords\n\"" shape=ellipse]
+20 [label="testDosLineOutput#?#-1:String
+testUnixLineOutput#?#-1:String" shape=ellipse]
+21 [label="testDosLineOutput#?#5:assertContains(\"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\", getFileString(buildRule.getProject().getProperty(\"output\") + \"/doslineoutput\"))
+testUnixLineOutput#?#5:assertContains(\"\nThis\nis\na\nnumber\nof\nwords\n\", getFileString(buildRule.getProject().getProperty(\"output\") + \"/unixlineoutput\"))" shape=ellipse]
+0 -> 21 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="Action:2"];
+15 -> 16 [label="AST:2"];
+15 -> 17 [label="AST:2"];
+15 -> 18 [label="Action:2"];
+19 -> 20 [label="AST:2"];
+}

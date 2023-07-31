@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1139/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1139/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectSpecificBuildException(
+-        "implicit.notoptional",
+-        "Missing nested elements for implicit element implicit",
+-        "Missing nested elements for implicit element implicit");
++    try {
++      buildRule.executeTarget("implicit.notoptional");
++      fail("BuildException expected: Missing nested elements for implicit element implicit");
++    } catch (BuildException ex) {
++      assertEquals("Missing nested elements for implicit element implicit", ex.getMessage());
++    }

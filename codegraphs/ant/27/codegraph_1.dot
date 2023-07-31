@@ -1,0 +1,48 @@
+digraph "contentEquals#?,File,File,boolean" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@contentEquals" shape=ellipse]
+2 [label="2:CtParameterImpl@File f1" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@File f2" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+6 [label="2:CtParameterImpl@boolean textfile" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+8 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+9 [label="3:CtExecutableReferenceImpl@contentEquals(File,File,boolean)" shape=ellipse]
+10 [label="3:CtVirtualElement@contentEquals" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+12 [label="3:CtVariableReadImpl@f1" shape=ellipse]
+13 [label="3:CtConstructorCallImpl@new FileResource(f1)" shape=ellipse]
+14 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+15 [label="3:CtVariableReadImpl@f2" shape=ellipse]
+16 [label="3:CtConstructorCallImpl@new FileResource(f2)" shape=ellipse]
+17 [label="3:CtVariableReadImpl@textfile" shape=ellipse]
+18 [label="3:CtInvocationImpl@contentEquals(new FileResource(f1), new FileResource(f2), textfile)" shape=ellipse]
+19 [label="3:CtReturnImpl@return contentEquals(new FileResource(f1), new FileResource(f2), textfile)" shape=ellipse]
+20 [label="2:CtBlockImpl@\{
+    return contentEquals(new FileResource(f1), new FileResource(f2), textfile);
+\}" shape=ellipse]
+21 [label="2:CtMethodImpl@public boolean contentEquals(File f1, File f2, boolean textfile) throws IOException \{
+    return contentEquals(new FileResource(f1), new FileResource(f2), textfile);
+\}" shape=ellipse]
+22 [label="3:CtTypeAccessImpl@ResourceUtils" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+13 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 10 [label="AST"];
+18 -> 9 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 1 [label="AST"];
+21 -> 0 [label="AST"];
+21 -> 2 [label="AST"];
+21 -> 4 [label="AST"];
+21 -> 6 [label="AST"];
+21 -> 8 [label="AST"];
+21 -> 20 [label="AST"];
+}

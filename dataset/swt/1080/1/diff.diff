@@ -1,0 +1,18 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1080/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1080/1/after.java
+@@ -18,14 +18,1 @@
+-      int border = 0;
+-      byte[] hasBorder = new byte[1];
+-      OS.GetControlData(
+-          handle,
+-          ((short) (kControlEntireControl)),
+-          kControlDataBrowserIncludesFrameAndFocusTag,
+-          1,
+-          hasBorder,
+-          null);
+-      if (hasBorder[0] != 0) {
+-        int[] outMetric = new int[1];
+-        OS.GetThemeMetric(kThemeMetricFocusRectOutset, outMetric);
+-        border += outMetric[0];
+-      }
++      int border = getBorder();

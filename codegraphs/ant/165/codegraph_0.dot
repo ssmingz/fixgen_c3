@@ -1,0 +1,198 @@
+digraph "exec#?,ExecMetaData" {
+0 [label="2:CtTypeReferenceImpl@Process" shape=ellipse]
+1 [label="2:CtVirtualElement@exec" shape=ellipse]
+2 [label="2:CtParameterImpl@final ExecMetaData metaData" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@ExecMetaData" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@ExecException" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@isCwd()" shape=ellipse]
+7 [label="3:CtVirtualElement@isCwd" shape=ellipse]
+8 [label="3:CtTypeAccessImpl@ExecUtil" shape=ellipse]
+9 [label="3:CtExecutableReferenceImpl@getWorkingDirectory()" shape=ellipse]
+10 [label="3:CtVirtualElement@getWorkingDirectory" shape=ellipse]
+11 [label="3:CtVariableReadImpl@metaData" shape=ellipse]
+12 [label="3:CtInvocationImpl@metaData.getWorkingDirectory()" shape=ellipse]
+13 [label="3:CtInvocationImpl@ExecUtil.isCwd(metaData.getWorkingDirectory())" shape=ellipse]
+14 [label="4:CtExecutableReferenceImpl@exec(java.lang.String,java.lang.String[])" shape=ellipse]
+15 [label="4:CtVirtualElement@exec" shape=ellipse]
+16 [label="4:CtExecutableReferenceImpl@getRuntime()" shape=ellipse]
+17 [label="4:CtVirtualElement@getRuntime" shape=ellipse]
+18 [label="4:CtTypeAccessImpl@Runtime" shape=ellipse]
+19 [label="4:CtInvocationImpl@Runtime.getRuntime()" shape=ellipse]
+20 [label="4:CtExecutableReferenceImpl@getCommand()" shape=ellipse]
+21 [label="4:CtVirtualElement@getCommand" shape=ellipse]
+22 [label="4:CtVariableReadImpl@metaData" shape=ellipse]
+23 [label="4:CtInvocationImpl@metaData.getCommand()" shape=ellipse]
+24 [label="4:CtExecutableReferenceImpl@getEnvironment()" shape=ellipse]
+25 [label="4:CtVirtualElement@getEnvironment" shape=ellipse]
+26 [label="4:CtVariableReadImpl@metaData" shape=ellipse]
+27 [label="4:CtInvocationImpl@metaData.getEnvironment()" shape=ellipse]
+28 [label="4:CtInvocationImpl@Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment())" shape=ellipse]
+29 [label="4:CtReturnImpl@return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment())" shape=ellipse]
+30 [label="3:CtBlockImpl@\{
+    return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+\}" shape=ellipse]
+31 [label="5:CtLiteralImpl@null" shape=ellipse]
+32 [label="5:CtFieldReadImpl@c_execWithCWD" shape=ellipse]
+33 [label="5:CtBinaryOperatorImpl@null == c_execWithCWD" shape=ellipse]
+34 [label="6:CtTypeReferenceImpl@String" shape=ellipse]
+35 [label="7:CtLiteralImpl@\"Unable to launch native command in a \"" shape=ellipse]
+36 [label="7:CtLiteralImpl@\"working directory other than \\".\\"\"" shape=ellipse]
+37 [label="7:CtBinaryOperatorImpl@\"Unable to launch native command in a \" + \"working directory other than \\".\\"\"" shape=ellipse]
+38 [label="6:CtVirtualElement@message" shape=ellipse]
+39 [label="6:CtLocalVariableImpl@final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\"" shape=ellipse]
+40 [label="8:CtTypeReferenceImpl@ExecException" shape=ellipse]
+41 [label="8:CtVariableReadImpl@message" shape=ellipse]
+42 [label="8:CtConstructorCallImpl@new ExecException(message)" shape=ellipse]
+43 [label="8:CtThrowImpl@throw new ExecException(message)" shape=ellipse]
+44 [label="5:CtBlockImpl@\{
+    final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+    throw new ExecException(message);
+\}" shape=ellipse]
+45 [label="10:CtExecutableReferenceImpl@execJava13(<unknown>)" shape=ellipse]
+46 [label="10:CtVirtualElement@execJava13" shape=ellipse]
+47 [label="10:CtVariableReadImpl@metaData" shape=ellipse]
+48 [label="10:CtInvocationImpl@execJava13(metaData)" shape=ellipse]
+49 [label="10:CtReturnImpl@return execJava13(metaData)" shape=ellipse]
+50 [label="9:CtBlockImpl@\{
+    return execJava13(metaData);
+\}" shape=ellipse]
+51 [label="5:CtIfImpl@if (null == c_execWithCWD) \{
+    final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+    throw new ExecException(message);
+\} else \{
+    return execJava13(metaData);
+\}" shape=ellipse]
+52 [label="5:CtBlockImpl@
+    if (null == c_execWithCWD) \{
+        final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+        throw new ExecException(message);
+    \} else \{
+        return execJava13(metaData);
+    \}
+" shape=ellipse]
+53 [label="3:CtIfImpl@if (ExecUtil.isCwd(metaData.getWorkingDirectory())) \{
+    return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+\} else if (null == c_execWithCWD) \{
+    final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+    throw new ExecException(message);
+\} else \{
+    return execJava13(metaData);
+\}" shape=ellipse]
+54 [label="2:CtBlockImpl@\{
+    if (ExecUtil.isCwd(metaData.getWorkingDirectory())) \{
+        return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+    \} else if (null == c_execWithCWD) \{
+        final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+        throw new ExecException(message);
+    \} else \{
+        return execJava13(metaData);
+    \}
+\}" shape=ellipse]
+55 [label="2:CtMethodImpl@public Process exec(final ExecMetaData metaData) throws IOException, ExecException \{
+    if (ExecUtil.isCwd(metaData.getWorkingDirectory())) \{
+        return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+    \} else if (null == c_execWithCWD) \{
+        final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+        throw new ExecException(message);
+    \} else \{
+        return execJava13(metaData);
+    \}
+\}" shape=ellipse]
+56 [label="4:Insert@INSERT" shape=ellipse]
+57 [label="4:CtLocalVariableImpl@final String[] env = ExecUtil.toNativeEnvironment(metaData.getEnvironment())" shape=ellipse]
+58 [label="5:Insert@INSERT" shape=ellipse]
+59 [label="5:CtVariableReadImpl@env" shape=ellipse]
+60 [label="4:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 9 [label="AST"];
+13 -> 7 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 6 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 30 [label="Control Dep"];
+13 -> 29 [label="Control Dep"];
+13 -> 28 [label="Control Dep"];
+13 -> 14 [label="Control Dep"];
+13 -> 19 [label="Control Dep"];
+13 -> 16 [label="Control Dep"];
+13 -> 18 [label="Control Dep"];
+13 -> 23 [label="Control Dep"];
+13 -> 20 [label="Control Dep"];
+13 -> 22 [label="Control Dep"];
+13 -> 27 [label="Control Dep"];
+13 -> 24 [label="Control Dep"];
+13 -> 26 [label="Control Dep"];
+13 -> 52 [label="Control Dep"];
+13 -> 51 [label="Control Dep"];
+13 -> 33 [label="Control Dep"];
+13 -> 31 [label="Control Dep"];
+13 -> 32 [label="Control Dep"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 16 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 60 [label="Action"];
+28 -> 15 [label="AST"];
+28 -> 19 [label="AST"];
+28 -> 14 [label="AST"];
+28 -> 23 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 58 [label="Action"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 56 [label="Action"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 44 [label="Control Dep"];
+33 -> 39 [label="Control Dep"];
+33 -> 37 [label="Control Dep"];
+33 -> 35 [label="Control Dep"];
+33 -> 36 [label="Control Dep"];
+33 -> 43 [label="Control Dep"];
+33 -> 42 [label="Control Dep"];
+33 -> 41 [label="Control Dep"];
+33 -> 50 [label="Control Dep"];
+33 -> 49 [label="Control Dep"];
+33 -> 48 [label="Control Dep"];
+33 -> 45 [label="Control Dep"];
+33 -> 47 [label="Control Dep"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 41 [label="Define-Use"];
+39 -> 38 [label="AST"];
+39 -> 34 [label="AST"];
+39 -> 37 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 39 [label="AST"];
+44 -> 43 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 45 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 33 [label="AST"];
+51 -> 44 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 13 [label="AST"];
+53 -> 30 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 1 [label="AST"];
+55 -> 0 [label="AST"];
+55 -> 2 [label="AST"];
+55 -> 4 [label="AST"];
+55 -> 5 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 57 [label="Action"];
+58 -> 59 [label="Action"];
+}

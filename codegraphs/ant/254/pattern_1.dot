@@ -1,0 +1,275 @@
+digraph "Pattern" {
+0 [label="buildFinished#?,BuildEvent#15:INSERT
+endTestSuite#?,JUnitTest#12:INSERT" shape=ellipse]
+1 [label="buildFinished#?,BuildEvent#15:write(buildElement, out, 0)
+endTestSuite#?,JUnitTest#12:write(rootElement, wri, 0)" shape=ellipse]
+2 [label="buildFinished#?,BuildEvent#8:\{
+    String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+    if (outFilename == null) \{
+        outFilename = \"log.xml\";
+    \}
+    Writer out = new FileWriter(outFilename);
+    out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+    write(buildElement, out, 0);
+    out.flush();
+    out.close();
+\}
+endTestSuite#?,JUnitTest#9:\{
+    wri = new OutputStreamWriter(out);
+    wri.write(\"<?xml version=\\"1.0\\"?>\n\");
+    write(rootElement, wri, 0);
+    wri.flush();
+\}" shape=ellipse]
+3 [label="buildFinished#?,BuildEvent#8:try \{
+    String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+    if (outFilename == null) \{
+        outFilename = \"log.xml\";
+    \}
+    Writer out = new FileWriter(outFilename);
+    out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+    write(buildElement, out, 0);
+    out.flush();
+    out.close();
+\} catch (IOException exc) \{
+    throw new BuildException(\"Unable to close log file\", exc);
+\}
+endTestSuite#?,JUnitTest#9:try \{
+    wri = new OutputStreamWriter(out);
+    wri.write(\"<?xml version=\\"1.0\\"?>\n\");
+    write(rootElement, wri, 0);
+    wri.flush();
+\} catch (IOException exc) \{
+    throw new BuildException(\"Unable to write log file\", exc);
+\} finally \{
+    if ((out != System.out) && (out != System.err)) \{
+        if (wri != null) \{
+            try \{
+                wri.close();
+            \} catch (IOException e) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="buildFinished#?,BuildEvent#9:String outFilename = event.getProject().getProperty(\"XmlLogger.file\")
+endTestSuite#?,JUnitTest#10:wri = new OutputStreamWriter(out)" shape=ellipse]
+5 [label="buildFinished#?,BuildEvent#10:if (outFilename == null) \{
+    outFilename = \"log.xml\";
+\}" shape=ellipse]
+6 [label="buildFinished#?,BuildEvent#13:Writer out = new FileWriter(outFilename)" shape=ellipse]
+7 [label="buildFinished#?,BuildEvent#14:out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\")
+endTestSuite#?,JUnitTest#11:wri.write(\"<?xml version=\\"1.0\\"?>\n\")" shape=ellipse]
+8 [label="buildFinished#?,BuildEvent#16:out.flush()
+endTestSuite#?,JUnitTest#13:wri.flush()" shape=ellipse]
+9 [label="buildFinished#?,BuildEvent#17:out.close()" shape=ellipse]
+10 [label="buildFinished#?,BuildEvent#15:write
+endTestSuite#?,JUnitTest#12:write" shape=ellipse]
+11 [label="buildFinished#?,BuildEvent#-1:
+endTestSuite#?,JUnitTest#-1:" shape=ellipse]
+12 [label="buildFinished#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+13 [label="buildFinished#?,BuildEvent#-1:PlaceHold
+endTestSuite#?,JUnitTest#-1:PlaceHold" shape=ellipse]
+14 [label="buildFinished#?,BuildEvent#15:write(<unknown>,<unknown>,int)
+endTestSuite#?,JUnitTest#12:write(<unknown>,<unknown>,int)" shape=ellipse]
+15 [label="buildFinished#?,BuildEvent#-1:null" shape=ellipse]
+16 [label="buildFinished#?,BuildEvent#-1:null" shape=ellipse]
+17 [label="buildFinished#?,BuildEvent#-1:int" shape=ellipse]
+18 [label="buildFinished#?,BuildEvent#15:buildElement
+endTestSuite#?,JUnitTest#12:rootElement" shape=ellipse]
+19 [label="buildFinished#?,BuildEvent#-1:buildElement" shape=ellipse]
+20 [label="buildFinished#?,BuildEvent#15:out
+endTestSuite#?,JUnitTest#12:wri" shape=ellipse]
+21 [label="buildFinished#?,BuildEvent#13:out" shape=ellipse]
+22 [label="buildFinished#?,BuildEvent#-1:out" shape=ellipse]
+23 [label="buildFinished#?,BuildEvent#15:0
+endTestSuite#?,JUnitTest#12:0" shape=ellipse]
+24 [label="buildFinished#?,BuildEvent#-1:int" shape=ellipse]
+25 [label="buildFinished#?,BuildEvent#15:INSERT
+endTestSuite#?,JUnitTest#12:INSERT" shape=ellipse]
+26 [label="buildFinished#?,BuildEvent#15:\"\t\"
+endTestSuite#?,JUnitTest#12:\"  \"" shape=ellipse]
+27 [label="buildFinished#?,BuildEvent#15:new DOMElementWriter()
+endTestSuite#?,JUnitTest#12:new DOMElementWriter()" shape=ellipse]
+28 [label="endTestSuite#?,JUnitTest#-1:OutputStreamWriter()" shape=ellipse]
+29 [label="endTestSuite#?,JUnitTest#17:System" shape=ellipse]
+30 [label="endTestSuite#?,JUnitTest#13:flush()" shape=ellipse]
+31 [label="endTestSuite#?,JUnitTest#16:\{
+    if ((out != System.out) && (out != System.err)) \{
+        if (wri != null) \{
+            try \{
+                wri.close();
+            \} catch (IOException e) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+32 [label="endTestSuite#?,JUnitTest#8:Writer wri = null" shape=ellipse]
+33 [label="endTestSuite#?,JUnitTest#11:\"<?xml version=\\"1.0\\"?>\n\"" shape=ellipse]
+34 [label="endTestSuite#?,JUnitTest#7:out != null" shape=ellipse]
+35 [label="endTestSuite#?,JUnitTest#7:\{
+    Writer wri = null;
+    try \{
+        wri = new OutputStreamWriter(out);
+        wri.write(\"<?xml version=\\"1.0\\"?>\n\");
+        write(rootElement, wri, 0);
+        wri.flush();
+    \} catch (IOException exc) \{
+        throw new BuildException(\"Unable to write log file\", exc);
+    \} finally \{
+        if ((out != System.out) && (out != System.err)) \{
+            if (wri != null) \{
+                try \{
+                    wri.close();
+                \} catch (IOException e) \{
+                \}
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+36 [label="endTestSuite#?,JUnitTest#14: catch (IOException exc) \{
+    throw new BuildException(\"Unable to write log file\", exc);
+\}" shape=ellipse]
+37 [label="endTestSuite#?,JUnitTest#17:System" shape=ellipse]
+38 [label="endTestSuite#?,JUnitTest#14:IOException exc" shape=ellipse]
+39 [label="endTestSuite#?,JUnitTest#17:if ((out != System.out) && (out != System.err)) \{
+    if (wri != null) \{
+        try \{
+            wri.close();
+        \} catch (IOException e) \{
+        \}
+    \}
+\}" shape=ellipse]
+40 [label="endTestSuite#?,JUnitTest#7:if (out != null) \{
+    Writer wri = null;
+    try \{
+        wri = new OutputStreamWriter(out);
+        wri.write(\"<?xml version=\\"1.0\\"?>\n\");
+        write(rootElement, wri, 0);
+        wri.flush();
+    \} catch (IOException exc) \{
+        throw new BuildException(\"Unable to write log file\", exc);
+    \} finally \{
+        if ((out != System.out) && (out != System.err)) \{
+            if (wri != null) \{
+                try \{
+                    wri.close();
+                \} catch (IOException e) \{
+                \}
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+41 [label="endTestSuite#?,JUnitTest#13:wri" shape=ellipse]
+42 [label="endTestSuite#?,JUnitTest#17:out" shape=ellipse]
+43 [label="endTestSuite#?,JUnitTest#10:out" shape=ellipse]
+44 [label="endTestSuite#?,JUnitTest#7:null" shape=ellipse]
+45 [label="endTestSuite#?,JUnitTest#8:null" shape=ellipse]
+46 [label="endTestSuite#?,JUnitTest#17:(out != System.err)" shape=ellipse]
+47 [label="endTestSuite#?,JUnitTest#17:System.err" shape=ellipse]
+48 [label="endTestSuite#?,JUnitTest#11:wri" shape=ellipse]
+49 [label="endTestSuite#?,JUnitTest#17:(out != System.out)" shape=ellipse]
+50 [label="endTestSuite#?,JUnitTest#17:(out != System.out) && (out != System.err)" shape=ellipse]
+51 [label="endTestSuite#?,JUnitTest#10:wri" shape=ellipse]
+52 [label="endTestSuite#?,JUnitTest#11:write(java.lang.String)" shape=ellipse]
+53 [label="endTestSuite#?,JUnitTest#17:out" shape=ellipse]
+54 [label="endTestSuite#?,JUnitTest#10:new OutputStreamWriter(out)" shape=ellipse]
+55 [label="endTestSuite#?,JUnitTest#7:out" shape=ellipse]
+56 [label="endTestSuite#?,JUnitTest#17:System.out" shape=ellipse]
+0 -> 27 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 20 [label="AST:2"];
+1 -> 23 [label="AST:2"];
+1 -> 25 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 31 [label="AST:1"];
+3 -> 36 [label="AST:1"];
+4 -> 51 [label="AST:1"];
+4 -> 54 [label="AST:1"];
+6 -> 21 [label="AST:1"];
+7 -> 33 [label="AST:1"];
+7 -> 48 [label="AST:1"];
+7 -> 52 [label="AST:1"];
+8 -> 30 [label="AST:1"];
+8 -> 41 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+11 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 17 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+21 -> 20 [label="Define Use:1"];
+23 -> 24 [label="AST:1"];
+25 -> 26 [label="Action:2"];
+31 -> 39 [label="AST:1"];
+32 -> 45 [label="AST:1"];
+34 -> 28 [label="Control Dep:1"];
+34 -> 29 [label="Control Dep:1"];
+34 -> 30 [label="Control Dep:1"];
+34 -> 31 [label="Control Dep:1"];
+34 -> 32 [label="Control Dep:1"];
+34 -> 33 [label="Control Dep:1"];
+34 -> 55 [label="AST:1"];
+34 -> 44 [label="AST:1"];
+34 -> 35 [label="Control Dep:1"];
+34 -> 45 [label="Control Dep:1"];
+34 -> 3 [label="Control Dep:1"];
+34 -> 2 [label="Control Dep:1"];
+34 -> 4 [label="Control Dep:1"];
+34 -> 51 [label="Control Dep:1"];
+34 -> 54 [label="Control Dep:1"];
+34 -> 43 [label="Control Dep:1"];
+34 -> 7 [label="Control Dep:1"];
+34 -> 52 [label="Control Dep:1"];
+34 -> 48 [label="Control Dep:1"];
+34 -> 1 [label="Control Dep:1"];
+34 -> 14 [label="Control Dep:1"];
+34 -> 11 [label="Control Dep:1"];
+34 -> 13 [label="Control Dep:1"];
+34 -> 18 [label="Control Dep:1"];
+34 -> 20 [label="Control Dep:1"];
+34 -> 23 [label="Control Dep:1"];
+34 -> 8 [label="Control Dep:1"];
+34 -> 41 [label="Control Dep:1"];
+34 -> 36 [label="Control Dep:1"];
+34 -> 38 [label="Control Dep:1"];
+34 -> 39 [label="Control Dep:1"];
+34 -> 50 [label="Control Dep:1"];
+34 -> 49 [label="Control Dep:1"];
+34 -> 53 [label="Control Dep:1"];
+34 -> 56 [label="Control Dep:1"];
+34 -> 46 [label="Control Dep:1"];
+34 -> 42 [label="Control Dep:1"];
+34 -> 47 [label="Control Dep:1"];
+34 -> 37 [label="Control Dep:1"];
+35 -> 32 [label="AST:1"];
+35 -> 3 [label="AST:1"];
+36 -> 38 [label="AST:1"];
+39 -> 50 [label="AST:1"];
+40 -> 34 [label="AST:1"];
+40 -> 35 [label="AST:1"];
+43 -> 51 [label="Data Dep:1"];
+46 -> 42 [label="AST:1"];
+46 -> 47 [label="AST:1"];
+47 -> 37 [label="AST:1"];
+49 -> 53 [label="AST:1"];
+49 -> 56 [label="AST:1"];
+50 -> 46 [label="AST:1"];
+50 -> 49 [label="AST:1"];
+51 -> 41 [label="Define Use:1"];
+51 -> 48 [label="Define Use:1"];
+51 -> 20 [label="Define Use:1"];
+54 -> 28 [label="AST:1"];
+54 -> 43 [label="AST:1"];
+56 -> 29 [label="AST:1"];
+}

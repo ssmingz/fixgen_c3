@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/265/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/265/0/after.java
+@@ -11,1 +11,3 @@
+-          projectHelper = getProjectHelperByService(resource.openStream());
++          URLConnection conn = resource.openConnection();
++          conn.setDefaultUseCaches(false);
++          projectHelper = getProjectHelperByService(conn.getInputStream());

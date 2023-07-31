@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="createTimeoutException#?,Thread#5:UPDATE
+apply#?,Statement,Description#3:UPDATE" shape=ellipse]
+1 [label="createTimeoutException#?,Thread#5:fTimeUnit
+apply#?,Statement,Description#3:fTimeUnit" shape=ellipse]
+2 [label="createTimeoutException#?,Thread#5:new TestTimedOutException(fTimeout, fTimeUnit)
+apply#?,Statement,Description#3:new FailOnTimeout(base, fTimeout, fTimeUnit, fLookForStuckThread)" shape=ellipse]
+3 [label="createTimeoutException#?,Thread#5:Exception currThreadException = new TestTimedOutException(fTimeout, fTimeUnit)
+apply#?,Statement,Description#3:return new FailOnTimeout(base, fTimeout, fTimeUnit, fLookForStuckThread)" shape=ellipse]
+4 [label="createTimeoutException#?,Thread#5:TestTimedOutException()
+apply#?,Statement,Description#3:FailOnTimeout()" shape=ellipse]
+5 [label="createTimeoutException#?,Thread#5:fTimeout
+apply#?,Statement,Description#3:fTimeout" shape=ellipse]
+6 [label="createTimeoutException#?,Thread#5:fTimeUnit
+apply#?,Statement,Description#3:fTimeUnit" shape=ellipse]
+7 [label="createTimeoutException#?,Thread#5:PlaceHold
+apply#?,Statement,Description#3:PlaceHold" shape=ellipse]
+8 [label="createTimeoutException#?,Thread#5:currThreadException" shape=ellipse]
+9 [label="createTimeoutException#?,Thread#7:currThreadException" shape=ellipse]
+10 [label="createTimeoutException#?,Thread#15:currThreadException" shape=ellipse]
+11 [label="createTimeoutException#?,Thread#17:currThreadException" shape=ellipse]
+12 [label="createTimeoutException#?,Thread#5:timeUnit
+apply#?,Statement,Description#3:timeUnit" shape=ellipse]
+13 [label="apply#?,Statement,Description#3:base" shape=ellipse]
+14 [label="apply#?,Statement,Description#3:fLookForStuckThread" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="Data Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 13 [label="AST:1"];
+2 -> 14 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:1"];
+5 -> 8 [label="Data Dep:1"];
+6 -> 7 [label="AST:2"];
+8 -> 9 [label="Define Use:1"];
+8 -> 10 [label="Define Use:1"];
+8 -> 11 [label="Define Use:1"];
+}

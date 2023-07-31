@@ -1,0 +1,153 @@
+digraph "getBranchCoverageRate#?" {
+0 [label="2:CtTypeReferenceImpl@double" shape=ellipse]
+1 [label="2:CtVirtualElement@getBranchCoverageRate" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@long" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@getNumberOfBranches()" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@long" shape=ellipse]
+5 [label="3:CtVirtualElement@getNumberOfBranches" shape=ellipse]
+6 [label="3:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+8 [label="3:CtThisAccessImpl@" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+10 [label="3:CtInvocationImpl@getNumberOfBranches()" shape=ellipse]
+11 [label="3:CtVirtualElement@numberOfBranches" shape=ellipse]
+12 [label="3:CtLocalVariableImpl@long numberOfBranches = getNumberOfBranches()" shape=ellipse]
+13 [label="4:CtVariableReadImpl@numberOfBranches" shape=ellipse]
+14 [label="4:CtLocalVariableReferenceImpl@numberOfBranches" shape=ellipse]
+15 [label="4:CtLiteralImpl@0" shape=ellipse]
+16 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@numberOfBranches == 0" shape=ellipse]
+18 [label="4:CtTypeReferenceImpl@boolean" shape=ellipse]
+19 [label="5:CtLiteralImpl@1" shape=ellipse]
+20 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+21 [label="5:CtReturnImpl@return 1" shape=ellipse]
+22 [label="4:CtBlockImpl@\{
+    return 1;
+\}" shape=ellipse]
+23 [label="4:CtIfImpl@if (numberOfBranches == 0) \{
+    return 1;
+\}" shape=ellipse]
+24 [label="7:CtExecutableReferenceImpl@getNumberOfCoveredBranches()" shape=ellipse]
+25 [label="7:CtVirtualElement@getNumberOfCoveredBranches" shape=ellipse]
+26 [label="7:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+27 [label="7:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+28 [label="7:CtThisAccessImpl@" shape=ellipse]
+29 [label="7:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+30 [label="7:CtInvocationImpl@((double) (getNumberOfCoveredBranches()))" shape=ellipse]
+31 [label="7:CtTypeReferenceImpl@double" shape=ellipse]
+32 [label="7:CtVariableReadImpl@((double) (numberOfBranches))" shape=ellipse]
+33 [label="7:CtTypeReferenceImpl@double" shape=ellipse]
+34 [label="7:CtLocalVariableReferenceImpl@numberOfBranches" shape=ellipse]
+35 [label="7:CtBinaryOperatorImpl@((double) (getNumberOfCoveredBranches())) / ((double) (numberOfBranches))" shape=ellipse]
+36 [label="7:CtTypeReferenceImpl@double" shape=ellipse]
+37 [label="7:CtReturnImpl@return ((double) (getNumberOfCoveredBranches())) / ((double) (numberOfBranches))" shape=ellipse]
+38 [label="2:CtBlockImpl@\{
+    long numberOfBranches = getNumberOfBranches();
+    if (numberOfBranches == 0) \{
+        return 1;
+    \}
+    return ((double) (getNumberOfCoveredBranches())) / ((double) (numberOfBranches));
+\}" shape=ellipse]
+39 [label="2:CtMethodImpl@public double getBranchCoverageRate() \{
+    long numberOfBranches = getNumberOfBranches();
+    if (numberOfBranches == 0) \{
+        return 1;
+    \}
+    return ((double) (getNumberOfCoveredBranches())) / ((double) (numberOfBranches));
+\}" shape=ellipse]
+40 [label="5:Insert@INSERT" shape=ellipse]
+41 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+42 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+43 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+44 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+45 [label="5:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+46 [label="5:CtThisAccessImpl@" shape=ellipse]
+47 [label="5:CtExecutableReferenceImpl@getNumberOfCoveredLines()" shape=ellipse]
+48 [label="5:CtInvocationImpl@getNumberOfCoveredLines()" shape=ellipse]
+49 [label="5:CtVirtualElement@getNumberOfCoveredLines" shape=ellipse]
+50 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+51 [label="5:CtLiteralImpl@0" shape=ellipse]
+52 [label="5:CtBinaryOperatorImpl@getNumberOfCoveredLines() == 0" shape=ellipse]
+53 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+54 [label="6:CtLiteralImpl@0" shape=ellipse]
+55 [label="6:CtReturnImpl@return 0" shape=ellipse]
+56 [label="5:CtBlockImpl@\{
+    return 0;
+\}" shape=ellipse]
+57 [label="5:CtIfImpl@if (getNumberOfCoveredLines() == 0) \{
+    return 0;
+\}" shape=ellipse]
+3 -> 4 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 11 [label="Data Dep"];
+10 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 3 [label="AST"];
+11 -> 13 [label="Define-Use"];
+11 -> 32 [label="Define-Use"];
+12 -> 11 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 10 [label="AST"];
+13 -> 14 [label="AST"];
+15 -> 16 [label="AST"];
+17 -> 18 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 22 [label="Control Dep"];
+17 -> 21 [label="Control Dep"];
+17 -> 19 [label="Control Dep"];
+17 -> 45 [label="Control Dep"];
+17 -> 46 [label="Control Dep"];
+17 -> 47 [label="Control Dep"];
+17 -> 48 [label="Control Dep"];
+17 -> 51 [label="Control Dep"];
+17 -> 52 [label="Control Dep"];
+17 -> 57 [label="Control Dep"];
+19 -> 20 [label="AST"];
+21 -> 19 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 40 [label="Action"];
+23 -> 17 [label="AST"];
+23 -> 22 [label="AST"];
+26 -> 27 [label="AST"];
+28 -> 29 [label="AST"];
+28 -> 26 [label="AST"];
+30 -> 25 [label="AST"];
+30 -> 31 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 24 [label="AST"];
+32 -> 33 [label="AST"];
+32 -> 34 [label="AST"];
+35 -> 36 [label="AST"];
+35 -> 30 [label="AST"];
+35 -> 32 [label="AST"];
+37 -> 35 [label="AST"];
+38 -> 12 [label="AST"];
+38 -> 23 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 1 [label="AST"];
+39 -> 0 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 57 [label="Action"];
+42 -> 41 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 42 [label="AST"];
+46 -> 45 [label="AST"];
+48 -> 49 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 48 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 56 [label="Control Dep"];
+52 -> 55 [label="Control Dep"];
+52 -> 54 [label="Control Dep"];
+54 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 52 [label="AST"];
+57 -> 56 [label="AST"];
+}

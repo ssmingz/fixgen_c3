@@ -1,0 +1,169 @@
+digraph "Pattern" {
+0 [label="findClassAlias#?,String#5:UPDATE
+removeVariable#?,DetailAST#4:UPDATE
+normalize#?,String#72:UPDATE" shape=ellipse]
+1 [label="findClassAlias#?,String#5:mTypeParams.get(i)
+removeVariable#?,DetailAST#4:mScopeStack.get(i)
+normalize#?,String#72:s.get(i)" shape=ellipse]
+2 [label="findClassAlias#?,String#4:i >= 0
+removeVariable#?,DetailAST#3:i >= 0
+normalize#?,String#68:i < s.size()" shape=ellipse]
+3 [label="findClassAlias#?,String#4:for (int i = mTypeParams.size() - 1; i >= 0; i--) \{
+    final Map<String, ClassInfo> paramMap = mTypeParams.get(i);
+    ci = paramMap.get(aName);
+    if (ci != null) \{
+        break;
+    \}
+\}
+removeVariable#?,DetailAST#3:for (int i = mScopeStack.size() - 1; i >= 0; i--) \{
+    final Map<String, DetailAST> state = mScopeStack.get(i);
+    final Object obj = state.remove(aAST.getText());
+    if (obj != null) \{
+        break;
+    \}
+\}
+normalize#?,String#68:for (int i = 0; i < s.size(); i++) \{
+    if (i > 1) \{
+        sb.append(separatorChar);
+    \}
+    sb.append(s.get(i));
+\}" shape=ellipse]
+4 [label="findClassAlias#?,String#4:boolean
+removeVariable#?,DetailAST#3:boolean" shape=ellipse]
+5 [label="findClassAlias#?,String#4:i
+removeVariable#?,DetailAST#3:i
+normalize#?,String#68:i" shape=ellipse]
+6 [label="findClassAlias#?,String#4:0
+removeVariable#?,DetailAST#3:0" shape=ellipse]
+7 [label="findClassAlias#?,String#4:\{
+    final Map<String, ClassInfo> paramMap = mTypeParams.get(i);
+    ci = paramMap.get(aName);
+    if (ci != null) \{
+        break;
+    \}
+\}
+removeVariable#?,DetailAST#3:\{
+    final Map<String, DetailAST> state = mScopeStack.get(i);
+    final Object obj = state.remove(aAST.getText());
+    if (obj != null) \{
+        break;
+    \}
+\}
+normalize#?,String#68:\{
+    if (i > 1) \{
+        sb.append(separatorChar);
+    \}
+    sb.append(s.get(i));
+\}" shape=ellipse]
+8 [label="findClassAlias#?,String#5:final Map<String, ClassInfo> paramMap = mTypeParams.get(i)
+removeVariable#?,DetailAST#4:final Map<String, DetailAST> state = mScopeStack.get(i)" shape=ellipse]
+9 [label="findClassAlias#?,String#5:get(int)
+removeVariable#?,DetailAST#4:get(int)
+normalize#?,String#72:get(int)" shape=ellipse]
+10 [label="findClassAlias#?,String#5:mTypeParams
+removeVariable#?,DetailAST#4:mScopeStack
+normalize#?,String#72:s" shape=ellipse]
+11 [label="findClassAlias#?,String#5:i
+removeVariable#?,DetailAST#4:i
+normalize#?,String#72:i" shape=ellipse]
+12 [label="findClassAlias#?,String#6:ci = paramMap.get(aName)
+removeVariable#?,DetailAST#5:final Object obj = state.remove(aAST.getText())
+normalize#?,String#69:if (i > 1) \{
+    sb.append(separatorChar);
+\}" shape=ellipse]
+13 [label="findClassAlias#?,String#6:ci" shape=ellipse]
+14 [label="findClassAlias#?,String#6:paramMap.get(aName)
+removeVariable#?,DetailAST#5:state.remove(aAST.getText())" shape=ellipse]
+15 [label="findClassAlias#?,String#6:get(java.lang.String)
+removeVariable#?,DetailAST#5:remove()
+normalize#?,String#72:append(java.lang.Object)" shape=ellipse]
+16 [label="findClassAlias#?,String#6:paramMap
+removeVariable#?,DetailAST#5:state
+normalize#?,String#69:i" shape=ellipse]
+17 [label="findClassAlias#?,String#6:aName
+normalize#?,String#72:sb" shape=ellipse]
+18 [label="findClassAlias#?,String#7:if (ci != null) \{
+    break;
+\}
+removeVariable#?,DetailAST#6:if (obj != null) \{
+    break;
+\}" shape=ellipse]
+19 [label="findClassAlias#?,String#7:ci != null
+removeVariable#?,DetailAST#6:obj != null" shape=ellipse]
+20 [label="findClassAlias#?,String#7:ci" shape=ellipse]
+21 [label="findClassAlias#?,String#7:null
+removeVariable#?,DetailAST#6:null
+normalize#?,String#69:1" shape=ellipse]
+22 [label="findClassAlias#?,String#5:peek
+removeVariable#?,DetailAST#4:peek
+normalize#?,String#72:peek" shape=ellipse]
+23 [label="findClassAlias#?,String#5:get
+removeVariable#?,DetailAST#4:get
+normalize#?,String#72:get" shape=ellipse]
+24 [label="removeVariable#?,DetailAST#5:aAST.getText()" shape=ellipse]
+25 [label="removeVariable#?,DetailAST#5:getText()" shape=ellipse]
+26 [label="removeVariable#?,DetailAST#5:aAST" shape=ellipse]
+27 [label="removeVariable#?,DetailAST#6:obj" shape=ellipse]
+28 [label="normalize#?,String#68:s.size()" shape=ellipse]
+29 [label="normalize#?,String#69:i > 1" shape=ellipse]
+30 [label="normalize#?,String#72:sb.append(s.get(i))" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 23 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+1 -> 9 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:3"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:3"];
+2 -> 16 [label="Control Dep:3"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:3"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="AST:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:1"];
+3 -> 2 [label="AST:3"];
+3 -> 7 [label="AST:3"];
+7 -> 8 [label="AST:2"];
+7 -> 12 [label="AST:3"];
+7 -> 18 [label="AST:2"];
+7 -> 30 [label="AST:1"];
+8 -> 1 [label="AST:2"];
+12 -> 13 [label="AST:1"];
+12 -> 14 [label="AST:2"];
+12 -> 29 [label="AST:1"];
+13 -> 20 [label="Define Use:1"];
+14 -> 16 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 17 [label="AST:1"];
+14 -> 24 [label="AST:1"];
+16 -> 13 [label="Data Dep:1"];
+17 -> 13 [label="Data Dep:1"];
+18 -> 19 [label="AST:2"];
+19 -> 20 [label="AST:1"];
+19 -> 21 [label="AST:2"];
+19 -> 27 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+29 -> 16 [label="AST:1"];
+29 -> 21 [label="AST:1"];
+30 -> 17 [label="AST:1"];
+30 -> 15 [label="AST:1"];
+30 -> 1 [label="AST:1"];
+}

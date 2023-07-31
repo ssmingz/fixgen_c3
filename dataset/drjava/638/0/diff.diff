@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/638/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/638/0/after.java
+@@ -7,2 +7,6 @@
+-    assertTrue(isAnonymousClass(TRUE.getClass()));
+-    assertTrue(isAnonymousClass(LambdaUtil.nullThunk().getClass()));
++    assertTrue(isAnonymousClass(ANONYMOUS_EXCEPTION.getClass()));
++    Runnable localRunnable =
++        new Runnable() {
++          public void run() {}
++        };
++    assertTrue(isAnonymousClass(localRunnable.getClass()));

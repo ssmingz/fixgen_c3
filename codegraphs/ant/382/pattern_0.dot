@@ -1,0 +1,65 @@
+digraph "Pattern" {
+0 [label="selectorElements#?#3:INSERT
+getSelectors#?,Project#3:INSERT" shape=ellipse]
+1 [label="selectorElements#?#2:public Enumeration selectorElements() \{
+    return selectorsList.elements();
+\}
+getSelectors#?,Project#2:public FileSelector[] getSelectors(Project p) \{
+    FileSelector[] result = new FileSelector[selectorsList.size()];
+    selectorsList.copyInto(result);
+    return result;
+\}" shape=ellipse]
+2 [label="selectorElements#?#2:selectorElements
+getSelectors#?,Project#2:getSelectors" shape=ellipse]
+3 [label="selectorElements#?#2:Enumeration" shape=ellipse]
+4 [label="selectorElements#?#-1:
+getSelectors#?,Project#-1:FileSelector" shape=ellipse]
+5 [label="selectorElements#?#2:\{
+    return selectorsList.elements();
+\}
+getSelectors#?,Project#2:\{
+    FileSelector[] result = new FileSelector[selectorsList.size()];
+    selectorsList.copyInto(result);
+    return result;
+\}" shape=ellipse]
+6 [label="selectorElements#?#3:return selectorsList.elements()
+getSelectors#?,Project#3:FileSelector[] result = new FileSelector[selectorsList.size()]" shape=ellipse]
+7 [label="selectorElements#?#2:public
+getSelectors#?,Project#2:public" shape=ellipse]
+8 [label="selectorElements#?#2:VE: Modifiers_Method
+getSelectors#?,Project#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="selectorElements#?#6:INSERT
+getSelectors#?,Project#6:INSERT" shape=ellipse]
+10 [label="selectorElements#?#6:dieOnCircularReference()
+getSelectors#?,Project#6:dieOnCircularReference(p)" shape=ellipse]
+11 [label="selectorElements#?#3:if (isReference()) \{
+    return ((AbstractSelectorContainer) (getCheckedRef())).selectorElements();
+\}
+getSelectors#?,Project#3:if (isReference()) \{
+    return ((AbstractSelectorContainer) (getCheckedRef(p))).getSelectors(p);
+\}" shape=ellipse]
+12 [label="getSelectors#?,Project#2:FileSelector[]" shape=ellipse]
+13 [label="getSelectors#?,Project#2:Project p" shape=ellipse]
+14 [label="getSelectors#?,Project#4:selectorsList.copyInto(result)" shape=ellipse]
+15 [label="getSelectors#?,Project#2:FileSelector[]" shape=ellipse]
+16 [label="getSelectors#?,Project#2:Project" shape=ellipse]
+17 [label="getSelectors#?,Project#5:return result" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:1"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="Action:2"];
+1 -> 12 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+3 -> 4 [label="AST:1"];
+5 -> 6 [label="AST:2"];
+5 -> 14 [label="AST:1"];
+5 -> 17 [label="AST:1"];
+9 -> 10 [label="Action:2"];
+12 -> 15 [label="AST:1"];
+12 -> 4 [label="AST:1"];
+13 -> 16 [label="AST:1"];
+}

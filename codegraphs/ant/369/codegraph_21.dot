@@ -1,0 +1,81 @@
+digraph "initZipOutputStream#?,ZipOutputStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@initZipOutputStream" shape=ellipse]
+2 [label="2:CtParameterImpl@ZipOutputStream zOut" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@ZipOutputStream" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+6 [label="3:CtFieldReadImpl@deploymentDescriptor" shape=ellipse]
+7 [label="3:CtLiteralImpl@null" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@(deploymentDescriptor == null)" shape=ellipse]
+9 [label="3:CtExecutableReferenceImpl@isInUpdateMode()" shape=ellipse]
+10 [label="3:CtVirtualElement@isInUpdateMode" shape=ellipse]
+11 [label="3:CtInvocationImpl@isInUpdateMode()" shape=ellipse]
+12 [label="3:CtUnaryOperatorImpl@(!isInUpdateMode())" shape=ellipse]
+13 [label="3:CtBinaryOperatorImpl@(deploymentDescriptor == null) && (!isInUpdateMode())" shape=ellipse]
+14 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+15 [label="4:CtLiteralImpl@\"appxml attribute is required\"" shape=ellipse]
+16 [label="4:CtFieldReadImpl@location" shape=ellipse]
+17 [label="4:CtConstructorCallImpl@new BuildException(\"appxml attribute is required\", location)" shape=ellipse]
+18 [label="4:CtThrowImpl@throw new BuildException(\"appxml attribute is required\", location)" shape=ellipse]
+19 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"appxml attribute is required\", location);
+\}" shape=ellipse]
+20 [label="3:CtIfImpl@if ((deploymentDescriptor == null) && (!isInUpdateMode())) \{
+    throw new BuildException(\"appxml attribute is required\", location);
+\}" shape=ellipse]
+21 [label="6:CtExecutableReferenceImpl@initZipOutputStream(ZipOutputStream)" shape=ellipse]
+22 [label="6:CtVirtualElement@initZipOutputStream" shape=ellipse]
+23 [label="6:CtSuperAccessImpl@super" shape=ellipse]
+24 [label="6:CtVariableReadImpl@zOut" shape=ellipse]
+25 [label="6:CtInvocationImpl@super.initZipOutputStream(zOut)" shape=ellipse]
+26 [label="2:CtBlockImpl@\{
+    if ((deploymentDescriptor == null) && (!isInUpdateMode())) \{
+        throw new BuildException(\"appxml attribute is required\", location);
+    \}
+    super.initZipOutputStream(zOut);
+\}" shape=ellipse]
+27 [label="2:CtMethodImpl@protected void initZipOutputStream(ZipOutputStream zOut) throws IOException, BuildException \{
+    if ((deploymentDescriptor == null) && (!isInUpdateMode())) \{
+        throw new BuildException(\"appxml attribute is required\", location);
+    \}
+    super.initZipOutputStream(zOut);
+\}" shape=ellipse]
+28 [label="4:Delete@DELETE" shape=ellipse]
+29 [label="4:Insert@INSERT" shape=ellipse]
+30 [label="4:CtInvocationImpl@getLocation()" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 19 [label="Control Dep"];
+13 -> 18 [label="Control Dep"];
+13 -> 17 [label="Control Dep"];
+13 -> 15 [label="Control Dep"];
+13 -> 16 [label="Control Dep"];
+16 -> 28 [label="Action"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 29 [label="Action"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 13 [label="AST"];
+20 -> 19 [label="AST"];
+25 -> 22 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 20 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 1 [label="AST"];
+27 -> 0 [label="AST"];
+27 -> 2 [label="AST"];
+27 -> 4 [label="AST"];
+27 -> 5 [label="AST"];
+27 -> 26 [label="AST"];
+29 -> 30 [label="Action"];
+}

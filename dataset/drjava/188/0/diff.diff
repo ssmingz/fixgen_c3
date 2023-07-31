@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/188/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/188/0/after.java
+@@ -3,1 +3,8 @@
+-    return _balanceForward();
++    acquireReadLock();
++    try {
++      synchronized (_reduced) {
++        return _balanceForward();
++      }
++    } finally {
++      releaseReadLock();
++    }

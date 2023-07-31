@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/943/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/943/0/after.java
+@@ -8,6 +8,1 @@
+-        String pattern;
+-        pattern = excludes[i].replace('/', File.separatorChar).replace('\\', File.separatorChar);
+-        if (pattern.endsWith(File.separator)) {
+-          pattern += "**";
+-        }
+-        this.excludes[i] = pattern;
++        this.excludes[i] = normalizePattern(excludes[i]);

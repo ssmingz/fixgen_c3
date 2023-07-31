@@ -1,0 +1,16 @@
+digraph "Pattern" {
+0 [label="addDirset#?,DirSet#3:UPDATE
+addFileset#?,FileSet#3:UPDATE" shape=ellipse]
+1 [label="addDirset#?,DirSet#3:getBuildpath().addDirset(set)
+addFileset#?,FileSet#3:getBuildpath().addFileset(set)" shape=ellipse]
+2 [label="addDirset#?,DirSet#-1:MOVE
+addFileset#?,FileSet#-1:MOVE" shape=ellipse]
+3 [label="addDirset#?,DirSet#-1:PlaceHold
+addFileset#?,FileSet#-1:PlaceHold" shape=ellipse]
+4 [label="addDirset#?,DirSet#3:add(set)
+addFileset#?,FileSet#3:add(set)" shape=ellipse]
+0 -> 4 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="Action:2"];
+3 -> 2 [label="Action:2"];
+}

@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1421/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1421/0/after.java
+@@ -7,3 +7,7 @@
+-        return new String(bytes, enc);
+-      } catch (UnsupportedEncodingException uee) {
+-        throw new ZipException(uee.getMessage());
++        return ZipEncodingHelper.decodeName(bytes, encoding);
++      } catch (UnsupportedCharsetException ex) {
++        try {
++          return new String(bytes, enc);
++        } catch (UnsupportedEncodingException uee) {
++          throw new ZipException(uee.getMessage());
++        }

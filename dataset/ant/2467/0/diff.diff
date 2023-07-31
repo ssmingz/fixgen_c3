@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2467/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2467/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,3 @@
+-    expectFileContains(
+-        "customtokenfilter", getProject().getProperty("output") + "/custom", "Hello World");
++    buildRule.executeTarget("customtokenfilter");
++    assertContains(
++        "Hello World", getFileString(buildRule.getProject().getProperty("output") + "/custom"));

@@ -1,0 +1,108 @@
+digraph "testPrefixAddsDir#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testPrefixAddsDir" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@executeTarget" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"testPrefixAddsDir\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@executeTarget(\"testPrefixAddsDir\")" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+10 [label="4:CtVirtualElement@getProperty" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+12 [label="4:CtVirtualElement@getProject" shape=ellipse]
+13 [label="4:CtInvocationImpl@getProject()" shape=ellipse]
+14 [label="4:CtLiteralImpl@\"output\"" shape=ellipse]
+15 [label="4:CtInvocationImpl@getProject().getProperty(\"output\")" shape=ellipse]
+16 [label="4:CtLiteralImpl@\"test3.zip\"" shape=ellipse]
+17 [label="4:CtConstructorCallImpl@new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+18 [label="4:CtVirtualElement@archive" shape=ellipse]
+19 [label="4:CtLocalVariableImpl@File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+20 [label="5:CtFieldWriteImpl@zfPrefixAddsDir" shape=ellipse]
+21 [label="5:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+22 [label="5:CtVariableReadImpl@archive" shape=ellipse]
+23 [label="5:CtConstructorCallImpl@new ZipFile(archive)" shape=ellipse]
+24 [label="5:CtAssignmentImpl@zfPrefixAddsDir = new ZipFile(archive)" shape=ellipse]
+25 [label="6:CtTypeReferenceImpl@ZipEntry" shape=ellipse]
+26 [label="6:CtExecutableReferenceImpl@getEntry(java.lang.String)" shape=ellipse]
+27 [label="6:CtVirtualElement@getEntry" shape=ellipse]
+28 [label="6:CtFieldReadImpl@zfPrefixAddsDir" shape=ellipse]
+29 [label="6:CtLiteralImpl@\"test/\"" shape=ellipse]
+30 [label="6:CtInvocationImpl@zfPrefixAddsDir.getEntry(\"test/\")" shape=ellipse]
+31 [label="6:CtVirtualElement@ze" shape=ellipse]
+32 [label="6:CtLocalVariableImpl@ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\")" shape=ellipse]
+33 [label="7:CtExecutableReferenceImpl@assertNotNull(java.lang.String,<unknown>)" shape=ellipse]
+34 [label="7:CtVirtualElement@assertNotNull" shape=ellipse]
+35 [label="7:CtLiteralImpl@\"test/ has been added\"" shape=ellipse]
+36 [label="7:CtVariableReadImpl@ze" shape=ellipse]
+37 [label="7:CtInvocationImpl@assertNotNull(\"test/ has been added\", ze)" shape=ellipse]
+38 [label="2:CtBlockImpl@\{
+    executeTarget(\"testPrefixAddsDir\");
+    File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\");
+    zfPrefixAddsDir = new ZipFile(archive);
+    ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\");
+    assertNotNull(\"test/ has been added\", ze);
+\}" shape=ellipse]
+39 [label="2:CtMethodImpl@public void testPrefixAddsDir() throws IOException \{
+    executeTarget(\"testPrefixAddsDir\");
+    File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\");
+    zfPrefixAddsDir = new ZipFile(archive);
+    ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\");
+    assertNotNull(\"test/ has been added\", ze);
+\}" shape=ellipse]
+40 [label="2:Insert@INSERT" shape=ellipse]
+41 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+42 [label="4:Insert@INSERT" shape=ellipse]
+43 [label="4:CtFieldReadImpl@buildRule" shape=ellipse]
+44 [label="5:Insert@INSERT" shape=ellipse]
+45 [label="5:CtFieldReadImpl@buildRule" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 42 [label="Action"];
+13 -> 12 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 44 [label="Action"];
+15 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 22 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 7 [label="AST"];
+19 -> 17 [label="AST"];
+20 -> 28 [label="Define-Use"];
+22 -> 20 [label="Data Dep"];
+23 -> 22 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+28 -> 31 [label="Data Dep"];
+30 -> 27 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 26 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 36 [label="Define-Use"];
+32 -> 31 [label="AST"];
+32 -> 25 [label="AST"];
+32 -> 30 [label="AST"];
+37 -> 34 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 6 [label="AST"];
+38 -> 19 [label="AST"];
+38 -> 24 [label="AST"];
+38 -> 32 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 1 [label="AST"];
+39 -> 0 [label="AST"];
+39 -> 2 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 40 [label="Action"];
+40 -> 41 [label="Action"];
+42 -> 43 [label="Action"];
+44 -> 45 [label="Action"];
+}

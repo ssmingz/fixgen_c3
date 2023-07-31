@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1765/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1765/0/after.java
+@@ -9,6 +9,7 @@
+-        throw new TaskException(
+-            ((((("Error composing task " + taskModel.getName()) + " at ") + taskModel.getLocation())
+-                        + "(Reason: ")
+-                    + throwable.getMessage())
+-                + ")",
+-            throwable);
++        final String message =
++            REZ.getString(
++                "compose.error",
++                taskModel.getName(),
++                taskModel.getLocation(),
++                throwable.getMessage());
++        throw new TaskException(message, throwable);

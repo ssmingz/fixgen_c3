@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/664/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/664/0/after.java
+@@ -2,2 +2,2 @@
+-  public Object visit(SuperMethodCall node) {
+-    LinkedList arguments = null;
++  public Node visit(SuperMethodCall node) {
++    LinkedList<Expression> arguments = null;
+@@ -5,2 +5,2 @@
+-      arguments = new LinkedList();
+-      Iterator it = node.getArguments().iterator();
++      arguments = new LinkedList<Expression>();
++      Iterator<Expression> it = node.getArguments().iterator();
+@@ -8,1 +8,1 @@
+-        arguments.add(((Expression) (((Expression) (it.next())).acceptVisitor(this))));
++        arguments.add(((Expression) (it.next().acceptVisitor(this))));

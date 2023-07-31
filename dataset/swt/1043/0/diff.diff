@@ -1,0 +1,18 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1043/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1043/0/after.java
+@@ -5,13 +5,2 @@
+-    if ((style & SWT.SINGLE) != 0) {
+-      int selection = OS.GTK_CLIST_SELECTION(handle);
+-      if ((selection != 0) && (OS.g_list_length(selection) > 0)) {
+-        int index = OS.GTK_CLIST_FOCUS_ROW(handle);
+-        if (index == (-1)) {
+-          index = 0;
+-        }
+-        OS.gtk_clist_select_row(handle, index, 0);
+-        OS.gtk_clist_unselect_row(handle, index, 0);
+-      }
+-    } else {
+-      OS.gtk_clist_unselect_all(handle);
+-    }
++    int selection = OS.gtk_tree_view_get_selection(handle);
++    OS.gtk_tree_selection_unselect_all(selection);

@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testDelay#?#2:INSERT
+testDoubleNotPresent#?#2:INSERT" shape=ellipse]
+1 [label="testDelay#?#2:public void testDelay() \{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}
+testDoubleNotPresent#?#2:public void testDoubleNotPresent() \{
+    expectLogContaining(\"double-notpresent\", \"hi\");
+\}" shape=ellipse]
+2 [label="testDelay#?#2:testDelay
+testDoubleNotPresent#?#2:testDoubleNotPresent" shape=ellipse]
+3 [label="testDelay#?#2:void
+testDoubleNotPresent#?#2:void" shape=ellipse]
+4 [label="testDelay#?#2:\{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}
+testDoubleNotPresent#?#2:\{
+    expectLogContaining(\"double-notpresent\", \"hi\");
+\}" shape=ellipse]
+5 [label="testDelay#?#3:expectLogContaining(\"delay\", \"MyTask called\")
+testDoubleNotPresent#?#3:expectLogContaining(\"double-notpresent\", \"hi\")" shape=ellipse]
+6 [label="testDelay#?#2:VE: Modifiers_Method
+testDoubleNotPresent#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testDelay#?#2:public
+testDoubleNotPresent#?#2:public" shape=ellipse]
+8 [label="testDelay#?#4:INSERT
+testDoubleNotPresent#?#4:INSERT" shape=ellipse]
+9 [label="testDelay#?#4:buildRule.executeTarget(\"delay\")
+testDoubleNotPresent#?#4:buildRule.executeTarget(\"double-notpresent\")" shape=ellipse]
+10 [label="testDelay#?#2:@Test
+testDoubleNotPresent#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

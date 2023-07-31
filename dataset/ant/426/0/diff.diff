@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/426/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/426/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test2", "Invalid destination file.");
++    try {
++      buildRule.executeTarget("test2");
++      fail("BuildException should have been thrown - Invalid destination file");
++    } catch (BuildException ex) {
++    }

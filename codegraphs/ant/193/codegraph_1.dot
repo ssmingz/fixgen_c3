@@ -1,0 +1,92 @@
+digraph "getSize#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getSize" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@Iterator" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@createIterator()" shape=ellipse]
+4 [label="3:CtVirtualElement@createIterator" shape=ellipse]
+5 [label="3:CtInvocationImpl@createIterator()" shape=ellipse]
+6 [label="3:CtVirtualElement@it" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@Iterator it = createIterator()" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+9 [label="4:CtLiteralImpl@0" shape=ellipse]
+10 [label="4:CtVirtualElement@size" shape=ellipse]
+11 [label="4:CtLocalVariableImpl@int size = 0" shape=ellipse]
+12 [label="5:CtExecutableReferenceImpl@hasNext()" shape=ellipse]
+13 [label="5:CtVirtualElement@hasNext" shape=ellipse]
+14 [label="5:CtVariableReadImpl@it" shape=ellipse]
+15 [label="5:CtInvocationImpl@it.hasNext()" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@next()" shape=ellipse]
+17 [label="6:CtVirtualElement@next" shape=ellipse]
+18 [label="6:CtVariableReadImpl@it" shape=ellipse]
+19 [label="6:CtInvocationImpl@it.next()" shape=ellipse]
+20 [label="7:CtVariableWriteImpl@size" shape=ellipse]
+21 [label="7:CtUnaryOperatorImpl@size++" shape=ellipse]
+22 [label="5:CtBlockImpl@\{
+    it.next();
+    size++;
+\}" shape=ellipse]
+23 [label="5:CtWhileImpl@while (it.hasNext()) \{
+    it.next();
+    size++;
+\} " shape=ellipse]
+24 [label="9:CtVariableReadImpl@size" shape=ellipse]
+25 [label="9:CtReturnImpl@return size" shape=ellipse]
+26 [label="2:CtBlockImpl@\{
+    Iterator it = createIterator();
+    int size = 0;
+    while (it.hasNext()) \{
+        it.next();
+        size++;
+    \} 
+    return size;
+\}" shape=ellipse]
+27 [label="2:CtMethodImpl@protected int getSize() \{
+    Iterator it = createIterator();
+    int size = 0;
+    while (it.hasNext()) \{
+        it.next();
+        size++;
+    \} 
+    return size;
+\}" shape=ellipse]
+28 [label="3:Insert@INSERT" shape=ellipse]
+29 [label="3:CtTypeReferenceImpl@Resource" shape=ellipse]
+2 -> 28 [label="Action"];
+5 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+6 -> 14 [label="Define-Use"];
+6 -> 18 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 2 [label="AST"];
+7 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 22 [label="Control Dep"];
+15 -> 19 [label="Control Dep"];
+15 -> 16 [label="Control Dep"];
+15 -> 18 [label="Control Dep"];
+15 -> 21 [label="Control Dep"];
+15 -> 20 [label="Control Dep"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 16 [label="AST"];
+20 -> 24 [label="Define-Use"];
+21 -> 20 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 15 [label="AST"];
+23 -> 22 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 7 [label="AST"];
+26 -> 11 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 1 [label="AST"];
+27 -> 0 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 29 [label="Action"];
+}

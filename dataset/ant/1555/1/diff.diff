@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1555/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1555/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,3 @@
+-    expectLog("testLocal", "");
+-    Object ref = project.getReferences().get("local");
++    buildRule.executeTarget("testLocal");
++    assertEquals("", buildRule.getLog());
++    Object ref = buildRule.getProject().getReferences().get("local");

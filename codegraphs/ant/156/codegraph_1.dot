@@ -1,0 +1,675 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@ExecuteJava" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@ExecuteJava" shape=ellipse]
+5 [label="3:CtConstructorCallImpl@new ExecuteJava()" shape=ellipse]
+6 [label="3:CtVirtualElement@exe" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@final ExecuteJava exe = new ExecuteJava()" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@setClassName(java.lang.String)" shape=ellipse]
+9 [label="4:CtVirtualElement@setClassName" shape=ellipse]
+10 [label="4:CtVariableReadImpl@exe" shape=ellipse]
+11 [label="4:CtLiteralImpl@\"COM.sun.labs.jjtree.Main\"" shape=ellipse]
+12 [label="4:CtInvocationImpl@exe.setClassName(\"COM.sun.labs.jjtree.Main\")" shape=ellipse]
+13 [label="5:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+14 [label="5:CtExecutableReferenceImpl@keys()" shape=ellipse]
+15 [label="5:CtVirtualElement@keys" shape=ellipse]
+16 [label="5:CtFieldReadImpl@optionalAttrs" shape=ellipse]
+17 [label="5:CtInvocationImpl@optionalAttrs.keys()" shape=ellipse]
+18 [label="5:CtVirtualElement@iter" shape=ellipse]
+19 [label="5:CtLocalVariableImpl@Enumeration iter = optionalAttrs.keys()" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+21 [label="6:CtVirtualElement@hasMoreElements" shape=ellipse]
+22 [label="6:CtVariableReadImpl@iter" shape=ellipse]
+23 [label="6:CtInvocationImpl@iter.hasMoreElements()" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+26 [label="7:CtVirtualElement@nextElement" shape=ellipse]
+27 [label="7:CtVariableReadImpl@iter" shape=ellipse]
+28 [label="7:CtInvocationImpl@((String) (iter.nextElement()))" shape=ellipse]
+29 [label="7:CtTypeReferenceImpl@String" shape=ellipse]
+30 [label="7:CtVirtualElement@name" shape=ellipse]
+31 [label="7:CtLocalVariableImpl@String name = ((String) (iter.nextElement()))" shape=ellipse]
+32 [label="8:CtTypeReferenceImpl@Object" shape=ellipse]
+33 [label="8:CtExecutableReferenceImpl@get(java.lang.String)" shape=ellipse]
+34 [label="8:CtVirtualElement@get" shape=ellipse]
+35 [label="8:CtFieldReadImpl@optionalAttrs" shape=ellipse]
+36 [label="8:CtVariableReadImpl@name" shape=ellipse]
+37 [label="8:CtInvocationImpl@optionalAttrs.get(name)" shape=ellipse]
+38 [label="8:CtVirtualElement@value" shape=ellipse]
+39 [label="8:CtLocalVariableImpl@Object value = optionalAttrs.get(name)" shape=ellipse]
+40 [label="9:CtExecutableReferenceImpl@addArgument(java.lang.String)" shape=ellipse]
+41 [label="9:CtVirtualElement@addArgument" shape=ellipse]
+42 [label="9:CtExecutableReferenceImpl@getArguments()" shape=ellipse]
+43 [label="9:CtVirtualElement@getArguments" shape=ellipse]
+44 [label="9:CtVariableReadImpl@exe" shape=ellipse]
+45 [label="9:CtInvocationImpl@exe.getArguments()" shape=ellipse]
+46 [label="9:CtLiteralImpl@\"-\"" shape=ellipse]
+47 [label="9:CtVariableReadImpl@name" shape=ellipse]
+48 [label="9:CtBinaryOperatorImpl@(\"-\" + name)" shape=ellipse]
+49 [label="9:CtLiteralImpl@\":\"" shape=ellipse]
+50 [label="9:CtBinaryOperatorImpl@((\"-\" + name) + \":\")" shape=ellipse]
+51 [label="9:CtExecutableReferenceImpl@toString()" shape=ellipse]
+52 [label="9:CtVirtualElement@toString" shape=ellipse]
+53 [label="9:CtVariableReadImpl@value" shape=ellipse]
+54 [label="9:CtInvocationImpl@value.toString()" shape=ellipse]
+55 [label="9:CtBinaryOperatorImpl@((\"-\" + name) + \":\") + value.toString()" shape=ellipse]
+56 [label="9:CtInvocationImpl@exe.getArguments().addArgument(((\"-\" + name) + \":\") + value.toString())" shape=ellipse]
+57 [label="6:CtBlockImpl@\{
+    String name = ((String) (iter.nextElement()));
+    Object value = optionalAttrs.get(name);
+    exe.getArguments().addArgument(((\"-\" + name) + \":\") + value.toString());
+\}" shape=ellipse]
+58 [label="6:CtWhileImpl@while (iter.hasMoreElements()) \{
+    String name = ((String) (iter.nextElement()));
+    Object value = optionalAttrs.get(name);
+    exe.getArguments().addArgument(((\"-\" + name) + \":\") + value.toString());
+\} " shape=ellipse]
+59 [label="11:CtFieldReadImpl@target" shape=ellipse]
+60 [label="11:CtLiteralImpl@null" shape=ellipse]
+61 [label="11:CtBinaryOperatorImpl@(target == null)" shape=ellipse]
+62 [label="11:CtExecutableReferenceImpl@isFile()" shape=ellipse]
+63 [label="11:CtVirtualElement@isFile" shape=ellipse]
+64 [label="11:CtFieldReadImpl@target" shape=ellipse]
+65 [label="11:CtInvocationImpl@target.isFile()" shape=ellipse]
+66 [label="11:CtUnaryOperatorImpl@(!target.isFile())" shape=ellipse]
+67 [label="11:CtBinaryOperatorImpl@(target == null) || (!target.isFile())" shape=ellipse]
+68 [label="12:CtTypeReferenceImpl@TaskException" shape=ellipse]
+69 [label="12:CtLiteralImpl@\"Invalid target: \"" shape=ellipse]
+70 [label="12:CtFieldReadImpl@target" shape=ellipse]
+71 [label="12:CtBinaryOperatorImpl@\"Invalid target: \" + target" shape=ellipse]
+72 [label="12:CtConstructorCallImpl@new TaskException(\"Invalid target: \" + target)" shape=ellipse]
+73 [label="12:CtThrowImpl@throw new TaskException(\"Invalid target: \" + target)" shape=ellipse]
+74 [label="11:CtBlockImpl@\{
+    throw new TaskException(\"Invalid target: \" + target);
+\}" shape=ellipse]
+75 [label="11:CtIfImpl@if ((target == null) || (!target.isFile())) \{
+    throw new TaskException(\"Invalid target: \" + target);
+\}" shape=ellipse]
+76 [label="14:CtFieldReadImpl@outputDirectory" shape=ellipse]
+77 [label="14:CtLiteralImpl@null" shape=ellipse]
+78 [label="14:CtBinaryOperatorImpl@outputDirectory == null" shape=ellipse]
+79 [label="15:CtFieldWriteImpl@outputDirectory" shape=ellipse]
+80 [label="15:CtExecutableReferenceImpl@getParentFile()" shape=ellipse]
+81 [label="15:CtVirtualElement@getParentFile" shape=ellipse]
+82 [label="15:CtFieldReadImpl@target" shape=ellipse]
+83 [label="15:CtInvocationImpl@target.getParentFile()" shape=ellipse]
+84 [label="15:CtAssignmentImpl@outputDirectory = target.getParentFile()" shape=ellipse]
+85 [label="14:CtBlockImpl@\{
+    outputDirectory = target.getParentFile();
+\}" shape=ellipse]
+86 [label="14:CtIfImpl@if (outputDirectory == null) \{
+    outputDirectory = target.getParentFile();
+\}" shape=ellipse]
+87 [label="17:CtExecutableReferenceImpl@isDirectory()" shape=ellipse]
+88 [label="17:CtVirtualElement@isDirectory" shape=ellipse]
+89 [label="17:CtFieldReadImpl@outputDirectory" shape=ellipse]
+90 [label="17:CtInvocationImpl@outputDirectory.isDirectory()" shape=ellipse]
+91 [label="17:CtUnaryOperatorImpl@!outputDirectory.isDirectory()" shape=ellipse]
+92 [label="18:CtTypeReferenceImpl@TaskException" shape=ellipse]
+93 [label="18:CtLiteralImpl@\"'outputdirectory' \"" shape=ellipse]
+94 [label="18:CtFieldReadImpl@outputDirectory" shape=ellipse]
+95 [label="18:CtBinaryOperatorImpl@(\"'outputdirectory' \" + outputDirectory)" shape=ellipse]
+96 [label="18:CtLiteralImpl@\" is not a directory.\"" shape=ellipse]
+97 [label="18:CtBinaryOperatorImpl@(\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\"" shape=ellipse]
+98 [label="18:CtConstructorCallImpl@new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\")" shape=ellipse]
+99 [label="18:CtThrowImpl@throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\")" shape=ellipse]
+100 [label="17:CtBlockImpl@\{
+    throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+\}" shape=ellipse]
+101 [label="17:CtIfImpl@if (!outputDirectory.isDirectory()) \{
+    throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+\}" shape=ellipse]
+102 [label="21:CtExecutableReferenceImpl@addArgument()" shape=ellipse]
+103 [label="20:CtVirtualElement@addArgument" shape=ellipse]
+104 [label="20:CtExecutableReferenceImpl@getArguments()" shape=ellipse]
+105 [label="20:CtVirtualElement@getArguments" shape=ellipse]
+106 [label="20:CtVariableReadImpl@exe" shape=ellipse]
+107 [label="20:CtInvocationImpl@exe.getArguments()" shape=ellipse]
+108 [label="21:CtLiteralImpl@\"-OUTPUT_DIRECTORY:\"" shape=ellipse]
+109 [label="21:CtExecutableReferenceImpl@replace(char,char)" shape=ellipse]
+110 [label="21:CtVirtualElement@replace" shape=ellipse]
+111 [label="21:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+112 [label="21:CtVirtualElement@getAbsolutePath" shape=ellipse]
+113 [label="21:CtFieldReadImpl@outputDirectory" shape=ellipse]
+114 [label="21:CtInvocationImpl@outputDirectory.getAbsolutePath()" shape=ellipse]
+115 [label="21:CtLiteralImpl@'\\'" shape=ellipse]
+116 [label="21:CtLiteralImpl@'/'" shape=ellipse]
+117 [label="21:CtInvocationImpl@outputDirectory.getAbsolutePath().replace('\\', '/')" shape=ellipse]
+118 [label="21:CtBinaryOperatorImpl@\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/')" shape=ellipse]
+119 [label="20:CtInvocationImpl@exe.getArguments().addArgument(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'))" shape=ellipse]
+120 [label="22:CtTypeReferenceImpl@String" shape=ellipse]
+121 [label="22:CtExecutableReferenceImpl@getName()" shape=ellipse]
+122 [label="22:CtVirtualElement@getName" shape=ellipse]
+123 [label="22:CtFieldReadImpl@target" shape=ellipse]
+124 [label="22:CtInvocationImpl@target.getName()" shape=ellipse]
+125 [label="22:CtVirtualElement@targetName" shape=ellipse]
+126 [label="22:CtLocalVariableImpl@String targetName = target.getName()" shape=ellipse]
+127 [label="23:CtTypeReferenceImpl@File" shape=ellipse]
+128 [label="24:CtTypeReferenceImpl@File" shape=ellipse]
+129 [label="24:CtFieldReadImpl@outputDirectory" shape=ellipse]
+130 [label="24:CtExecutableReferenceImpl@substring(int,int)" shape=ellipse]
+131 [label="24:CtVirtualElement@substring" shape=ellipse]
+132 [label="24:CtVariableReadImpl@targetName" shape=ellipse]
+133 [label="24:CtLiteralImpl@0" shape=ellipse]
+134 [label="24:CtExecutableReferenceImpl@indexOf(java.lang.String)" shape=ellipse]
+135 [label="24:CtVirtualElement@indexOf" shape=ellipse]
+136 [label="24:CtVariableReadImpl@targetName" shape=ellipse]
+137 [label="24:CtLiteralImpl@\".jjt\"" shape=ellipse]
+138 [label="24:CtInvocationImpl@targetName.indexOf(\".jjt\")" shape=ellipse]
+139 [label="24:CtInvocationImpl@targetName.substring(0, targetName.indexOf(\".jjt\"))" shape=ellipse]
+140 [label="24:CtLiteralImpl@\".jj\"" shape=ellipse]
+141 [label="24:CtBinaryOperatorImpl@targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\"" shape=ellipse]
+142 [label="24:CtConstructorCallImpl@new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\")" shape=ellipse]
+143 [label="23:CtVirtualElement@javaFile" shape=ellipse]
+144 [label="23:CtLocalVariableImpl@final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\")" shape=ellipse]
+145 [label="25:CtExecutableReferenceImpl@exists()" shape=ellipse]
+146 [label="25:CtVirtualElement@exists" shape=ellipse]
+147 [label="25:CtVariableReadImpl@javaFile" shape=ellipse]
+148 [label="25:CtInvocationImpl@javaFile.exists()" shape=ellipse]
+149 [label="25:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+150 [label="25:CtVirtualElement@lastModified" shape=ellipse]
+151 [label="25:CtFieldReadImpl@target" shape=ellipse]
+152 [label="25:CtInvocationImpl@target.lastModified()" shape=ellipse]
+153 [label="25:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+154 [label="25:CtVirtualElement@lastModified" shape=ellipse]
+155 [label="25:CtVariableReadImpl@javaFile" shape=ellipse]
+156 [label="25:CtInvocationImpl@javaFile.lastModified()" shape=ellipse]
+157 [label="25:CtBinaryOperatorImpl@(target.lastModified() < javaFile.lastModified())" shape=ellipse]
+158 [label="25:CtBinaryOperatorImpl@javaFile.exists() && (target.lastModified() < javaFile.lastModified())" shape=ellipse]
+159 [label="26:CtExecutableReferenceImpl@info()" shape=ellipse]
+160 [label="26:CtVirtualElement@info" shape=ellipse]
+161 [label="26:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+162 [label="26:CtVirtualElement@getContext" shape=ellipse]
+163 [label="26:CtInvocationImpl@getContext()" shape=ellipse]
+164 [label="26:CtLiteralImpl@\"Target is already built - skipping (\"" shape=ellipse]
+165 [label="26:CtFieldReadImpl@target" shape=ellipse]
+166 [label="26:CtBinaryOperatorImpl@(\"Target is already built - skipping (\" + target)" shape=ellipse]
+167 [label="26:CtLiteralImpl@\")\"" shape=ellipse]
+168 [label="26:CtBinaryOperatorImpl@(\"Target is already built - skipping (\" + target) + \")\"" shape=ellipse]
+169 [label="26:CtInvocationImpl@getContext().info((\"Target is already built - skipping (\" + target) + \")\")" shape=ellipse]
+170 [label="27:CtReturnImpl@return" shape=ellipse]
+171 [label="25:CtBlockImpl@\{
+    getContext().info((\"Target is already built - skipping (\" + target) + \")\");
+    return;
+\}" shape=ellipse]
+172 [label="25:CtIfImpl@if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+    getContext().info((\"Target is already built - skipping (\" + target) + \")\");
+    return;
+\}" shape=ellipse]
+173 [label="29:CtExecutableReferenceImpl@addArgument()" shape=ellipse]
+174 [label="29:CtVirtualElement@addArgument" shape=ellipse]
+175 [label="29:CtExecutableReferenceImpl@getArguments()" shape=ellipse]
+176 [label="29:CtVirtualElement@getArguments" shape=ellipse]
+177 [label="29:CtVariableReadImpl@exe" shape=ellipse]
+178 [label="29:CtInvocationImpl@exe.getArguments()" shape=ellipse]
+179 [label="29:CtFieldReadImpl@target" shape=ellipse]
+180 [label="29:CtInvocationImpl@exe.getArguments().addArgument(target)" shape=ellipse]
+181 [label="30:CtFieldReadImpl@javaccHome" shape=ellipse]
+182 [label="30:CtLiteralImpl@null" shape=ellipse]
+183 [label="30:CtBinaryOperatorImpl@(javaccHome == null)" shape=ellipse]
+184 [label="30:CtExecutableReferenceImpl@isDirectory()" shape=ellipse]
+185 [label="30:CtVirtualElement@isDirectory" shape=ellipse]
+186 [label="30:CtFieldReadImpl@javaccHome" shape=ellipse]
+187 [label="30:CtInvocationImpl@javaccHome.isDirectory()" shape=ellipse]
+188 [label="30:CtUnaryOperatorImpl@(!javaccHome.isDirectory())" shape=ellipse]
+189 [label="30:CtBinaryOperatorImpl@(javaccHome == null) || (!javaccHome.isDirectory())" shape=ellipse]
+190 [label="31:CtTypeReferenceImpl@TaskException" shape=ellipse]
+191 [label="31:CtLiteralImpl@\"Javacchome not set.\"" shape=ellipse]
+192 [label="31:CtConstructorCallImpl@new TaskException(\"Javacchome not set.\")" shape=ellipse]
+193 [label="31:CtThrowImpl@throw new TaskException(\"Javacchome not set.\")" shape=ellipse]
+194 [label="30:CtBlockImpl@\{
+    throw new TaskException(\"Javacchome not set.\");
+\}" shape=ellipse]
+195 [label="30:CtIfImpl@if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+    throw new TaskException(\"Javacchome not set.\");
+\}" shape=ellipse]
+196 [label="33:CtTypeReferenceImpl@Path" shape=ellipse]
+197 [label="33:CtExecutableReferenceImpl@getClassPath()" shape=ellipse]
+198 [label="33:CtVirtualElement@getClassPath" shape=ellipse]
+199 [label="33:CtVariableReadImpl@exe" shape=ellipse]
+200 [label="33:CtInvocationImpl@exe.getClassPath()" shape=ellipse]
+201 [label="33:CtVirtualElement@classpath" shape=ellipse]
+202 [label="33:CtLocalVariableImpl@final Path classpath = exe.getClassPath()" shape=ellipse]
+203 [label="34:CtExecutableReferenceImpl@addLocation(File)" shape=ellipse]
+204 [label="34:CtVirtualElement@addLocation" shape=ellipse]
+205 [label="34:CtVariableReadImpl@classpath" shape=ellipse]
+206 [label="34:CtTypeReferenceImpl@File" shape=ellipse]
+207 [label="34:CtFieldReadImpl@javaccHome" shape=ellipse]
+208 [label="34:CtLiteralImpl@\"JavaCC.zip\"" shape=ellipse]
+209 [label="34:CtConstructorCallImpl@new File(javaccHome, \"JavaCC.zip\")" shape=ellipse]
+210 [label="34:CtInvocationImpl@classpath.addLocation(new File(javaccHome, \"JavaCC.zip\"))" shape=ellipse]
+211 [label="35:CtExecutableReferenceImpl@addJavaRuntime(Path)" shape=ellipse]
+212 [label="35:CtVirtualElement@addJavaRuntime" shape=ellipse]
+213 [label="35:CtTypeAccessImpl@PathUtil" shape=ellipse]
+214 [label="35:CtVariableReadImpl@classpath" shape=ellipse]
+215 [label="35:CtInvocationImpl@PathUtil.addJavaRuntime(classpath)" shape=ellipse]
+216 [label="36:CtExecutableReferenceImpl@setMaxMemory(java.lang.String)" shape=ellipse]
+217 [label="36:CtVirtualElement@setMaxMemory" shape=ellipse]
+218 [label="36:CtVariableReadImpl@exe" shape=ellipse]
+219 [label="36:CtLiteralImpl@\"140M\"" shape=ellipse]
+220 [label="36:CtInvocationImpl@exe.setMaxMemory(\"140M\")" shape=ellipse]
+221 [label="37:CtExecutableReferenceImpl@addVariable(java.lang.String)" shape=ellipse]
+222 [label="37:CtVirtualElement@addVariable" shape=ellipse]
+223 [label="37:CtExecutableReferenceImpl@getSysProperties()" shape=ellipse]
+224 [label="37:CtVirtualElement@getSysProperties" shape=ellipse]
+225 [label="37:CtVariableReadImpl@exe" shape=ellipse]
+226 [label="37:CtInvocationImpl@exe.getSysProperties()" shape=ellipse]
+227 [label="37:CtLiteralImpl@\"install.root\"" shape=ellipse]
+228 [label="37:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+229 [label="37:CtVirtualElement@getAbsolutePath" shape=ellipse]
+230 [label="37:CtFieldReadImpl@javaccHome" shape=ellipse]
+231 [label="37:CtInvocationImpl@javaccHome.getAbsolutePath()" shape=ellipse]
+232 [label="37:CtInvocationImpl@exe.getSysProperties().addVariable(\"install.root\", javaccHome.getAbsolutePath())" shape=ellipse]
+233 [label="38:CtExecutableReferenceImpl@executeForked()" shape=ellipse]
+234 [label="38:CtVirtualElement@executeForked" shape=ellipse]
+235 [label="38:CtVariableReadImpl@exe" shape=ellipse]
+236 [label="38:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+237 [label="38:CtVirtualElement@getContext" shape=ellipse]
+238 [label="38:CtInvocationImpl@getContext()" shape=ellipse]
+239 [label="38:CtInvocationImpl@exe.executeForked(getContext())" shape=ellipse]
+240 [label="2:CtBlockImpl@\{
+    final ExecuteJava exe = new ExecuteJava();
+    exe.setClassName(\"COM.sun.labs.jjtree.Main\");
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        exe.getArguments().addArgument(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new TaskException(\"Invalid target: \" + target);
+    \}
+    if (outputDirectory == null) \{
+        outputDirectory = target.getParentFile();
+    \}
+    if (!outputDirectory.isDirectory()) \{
+        throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+    \}
+    exe.getArguments().addArgument(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+    String targetName = target.getName();
+    final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\");
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getContext().info((\"Target is already built - skipping (\" + target) + \")\");
+        return;
+    \}
+    exe.getArguments().addArgument(target);
+    if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+        throw new TaskException(\"Javacchome not set.\");
+    \}
+    final Path classpath = exe.getClassPath();
+    classpath.addLocation(new File(javaccHome, \"JavaCC.zip\"));
+    PathUtil.addJavaRuntime(classpath);
+    exe.setMaxMemory(\"140M\");
+    exe.getSysProperties().addVariable(\"install.root\", javaccHome.getAbsolutePath());
+    exe.executeForked(getContext());
+\}" shape=ellipse]
+241 [label="2:CtMethodImpl@public void execute() throws TaskException \{
+    final ExecuteJava exe = new ExecuteJava();
+    exe.setClassName(\"COM.sun.labs.jjtree.Main\");
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        exe.getArguments().addArgument(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new TaskException(\"Invalid target: \" + target);
+    \}
+    if (outputDirectory == null) \{
+        outputDirectory = target.getParentFile();
+    \}
+    if (!outputDirectory.isDirectory()) \{
+        throw new TaskException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+    \}
+    exe.getArguments().addArgument(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+    String targetName = target.getName();
+    final File javaFile = new File(outputDirectory, targetName.substring(0, targetName.indexOf(\".jjt\")) + \".jj\");
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getContext().info((\"Target is already built - skipping (\" + target) + \")\");
+        return;
+    \}
+    exe.getArguments().addArgument(target);
+    if ((javaccHome == null) || (!javaccHome.isDirectory())) \{
+        throw new TaskException(\"Javacchome not set.\");
+    \}
+    final Path classpath = exe.getClassPath();
+    classpath.addLocation(new File(javaccHome, \"JavaCC.zip\"));
+    PathUtil.addJavaRuntime(classpath);
+    exe.setMaxMemory(\"140M\");
+    exe.getSysProperties().addVariable(\"install.root\", javaccHome.getAbsolutePath());
+    exe.executeForked(getContext());
+\}" shape=ellipse]
+242 [label="26:Update@UPDATE" shape=ellipse]
+243 [label="26:CtInvocationImpl@getContext().verbose((\"Target is already built - skipping (\" + target) + \")\")" shape=ellipse]
+6 -> 10 [label="Define-Use"];
+6 -> 44 [label="Define-Use"];
+6 -> 106 [label="Define-Use"];
+6 -> 177 [label="Define-Use"];
+6 -> 199 [label="Define-Use"];
+6 -> 218 [label="Define-Use"];
+6 -> 225 [label="Define-Use"];
+6 -> 235 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+16 -> 18 [label="Data Dep"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 14 [label="AST"];
+18 -> 22 [label="Define-Use"];
+18 -> 27 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 13 [label="AST"];
+19 -> 17 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 57 [label="Control Dep"];
+23 -> 31 [label="Control Dep"];
+23 -> 28 [label="Control Dep"];
+23 -> 25 [label="Control Dep"];
+23 -> 27 [label="Control Dep"];
+23 -> 39 [label="Control Dep"];
+23 -> 37 [label="Control Dep"];
+23 -> 33 [label="Control Dep"];
+23 -> 35 [label="Control Dep"];
+23 -> 36 [label="Control Dep"];
+23 -> 56 [label="Control Dep"];
+23 -> 40 [label="Control Dep"];
+23 -> 45 [label="Control Dep"];
+23 -> 42 [label="Control Dep"];
+23 -> 44 [label="Control Dep"];
+23 -> 55 [label="Control Dep"];
+23 -> 50 [label="Control Dep"];
+23 -> 48 [label="Control Dep"];
+23 -> 46 [label="Control Dep"];
+23 -> 47 [label="Control Dep"];
+23 -> 49 [label="Control Dep"];
+23 -> 54 [label="Control Dep"];
+23 -> 51 [label="Control Dep"];
+23 -> 53 [label="Control Dep"];
+27 -> 30 [label="Data Dep"];
+28 -> 26 [label="AST"];
+28 -> 29 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+30 -> 36 [label="Define-Use"];
+30 -> 47 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 24 [label="AST"];
+31 -> 28 [label="AST"];
+35 -> 38 [label="Data Dep"];
+36 -> 38 [label="Data Dep"];
+37 -> 34 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 53 [label="Define-Use"];
+39 -> 38 [label="AST"];
+39 -> 32 [label="AST"];
+39 -> 37 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+45 -> 42 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+50 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+54 -> 51 [label="AST"];
+55 -> 50 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 41 [label="AST"];
+56 -> 45 [label="AST"];
+56 -> 40 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 31 [label="AST"];
+57 -> 39 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 23 [label="AST"];
+58 -> 57 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+65 -> 62 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 61 [label="AST"];
+67 -> 66 [label="AST"];
+67 -> 74 [label="Control Dep"];
+67 -> 73 [label="Control Dep"];
+67 -> 72 [label="Control Dep"];
+67 -> 71 [label="Control Dep"];
+67 -> 69 [label="Control Dep"];
+67 -> 70 [label="Control Dep"];
+71 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 67 [label="AST"];
+75 -> 74 [label="AST"];
+78 -> 76 [label="AST"];
+78 -> 77 [label="AST"];
+78 -> 85 [label="Control Dep"];
+78 -> 84 [label="Control Dep"];
+78 -> 79 [label="Control Dep"];
+78 -> 83 [label="Control Dep"];
+78 -> 80 [label="Control Dep"];
+78 -> 82 [label="Control Dep"];
+79 -> 89 [label="Define-Use"];
+79 -> 94 [label="Define-Use"];
+79 -> 113 [label="Define-Use"];
+79 -> 129 [label="Define-Use"];
+82 -> 79 [label="Data Dep"];
+83 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+83 -> 80 [label="AST"];
+84 -> 79 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 78 [label="AST"];
+86 -> 85 [label="AST"];
+90 -> 88 [label="AST"];
+90 -> 89 [label="AST"];
+90 -> 87 [label="AST"];
+91 -> 90 [label="AST"];
+91 -> 100 [label="Control Dep"];
+91 -> 99 [label="Control Dep"];
+91 -> 98 [label="Control Dep"];
+91 -> 97 [label="Control Dep"];
+91 -> 95 [label="Control Dep"];
+91 -> 93 [label="Control Dep"];
+91 -> 94 [label="Control Dep"];
+91 -> 96 [label="Control Dep"];
+95 -> 93 [label="AST"];
+95 -> 94 [label="AST"];
+97 -> 95 [label="AST"];
+97 -> 96 [label="AST"];
+98 -> 97 [label="AST"];
+99 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+101 -> 91 [label="AST"];
+101 -> 100 [label="AST"];
+107 -> 105 [label="AST"];
+107 -> 106 [label="AST"];
+107 -> 104 [label="AST"];
+114 -> 112 [label="AST"];
+114 -> 113 [label="AST"];
+114 -> 111 [label="AST"];
+117 -> 110 [label="AST"];
+117 -> 114 [label="AST"];
+117 -> 109 [label="AST"];
+117 -> 115 [label="AST"];
+117 -> 116 [label="AST"];
+118 -> 108 [label="AST"];
+118 -> 117 [label="AST"];
+119 -> 103 [label="AST"];
+119 -> 107 [label="AST"];
+119 -> 102 [label="AST"];
+119 -> 118 [label="AST"];
+123 -> 125 [label="Data Dep"];
+124 -> 122 [label="AST"];
+124 -> 123 [label="AST"];
+124 -> 121 [label="AST"];
+125 -> 132 [label="Define-Use"];
+125 -> 136 [label="Define-Use"];
+126 -> 125 [label="AST"];
+126 -> 120 [label="AST"];
+126 -> 124 [label="AST"];
+129 -> 143 [label="Data Dep"];
+132 -> 143 [label="Data Dep"];
+136 -> 143 [label="Data Dep"];
+138 -> 135 [label="AST"];
+138 -> 136 [label="AST"];
+138 -> 134 [label="AST"];
+138 -> 137 [label="AST"];
+139 -> 131 [label="AST"];
+139 -> 132 [label="AST"];
+139 -> 130 [label="AST"];
+139 -> 133 [label="AST"];
+139 -> 138 [label="AST"];
+141 -> 139 [label="AST"];
+141 -> 140 [label="AST"];
+142 -> 129 [label="AST"];
+142 -> 141 [label="AST"];
+143 -> 147 [label="Define-Use"];
+143 -> 155 [label="Define-Use"];
+144 -> 143 [label="AST"];
+144 -> 127 [label="AST"];
+144 -> 142 [label="AST"];
+148 -> 146 [label="AST"];
+148 -> 147 [label="AST"];
+148 -> 145 [label="AST"];
+152 -> 150 [label="AST"];
+152 -> 151 [label="AST"];
+152 -> 149 [label="AST"];
+156 -> 154 [label="AST"];
+156 -> 155 [label="AST"];
+156 -> 153 [label="AST"];
+157 -> 152 [label="AST"];
+157 -> 156 [label="AST"];
+158 -> 148 [label="AST"];
+158 -> 157 [label="AST"];
+158 -> 171 [label="Control Dep"];
+158 -> 169 [label="Control Dep"];
+158 -> 159 [label="Control Dep"];
+158 -> 163 [label="Control Dep"];
+158 -> 161 [label="Control Dep"];
+158 -> 168 [label="Control Dep"];
+158 -> 166 [label="Control Dep"];
+158 -> 164 [label="Control Dep"];
+158 -> 165 [label="Control Dep"];
+158 -> 167 [label="Control Dep"];
+158 -> 170 [label="Control Dep"];
+163 -> 162 [label="AST"];
+163 -> 161 [label="AST"];
+166 -> 164 [label="AST"];
+166 -> 165 [label="AST"];
+168 -> 166 [label="AST"];
+168 -> 167 [label="AST"];
+169 -> 160 [label="AST"];
+169 -> 163 [label="AST"];
+169 -> 159 [label="AST"];
+169 -> 168 [label="AST"];
+169 -> 242 [label="Action"];
+171 -> 169 [label="AST"];
+171 -> 170 [label="AST"];
+172 -> 158 [label="AST"];
+172 -> 171 [label="AST"];
+178 -> 176 [label="AST"];
+178 -> 177 [label="AST"];
+178 -> 175 [label="AST"];
+180 -> 174 [label="AST"];
+180 -> 178 [label="AST"];
+180 -> 173 [label="AST"];
+180 -> 179 [label="AST"];
+183 -> 181 [label="AST"];
+183 -> 182 [label="AST"];
+187 -> 185 [label="AST"];
+187 -> 186 [label="AST"];
+187 -> 184 [label="AST"];
+188 -> 187 [label="AST"];
+189 -> 183 [label="AST"];
+189 -> 188 [label="AST"];
+189 -> 194 [label="Control Dep"];
+189 -> 193 [label="Control Dep"];
+189 -> 192 [label="Control Dep"];
+189 -> 191 [label="Control Dep"];
+192 -> 191 [label="AST"];
+193 -> 192 [label="AST"];
+194 -> 193 [label="AST"];
+195 -> 189 [label="AST"];
+195 -> 194 [label="AST"];
+199 -> 201 [label="Data Dep"];
+200 -> 198 [label="AST"];
+200 -> 199 [label="AST"];
+200 -> 197 [label="AST"];
+201 -> 205 [label="Define-Use"];
+201 -> 214 [label="Define-Use"];
+202 -> 201 [label="AST"];
+202 -> 196 [label="AST"];
+202 -> 200 [label="AST"];
+209 -> 207 [label="AST"];
+209 -> 208 [label="AST"];
+210 -> 204 [label="AST"];
+210 -> 205 [label="AST"];
+210 -> 203 [label="AST"];
+210 -> 209 [label="AST"];
+215 -> 212 [label="AST"];
+215 -> 213 [label="AST"];
+215 -> 211 [label="AST"];
+215 -> 214 [label="AST"];
+220 -> 217 [label="AST"];
+220 -> 218 [label="AST"];
+220 -> 216 [label="AST"];
+220 -> 219 [label="AST"];
+226 -> 224 [label="AST"];
+226 -> 225 [label="AST"];
+226 -> 223 [label="AST"];
+231 -> 229 [label="AST"];
+231 -> 230 [label="AST"];
+231 -> 228 [label="AST"];
+232 -> 222 [label="AST"];
+232 -> 226 [label="AST"];
+232 -> 221 [label="AST"];
+232 -> 227 [label="AST"];
+232 -> 231 [label="AST"];
+238 -> 237 [label="AST"];
+238 -> 236 [label="AST"];
+239 -> 234 [label="AST"];
+239 -> 235 [label="AST"];
+239 -> 233 [label="AST"];
+239 -> 238 [label="AST"];
+240 -> 7 [label="AST"];
+240 -> 12 [label="AST"];
+240 -> 19 [label="AST"];
+240 -> 58 [label="AST"];
+240 -> 75 [label="AST"];
+240 -> 86 [label="AST"];
+240 -> 101 [label="AST"];
+240 -> 119 [label="AST"];
+240 -> 126 [label="AST"];
+240 -> 144 [label="AST"];
+240 -> 172 [label="AST"];
+240 -> 180 [label="AST"];
+240 -> 195 [label="AST"];
+240 -> 202 [label="AST"];
+240 -> 210 [label="AST"];
+240 -> 215 [label="AST"];
+240 -> 220 [label="AST"];
+240 -> 232 [label="AST"];
+240 -> 239 [label="AST"];
+241 -> 1 [label="AST"];
+241 -> 0 [label="AST"];
+241 -> 2 [label="AST"];
+241 -> 240 [label="AST"];
+242 -> 243 [label="Action"];
+}

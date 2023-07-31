@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/790/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/790/1/after.java
+@@ -2,2 +2,8 @@
+-  public void testEmpty() throws Exception {
+-    expectBuildExceptionContaining("testEmpty", ERROR_NO_ATTRIBUTES, ERROR_NO_ATTRIBUTES);
++  @Test
++  public void testEmpty() {
++    try {
++      buildRule.executeTarget("testEmpty");
++      fail("Build exception expected: " + ParserSupports.ERROR_NO_ATTRIBUTES);
++    } catch (BuildException ex) {
++      assertEquals(ERROR_NO_ATTRIBUTES, ex.getMessage());
++    }

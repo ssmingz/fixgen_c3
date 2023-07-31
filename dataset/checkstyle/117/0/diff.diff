@@ -1,0 +1,12 @@
+--- D:\expdata\c3\dataset\checkstyle\117\0/before.java
++++ D:\expdata\c3\dataset\checkstyle\117\0/after.java
+@@ -7,1 +7,1 @@
+-    final Writer writer =
++    try (final Writer writer =
+@@ -9,3 +9,3 @@
+-            new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+-    writer.write(content);
+-    writer.close();
++            new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8))) {
++      writer.write(content);
++    }

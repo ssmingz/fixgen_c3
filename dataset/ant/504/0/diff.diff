@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/504/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/504/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test2", "SSL only possible with MIME mail");
++    try {
++      buildRule.executeTarget("test2");
++      fail("Build exception expected: SSL only possibly with MIME mail");
++    } catch (BuildException ex) {
++    }

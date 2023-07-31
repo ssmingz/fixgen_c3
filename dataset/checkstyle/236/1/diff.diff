@@ -1,0 +1,13 @@
+--- D:\expdata\c3\dataset\checkstyle\236\1/before.java
++++ D:\expdata\c3\dataset\checkstyle\236\1/after.java
+@@ -3,4 +3,6 @@
+-    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+-    checkConfig.addAttribute("option", ALONE.toString());
+-    final String[] expected = new String[] {};
+-    verify(checkConfig, getPath("InputLeftCurlyOther.java"), expected);
++    mCheckConfig.addAttribute("option", ALONE.toString());
++    final String[] expected =
++        new String[] {
++          "93:27: '}' should be alone on a line.", "93:27: '}' should be on a new line."
++        };
++    verify(mCheckConfig, getPath("InputLeftCurlyOther.java"), expected);

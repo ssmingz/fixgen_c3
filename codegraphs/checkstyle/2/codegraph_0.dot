@@ -1,0 +1,39 @@
+digraph "addName#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addName" shape=ellipse]
+2 [label="2:CtParameterImpl@String nameToAdd" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@add(java.lang.String)" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@varNames" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+7 [label="3:CtVirtualElement@add" shape=ellipse]
+8 [label="3:CtFieldReferenceImpl@varNames" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+10 [label="3:CtFieldReadImpl@varNames" shape=ellipse]
+11 [label="3:CtVariableReadImpl@nameToAdd" shape=ellipse]
+12 [label="3:CtParameterReferenceImpl@nameToAdd" shape=ellipse]
+13 [label="3:CtInvocationImpl@varNames.add(nameToAdd)" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    varNames.add(nameToAdd);
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@void addName(String nameToAdd) \{
+    varNames.add(nameToAdd);
+\}" shape=ellipse]
+16 [label="2:Insert@INSERT" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 6 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 12 [label="AST"];
+13 -> 7 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 4 [label="AST"];
+13 -> 11 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 2 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 16 [label="Action"];
+}

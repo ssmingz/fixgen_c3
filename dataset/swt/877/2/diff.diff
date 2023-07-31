@@ -1,0 +1,26 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/877/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/877/2/after.java
+@@ -20,8 +20,15 @@
+-          Control focusControl = getDisplay().getFocusControl();
+-          if ((focusControl == list) || (focusControl == arrow)) {
+-            return;
+-          }
+-          hasFocus = false;
+-          Event e = new Event();
+-          e.time = event.time;
+-          notifyListeners(FocusOut, e);
++          event.display.asyncExec(
++              new Runnable() {
++                public void run() {
++                  if (CCombo.this.isDisposed()) {
++                    return;
++                  }
++                  Control focusControl = getDisplay().getFocusControl();
++                  if ((focusControl == list) || (focusControl == arrow)) {
++                    return;
++                  }
++                  hasFocus = false;
++                  Event e = new Event();
++                  notifyListeners(FocusOut, e);
++                }
++              });

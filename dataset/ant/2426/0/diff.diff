@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2426/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2426/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    this.expectBuildExceptionContaining(
+-        "noresourcefailall",
+-        "the requested resource does not exist",
+-        "Could not load definitions from resource ");
++    try {
++      buildRule.executeTarget("noresourcefailall");
++      fail("BuildException expected: the requested resource does not exist");
++    } catch (BuildException ex) {
++      assertContains("Could not load definitions from resource ", ex.getMessage());
++    }

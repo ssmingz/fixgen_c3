@@ -1,0 +1,110 @@
+digraph "Pattern" {
+0 [label="convert#?,String,String#20:INSERT
+execute#?#29:INSERT" shape=ellipse]
+1 [label="convert#?,String,String#19:Native2AsciiAdapterFactory.getAdapter(facade.getImplementation(), this)
+execute#?#27:JavahAdapterFactory.getAdapter(facade.getImplementation(), this)" shape=ellipse]
+2 [label="convert#?,String,String#18:Native2AsciiAdapter ad = Native2AsciiAdapterFactory.getAdapter(facade.getImplementation(), this)
+execute#?#27:JavahAdapter ad = JavahAdapterFactory.getAdapter(facade.getImplementation(), this)" shape=ellipse]
+3 [label="convert#?,String,String#2:\{
+    File srcFile;
+    File destFile;
+    srcFile = new File(srcDir, srcName);
+    destFile = new File(destDir, destName);
+    if (srcFile.equals(destFile)) \{
+        throw new BuildException((\"file \" + srcFile) + \" would overwrite its self\");
+    \}
+    String parentName = destFile.getParent();
+    if (parentName != null) \{
+        File parentFile = new File(parentName);
+        if ((!parentFile.exists()) && (!parentFile.mkdirs())) \{
+            throw new BuildException(\"cannot create parent directory \" + parentName);
+        \}
+    \}
+    log(\"converting \" + srcName, MSG_VERBOSE);
+    Native2AsciiAdapter ad = Native2AsciiAdapterFactory.getAdapter(facade.getImplementation(), this);
+    if (!ad.convert(this, srcFile, destFile)) \{
+        throw new BuildException(\"conversion failed\");
+    \}
+\}
+execute#?#2:\{
+    if (((cls == null) && (classes.size() == 0)) && (files.size() == 0)) \{
+        throw new BuildException(\"class attribute must be set!\", getLocation());
+    \}
+    if (((cls != null) && (classes.size() > 0)) && (files.size() > 0)) \{
+        throw new BuildException(\"set class attribute OR class element OR fileset, \" + \"not 2 or more of them.\", getLocation());
+    \}
+    if (destDir != null) \{
+        if (!destDir.isDirectory()) \{
+            throw new BuildException((\"destination directory \\"\" + destDir) + \"\\" does not exist or is not a directory\", getLocation());
+        \}
+        if (outputFile != null) \{
+            throw new BuildException(\"destdir and outputFile are mutually \" + \"exclusive\", getLocation());
+        \}
+    \}
+    if (classpath == null) \{
+        classpath = new Path(getProject()).concatSystemClasspath(\"last\");
+    \} else \{
+        classpath = classpath.concatSystemClasspath(\"ignore\");
+    \}
+    JavahAdapter ad = JavahAdapterFactory.getAdapter(facade.getImplementation(), this);
+    if (!ad.compile(this)) \{
+        throw new BuildException(\"compilation failed\");
+    \}
+\}" shape=ellipse]
+4 [label="convert#?,String,String#18:ad
+execute#?#27:ad" shape=ellipse]
+5 [label="convert#?,String,String#18:Native2AsciiAdapter
+execute#?#27:JavahAdapter" shape=ellipse]
+6 [label="convert#?,String,String#19:getAdapter
+execute#?#27:getAdapter" shape=ellipse]
+7 [label="convert#?,String,String#19:Native2AsciiAdapterFactory
+execute#?#27:JavahAdapterFactory" shape=ellipse]
+8 [label="convert#?,String,String#-1:Native2AsciiAdapterFactory
+execute#?#-1:JavahAdapterFactory" shape=ellipse]
+9 [label="convert#?,String,String#19:getAdapter(PlaceHold)
+execute#?#27:getAdapter(PlaceHold)" shape=ellipse]
+10 [label="convert#?,String,String#-1:Native2AsciiAdapterFactory
+execute#?#-1:JavahAdapterFactory" shape=ellipse]
+11 [label="convert#?,String,String#-1:Native2AsciiAdapter
+execute#?#-1:JavahAdapter" shape=ellipse]
+12 [label="convert#?,String,String#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+13 [label="convert#?,String,String#19:facade.getImplementation()
+execute#?#27:facade.getImplementation()" shape=ellipse]
+14 [label="convert#?,String,String#19:getImplementation
+execute#?#27:getImplementation" shape=ellipse]
+15 [label="convert#?,String,String#19:facade
+execute#?#27:facade" shape=ellipse]
+16 [label="convert#?,String,String#19:getImplementation()
+execute#?#27:getImplementation()" shape=ellipse]
+17 [label="convert#?,String,String#19:this
+execute#?#27:this" shape=ellipse]
+18 [label="convert#?,String,String#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+19 [label="convert#?,String,String#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+20 [label="convert#?,String,String#20:createImplementationClasspath()
+execute#?#29:createImplementationClasspath()" shape=ellipse]
+0 -> 20 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+13 -> 16 [label="AST:2"];
+15 -> 4 [label="Data Dep:2"];
+17 -> 4 [label="Data Dep:2"];
+17 -> 18 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+}

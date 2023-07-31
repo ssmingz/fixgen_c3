@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/719/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/719/1/after.java
+@@ -3,3 +3,2 @@
+-    GdkEventButton gdkEvent = new GdkEventButton();
+-    OS.memmove(gdkEvent, event, sizeof);
+-    if (gdkEvent.window != OS.gtk_tree_view_get_bin_window(handle)) {
++    int window = OS.GDK_EVENT_WINDOW(event);
++    if (window != OS.gtk_tree_view_get_bin_window(handle)) {
+@@ -8,10 +7,1 @@
+-    int border = getBorderWidth();
+-    int headerHeight = getHeaderHeight();
+-    gdkEvent.x += border;
+-    gdkEvent.y += headerHeight;
+-    OS.memmove(event, gdkEvent, sizeof);
+-    int result = super.gtk_motion_notify_event(widget, event);
+-    gdkEvent.x -= border;
+-    gdkEvent.y -= headerHeight;
+-    OS.memmove(event, gdkEvent, sizeof);
+-    return result;
++    return super.gtk_motion_notify_event(widget, event);

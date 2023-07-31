@@ -1,0 +1,32 @@
+digraph "Pattern" {
+0 [label="getLineData#?,int#3:UPDATE
+isValidSourceLineNumber#?,int#3:UPDATE" shape=ellipse]
+1 [label="getLineData#?,int#3:lines
+isValidSourceLineNumber#?,int#3:lines" shape=ellipse]
+2 [label="getLineData#?,int#3:((LineData) (lines.get(new Integer(lineNumber))))
+isValidSourceLineNumber#?,int#3:lines.containsKey(new Integer(lineNumber))" shape=ellipse]
+3 [label="getLineData#?,int#3:return ((LineData) (lines.get(new Integer(lineNumber))))
+isValidSourceLineNumber#?,int#3:return lines.containsKey(new Integer(lineNumber))" shape=ellipse]
+4 [label="getLineData#?,int#3:get
+isValidSourceLineNumber#?,int#3:containsKey" shape=ellipse]
+5 [label="getLineData#?,int#3:LineData
+isValidSourceLineNumber#?,int#3:containsKey(java.lang.Integer)" shape=ellipse]
+6 [label="getLineData#?,int#3:get(java.lang.Integer)" shape=ellipse]
+7 [label="getLineData#?,int#3:new Integer(lineNumber)
+isValidSourceLineNumber#?,int#3:new Integer(lineNumber)" shape=ellipse]
+8 [label="getLineData#?,int#3:lines
+isValidSourceLineNumber#?,int#3:lines" shape=ellipse]
+9 [label="getLineData#?,int#3:PlaceHold
+isValidSourceLineNumber#?,int#3:PlaceHold" shape=ellipse]
+10 [label="getLineData#?,int#3:children
+isValidSourceLineNumber#?,int#3:children" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+}

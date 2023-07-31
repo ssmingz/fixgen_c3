@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="testSame#?#12:DELETE
+testAlone#?#6:DELETE" shape=ellipse]
+1 [label="testSame#?#12:checkConfig
+testAlone#?#6:checkConfig" shape=ellipse]
+2 [label="testSame#?#3:checkConfig
+testAlone#?#3:checkConfig" shape=ellipse]
+3 [label="testSame#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)
+testAlone#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)" shape=ellipse]
+4 [label="testSame#?#3:
+testAlone#?#3:" shape=ellipse]
+5 [label="testSame#?#3:RightCurlyCheck.class
+testAlone#?#3:RightCurlyCheck.class" shape=ellipse]
+6 [label="testSame#?#4:checkConfig
+testAlone#?#4:checkConfig" shape=ellipse]
+7 [label="testSame#?#12:verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected)
+testAlone#?#6:verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected)" shape=ellipse]
+8 [label="testSame#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", SAME.toString());
+    final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}
+testAlone#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", ALONE.toString());
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}" shape=ellipse]
+9 [label="testSame#?#12:verify
+testAlone#?#6:verify" shape=ellipse]
+10 [label="testSame#?#12:
+testAlone#?#6:" shape=ellipse]
+11 [label="testSame#?#12:verify(<unknown>,<unknown>,java.lang.String[])
+testAlone#?#6:verify(<unknown>,<unknown>,java.lang.String[])" shape=ellipse]
+12 [label="testSame#?#12:getPath(\"InputLeftCurlyOther.java\")
+testAlone#?#6:getPath(\"InputLeftCurlyOther.java\")" shape=ellipse]
+13 [label="testSame#?#12:expected
+testAlone#?#6:expected" shape=ellipse]
+14 [label="testSame#?#13:INSERT
+testAlone#?#8:INSERT" shape=ellipse]
+15 [label="testSame#?#13:mCheckConfig
+testAlone#?#8:mCheckConfig" shape=ellipse]
+16 [label="testSame#?#13:mCheckConfig
+testAlone#?#8:mCheckConfig" shape=ellipse]
+17 [label="testSame#?#13:PlaceHold
+testAlone#?#8:PlaceHold" shape=ellipse]
+18 [label="testSame#?#13:
+testAlone#?#8:" shape=ellipse]
+19 [label="testSame#?#12:checkConfig
+testAlone#?#6:checkConfig" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 19 [label="AST:2"];
+2 -> 1 [label="Define Use:2"];
+2 -> 6 [label="Define Use:2"];
+3 -> 2 [label="AST:2"];
+4 -> 2 [label="Data Dep:2"];
+5 -> 2 [label="Data Dep:2"];
+7 -> 1 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+7 -> 13 [label="AST:2"];
+7 -> 14 [label="Action:2"];
+8 -> 3 [label="AST:2"];
+8 -> 7 [label="AST:2"];
+14 -> 15 [label="Action:2"];
+15 -> 16 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+}

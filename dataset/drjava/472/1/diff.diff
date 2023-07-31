@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/472/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/472/1/after.java
+@@ -2,3 +2,4 @@
+-  public synchronized int balanceBackward() {
+-    throwErrorHuh();
+-    return _reduced.balanceBackward();
++  public int balanceBackward() {
++    synchronized (_reduced) {
++      return _reduced.balanceBackward();
++    }

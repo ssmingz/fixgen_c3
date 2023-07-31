@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/503/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/503/1/after.java
+@@ -13,1 +13,1 @@
+-    if (text != null) {
++    if (text.length() > 0) {
+@@ -136,14 +136,0 @@
+-    if (ATK.g_type_is_a(object.parentType, ATK_TEXT_TYPE)) {
+-      int superType = ATK.g_type_class_peek(object.parentType);
+-      AtkTextIface textIface = new AtkTextIface();
+-      ATK.memmove(textIface, superType);
+-      if (textIface.get_text_before_offset != 0) {
+-        return ATK.call(
+-            textIface.get_text_before_offset,
+-            object.handle,
+-            offset,
+-            boundary_type,
+-            start_offset,
+-            end_offset);
+-      }
+-    }

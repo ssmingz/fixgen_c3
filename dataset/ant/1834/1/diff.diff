@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1834/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1834/1/after.java
+@@ -12,2 +12,5 @@
+-      String resultStr = new URL(((SAXSource) (result)).getInputSource().getSystemId()).getFile();
+-      assertTrue("Empty catalog should return input", expected.endsWith(resultStr));
++      String resultStr = fileURLPartWithoutLeadingSlashes(((SAXSource) (result)));
++      assertTrue(
++          (("Empty catalog should return input with a system ID like " + expected) + " but was ")
++              + resultStr,
++          expected.endsWith(resultStr));

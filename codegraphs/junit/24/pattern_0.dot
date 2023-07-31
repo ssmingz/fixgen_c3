@@ -1,0 +1,94 @@
+digraph "Pattern" {
+0 [label="createTimeoutException#?,Thread#4:UPDATE
+apply#?,Statement,Description#3:UPDATE" shape=ellipse]
+1 [label="createTimeoutException#?,Thread#4:fLookForStuckThread
+apply#?,Statement,Description#3:fLookForStuckThread" shape=ellipse]
+2 [label="createTimeoutException#?,Thread#4:(fLookForStuckThread) ? getStuckThread(thread) : null" shape=ellipse]
+3 [label="createTimeoutException#?,Thread#4:final Thread stuckThread = (fLookForStuckThread) ? getStuckThread(thread) : null
+apply#?,Statement,Description#3:return new FailOnTimeout(base, fTimeout, fTimeUnit, fLookForStuckThread)" shape=ellipse]
+4 [label="createTimeoutException#?,Thread#4:getStuckThread(thread)" shape=ellipse]
+5 [label="createTimeoutException#?,Thread#4:lookForStuckThread
+apply#?,Statement,Description#3:lookForStuckThread" shape=ellipse]
+6 [label="createTimeoutException#?,Thread#4:PlaceHold" shape=ellipse]
+7 [label="createTimeoutException#?,Thread#4:
+apply#?,Statement,Description#3:FailOnTimeout()" shape=ellipse]
+8 [label="createTimeoutException#?,Thread#4:getStuckThread(java.lang.Thread)" shape=ellipse]
+9 [label="createTimeoutException#?,Thread#4:Thread
+apply#?,Statement,Description#3:PlaceHold" shape=ellipse]
+10 [label="createTimeoutException#?,Thread#4:" shape=ellipse]
+11 [label="createTimeoutException#?,Thread#4:PlaceHold" shape=ellipse]
+12 [label="createTimeoutException#?,Thread#4:PlaceHold" shape=ellipse]
+13 [label="createTimeoutException#?,Thread#10:stuckThread" shape=ellipse]
+14 [label="createTimeoutException#?,Thread#10:stuckThread" shape=ellipse]
+15 [label="createTimeoutException#?,Thread#12:stuckThread" shape=ellipse]
+16 [label="createTimeoutException#?,Thread#12:stuckThread" shape=ellipse]
+17 [label="createTimeoutException#?,Thread#13:stuckThreadException
+apply#?,Statement,Description#3:fTimeout" shape=ellipse]
+18 [label="createTimeoutException#?,Thread#13:stuckThreadException" shape=ellipse]
+19 [label="createTimeoutException#?,Thread#15:stuckThreadException
+apply#?,Statement,Description#3:fTimeUnit" shape=ellipse]
+20 [label="createTimeoutException#?,Thread#15:stuckThreadException" shape=ellipse]
+21 [label="createTimeoutException#?,Thread#13:stuckThread" shape=ellipse]
+22 [label="createTimeoutException#?,Thread#13:stuckThread" shape=ellipse]
+23 [label="createTimeoutException#?,Thread#4:thread" shape=ellipse]
+24 [label="createTimeoutException#?,Thread#4:thread" shape=ellipse]
+25 [label="createTimeoutException#?,Thread#4:null" shape=ellipse]
+26 [label="createTimeoutException#?,Thread#4:<nulltype>" shape=ellipse]
+27 [label="createTimeoutException#?,Thread#4:Thread" shape=ellipse]
+28 [label="createTimeoutException#?,Thread#4:PlaceHold" shape=ellipse]
+29 [label="createTimeoutException#?,Thread#4:stuckThread" shape=ellipse]
+30 [label="createTimeoutException#?,Thread#11:stuckThreadException" shape=ellipse]
+31 [label="createTimeoutException#?,Thread#4:fLookForStuckThread" shape=ellipse]
+32 [label="createTimeoutException#?,Thread#4:PlaceHold" shape=ellipse]
+33 [label="apply#?,Statement,Description#3:new FailOnTimeout(base, fTimeout, fTimeUnit, fLookForStuckThread)" shape=ellipse]
+34 [label="apply#?,Statement,Description#3:base" shape=ellipse]
+35 [label="apply#?,Statement,Description#3:fLookForStuckThread" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 31 [label="AST:1"];
+1 -> 4 [label="Control Dep:1"];
+1 -> 8 [label="Control Dep:1"];
+1 -> 10 [label="Control Dep:1"];
+1 -> 11 [label="Control Dep:1"];
+1 -> 23 [label="Control Dep:1"];
+1 -> 25 [label="Control Dep:1"];
+1 -> 29 [label="Data Dep:1"];
+1 -> 35 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 25 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 29 [label="AST:1"];
+3 -> 33 [label="AST:1"];
+4 -> 10 [label="AST:1"];
+4 -> 8 [label="AST:1"];
+4 -> 23 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+8 -> 27 [label="AST:1"];
+10 -> 28 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 29 [label="Data Dep:1"];
+11 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 30 [label="Data Dep:1"];
+17 -> 18 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 29 [label="Data Dep:1"];
+25 -> 26 [label="AST:1"];
+29 -> 13 [label="Define Use:1"];
+29 -> 15 [label="Define Use:1"];
+29 -> 21 [label="Define Use:1"];
+30 -> 17 [label="Define Use:1"];
+30 -> 19 [label="Define Use:1"];
+31 -> 32 [label="AST:1"];
+33 -> 7 [label="AST:1"];
+33 -> 34 [label="AST:1"];
+33 -> 17 [label="AST:1"];
+33 -> 19 [label="AST:1"];
+33 -> 1 [label="AST:1"];
+35 -> 9 [label="AST:1"];
+}

@@ -1,0 +1,45 @@
+digraph "Pattern" {
+0 [label="testTransferParameterSet#?#2:INSERT
+testTransferParameterUnset#?#2:INSERT" shape=ellipse]
+1 [label="testTransferParameterSet#?#2:public void testTransferParameterSet() throws Exception \{
+    expectFileContains(\"testTransferParameterSet\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"set='myvalue'\");
+\}
+testTransferParameterUnset#?#2:public void testTransferParameterUnset() throws Exception \{
+    expectFileContains(\"testTransferParameterUnset\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"undefined='$\{value\}'\");
+\}" shape=ellipse]
+2 [label="testTransferParameterSet#?#2:testTransferParameterSet
+testTransferParameterUnset#?#2:testTransferParameterUnset" shape=ellipse]
+3 [label="testTransferParameterSet#?#2:void
+testTransferParameterUnset#?#2:void" shape=ellipse]
+4 [label="testTransferParameterSet#?#2:Exception
+testTransferParameterUnset#?#2:Exception" shape=ellipse]
+5 [label="testTransferParameterSet#?#-1:java.lang
+testTransferParameterUnset#?#-1:java.lang" shape=ellipse]
+6 [label="testTransferParameterSet#?#2:\{
+    expectFileContains(\"testTransferParameterSet\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"set='myvalue'\");
+\}
+testTransferParameterUnset#?#2:\{
+    expectFileContains(\"testTransferParameterUnset\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"undefined='$\{value\}'\");
+\}" shape=ellipse]
+7 [label="testTransferParameterSet#?#3:expectFileContains(\"testTransferParameterSet\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"set='myvalue'\")
+testTransferParameterUnset#?#3:expectFileContains(\"testTransferParameterUnset\", getOutputDir().getAbsoluteFile() + \"/out.xml\", \"undefined='$\{value\}'\")" shape=ellipse]
+8 [label="testTransferParameterSet#?#2:VE: ThrownTypes_testTransferParameterSet
+testTransferParameterUnset#?#2:VE: ThrownTypes_testTransferParameterUnset" shape=ellipse]
+9 [label="testTransferParameterSet#?#2:public
+testTransferParameterUnset#?#2:public" shape=ellipse]
+10 [label="testTransferParameterSet#?#2:VE: Modifiers_Method
+testTransferParameterUnset#?#2:VE: Modifiers_Method" shape=ellipse]
+11 [label="testTransferParameterSet#?#2:@Test
+testTransferParameterUnset#?#2:@Test" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+}

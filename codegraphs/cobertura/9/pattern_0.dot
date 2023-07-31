@@ -1,0 +1,120 @@
+digraph "Pattern" {
+0 [label="visitMethod#?,int,String,String,String,String[]#14:INSERT
+addInstrumentation#?,File#22:INSERT" shape=ellipse]
+1 [label="visitMethod#?,int,String,String,String,String[]#12:new MethodInstrumenter(mv, coverageData, this.myName, name, desc)
+addInstrumentation#?,File#22:new ClassInstrumenter(cw)" shape=ellipse]
+2 [label="visitMethod#?,int,String,String,String,String[]#12:mv == null" shape=ellipse]
+3 [label="visitMethod#?,int,String,String,String,String[]#12:mv == null ? null : new MethodInstrumenter(mv, coverageData, this.myName, name, desc)" shape=ellipse]
+4 [label="visitMethod#?,int,String,String,String,String[]#12:mv
+addInstrumentation#?,File#22:cv" shape=ellipse]
+5 [label="visitMethod#?,int,String,String,String,String[]#12:null" shape=ellipse]
+6 [label="visitMethod#?,int,String,String,String,String[]#12:null" shape=ellipse]
+7 [label="visitMethod#?,int,String,String,String,String[]#12:MethodInstrumenter()
+addInstrumentation#?,File#22:ClassInstrumenter()" shape=ellipse]
+8 [label="visitMethod#?,int,String,String,String,String[]#12:mv" shape=ellipse]
+9 [label="visitMethod#?,int,String,String,String,String[]#12:coverageData" shape=ellipse]
+10 [label="visitMethod#?,int,String,String,String,String[]#12:this.myName" shape=ellipse]
+11 [label="visitMethod#?,int,String,String,String,String[]#12:name" shape=ellipse]
+12 [label="visitMethod#?,int,String,String,String,String[]#12:desc" shape=ellipse]
+13 [label="visitMethod#?,int,String,String,String,String[]#14:ignoreRegexp
+addInstrumentation#?,File#22:ignoreRegexp" shape=ellipse]
+14 [label="visitMethod#?,int,String,String,String,String[]#14:ignoreRegexp
+addInstrumentation#?,File#22:ignoreRegexp" shape=ellipse]
+15 [label="visitMethod#?,int,String,String,String,String[]#14:PlaceHold
+addInstrumentation#?,File#22:PlaceHold" shape=ellipse]
+16 [label="visitMethod#?,int,String,String,String,String[]#14:
+addInstrumentation#?,File#22:" shape=ellipse]
+17 [label="addInstrumentation#?,File#23:cv" shape=ellipse]
+18 [label="addInstrumentation#?,File#18:\{
+    inputStream = new FileInputStream(file);
+    ClassReader cr = new ClassReader(inputStream);
+    ClassWriter cw = new ClassWriter(true);
+    ClassInstrumenter cv = new ClassInstrumenter(cw);
+    cr.accept(cv, false);
+    byte[] instrumentedClass = cw.toByteArray();
+    if (cv.isInstrumented()) \{
+        File outputFile = new File(destinationDirectory, cv.getClassName().replace('.', separatorChar) + \".class\");
+        outputFile.getParentFile().mkdirs();
+        outputStream = new FileOutputStream(outputFile);
+        outputStream.write(instrumentedClass);
+    \}
+\}" shape=ellipse]
+19 [label="addInstrumentation#?,File#22:cw" shape=ellipse]
+20 [label="addInstrumentation#?,File#25:cv" shape=ellipse]
+21 [label="addInstrumentation#?,File#29:cv" shape=ellipse]
+22 [label="addInstrumentation#?,File#30:outputFile" shape=ellipse]
+23 [label="addInstrumentation#?,File#31:outputFile" shape=ellipse]
+24 [label="addInstrumentation#?,File#31:outputStream" shape=ellipse]
+25 [label="addInstrumentation#?,File#46:outputStream" shape=ellipse]
+26 [label="addInstrumentation#?,File#32:outputStream" shape=ellipse]
+27 [label="addInstrumentation#?,File#44:outputStream" shape=ellipse]
+28 [label="addInstrumentation#?,File#22:ClassInstrumenter" shape=ellipse]
+29 [label="addInstrumentation#?,File#22:ClassInstrumenter" shape=ellipse]
+30 [label="addInstrumentation#?,File#22:ClassInstrumenter" shape=ellipse]
+31 [label="addInstrumentation#?,File#30:outputFile" shape=ellipse]
+32 [label="addInstrumentation#?,File#31:outputFile" shape=ellipse]
+33 [label="addInstrumentation#?,File#31:outputStream" shape=ellipse]
+34 [label="addInstrumentation#?,File#32:outputStream" shape=ellipse]
+35 [label="addInstrumentation#?,File#44:outputStream" shape=ellipse]
+36 [label="addInstrumentation#?,File#46:outputStream" shape=ellipse]
+37 [label="addInstrumentation#?,File#22:ClassInstrumenter cv = new ClassInstrumenter(cw)" shape=ellipse]
+38 [label="addInstrumentation#?,File#23:cv" shape=ellipse]
+39 [label="addInstrumentation#?,File#25:cv" shape=ellipse]
+40 [label="addInstrumentation#?,File#29:cv" shape=ellipse]
+41 [label="addInstrumentation#?,File#22:cw" shape=ellipse]
+42 [label="addInstrumentation#?,File#21:cw" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:1"];
+1 -> 9 [label="AST:1"];
+1 -> 10 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+1 -> 12 [label="AST:1"];
+1 -> 19 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+3 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 6 [label="AST:1"];
+4 -> 17 [label="Define Use:1"];
+4 -> 20 [label="Define Use:1"];
+4 -> 21 [label="Define Use:1"];
+7 -> 29 [label="AST:1"];
+7 -> 30 [label="AST:1"];
+13 -> 14 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 38 [label="AST:1"];
+18 -> 37 [label="AST:1"];
+19 -> 41 [label="AST:1"];
+19 -> 4 [label="Data Dep:1"];
+20 -> 39 [label="AST:1"];
+21 -> 40 [label="AST:1"];
+22 -> 31 [label="AST:1"];
+23 -> 32 [label="AST:1"];
+23 -> 24 [label="Data Dep:1"];
+24 -> 33 [label="AST:1"];
+24 -> 26 [label="Define Use:1"];
+24 -> 27 [label="Define Use:1"];
+24 -> 25 [label="Define Use:1"];
+25 -> 36 [label="AST:1"];
+26 -> 34 [label="AST:1"];
+27 -> 35 [label="AST:1"];
+33 -> 25 [label="Define Use:1"];
+33 -> 26 [label="Define Use:1"];
+33 -> 27 [label="Define Use:1"];
+37 -> 28 [label="AST:1"];
+37 -> 4 [label="AST:1"];
+37 -> 1 [label="AST:1"];
+42 -> 19 [label="Define Use:1"];
+}

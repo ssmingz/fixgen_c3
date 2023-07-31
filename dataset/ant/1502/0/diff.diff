@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1502/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1502/0/after.java
+@@ -3,1 +3,2 @@
+-    final Channel channel = openExecChannel("scp -r -d -t " + remotePath);
++    final Channel channel =
++        openExecChannel(("scp -r -d -t " + (getPreserveLastModified() ? "-p " : "")) + remotePath);

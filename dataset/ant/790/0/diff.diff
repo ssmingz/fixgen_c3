@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/790/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/790/0/after.java
+@@ -2,2 +2,8 @@
+-  public void testBoth() throws Exception {
+-    expectBuildExceptionContaining("testBoth", ERROR_BOTH_ATTRIBUTES, ERROR_BOTH_ATTRIBUTES);
++  @Test
++  public void testBoth() {
++    try {
++      buildRule.executeTarget("testBoth");
++      fail("Build exception expected: " + ParserSupports.ERROR_BOTH_ATTRIBUTES);
++    } catch (BuildException ex) {
++      assertEquals(ERROR_BOTH_ATTRIBUTES, ex.getMessage());
++    }

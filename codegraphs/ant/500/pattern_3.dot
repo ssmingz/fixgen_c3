@@ -1,0 +1,81 @@
+digraph "Pattern" {
+0 [label="testAntlib_uri_auto#?#5:INSERT
+testRunFail#?#5:INSERT" shape=ellipse]
+1 [label="testAntlib_uri_auto#?#4:executeTarget(\"antlib_uri_auto\")
+testRunFail#?#4:executeTarget(\"testRunFail\")" shape=ellipse]
+2 [label="testAntlib_uri_auto#?#3:isSharedJVM()" shape=ellipse]
+3 [label="testAntlib_uri_auto#?#3:if (isSharedJVM()) \{
+    executeTarget(\"antlib_uri_auto\");
+\}
+testRunFail#?#3:if (runFatalTests) \{
+    executeTarget(\"testRunFail\");
+\}" shape=ellipse]
+4 [label="testAntlib_uri_auto#?#3:isSharedJVM" shape=ellipse]
+5 [label="testAntlib_uri_auto#?#-1:
+testRunFail#?#-1:runFatalTests" shape=ellipse]
+6 [label="testAntlib_uri_auto#?#3:isSharedJVM()" shape=ellipse]
+7 [label="testAntlib_uri_auto#?#3:\{
+    executeTarget(\"antlib_uri_auto\");
+\}
+testRunFail#?#3:\{
+    executeTarget(\"testRunFail\");
+\}" shape=ellipse]
+8 [label="testAntlib_uri_auto#?#4:executeTarget(java.lang.String)
+testRunFail#?#4:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testAntlib_uri_auto#?#-1:
+testRunFail#?#-1:" shape=ellipse]
+10 [label="testAntlib_uri_auto#?#-1:PlaceHold
+testRunFail#?#-1:PlaceHold" shape=ellipse]
+11 [label="testAntlib_uri_auto#?#4:\"antlib_uri_auto\"
+testRunFail#?#4:\"testRunFail\"" shape=ellipse]
+12 [label="testAntlib_uri_auto#?#3:MOVE
+testRunFail#?#3:MOVE" shape=ellipse]
+13 [label="testAntlib_uri_auto#?#4:executeTarget
+testRunFail#?#4:executeTarget" shape=ellipse]
+14 [label="testAntlib_uri_auto#?#4:MOVE
+testRunFail#?#4:MOVE" shape=ellipse]
+15 [label="testAntlib_uri_auto#?#2:public void testAntlib_uri_auto() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto\");
+    \}
+\}
+testRunFail#?#2:public void testRunFail() \{
+    if (runFatalTests) \{
+        executeTarget(\"testRunFail\");
+    \}
+\}" shape=ellipse]
+16 [label="testAntlib_uri_auto#?#5:buildRule
+testRunFail#?#5:buildRule" shape=ellipse]
+17 [label="testRunFail#?#3:runFatalTests" shape=ellipse]
+0 -> 16 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 13 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="Action:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Action:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:2"];
+3 -> 17 [label="AST:1"];
+7 -> 1 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+14 -> 15 [label="Action:2"];
+17 -> 5 [label="AST:1"];
+17 -> 7 [label="Control Dep:1"];
+17 -> 1 [label="Control Dep:1"];
+17 -> 8 [label="Control Dep:1"];
+17 -> 9 [label="Control Dep:1"];
+17 -> 10 [label="Control Dep:1"];
+17 -> 11 [label="Control Dep:1"];
+17 -> 12 [label="Action:1"];
+}

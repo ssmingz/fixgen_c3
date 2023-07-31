@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1665/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1665/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testExceptingFoeFork", "exceptions turned into error codes", "Java returned:");
++    try {
++      buildRule.executeTarget("testExceptingFoeFork");
++      fail("Build exception should have been thrown - " + "exceptions turned into error codes");
++    } catch (BuildException ex) {
++      assertContains("Java returned:", ex.getMessage());
++    }

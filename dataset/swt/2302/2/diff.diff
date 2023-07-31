@@ -1,0 +1,31 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2302/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2302/2/after.java
+@@ -7,16 +7,0 @@
+-    int parentResult = 0;
+-    if (OS.g_type_is_a(parentType, ATK_TEXT_TYPE)) {
+-      int superType = OS.g_type_interface_peek_parent(OS.ATK_TEXT_GET_IFACE(atkObject));
+-      AtkTextIface textIface = new AtkTextIface();
+-      OS.memmove(textIface, superType);
+-      if (textIface.get_text_after_offset != 0) {
+-        parentResult =
+-            OS.call(
+-                textIface.get_text_after_offset,
+-                atkObject,
+-                offset,
+-                boundary_type,
+-                start_offset,
+-                end_offset);
+-      }
+-    }
+@@ -24,6 +8,2 @@
+-    if (object != null) {
+-      int result =
+-          object.atkText_get_text_after_offset(offset, boundary_type, start_offset, end_offset);
+-      if (result != AccessibleObject.NO_ANSWER) {
+-        return result;
+-      }
++    if (object == null) {
++      return 0;
+@@ -31,1 +11,1 @@
+-    return parentResult;
++    return object.atkText_get_text_after_offset(offset, boundary_type, start_offset, end_offset);

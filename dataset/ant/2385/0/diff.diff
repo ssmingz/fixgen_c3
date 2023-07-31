@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2385/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2385/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,8 +4,6 @@
+-    if (!RegexpMatcherFactory.regexpMatcherPresent(project)) {
+-      System.out.println(
+-          "Test 'testPseudoTahoeRefid' skipped because no regexp matcher is present.");
+-      return;
+-    }
+-    executeTarget("test-pseudo-tahoe-refid");
+-    assertPropertyEquals(
+-        "jar.classpath",
++    Assume.assumeTrue(
++        "No regexp matcher is present",
++        RegexpMatcherFactory.regexpMatcherPresent(buildRule.getProject()));
++    buildRule.executeTarget("test-pseudo-tahoe-refid");
++    assertEquals(
++        buildRule.getProject().getProperty("jar.classpath"),

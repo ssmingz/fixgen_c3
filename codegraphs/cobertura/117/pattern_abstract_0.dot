@@ -1,0 +1,138 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Update
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:UPDATE
+value2:" shape=ellipse]
+1 [label="locationInParent:EXPRESSION
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:Integer" shape=ellipse]
+2 [label="locationInParent:EXPRESSION
+nodeType:CtConditionalImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:jj_ntk == (-1) ? jj_ntk() : jj_ntk
+value2:PlaceHold == (-Integer) ? jj_ntk() : PlaceHold" shape=ellipse]
+3 [label="locationInParent:EXPRESSION
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:true
+value2:Boolean" shape=ellipse]
+4 [label="locationInParent:STATEMENT
+nodeType:CtSwitchImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+5 [label="locationInParent:CONDITION
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:jj_ntk == (-1)
+value2:PlaceHold == (-Integer)" shape=ellipse]
+6 [label="locationInParent:THEN
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:jj_ntk()
+value2:jj_ntk()" shape=ellipse]
+7 [label="locationInParent:ELSE
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value:jj_ntk
+value2:PlaceHold" shape=ellipse]
+8 [label="locationInParent:CASE
+nodeType:CtCaseImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:case PlaceHold :
+    break;" shape=ellipse]
+9 [label="locationInParent:EXPRESSION
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value2:PlaceHold" shape=ellipse]
+10 [label="locationInParent:STATEMENT
+nodeType:CtBreakImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:break
+value2:break" shape=ellipse]
+11 [label="locationInParent:CASE
+nodeType:CtCaseImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:default :
+    PlaceHold[Integer] = PlaceHold;
+    break label_62;" shape=ellipse]
+12 [label="locationInParent:STATEMENT
+nodeType:CtAssignmentImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:PlaceHold[Integer] = PlaceHold" shape=ellipse]
+13 [label="locationInParent:ASSIGNED
+nodeType:CtArrayWriteImpl
+nodeType2:CtArrayAccessImpl
+nodeType3:CtTargetedExpressionImpl
+value2:PlaceHold[Integer]" shape=ellipse]
+14 [label="locationInParent:TARGET
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value:jj_la1
+value2:PlaceHold" shape=ellipse]
+15 [label="locationInParent:ASSIGNMENT
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value:jj_gen
+value2:PlaceHold" shape=ellipse]
+16 [label="locationInParent:STATEMENT
+nodeType:CtBreakImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:break label_62
+value2:break label_62" shape=ellipse]
+17 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:int
+value2:int" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 17 [label="AST:3"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="Control Dep:3"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:3"];
+2 -> 15 [label="Control Dep:3"];
+2 -> 16 [label="Control Dep:3"];
+3 -> 2 [label="Control Dep:3"];
+3 -> 4 [label="Control Dep:3"];
+3 -> 5 [label="Control Dep:3"];
+4 -> 2 [label="AST:3"];
+4 -> 8 [label="AST:3"];
+4 -> 11 [label="AST:3"];
+5 -> 6 [label="Control Dep:3"];
+5 -> 7 [label="Control Dep:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 16 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+12 -> 15 [label="AST:3"];
+13 -> 1 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+15 -> 13 [label="Data Dep:3"];
+}

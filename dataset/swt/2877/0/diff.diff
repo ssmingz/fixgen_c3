@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2877/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2877/0/after.java
+@@ -16,1 +16,3 @@
+-          OS.SendMessage(handle, LVM_SETBKCOLOR, 0, CLR_NONE);
++          if (OS.WIN32_VERSION < OS.VERSION(6, 3)) {
++            OS.SendMessage(handle, LVM_SETBKCOLOR, 0, CLR_NONE);
++          }

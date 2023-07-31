@@ -1,0 +1,211 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtFieldReadImpl@filtersFile" shape=ellipse]
+5 [label="3:CtLiteralImpl@null" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@(filtersFile != null)" shape=ellipse]
+7 [label="3:CtFieldReadImpl@token" shape=ellipse]
+8 [label="3:CtLiteralImpl@null" shape=ellipse]
+9 [label="3:CtBinaryOperatorImpl@(token == null)" shape=ellipse]
+10 [label="3:CtBinaryOperatorImpl@((filtersFile != null) && (token == null))" shape=ellipse]
+11 [label="3:CtFieldReadImpl@value" shape=ellipse]
+12 [label="3:CtLiteralImpl@null" shape=ellipse]
+13 [label="3:CtBinaryOperatorImpl@(value == null)" shape=ellipse]
+14 [label="3:CtBinaryOperatorImpl@((filtersFile != null) && (token == null)) && (value == null)" shape=ellipse]
+15 [label="3:CtVirtualElement@isFiltersFromFile" shape=ellipse]
+16 [label="3:CtLocalVariableImpl@boolean isFiltersFromFile = ((filtersFile != null) && (token == null)) && (value == null)" shape=ellipse]
+17 [label="4:CtTypeReferenceImpl@boolean" shape=ellipse]
+18 [label="4:CtFieldReadImpl@filtersFile" shape=ellipse]
+19 [label="4:CtLiteralImpl@null" shape=ellipse]
+20 [label="4:CtBinaryOperatorImpl@(filtersFile == null)" shape=ellipse]
+21 [label="4:CtFieldReadImpl@token" shape=ellipse]
+22 [label="4:CtLiteralImpl@null" shape=ellipse]
+23 [label="4:CtBinaryOperatorImpl@(token != null)" shape=ellipse]
+24 [label="4:CtBinaryOperatorImpl@((filtersFile == null) && (token != null))" shape=ellipse]
+25 [label="4:CtFieldReadImpl@value" shape=ellipse]
+26 [label="4:CtLiteralImpl@null" shape=ellipse]
+27 [label="4:CtBinaryOperatorImpl@(value != null)" shape=ellipse]
+28 [label="4:CtBinaryOperatorImpl@((filtersFile == null) && (token != null)) && (value != null)" shape=ellipse]
+29 [label="4:CtVirtualElement@isSingleFilter" shape=ellipse]
+30 [label="4:CtLocalVariableImpl@boolean isSingleFilter = ((filtersFile == null) && (token != null)) && (value != null)" shape=ellipse]
+31 [label="5:CtVariableReadImpl@isFiltersFromFile" shape=ellipse]
+32 [label="5:CtUnaryOperatorImpl@(!isFiltersFromFile)" shape=ellipse]
+33 [label="5:CtVariableReadImpl@isSingleFilter" shape=ellipse]
+34 [label="5:CtUnaryOperatorImpl@(!isSingleFilter)" shape=ellipse]
+35 [label="5:CtBinaryOperatorImpl@(!isFiltersFromFile) && (!isSingleFilter)" shape=ellipse]
+36 [label="6:CtTypeReferenceImpl@BuildException" shape=ellipse]
+37 [label="7:CtLiteralImpl@\"both token and value parameters, or \"" shape=ellipse]
+38 [label="7:CtLiteralImpl@\"only a filtersFile parameter is \"" shape=ellipse]
+39 [label="7:CtBinaryOperatorImpl@(\"both token and value parameters, or \" + \"only a filtersFile parameter is \")" shape=ellipse]
+40 [label="8:CtLiteralImpl@\"required\"" shape=ellipse]
+41 [label="7:CtBinaryOperatorImpl@(\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\"" shape=ellipse]
+42 [label="9:CtFieldReadImpl@location" shape=ellipse]
+43 [label="6:CtConstructorCallImpl@new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location)" shape=ellipse]
+44 [label="6:CtThrowImpl@throw new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location)" shape=ellipse]
+45 [label="5:CtBlockImpl@\{
+    throw new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location);
+\}" shape=ellipse]
+46 [label="5:CtIfImpl@if ((!isFiltersFromFile) && (!isSingleFilter)) \{
+    throw new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location);
+\}" shape=ellipse]
+47 [label="11:CtVariableReadImpl@isSingleFilter" shape=ellipse]
+48 [label="12:CtExecutableReferenceImpl@addFilter()" shape=ellipse]
+49 [label="12:CtVirtualElement@addFilter" shape=ellipse]
+50 [label="12:CtExecutableReferenceImpl@getGlobalFilterSet()" shape=ellipse]
+51 [label="12:CtVirtualElement@getGlobalFilterSet" shape=ellipse]
+52 [label="12:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+53 [label="12:CtVirtualElement@getProject" shape=ellipse]
+54 [label="12:CtInvocationImpl@getProject()" shape=ellipse]
+55 [label="12:CtInvocationImpl@getProject().getGlobalFilterSet()" shape=ellipse]
+56 [label="12:CtFieldReadImpl@token" shape=ellipse]
+57 [label="12:CtFieldReadImpl@value" shape=ellipse]
+58 [label="12:CtInvocationImpl@getProject().getGlobalFilterSet().addFilter(token, value)" shape=ellipse]
+59 [label="11:CtBlockImpl@\{
+    getProject().getGlobalFilterSet().addFilter(token, value);
+\}" shape=ellipse]
+60 [label="11:CtIfImpl@if (isSingleFilter) \{
+    getProject().getGlobalFilterSet().addFilter(token, value);
+\}" shape=ellipse]
+61 [label="14:CtVariableReadImpl@isFiltersFromFile" shape=ellipse]
+62 [label="15:CtExecutableReferenceImpl@readFilters()" shape=ellipse]
+63 [label="15:CtVirtualElement@readFilters" shape=ellipse]
+64 [label="15:CtInvocationImpl@readFilters()" shape=ellipse]
+65 [label="14:CtBlockImpl@\{
+    readFilters();
+\}" shape=ellipse]
+66 [label="14:CtIfImpl@if (isFiltersFromFile) \{
+    readFilters();
+\}" shape=ellipse]
+67 [label="2:CtBlockImpl@\{
+    boolean isFiltersFromFile = ((filtersFile != null) && (token == null)) && (value == null);
+    boolean isSingleFilter = ((filtersFile == null) && (token != null)) && (value != null);
+    if ((!isFiltersFromFile) && (!isSingleFilter)) \{
+        throw new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location);
+    \}
+    if (isSingleFilter) \{
+        getProject().getGlobalFilterSet().addFilter(token, value);
+    \}
+    if (isFiltersFromFile) \{
+        readFilters();
+    \}
+\}" shape=ellipse]
+68 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    boolean isFiltersFromFile = ((filtersFile != null) && (token == null)) && (value == null);
+    boolean isSingleFilter = ((filtersFile == null) && (token != null)) && (value != null);
+    if ((!isFiltersFromFile) && (!isSingleFilter)) \{
+        throw new BuildException((\"both token and value parameters, or \" + \"only a filtersFile parameter is \") + \"required\", location);
+    \}
+    if (isSingleFilter) \{
+        getProject().getGlobalFilterSet().addFilter(token, value);
+    \}
+    if (isFiltersFromFile) \{
+        readFilters();
+    \}
+\}" shape=ellipse]
+69 [label="9:Delete@DELETE" shape=ellipse]
+70 [label="9:Insert@INSERT" shape=ellipse]
+71 [label="9:CtInvocationImpl@getLocation()" shape=ellipse]
+4 -> 15 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 15 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 15 [label="Data Dep"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 31 [label="Define-Use"];
+15 -> 61 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 3 [label="AST"];
+16 -> 14 [label="AST"];
+18 -> 29 [label="Data Dep"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 29 [label="Data Dep"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 29 [label="Data Dep"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 24 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 33 [label="Define-Use"];
+29 -> 47 [label="Define-Use"];
+30 -> 29 [label="AST"];
+30 -> 17 [label="AST"];
+30 -> 28 [label="AST"];
+32 -> 31 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 45 [label="Control Dep"];
+35 -> 44 [label="Control Dep"];
+35 -> 43 [label="Control Dep"];
+35 -> 41 [label="Control Dep"];
+35 -> 39 [label="Control Dep"];
+35 -> 37 [label="Control Dep"];
+35 -> 38 [label="Control Dep"];
+35 -> 40 [label="Control Dep"];
+35 -> 42 [label="Control Dep"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 69 [label="Action"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+43 -> 70 [label="Action"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 35 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 59 [label="Control Dep"];
+47 -> 58 [label="Control Dep"];
+47 -> 48 [label="Control Dep"];
+47 -> 55 [label="Control Dep"];
+47 -> 50 [label="Control Dep"];
+47 -> 54 [label="Control Dep"];
+47 -> 52 [label="Control Dep"];
+47 -> 56 [label="Control Dep"];
+47 -> 57 [label="Control Dep"];
+54 -> 53 [label="AST"];
+54 -> 52 [label="AST"];
+55 -> 51 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 50 [label="AST"];
+58 -> 49 [label="AST"];
+58 -> 55 [label="AST"];
+58 -> 48 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 47 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 65 [label="Control Dep"];
+61 -> 64 [label="Control Dep"];
+61 -> 62 [label="Control Dep"];
+64 -> 63 [label="AST"];
+64 -> 62 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 61 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 16 [label="AST"];
+67 -> 30 [label="AST"];
+67 -> 46 [label="AST"];
+67 -> 60 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 1 [label="AST"];
+68 -> 0 [label="AST"];
+68 -> 2 [label="AST"];
+68 -> 67 [label="AST"];
+70 -> 71 [label="Action"];
+}

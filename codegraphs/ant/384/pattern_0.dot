@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="testNoFile#?#3:UPDATE
+testEmpty#?#3:UPDATE" shape=ellipse]
+1 [label="testNoFile#?#3:\"missing file\"
+testEmpty#?#3:\"missing property\"" shape=ellipse]
+2 [label="testNoFile#?#3:expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\")
+testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\")" shape=ellipse]
+3 [label="testNoFile#?#2:\{
+    expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\");
+\}
+testEmpty#?#2:\{
+    expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\");
+\}" shape=ellipse]
+4 [label="testNoFile#?#3:expectBuildExceptionContaining
+testEmpty#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testNoFile#?#-1:
+testEmpty#?#-1:" shape=ellipse]
+6 [label="testNoFile#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testEmpty#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testNoFile#?#3:\"testNoFile\"
+testEmpty#?#3:\"property\"" shape=ellipse]
+8 [label="testNoFile#?#3:\"file\"
+testEmpty#?#3:\"testEmpty\"" shape=ellipse]
+9 [label="testNoFile#?#3:DELETE
+testEmpty#?#3:DELETE" shape=ellipse]
+10 [label="testNoFile#?#-1:String
+testEmpty#?#-1:String" shape=ellipse]
+11 [label="testNoFile#?#3:MOVE
+testEmpty#?#3:MOVE" shape=ellipse]
+12 [label="testNoFile#?#6:fail(\"BuildException expected: missing file\")
+testEmpty#?#6:fail(\"BuildException expected: missing property\")" shape=ellipse]
+13 [label="testNoFile#?#6:\"BuildException expected: missing file\"
+testEmpty#?#6:\"BuildException expected: missing property\"" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="Action:2"];
+12 -> 13 [label="AST:2"];
+}

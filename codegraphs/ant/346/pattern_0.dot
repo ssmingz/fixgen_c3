@@ -1,0 +1,91 @@
+digraph "Pattern" {
+0 [label="testDeleteRestart#?#7:DELETE
+testNoAppend#?#7:DELETE
+testAppend#?#7:DELETE
+testRestart#?#7:DELETE" shape=ellipse]
+1 [label="testDeleteRestart#?#7:project.resolveFile(REC_DIR + \"rectest4.log\")
+testNoAppend#?#7:project.resolveFile(REC_DIR + \"rectest1.log\")
+testAppend#?#7:project.resolveFile(REC_DIR + \"rectest2.log\")
+testRestart#?#7:project.resolveFile(REC_DIR + \"rectest3.log\")" shape=ellipse]
+2 [label="testDeleteRestart#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\"), true)
+testNoAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true)
+testAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\"), true)
+testRestart#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\"), true)" shape=ellipse]
+3 [label="testDeleteRestart#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\"), true))
+testNoAppend#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true))
+testAppend#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\"), true))
+testRestart#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\"), true))" shape=ellipse]
+4 [label="testDeleteRestart#?#5:contentEquals
+testNoAppend#?#5:contentEquals
+testAppend#?#5:contentEquals
+testRestart#?#5:contentEquals" shape=ellipse]
+5 [label="testDeleteRestart#?#5:FILE_UTILS
+testNoAppend#?#5:FILE_UTILS
+testAppend#?#5:FILE_UTILS
+testRestart#?#5:FILE_UTILS" shape=ellipse]
+6 [label="testDeleteRestart#?#5:contentEquals(boolean)
+testNoAppend#?#5:contentEquals(boolean)
+testAppend#?#5:contentEquals(boolean)
+testRestart#?#5:contentEquals(boolean)" shape=ellipse]
+7 [label="testDeleteRestart#?#6:project.resolveFile(REC_IN + \"rectest4.result\")
+testNoAppend#?#6:project.resolveFile(REC_IN + \"rectest1.result\")
+testAppend#?#6:project.resolveFile(REC_IN + \"rectest2.result\")
+testRestart#?#6:project.resolveFile(REC_IN + \"rectest3.result\")" shape=ellipse]
+8 [label="testDeleteRestart#?#8:true
+testNoAppend#?#8:true
+testAppend#?#8:true
+testRestart#?#8:true" shape=ellipse]
+9 [label="testDeleteRestart#?#7:INSERT
+testNoAppend#?#7:INSERT
+testAppend#?#7:INSERT
+testRestart#?#7:INSERT" shape=ellipse]
+10 [label="testDeleteRestart#?#7:resolveFile
+testNoAppend#?#7:resolveFile
+testAppend#?#7:resolveFile
+testRestart#?#7:resolveFile" shape=ellipse]
+11 [label="testDeleteRestart#?#7:project
+testNoAppend#?#7:project
+testAppend#?#7:project
+testRestart#?#7:project" shape=ellipse]
+12 [label="testDeleteRestart#?#-1:project
+testNoAppend#?#-1:project
+testAppend#?#-1:project
+testRestart#?#-1:project" shape=ellipse]
+13 [label="testDeleteRestart#?#7:resolveFile()
+testNoAppend#?#7:resolveFile()
+testAppend#?#7:resolveFile()
+testRestart#?#7:resolveFile()" shape=ellipse]
+14 [label="testDeleteRestart#?#-1:project
+testNoAppend#?#-1:project
+testAppend#?#-1:project
+testRestart#?#-1:project" shape=ellipse]
+15 [label="testDeleteRestart#?#7:REC_DIR + \"rectest4.log\"
+testNoAppend#?#7:REC_DIR + \"rectest1.log\"
+testAppend#?#7:REC_DIR + \"rectest2.log\"
+testRestart#?#7:REC_DIR + \"rectest3.log\"" shape=ellipse]
+16 [label="testDeleteRestart#?#7:REC_DIR
+testNoAppend#?#7:REC_DIR
+testAppend#?#7:REC_DIR
+testRestart#?#7:REC_DIR" shape=ellipse]
+17 [label="testDeleteRestart#?#7:\"rectest4.log\"
+testNoAppend#?#7:\"rectest1.log\"
+testAppend#?#7:\"rectest2.log\"
+testRestart#?#7:\"rectest3.log\"" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 10 [label="AST:4"];
+1 -> 11 [label="AST:4"];
+1 -> 13 [label="AST:4"];
+1 -> 15 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="AST:4"];
+2 -> 8 [label="AST:4"];
+2 -> 9 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+11 -> 12 [label="AST:4"];
+13 -> 14 [label="AST:4"];
+15 -> 16 [label="AST:4"];
+15 -> 17 [label="AST:4"];
+}

@@ -1,0 +1,338 @@
+digraph "scanProject#?,Project" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@scanProject" shape=ellipse]
+2 [label="2:CtParameterImpl@Project project" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Project" shape=ellipse]
+4 [label="4:CtVirtualElement@Package[]" shape=ellipse]
+5 [label="4:CtArrayTypeReferenceImpl@Package[]" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@getPackages()" shape=ellipse]
+7 [label="4:CtVirtualElement@getPackages" shape=ellipse]
+8 [label="4:CtVariableReadImpl@project" shape=ellipse]
+9 [label="4:CtInvocationImpl@project.getPackages()" shape=ellipse]
+10 [label="4:CtVirtualElement@packages" shape=ellipse]
+11 [label="4:CtLocalVariableImpl@Package[] packages = project.getPackages()" shape=ellipse]
+12 [label="5:CtVariableReadImpl@packages" shape=ellipse]
+13 [label="5:CtLiteralImpl@null" shape=ellipse]
+14 [label="5:CtBinaryOperatorImpl@packages != null" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+16 [label="6:CtLiteralImpl@0" shape=ellipse]
+17 [label="6:CtVirtualElement@i" shape=ellipse]
+18 [label="6:CtLocalVariableImpl@int i = 0" shape=ellipse]
+19 [label="6:CtVariableReadImpl@i" shape=ellipse]
+20 [label="6:CtVariableReadImpl@packages" shape=ellipse]
+21 [label="6:CtLocalVariableReferenceImpl@packages" shape=ellipse]
+22 [label="6:CtFieldReadImpl@packages.length" shape=ellipse]
+23 [label="6:CtBinaryOperatorImpl@i < packages.length" shape=ellipse]
+24 [label="6:CtVariableWriteImpl@i" shape=ellipse]
+25 [label="6:CtUnaryOperatorImpl@i++" shape=ellipse]
+26 [label="7:CtTypeReferenceImpl@Package" shape=ellipse]
+27 [label="7:CtVariableReadImpl@packages" shape=ellipse]
+28 [label="7:CtVariableReadImpl@i" shape=ellipse]
+29 [label="7:CtArrayReadImpl@packages[i]" shape=ellipse]
+30 [label="7:CtVirtualElement@item" shape=ellipse]
+31 [label="7:CtLocalVariableImpl@Package item = packages[i]" shape=ellipse]
+32 [label="8:CtTypeReferenceImpl@String" shape=ellipse]
+33 [label="9:CtExecutableReferenceImpl@getName()" shape=ellipse]
+34 [label="9:CtVirtualElement@getName" shape=ellipse]
+35 [label="9:CtVariableReadImpl@project" shape=ellipse]
+36 [label="9:CtInvocationImpl@project.getName()" shape=ellipse]
+37 [label="9:CtFieldReadImpl@File.separator" shape=ellipse]
+38 [label="9:CtBinaryOperatorImpl@(project.getName() + File.separator)" shape=ellipse]
+39 [label="10:CtExecutableReferenceImpl@replace(char,char)" shape=ellipse]
+40 [label="10:CtVirtualElement@replace" shape=ellipse]
+41 [label="10:CtExecutableReferenceImpl@getName()" shape=ellipse]
+42 [label="10:CtVirtualElement@getName" shape=ellipse]
+43 [label="10:CtVariableReadImpl@item" shape=ellipse]
+44 [label="10:CtInvocationImpl@item.getName()" shape=ellipse]
+45 [label="10:CtLiteralImpl@'.'" shape=ellipse]
+46 [label="10:CtTypeAccessImpl@separatorChar" shape=ellipse]
+47 [label="10:CtInvocationImpl@item.getName().replace('.', separatorChar)" shape=ellipse]
+48 [label="9:CtBinaryOperatorImpl@(project.getName() + File.separator) + item.getName().replace('.', separatorChar)" shape=ellipse]
+49 [label="8:CtVirtualElement@name" shape=ellipse]
+50 [label="8:CtLocalVariableImpl@String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar)" shape=ellipse]
+51 [label="11:CtExecutableReferenceImpl@isIncluded(java.lang.String)" shape=ellipse]
+52 [label="11:CtVirtualElement@isIncluded" shape=ellipse]
+53 [label="11:CtVariableReadImpl@name" shape=ellipse]
+54 [label="11:CtInvocationImpl@isIncluded(name)" shape=ellipse]
+55 [label="11:CtExecutableReferenceImpl@isExcluded(java.lang.String)" shape=ellipse]
+56 [label="11:CtVirtualElement@isExcluded" shape=ellipse]
+57 [label="11:CtVariableReadImpl@name" shape=ellipse]
+58 [label="11:CtInvocationImpl@isExcluded(name)" shape=ellipse]
+59 [label="11:CtUnaryOperatorImpl@(!isExcluded(name))" shape=ellipse]
+60 [label="11:CtBinaryOperatorImpl@isIncluded(name) && (!isExcluded(name))" shape=ellipse]
+61 [label="12:CtExecutableReferenceImpl@addElement(java.lang.Package)" shape=ellipse]
+62 [label="12:CtVirtualElement@addElement" shape=ellipse]
+63 [label="12:CtFieldReadImpl@packagesIncluded" shape=ellipse]
+64 [label="12:CtVariableReadImpl@item" shape=ellipse]
+65 [label="12:CtInvocationImpl@packagesIncluded.addElement(item)" shape=ellipse]
+66 [label="11:CtBlockImpl@\{
+    packagesIncluded.addElement(item);
+\}" shape=ellipse]
+67 [label="11:CtIfImpl@if (isIncluded(name) && (!isExcluded(name))) \{
+    packagesIncluded.addElement(item);
+\}" shape=ellipse]
+68 [label="6:CtBlockImpl@\{
+    Package item = packages[i];
+    String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+    if (isIncluded(name) && (!isExcluded(name))) \{
+        packagesIncluded.addElement(item);
+    \}
+\}" shape=ellipse]
+69 [label="6:CtForImpl@for (int i = 0; i < packages.length; i++) \{
+    Package item = packages[i];
+    String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+    if (isIncluded(name) && (!isExcluded(name))) \{
+        packagesIncluded.addElement(item);
+    \}
+\}" shape=ellipse]
+70 [label="5:CtBlockImpl@\{
+    for (int i = 0; i < packages.length; i++) \{
+        Package item = packages[i];
+        String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+        if (isIncluded(name) && (!isExcluded(name))) \{
+            packagesIncluded.addElement(item);
+        \}
+    \}
+\}" shape=ellipse]
+71 [label="5:CtIfImpl@if (packages != null) \{
+    for (int i = 0; i < packages.length; i++) \{
+        Package item = packages[i];
+        String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+        if (isIncluded(name) && (!isExcluded(name))) \{
+            packagesIncluded.addElement(item);
+        \}
+    \}
+\}" shape=ellipse]
+72 [label="3:CtBlockImpl@\{
+    Package[] packages = project.getPackages();
+    if (packages != null) \{
+        for (int i = 0; i < packages.length; i++) \{
+            Package item = packages[i];
+            String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+            if (isIncluded(name) && (!isExcluded(name))) \{
+                packagesIncluded.addElement(item);
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+73 [label="16:CtVirtualElement@e" shape=ellipse]
+74 [label="16:CtTypeReferenceImpl@IvjException" shape=ellipse]
+75 [label="16:CtCatchVariableImpl@IvjException e" shape=ellipse]
+76 [label="17:CtExecutableReferenceImpl@createTaskException(java.lang.String,IvjException)" shape=ellipse]
+77 [label="17:CtVirtualElement@createTaskException" shape=ellipse]
+78 [label="17:CtTypeAccessImpl@VAJLocalUtil" shape=ellipse]
+79 [label="17:CtLiteralImpl@\"VA Exception occured: \"" shape=ellipse]
+80 [label="17:CtVariableReadImpl@e" shape=ellipse]
+81 [label="17:CtInvocationImpl@VAJLocalUtil.createTaskException(\"VA Exception occured: \", e)" shape=ellipse]
+82 [label="17:CtThrowImpl@throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e)" shape=ellipse]
+83 [label="16:CtBlockImpl@\{
+    throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e);
+\}" shape=ellipse]
+84 [label="16:CtCatchImpl@ catch (IvjException e) \{
+    throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e);
+\}" shape=ellipse]
+85 [label="3:CtTryImpl@try \{
+    Package[] packages = project.getPackages();
+    if (packages != null) \{
+        for (int i = 0; i < packages.length; i++) \{
+            Package item = packages[i];
+            String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+            if (isIncluded(name) && (!isExcluded(name))) \{
+                packagesIncluded.addElement(item);
+            \}
+        \}
+    \}
+\} catch (IvjException e) \{
+    throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e);
+\}" shape=ellipse]
+86 [label="2:CtBlockImpl@\{
+    try \{
+        Package[] packages = project.getPackages();
+        if (packages != null) \{
+            for (int i = 0; i < packages.length; i++) \{
+                Package item = packages[i];
+                String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+                if (isIncluded(name) && (!isExcluded(name))) \{
+                    packagesIncluded.addElement(item);
+                \}
+            \}
+        \}
+    \} catch (IvjException e) \{
+        throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e);
+    \}
+\}" shape=ellipse]
+87 [label="2:CtMethodImpl@public void scanProject(Project project) \{
+    try \{
+        Package[] packages = project.getPackages();
+        if (packages != null) \{
+            for (int i = 0; i < packages.length; i++) \{
+                Package item = packages[i];
+                String name = (project.getName() + File.separator) + item.getName().replace('.', separatorChar);
+                if (isIncluded(name) && (!isExcluded(name))) \{
+                    packagesIncluded.addElement(item);
+                \}
+            \}
+        \}
+    \} catch (IvjException e) \{
+        throw VAJLocalUtil.createTaskException(\"VA Exception occured: \", e);
+    \}
+\}" shape=ellipse]
+88 [label="12:Update@UPDATE" shape=ellipse]
+89 [label="12:CtInvocationImpl@packagesIncluded.add(item)" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+8 -> 10 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+10 -> 12 [label="Define-Use"];
+10 -> 20 [label="Define-Use"];
+10 -> 27 [label="Define-Use"];
+10 -> 29 [label="Define-Use"];
+11 -> 10 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 70 [label="Control Dep"];
+14 -> 69 [label="Control Dep"];
+14 -> 18 [label="Control Dep"];
+14 -> 16 [label="Control Dep"];
+14 -> 23 [label="Control Dep"];
+14 -> 19 [label="Control Dep"];
+14 -> 22 [label="Control Dep"];
+14 -> 20 [label="Control Dep"];
+14 -> 25 [label="Control Dep"];
+14 -> 24 [label="Control Dep"];
+17 -> 19 [label="Define-Use"];
+17 -> 28 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 16 [label="AST"];
+20 -> 21 [label="AST"];
+22 -> 20 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 68 [label="Control Dep"];
+23 -> 31 [label="Control Dep"];
+23 -> 29 [label="Control Dep"];
+23 -> 27 [label="Control Dep"];
+23 -> 28 [label="Control Dep"];
+23 -> 50 [label="Control Dep"];
+23 -> 48 [label="Control Dep"];
+23 -> 38 [label="Control Dep"];
+23 -> 36 [label="Control Dep"];
+23 -> 33 [label="Control Dep"];
+23 -> 35 [label="Control Dep"];
+23 -> 37 [label="Control Dep"];
+23 -> 47 [label="Control Dep"];
+23 -> 39 [label="Control Dep"];
+23 -> 44 [label="Control Dep"];
+23 -> 41 [label="Control Dep"];
+23 -> 43 [label="Control Dep"];
+23 -> 45 [label="Control Dep"];
+23 -> 46 [label="Control Dep"];
+23 -> 67 [label="Control Dep"];
+23 -> 60 [label="Control Dep"];
+23 -> 54 [label="Control Dep"];
+23 -> 51 [label="Control Dep"];
+23 -> 53 [label="Control Dep"];
+23 -> 59 [label="Control Dep"];
+23 -> 58 [label="Control Dep"];
+23 -> 55 [label="Control Dep"];
+23 -> 57 [label="Control Dep"];
+24 -> 28 [label="Define-Use"];
+25 -> 24 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 30 [label="Data Dep"];
+30 -> 43 [label="Define-Use"];
+30 -> 64 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 29 [label="AST"];
+35 -> 49 [label="Data Dep"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 33 [label="AST"];
+37 -> 49 [label="Data Dep"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+43 -> 49 [label="Data Dep"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 41 [label="AST"];
+47 -> 40 [label="AST"];
+47 -> 44 [label="AST"];
+47 -> 39 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 38 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 53 [label="Define-Use"];
+49 -> 57 [label="Define-Use"];
+50 -> 49 [label="AST"];
+50 -> 32 [label="AST"];
+50 -> 48 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 51 [label="AST"];
+54 -> 53 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 55 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 54 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 66 [label="Control Dep"];
+60 -> 65 [label="Control Dep"];
+60 -> 61 [label="Control Dep"];
+60 -> 63 [label="Control Dep"];
+60 -> 64 [label="Control Dep"];
+65 -> 62 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 61 [label="AST"];
+65 -> 64 [label="AST"];
+65 -> 88 [label="Action"];
+66 -> 65 [label="AST"];
+67 -> 60 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 31 [label="AST"];
+68 -> 50 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 18 [label="AST"];
+69 -> 23 [label="AST"];
+69 -> 25 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 14 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 11 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 80 [label="Define-Use"];
+75 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+75 -> 83 [label="Control Dep"];
+75 -> 82 [label="Control Dep"];
+75 -> 81 [label="Control Dep"];
+75 -> 76 [label="Control Dep"];
+75 -> 78 [label="Control Dep"];
+75 -> 79 [label="Control Dep"];
+75 -> 80 [label="Control Dep"];
+81 -> 77 [label="AST"];
+81 -> 78 [label="AST"];
+81 -> 76 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 75 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 72 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 85 [label="AST"];
+87 -> 1 [label="AST"];
+87 -> 0 [label="AST"];
+87 -> 2 [label="AST"];
+87 -> 86 [label="AST"];
+88 -> 89 [label="Action"];
+}

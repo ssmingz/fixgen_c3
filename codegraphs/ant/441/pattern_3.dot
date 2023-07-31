@@ -1,0 +1,24 @@
+digraph "Pattern" {
+0 [label="testEndTestFired#?#2:INSERT
+testStartTestFired#?#2:INSERT" shape=ellipse]
+1 [label="testEndTestFired#?#2:public void testEndTestFired() \{
+    getProject().setProperty(\"enableEvents\", \"true\");
+    executeTarget(PASS_TEST_TARGET);
+    assertTrue(\"expecting test ended message\", hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"endTest(\") + PASS_TEST) + \")\"));
+\}
+testStartTestFired#?#2:public void testStartTestFired() \{
+    getProject().setProperty(\"enableEvents\", \"true\");
+    executeTarget(PASS_TEST_TARGET);
+    assertTrue(\"expecting test started message\", hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"startTest(\") + PASS_TEST) + \")\"));
+\}" shape=ellipse]
+2 [label="testEndTestFired#?#7:MOVE
+testStartTestFired#?#7:MOVE" shape=ellipse]
+3 [label="testEndTestFired#?#7:hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"endTest(\") + PASS_TEST) + \")\")
+testStartTestFired#?#7:hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"startTest(\") + PASS_TEST) + \")\")" shape=ellipse]
+4 [label="testEndTestFired#?#2:@Test
+testStartTestFired#?#2:@Test" shape=ellipse]
+0 -> 4 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="Action:2"];
+3 -> 2 [label="Action:2"];
+}

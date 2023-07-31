@@ -1,0 +1,59 @@
+digraph "Pattern" {
+0 [label="getClearToolCommand#?#3:UPDATE
+setClearToolDir#?,String#3:UPDATE" shape=ellipse]
+1 [label="getClearToolCommand#?#3:m_ClearToolDir
+setClearToolDir#?,String#3:m_ClearToolDir" shape=ellipse]
+2 [label="getClearToolCommand#?#3:String toReturn = m_ClearToolDir
+setClearToolDir#?,String#3:m_ClearToolDir = getProject().translatePath(dir)" shape=ellipse]
+3 [label="getClearToolCommand#?#2:\{
+    String toReturn = m_ClearToolDir;
+    if ((!toReturn.equals(\"\")) && (!toReturn.endsWith(\"/\"))) \{
+        toReturn += \"/\";
+    \}
+    toReturn += CLEARTOOL_EXE;
+    return toReturn;
+\}
+setClearToolDir#?,String#2:\{
+    m_ClearToolDir = getProject().translatePath(dir);
+\}" shape=ellipse]
+4 [label="getClearToolCommand#?#3:toReturn" shape=ellipse]
+5 [label="getClearToolCommand#?#3:String" shape=ellipse]
+6 [label="getClearToolCommand#?#-1:m_ClearToolDir
+setClearToolDir#?,String#-1:m_ClearToolDir" shape=ellipse]
+7 [label="getClearToolCommand#?#3:mClearToolDir
+setClearToolDir#?,String#3:mClearToolDir" shape=ellipse]
+8 [label="getClearToolCommand#?#3:toReturn" shape=ellipse]
+9 [label="getClearToolCommand#?#4:toReturn
+setClearToolDir#?,String#-1:dir" shape=ellipse]
+10 [label="getClearToolCommand#?#4:toReturn" shape=ellipse]
+11 [label="setClearToolDir#?,String#-1:" shape=ellipse]
+12 [label="setClearToolDir#?,String#-1:PlaceHold" shape=ellipse]
+13 [label="setClearToolDir#?,String#-1:PlaceHold" shape=ellipse]
+14 [label="setClearToolDir#?,String#-1:PlaceHold" shape=ellipse]
+15 [label="setClearToolDir#?,String#3:dir" shape=ellipse]
+16 [label="setClearToolDir#?,String#-1:" shape=ellipse]
+17 [label="setClearToolDir#?,String#3:getProject().translatePath(dir)" shape=ellipse]
+18 [label="setClearToolDir#?,String#3:getProject()" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 4 [label="Data Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 17 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+6 -> 14 [label="AST:1"];
+7 -> 8 [label="Data Dep:1"];
+8 -> 9 [label="Define Use:1"];
+8 -> 10 [label="Define Use:1"];
+11 -> 12 [label="AST:1"];
+11 -> 13 [label="AST:1"];
+11 -> 1 [label="Data Dep:1"];
+15 -> 9 [label="AST:1"];
+15 -> 1 [label="Data Dep:1"];
+16 -> 7 [label="Data Dep:1"];
+17 -> 15 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+18 -> 11 [label="AST:1"];
+}

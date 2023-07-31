@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testNL#?#3:DELETE
+testNL2#?#3:DELETE" shape=ellipse]
+1 [label="testNL#?#3:final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class)
+testNL2#?#3:final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class)" shape=ellipse]
+2 [label="testNL#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", NL.toString());
+    final String[] expected = new String[]\{ \"49:14: '\{' should be on a new line.\", \"53:14: '\{' should be on a new line.\", \"58:18: '\{' should be on a new line.\", \"62:18: '\{' should be on a new line.\", \"67:12: '\{' should be on a new line.\", \"72:18: '\{' should be on a new line.\" \};
+    verify(checkConfig, getPath(\"InputScopeInnerInterfaces.java\"), expected);
+\}
+testNL2#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", NL.toString());
+    final String[] expected = new String[]\{ \"14:39: '\{' should be on a new line.\", \"21:20: '\{' should be on a new line.\", \"34:31: '\{' should be on a new line.\", \"43:24: '\{' should be on a new line.\", \"56:35: '\{' should be on a new line.\", \"60:24: '\{' should be on a new line.\", \"74:20: '\{' should be on a new line.\", \"87:31: '\{' should be on a new line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyMethod.java\"), expected);
+\}" shape=ellipse]
+3 [label="testNL#?#2:public void testNL() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", NL.toString());
+    final String[] expected = new String[]\{ \"49:14: '\{' should be on a new line.\", \"53:14: '\{' should be on a new line.\", \"58:18: '\{' should be on a new line.\", \"62:18: '\{' should be on a new line.\", \"67:12: '\{' should be on a new line.\", \"72:18: '\{' should be on a new line.\" \};
+    verify(checkConfig, getPath(\"InputScopeInnerInterfaces.java\"), expected);
+\}
+testNL2#?#2:public void testNL2() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(LeftCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", NL.toString());
+    final String[] expected = new String[]\{ \"14:39: '\{' should be on a new line.\", \"21:20: '\{' should be on a new line.\", \"34:31: '\{' should be on a new line.\", \"43:24: '\{' should be on a new line.\", \"56:35: '\{' should be on a new line.\", \"60:24: '\{' should be on a new line.\", \"74:20: '\{' should be on a new line.\", \"87:31: '\{' should be on a new line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyMethod.java\"), expected);
+\}" shape=ellipse]
+4 [label="testNL#?#4:checkConfig.addAttribute(\"option\", NL.toString())
+testNL2#?#4:checkConfig.addAttribute(\"option\", NL.toString())" shape=ellipse]
+5 [label="testNL#?#5:final String[] expected = new String[]\{ \"49:14: '\{' should be on a new line.\", \"53:14: '\{' should be on a new line.\", \"58:18: '\{' should be on a new line.\", \"62:18: '\{' should be on a new line.\", \"67:12: '\{' should be on a new line.\", \"72:18: '\{' should be on a new line.\" \}
+testNL2#?#5:final String[] expected = new String[]\{ \"14:39: '\{' should be on a new line.\", \"21:20: '\{' should be on a new line.\", \"34:31: '\{' should be on a new line.\", \"43:24: '\{' should be on a new line.\", \"56:35: '\{' should be on a new line.\", \"60:24: '\{' should be on a new line.\", \"74:20: '\{' should be on a new line.\", \"87:31: '\{' should be on a new line.\" \}" shape=ellipse]
+6 [label="testNL#?#14:verify(checkConfig, getPath(\"InputScopeInnerInterfaces.java\"), expected)
+testNL2#?#16:verify(checkConfig, getPath(\"InputLeftCurlyMethod.java\"), expected)" shape=ellipse]
+7 [label="testNL#?#3:checkConfig
+testNL2#?#3:checkConfig" shape=ellipse]
+8 [label="testNL#?#3:
+testNL2#?#3:" shape=ellipse]
+9 [label="testNL#?#3:LeftCurlyCheck.class
+testNL2#?#3:LeftCurlyCheck.class" shape=ellipse]
+10 [label="testNL#?#4:checkConfig
+testNL2#?#4:checkConfig" shape=ellipse]
+11 [label="testNL#?#14:checkConfig
+testNL2#?#16:checkConfig" shape=ellipse]
+12 [label="testNL#?#3:DefaultConfiguration
+testNL2#?#3:DefaultConfiguration" shape=ellipse]
+13 [label="testNL#?#3:
+testNL2#?#3:" shape=ellipse]
+14 [label="testNL#?#3:createCheckConfig(LeftCurlyCheck.class)
+testNL2#?#3:createCheckConfig(LeftCurlyCheck.class)" shape=ellipse]
+15 [label="testNL#?#3:createCheckConfig
+testNL2#?#3:createCheckConfig" shape=ellipse]
+16 [label="testNL#?#3:createCheckConfig(java.lang.Class)
+testNL2#?#3:createCheckConfig(java.lang.Class)" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 10 [label="AST:2"];
+6 -> 11 [label="AST:2"];
+7 -> 10 [label="Define Use:2"];
+7 -> 11 [label="Define Use:2"];
+8 -> 7 [label="Data Dep:2"];
+9 -> 7 [label="Data Dep:2"];
+12 -> 13 [label="AST:2"];
+14 -> 8 [label="AST:2"];
+14 -> 9 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+}

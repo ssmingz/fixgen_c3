@@ -1,0 +1,46 @@
+digraph "Pattern" {
+0 [label="testNsCurrent#?#2:INSERT
+testheaderfooter#?#2:INSERT" shape=ellipse]
+1 [label="testNsCurrent#?#2:public void testNsCurrent() \{
+    expectLog(\"ns.current\", \"Echo2 inside a macroHello from x:p\");
+\}
+testheaderfooter#?#2:public void testheaderfooter() \{
+    test3();
+    expectLog(\"testheaderfooter\", \"headerHello, World!footer\");
+\}" shape=ellipse]
+2 [label="testNsCurrent#?#2:testNsCurrent
+testheaderfooter#?#2:testheaderfooter" shape=ellipse]
+3 [label="testNsCurrent#?#2:void
+testheaderfooter#?#2:void" shape=ellipse]
+4 [label="testNsCurrent#?#2:\{
+    expectLog(\"ns.current\", \"Echo2 inside a macroHello from x:p\");
+\}
+testheaderfooter#?#2:\{
+    test3();
+    expectLog(\"testheaderfooter\", \"headerHello, World!footer\");
+\}" shape=ellipse]
+5 [label="testNsCurrent#?#3:expectLog(\"ns.current\", \"Echo2 inside a macroHello from x:p\")
+testheaderfooter#?#4:expectLog(\"testheaderfooter\", \"headerHello, World!footer\")" shape=ellipse]
+6 [label="testNsCurrent#?#2:VE: Modifiers_Method
+testheaderfooter#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testNsCurrent#?#2:public
+testheaderfooter#?#2:public" shape=ellipse]
+8 [label="testNsCurrent#?#4:INSERT
+testheaderfooter#?#5:INSERT" shape=ellipse]
+9 [label="testNsCurrent#?#4:buildRule.executeTarget(\"ns.current\")
+testheaderfooter#?#5:buildRule.executeTarget(\"testheaderfooter\")" shape=ellipse]
+10 [label="testNsCurrent#?#2:@Test
+testheaderfooter#?#2:@Test" shape=ellipse]
+11 [label="testheaderfooter#?#3:test3()" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+4 -> 11 [label="AST:1"];
+8 -> 9 [label="Action:2"];
+}

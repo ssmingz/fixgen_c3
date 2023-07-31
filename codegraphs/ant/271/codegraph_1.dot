@@ -1,0 +1,142 @@
+digraph "normalizeSource#?,File" {
+0 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+1 [label="2:CtVirtualElement@normalizeSource" shape=ellipse]
+2 [label="2:CtParameterImpl@File source" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="3:CtVariableReadImpl@source" shape=ellipse]
+5 [label="3:CtLiteralImpl@null" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@source != null" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@FileUtils" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@newFileUtils()" shape=ellipse]
+9 [label="4:CtVirtualElement@newFileUtils" shape=ellipse]
+10 [label="4:CtTypeAccessImpl@FileUtils" shape=ellipse]
+11 [label="4:CtInvocationImpl@FileUtils.newFileUtils()" shape=ellipse]
+12 [label="4:CtVirtualElement@fileUtils" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@FileUtils fileUtils = FileUtils.newFileUtils()" shape=ellipse]
+14 [label="6:CtVariableWriteImpl@source" shape=ellipse]
+15 [label="6:CtExecutableReferenceImpl@normalize()" shape=ellipse]
+16 [label="6:CtVirtualElement@normalize" shape=ellipse]
+17 [label="6:CtVariableReadImpl@fileUtils" shape=ellipse]
+18 [label="6:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+19 [label="6:CtVirtualElement@getAbsolutePath" shape=ellipse]
+20 [label="6:CtVariableReadImpl@source" shape=ellipse]
+21 [label="6:CtInvocationImpl@source.getAbsolutePath()" shape=ellipse]
+22 [label="6:CtInvocationImpl@fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+23 [label="6:CtAssignmentImpl@source = fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+24 [label="5:CtBlockImpl@\{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\}" shape=ellipse]
+25 [label="7:CtVirtualElement@e" shape=ellipse]
+26 [label="7:CtTypeReferenceImpl@BuildException" shape=ellipse]
+27 [label="7:CtCatchVariableImpl@BuildException e" shape=ellipse]
+28 [label="7:CtBlockImpl@\{
+\}" shape=ellipse]
+29 [label="7:CtCatchImpl@ catch (BuildException e) \{
+\}" shape=ellipse]
+30 [label="5:CtTryImpl@try \{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\} catch (BuildException e) \{
+\}" shape=ellipse]
+31 [label="3:CtBlockImpl@\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+32 [label="3:CtIfImpl@if (source != null) \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+33 [label="10:CtVariableReadImpl@source" shape=ellipse]
+34 [label="10:CtReturnImpl@return source" shape=ellipse]
+35 [label="2:CtBlockImpl@\{
+    if (source != null) \{
+        FileUtils fileUtils = FileUtils.newFileUtils();
+        try \{
+            source = fileUtils.normalize(source.getAbsolutePath());
+        \} catch (BuildException e) \{
+        \}
+    \}
+    return source;
+\}" shape=ellipse]
+36 [label="2:CtMethodImpl@private static File normalizeSource(File source) \{
+    if (source != null) \{
+        FileUtils fileUtils = FileUtils.newFileUtils();
+        try \{
+            source = fileUtils.normalize(source.getAbsolutePath());
+        \} catch (BuildException e) \{
+        \}
+    \}
+    return source;
+\}" shape=ellipse]
+37 [label="4:Delete@DELETE" shape=ellipse]
+38 [label="6:Delete@DELETE" shape=ellipse]
+39 [label="5:Insert@INSERT" shape=ellipse]
+40 [label="5:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 31 [label="Control Dep"];
+6 -> 13 [label="Control Dep"];
+6 -> 11 [label="Control Dep"];
+6 -> 8 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 30 [label="Control Dep"];
+6 -> 24 [label="Control Dep"];
+6 -> 23 [label="Control Dep"];
+6 -> 14 [label="Control Dep"];
+6 -> 22 [label="Control Dep"];
+6 -> 15 [label="Control Dep"];
+6 -> 17 [label="Control Dep"];
+6 -> 21 [label="Control Dep"];
+6 -> 18 [label="Control Dep"];
+6 -> 20 [label="Control Dep"];
+6 -> 29 [label="Control Dep"];
+6 -> 27 [label="Control Dep"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 8 [label="AST"];
+12 -> 17 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 7 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 37 [label="Action"];
+14 -> 33 [label="Define-Use"];
+17 -> 14 [label="Data Dep"];
+17 -> 38 [label="Action"];
+20 -> 14 [label="Data Dep"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 18 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 15 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 39 [label="Action"];
+23 -> 14 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 28 [label="Control Dep"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 13 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 6 [label="AST"];
+32 -> 31 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 1 [label="AST"];
+36 -> 0 [label="AST"];
+36 -> 2 [label="AST"];
+36 -> 35 [label="AST"];
+39 -> 40 [label="Action"];
+}

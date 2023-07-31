@@ -1,0 +1,36 @@
+digraph "Pattern" {
+0 [label="testTail#?#5:DELETE
+testTailSkip#?#5:DELETE
+testTailLines#?#5:DELETE
+testTailLinesSkip#?#5:DELETE
+testHead#?#5:DELETE
+testHeadSkip#?#5:DELETE" shape=ellipse]
+1 [label="testTail#?#5:FILE_UTILS
+testTailSkip#?#5:FILE_UTILS
+testTailLines#?#5:FILE_UTILS
+testTailLinesSkip#?#5:FILE_UTILS
+testHead#?#5:FILE_UTILS
+testHeadSkip#?#5:FILE_UTILS" shape=ellipse]
+2 [label="testTail#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tail.test\")
+testTailSkip#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailSkip.test\")
+testTailLines#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLines.test\")
+testTailLinesSkip#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLinesSkip.test\")
+testHead#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.head.test\")
+testHeadSkip#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.headSkip.test\")" shape=ellipse]
+3 [label="testTail#?#5:MOVE
+testTailSkip#?#5:MOVE
+testTailLines#?#5:MOVE
+testTailLinesSkip#?#5:MOVE
+testHead#?#5:MOVE
+testHeadSkip#?#5:MOVE" shape=ellipse]
+4 [label="testTail#?#-1:FILE_UTILS
+testTailSkip#?#-1:FILE_UTILS
+testTailLines#?#-1:FILE_UTILS
+testTailLinesSkip#?#-1:FILE_UTILS
+testHead#?#-1:FILE_UTILS
+testHeadSkip#?#-1:FILE_UTILS" shape=ellipse]
+1 -> 0 [label="Action:6"];
+1 -> 4 [label="AST:6"];
+2 -> 1 [label="AST:6"];
+3 -> 2 [label="Action:6"];
+}

@@ -1,0 +1,55 @@
+digraph "GenerateCallCoberturaInitMethodVisitor#?,MethodVisitor,String" {
+0 [label="2:CtVirtualElement@GenerateCallCoberturaInitMethodVisitor" shape=ellipse]
+1 [label="2:CtParameterImpl@MethodVisitor arg0" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@MethodVisitor" shape=ellipse]
+3 [label="2:CtParameterImpl@String className" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@()" shape=ellipse]
+6 [label="3:CtVirtualElement@" shape=ellipse]
+7 [label="3:CtVariableReadImpl@arg0" shape=ellipse]
+8 [label="3:CtParameterReferenceImpl@arg0" shape=ellipse]
+9 [label="3:CtInvocationImpl@(arg0)" shape=ellipse]
+10 [label="4:CtFieldReferenceImpl@className" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+12 [label="4:CtFieldWriteImpl@this.className" shape=ellipse]
+13 [label="4:CtThisAccessImpl@this" shape=ellipse]
+14 [label="4:CtVariableReadImpl@className" shape=ellipse]
+15 [label="4:CtParameterReferenceImpl@className" shape=ellipse]
+16 [label="4:CtAssignmentImpl@this.className = className" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    (arg0);
+    this.className = className;
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public  GenerateCallCoberturaInitMethodVisitor(MethodVisitor arg0, String className) \{
+    (arg0);
+    this.className = className;
+\}" shape=ellipse]
+19 [label="3:Insert@INSERT" shape=ellipse]
+20 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+21 [label="3:CtTypeReferenceImpl@ASM4" shape=ellipse]
+22 [label="3:CtTypeAccessImpl@ASM4" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 19 [label="Action"];
+10 -> 11 [label="AST"];
+10 -> 14 [label="Define-Use"];
+12 -> 13 [label="AST"];
+12 -> 10 [label="AST"];
+14 -> 15 [label="AST"];
+14 -> 12 [label="Data Dep"];
+16 -> 12 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 9 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 3 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 22 [label="Action"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+}

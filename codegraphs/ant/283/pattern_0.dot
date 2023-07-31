@@ -1,0 +1,104 @@
+digraph "Pattern" {
+0 [label="testNoCrash#?#3:UPDATE
+testNoTimeout#?#3:UPDATE
+testFilesetOutOfDate#?#3:UPDATE
+testRCOutOfDate#?#3:UPDATE" shape=ellipse]
+1 [label="testNoCrash#?#3:expectPropertyUnset(\"nocrash\", \"crashed\")
+testNoTimeout#?#3:expectPropertyUnset(\"notimeout\", \"timeout\")
+testFilesetOutOfDate#?#3:expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\")
+testRCOutOfDate#?#3:expectPropertyUnset(\"testRCOutOfDate\", \"foo\")" shape=ellipse]
+2 [label="testNoCrash#?#2:\{
+    expectPropertyUnset(\"nocrash\", \"crashed\");
+\}
+testNoTimeout#?#2:\{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}
+testFilesetOutOfDate#?#2:\{
+    expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\");
+\}
+testRCOutOfDate#?#2:\{
+    expectPropertyUnset(\"testRCOutOfDate\", \"foo\");
+\}" shape=ellipse]
+3 [label="testNoCrash#?#2:public void testNoCrash() \{
+    expectPropertyUnset(\"nocrash\", \"crashed\");
+\}
+testNoTimeout#?#2:public void testNoTimeout() \{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}
+testFilesetOutOfDate#?#2:public void testFilesetOutOfDate() \{
+    expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\");
+\}
+testRCOutOfDate#?#2:public void testRCOutOfDate() \{
+    expectPropertyUnset(\"testRCOutOfDate\", \"foo\");
+\}" shape=ellipse]
+4 [label="testNoCrash#?#3:expectPropertyUnset
+testNoTimeout#?#3:expectPropertyUnset
+testFilesetOutOfDate#?#3:expectPropertyUnset
+testRCOutOfDate#?#3:expectPropertyUnset" shape=ellipse]
+5 [label="testNoCrash#?#-1:
+testNoTimeout#?#-1:
+testFilesetOutOfDate#?#-1:
+testRCOutOfDate#?#-1:" shape=ellipse]
+6 [label="testNoCrash#?#-1:PlaceHold
+testNoTimeout#?#-1:PlaceHold
+testFilesetOutOfDate#?#-1:PlaceHold
+testRCOutOfDate#?#-1:PlaceHold" shape=ellipse]
+7 [label="testNoCrash#?#-1:PlaceHold
+testNoTimeout#?#-1:PlaceHold
+testFilesetOutOfDate#?#-1:PlaceHold
+testRCOutOfDate#?#-1:PlaceHold" shape=ellipse]
+8 [label="testNoCrash#?#3:expectPropertyUnset(java.lang.String,java.lang.String)
+testNoTimeout#?#3:expectPropertyUnset(java.lang.String,java.lang.String)
+testFilesetOutOfDate#?#3:expectPropertyUnset(java.lang.String,java.lang.String)
+testRCOutOfDate#?#3:expectPropertyUnset(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testNoCrash#?#-1:String
+testNoTimeout#?#-1:String
+testFilesetOutOfDate#?#-1:String
+testRCOutOfDate#?#-1:String" shape=ellipse]
+10 [label="testNoCrash#?#-1:String
+testNoTimeout#?#-1:String
+testFilesetOutOfDate#?#-1:String
+testRCOutOfDate#?#-1:String" shape=ellipse]
+11 [label="testNoCrash#?#3:\"nocrash\"
+testNoTimeout#?#3:\"notimeout\"
+testFilesetOutOfDate#?#3:\"foo\"
+testRCOutOfDate#?#3:\"foo\"" shape=ellipse]
+12 [label="testNoCrash#?#-1:String
+testNoTimeout#?#-1:String
+testFilesetOutOfDate#?#-1:String
+testRCOutOfDate#?#-1:String" shape=ellipse]
+13 [label="testNoCrash#?#3:\"crashed\"
+testNoTimeout#?#3:\"timeout\"
+testFilesetOutOfDate#?#3:\"testFilesetOutOfDate\"
+testRCOutOfDate#?#3:\"testRCOutOfDate\"" shape=ellipse]
+14 [label="testNoCrash#?#-1:String
+testNoTimeout#?#-1:String
+testFilesetOutOfDate#?#-1:String
+testRCOutOfDate#?#-1:String" shape=ellipse]
+15 [label="testNoCrash#?#3:MOVE
+testNoTimeout#?#3:MOVE" shape=ellipse]
+16 [label="testNoCrash#?#5:assertNull(buildRule.getProject().getProperty(\"crashed\"))
+testNoTimeout#?#5:assertNull(buildRule.getProject().getProperty(\"timeout\"))
+testFilesetOutOfDate#?#5:assertNull(buildRule.getProject().getProperty(\"foo\"))
+testRCOutOfDate#?#5:assertNull(buildRule.getProject().getProperty(\"foo\"))" shape=ellipse]
+17 [label="testFilesetOutOfDate#?#3:MOVE" shape=ellipse]
+18 [label="testRCOutOfDate#?#3:MOVE" shape=ellipse]
+0 -> 16 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 4 [label="AST:4"];
+1 -> 5 [label="AST:4"];
+1 -> 8 [label="AST:4"];
+1 -> 11 [label="AST:4"];
+1 -> 13 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+5 -> 6 [label="AST:4"];
+5 -> 7 [label="AST:4"];
+8 -> 9 [label="AST:4"];
+8 -> 10 [label="AST:4"];
+11 -> 12 [label="AST:4"];
+11 -> 17 [label="Action:1"];
+11 -> 18 [label="Action:1"];
+13 -> 14 [label="AST:4"];
+13 -> 15 [label="Action:2"];
+}

@@ -1,0 +1,43 @@
+digraph "setLong2#?,long" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setLong2" shape=ellipse]
+2 [label="2:CtParameterImpl@final long value" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@long" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@info(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@info" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+7 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+8 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+9 [label="3:CtLiteralImpl@\"setLong2( \"" shape=ellipse]
+10 [label="3:CtVariableReadImpl@value" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@(\"setLong2( \" + value)" shape=ellipse]
+12 [label="3:CtLiteralImpl@\" );\"" shape=ellipse]
+13 [label="3:CtBinaryOperatorImpl@(\"setLong2( \" + value) + \" );\"" shape=ellipse]
+14 [label="3:CtInvocationImpl@getLogger().info((\"setLong2( \" + value) + \" );\")" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    getLogger().info((\"setLong2( \" + value) + \" );\");
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public void setLong2(final long value) \{
+    getLogger().info((\"setLong2( \" + value) + \" );\");
+\}" shape=ellipse]
+17 [label="3:Update@UPDATE" shape=ellipse]
+18 [label="3:CtInvocationImpl@getLogger().warn((\"setLong2( \" + value) + \" );\")" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 5 [label="AST"];
+14 -> 8 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 17 [label="Action"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

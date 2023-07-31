@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2695/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2695/1/after.java
+@@ -9,1 +9,6 @@
+-    return new Rectangle(x[0], y[0], width + trimWidth(), height + trimHeight());
++    int border = 0;
++    if ((style & ((SWT.NO_TRIM | SWT.BORDER) | SWT.SHELL_TRIM)) == 0) {
++      border = OS.gtk_container_get_border_width(shellHandle);
++    }
++    return new Rectangle(
++        x[0], y[0], (width + trimWidth()) + (2 * border), (height + trimHeight()) + (2 * border));

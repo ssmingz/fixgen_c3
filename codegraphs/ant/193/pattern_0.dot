@@ -1,0 +1,109 @@
+digraph "Pattern" {
+0 [label="toString#?#6:INSERT
+getSize#?#3:INSERT
+eval#?#7:INSERT
+testLazyLoading#?#6:INSERT" shape=ellipse]
+1 [label="toString#?#6:Iterator
+getSize#?#3:Iterator
+eval#?#7:Iterator
+testLazyLoading#?#6:Iterator" shape=ellipse]
+2 [label="toString#?#6:Iterator i = iterator()
+getSize#?#3:Iterator it = createIterator()
+eval#?#7:Iterator i = resources.iterator()
+testLazyLoading#?#6:Iterator it = lazyCollection.iterator()" shape=ellipse]
+3 [label="toString#?#2:\{
+    if (isReference()) \{
+        return getRef().toString();
+    \}
+    Iterator i = iterator();
+    if (!i.hasNext()) \{
+        return \"\";
+    \}
+    StringBuffer sb = new StringBuffer();
+    while (i.hasNext()) \{
+        if (sb.length() > 0) \{
+            sb.append(pathSeparatorChar);
+        \}
+        sb.append(i.next());
+    \} 
+    return sb.toString();
+\}
+getSize#?#2:\{
+    Iterator it = createIterator();
+    int size = 0;
+    while (it.hasNext()) \{
+        it.next();
+        size++;
+    \} 
+    return size;
+\}
+eval#?#6:\{
+    Iterator i = resources.iterator();
+    Resource r1 = ((Resource) (i.next()));
+    Resource r2 = null;
+    while (i.hasNext()) \{
+        r2 = ((Resource) (i.next()));
+        try \{
+            if (!ResourceUtils.contentEquals(r1, r2, asText)) \{
+                return false;
+            \}
+        \} catch (IOException ioe) \{
+            throw new BuildException(((\"when comparing resources \" + r1.toString()) + \" and \") + r2.toString(), ioe);
+        \}
+        r1 = r2;
+    \} 
+\}
+testLazyLoading#?#2:\{
+    StringResourceCollection collectionTest = new StringResourceCollection();
+    LazyResourceCollectionWrapper lazyCollection = new LazyResourceCollectionWrapper();
+    lazyCollection.add(collectionTest);
+    Iterator it = lazyCollection.iterator();
+    assertOneCreatedIterator(collectionTest);
+    StringResourceIterator stringResourceIterator = ((StringResourceIterator) (collectionTest.createdIterators.get(0)));
+    assertEquals(\"A resource was loaded without iterating\", 1, stringResourceIterator.cursor);
+    StringResource r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r1\", r.getValue());
+    assertEquals(\"Iterating once load more than 1 resource\", 2, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r2\", r.getValue());
+    assertEquals(\"Iterating twice load more than 2 resources\", 3, stringResourceIterator.cursor);
+    r = ((StringResource) (it.next()));
+    assertOneCreatedIterator(collectionTest);
+    assertEquals(\"r3\", r.getValue());
+    assertEquals(\"Iterating 3 times load more than 3 resources\", 3, stringResourceIterator.cursor);
+    try \{
+        it.next();
+        fail(\"NoSuchElementException shoudl have been raised\");
+    \} catch (NoSuchElementException e) \{
+    \}
+\}" shape=ellipse]
+4 [label="toString#?#6:i
+getSize#?#3:it
+eval#?#7:i
+testLazyLoading#?#6:it" shape=ellipse]
+5 [label="toString#?#6:iterator()
+getSize#?#3:createIterator()
+eval#?#7:resources.iterator()
+testLazyLoading#?#6:lazyCollection.iterator()" shape=ellipse]
+6 [label="toString#?#-1:
+getSize#?#-1:
+eval#?#-1:
+testLazyLoading#?#-1:" shape=ellipse]
+7 [label="toString#?#6:Resource
+getSize#?#3:Resource
+eval#?#7:Resource
+testLazyLoading#?#6:Resource" shape=ellipse]
+8 [label="eval#?#6:resources.size() > 1" shape=ellipse]
+0 -> 7 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+8 -> 3 [label="Control Dep:1"];
+8 -> 2 [label="Control Dep:1"];
+8 -> 5 [label="Control Dep:1"];
+}

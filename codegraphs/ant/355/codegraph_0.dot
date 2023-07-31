@@ -1,0 +1,110 @@
+digraph "iterator#?" {
+0 [label="2:CtTypeReferenceImpl@Iterator" shape=ellipse]
+1 [label="2:CtVirtualElement@iterator" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@propertyNames()" shape=ellipse]
+4 [label="3:CtVirtualElement@propertyNames" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getProperties()" shape=ellipse]
+6 [label="3:CtVirtualElement@getProperties" shape=ellipse]
+7 [label="3:CtInvocationImpl@getProperties()" shape=ellipse]
+8 [label="3:CtInvocationImpl@getProperties().propertyNames()" shape=ellipse]
+9 [label="3:CtVirtualElement@e" shape=ellipse]
+10 [label="3:CtLocalVariableImpl@final Enumeration e = getProperties().propertyNames()" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@Iterator" shape=ellipse]
+12 [label="4:CtNewClassImpl@new Iterator() \{
+    public boolean hasNext() \{
+        return e.hasMoreElements();
+    \}
+
+    public Object next() \{
+        return new PropertyResource(getProject(), ((String) (e.nextElement())));
+    \}
+
+    public void remove() \{
+        throw new UnsupportedOperationException();
+    \}
+\}" shape=ellipse]
+13 [label="4:CtClassImpl@ \{
+    public boolean hasNext() \{
+        return e.hasMoreElements();
+    \}
+
+    public Object next() \{
+        return new PropertyResource(getProject(), ((String) (e.nextElement())));
+    \}
+
+    public void remove() \{
+        throw new UnsupportedOperationException();
+    \}
+\}" shape=ellipse]
+14 [label="4:CtReturnImpl@return new Iterator() \{
+    public boolean hasNext() \{
+        return e.hasMoreElements();
+    \}
+
+    public Object next() \{
+        return new PropertyResource(getProject(), ((String) (e.nextElement())));
+    \}
+
+    public void remove() \{
+        throw new UnsupportedOperationException();
+    \}
+\}" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    final Enumeration e = getProperties().propertyNames();
+    return new Iterator() \{
+        public boolean hasNext() \{
+            return e.hasMoreElements();
+        \}
+
+        public Object next() \{
+            return new PropertyResource(getProject(), ((String) (e.nextElement())));
+        \}
+
+        public void remove() \{
+            throw new UnsupportedOperationException();
+        \}
+    \};
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public Iterator iterator() \{
+    final Enumeration e = getProperties().propertyNames();
+    return new Iterator() \{
+        public boolean hasNext() \{
+            return e.hasMoreElements();
+        \}
+
+        public Object next() \{
+            return new PropertyResource(getProject(), ((String) (e.nextElement())));
+        \}
+
+        public void remove() \{
+            throw new UnsupportedOperationException();
+        \}
+    \};
+\}" shape=ellipse]
+17 [label="3:Insert@INSERT" shape=ellipse]
+18 [label="3:CtIfImpl@if (isReference()) \{
+    return getRef().iterator();
+\}" shape=ellipse]
+19 [label="6:Insert@INSERT" shape=ellipse]
+20 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 3 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 2 [label="AST"];
+10 -> 8 [label="AST"];
+12 -> 13 [label="AST"];
+14 -> 12 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 17 [label="Action"];
+16 -> 19 [label="Action"];
+17 -> 18 [label="Action"];
+19 -> 20 [label="Action"];
+}

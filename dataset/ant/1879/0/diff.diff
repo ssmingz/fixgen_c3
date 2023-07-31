@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1879/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1879/0/after.java
+@@ -12,3 +12,1 @@
+-      final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+-      final Execute exe = new Execute(execManager);
+-      getContext().debug(cmdl.toString());
++      final Execute exe = new Execute();
+@@ -16,6 +14,2 @@
+-      int exitValue = exe.execute();
+-      if (exitValue != 0) {
+-        throw new TaskException(("JProbe Coverage Merging failed (" + exitValue) + ")");
+-      }
+-    } catch (IOException e) {
+-      throw new TaskException("Failed to run JProbe Coverage Merge: " + e);
++      exe.setReturnCode(0);
++      exe.execute(getContext());

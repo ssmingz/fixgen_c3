@@ -1,0 +1,93 @@
+digraph "setUp#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setUp" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@Exception" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@setUp()" shape=ellipse]
+4 [label="3:CtVirtualElement@setUp" shape=ellipse]
+5 [label="3:CtSuperAccessImpl@super" shape=ellipse]
+6 [label="3:CtInvocationImpl@super.setUp()" shape=ellipse]
+7 [label="4:CtFieldWriteImpl@m_configurer" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@lookup()" shape=ellipse]
+9 [label="4:CtVirtualElement@lookup" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@getComponentManager()" shape=ellipse]
+11 [label="4:CtVirtualElement@getComponentManager" shape=ellipse]
+12 [label="4:CtInvocationImpl@getComponentManager()" shape=ellipse]
+13 [label="4:CtTypeAccessImpl@ROLE" shape=ellipse]
+14 [label="4:CtInvocationImpl@((Configurer) (getComponentManager().lookup(ROLE)))" shape=ellipse]
+15 [label="4:CtTypeReferenceImpl@Configurer" shape=ellipse]
+16 [label="4:CtAssignmentImpl@m_configurer = ((Configurer) (getComponentManager().lookup(ROLE)))" shape=ellipse]
+17 [label="5:CtFieldWriteImpl@m_context" shape=ellipse]
+18 [label="5:CtTypeReferenceImpl@DefaultTaskContext" shape=ellipse]
+19 [label="5:CtConstructorCallImpl@new DefaultTaskContext()" shape=ellipse]
+20 [label="5:CtAssignmentImpl@m_context = new DefaultTaskContext()" shape=ellipse]
+21 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+22 [label="6:CtExecutableReferenceImpl@getAbsoluteFile()" shape=ellipse]
+23 [label="6:CtVirtualElement@getAbsoluteFile" shape=ellipse]
+24 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+25 [label="6:CtLiteralImpl@\".\"" shape=ellipse]
+26 [label="6:CtConstructorCallImpl@new File(\".\")" shape=ellipse]
+27 [label="6:CtInvocationImpl@new File(\".\").getAbsoluteFile()" shape=ellipse]
+28 [label="6:CtVirtualElement@baseDir" shape=ellipse]
+29 [label="6:CtLocalVariableImpl@final File baseDir = new File(\".\").getAbsoluteFile()" shape=ellipse]
+30 [label="7:CtExecutableReferenceImpl@setProperty(File)" shape=ellipse]
+31 [label="7:CtVirtualElement@setProperty" shape=ellipse]
+32 [label="7:CtFieldReadImpl@m_context" shape=ellipse]
+33 [label="7:CtTypeAccessImpl@BASE_DIRECTORY" shape=ellipse]
+34 [label="7:CtVariableReadImpl@baseDir" shape=ellipse]
+35 [label="7:CtInvocationImpl@m_context.setProperty(BASE_DIRECTORY, baseDir)" shape=ellipse]
+36 [label="2:CtBlockImpl@\{
+    super.setUp();
+    m_configurer = ((Configurer) (getComponentManager().lookup(ROLE)));
+    m_context = new DefaultTaskContext();
+    final File baseDir = new File(\".\").getAbsoluteFile();
+    m_context.setProperty(BASE_DIRECTORY, baseDir);
+\}" shape=ellipse]
+37 [label="2:CtMethodImpl@protected void setUp() throws Exception \{
+    super.setUp();
+    m_configurer = ((Configurer) (getComponentManager().lookup(ROLE)));
+    m_context = new DefaultTaskContext();
+    final File baseDir = new File(\".\").getAbsoluteFile();
+    m_context.setProperty(BASE_DIRECTORY, baseDir);
+\}" shape=ellipse]
+38 [label="4:Update@UPDATE" shape=ellipse]
+39 [label="4:CtInvocationImpl@getServiceManager()" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 38 [label="Action"];
+14 -> 9 [label="AST"];
+14 -> 15 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 8 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 7 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 32 [label="Define-Use"];
+20 -> 17 [label="AST"];
+20 -> 19 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 22 [label="AST"];
+28 -> 34 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 21 [label="AST"];
+29 -> 27 [label="AST"];
+35 -> 31 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 30 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 6 [label="AST"];
+36 -> 16 [label="AST"];
+36 -> 20 [label="AST"];
+36 -> 29 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 1 [label="AST"];
+37 -> 0 [label="AST"];
+37 -> 2 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 39 [label="Action"];
+}

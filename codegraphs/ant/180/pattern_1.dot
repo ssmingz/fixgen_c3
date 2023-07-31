@@ -1,0 +1,62 @@
+digraph "Pattern" {
+0 [label="createClasspath#?#-1:MOVE
+setClasspathRef#?,Reference#-1:MOVE
+setClasspath#?,Path#-1:MOVE
+setLoaderRef#?,Reference#-1:MOVE" shape=ellipse]
+1 [label="createClasspath#?#-1:PlaceHold
+setClasspathRef#?,Reference#-1:PlaceHold
+setClasspath#?,Path#-1:PlaceHold
+getClasspath#?#3:cpDelegate
+setLoaderRef#?,Reference#-1:PlaceHold" shape=ellipse]
+2 [label="createClasspath#?#3:this
+setClasspathRef#?,Reference#3:this
+setClasspath#?,Path#3:this
+setLoaderRef#?,Reference#3:this" shape=ellipse]
+3 [label="createClasspath#?#3:this.cpDelegate
+setClasspathRef#?,Reference#3:this.cpDelegate
+setClasspath#?,Path#3:this.cpDelegate
+setLoaderRef#?,Reference#3:this.cpDelegate" shape=ellipse]
+4 [label="createClasspath#?#-1:PlaceHold
+setClasspathRef#?,Reference#-1:PlaceHold
+setClasspath#?,Path#-1:PlaceHold
+getClasspath#?#3:getClasspath()
+setLoaderRef#?,Reference#-1:PlaceHold" shape=ellipse]
+5 [label="createClasspath#?#-1:PlaceHold
+setClasspathRef#?,Reference#-1:PlaceHold
+setClasspath#?,Path#-1:PlaceHold
+setLoaderRef#?,Reference#-1:PlaceHold" shape=ellipse]
+6 [label="createClasspath#?#3:getDelegate()
+setClasspathRef#?,Reference#3:getDelegate()
+setClasspath#?,Path#3:getDelegate()
+setLoaderRef#?,Reference#3:getDelegate()" shape=ellipse]
+7 [label="createClasspath#?#3:INSERT
+setClasspathRef#?,Reference#3:INSERT
+setClasspath#?,Path#3:INSERT
+getClasspath#?#3:INSERT
+setLoaderRef#?,Reference#3:INSERT" shape=ellipse]
+8 [label="createClasspath#?#3:this.cpDelegate.createClasspath()
+setClasspathRef#?,Reference#3:this.cpDelegate.setClasspathref(r)
+setClasspath#?,Path#3:this.cpDelegate.setClasspath(classpath)
+setLoaderRef#?,Reference#3:this.cpDelegate.setLoaderRef(r)" shape=ellipse]
+9 [label="getClasspath#?#3:DELETE" shape=ellipse]
+10 [label="getClasspath#?#-1:cpDelegate" shape=ellipse]
+11 [label="getClasspath#?#3:return cpDelegate.getClasspath()" shape=ellipse]
+12 [label="getClasspath#?#3:cpDelegate.getClasspath()" shape=ellipse]
+13 [label="getClasspath#?#3:getClasspath" shape=ellipse]
+0 -> 6 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 5 [label="AST:4"];
+1 -> 9 [label="Action:1"];
+1 -> 10 [label="AST:1"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+7 -> 6 [label="Action:4"];
+8 -> 3 [label="AST:4"];
+8 -> 7 [label="Action:4"];
+11 -> 12 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 1 [label="AST:1"];
+12 -> 4 [label="AST:1"];
+12 -> 7 [label="Action:1"];
+}

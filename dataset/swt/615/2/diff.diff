@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/615/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/615/2/after.java
+@@ -43,1 +43,6 @@
+-          OS.gdk_flush();
++          if (!OS.GDK_WINDOWING_X11()) {
++            OS.gdk_flush();
++          } else {
++            int xDisplay = OS.GDK_DISPLAY();
++            OS.XFlush(xDisplay);
++          }

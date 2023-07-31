@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2676/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2676/2/after.java
+@@ -12,3 +12,4 @@
+-      bits |=
+-          ((style & SWT.MEDIUM) != 0 ? OS.DTS_SHORTDATECENTURYFORMAT : OS.DTS_LONGDATEFORMAT)
+-              | OS.DTS_UPDOWN;
++      bits |= ((style & SWT.MEDIUM) != 0) ? OS.DTS_SHORTDATECENTURYFORMAT : OS.DTS_LONGDATEFORMAT;
++      if ((style & SWT.DROP_DOWN) == 0) {
++        bits |= OS.DTS_UPDOWN;
++      }

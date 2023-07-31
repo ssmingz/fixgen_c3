@@ -1,0 +1,133 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@debug" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+6 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+7 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+8 [label="3:CtLiteralImpl@\"Using external javac compiler\"" shape=ellipse]
+9 [label="3:CtInvocationImpl@getLogger().debug(\"Using external javac compiler\")" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+12 [label="4:CtConstructorCallImpl@new Commandline()" shape=ellipse]
+13 [label="4:CtVirtualElement@cmd" shape=ellipse]
+14 [label="4:CtLocalVariableImpl@Commandline cmd = new Commandline()" shape=ellipse]
+15 [label="5:CtExecutableReferenceImpl@setExecutable()" shape=ellipse]
+16 [label="5:CtVirtualElement@setExecutable" shape=ellipse]
+17 [label="5:CtVariableReadImpl@cmd" shape=ellipse]
+18 [label="5:CtExecutableReferenceImpl@getJavacExecutable()" shape=ellipse]
+19 [label="5:CtVirtualElement@getJavacExecutable" shape=ellipse]
+20 [label="5:CtExecutableReferenceImpl@getJavac()" shape=ellipse]
+21 [label="5:CtVirtualElement@getJavac" shape=ellipse]
+22 [label="5:CtInvocationImpl@getJavac()" shape=ellipse]
+23 [label="5:CtInvocationImpl@getJavac().getJavacExecutable()" shape=ellipse]
+24 [label="5:CtInvocationImpl@cmd.setExecutable(getJavac().getJavacExecutable())" shape=ellipse]
+25 [label="6:CtExecutableReferenceImpl@setupModernJavacCommandlineSwitches(<unknown>)" shape=ellipse]
+26 [label="6:CtVirtualElement@setupModernJavacCommandlineSwitches" shape=ellipse]
+27 [label="6:CtVariableReadImpl@cmd" shape=ellipse]
+28 [label="6:CtInvocationImpl@setupModernJavacCommandlineSwitches(cmd)" shape=ellipse]
+29 [label="7:CtTypeReferenceImpl@int" shape=ellipse]
+30 [label="7:CtExecutableReferenceImpl@size()" shape=ellipse]
+31 [label="7:CtVirtualElement@size" shape=ellipse]
+32 [label="7:CtVariableReadImpl@cmd" shape=ellipse]
+33 [label="7:CtInvocationImpl@cmd.size()" shape=ellipse]
+34 [label="7:CtVirtualElement@firstFileName" shape=ellipse]
+35 [label="7:CtLocalVariableImpl@int firstFileName = cmd.size()" shape=ellipse]
+36 [label="8:CtExecutableReferenceImpl@logAndAddFilesToCompile(<unknown>)" shape=ellipse]
+37 [label="8:CtVirtualElement@logAndAddFilesToCompile" shape=ellipse]
+38 [label="8:CtVariableReadImpl@cmd" shape=ellipse]
+39 [label="8:CtInvocationImpl@logAndAddFilesToCompile(cmd)" shape=ellipse]
+40 [label="9:CtExecutableReferenceImpl@executeExternalCompile(<unknown>,int)" shape=ellipse]
+41 [label="9:CtVirtualElement@executeExternalCompile" shape=ellipse]
+42 [label="9:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+43 [label="9:CtVirtualElement@getCommandline" shape=ellipse]
+44 [label="9:CtVariableReadImpl@cmd" shape=ellipse]
+45 [label="9:CtInvocationImpl@cmd.getCommandline()" shape=ellipse]
+46 [label="9:CtVariableReadImpl@firstFileName" shape=ellipse]
+47 [label="9:CtInvocationImpl@executeExternalCompile(cmd.getCommandline(), firstFileName)" shape=ellipse]
+48 [label="9:CtLiteralImpl@0" shape=ellipse]
+49 [label="9:CtBinaryOperatorImpl@executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+50 [label="9:CtReturnImpl@return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+51 [label="2:CtBlockImpl@\{
+    getLogger().debug(\"Using external javac compiler\");
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(getJavac().getJavacExecutable());
+    setupModernJavacCommandlineSwitches(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+52 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    getLogger().debug(\"Using external javac compiler\");
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(getJavac().getJavacExecutable());
+    setupModernJavacCommandlineSwitches(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+53 [label="3:Update@UPDATE" shape=ellipse]
+54 [label="3:CtInvocationImpl@getTaskContext()" shape=ellipse]
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 53 [label="Action"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 3 [label="AST"];
+9 -> 8 [label="AST"];
+13 -> 17 [label="Define-Use"];
+13 -> 27 [label="Define-Use"];
+13 -> 32 [label="Define-Use"];
+13 -> 38 [label="Define-Use"];
+13 -> 44 [label="Define-Use"];
+14 -> 13 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 12 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 20 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 18 [label="AST"];
+24 -> 16 [label="AST"];
+24 -> 17 [label="AST"];
+24 -> 15 [label="AST"];
+24 -> 23 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+32 -> 34 [label="Data Dep"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 30 [label="AST"];
+34 -> 46 [label="Define-Use"];
+35 -> 34 [label="AST"];
+35 -> 29 [label="AST"];
+35 -> 33 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 36 [label="AST"];
+39 -> 38 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+45 -> 42 [label="AST"];
+47 -> 41 [label="AST"];
+47 -> 40 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 9 [label="AST"];
+51 -> 14 [label="AST"];
+51 -> 24 [label="AST"];
+51 -> 28 [label="AST"];
+51 -> 35 [label="AST"];
+51 -> 39 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 1 [label="AST"];
+52 -> 0 [label="AST"];
+52 -> 2 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 54 [label="Action"];
+}

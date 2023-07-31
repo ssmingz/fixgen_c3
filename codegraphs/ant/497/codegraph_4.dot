@@ -1,0 +1,230 @@
+digraph "readPatterns#?,File,Vector" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@readPatterns" shape=ellipse]
+2 [label="2:CtParameterImpl@File patternfile" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@Vector patternlist" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@Vector" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@BufferedReader" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@BufferedReader" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@FileReader" shape=ellipse]
+9 [label="4:CtVariableReadImpl@patternfile" shape=ellipse]
+10 [label="4:CtConstructorCallImpl@new FileReader(patternfile)" shape=ellipse]
+11 [label="4:CtConstructorCallImpl@new BufferedReader(new FileReader(patternfile))" shape=ellipse]
+12 [label="4:CtVirtualElement@patternReader" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@BufferedReader patternReader = new BufferedReader(new FileReader(patternfile))" shape=ellipse]
+14 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+15 [label="5:CtExecutableReferenceImpl@readLine()" shape=ellipse]
+16 [label="5:CtVirtualElement@readLine" shape=ellipse]
+17 [label="5:CtVariableReadImpl@patternReader" shape=ellipse]
+18 [label="5:CtInvocationImpl@patternReader.readLine()" shape=ellipse]
+19 [label="5:CtVirtualElement@line" shape=ellipse]
+20 [label="5:CtLocalVariableImpl@String line = patternReader.readLine()" shape=ellipse]
+21 [label="6:CtVariableReadImpl@line" shape=ellipse]
+22 [label="6:CtLiteralImpl@null" shape=ellipse]
+23 [label="6:CtBinaryOperatorImpl@line != null" shape=ellipse]
+24 [label="7:CtExecutableReferenceImpl@length()" shape=ellipse]
+25 [label="7:CtVirtualElement@length" shape=ellipse]
+26 [label="7:CtVariableReadImpl@line" shape=ellipse]
+27 [label="7:CtInvocationImpl@line.length()" shape=ellipse]
+28 [label="7:CtLiteralImpl@0" shape=ellipse]
+29 [label="7:CtBinaryOperatorImpl@line.length() > 0" shape=ellipse]
+30 [label="8:CtExecutableReferenceImpl@setName(java.lang.String)" shape=ellipse]
+31 [label="8:CtVirtualElement@setName" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@addPatternToList(<unknown>)" shape=ellipse]
+33 [label="8:CtVirtualElement@addPatternToList" shape=ellipse]
+34 [label="8:CtVariableReadImpl@patternlist" shape=ellipse]
+35 [label="8:CtInvocationImpl@addPatternToList(patternlist)" shape=ellipse]
+36 [label="8:CtVariableReadImpl@line" shape=ellipse]
+37 [label="8:CtInvocationImpl@addPatternToList(patternlist).setName(line)" shape=ellipse]
+38 [label="7:CtBlockImpl@\{
+    addPatternToList(patternlist).setName(line);
+\}" shape=ellipse]
+39 [label="7:CtIfImpl@if (line.length() > 0) \{
+    addPatternToList(patternlist).setName(line);
+\}" shape=ellipse]
+40 [label="10:CtVariableWriteImpl@line" shape=ellipse]
+41 [label="10:CtExecutableReferenceImpl@readLine()" shape=ellipse]
+42 [label="10:CtVirtualElement@readLine" shape=ellipse]
+43 [label="10:CtVariableReadImpl@patternReader" shape=ellipse]
+44 [label="10:CtInvocationImpl@patternReader.readLine()" shape=ellipse]
+45 [label="10:CtAssignmentImpl@line = patternReader.readLine()" shape=ellipse]
+46 [label="6:CtBlockImpl@\{
+    if (line.length() > 0) \{
+        addPatternToList(patternlist).setName(line);
+    \}
+    line = patternReader.readLine();
+\}" shape=ellipse]
+47 [label="6:CtWhileImpl@while (line != null) \{
+    if (line.length() > 0) \{
+        addPatternToList(patternlist).setName(line);
+    \}
+    line = patternReader.readLine();
+\} " shape=ellipse]
+48 [label="3:CtBlockImpl@\{
+    BufferedReader patternReader = new BufferedReader(new FileReader(patternfile));
+    String line = patternReader.readLine();
+    while (line != null) \{
+        if (line.length() > 0) \{
+            addPatternToList(patternlist).setName(line);
+        \}
+        line = patternReader.readLine();
+    \} 
+\}" shape=ellipse]
+49 [label="12:CtVirtualElement@ioe" shape=ellipse]
+50 [label="12:CtTypeReferenceImpl@IOException" shape=ellipse]
+51 [label="12:CtCatchVariableImpl@IOException ioe" shape=ellipse]
+52 [label="13:CtExecutableReferenceImpl@log()" shape=ellipse]
+53 [label="13:CtVirtualElement@log" shape=ellipse]
+54 [label="13:CtFieldReadImpl@project" shape=ellipse]
+55 [label="13:CtLiteralImpl@\"An error occured while reading from pattern file: \"" shape=ellipse]
+56 [label="13:CtVariableReadImpl@patternfile" shape=ellipse]
+57 [label="13:CtBinaryOperatorImpl@\"An error occured while reading from pattern file: \" + patternfile" shape=ellipse]
+58 [label="13:CtTypeAccessImpl@MSG_ERR" shape=ellipse]
+59 [label="13:CtInvocationImpl@project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR)" shape=ellipse]
+60 [label="12:CtBlockImpl@\{
+    project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+\}" shape=ellipse]
+61 [label="12:CtCatchImpl@ catch (IOException ioe) \{
+    project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+\}" shape=ellipse]
+62 [label="3:CtTryImpl@try \{
+    BufferedReader patternReader = new BufferedReader(new FileReader(patternfile));
+    String line = patternReader.readLine();
+    while (line != null) \{
+        if (line.length() > 0) \{
+            addPatternToList(patternlist).setName(line);
+        \}
+        line = patternReader.readLine();
+    \} 
+\} catch (IOException ioe) \{
+    project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+\}" shape=ellipse]
+63 [label="2:CtBlockImpl@\{
+    try \{
+        BufferedReader patternReader = new BufferedReader(new FileReader(patternfile));
+        String line = patternReader.readLine();
+        while (line != null) \{
+            if (line.length() > 0) \{
+                addPatternToList(patternlist).setName(line);
+            \}
+            line = patternReader.readLine();
+        \} 
+    \} catch (IOException ioe) \{
+        project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+    \}
+\}" shape=ellipse]
+64 [label="2:CtMethodImpl@private void readPatterns(File patternfile, Vector patternlist) \{
+    try \{
+        BufferedReader patternReader = new BufferedReader(new FileReader(patternfile));
+        String line = patternReader.readLine();
+        while (line != null) \{
+            if (line.length() > 0) \{
+                addPatternToList(patternlist).setName(line);
+            \}
+            line = patternReader.readLine();
+        \} 
+    \} catch (IOException ioe) \{
+        project.log(\"An error occured while reading from pattern file: \" + patternfile, MSG_ERR);
+    \}
+\}" shape=ellipse]
+65 [label="13:Delete@DELETE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+9 -> 12 [label="Data Dep"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 17 [label="Define-Use"];
+12 -> 43 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 6 [label="AST"];
+13 -> 11 [label="AST"];
+17 -> 19 [label="Data Dep"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+19 -> 21 [label="Define-Use"];
+19 -> 26 [label="Define-Use"];
+19 -> 36 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 14 [label="AST"];
+20 -> 18 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 46 [label="Control Dep"];
+23 -> 39 [label="Control Dep"];
+23 -> 29 [label="Control Dep"];
+23 -> 27 [label="Control Dep"];
+23 -> 24 [label="Control Dep"];
+23 -> 26 [label="Control Dep"];
+23 -> 28 [label="Control Dep"];
+23 -> 45 [label="Control Dep"];
+23 -> 40 [label="Control Dep"];
+23 -> 44 [label="Control Dep"];
+23 -> 41 [label="Control Dep"];
+23 -> 43 [label="Control Dep"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 24 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 38 [label="Control Dep"];
+29 -> 37 [label="Control Dep"];
+29 -> 30 [label="Control Dep"];
+29 -> 35 [label="Control Dep"];
+29 -> 32 [label="Control Dep"];
+29 -> 34 [label="Control Dep"];
+29 -> 36 [label="Control Dep"];
+35 -> 33 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+37 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 29 [label="AST"];
+39 -> 38 [label="AST"];
+43 -> 40 [label="Data Dep"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 41 [label="AST"];
+45 -> 40 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 39 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 23 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 13 [label="AST"];
+48 -> 20 [label="AST"];
+48 -> 47 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 60 [label="Control Dep"];
+51 -> 59 [label="Control Dep"];
+51 -> 52 [label="Control Dep"];
+51 -> 54 [label="Control Dep"];
+51 -> 57 [label="Control Dep"];
+51 -> 55 [label="Control Dep"];
+51 -> 56 [label="Control Dep"];
+51 -> 58 [label="Control Dep"];
+54 -> 65 [label="Action"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+59 -> 53 [label="AST"];
+59 -> 54 [label="AST"];
+59 -> 52 [label="AST"];
+59 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 51 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 48 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 1 [label="AST"];
+64 -> 0 [label="AST"];
+64 -> 2 [label="AST"];
+64 -> 4 [label="AST"];
+64 -> 63 [label="AST"];
+}

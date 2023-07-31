@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1309/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1309/1/after.java
+@@ -8,7 +8,7 @@
+-        throw new TaskException(
+-            ((((("Error setting logger for task " + taskModel.getName()) + " at ")
+-                            + taskModel.getLocation())
+-                        + "(Reason: ")
+-                    + throwable.getMessage())
+-                + ")",
+-            throwable);
++        final String message =
++            REZ.getString(
++                "logger.error",
++                taskModel.getName(),
++                taskModel.getLocation(),
++                throwable.getMessage());
++        throw new TaskException(message, throwable);

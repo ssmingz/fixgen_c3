@@ -1,0 +1,332 @@
+digraph "_execute#?,ExecuteStreamHandler" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@_execute" shape=ellipse]
+2 [label="2:CtParameterImpl@ExecuteStreamHandler handler" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@ExecuteStreamHandler" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+7 [label="3:CtVirtualElement@getAbsolutePath" shape=ellipse]
+8 [label="3:CtFieldReadImpl@target" shape=ellipse]
+9 [label="3:CtInvocationImpl@target.getAbsolutePath()" shape=ellipse]
+10 [label="3:CtVirtualElement@pathname" shape=ellipse]
+11 [label="3:CtLocalVariableImpl@String pathname = target.getAbsolutePath()" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+13 [label="4:CtExecutableReferenceImpl@length()" shape=ellipse]
+14 [label="4:CtVirtualElement@length" shape=ellipse]
+15 [label="4:CtVariableReadImpl@pathname" shape=ellipse]
+16 [label="4:CtInvocationImpl@pathname.length()" shape=ellipse]
+17 [label="4:CtExecutableReferenceImpl@length()" shape=ellipse]
+18 [label="4:CtVirtualElement@length" shape=ellipse]
+19 [label="4:CtLiteralImpl@\".jj\"" shape=ellipse]
+20 [label="4:CtInvocationImpl@\".jj\".length()" shape=ellipse]
+21 [label="4:CtBinaryOperatorImpl@pathname.length() - \".jj\".length()" shape=ellipse]
+22 [label="4:CtVirtualElement@pos" shape=ellipse]
+23 [label="4:CtLocalVariableImpl@int pos = pathname.length() - \".jj\".length()" shape=ellipse]
+24 [label="5:CtVariableWriteImpl@pathname" shape=ellipse]
+25 [label="5:CtExecutableReferenceImpl@substring(int,int)" shape=ellipse]
+26 [label="5:CtVirtualElement@substring" shape=ellipse]
+27 [label="5:CtVariableReadImpl@pathname" shape=ellipse]
+28 [label="5:CtLiteralImpl@0" shape=ellipse]
+29 [label="5:CtVariableReadImpl@pos" shape=ellipse]
+30 [label="5:CtInvocationImpl@pathname.substring(0, pos)" shape=ellipse]
+31 [label="5:CtLiteralImpl@\".java\"" shape=ellipse]
+32 [label="5:CtBinaryOperatorImpl@pathname.substring(0, pos) + \".java\"" shape=ellipse]
+33 [label="5:CtAssignmentImpl@pathname = pathname.substring(0, pos) + \".java\"" shape=ellipse]
+34 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+35 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+36 [label="6:CtVariableReadImpl@pathname" shape=ellipse]
+37 [label="6:CtConstructorCallImpl@new File(pathname)" shape=ellipse]
+38 [label="6:CtVirtualElement@javaFile" shape=ellipse]
+39 [label="6:CtLocalVariableImpl@File javaFile = new File(pathname)" shape=ellipse]
+40 [label="7:CtExecutableReferenceImpl@exists()" shape=ellipse]
+41 [label="7:CtVirtualElement@exists" shape=ellipse]
+42 [label="7:CtVariableReadImpl@javaFile" shape=ellipse]
+43 [label="7:CtInvocationImpl@javaFile.exists()" shape=ellipse]
+44 [label="7:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+45 [label="7:CtVirtualElement@lastModified" shape=ellipse]
+46 [label="7:CtFieldReadImpl@target" shape=ellipse]
+47 [label="7:CtInvocationImpl@target.lastModified()" shape=ellipse]
+48 [label="7:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+49 [label="7:CtVirtualElement@lastModified" shape=ellipse]
+50 [label="7:CtVariableReadImpl@javaFile" shape=ellipse]
+51 [label="7:CtInvocationImpl@javaFile.lastModified()" shape=ellipse]
+52 [label="7:CtBinaryOperatorImpl@(target.lastModified() < javaFile.lastModified())" shape=ellipse]
+53 [label="7:CtBinaryOperatorImpl@javaFile.exists() && (target.lastModified() < javaFile.lastModified())" shape=ellipse]
+54 [label="8:CtExecutableReferenceImpl@info()" shape=ellipse]
+55 [label="8:CtVirtualElement@info" shape=ellipse]
+56 [label="8:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+57 [label="8:CtVirtualElement@getLogger" shape=ellipse]
+58 [label="8:CtInvocationImpl@getLogger()" shape=ellipse]
+59 [label="8:CtLiteralImpl@\"Target is already build - skipping (\"" shape=ellipse]
+60 [label="8:CtFieldReadImpl@target" shape=ellipse]
+61 [label="8:CtBinaryOperatorImpl@(\"Target is already build - skipping (\" + target)" shape=ellipse]
+62 [label="8:CtLiteralImpl@\")\"" shape=ellipse]
+63 [label="8:CtBinaryOperatorImpl@(\"Target is already build - skipping (\" + target) + \")\"" shape=ellipse]
+64 [label="8:CtInvocationImpl@getLogger().info((\"Target is already build - skipping (\" + target) + \")\")" shape=ellipse]
+65 [label="9:CtReturnImpl@return" shape=ellipse]
+66 [label="7:CtBlockImpl@\{
+    getLogger().info((\"Target is already build - skipping (\" + target) + \")\");
+    return;
+\}" shape=ellipse]
+67 [label="7:CtIfImpl@if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+    getLogger().info((\"Target is already build - skipping (\" + target) + \")\");
+    return;
+\}" shape=ellipse]
+68 [label="11:CtTypeReferenceImpl@Execute" shape=ellipse]
+69 [label="11:CtTypeReferenceImpl@Execute" shape=ellipse]
+70 [label="11:CtVariableReadImpl@handler" shape=ellipse]
+71 [label="11:CtConstructorCallImpl@new Execute(handler)" shape=ellipse]
+72 [label="11:CtVirtualElement@process" shape=ellipse]
+73 [label="11:CtLocalVariableImpl@final Execute process = new Execute(handler)" shape=ellipse]
+74 [label="12:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+75 [label="12:CtVirtualElement@log" shape=ellipse]
+76 [label="12:CtExecutableReferenceImpl@toString()" shape=ellipse]
+77 [label="12:CtVirtualElement@toString" shape=ellipse]
+78 [label="12:CtFieldReadImpl@cmdl" shape=ellipse]
+79 [label="12:CtInvocationImpl@cmdl.toString()" shape=ellipse]
+80 [label="12:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+81 [label="12:CtInvocationImpl@log(cmdl.toString(), MSG_VERBOSE)" shape=ellipse]
+82 [label="13:CtExecutableReferenceImpl@setCommandline()" shape=ellipse]
+83 [label="13:CtVirtualElement@setCommandline" shape=ellipse]
+84 [label="13:CtVariableReadImpl@process" shape=ellipse]
+85 [label="13:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+86 [label="13:CtVirtualElement@getCommandline" shape=ellipse]
+87 [label="13:CtFieldReadImpl@cmdl" shape=ellipse]
+88 [label="13:CtInvocationImpl@cmdl.getCommandline()" shape=ellipse]
+89 [label="13:CtInvocationImpl@process.setCommandline(cmdl.getCommandline())" shape=ellipse]
+90 [label="15:CtExecutableReferenceImpl@execute()" shape=ellipse]
+91 [label="15:CtVirtualElement@execute" shape=ellipse]
+92 [label="15:CtVariableReadImpl@process" shape=ellipse]
+93 [label="15:CtInvocationImpl@process.execute()" shape=ellipse]
+94 [label="15:CtLiteralImpl@0" shape=ellipse]
+95 [label="15:CtBinaryOperatorImpl@process.execute() != 0" shape=ellipse]
+96 [label="16:CtTypeReferenceImpl@TaskException" shape=ellipse]
+97 [label="16:CtLiteralImpl@\"Metamata task failed.\"" shape=ellipse]
+98 [label="16:CtConstructorCallImpl@new TaskException(\"Metamata task failed.\")" shape=ellipse]
+99 [label="16:CtThrowImpl@throw new TaskException(\"Metamata task failed.\")" shape=ellipse]
+100 [label="15:CtBlockImpl@\{
+    throw new TaskException(\"Metamata task failed.\");
+\}" shape=ellipse]
+101 [label="15:CtIfImpl@if (process.execute() != 0) \{
+    throw new TaskException(\"Metamata task failed.\");
+\}" shape=ellipse]
+102 [label="14:CtBlockImpl@\{
+    if (process.execute() != 0) \{
+        throw new TaskException(\"Metamata task failed.\");
+    \}
+\}" shape=ellipse]
+103 [label="18:CtVirtualElement@e" shape=ellipse]
+104 [label="18:CtTypeReferenceImpl@IOException" shape=ellipse]
+105 [label="18:CtCatchVariableImpl@IOException e" shape=ellipse]
+106 [label="19:CtTypeReferenceImpl@TaskException" shape=ellipse]
+107 [label="19:CtLiteralImpl@\"Failed to launch Metamata task: \"" shape=ellipse]
+108 [label="19:CtVariableReadImpl@e" shape=ellipse]
+109 [label="19:CtBinaryOperatorImpl@\"Failed to launch Metamata task: \" + e" shape=ellipse]
+110 [label="19:CtConstructorCallImpl@new TaskException(\"Failed to launch Metamata task: \" + e)" shape=ellipse]
+111 [label="19:CtThrowImpl@throw new TaskException(\"Failed to launch Metamata task: \" + e)" shape=ellipse]
+112 [label="18:CtBlockImpl@\{
+    throw new TaskException(\"Failed to launch Metamata task: \" + e);
+\}" shape=ellipse]
+113 [label="18:CtCatchImpl@ catch (IOException e) \{
+    throw new TaskException(\"Failed to launch Metamata task: \" + e);
+\}" shape=ellipse]
+114 [label="14:CtTryImpl@try \{
+    if (process.execute() != 0) \{
+        throw new TaskException(\"Metamata task failed.\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to launch Metamata task: \" + e);
+\}" shape=ellipse]
+115 [label="2:CtBlockImpl@\{
+    String pathname = target.getAbsolutePath();
+    int pos = pathname.length() - \".jj\".length();
+    pathname = pathname.substring(0, pos) + \".java\";
+    File javaFile = new File(pathname);
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getLogger().info((\"Target is already build - skipping (\" + target) + \")\");
+        return;
+    \}
+    final Execute process = new Execute(handler);
+    log(cmdl.toString(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new TaskException(\"Metamata task failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new TaskException(\"Failed to launch Metamata task: \" + e);
+    \}
+\}" shape=ellipse]
+116 [label="2:CtMethodImpl@protected void _execute(ExecuteStreamHandler handler) throws TaskException \{
+    String pathname = target.getAbsolutePath();
+    int pos = pathname.length() - \".jj\".length();
+    pathname = pathname.substring(0, pos) + \".java\";
+    File javaFile = new File(pathname);
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        getLogger().info((\"Target is already build - skipping (\" + target) + \")\");
+        return;
+    \}
+    final Execute process = new Execute(handler);
+    log(cmdl.toString(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new TaskException(\"Metamata task failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new TaskException(\"Failed to launch Metamata task: \" + e);
+    \}
+\}" shape=ellipse]
+117 [label="12:Update@UPDATE" shape=ellipse]
+118 [label="12:CtInvocationImpl@getLogger().debug(cmdl.toString())" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 10 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+10 -> 15 [label="Define-Use"];
+11 -> 10 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 9 [label="AST"];
+15 -> 22 [label="Data Dep"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+21 -> 16 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 29 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 12 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 36 [label="Define-Use"];
+27 -> 24 [label="Data Dep"];
+29 -> 24 [label="Data Dep"];
+30 -> 26 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 25 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 24 [label="AST"];
+33 -> 32 [label="AST"];
+36 -> 38 [label="Data Dep"];
+37 -> 36 [label="AST"];
+38 -> 42 [label="Define-Use"];
+38 -> 50 [label="Define-Use"];
+39 -> 38 [label="AST"];
+39 -> 34 [label="AST"];
+39 -> 37 [label="AST"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+43 -> 40 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 48 [label="AST"];
+52 -> 47 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 43 [label="AST"];
+53 -> 52 [label="AST"];
+53 -> 66 [label="Control Dep"];
+53 -> 64 [label="Control Dep"];
+53 -> 54 [label="Control Dep"];
+53 -> 58 [label="Control Dep"];
+53 -> 56 [label="Control Dep"];
+53 -> 63 [label="Control Dep"];
+53 -> 61 [label="Control Dep"];
+53 -> 59 [label="Control Dep"];
+53 -> 60 [label="Control Dep"];
+53 -> 62 [label="Control Dep"];
+53 -> 65 [label="Control Dep"];
+58 -> 57 [label="AST"];
+58 -> 56 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+63 -> 61 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 55 [label="AST"];
+64 -> 58 [label="AST"];
+64 -> 54 [label="AST"];
+64 -> 63 [label="AST"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 53 [label="AST"];
+67 -> 66 [label="AST"];
+70 -> 72 [label="Data Dep"];
+71 -> 70 [label="AST"];
+72 -> 84 [label="Define-Use"];
+72 -> 92 [label="Define-Use"];
+73 -> 72 [label="AST"];
+73 -> 68 [label="AST"];
+73 -> 71 [label="AST"];
+79 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+79 -> 76 [label="AST"];
+81 -> 75 [label="AST"];
+81 -> 74 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+81 -> 117 [label="Action"];
+88 -> 86 [label="AST"];
+88 -> 87 [label="AST"];
+88 -> 85 [label="AST"];
+89 -> 83 [label="AST"];
+89 -> 84 [label="AST"];
+89 -> 82 [label="AST"];
+89 -> 88 [label="AST"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+93 -> 90 [label="AST"];
+95 -> 93 [label="AST"];
+95 -> 94 [label="AST"];
+95 -> 100 [label="Control Dep"];
+95 -> 99 [label="Control Dep"];
+95 -> 98 [label="Control Dep"];
+95 -> 97 [label="Control Dep"];
+98 -> 97 [label="AST"];
+99 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+101 -> 95 [label="AST"];
+101 -> 100 [label="AST"];
+102 -> 101 [label="AST"];
+103 -> 108 [label="Define-Use"];
+105 -> 103 [label="AST"];
+105 -> 104 [label="AST"];
+105 -> 112 [label="Control Dep"];
+105 -> 111 [label="Control Dep"];
+105 -> 110 [label="Control Dep"];
+105 -> 109 [label="Control Dep"];
+105 -> 107 [label="Control Dep"];
+105 -> 108 [label="Control Dep"];
+109 -> 107 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 111 [label="AST"];
+113 -> 105 [label="AST"];
+113 -> 112 [label="AST"];
+114 -> 102 [label="AST"];
+114 -> 113 [label="AST"];
+115 -> 11 [label="AST"];
+115 -> 23 [label="AST"];
+115 -> 33 [label="AST"];
+115 -> 39 [label="AST"];
+115 -> 67 [label="AST"];
+115 -> 73 [label="AST"];
+115 -> 81 [label="AST"];
+115 -> 89 [label="AST"];
+115 -> 114 [label="AST"];
+116 -> 1 [label="AST"];
+116 -> 0 [label="AST"];
+116 -> 2 [label="AST"];
+116 -> 4 [label="AST"];
+116 -> 115 [label="AST"];
+117 -> 118 [label="Action"];
+}

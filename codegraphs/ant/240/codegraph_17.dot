@@ -1,0 +1,48 @@
+digraph "testBackTrace#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testBackTrace" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectBuildExceptionContaining" shape=ellipse]
+4 [label="4:CtLiteralImpl@\"backtraceon\"" shape=ellipse]
+5 [label="4:CtLiteralImpl@\"Checking if a back trace is created\"" shape=ellipse]
+6 [label="4:CtLiteralImpl@\"following error occurred\"" shape=ellipse]
+7 [label="3:CtInvocationImpl@expectBuildExceptionContaining(\"backtraceon\", \"Checking if a back trace is created\", \"following error occurred\")" shape=ellipse]
+8 [label="2:CtBlockImpl@\{
+    expectBuildExceptionContaining(\"backtraceon\", \"Checking if a back trace is created\", \"following error occurred\");
+\}" shape=ellipse]
+9 [label="2:CtMethodImpl@public void testBackTrace() \{
+    expectBuildExceptionContaining(\"backtraceon\", \"Checking if a back trace is created\", \"following error occurred\");
+\}" shape=ellipse]
+10 [label="4:Update@UPDATE" shape=ellipse]
+11 [label="6:CtLiteralImpl@\"BuildException expected: Checking if a back trace is created\"" shape=ellipse]
+12 [label="3:Delete@DELETE" shape=ellipse]
+13 [label="2:Insert@INSERT" shape=ellipse]
+14 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+15 [label="4:Insert@INSERT" shape=ellipse]
+16 [label="4:CtTryImpl@try \{
+    buildRule.executeTarget(\"backtraceon\");
+    fail(\"BuildException expected: Checking if a back trace is created\");
+\} catch (BuildException ex) \{
+    assertContains(\"following error occurred\", ex.getMessage());
+\}" shape=ellipse]
+17 [label="4:Move@MOVE" shape=ellipse]
+18 [label="4:Move@MOVE" shape=ellipse]
+5 -> 10 [label="Action"];
+5 -> 17 [label="Action"];
+6 -> 18 [label="Action"];
+7 -> 3 [label="AST"];
+7 -> 2 [label="AST"];
+7 -> 4 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 12 [label="Action"];
+8 -> 7 [label="AST"];
+9 -> 1 [label="AST"];
+9 -> 0 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 13 [label="Action"];
+9 -> 15 [label="Action"];
+10 -> 11 [label="Action"];
+13 -> 14 [label="Action"];
+15 -> 16 [label="Action"];
+}

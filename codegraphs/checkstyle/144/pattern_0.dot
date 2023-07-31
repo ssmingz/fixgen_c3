@@ -1,0 +1,352 @@
+digraph "Pattern" {
+0 [label="testImport#?#3:UPDATE
+testWhitespaceCastParenOff#?#3:UPDATE
+testWhitespaceOff#?#3:UPDATE
+testScopeInnerInterfacesPublic#?#4:UPDATE
+testPackageHtml#?#3:UPDATE
+testWhitespace#?#3:UPDATE
+testRegexpHeader#?#4:UPDATE" shape=ellipse]
+1 [label="testImport#?#3:mConfig.setIgnoreImportLength(true)
+testWhitespaceCastParenOff#?#3:mConfig.setIgnoreCastWhitespace(true)
+testWhitespaceOff#?#3:mConfig.setIgnoreWhitespace(true)
+testScopeInnerInterfacesPublic#?#4:mConfig.setIgnorePublicInInterface(true)
+testPackageHtml#?#3:mConfig.setRequirePackageHtml(true)
+testWhitespace#?#3:mConfig.setIgnoreCastWhitespace(false)
+testRegexpHeader#?#4:mConfig.setHeaderLinesRegexp(true)" shape=ellipse]
+2 [label="testImport#?#2:\{
+    mConfig.setIgnoreImportLength(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputImport.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceCastParenOff#?#2:\{
+    mConfig.setIgnoreCastWhitespace(true);
+    mConfig.setParenPadOption(IGNORE);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceOff#?#2:\{
+    mConfig.setIgnoreWhitespace(true);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \};
+    verify(c, filepath, expected);
+\}
+testScopeInnerInterfacesPublic#?#2:\{
+    mConfig.setJavadocScope(PUBLIC);
+    mConfig.setIgnorePublicInInterface(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputScopeInnerInterfaces.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: type is missing a Javadoc comment.\", filepath + \":38: type is missing a Javadoc comment.\", filepath + \":40:23: variable 'CA' missing Javadoc.\", filepath + \":41:16: variable 'CB' missing Javadoc.\", filepath + \":43:9: method is missing a Javadoc comment.\", filepath + \":44:9: method is missing a Javadoc comment.\" \};
+    verify(c, filepath, expected);
+\}
+testPackageHtml#?#2:\{
+    mConfig.setRequirePackageHtml(true);
+    mConfig.setJavadocScope(PRIVATE);
+    final Checker c = createChecker();
+    final String packageHtmlPath = getPath(\"package.html\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespace#?#2:\{
+    mConfig.setIgnoreCastWhitespace(false);
+    mConfig.setParenPadOption(NOSPACE);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":58:12: '(' is followed by whitespace.\", filepath + \":58:36: ')' is preceeded by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":74:13: '(' is followed by whitespace.\", filepath + \":74:18: ')' is preceeded by whitespace.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":88:21: cast needs to be followed by whitespace.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+    c.destroy();
+\}
+testRegexpHeader#?#2:\{
+    final Checker c = createChecker();
+    mConfig.setHeaderLinesRegexp(true);
+    mConfig.setHeaderFile(getPath(\"regexp.header\"));
+    mConfig.setHeaderIgnoreLines(\"4,5\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":3: Line does not match expected header line of '// Created: 2002'.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+3 [label="testImport#?#2:public void testImport() throws Exception \{
+    mConfig.setIgnoreImportLength(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputImport.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceCastParenOff#?#2:public void testWhitespaceCastParenOff() throws Exception \{
+    mConfig.setIgnoreCastWhitespace(true);
+    mConfig.setParenPadOption(IGNORE);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceOff#?#2:public void testWhitespaceOff() throws Exception \{
+    mConfig.setIgnoreWhitespace(true);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \};
+    verify(c, filepath, expected);
+\}
+testScopeInnerInterfacesPublic#?#2:public void testScopeInnerInterfacesPublic() throws Exception \{
+    mConfig.setJavadocScope(PUBLIC);
+    mConfig.setIgnorePublicInInterface(true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputScopeInnerInterfaces.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":7: type is missing a Javadoc comment.\", filepath + \":38: type is missing a Javadoc comment.\", filepath + \":40:23: variable 'CA' missing Javadoc.\", filepath + \":41:16: variable 'CB' missing Javadoc.\", filepath + \":43:9: method is missing a Javadoc comment.\", filepath + \":44:9: method is missing a Javadoc comment.\" \};
+    verify(c, filepath, expected);
+\}
+testPackageHtml#?#2:public void testPackageHtml() throws Exception \{
+    mConfig.setRequirePackageHtml(true);
+    mConfig.setJavadocScope(PRIVATE);
+    final Checker c = createChecker();
+    final String packageHtmlPath = getPath(\"package.html\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespace#?#2:public void testWhitespace() throws Exception \{
+    mConfig.setIgnoreCastWhitespace(false);
+    mConfig.setParenPadOption(NOSPACE);
+    mConfig.setTryBlock(IGNORE);
+    mConfig.setCatchBlock(IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":58:12: '(' is followed by whitespace.\", filepath + \":58:36: ')' is preceeded by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":74:13: '(' is followed by whitespace.\", filepath + \":74:18: ')' is preceeded by whitespace.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":88:21: cast needs to be followed by whitespace.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+    c.destroy();
+\}
+testRegexpHeader#?#2:public void testRegexpHeader() throws Exception \{
+    final Checker c = createChecker();
+    mConfig.setHeaderLinesRegexp(true);
+    mConfig.setHeaderFile(getPath(\"regexp.header\"));
+    mConfig.setHeaderIgnoreLines(\"4,5\");
+    final String filepath = getPath(\"InputScopeAnonInner.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":3: Line does not match expected header line of '// Created: 2002'.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+4 [label="testImport#?#4:final Checker c = createChecker()
+testWhitespaceCastParenOff#?#7:final Checker c = createChecker()
+testWhitespaceOff#?#6:final Checker c = createChecker()
+testScopeInnerInterfacesPublic#?#5:final Checker c = createChecker()
+testPackageHtml#?#5:final Checker c = createChecker()
+testWhitespace#?#7:final Checker c = createChecker()
+testRegexpHeader#?#3:final Checker c = createChecker()" shape=ellipse]
+5 [label="testImport#?#5:final String filepath = getPath(\"InputImport.java\")
+testWhitespaceCastParenOff#?#8:final String filepath = getPath(\"InputWhitespace.java\")
+testWhitespaceOff#?#7:final String filepath = getPath(\"InputWhitespace.java\")
+testScopeInnerInterfacesPublic#?#6:final String filepath = getPath(\"InputScopeInnerInterfaces.java\")
+testPackageHtml#?#7:final String filepath = getPath(\"InputScopeAnonInner.java\")
+testWhitespace#?#8:final String filepath = getPath(\"InputWhitespace.java\")
+testRegexpHeader#?#7:final String filepath = getPath(\"InputScopeAnonInner.java\")" shape=ellipse]
+6 [label="testImport#?#6:assertNotNull(c)
+testWhitespaceCastParenOff#?#9:assertNotNull(c)
+testWhitespaceOff#?#8:assertNotNull(c)
+testScopeInnerInterfacesPublic#?#7:assertNotNull(c)
+testPackageHtml#?#8:assertNotNull(c)
+testWhitespace#?#9:assertNotNull(c)
+testRegexpHeader#?#8:assertNotNull(c)" shape=ellipse]
+7 [label="testImport#?#7:final String[] expected = new String[]\{ filepath + \":7: Avoid using the '.*' form of import.\", filepath + \":7: Redundant import from the same package.\", filepath + \":8: Redundant import from the same package.\", filepath + \":9: Avoid using the '.*' form of import.\", filepath + \":10: Avoid using the '.*' form of import.\", filepath + \":10: Redundant import from the java.lang package.\", filepath + \":11: Redundant import from the java.lang package.\", filepath + \":13: Unused import - java.util.List\", filepath + \":14: Duplicate import to line 13.\", filepath + \":14: Unused import - java.util.List\", filepath + \":15: Import from illegal package - sun.net.ftpclient.FtpClient\" \}
+testWhitespaceCastParenOff#?#10:final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \}
+testWhitespaceOff#?#9:final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \}
+testScopeInnerInterfacesPublic#?#8:final String[] expected = new String[]\{ filepath + \":7: type is missing a Javadoc comment.\", filepath + \":38: type is missing a Javadoc comment.\", filepath + \":40:23: variable 'CA' missing Javadoc.\", filepath + \":41:16: variable 'CB' missing Javadoc.\", filepath + \":43:9: method is missing a Javadoc comment.\", filepath + \":44:9: method is missing a Javadoc comment.\" \}
+testPackageHtml#?#9:final String[] expected = new String[]\{ packageHtmlPath + \":0: missing package documentation file.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \}
+testWhitespace#?#10:final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":58:12: '(' is followed by whitespace.\", filepath + \":58:36: ')' is preceeded by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":74:13: '(' is followed by whitespace.\", filepath + \":74:18: ')' is preceeded by whitespace.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":88:21: cast needs to be followed by whitespace.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \}
+testRegexpHeader#?#9:final String[] expected = new String[]\{ filepath + \":3: Line does not match expected header line of '// Created: 2002'.\", filepath + \":37:34: '(' is followed by whitespace.\", filepath + \":39:42: '(' is followed by whitespace.\", filepath + \":39:57: ')' is preceeded by whitespace.\", filepath + \":43:14: ')' is preceeded by whitespace.\", filepath + \":51:34: '(' is followed by whitespace.\", filepath + \":53:42: '(' is followed by whitespace.\", filepath + \":53:57: ')' is preceeded by whitespace.\", filepath + \":57:14: ')' is preceeded by whitespace.\" \}" shape=ellipse]
+8 [label="testImport#?#21:verify(c, filepath, expected)
+testWhitespaceCastParenOff#?#65:verify(c, filepath, expected)
+testWhitespaceOff#?#17:verify(c, filepath, expected)
+testScopeInnerInterfacesPublic#?#17:verify(c, filepath, expected)
+testPackageHtml#?#21:verify(c, filepath, expected)
+testWhitespace#?#70:verify(c, filepath, expected)
+testRegexpHeader#?#21:verify(c, filepath, expected)" shape=ellipse]
+9 [label="testImport#?#3:setIgnoreImportLength
+testWhitespaceCastParenOff#?#3:setIgnoreCastWhitespace
+testWhitespaceOff#?#3:setIgnoreWhitespace
+testScopeInnerInterfacesPublic#?#4:setIgnorePublicInInterface
+testPackageHtml#?#3:setRequirePackageHtml
+testWhitespace#?#3:setIgnoreCastWhitespace
+testRegexpHeader#?#4:setHeaderLinesRegexp" shape=ellipse]
+10 [label="testImport#?#3:mConfig
+testWhitespaceCastParenOff#?#3:mConfig
+testWhitespaceOff#?#3:mConfig
+testScopeInnerInterfacesPublic#?#4:mConfig
+testPackageHtml#?#3:mConfig
+testWhitespace#?#3:mConfig
+testRegexpHeader#?#4:mConfig" shape=ellipse]
+11 [label="testImport#?#3:mConfig
+testWhitespaceCastParenOff#?#3:mConfig
+testWhitespaceOff#?#3:mConfig
+testScopeInnerInterfacesPublic#?#4:mConfig
+testPackageHtml#?#3:mConfig
+testWhitespace#?#3:mConfig
+testRegexpHeader#?#4:mConfig" shape=ellipse]
+12 [label="testImport#?#3:setIgnoreImportLength(boolean)
+testWhitespaceCastParenOff#?#3:setIgnoreCastWhitespace(boolean)
+testWhitespaceOff#?#3:setIgnoreWhitespace(boolean)
+testScopeInnerInterfacesPublic#?#4:setIgnorePublicInInterface(boolean)
+testPackageHtml#?#3:setRequirePackageHtml(boolean)
+testWhitespace#?#3:setIgnoreCastWhitespace(boolean)
+testRegexpHeader#?#4:setHeaderLinesRegexp(boolean)" shape=ellipse]
+13 [label="testImport#?#3:mConfig
+testWhitespaceCastParenOff#?#3:mConfig
+testWhitespaceOff#?#3:mConfig
+testScopeInnerInterfacesPublic#?#4:mConfig
+testPackageHtml#?#3:mConfig
+testWhitespace#?#3:mConfig
+testRegexpHeader#?#4:mConfig" shape=ellipse]
+14 [label="testImport#?#3:boolean
+testWhitespaceCastParenOff#?#3:boolean
+testWhitespaceOff#?#3:boolean
+testScopeInnerInterfacesPublic#?#4:boolean
+testPackageHtml#?#3:boolean
+testWhitespace#?#3:boolean
+testRegexpHeader#?#4:boolean" shape=ellipse]
+15 [label="testImport#?#3:true
+testWhitespaceCastParenOff#?#3:true
+testWhitespaceOff#?#3:true
+testScopeInnerInterfacesPublic#?#4:true
+testPackageHtml#?#3:true
+testWhitespace#?#3:false
+testRegexpHeader#?#4:true" shape=ellipse]
+16 [label="testImport#?#3:boolean
+testWhitespaceCastParenOff#?#3:boolean
+testWhitespaceOff#?#3:boolean
+testScopeInnerInterfacesPublic#?#4:boolean
+testPackageHtml#?#3:boolean
+testWhitespace#?#3:boolean
+testRegexpHeader#?#4:boolean" shape=ellipse]
+17 [label="testImport#?#3:setBooleanFlag
+testWhitespaceCastParenOff#?#3:setBooleanFlag
+testWhitespaceOff#?#3:setBooleanFlag
+testScopeInnerInterfacesPublic#?#4:setBooleanFlag
+testPackageHtml#?#3:setBooleanFlag
+testWhitespace#?#3:setBooleanFlag
+testRegexpHeader#?#4:setBooleanFlag" shape=ellipse]
+18 [label="testImport#?#3:setBooleanFlag(boolean)
+testWhitespaceCastParenOff#?#3:setBooleanFlag(boolean)
+testWhitespaceOff#?#3:setBooleanFlag(boolean)
+testScopeInnerInterfacesPublic#?#4:setBooleanFlag(boolean)
+testPackageHtml#?#3:setBooleanFlag(boolean)
+testWhitespace#?#3:setBooleanFlag(boolean)
+testRegexpHeader#?#4:setBooleanFlag(boolean)" shape=ellipse]
+19 [label="testImport#?#3:mConfig
+testWhitespaceCastParenOff#?#3:mConfig
+testWhitespaceOff#?#3:mConfig
+testScopeInnerInterfacesPublic#?#4:mConfig
+testPackageHtml#?#3:mConfig
+testWhitespace#?#3:mConfig
+testRegexpHeader#?#4:mConfig" shape=ellipse]
+20 [label="testImport#?#3:
+testWhitespaceCastParenOff#?#3:
+testWhitespaceOff#?#3:
+testScopeInnerInterfacesPublic#?#4:
+testPackageHtml#?#3:
+testWhitespace#?#3:
+testRegexpHeader#?#4:" shape=ellipse]
+21 [label="testImport#?#3:boolean
+testWhitespaceCastParenOff#?#3:boolean
+testWhitespaceOff#?#3:boolean
+testScopeInnerInterfacesPublic#?#4:boolean
+testPackageHtml#?#3:boolean
+testWhitespace#?#3:boolean
+testRegexpHeader#?#4:boolean" shape=ellipse]
+22 [label="testImport#?#3:IGNORE_IMPORT_LENGTH_PROP
+testWhitespaceCastParenOff#?#3:IGNORE_CAST_WHITESPACE_PROP
+testWhitespaceOff#?#3:IGNORE_WHITESPACE_PROP
+testScopeInnerInterfacesPublic#?#4:IGNORE_PUBLIC_IN_INTERFACE_PROP
+testPackageHtml#?#3:REQUIRE_PACKAGE_HTML_PROP
+testWhitespace#?#3:IGNORE_CAST_WHITESPACE_PROP
+testRegexpHeader#?#4:HEADER_LINES_REGEXP_PROP" shape=ellipse]
+23 [label="testImport#?#3:IGNORE_IMPORT_LENGTH_PROP
+testWhitespaceCastParenOff#?#3:IGNORE_CAST_WHITESPACE_PROP
+testWhitespaceOff#?#3:IGNORE_WHITESPACE_PROP
+testScopeInnerInterfacesPublic#?#4:IGNORE_PUBLIC_IN_INTERFACE_PROP
+testPackageHtml#?#3:REQUIRE_PACKAGE_HTML_PROP
+testWhitespace#?#3:IGNORE_CAST_WHITESPACE_PROP
+testRegexpHeader#?#4:HEADER_LINES_REGEXP_PROP" shape=ellipse]
+24 [label="testImport#?#3:
+testWhitespaceCastParenOff#?#3:
+testWhitespaceOff#?#3:
+testScopeInnerInterfacesPublic#?#4:
+testPackageHtml#?#3:
+testWhitespace#?#3:
+testRegexpHeader#?#4:" shape=ellipse]
+25 [label="testWhitespaceCastParenOff#?#4:mConfig.setParenPadOption(IGNORE)" shape=ellipse]
+26 [label="testWhitespaceCastParenOff#?#5:mConfig.setTryBlock(IGNORE)" shape=ellipse]
+27 [label="testWhitespaceCastParenOff#?#6:mConfig.setCatchBlock(IGNORE)" shape=ellipse]
+28 [label="testWhitespaceOff#?#4:mConfig.setTryBlock(IGNORE)" shape=ellipse]
+29 [label="testWhitespaceOff#?#5:mConfig.setCatchBlock(IGNORE)" shape=ellipse]
+30 [label="testScopeInnerInterfacesPublic#?#3:mConfig.setJavadocScope(PUBLIC)" shape=ellipse]
+31 [label="testPackageHtml#?#6:final String packageHtmlPath = getPath(\"package.html\")" shape=ellipse]
+32 [label="testPackageHtml#?#4:mConfig.setJavadocScope(PRIVATE)" shape=ellipse]
+33 [label="testWhitespace#?#4:mConfig.setParenPadOption(NOSPACE)" shape=ellipse]
+34 [label="testWhitespace#?#5:mConfig.setTryBlock(IGNORE)" shape=ellipse]
+35 [label="testWhitespace#?#6:mConfig.setCatchBlock(IGNORE)" shape=ellipse]
+36 [label="testWhitespace#?#71:c.destroy()" shape=ellipse]
+37 [label="testRegexpHeader#?#5:mConfig.setHeaderFile(getPath(\"regexp.header\"))" shape=ellipse]
+38 [label="testRegexpHeader#?#6:mConfig.setHeaderIgnoreLines(\"4,5\")" shape=ellipse]
+1 -> 0 [label="Action:7"];
+1 -> 9 [label="AST:7"];
+1 -> 10 [label="AST:7"];
+1 -> 12 [label="AST:7"];
+1 -> 15 [label="AST:7"];
+2 -> 1 [label="AST:7"];
+2 -> 4 [label="AST:7"];
+2 -> 5 [label="AST:7"];
+2 -> 6 [label="AST:7"];
+2 -> 7 [label="AST:7"];
+2 -> 8 [label="AST:7"];
+2 -> 25 [label="AST:1"];
+2 -> 26 [label="AST:1"];
+2 -> 27 [label="AST:1"];
+2 -> 28 [label="AST:1"];
+2 -> 29 [label="AST:1"];
+2 -> 30 [label="AST:1"];
+2 -> 31 [label="AST:1"];
+2 -> 32 [label="AST:1"];
+2 -> 33 [label="AST:1"];
+2 -> 34 [label="AST:1"];
+2 -> 35 [label="AST:1"];
+2 -> 36 [label="AST:1"];
+2 -> 37 [label="AST:1"];
+2 -> 38 [label="AST:1"];
+3 -> 2 [label="AST:7"];
+10 -> 11 [label="AST:7"];
+12 -> 13 [label="AST:7"];
+12 -> 14 [label="AST:7"];
+15 -> 16 [label="AST:7"];
+18 -> 19 [label="AST:7"];
+18 -> 21 [label="AST:7"];
+19 -> 20 [label="AST:7"];
+22 -> 23 [label="AST:7"];
+23 -> 24 [label="AST:7"];
+}

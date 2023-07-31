@@ -1,0 +1,161 @@
+digraph "dieOnCircularReference#?,Stack,Project" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@dieOnCircularReference" shape=ellipse]
+2 [label="2:CtParameterImpl@Stack stk" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Stack" shape=ellipse]
+4 [label="2:CtParameterImpl@Project p" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@Project" shape=ellipse]
+6 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@isChecked()" shape=ellipse]
+8 [label="3:CtVirtualElement@isChecked" shape=ellipse]
+9 [label="3:CtInvocationImpl@isChecked()" shape=ellipse]
+10 [label="4:CtReturnImpl@return" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+12 [label="3:CtIfImpl@if (isChecked()) \{
+    return;
+\}" shape=ellipse]
+13 [label="6:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+14 [label="6:CtVirtualElement@isReference" shape=ellipse]
+15 [label="6:CtInvocationImpl@isReference()" shape=ellipse]
+16 [label="7:CtExecutableReferenceImpl@dieOnCircularReference(Stack,Project)" shape=ellipse]
+17 [label="7:CtVirtualElement@dieOnCircularReference" shape=ellipse]
+18 [label="7:CtSuperAccessImpl@super" shape=ellipse]
+19 [label="7:CtVariableReadImpl@stk" shape=ellipse]
+20 [label="7:CtVariableReadImpl@p" shape=ellipse]
+21 [label="7:CtInvocationImpl@super.dieOnCircularReference(stk, p)" shape=ellipse]
+22 [label="6:CtBlockImpl@\{
+    super.dieOnCircularReference(stk, p);
+\}" shape=ellipse]
+23 [label="9:CtFieldReadImpl@union" shape=ellipse]
+24 [label="9:CtLiteralImpl@null" shape=ellipse]
+25 [label="9:CtBinaryOperatorImpl@union != null" shape=ellipse]
+26 [label="10:CtExecutableReferenceImpl@invokeCircularReferenceCheck(<unknown>,<unknown>,<unknown>)" shape=ellipse]
+27 [label="10:CtVirtualElement@invokeCircularReferenceCheck" shape=ellipse]
+28 [label="10:CtFieldReadImpl@union" shape=ellipse]
+29 [label="10:CtVariableReadImpl@stk" shape=ellipse]
+30 [label="10:CtVariableReadImpl@p" shape=ellipse]
+31 [label="10:CtInvocationImpl@invokeCircularReferenceCheck(union, stk, p)" shape=ellipse]
+32 [label="9:CtBlockImpl@\{
+    invokeCircularReferenceCheck(union, stk, p);
+\}" shape=ellipse]
+33 [label="9:CtIfImpl@if (union != null) \{
+    invokeCircularReferenceCheck(union, stk, p);
+\}" shape=ellipse]
+34 [label="12:CtExecutableReferenceImpl@setChecked(boolean)" shape=ellipse]
+35 [label="12:CtVirtualElement@setChecked" shape=ellipse]
+36 [label="12:CtLiteralImpl@true" shape=ellipse]
+37 [label="12:CtInvocationImpl@setChecked(true)" shape=ellipse]
+38 [label="8:CtBlockImpl@\{
+    if (union != null) \{
+        invokeCircularReferenceCheck(union, stk, p);
+    \}
+    setChecked(true);
+\}" shape=ellipse]
+39 [label="6:CtIfImpl@if (isReference()) \{
+    super.dieOnCircularReference(stk, p);
+\} else \{
+    if (union != null) \{
+        invokeCircularReferenceCheck(union, stk, p);
+    \}
+    setChecked(true);
+\}" shape=ellipse]
+40 [label="2:CtBlockImpl@\{
+    if (isChecked()) \{
+        return;
+    \}
+    if (isReference()) \{
+        super.dieOnCircularReference(stk, p);
+    \} else \{
+        if (union != null) \{
+            invokeCircularReferenceCheck(union, stk, p);
+        \}
+        setChecked(true);
+    \}
+\}" shape=ellipse]
+41 [label="2:CtMethodImpl@protected synchronized void dieOnCircularReference(Stack stk, Project p) throws BuildException \{
+    if (isChecked()) \{
+        return;
+    \}
+    if (isReference()) \{
+        super.dieOnCircularReference(stk, p);
+    \} else \{
+        if (union != null) \{
+            invokeCircularReferenceCheck(union, stk, p);
+        \}
+        setChecked(true);
+    \}
+\}" shape=ellipse]
+42 [label="10:Insert@INSERT" shape=ellipse]
+43 [label="10:CtInvocationImpl@stk.push(union)" shape=ellipse]
+44 [label="12:Insert@INSERT" shape=ellipse]
+45 [label="12:CtInvocationImpl@stk.pop()" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 11 [label="Control Dep"];
+9 -> 10 [label="Control Dep"];
+11 -> 10 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 22 [label="Control Dep"];
+15 -> 21 [label="Control Dep"];
+15 -> 16 [label="Control Dep"];
+15 -> 18 [label="Control Dep"];
+15 -> 19 [label="Control Dep"];
+15 -> 20 [label="Control Dep"];
+15 -> 38 [label="Control Dep"];
+15 -> 33 [label="Control Dep"];
+15 -> 25 [label="Control Dep"];
+15 -> 23 [label="Control Dep"];
+15 -> 24 [label="Control Dep"];
+15 -> 37 [label="Control Dep"];
+15 -> 34 [label="Control Dep"];
+15 -> 36 [label="Control Dep"];
+21 -> 17 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 16 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 32 [label="Control Dep"];
+25 -> 31 [label="Control Dep"];
+25 -> 26 [label="Control Dep"];
+25 -> 28 [label="Control Dep"];
+25 -> 29 [label="Control Dep"];
+25 -> 30 [label="Control Dep"];
+31 -> 27 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 42 [label="Action"];
+32 -> 44 [label="Action"];
+33 -> 25 [label="AST"];
+33 -> 32 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 34 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 15 [label="AST"];
+39 -> 22 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 12 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 1 [label="AST"];
+41 -> 0 [label="AST"];
+41 -> 2 [label="AST"];
+41 -> 4 [label="AST"];
+41 -> 6 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 43 [label="Action"];
+44 -> 45 [label="Action"];
+}

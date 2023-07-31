@@ -1,0 +1,89 @@
+digraph "popValue#?" {
+0 [label="2:CtTypeReferenceImpl@BigInteger" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@" shape=ellipse]
+2 [label="2:CtVirtualElement@popValue" shape=ellipse]
+3 [label="3:CtFieldReferenceImpl@mCurrentValue" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+5 [label="3:CtFieldWriteImpl@mCurrentValue" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@pop()" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@mValueStack" shape=ellipse]
+8 [label="3:CtVirtualElement@pop" shape=ellipse]
+9 [label="3:CtFieldReferenceImpl@mValueStack" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+11 [label="3:CtFieldReadImpl@mValueStack" shape=ellipse]
+12 [label="3:CtInvocationImpl@mValueStack.pop()" shape=ellipse]
+13 [label="3:CtAssignmentImpl@mCurrentValue = mValueStack.pop()" shape=ellipse]
+14 [label="4:CtFieldReferenceImpl@mCurrentValue" shape=ellipse]
+15 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+16 [label="4:CtFieldReadImpl@mCurrentValue" shape=ellipse]
+17 [label="4:CtReturnImpl@return mCurrentValue" shape=ellipse]
+18 [label="2:CtBlockImpl@\{
+    mCurrentValue = mValueStack.pop();
+    return mCurrentValue;
+\}" shape=ellipse]
+19 [label="2:CtMethodImpl@protected final BigInteger popValue() \{
+    mCurrentValue = mValueStack.pop();
+    return mCurrentValue;
+\}" shape=ellipse]
+20 [label="3:Update@UPDATE" shape=ellipse]
+21 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+22 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+23 [label="3:CtFieldReferenceImpl@currentValue" shape=ellipse]
+24 [label="3:CtFieldWriteImpl@currentValue" shape=ellipse]
+25 [label="4:Update@UPDATE" shape=ellipse]
+26 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+27 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+28 [label="4:CtFieldReferenceImpl@currentValue" shape=ellipse]
+29 [label="4:CtFieldReadImpl@currentValue" shape=ellipse]
+30 [label="3:Update@UPDATE" shape=ellipse]
+31 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+32 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+33 [label="3:CtFieldReferenceImpl@valueStack" shape=ellipse]
+34 [label="3:CtFieldReadImpl@valueStack" shape=ellipse]
+0 -> 1 [label="AST"];
+3 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 16 [label="Define-Use"];
+5 -> 20 [label="Action"];
+5 -> 29 [label="Define-Use"];
+5 -> 29 [label="Data Dep"];
+5 -> 29 [label="Control Dep"];
+6 -> 7 [label="AST"];
+9 -> 10 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 5 [label="Data Dep"];
+11 -> 30 [label="Action"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 6 [label="AST"];
+13 -> 5 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 15 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 25 [label="Action"];
+17 -> 16 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 2 [label="AST"];
+19 -> 0 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 24 [label="Action"];
+22 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 29 [label="Define-Use"];
+24 -> 16 [label="Define-Use"];
+24 -> 16 [label="Data Dep"];
+24 -> 16 [label="Control Dep"];
+25 -> 29 [label="Action"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 34 [label="Action"];
+32 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 24 [label="Data Dep"];
+34 -> 5 [label="Data Dep"];
+34 -> 5 [label="Control Dep"];
+}

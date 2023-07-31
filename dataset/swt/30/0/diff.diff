@@ -1,0 +1,24 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/30/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/30/0/after.java
+@@ -4,8 +4,13 @@
+-    NSSize size = printInfo.paperSize();
+-    Point dpi = getDPI();
+-    Point screenDPI = getIndependentDPI();
+-    return new Rectangle(
+-        0,
+-        0,
+-        ((int) ((size.width * dpi.x) / screenDPI.x)),
+-        ((int) ((size.height * dpi.y) / screenDPI.y)));
++    NSAutoreleasePool pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    try {
++      NSSize size = printInfo.paperSize();
++      Point dpi = getDPI();
++      Point screenDPI = getIndependentDPI();
++      return new Rectangle(
++          0,
++          0,
++          ((int) ((size.width * dpi.x) / screenDPI.x)),
++          ((int) ((size.height * dpi.y) / screenDPI.y)));
++    } finally {
++      pool.release();
++    }

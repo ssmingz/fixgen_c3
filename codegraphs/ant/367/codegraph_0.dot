@@ -1,0 +1,72 @@
+digraph "flush#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@flush" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@OutputStream" shape=ellipse]
+4 [label="3:CtThisAccessImpl@this" shape=ellipse]
+5 [label="3:CtFieldReadImpl@this.out" shape=ellipse]
+6 [label="3:CtVirtualElement@out" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@OutputStream out = this.out" shape=ellipse]
+8 [label="4:CtVariableReadImpl@out" shape=ellipse]
+9 [label="4:CtLiteralImpl@null" shape=ellipse]
+10 [label="4:CtBinaryOperatorImpl@out != null" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@flush()" shape=ellipse]
+12 [label="5:CtVirtualElement@flush" shape=ellipse]
+13 [label="5:CtVariableReadImpl@out" shape=ellipse]
+14 [label="5:CtInvocationImpl@out.flush()" shape=ellipse]
+15 [label="4:CtBlockImpl@\{
+    out.flush();
+\}" shape=ellipse]
+16 [label="4:CtIfImpl@if (out != null) \{
+    out.flush();
+\}" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    OutputStream out = this.out;
+    if (out != null) \{
+        out.flush();
+    \}
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public void flush() throws IOException \{
+    OutputStream out = this.out;
+    if (out != null) \{
+        out.flush();
+    \}
+\}" shape=ellipse]
+19 [label="3:Update@UPDATE" shape=ellipse]
+20 [label="3:CtLocalVariableImpl@OutputStream outShadow = this.out" shape=ellipse]
+21 [label="4:Update@UPDATE" shape=ellipse]
+22 [label="4:CtVariableReadImpl@outShadow" shape=ellipse]
+23 [label="5:Update@UPDATE" shape=ellipse]
+24 [label="5:CtVariableReadImpl@outShadow" shape=ellipse]
+5 -> 4 [label="AST"];
+5 -> 6 [label="Data Dep"];
+6 -> 8 [label="Define-Use"];
+6 -> 13 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 19 [label="Action"];
+8 -> 21 [label="Action"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 15 [label="Control Dep"];
+10 -> 14 [label="Control Dep"];
+10 -> 11 [label="Control Dep"];
+10 -> 13 [label="Control Dep"];
+13 -> 23 [label="Action"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 10 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 7 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 2 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 20 [label="Action"];
+21 -> 22 [label="Action"];
+23 -> 24 [label="Action"];
+}

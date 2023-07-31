@@ -1,0 +1,107 @@
+digraph "Pattern" {
+0 [label="runExec#?,Execute#3:INSERT
+isSigned#?,File#6:INSERT" shape=ellipse]
+1 [label="runExec#?,Execute#2:protected void runExec(Execute exe) throws BuildException \{
+    exe.setCommandline(cmdl.getCommandline());
+    try \{
+        runExecute(exe);
+    \} catch (IOException e) \{
+        if (failIfExecFails) \{
+            throw new BuildException(\"Execute failed: \" + e.toString(), e, location);
+        \} else \{
+            log(\"Execute failed: \" + e.toString(), MSG_ERR);
+        \}
+    \} finally \{
+        logFlush();
+    \}
+\}" shape=ellipse]
+2 [label="runExec#?,Execute#2:runExec
+isSigned#?,File#5:e" shape=ellipse]
+3 [label="runExec#?,Execute#2:void
+isSigned#?,File#5:IOException" shape=ellipse]
+4 [label="runExec#?,Execute#2:Execute exe" shape=ellipse]
+5 [label="runExec#?,Execute#2:Execute" shape=ellipse]
+6 [label="runExec#?,Execute#2:BuildException" shape=ellipse]
+7 [label="runExec#?,Execute#-1:" shape=ellipse]
+8 [label="runExec#?,Execute#2:\{
+    exe.setCommandline(cmdl.getCommandline());
+    try \{
+        runExecute(exe);
+    \} catch (IOException e) \{
+        if (failIfExecFails) \{
+            throw new BuildException(\"Execute failed: \" + e.toString(), e, location);
+        \} else \{
+            log(\"Execute failed: \" + e.toString(), MSG_ERR);
+        \}
+    \} finally \{
+        logFlush();
+    \}
+\}
+isSigned#?,File#2:\{
+    try \{
+        return IsSigned.isSigned(file, alias);
+    \} catch (IOException e) \{
+        return false;
+    \}
+\}" shape=ellipse]
+9 [label="runExec#?,Execute#3:exe.setCommandline(cmdl.getCommandline())" shape=ellipse]
+10 [label="runExec#?,Execute#4:try \{
+    runExecute(exe);
+\} catch (IOException e) \{
+    if (failIfExecFails) \{
+        throw new BuildException(\"Execute failed: \" + e.toString(), e, location);
+    \} else \{
+        log(\"Execute failed: \" + e.toString(), MSG_ERR);
+    \}
+\} finally \{
+    logFlush();
+\}
+isSigned#?,File#3:try \{
+    return IsSigned.isSigned(file, alias);
+\} catch (IOException e) \{
+    return false;
+\}" shape=ellipse]
+11 [label="runExec#?,Execute#2:VE: Modifiers_Method" shape=ellipse]
+12 [label="runExec#?,Execute#2:VE: ThrownTypes_runExec" shape=ellipse]
+13 [label="runExec#?,Execute#2:protected" shape=ellipse]
+14 [label="runExec#?,Execute#3:log(cmdl.describeCommand(), MSG_VERBOSE)
+isSigned#?,File#6:log(e.toString(), MSG_VERBOSE)" shape=ellipse]
+15 [label="isSigned#?,File#6:false" shape=ellipse]
+16 [label="isSigned#?,File#5:\{
+    return false;
+\}" shape=ellipse]
+17 [label="isSigned#?,File#3:\{
+    return IsSigned.isSigned(file, alias);
+\}" shape=ellipse]
+18 [label="isSigned#?,File#5: catch (IOException e) \{
+    return false;
+\}" shape=ellipse]
+19 [label="isSigned#?,File#5:IOException e" shape=ellipse]
+20 [label="isSigned#?,File#6:return false" shape=ellipse]
+0 -> 14 [label="Action:2"];
+1 -> 0 [label="Action:1"];
+1 -> 2 [label="AST:1"];
+1 -> 3 [label="AST:1"];
+1 -> 4 [label="AST:1"];
+1 -> 6 [label="AST:1"];
+1 -> 8 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+1 -> 12 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+4 -> 5 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+8 -> 10 [label="AST:2"];
+10 -> 17 [label="AST:1"];
+10 -> 18 [label="AST:1"];
+16 -> 20 [label="AST:1"];
+18 -> 16 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 0 [label="Action:1"];
+19 -> 15 [label="Control Dep:1"];
+19 -> 16 [label="Control Dep:1"];
+19 -> 2 [label="AST:1"];
+19 -> 3 [label="AST:1"];
+19 -> 20 [label="Control Dep:1"];
+20 -> 15 [label="AST:1"];
+}

@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1472/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1472/1/after.java
+@@ -2,2 +2,3 @@
+-  protected String getWriteFolderURI() {
+-    return System.getProperty("test.ftp.uri") + "/write-tests";
++  protected FileObject getWriteFolder() throws Exception {
++    final String uri = System.getProperty("test.ftp.uri") + "/write-tests";
++    return m_manager.resolveFile(uri);

@@ -1,0 +1,33 @@
+digraph "Pattern" {
+0 [label="execute#?#45:UPDATE
+loadClass#?,String#6:UPDATE
+determineDependencies#?#56:UPDATE" shape=ellipse]
+1 [label="execute#?#45:ClassLoader
+loadClass#?,String#6:ClassLoader
+determineDependencies#?#56:ClassLoader" shape=ellipse]
+2 [label="execute#?#45:final ClassLoader classLoader = new URLClassLoader(classpath.toURLs())
+loadClass#?,String#6:final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs())
+determineDependencies#?#56:final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs())" shape=ellipse]
+3 [label="execute#?#42:classpath != null
+loadClass#?,String#3:m_classpath == null
+determineDependencies#?#54:dependClasspath != null" shape=ellipse]
+4 [label="execute#?#45:MOVE
+loadClass#?,String#6:MOVE
+determineDependencies#?#56:MOVE" shape=ellipse]
+5 [label="execute#?#45:UPDATE
+loadClass#?,String#6:UPDATE
+determineDependencies#?#56:UPDATE" shape=ellipse]
+6 [label="execute#?#-1:java.lang
+loadClass#?,String#-1:java.lang
+determineDependencies#?#-1:java.lang" shape=ellipse]
+7 [label="execute#?#45:URL[]
+loadClass#?,String#6:URL[]
+determineDependencies#?#56:URL[]" shape=ellipse]
+0 -> 7 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 5 [label="Action:3"];
+3 -> 2 [label="Control Dep:3"];
+4 -> 2 [label="Action:3"];
+}

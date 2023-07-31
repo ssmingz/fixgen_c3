@@ -1,0 +1,787 @@
+digraph "Pattern" {
+0 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#32:INSERT
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#28:INSERT" shape=ellipse]
+1 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:private TestResultHolder executeAsForked(JUnitTest test, ExecuteWatchdog watchdog, File casesFile) throws BuildException \{
+    if (perm != null) \{
+        log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+    \}
+    CommandlineJava cmd;
+    try \{
+        cmd = ((CommandlineJava) (getCommandline().clone()));
+    \} catch (CloneNotSupportedException e) \{
+        throw new BuildException(\"This shouldn't happen\", e, getLocation());
+    \}
+    if (casesFile == null) \{
+        cmd.createArgument().setValue(test.getName());
+        if (test.getMethods() != null) \{
+            cmd.createArgument().setValue(Constants.METHOD_NAMES + test.getMethodsString());
+        \}
+    \} else \{
+        log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+        cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+    \}
+    cmd.createArgument().setValue(Constants.SKIP_NON_TESTS + String.valueOf(test.isSkipNonTests()));
+    cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace());
+    cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror());
+    cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure());
+    checkIncludeAntRuntime(cmd);
+    checkIncludeSummary(cmd);
+    cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput));
+    cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters));
+    cmd.createArgument().setValue(Constants.LOG_FAILED_TESTS + String.valueOf(logFailedTests));
+    cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + String.valueOf(getEnableTestListenerEvents()));
+    StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE);
+    final FormatterElement[] feArray = mergeFormatters(test);
+    for (int i = 0; i < feArray.length; i++) \{
+        FormatterElement fe = feArray[i];
+        if (fe.shouldUse(this)) \{
+            formatterArg.append(FORMATTER);
+            formatterArg.append(fe.getClassname());
+            File outFile = getOutput(fe, test);
+            if (outFile != null) \{
+                formatterArg.append(\",\");
+                formatterArg.append(outFile);
+            \}
+            cmd.createArgument().setValue(formatterArg.toString());
+            formatterArg = new StringBuffer();
+        \}
+    \}
+    File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\");
+    cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath());
+    File propsFile = createTempPropertiesFile(\"junit\");
+    cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath());
+    Hashtable p = getProject().getProperties();
+    Properties props = new Properties();
+    for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+        Object key = e.nextElement();
+        props.put(key, p.get(key));
+    \}
+    try \{
+        FileOutputStream outstream = new FileOutputStream(propsFile);
+        props.store(outstream, \"Ant JUnitTask generated properties file\");
+        outstream.close();
+    \} catch (IOException e) \{
+        FILE_UTILS.tryHardToDelete(propsFile);
+        throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+    \}
+    Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog);
+    execute.setCommandline(cmd.getCommandline());
+    execute.setAntRun(getProject());
+    if (dir != null) \{
+        execute.setWorkingDirectory(dir);
+    \}
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    execute.setNewenvironment(newEnvironment);
+    execute.setEnvironment(environment);
+    log(cmd.describeCommand(), MSG_VERBOSE);
+    checkForkedPath(cmd);
+    TestResultHolder result = new TestResultHolder();
+    try \{
+        result.exitCode = execute.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(\"Process fork failed.\", e, getLocation());
+    \} finally \{
+        String vmCrashString = \"unknown\";
+        BufferedReader br = null;
+        try \{
+            if (vmWatcher.exists()) \{
+                br = new BufferedReader(new FileReader(vmWatcher));
+                vmCrashString = br.readLine();
+            \} else \{
+                vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+            \}
+        \} catch (Exception e) \{
+            e.printStackTrace();
+        \} finally \{
+            FileUtils.close(br);
+            if (vmWatcher.exists()) \{
+                FILE_UTILS.tryHardToDelete(vmWatcher);
+            \}
+        \}
+        boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+        if ((casesFile != null) && crash) \{
+            test = createDummyTestForBatchTest(test);
+        \}
+        if ((watchdog != null) && watchdog.killedProcess()) \{
+            result.timedOut = true;
+            logTimeout(feArray, test, vmCrashString);
+        \} else if (crash) \{
+            result.crashed = true;
+            logVmCrash(feArray, test, vmCrashString);
+        \}
+        if (!FILE_UTILS.tryHardToDelete(propsFile)) \{
+            throw new BuildException(((\"Could not delete temporary \" + \"properties file '\") + propsFile.getAbsolutePath()) + \"'.\");
+        \}
+    \}
+    return result;
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:private TestResultHolder executeAsForked(JUnitTest test, ExecuteWatchdog watchdog, File casesFile) throws BuildException \{
+    if (perm != null) \{
+        log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+    \}
+    CommandlineJava cmd;
+    try \{
+        cmd = ((CommandlineJava) (getCommandline().clone()));
+    \} catch (CloneNotSupportedException e) \{
+        throw new BuildException(\"This shouldn't happen\", e, getLocation());
+    \}
+    cmd.setClassname(\"org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner\");
+    if (casesFile == null) \{
+        cmd.createArgument().setValue(test.getName());
+    \} else \{
+        log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+        cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+    \}
+    cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace());
+    cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror());
+    cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure());
+    checkIncludeAntRuntime(cmd);
+    checkIncludeSummary(cmd);
+    cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput));
+    cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters));
+    cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + \"true\");
+    StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE);
+    final FormatterElement[] feArray = mergeFormatters(test);
+    for (int i = 0; i < feArray.length; i++) \{
+        FormatterElement fe = feArray[i];
+        if (fe.shouldUse(this)) \{
+            formatterArg.append(FORMATTER);
+            formatterArg.append(fe.getClassname());
+            File outFile = getOutput(fe, test);
+            if (outFile != null) \{
+                formatterArg.append(\",\");
+                formatterArg.append(outFile);
+            \}
+            cmd.createArgument().setValue(formatterArg.toString());
+            formatterArg = new StringBuffer();
+        \}
+    \}
+    File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\");
+    cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath());
+    File propsFile = createTempPropertiesFile(\"junit\");
+    cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath());
+    Hashtable p = getProject().getProperties();
+    Properties props = new Properties();
+    for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+        Object key = e.nextElement();
+        props.put(key, p.get(key));
+    \}
+    try \{
+        FileOutputStream outstream = new FileOutputStream(propsFile);
+        props.store(outstream, \"Ant JUnitTask generated properties file\");
+        outstream.close();
+    \} catch (IOException e) \{
+        propsFile.delete();
+        throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+    \}
+    Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog);
+    execute.setCommandline(cmd.getCommandline());
+    execute.setAntRun(getProject());
+    if (dir != null) \{
+        execute.setWorkingDirectory(dir);
+    \}
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    execute.setNewenvironment(newEnvironment);
+    execute.setEnvironment(environment);
+    log(cmd.describeCommand(), MSG_VERBOSE);
+    checkForkedPath(cmd);
+    TestResultHolder result = new TestResultHolder();
+    try \{
+        result.exitCode = execute.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(\"Process fork failed.\", e, getLocation());
+    \} finally \{
+        String vmCrashString = \"unknown\";
+        BufferedReader br = null;
+        try \{
+            if (vmWatcher.exists()) \{
+                br = new BufferedReader(new FileReader(vmWatcher));
+                vmCrashString = br.readLine();
+            \} else \{
+                vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+            \}
+        \} catch (Exception e) \{
+            e.printStackTrace();
+        \} finally \{
+            FileUtils.close(br);
+            if (vmWatcher.exists()) \{
+                vmWatcher.delete();
+            \}
+        \}
+        boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+        if ((casesFile != null) && crash) \{
+            test = createDummyTestForBatchTest(test);
+        \}
+        if ((watchdog != null) && watchdog.killedProcess()) \{
+            result.timedOut = true;
+            logTimeout(feArray, test, vmCrashString);
+        \} else if (crash) \{
+            result.crashed = true;
+            logVmCrash(feArray, test, vmCrashString);
+        \}
+        if (!propsFile.delete()) \{
+            throw new BuildException(\"Could not delete temporary \" + \"properties file.\");
+        \}
+    \}
+    return result;
+\}" shape=ellipse]
+2 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:executeAsForked
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:executeAsForked" shape=ellipse]
+3 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:TestResultHolder
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:TestResultHolder" shape=ellipse]
+4 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#-1:
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#-1:" shape=ellipse]
+5 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:JUnitTest test
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:JUnitTest test" shape=ellipse]
+6 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:JUnitTest
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:JUnitTest" shape=ellipse]
+7 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:ExecuteWatchdog watchdog
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:ExecuteWatchdog watchdog" shape=ellipse]
+8 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:ExecuteWatchdog
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:ExecuteWatchdog" shape=ellipse]
+9 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:File casesFile
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:File casesFile" shape=ellipse]
+10 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:File
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:File" shape=ellipse]
+11 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#3:BuildException
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#3:BuildException" shape=ellipse]
+12 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#-1:
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#-1:" shape=ellipse]
+13 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#3:\{
+    if (perm != null) \{
+        log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+    \}
+    CommandlineJava cmd;
+    try \{
+        cmd = ((CommandlineJava) (getCommandline().clone()));
+    \} catch (CloneNotSupportedException e) \{
+        throw new BuildException(\"This shouldn't happen\", e, getLocation());
+    \}
+    if (casesFile == null) \{
+        cmd.createArgument().setValue(test.getName());
+        if (test.getMethods() != null) \{
+            cmd.createArgument().setValue(Constants.METHOD_NAMES + test.getMethodsString());
+        \}
+    \} else \{
+        log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+        cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+    \}
+    cmd.createArgument().setValue(Constants.SKIP_NON_TESTS + String.valueOf(test.isSkipNonTests()));
+    cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace());
+    cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror());
+    cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure());
+    checkIncludeAntRuntime(cmd);
+    checkIncludeSummary(cmd);
+    cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput));
+    cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters));
+    cmd.createArgument().setValue(Constants.LOG_FAILED_TESTS + String.valueOf(logFailedTests));
+    cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + String.valueOf(getEnableTestListenerEvents()));
+    StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE);
+    final FormatterElement[] feArray = mergeFormatters(test);
+    for (int i = 0; i < feArray.length; i++) \{
+        FormatterElement fe = feArray[i];
+        if (fe.shouldUse(this)) \{
+            formatterArg.append(FORMATTER);
+            formatterArg.append(fe.getClassname());
+            File outFile = getOutput(fe, test);
+            if (outFile != null) \{
+                formatterArg.append(\",\");
+                formatterArg.append(outFile);
+            \}
+            cmd.createArgument().setValue(formatterArg.toString());
+            formatterArg = new StringBuffer();
+        \}
+    \}
+    File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\");
+    cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath());
+    File propsFile = createTempPropertiesFile(\"junit\");
+    cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath());
+    Hashtable p = getProject().getProperties();
+    Properties props = new Properties();
+    for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+        Object key = e.nextElement();
+        props.put(key, p.get(key));
+    \}
+    try \{
+        FileOutputStream outstream = new FileOutputStream(propsFile);
+        props.store(outstream, \"Ant JUnitTask generated properties file\");
+        outstream.close();
+    \} catch (IOException e) \{
+        FILE_UTILS.tryHardToDelete(propsFile);
+        throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+    \}
+    Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog);
+    execute.setCommandline(cmd.getCommandline());
+    execute.setAntRun(getProject());
+    if (dir != null) \{
+        execute.setWorkingDirectory(dir);
+    \}
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    execute.setNewenvironment(newEnvironment);
+    execute.setEnvironment(environment);
+    log(cmd.describeCommand(), MSG_VERBOSE);
+    checkForkedPath(cmd);
+    TestResultHolder result = new TestResultHolder();
+    try \{
+        result.exitCode = execute.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(\"Process fork failed.\", e, getLocation());
+    \} finally \{
+        String vmCrashString = \"unknown\";
+        BufferedReader br = null;
+        try \{
+            if (vmWatcher.exists()) \{
+                br = new BufferedReader(new FileReader(vmWatcher));
+                vmCrashString = br.readLine();
+            \} else \{
+                vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+            \}
+        \} catch (Exception e) \{
+            e.printStackTrace();
+        \} finally \{
+            FileUtils.close(br);
+            if (vmWatcher.exists()) \{
+                FILE_UTILS.tryHardToDelete(vmWatcher);
+            \}
+        \}
+        boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+        if ((casesFile != null) && crash) \{
+            test = createDummyTestForBatchTest(test);
+        \}
+        if ((watchdog != null) && watchdog.killedProcess()) \{
+            result.timedOut = true;
+            logTimeout(feArray, test, vmCrashString);
+        \} else if (crash) \{
+            result.crashed = true;
+            logVmCrash(feArray, test, vmCrashString);
+        \}
+        if (!FILE_UTILS.tryHardToDelete(propsFile)) \{
+            throw new BuildException(((\"Could not delete temporary \" + \"properties file '\") + propsFile.getAbsolutePath()) + \"'.\");
+        \}
+    \}
+    return result;
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#3:\{
+    if (perm != null) \{
+        log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+    \}
+    CommandlineJava cmd;
+    try \{
+        cmd = ((CommandlineJava) (getCommandline().clone()));
+    \} catch (CloneNotSupportedException e) \{
+        throw new BuildException(\"This shouldn't happen\", e, getLocation());
+    \}
+    cmd.setClassname(\"org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner\");
+    if (casesFile == null) \{
+        cmd.createArgument().setValue(test.getName());
+    \} else \{
+        log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+        cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+    \}
+    cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace());
+    cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror());
+    cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure());
+    checkIncludeAntRuntime(cmd);
+    checkIncludeSummary(cmd);
+    cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput));
+    cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters));
+    cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + \"true\");
+    StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE);
+    final FormatterElement[] feArray = mergeFormatters(test);
+    for (int i = 0; i < feArray.length; i++) \{
+        FormatterElement fe = feArray[i];
+        if (fe.shouldUse(this)) \{
+            formatterArg.append(FORMATTER);
+            formatterArg.append(fe.getClassname());
+            File outFile = getOutput(fe, test);
+            if (outFile != null) \{
+                formatterArg.append(\",\");
+                formatterArg.append(outFile);
+            \}
+            cmd.createArgument().setValue(formatterArg.toString());
+            formatterArg = new StringBuffer();
+        \}
+    \}
+    File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\");
+    cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath());
+    File propsFile = createTempPropertiesFile(\"junit\");
+    cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath());
+    Hashtable p = getProject().getProperties();
+    Properties props = new Properties();
+    for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+        Object key = e.nextElement();
+        props.put(key, p.get(key));
+    \}
+    try \{
+        FileOutputStream outstream = new FileOutputStream(propsFile);
+        props.store(outstream, \"Ant JUnitTask generated properties file\");
+        outstream.close();
+    \} catch (IOException e) \{
+        propsFile.delete();
+        throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+    \}
+    Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog);
+    execute.setCommandline(cmd.getCommandline());
+    execute.setAntRun(getProject());
+    if (dir != null) \{
+        execute.setWorkingDirectory(dir);
+    \}
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    execute.setNewenvironment(newEnvironment);
+    execute.setEnvironment(environment);
+    log(cmd.describeCommand(), MSG_VERBOSE);
+    checkForkedPath(cmd);
+    TestResultHolder result = new TestResultHolder();
+    try \{
+        result.exitCode = execute.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(\"Process fork failed.\", e, getLocation());
+    \} finally \{
+        String vmCrashString = \"unknown\";
+        BufferedReader br = null;
+        try \{
+            if (vmWatcher.exists()) \{
+                br = new BufferedReader(new FileReader(vmWatcher));
+                vmCrashString = br.readLine();
+            \} else \{
+                vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+            \}
+        \} catch (Exception e) \{
+            e.printStackTrace();
+        \} finally \{
+            FileUtils.close(br);
+            if (vmWatcher.exists()) \{
+                vmWatcher.delete();
+            \}
+        \}
+        boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+        if ((casesFile != null) && crash) \{
+            test = createDummyTestForBatchTest(test);
+        \}
+        if ((watchdog != null) && watchdog.killedProcess()) \{
+            result.timedOut = true;
+            logTimeout(feArray, test, vmCrashString);
+        \} else if (crash) \{
+            result.crashed = true;
+            logVmCrash(feArray, test, vmCrashString);
+        \}
+        if (!propsFile.delete()) \{
+            throw new BuildException(\"Could not delete temporary \" + \"properties file.\");
+        \}
+    \}
+    return result;
+\}" shape=ellipse]
+14 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#4:if (perm != null) \{
+    log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#4:if (perm != null) \{
+    log(\"Permissions ignored when running in forked mode!\", MSG_WARN);
+\}" shape=ellipse]
+15 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#7:CommandlineJava cmd
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#7:CommandlineJava cmd" shape=ellipse]
+16 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#8:try \{
+    cmd = ((CommandlineJava) (getCommandline().clone()));
+\} catch (CloneNotSupportedException e) \{
+    throw new BuildException(\"This shouldn't happen\", e, getLocation());
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#8:try \{
+    cmd = ((CommandlineJava) (getCommandline().clone()));
+\} catch (CloneNotSupportedException e) \{
+    throw new BuildException(\"This shouldn't happen\", e, getLocation());
+\}" shape=ellipse]
+17 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#13:if (casesFile == null) \{
+    cmd.createArgument().setValue(test.getName());
+    if (test.getMethods() != null) \{
+        cmd.createArgument().setValue(Constants.METHOD_NAMES + test.getMethodsString());
+    \}
+\} else \{
+    log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+    cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#14:if (casesFile == null) \{
+    cmd.createArgument().setValue(test.getName());
+\} else \{
+    log(\"Running multiple tests in the same VM\", MSG_VERBOSE);
+    cmd.createArgument().setValue(Constants.TESTSFILE + casesFile);
+\}" shape=ellipse]
+18 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#22:cmd.createArgument().setValue(Constants.SKIP_NON_TESTS + String.valueOf(test.isSkipNonTests()))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#26:cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters))" shape=ellipse]
+19 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#23:cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#20:cmd.createArgument().setValue(Constants.FILTERTRACE + test.getFiltertrace())" shape=ellipse]
+20 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#24:cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#21:cmd.createArgument().setValue(Constants.HALT_ON_ERROR + test.getHaltonerror())" shape=ellipse]
+21 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#25:cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#22:cmd.createArgument().setValue(Constants.HALT_ON_FAILURE + test.getHaltonfailure())" shape=ellipse]
+22 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#26:checkIncludeAntRuntime(cmd)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#23:checkIncludeAntRuntime(cmd)" shape=ellipse]
+23 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#27:checkIncludeSummary(cmd)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#24:checkIncludeSummary(cmd)" shape=ellipse]
+24 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#28:cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#25:cmd.createArgument().setValue(Constants.SHOWOUTPUT + String.valueOf(showOutput))" shape=ellipse]
+25 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#29:cmd.createArgument().setValue(Constants.OUTPUT_TO_FORMATTERS + String.valueOf(outputToFormatters))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#48:cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath())" shape=ellipse]
+26 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#31:cmd.createArgument().setValue(Constants.LOG_FAILED_TESTS + String.valueOf(logFailedTests))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#28:cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + \"true\")" shape=ellipse]
+27 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#32:cmd.createArgument().setValue(Constants.LOGTESTLISTENEREVENTS + String.valueOf(getEnableTestListenerEvents()))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#46:cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath())" shape=ellipse]
+28 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#34:StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#29:StringBuffer formatterArg = new StringBuffer(STRING_BUFFER_SIZE)" shape=ellipse]
+29 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#35:final FormatterElement[] feArray = mergeFormatters(test)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#30:final FormatterElement[] feArray = mergeFormatters(test)" shape=ellipse]
+30 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#36:for (int i = 0; i < feArray.length; i++) \{
+    FormatterElement fe = feArray[i];
+    if (fe.shouldUse(this)) \{
+        formatterArg.append(FORMATTER);
+        formatterArg.append(fe.getClassname());
+        File outFile = getOutput(fe, test);
+        if (outFile != null) \{
+            formatterArg.append(\",\");
+            formatterArg.append(outFile);
+        \}
+        cmd.createArgument().setValue(formatterArg.toString());
+        formatterArg = new StringBuffer();
+    \}
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#31:for (int i = 0; i < feArray.length; i++) \{
+    FormatterElement fe = feArray[i];
+    if (fe.shouldUse(this)) \{
+        formatterArg.append(FORMATTER);
+        formatterArg.append(fe.getClassname());
+        File outFile = getOutput(fe, test);
+        if (outFile != null) \{
+            formatterArg.append(\",\");
+            formatterArg.append(outFile);
+        \}
+        cmd.createArgument().setValue(formatterArg.toString());
+        formatterArg = new StringBuffer();
+    \}
+\}" shape=ellipse]
+31 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#50:File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\")
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#45:File vmWatcher = createTempPropertiesFile(\"junitvmwatcher\")" shape=ellipse]
+32 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#51:cmd.createArgument().setValue(Constants.CRASHFILE + vmWatcher.getAbsolutePath())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#78:log(cmd.describeCommand(), MSG_VERBOSE)" shape=ellipse]
+33 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#52:File propsFile = createTempPropertiesFile(\"junit\")
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#47:File propsFile = createTempPropertiesFile(\"junit\")" shape=ellipse]
+34 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#53:cmd.createArgument().setValue(Constants.PROPSFILE + propsFile.getAbsolutePath())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#65:execute.setCommandline(cmd.getCommandline())" shape=ellipse]
+35 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#54:Hashtable p = getProject().getProperties()
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#49:Hashtable p = getProject().getProperties()" shape=ellipse]
+36 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#55:Properties props = new Properties()
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#50:Properties props = new Properties()" shape=ellipse]
+37 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#56:for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+    Object key = e.nextElement();
+    props.put(key, p.get(key));
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#51:for (Enumeration e = p.keys(); e.hasMoreElements();) \{
+    Object key = e.nextElement();
+    props.put(key, p.get(key));
+\}" shape=ellipse]
+38 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#60:try \{
+    FileOutputStream outstream = new FileOutputStream(propsFile);
+    props.store(outstream, \"Ant JUnitTask generated properties file\");
+    outstream.close();
+\} catch (IOException e) \{
+    FILE_UTILS.tryHardToDelete(propsFile);
+    throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#55:try \{
+    FileOutputStream outstream = new FileOutputStream(propsFile);
+    props.store(outstream, \"Ant JUnitTask generated properties file\");
+    outstream.close();
+\} catch (IOException e) \{
+    propsFile.delete();
+    throw new BuildException(\"Error creating temporary properties \" + \"file.\", e, getLocation());
+\}" shape=ellipse]
+39 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#68:Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#63:Execute execute = new Execute(new JUnitLogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN), watchdog)" shape=ellipse]
+40 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#70:execute.setCommandline(cmd.getCommandline())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#77:execute.setEnvironment(environment)" shape=ellipse]
+41 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#71:execute.setAntRun(getProject())
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#66:execute.setAntRun(getProject())" shape=ellipse]
+42 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#72:if (dir != null) \{
+    execute.setWorkingDirectory(dir);
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#67:if (dir != null) \{
+    execute.setWorkingDirectory(dir);
+\}" shape=ellipse]
+43 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#75:String[] environment = env.getVariables()
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#70:String[] environment = env.getVariables()" shape=ellipse]
+44 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#76:if (environment != null) \{
+    for (int i = 0; i < environment.length; i++) \{
+        log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+    \}
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#71:if (environment != null) \{
+    for (int i = 0; i < environment.length; i++) \{
+        log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+    \}
+\}" shape=ellipse]
+45 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#81:execute.setNewenvironment(newEnvironment)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#76:execute.setNewenvironment(newEnvironment)" shape=ellipse]
+46 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#82:execute.setEnvironment(environment)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#13:cmd.setClassname(\"org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner\")" shape=ellipse]
+47 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#83:log(cmd.describeCommand(), MSG_VERBOSE)
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#79:checkForkedPath(cmd)" shape=ellipse]
+48 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#84:checkForkedPath(cmd)" shape=ellipse]
+49 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#85:TestResultHolder result = new TestResultHolder()
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#80:TestResultHolder result = new TestResultHolder()" shape=ellipse]
+50 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#86:try \{
+    result.exitCode = execute.execute();
+\} catch (IOException e) \{
+    throw new BuildException(\"Process fork failed.\", e, getLocation());
+\} finally \{
+    String vmCrashString = \"unknown\";
+    BufferedReader br = null;
+    try \{
+        if (vmWatcher.exists()) \{
+            br = new BufferedReader(new FileReader(vmWatcher));
+            vmCrashString = br.readLine();
+        \} else \{
+            vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+        \}
+    \} catch (Exception e) \{
+        e.printStackTrace();
+    \} finally \{
+        FileUtils.close(br);
+        if (vmWatcher.exists()) \{
+            FILE_UTILS.tryHardToDelete(vmWatcher);
+        \}
+    \}
+    boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+    if ((casesFile != null) && crash) \{
+        test = createDummyTestForBatchTest(test);
+    \}
+    if ((watchdog != null) && watchdog.killedProcess()) \{
+        result.timedOut = true;
+        logTimeout(feArray, test, vmCrashString);
+    \} else if (crash) \{
+        result.crashed = true;
+        logVmCrash(feArray, test, vmCrashString);
+    \}
+    if (!FILE_UTILS.tryHardToDelete(propsFile)) \{
+        throw new BuildException(((\"Could not delete temporary \" + \"properties file '\") + propsFile.getAbsolutePath()) + \"'.\");
+    \}
+\}
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#81:try \{
+    result.exitCode = execute.execute();
+\} catch (IOException e) \{
+    throw new BuildException(\"Process fork failed.\", e, getLocation());
+\} finally \{
+    String vmCrashString = \"unknown\";
+    BufferedReader br = null;
+    try \{
+        if (vmWatcher.exists()) \{
+            br = new BufferedReader(new FileReader(vmWatcher));
+            vmCrashString = br.readLine();
+        \} else \{
+            vmCrashString = ((\"Monitor file (\" + vmWatcher.getAbsolutePath()) + \") missing, location not writable,\") + \" testcase not started or mixing ant versions?\";
+        \}
+    \} catch (Exception e) \{
+        e.printStackTrace();
+    \} finally \{
+        FileUtils.close(br);
+        if (vmWatcher.exists()) \{
+            vmWatcher.delete();
+        \}
+    \}
+    boolean crash = ((watchdog != null) && watchdog.killedProcess()) || (!TERMINATED_SUCCESSFULLY.equals(vmCrashString));
+    if ((casesFile != null) && crash) \{
+        test = createDummyTestForBatchTest(test);
+    \}
+    if ((watchdog != null) && watchdog.killedProcess()) \{
+        result.timedOut = true;
+        logTimeout(feArray, test, vmCrashString);
+    \} else if (crash) \{
+        result.crashed = true;
+        logVmCrash(feArray, test, vmCrashString);
+    \}
+    if (!propsFile.delete()) \{
+        throw new BuildException(\"Could not delete temporary \" + \"properties file.\");
+    \}
+\}" shape=ellipse]
+51 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#130:return result
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#123:return result" shape=ellipse]
+52 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:private
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:private" shape=ellipse]
+53 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:VE: Modifiers_Method
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:VE: Modifiers_Method" shape=ellipse]
+54 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:VE: ThrownTypes_executeAsForked
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#2:VE: ThrownTypes_executeAsForked" shape=ellipse]
+55 [label="executeAsForked#?,JUnitTest,ExecuteWatchdog,File#32:cmd.createArgument().setValue(Constants.THREADID + String.valueOf(test.getThread()))
+executeAsForked#?,JUnitTest,ExecuteWatchdog,File#28:cmd.createArgument().setValue(Constants.LOG_FAILED_TESTS + String.valueOf(logFailedTests))" shape=ellipse]
+0 -> 55 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 52 [label="AST:2"];
+1 -> 53 [label="AST:2"];
+1 -> 54 [label="AST:2"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+13 -> 16 [label="AST:2"];
+13 -> 17 [label="AST:2"];
+13 -> 18 [label="AST:2"];
+13 -> 19 [label="AST:2"];
+13 -> 20 [label="AST:2"];
+13 -> 21 [label="AST:2"];
+13 -> 22 [label="AST:2"];
+13 -> 23 [label="AST:2"];
+13 -> 24 [label="AST:2"];
+13 -> 25 [label="AST:2"];
+13 -> 26 [label="AST:2"];
+13 -> 27 [label="AST:2"];
+13 -> 28 [label="AST:2"];
+13 -> 29 [label="AST:2"];
+13 -> 30 [label="AST:2"];
+13 -> 31 [label="AST:2"];
+13 -> 32 [label="AST:2"];
+13 -> 33 [label="AST:2"];
+13 -> 34 [label="AST:2"];
+13 -> 35 [label="AST:2"];
+13 -> 36 [label="AST:2"];
+13 -> 37 [label="AST:2"];
+13 -> 38 [label="AST:2"];
+13 -> 39 [label="AST:2"];
+13 -> 40 [label="AST:2"];
+13 -> 41 [label="AST:2"];
+13 -> 42 [label="AST:2"];
+13 -> 43 [label="AST:2"];
+13 -> 44 [label="AST:2"];
+13 -> 45 [label="AST:2"];
+13 -> 46 [label="AST:2"];
+13 -> 47 [label="AST:2"];
+13 -> 48 [label="AST:1"];
+13 -> 49 [label="AST:2"];
+13 -> 50 [label="AST:2"];
+13 -> 51 [label="AST:2"];
+}

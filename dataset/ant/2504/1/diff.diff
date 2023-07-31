@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2504/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2504/1/after.java
+@@ -23,12 +23,2 @@
+-      if (outputStream != null) {
+-        try {
+-          outputStream.close();
+-        } catch (IOException e) {
+-        }
+-      }
+-      if (errorStream != null) {
+-        try {
+-          errorStream.close();
+-        } catch (IOException e) {
+-        }
+-      }
++      FileUtils.close(outputStream);
++      FileUtils.close(errorStream);

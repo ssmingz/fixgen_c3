@@ -1,0 +1,104 @@
+digraph "Pattern" {
+0 [label="execute#?#9:DELETE
+execute#?#8:DELETE" shape=ellipse]
+1 [label="execute#?#9:location
+execute#?#8:location" shape=ellipse]
+2 [label="execute#?#8:!srcDir.exists()" shape=ellipse]
+3 [label="execute#?#6:i < list.length
+execute#?#7:\"Failed executing: \" + commandLine.toString()" shape=ellipse]
+4 [label="execute#?#8:if (!srcDir.exists()) \{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}" shape=ellipse]
+5 [label="execute#?#8:srcDir.exists()" shape=ellipse]
+6 [label="execute#?#8:\{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}
+execute#?#6:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+7 [label="execute#?#9:throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)
+execute#?#8:throw new BuildException(msg, location)" shape=ellipse]
+8 [label="execute#?#9:new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)
+execute#?#8:new BuildException(msg, location)" shape=ellipse]
+9 [label="execute#?#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+10 [label="execute#?#9:(\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\"" shape=ellipse]
+11 [label="execute#?#9:(\"srcdir \\"\" + srcDir.getPath())
+execute#?#7:commandLine" shape=ellipse]
+12 [label="execute#?#9:\"srcdir \\"\"" shape=ellipse]
+13 [label="execute#?#9:srcDir.getPath()" shape=ellipse]
+14 [label="execute#?#9:getPath()
+execute#?#7:toString()" shape=ellipse]
+15 [label="execute#?#9:srcDir
+execute#?#6:result" shape=ellipse]
+16 [label="execute#?#9:\"\\" does not exist!\"
+execute#?#6:255" shape=ellipse]
+17 [label="execute#?#-1:location
+execute#?#-1:location" shape=ellipse]
+18 [label="execute#?#7:commandLine.toString()" shape=ellipse]
+19 [label="execute#?#7:\"Failed executing: \"" shape=ellipse]
+20 [label="execute#?#6:if (result == 255) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+21 [label="execute#?#8:msg" shape=ellipse]
+22 [label="execute#?#7:String msg = \"Failed executing: \" + commandLine.toString()" shape=ellipse]
+23 [label="execute#?#6:result == 255" shape=ellipse]
+24 [label="execute#?#-1:boolean" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+3 -> 18 [label="AST:1"];
+3 -> 19 [label="AST:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+6 -> 22 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+8 -> 1 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:1"];
+8 -> 21 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 16 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+11 -> 13 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+18 -> 11 [label="AST:1"];
+18 -> 14 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+20 -> 6 [label="AST:1"];
+22 -> 3 [label="AST:1"];
+23 -> 18 [label="Control Dep:1"];
+23 -> 19 [label="Control Dep:1"];
+23 -> 21 [label="Control Dep:1"];
+23 -> 22 [label="Control Dep:1"];
+23 -> 24 [label="AST:1"];
+23 -> 15 [label="AST:1"];
+23 -> 16 [label="AST:1"];
+23 -> 6 [label="Control Dep:1"];
+23 -> 3 [label="Control Dep:1"];
+23 -> 14 [label="Control Dep:1"];
+23 -> 11 [label="Control Dep:1"];
+23 -> 7 [label="Control Dep:1"];
+23 -> 8 [label="Control Dep:1"];
+23 -> 9 [label="Control Dep:1"];
+23 -> 1 [label="Control Dep:1"];
+}

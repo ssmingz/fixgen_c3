@@ -1,0 +1,25 @@
+digraph "Pattern" {
+0 [label="setBuilderProperty#?,String,Object#3:DELETE
+setWorkspaceProperty#?,String,Object#3:DELETE
+setEmbeddorProperty#?,String,Object#3:DELETE" shape=ellipse]
+1 [label="setBuilderProperty#?,String,Object#3:String
+setWorkspaceProperty#?,String,Object#3:String
+setEmbeddorProperty#?,String,Object#3:String" shape=ellipse]
+2 [label="setBuilderProperty#?,String,Object#3:((String) (value))
+setWorkspaceProperty#?,String,Object#3:((String) (value))
+setEmbeddorProperty#?,String,Object#3:((String) (value))" shape=ellipse]
+3 [label="setBuilderProperty#?,String,Object#3:m_builderProps.setParameter(name, ((String) (value)))
+setWorkspaceProperty#?,String,Object#3:m_workspaceProps.setParameter(name, ((String) (value)))
+setEmbeddorProperty#?,String,Object#3:m_embeddorParameters.setParameter(name, ((String) (value)))" shape=ellipse]
+4 [label="setBuilderProperty#?,String,Object#-1:value
+setWorkspaceProperty#?,String,Object#-1:value
+setEmbeddorProperty#?,String,Object#-1:value" shape=ellipse]
+5 [label="setBuilderProperty#?,String,Object#3:MOVE
+setWorkspaceProperty#?,String,Object#3:MOVE
+setEmbeddorProperty#?,String,Object#3:MOVE" shape=ellipse]
+1 -> 0 [label="Action:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+}

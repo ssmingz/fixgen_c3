@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="testNoAppend#?#7:MOVE
+testAppend#?#7:MOVE" shape=ellipse]
+1 [label="testNoAppend#?#7:\"rectest1.log\"
+testAppend#?#7:\"rectest2.log\"" shape=ellipse]
+2 [label="testNoAppend#?#7:REC_DIR + \"rectest1.log\"
+testAppend#?#7:REC_DIR + \"rectest2.log\"" shape=ellipse]
+3 [label="testNoAppend#?#7:project.resolveFile(REC_DIR + \"rectest1.log\")
+testAppend#?#7:project.resolveFile(REC_DIR + \"rectest2.log\")" shape=ellipse]
+4 [label="testNoAppend#?#7:REC_DIR
+testAppend#?#7:REC_DIR" shape=ellipse]
+5 [label="testNoAppend#?#-1:String
+testAppend#?#-1:String" shape=ellipse]
+6 [label="testNoAppend#?#7:new File(getOutputDir(), \"rectest1.log\")
+testAppend#?#7:new File(getOutputDir(), \"rectest2.log\")" shape=ellipse]
+7 [label="testNoAppend#?#7:INSERT
+testAppend#?#7:INSERT" shape=ellipse]
+8 [label="testNoAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"), true)
+testAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_IN + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\"), true)" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 6 [label="Action:2"];
+8 -> 3 [label="AST:2"];
+8 -> 7 [label="Action:2"];
+}

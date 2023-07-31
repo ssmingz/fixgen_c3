@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2017/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2017/1/after.java
+@@ -2,2 +2,6 @@
+-  public Object convert(final Object original, final Context context) throws Exception {
+-    return new Integer(((String) (original)));
++  public Object convert(final Object original, final Context context) throws ConverterException {
++    try {
++      return new Integer(((String) (original)));
++    } catch (final NumberFormatException nfe) {
++      throw new ConverterException("Error formatting object", nfe);
++    }

@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2209/25/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2209/25/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test3", "zip cannot include itself");
++    try {
++      buildRule.executeTarget("test3");
++      fail("BuildException expected: zip cannot include itself");
++    } catch (BuildException ex) {
++    }

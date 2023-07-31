@@ -1,0 +1,101 @@
+digraph "Pattern" {
+0 [label="testSelectionBehaviour#?#27:UPDATE
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:UPDATE" shape=ellipse]
+1 [label="testSelectionBehaviour#?#27:new File(\"src/etc/testcases/taskdefs/expected\")
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:new File(\"src/etc/testcases/taskdefs/xmlproperty/inputs\")" shape=ellipse]
+2 [label="testSelectionBehaviour#?#27:File subdir = new File(\"src/etc/testcases/taskdefs/expected\")" shape=ellipse]
+3 [label="testSelectionBehaviour#?#14:\{
+    makeBed();
+    s = ((PresentSelector) (getInstance()));
+    s.setTargetdir(beddir);
+    results = selectionString(s);
+    assertEquals(\"TTTTTTTTTTTT\", results);
+    s = ((PresentSelector) (getInstance()));
+    s.setTargetdir(beddir);
+    m = s.createMapper();
+    m.setType(identity);
+    results = selectionString(s);
+    assertEquals(\"TTTTTTTTTTTT\", results);
+    s = ((PresentSelector) (getInstance()));
+    File subdir = new File(\"src/etc/testcases/taskdefs/expected\");
+    s.setTargetdir(subdir);
+    m = s.createMapper();
+    m.setType(flatten);
+    results = selectionString(s);
+    if (JavaEnvUtils.isJavaVersion(JAVA_1_1)) \{
+        assertEquals(\"TTTTTFFFFFFF\", results);
+    \} else \{
+        assertEquals(\"TTTTTTTTTTTF\", results);
+    \}
+    s = ((PresentSelector) (getInstance()));
+    s.setTargetdir(beddir);
+    m = s.createMapper();
+    m.setType(merge);
+    m.setTo(\"asf-logo.gif.gz\");
+    results = selectionString(s);
+    assertEquals(\"TTTTTTTTTTTT\", results);
+    s = ((PresentSelector) (getInstance()));
+    subdir = new File(beddir, \"tar/bz2\");
+    s.setTargetdir(subdir);
+    m = s.createMapper();
+    m.setType(glob);
+    m.setFrom(\"*.bz2\");
+    m.setTo(\"*.tar.bz2\");
+    results = selectionString(s);
+    assertEquals(\"FFTFFFFFFFFF\", results);
+    try \{
+        makeMirror();
+        s = ((PresentSelector) (getInstance()));
+        subdir = getProject().resolveFile(\"selectortest2\");
+        s.setTargetdir(subdir);
+        results = mirrorSelectionString(s);
+        assertEquals(\"TTTFFTTTTTTT\", results);
+        results = selectionString(s);
+        assertEquals(\"TTTFFTTTTTTT\", results);
+    \} finally \{
+        cleanupMirror();
+    \}
+\}" shape=ellipse]
+4 [label="testSelectionBehaviour#?#27:subdir
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:Enumeration iter = getFiles(new File(\"src/etc/testcases/taskdefs/xmlproperty/inputs\"))" shape=ellipse]
+5 [label="testSelectionBehaviour#?#27:File
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#-1:File" shape=ellipse]
+6 [label="testSelectionBehaviour#?#-1:File(java.lang.String)" shape=ellipse]
+7 [label="testSelectionBehaviour#?#-1:File
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:File" shape=ellipse]
+8 [label="testSelectionBehaviour#?#27:File
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:getFiles(<unknown>)" shape=ellipse]
+9 [label="testSelectionBehaviour#?#-1:String
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#-1:String" shape=ellipse]
+10 [label="testSelectionBehaviour#?#27:\"src/etc/testcases/taskdefs/expected\"
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:\"src/etc/testcases/taskdefs/xmlproperty/inputs\"" shape=ellipse]
+11 [label="testSelectionBehaviour#?#-1:String
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#-1:String" shape=ellipse]
+12 [label="testSelectionBehaviour#?#27:new File(System.getProperty(\"root\"), \"src/etc/testcases/taskdefs/expected\")
+doTest#?,String,boolean,boolean,boolean,boolean,boolean#11:new File(System.getProperty(\"root\"), \"src/etc/testcases/taskdefs/xmlproperty/inputs\")" shape=ellipse]
+13 [label="doTest#?,String,boolean,boolean,boolean,boolean,boolean#-1:" shape=ellipse]
+14 [label="doTest#?,String,boolean,boolean,boolean,boolean,boolean#-1:File(java.lang.String)" shape=ellipse]
+15 [label="doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:getFiles" shape=ellipse]
+16 [label="doTest#?,String,boolean,boolean,boolean,boolean,boolean#9:getFiles(new File(\"src/etc/testcases/taskdefs/xmlproperty/inputs\"))" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:1"];
+1 -> 10 [label="AST:2"];
+1 -> 14 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+6 -> 8 [label="AST:1"];
+6 -> 9 [label="AST:1"];
+10 -> 11 [label="AST:2"];
+14 -> 5 [label="AST:1"];
+14 -> 7 [label="AST:1"];
+14 -> 9 [label="AST:1"];
+16 -> 13 [label="AST:1"];
+16 -> 15 [label="AST:1"];
+16 -> 8 [label="AST:1"];
+16 -> 1 [label="AST:1"];
+}

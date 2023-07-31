@@ -1,0 +1,119 @@
+digraph "dispatchAspectSettings#?,String,Parameters,Configuration[]" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@dispatchAspectSettings" shape=ellipse]
+2 [label="3:CtParameterImpl@final String name" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtParameterImpl@final Parameters parameters" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Parameters" shape=ellipse]
+6 [label="3:CtParameterImpl@final Configuration[] elements" shape=ellipse]
+7 [label="3:CtArrayTypeReferenceImpl@Configuration[]" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@TaskException" shape=ellipse]
+9 [label="5:CtTypeReferenceImpl@AspectHandler" shape=ellipse]
+10 [label="5:CtExecutableReferenceImpl@get(java.lang.String)" shape=ellipse]
+11 [label="5:CtVirtualElement@get" shape=ellipse]
+12 [label="5:CtFieldReadImpl@m_aspectMap" shape=ellipse]
+13 [label="5:CtVariableReadImpl@name" shape=ellipse]
+14 [label="5:CtInvocationImpl@((AspectHandler) (m_aspectMap.get(name)))" shape=ellipse]
+15 [label="5:CtTypeReferenceImpl@AspectHandler" shape=ellipse]
+16 [label="5:CtVirtualElement@handler" shape=ellipse]
+17 [label="5:CtLocalVariableImpl@final AspectHandler handler = ((AspectHandler) (m_aspectMap.get(name)))" shape=ellipse]
+18 [label="6:CtLiteralImpl@null" shape=ellipse]
+19 [label="6:CtVariableReadImpl@handler" shape=ellipse]
+20 [label="6:CtBinaryOperatorImpl@null == handler" shape=ellipse]
+21 [label="7:CtTypeReferenceImpl@TaskException" shape=ellipse]
+22 [label="7:CtLiteralImpl@\"No such aspect with name '\"" shape=ellipse]
+23 [label="7:CtVariableReadImpl@name" shape=ellipse]
+24 [label="7:CtBinaryOperatorImpl@(\"No such aspect with name '\" + name)" shape=ellipse]
+25 [label="7:CtLiteralImpl@\"'\"" shape=ellipse]
+26 [label="7:CtBinaryOperatorImpl@(\"No such aspect with name '\" + name) + \"'\"" shape=ellipse]
+27 [label="7:CtConstructorCallImpl@new TaskException((\"No such aspect with name '\" + name) + \"'\")" shape=ellipse]
+28 [label="7:CtThrowImpl@throw new TaskException((\"No such aspect with name '\" + name) + \"'\")" shape=ellipse]
+29 [label="6:CtBlockImpl@\{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}" shape=ellipse]
+30 [label="6:CtIfImpl@if (null == handler) \{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}" shape=ellipse]
+31 [label="9:CtExecutableReferenceImpl@aspectSettings(Parameters,Configuration[])" shape=ellipse]
+32 [label="9:CtVirtualElement@aspectSettings" shape=ellipse]
+33 [label="9:CtVariableReadImpl@handler" shape=ellipse]
+34 [label="9:CtVariableReadImpl@parameters" shape=ellipse]
+35 [label="9:CtVariableReadImpl@elements" shape=ellipse]
+36 [label="9:CtInvocationImpl@handler.aspectSettings(parameters, elements)" shape=ellipse]
+37 [label="4:CtBlockImpl@\{
+    final AspectHandler handler = ((AspectHandler) (m_aspectMap.get(name)));
+    if (null == handler) \{
+        throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+    \}
+    handler.aspectSettings(parameters, elements);
+\}" shape=ellipse]
+38 [label="2:CtMethodImpl@public void dispatchAspectSettings(final String name, final Parameters parameters, final Configuration[] elements) throws TaskException \{
+    final AspectHandler handler = ((AspectHandler) (m_aspectMap.get(name)));
+    if (null == handler) \{
+        throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+    \}
+    handler.aspectSettings(parameters, elements);
+\}" shape=ellipse]
+39 [label="7:Update@UPDATE" shape=ellipse]
+40 [label="8:CtVariableReadImpl@message" shape=ellipse]
+41 [label="7:Delete@DELETE" shape=ellipse]
+42 [label="7:Insert@INSERT" shape=ellipse]
+43 [label="7:CtLocalVariableImpl@final String message = REZ.getString(\"no.aspect\", name)" shape=ellipse]
+44 [label="7:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+12 -> 16 [label="Data Dep"];
+13 -> 16 [label="Data Dep"];
+14 -> 11 [label="AST"];
+14 -> 15 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 19 [label="Define-Use"];
+16 -> 33 [label="Define-Use"];
+17 -> 16 [label="AST"];
+17 -> 9 [label="AST"];
+17 -> 14 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 29 [label="Control Dep"];
+20 -> 28 [label="Control Dep"];
+20 -> 27 [label="Control Dep"];
+20 -> 26 [label="Control Dep"];
+20 -> 24 [label="Control Dep"];
+20 -> 22 [label="Control Dep"];
+20 -> 23 [label="Control Dep"];
+20 -> 25 [label="Control Dep"];
+23 -> 39 [label="Action"];
+23 -> 44 [label="Action"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 41 [label="Action"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 42 [label="Action"];
+30 -> 20 [label="AST"];
+30 -> 29 [label="AST"];
+36 -> 32 [label="AST"];
+36 -> 33 [label="AST"];
+36 -> 31 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 17 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 1 [label="AST"];
+38 -> 0 [label="AST"];
+38 -> 2 [label="AST"];
+38 -> 4 [label="AST"];
+38 -> 6 [label="AST"];
+38 -> 8 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 40 [label="Action"];
+42 -> 43 [label="Action"];
+44 -> 27 [label="Action"];
+}

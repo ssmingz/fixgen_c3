@@ -1,0 +1,280 @@
+digraph "prepareExec#?" {
+0 [label="2:CtTypeReferenceImpl@Execute" shape=ellipse]
+1 [label="2:CtVirtualElement@prepareExec" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@dir" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@dir == null" shape=ellipse]
+6 [label="4:CtFieldWriteImpl@dir" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+8 [label="4:CtVirtualElement@getBaseDir" shape=ellipse]
+9 [label="4:CtFieldReadImpl@project" shape=ellipse]
+10 [label="4:CtInvocationImpl@project.getBaseDir()" shape=ellipse]
+11 [label="4:CtAssignmentImpl@dir = project.getBaseDir()" shape=ellipse]
+12 [label="3:CtBlockImpl@\{
+    dir = project.getBaseDir();
+\}" shape=ellipse]
+13 [label="3:CtIfImpl@if (dir == null) \{
+    dir = project.getBaseDir();
+\}" shape=ellipse]
+14 [label="6:CtTypeReferenceImpl@Execute" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@Execute" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@createHandler()" shape=ellipse]
+17 [label="6:CtVirtualElement@createHandler" shape=ellipse]
+18 [label="6:CtInvocationImpl@createHandler()" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@createWatchdog()" shape=ellipse]
+20 [label="6:CtVirtualElement@createWatchdog" shape=ellipse]
+21 [label="6:CtInvocationImpl@createWatchdog()" shape=ellipse]
+22 [label="6:CtConstructorCallImpl@new Execute(createHandler(), createWatchdog())" shape=ellipse]
+23 [label="6:CtVirtualElement@exe" shape=ellipse]
+24 [label="6:CtLocalVariableImpl@Execute exe = new Execute(createHandler(), createWatchdog())" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@setAntRun()" shape=ellipse]
+26 [label="7:CtVirtualElement@setAntRun" shape=ellipse]
+27 [label="7:CtVariableReadImpl@exe" shape=ellipse]
+28 [label="7:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+29 [label="7:CtVirtualElement@getProject" shape=ellipse]
+30 [label="7:CtInvocationImpl@getProject()" shape=ellipse]
+31 [label="7:CtInvocationImpl@exe.setAntRun(getProject())" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@setWorkingDirectory()" shape=ellipse]
+33 [label="8:CtVirtualElement@setWorkingDirectory" shape=ellipse]
+34 [label="8:CtVariableReadImpl@exe" shape=ellipse]
+35 [label="8:CtFieldReadImpl@dir" shape=ellipse]
+36 [label="8:CtInvocationImpl@exe.setWorkingDirectory(dir)" shape=ellipse]
+37 [label="9:CtExecutableReferenceImpl@setVMLauncher()" shape=ellipse]
+38 [label="9:CtVirtualElement@setVMLauncher" shape=ellipse]
+39 [label="9:CtVariableReadImpl@exe" shape=ellipse]
+40 [label="9:CtFieldReadImpl@vmLauncher" shape=ellipse]
+41 [label="9:CtInvocationImpl@exe.setVMLauncher(vmLauncher)" shape=ellipse]
+42 [label="10:CtVirtualElement@String[]" shape=ellipse]
+43 [label="10:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+44 [label="10:CtExecutableReferenceImpl@getVariables()" shape=ellipse]
+45 [label="10:CtVirtualElement@getVariables" shape=ellipse]
+46 [label="10:CtFieldReadImpl@env" shape=ellipse]
+47 [label="10:CtInvocationImpl@env.getVariables()" shape=ellipse]
+48 [label="10:CtVirtualElement@environment" shape=ellipse]
+49 [label="10:CtLocalVariableImpl@String[] environment = env.getVariables()" shape=ellipse]
+50 [label="11:CtVariableReadImpl@environment" shape=ellipse]
+51 [label="11:CtLiteralImpl@null" shape=ellipse]
+52 [label="11:CtBinaryOperatorImpl@environment != null" shape=ellipse]
+53 [label="12:CtTypeReferenceImpl@int" shape=ellipse]
+54 [label="12:CtLiteralImpl@0" shape=ellipse]
+55 [label="12:CtVirtualElement@i" shape=ellipse]
+56 [label="12:CtLocalVariableImpl@int i = 0" shape=ellipse]
+57 [label="12:CtVariableReadImpl@i" shape=ellipse]
+58 [label="12:CtVariableReadImpl@environment" shape=ellipse]
+59 [label="12:CtLocalVariableReferenceImpl@environment" shape=ellipse]
+60 [label="12:CtFieldReadImpl@environment.length" shape=ellipse]
+61 [label="12:CtBinaryOperatorImpl@i < environment.length" shape=ellipse]
+62 [label="12:CtVariableWriteImpl@i" shape=ellipse]
+63 [label="12:CtUnaryOperatorImpl@i++" shape=ellipse]
+64 [label="13:CtExecutableReferenceImpl@log(java.lang.String,<unknown>)" shape=ellipse]
+65 [label="13:CtVirtualElement@log" shape=ellipse]
+66 [label="13:CtLiteralImpl@\"Setting environment variable: \"" shape=ellipse]
+67 [label="13:CtVariableReadImpl@environment" shape=ellipse]
+68 [label="13:CtVariableReadImpl@i" shape=ellipse]
+69 [label="13:CtArrayReadImpl@environment[i]" shape=ellipse]
+70 [label="13:CtBinaryOperatorImpl@\"Setting environment variable: \" + environment[i]" shape=ellipse]
+71 [label="13:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+72 [label="13:CtInvocationImpl@log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE)" shape=ellipse]
+73 [label="12:CtBlockImpl@\{
+    log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+\}" shape=ellipse]
+74 [label="12:CtForImpl@for (int i = 0; i < environment.length; i++) \{
+    log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+\}" shape=ellipse]
+75 [label="11:CtBlockImpl@\{
+    for (int i = 0; i < environment.length; i++) \{
+        log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+    \}
+\}" shape=ellipse]
+76 [label="11:CtIfImpl@if (environment != null) \{
+    for (int i = 0; i < environment.length; i++) \{
+        log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+    \}
+\}" shape=ellipse]
+77 [label="16:CtExecutableReferenceImpl@setNewenvironment()" shape=ellipse]
+78 [label="16:CtVirtualElement@setNewenvironment" shape=ellipse]
+79 [label="16:CtVariableReadImpl@exe" shape=ellipse]
+80 [label="16:CtFieldReadImpl@newEnvironment" shape=ellipse]
+81 [label="16:CtInvocationImpl@exe.setNewenvironment(newEnvironment)" shape=ellipse]
+82 [label="17:CtExecutableReferenceImpl@setEnvironment(java.lang.String[])" shape=ellipse]
+83 [label="17:CtVirtualElement@setEnvironment" shape=ellipse]
+84 [label="17:CtVariableReadImpl@exe" shape=ellipse]
+85 [label="17:CtVariableReadImpl@environment" shape=ellipse]
+86 [label="17:CtInvocationImpl@exe.setEnvironment(environment)" shape=ellipse]
+87 [label="18:CtVariableReadImpl@exe" shape=ellipse]
+88 [label="18:CtReturnImpl@return exe" shape=ellipse]
+89 [label="2:CtBlockImpl@\{
+    if (dir == null) \{
+        dir = project.getBaseDir();
+    \}
+    Execute exe = new Execute(createHandler(), createWatchdog());
+    exe.setAntRun(getProject());
+    exe.setWorkingDirectory(dir);
+    exe.setVMLauncher(vmLauncher);
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    exe.setNewenvironment(newEnvironment);
+    exe.setEnvironment(environment);
+    return exe;
+\}" shape=ellipse]
+90 [label="2:CtMethodImpl@protected Execute prepareExec() throws BuildException \{
+    if (dir == null) \{
+        dir = project.getBaseDir();
+    \}
+    Execute exe = new Execute(createHandler(), createWatchdog());
+    exe.setAntRun(getProject());
+    exe.setWorkingDirectory(dir);
+    exe.setVMLauncher(vmLauncher);
+    String[] environment = env.getVariables();
+    if (environment != null) \{
+        for (int i = 0; i < environment.length; i++) \{
+            log(\"Setting environment variable: \" + environment[i], MSG_VERBOSE);
+        \}
+    \}
+    exe.setNewenvironment(newEnvironment);
+    exe.setEnvironment(environment);
+    return exe;
+\}" shape=ellipse]
+91 [label="4:Delete@DELETE" shape=ellipse]
+92 [label="4:Insert@INSERT" shape=ellipse]
+93 [label="4:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 12 [label="Control Dep"];
+5 -> 11 [label="Control Dep"];
+5 -> 6 [label="Control Dep"];
+5 -> 10 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+6 -> 35 [label="Define-Use"];
+9 -> 6 [label="Data Dep"];
+9 -> 91 [label="Action"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+10 -> 92 [label="Action"];
+11 -> 6 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 5 [label="AST"];
+13 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 16 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 19 [label="AST"];
+22 -> 18 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 27 [label="Define-Use"];
+23 -> 34 [label="Define-Use"];
+23 -> 39 [label="Define-Use"];
+23 -> 79 [label="Define-Use"];
+23 -> 84 [label="Define-Use"];
+23 -> 87 [label="Define-Use"];
+24 -> 23 [label="AST"];
+24 -> 14 [label="AST"];
+24 -> 22 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 28 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 27 [label="AST"];
+31 -> 25 [label="AST"];
+31 -> 30 [label="AST"];
+36 -> 33 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 32 [label="AST"];
+36 -> 35 [label="AST"];
+41 -> 38 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 37 [label="AST"];
+41 -> 40 [label="AST"];
+43 -> 42 [label="AST"];
+46 -> 48 [label="Data Dep"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 50 [label="Define-Use"];
+48 -> 58 [label="Define-Use"];
+48 -> 67 [label="Define-Use"];
+48 -> 69 [label="Define-Use"];
+48 -> 85 [label="Define-Use"];
+49 -> 48 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 47 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 75 [label="Control Dep"];
+52 -> 74 [label="Control Dep"];
+52 -> 56 [label="Control Dep"];
+52 -> 54 [label="Control Dep"];
+52 -> 61 [label="Control Dep"];
+52 -> 57 [label="Control Dep"];
+52 -> 60 [label="Control Dep"];
+52 -> 58 [label="Control Dep"];
+52 -> 63 [label="Control Dep"];
+52 -> 62 [label="Control Dep"];
+55 -> 57 [label="Define-Use"];
+55 -> 68 [label="Define-Use"];
+56 -> 55 [label="AST"];
+56 -> 53 [label="AST"];
+56 -> 54 [label="AST"];
+58 -> 59 [label="AST"];
+60 -> 58 [label="AST"];
+61 -> 57 [label="AST"];
+61 -> 60 [label="AST"];
+61 -> 73 [label="Control Dep"];
+61 -> 72 [label="Control Dep"];
+61 -> 64 [label="Control Dep"];
+61 -> 70 [label="Control Dep"];
+61 -> 66 [label="Control Dep"];
+61 -> 69 [label="Control Dep"];
+61 -> 67 [label="Control Dep"];
+61 -> 68 [label="Control Dep"];
+61 -> 71 [label="Control Dep"];
+62 -> 68 [label="Define-Use"];
+63 -> 62 [label="AST"];
+69 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 66 [label="AST"];
+70 -> 69 [label="AST"];
+72 -> 65 [label="AST"];
+72 -> 64 [label="AST"];
+72 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 56 [label="AST"];
+74 -> 61 [label="AST"];
+74 -> 63 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 52 [label="AST"];
+76 -> 75 [label="AST"];
+81 -> 78 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 77 [label="AST"];
+81 -> 80 [label="AST"];
+86 -> 83 [label="AST"];
+86 -> 84 [label="AST"];
+86 -> 82 [label="AST"];
+86 -> 85 [label="AST"];
+88 -> 87 [label="AST"];
+89 -> 13 [label="AST"];
+89 -> 24 [label="AST"];
+89 -> 31 [label="AST"];
+89 -> 36 [label="AST"];
+89 -> 41 [label="AST"];
+89 -> 49 [label="AST"];
+89 -> 76 [label="AST"];
+89 -> 81 [label="AST"];
+89 -> 86 [label="AST"];
+89 -> 88 [label="AST"];
+90 -> 1 [label="AST"];
+90 -> 0 [label="AST"];
+90 -> 2 [label="AST"];
+90 -> 89 [label="AST"];
+92 -> 93 [label="Action"];
+}

@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/711/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/711/1/after.java
+@@ -9,4 +9,6 @@
+-    configure(test, config);
+-    final ConfigTestReferenceConversion expected = new ConfigTestReferenceConversion();
+-    expected.setPropA(new MyRole1Adaptor(refValue));
+-    assertEquals(expected, test);
++    try {
++      configure(test, config);
++    } catch (ConfigurationException e) {
++      return;
++    }
++    fail("-ref pattern on attributes no longer supported");

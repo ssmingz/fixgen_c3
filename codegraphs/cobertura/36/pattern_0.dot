@@ -1,0 +1,237 @@
+digraph "Pattern" {
+0 [label="addInstrumentationToSingleClass#?,File#17:INSERT
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#36:INSERT" shape=ellipse]
+1 [label="addInstrumentationToSingleClass#?,File#12:new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial)
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#31:new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial)" shape=ellipse]
+2 [label="addInstrumentationToSingleClass#?,File#11:cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial)
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#30:ClassInstrumenter cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial)" shape=ellipse]
+3 [label="addInstrumentationToSingleClass#?,File#7:\{
+    inputStream = new FileInputStream(file);
+    ClassReader cr = new ClassReader(inputStream);
+    cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+    cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial);
+    cr.accept(cv, 0);
+\}
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#27:\{
+    ClassReader cr = new ClassReader(entryBytes);
+    ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+    ClassInstrumenter cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial);
+    cr.accept(cv, 0);
+    if (cv.isInstrumented()) \{
+        logger.debug(\"Putting instrumented entry: \" + entry.getName());
+        entryBytes = cw.toByteArray();
+        modified = true;
+        outputEntry.setTime(System.currentTimeMillis());
+    \}
+\}" shape=ellipse]
+4 [label="addInstrumentationToSingleClass#?,File#11:cv" shape=ellipse]
+5 [label="addInstrumentationToSingleClass#?,File#17:ignoreMethodAnnotations
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#36:ignoreMethodAnnotations" shape=ellipse]
+6 [label="addInstrumentationToSingleClass#?,File#17:ignoreMethodAnnotations
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#36:ignoreMethodAnnotations" shape=ellipse]
+7 [label="addInstrumentationToSingleClass#?,File#17:PlaceHold
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#36:PlaceHold" shape=ellipse]
+8 [label="addInstrumentationToSingleClass#?,File#17:
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#36:" shape=ellipse]
+9 [label="addInstrumentationToSingleClass#?,File#12:ClassInstrumenter()
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#31:ClassInstrumenter()" shape=ellipse]
+10 [label="addInstrumentationToSingleClass#?,File#12:ClassInstrumenter" shape=ellipse]
+11 [label="addInstrumentationToSingleClass#?,File#12:ClassInstrumenter" shape=ellipse]
+12 [label="addInstrumentationToSingleClass#?,File#13:projectData
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#32:projectData" shape=ellipse]
+13 [label="addInstrumentationToSingleClass#?,File#13:projectData" shape=ellipse]
+14 [label="addInstrumentationToSingleClass#?,File#13:cw
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#32:cw" shape=ellipse]
+15 [label="addInstrumentationToSingleClass#?,File#10:cw" shape=ellipse]
+16 [label="addInstrumentationToSingleClass#?,File#13:cw" shape=ellipse]
+17 [label="addInstrumentationToSingleClass#?,File#13:ignoreRegexes
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#32:ignoreRegexes" shape=ellipse]
+18 [label="addInstrumentationToSingleClass#?,File#13:ignoreRegexes" shape=ellipse]
+19 [label="addInstrumentationToSingleClass#?,File#13:ignoreBranchesRegexes
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#32:ignoreBranchesRegexes" shape=ellipse]
+20 [label="addInstrumentationToSingleClass#?,File#13:ignoreBranchesRegexes" shape=ellipse]
+21 [label="addInstrumentationToSingleClass#?,File#13:ignoreTrivial
+addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#32:ignoreTrivial" shape=ellipse]
+22 [label="addInstrumentationToSingleClass#?,File#13:ignoreTrivial" shape=ellipse]
+23 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#26:classPattern.matches(entryName)" shape=ellipse]
+24 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#26:isClass(entry) && classPattern.matches(entryName)" shape=ellipse]
+25 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#18:classPattern.isSpecified() && ArchiveUtil.isArchive(entryName)" shape=ellipse]
+26 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#26:if (isClass(entry) && classPattern.matches(entryName)) \{
+    try \{
+        ClassReader cr = new ClassReader(entryBytes);
+        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+        ClassInstrumenter cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial);
+        cr.accept(cv, 0);
+        if (cv.isInstrumented()) \{
+            logger.debug(\"Putting instrumented entry: \" + entry.getName());
+            entryBytes = cw.toByteArray();
+            modified = true;
+            outputEntry.setTime(System.currentTimeMillis());
+        \}
+    \} catch (Throwable t) \{
+        if (entry.getName().endsWith(\"_Stub.class\")) \{
+            logger.debug(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+        \} else \{
+            logger.warn(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+        \}
+    \}
+\}" shape=ellipse]
+27 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#26:isClass(entry)" shape=ellipse]
+28 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#26:\{
+    try \{
+        ClassReader cr = new ClassReader(entryBytes);
+        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+        ClassInstrumenter cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial);
+        cr.accept(cv, 0);
+        if (cv.isInstrumented()) \{
+            logger.debug(\"Putting instrumented entry: \" + entry.getName());
+            entryBytes = cw.toByteArray();
+            modified = true;
+            outputEntry.setTime(System.currentTimeMillis());
+        \}
+    \} catch (Throwable t) \{
+        if (entry.getName().endsWith(\"_Stub.class\")) \{
+            logger.debug(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+        \} else \{
+            logger.warn(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+        \}
+    \}
+\}" shape=ellipse]
+29 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#34:if (cv.isInstrumented()) \{
+    logger.debug(\"Putting instrumented entry: \" + entry.getName());
+    entryBytes = cw.toByteArray();
+    modified = true;
+    outputEntry.setTime(System.currentTimeMillis());
+\}" shape=ellipse]
+30 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#27:try \{
+    ClassReader cr = new ClassReader(entryBytes);
+    ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+    ClassInstrumenter cv = new ClassInstrumenter(projectData, cw, ignoreRegexes, ignoreBranchesRegexes, ignoreTrivial);
+    cr.accept(cv, 0);
+    if (cv.isInstrumented()) \{
+        logger.debug(\"Putting instrumented entry: \" + entry.getName());
+        entryBytes = cw.toByteArray();
+        modified = true;
+        outputEntry.setTime(System.currentTimeMillis());
+    \}
+\} catch (Throwable t) \{
+    if (entry.getName().endsWith(\"_Stub.class\")) \{
+        logger.debug(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+    \} else \{
+        logger.warn(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+    \}
+\}" shape=ellipse]
+31 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#33:0" shape=ellipse]
+32 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#28:new ClassReader(entryBytes)" shape=ellipse]
+33 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#28:entryBytes" shape=ellipse]
+34 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#33:cv" shape=ellipse]
+35 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#34:cv.isInstrumented()" shape=ellipse]
+36 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#29:new ClassWriter(ClassWriter.COMPUTE_MAXS)" shape=ellipse]
+37 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#33:cr.accept(cv, 0)" shape=ellipse]
+38 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#33:cr" shape=ellipse]
+39 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#29:ClassWriter.COMPUTE_MAXS" shape=ellipse]
+40 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#40: catch (Throwable t) \{
+    if (entry.getName().endsWith(\"_Stub.class\")) \{
+        logger.debug(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+    \} else \{
+        logger.warn(\"Problems instrumenting archive entry: \" + entry.getName(), t);
+    \}
+\}" shape=ellipse]
+41 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#34:cv" shape=ellipse]
+42 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#34:isInstrumented()" shape=ellipse]
+43 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#28:ClassReader(byte[])" shape=ellipse]
+44 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#29:ClassWriter()" shape=ellipse]
+45 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#33:accept(ClassInstrumenter,int)" shape=ellipse]
+46 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#28:ClassReader cr = new ClassReader(entryBytes)" shape=ellipse]
+47 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#29:ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS)" shape=ellipse]
+48 [label="addInstrumentationToArchive#?,CoberturaFile,ZipInputStream,ZipOutputStream#40:Throwable t" shape=ellipse]
+0 -> 5 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 21 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 29 [label="AST:1"];
+3 -> 37 [label="AST:1"];
+3 -> 46 [label="AST:1"];
+3 -> 47 [label="AST:1"];
+5 -> 4 [label="Data Dep:1"];
+5 -> 4 [label="Control Dep:1"];
+5 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+12 -> 4 [label="Data Dep:1"];
+12 -> 13 [label="AST:1"];
+14 -> 4 [label="Data Dep:1"];
+14 -> 16 [label="AST:1"];
+15 -> 14 [label="Define Use:1"];
+17 -> 4 [label="Data Dep:1"];
+17 -> 18 [label="AST:1"];
+19 -> 4 [label="Data Dep:1"];
+19 -> 20 [label="AST:1"];
+21 -> 4 [label="Data Dep:1"];
+21 -> 22 [label="AST:1"];
+24 -> 23 [label="AST:1"];
+24 -> 27 [label="AST:1"];
+24 -> 28 [label="Control Dep:1"];
+24 -> 30 [label="Control Dep:1"];
+24 -> 3 [label="Control Dep:1"];
+24 -> 46 [label="Control Dep:1"];
+24 -> 32 [label="Control Dep:1"];
+24 -> 43 [label="Control Dep:1"];
+24 -> 33 [label="Control Dep:1"];
+24 -> 47 [label="Control Dep:1"];
+24 -> 36 [label="Control Dep:1"];
+24 -> 44 [label="Control Dep:1"];
+24 -> 39 [label="Control Dep:1"];
+24 -> 2 [label="Control Dep:1"];
+24 -> 1 [label="Control Dep:1"];
+24 -> 9 [label="Control Dep:1"];
+24 -> 12 [label="Control Dep:1"];
+24 -> 14 [label="Control Dep:1"];
+24 -> 17 [label="Control Dep:1"];
+24 -> 19 [label="Control Dep:1"];
+24 -> 21 [label="Control Dep:1"];
+24 -> 37 [label="Control Dep:1"];
+24 -> 45 [label="Control Dep:1"];
+24 -> 38 [label="Control Dep:1"];
+24 -> 34 [label="Control Dep:1"];
+24 -> 31 [label="Control Dep:1"];
+24 -> 29 [label="Control Dep:1"];
+24 -> 35 [label="Control Dep:1"];
+24 -> 42 [label="Control Dep:1"];
+24 -> 41 [label="Control Dep:1"];
+24 -> 40 [label="Control Dep:1"];
+24 -> 48 [label="Control Dep:1"];
+24 -> 5 [label="Control Dep:1"];
+25 -> 23 [label="Control Dep:1"];
+25 -> 24 [label="Control Dep:1"];
+25 -> 26 [label="Control Dep:1"];
+25 -> 27 [label="Control Dep:1"];
+26 -> 24 [label="AST:1"];
+26 -> 28 [label="AST:1"];
+28 -> 30 [label="AST:1"];
+29 -> 35 [label="AST:1"];
+30 -> 3 [label="AST:1"];
+30 -> 40 [label="AST:1"];
+32 -> 43 [label="AST:1"];
+32 -> 33 [label="AST:1"];
+35 -> 41 [label="AST:1"];
+35 -> 42 [label="AST:1"];
+36 -> 44 [label="AST:1"];
+36 -> 39 [label="AST:1"];
+37 -> 31 [label="AST:1"];
+37 -> 34 [label="AST:1"];
+37 -> 38 [label="AST:1"];
+37 -> 45 [label="AST:1"];
+40 -> 48 [label="AST:1"];
+46 -> 32 [label="AST:1"];
+47 -> 36 [label="AST:1"];
+}

@@ -1,0 +1,28 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2753/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2753/0/after.java
+@@ -7,1 +7,1 @@
+-    int count = Math.max(1, parent.columnCount);
++    int count = Math.max(1, parent.getColumnCount());
+@@ -21,5 +21,0 @@
+-    int parentHandle = parent.handle;
+-    int column = OS.gtk_tree_view_get_column(parentHandle, index);
+-    if (column == 0) {
+-      return;
+-    }
+@@ -36,0 +31,10 @@
++          int parentHandle = parent.handle;
++          int column = 0;
++          if (parent.columnCount > 0) {
++            column = parent.columns[index].handle;
++          } else {
++            column = OS.gtk_tree_view_get_column(parentHandle, index);
++          }
++          if (column == 0) {
++            return;
++          }
+@@ -39,1 +44,1 @@
+-              column, textRenderer, textCellDataProc, parent.handle, 0);
++              column, textRenderer, textCellDataProc, parentHandle, 0);
+@@ -41,1 +46,1 @@
+-              column, imageRenderer, pixbufCellDataProc, parent.handle, 0);
++              column, imageRenderer, pixbufCellDataProc, parentHandle, 0);

@@ -1,0 +1,124 @@
+digraph "Pattern" {
+0 [label="configure#?,Configuration#10:UPDATE
+configure#?,Configuration#7:UPDATE" shape=ellipse]
+1 [label="configure#?,Configuration#10:configure(this, name, value)
+configure#?,Configuration#7:configure(this, name, value)" shape=ellipse]
+2 [label="configure#?,Configuration#9:name.equals(\"id\") || name.equals(\"local-scope\")
+configure#?,Configuration#4:i < attributes.length" shape=ellipse]
+3 [label="configure#?,Configuration#6:i < attributes.length" shape=ellipse]
+4 [label="configure#?,Configuration#9:if (name.equals(\"id\") || name.equals(\"local-scope\")) \{
+    configure(this, name, value);
+\} else \{
+    newConfiguration.setAttribute(name, value);
+\}" shape=ellipse]
+5 [label="configure#?,Configuration#-1:boolean
+configure#?,Configuration#-1:boolean" shape=ellipse]
+6 [label="configure#?,Configuration#9:name.equals(\"id\")" shape=ellipse]
+7 [label="configure#?,Configuration#9:name.equals(\"local-scope\")" shape=ellipse]
+8 [label="configure#?,Configuration#9:\{
+    configure(this, name, value);
+\}
+configure#?,Configuration#4:\{
+    final String name = attributes[i];
+    final String value = configuration.getAttribute(name);
+    configure(this, name, value);
+\}" shape=ellipse]
+9 [label="configure#?,Configuration#10:configure(Configuration)
+configure#?,Configuration#7:configure(Configuration)" shape=ellipse]
+10 [label="configure#?,Configuration#-1:
+configure#?,Configuration#-1:" shape=ellipse]
+11 [label="configure#?,Configuration#-1:PlaceHold
+configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+12 [label="configure#?,Configuration#10:this
+configure#?,Configuration#7:this" shape=ellipse]
+13 [label="configure#?,Configuration#-1:PlaceHold
+configure#?,Configuration#-1:PlaceHold" shape=ellipse]
+14 [label="configure#?,Configuration#10:name
+configure#?,Configuration#7:name" shape=ellipse]
+15 [label="configure#?,Configuration#10:value
+configure#?,Configuration#7:value" shape=ellipse]
+16 [label="configure#?,Configuration#11:\{
+    newConfiguration.setAttribute(name, value);
+\}" shape=ellipse]
+17 [label="configure#?,Configuration#12:newConfiguration.setAttribute(name, value)
+configure#?,Configuration#6:configuration.getAttribute(name)" shape=ellipse]
+18 [label="configure#?,Configuration#12:setAttribute(java.lang.String,java.lang.String)
+configure#?,Configuration#6:getAttribute(java.lang.String)" shape=ellipse]
+19 [label="configure#?,Configuration#12:newConfiguration
+configure#?,Configuration#6:configuration" shape=ellipse]
+20 [label="configure#?,Configuration#12:name
+configure#?,Configuration#6:name" shape=ellipse]
+21 [label="configure#?,Configuration#12:value" shape=ellipse]
+22 [label="configure#?,Configuration#10:configure
+configure#?,Configuration#7:configure" shape=ellipse]
+23 [label="configure#?,Configuration#10:configureAttribute(this, name, value)
+configure#?,Configuration#7:configureAttribute(this, name, value)" shape=ellipse]
+24 [label="configure#?,Configuration#5:final String name = attributes[i]" shape=ellipse]
+25 [label="configure#?,Configuration#6:final String value = configuration.getAttribute(name)" shape=ellipse]
+26 [label="configure#?,Configuration#5:attributes" shape=ellipse]
+27 [label="configure#?,Configuration#4:attributes.length" shape=ellipse]
+28 [label="configure#?,Configuration#5:i" shape=ellipse]
+29 [label="configure#?,Configuration#5:attributes[i]" shape=ellipse]
+30 [label="configure#?,Configuration#4:for (int i = 0; i < attributes.length; i++) \{
+    final String name = attributes[i];
+    final String value = configuration.getAttribute(name);
+    configure(this, name, value);
+\}" shape=ellipse]
+31 [label="configure#?,Configuration#4:i" shape=ellipse]
+0 -> 23 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 22 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="AST:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 31 [label="AST:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 6 [label="Control Dep:1"];
+3 -> 7 [label="Control Dep:1"];
+4 -> 2 [label="AST:1"];
+4 -> 8 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+8 -> 1 [label="AST:2"];
+8 -> 24 [label="AST:1"];
+8 -> 25 [label="AST:1"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+17 -> 19 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+17 -> 20 [label="AST:2"];
+17 -> 21 [label="AST:1"];
+24 -> 29 [label="AST:1"];
+25 -> 17 [label="AST:1"];
+29 -> 26 [label="AST:1"];
+29 -> 28 [label="AST:1"];
+30 -> 2 [label="AST:1"];
+30 -> 8 [label="AST:1"];
+}

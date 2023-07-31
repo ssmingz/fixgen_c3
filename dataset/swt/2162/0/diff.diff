@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2162/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2162/0/after.java
+@@ -3,2 +3,2 @@
+-    if (handle != 0) {
+-      OS.DeleteObject(handle);
++    if (handle == 0) {
++      return;
+@@ -6,0 +6,4 @@
++    if (device.isDisposed()) {
++      return;
++    }
++    OS.DeleteObject(handle);
+@@ -7,0 +11,4 @@
++    if (device.tracking) {
++      device.dispose_Object(this);
++    }
++    device = null;

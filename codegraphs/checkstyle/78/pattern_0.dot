@@ -1,0 +1,106 @@
+digraph "Pattern" {
+0 [label="testOpWrapOn#?#4:UPDATE
+testOpWrapOff#?#4:UPDATE" shape=ellipse]
+1 [label="testOpWrapOn#?#4:mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, false)
+testOpWrapOff#?#4:mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, true)" shape=ellipse]
+2 [label="testOpWrapOn#?#2:\{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, false);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputOpWrap.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":15:19: '+' should be on a new line.\", filepath + \":16:15: '-' should be on a new line.\", filepath + \":24:18: '&&' should be on a new line.\" \};
+    verify(c, filepath, expected);
+\}
+testOpWrapOff#?#2:\{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputOpWrap.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{  \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+3 [label="testOpWrapOn#?#2:public void testOpWrapOn() throws Exception \{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, false);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputOpWrap.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":15:19: '+' should be on a new line.\", filepath + \":16:15: '-' should be on a new line.\", filepath + \":24:18: '&&' should be on a new line.\" \};
+    verify(c, filepath, expected);
+\}
+testOpWrapOff#?#2:public void testOpWrapOff() throws Exception \{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setBooleanFlag(IGNORE_OP_WRAP_PROP, true);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputOpWrap.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{  \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+4 [label="testOpWrapOn#?#3:mConfig.setJavadocScope(NOTHING)
+testOpWrapOff#?#3:mConfig.setJavadocScope(NOTHING)" shape=ellipse]
+5 [label="testOpWrapOn#?#5:final Checker c = createChecker()
+testOpWrapOff#?#5:final Checker c = createChecker()" shape=ellipse]
+6 [label="testOpWrapOn#?#6:final String filepath = getPath(\"InputOpWrap.java\")
+testOpWrapOff#?#6:final String filepath = getPath(\"InputOpWrap.java\")" shape=ellipse]
+7 [label="testOpWrapOn#?#7:assertNotNull(c)
+testOpWrapOff#?#7:assertNotNull(c)" shape=ellipse]
+8 [label="testOpWrapOn#?#8:final String[] expected = new String[]\{ filepath + \":15:19: '+' should be on a new line.\", filepath + \":16:15: '-' should be on a new line.\", filepath + \":24:18: '&&' should be on a new line.\" \}
+testOpWrapOff#?#8:final String[] expected = new String[]\{  \}" shape=ellipse]
+9 [label="testOpWrapOn#?#14:verify(c, filepath, expected)
+testOpWrapOff#?#9:verify(c, filepath, expected)" shape=ellipse]
+10 [label="testOpWrapOn#?#4:setBooleanFlag
+testOpWrapOff#?#4:setBooleanFlag" shape=ellipse]
+11 [label="testOpWrapOn#?#4:mConfig
+testOpWrapOff#?#4:mConfig" shape=ellipse]
+12 [label="testOpWrapOn#?#4:mConfig
+testOpWrapOff#?#4:mConfig" shape=ellipse]
+13 [label="testOpWrapOn#?#4:setBooleanFlag(boolean)
+testOpWrapOff#?#4:setBooleanFlag(boolean)" shape=ellipse]
+14 [label="testOpWrapOn#?#4:mConfig
+testOpWrapOff#?#4:mConfig" shape=ellipse]
+15 [label="testOpWrapOn#?#4:boolean
+testOpWrapOff#?#4:boolean" shape=ellipse]
+16 [label="testOpWrapOn#?#4:IGNORE_OP_WRAP_PROP
+testOpWrapOff#?#4:IGNORE_OP_WRAP_PROP" shape=ellipse]
+17 [label="testOpWrapOn#?#4:IGNORE_OP_WRAP_PROP
+testOpWrapOff#?#4:IGNORE_OP_WRAP_PROP" shape=ellipse]
+18 [label="testOpWrapOn#?#4:false
+testOpWrapOff#?#4:true" shape=ellipse]
+19 [label="testOpWrapOn#?#4:boolean
+testOpWrapOff#?#4:boolean" shape=ellipse]
+20 [label="testOpWrapOn#?#4:setBooleanProperty
+testOpWrapOff#?#4:setBooleanProperty" shape=ellipse]
+21 [label="testOpWrapOn#?#4:setBooleanProperty(boolean)
+testOpWrapOff#?#4:setBooleanProperty(boolean)" shape=ellipse]
+22 [label="testOpWrapOn#?#4:mConfig
+testOpWrapOff#?#4:mConfig" shape=ellipse]
+23 [label="testOpWrapOn#?#4:
+testOpWrapOff#?#4:" shape=ellipse]
+24 [label="testOpWrapOn#?#4:boolean
+testOpWrapOff#?#4:boolean" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+21 -> 24 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+}

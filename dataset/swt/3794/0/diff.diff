@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3794/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3794/0/after.java
+@@ -7,2 +7,7 @@
+-    this.year = year;
+-    OS.gtk_calendar_select_month(handle, month, year);
++    if ((style & SWT.CALENDAR) != 0) {
++      this.year = year;
++      OS.gtk_calendar_select_month(handle, month, year);
++    } else {
++      calendar.set(Calendar.YEAR, year);
++      updateControl();
++    }

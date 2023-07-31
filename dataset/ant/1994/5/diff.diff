@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1994/5/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1994/5/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test2", "required argument missing");
++    try {
++      buildRule.executeTarget("test2");
++      fail("required argument missing");
++    } catch (BuildException ex) {
++    }

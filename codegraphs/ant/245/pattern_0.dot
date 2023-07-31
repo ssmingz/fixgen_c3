@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testDefaultExecutor#?#-1:DELETE" shape=ellipse]
+1 [label="testDefaultExecutor#?#-1:PlaceHold
+testPropertyExpansion#?#7:project" shape=ellipse]
+2 [label="testDefaultExecutor#?#-1:" shape=ellipse]
+3 [label="testDefaultExecutor#?#3:getProject()
+testPropertyExpansion#?#8:buildRule.getProject()" shape=ellipse]
+4 [label="testDefaultExecutor#?#-1:PlaceHold
+testPropertyExpansion#?#7:setProperty(java.lang.String,java.lang.String)" shape=ellipse]
+5 [label="testDefaultExecutor#?#-1:PlaceHold" shape=ellipse]
+6 [label="testPropertyExpansion#?#7:project.setProperty(\"expanded\", \"EXPANDED\")" shape=ellipse]
+7 [label="testPropertyExpansion#?#7:\"EXPANDED\"" shape=ellipse]
+8 [label="testPropertyExpansion#?#8:INSERT" shape=ellipse]
+9 [label="testPropertyExpansion#?#2:\{
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"$\", \"$\");
+    assertExpandsTo(\"$$-\", \"$-\");
+    assertExpandsTo(\"$$\", \"$\");
+    project.setProperty(\"expanded\", \"EXPANDED\");
+    assertExpandsTo(\"a$\{expanded\}b\", \"aEXPANDEDb\");
+    assertExpandsTo(\"$\{expanded\}$\{expanded\}\", \"EXPANDEDEXPANDED\");
+    assertExpandsTo(\"$$$\", \"$$\");
+    assertExpandsTo(\"$$$$-\", \"$$-\");
+    assertExpandsTo(\"\", \"\");
+    assertExpandsTo(\"Class$$subclass\", \"Class$subclass\");
+\}" shape=ellipse]
+10 [label="testPropertyExpansion#?#7:UPDATE" shape=ellipse]
+11 [label="testPropertyExpansion#?#7:setProperty" shape=ellipse]
+12 [label="testPropertyExpansion#?#-1:project" shape=ellipse]
+13 [label="testPropertyExpansion#?#7:\"expanded\"" shape=ellipse]
+14 [label="testPropertyExpansion#?#7:MOVE" shape=ellipse]
+15 [label="testPropertyExpansion#?#8:buildRule" shape=ellipse]
+1 -> 0 [label="Action:1"];
+1 -> 5 [label="AST:1"];
+1 -> 10 [label="Action:1"];
+1 -> 12 [label="AST:1"];
+1 -> 14 [label="Action:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 15 [label="AST:1"];
+6 -> 11 [label="AST:1"];
+6 -> 1 [label="AST:1"];
+6 -> 4 [label="AST:1"];
+6 -> 13 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+6 -> 8 [label="Action:1"];
+8 -> 3 [label="Action:1"];
+9 -> 6 [label="AST:1"];
+10 -> 15 [label="Action:1"];
+14 -> 3 [label="Action:1"];
+}

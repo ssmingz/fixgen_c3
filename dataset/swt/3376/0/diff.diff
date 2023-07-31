@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3376/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3376/0/after.java
+@@ -4,1 +4,5 @@
+-    OS.g_signal_connect(handle, value_changed, windowProc2, VALUE_CHANGED);
++    if (OS.GTK_VERSION >= OS.VERSION(2, 6, 0)) {
++      OS.g_signal_connect(handle, change_value, windowProc5, CHANGE_VALUE);
++    } else {
++      OS.g_signal_connect(handle, value_changed, windowProc2, VALUE_CHANGED);
++    }

@@ -1,0 +1,41 @@
+digraph "setUseLanguageEncodingFlag#?,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setUseLanguageEncodingFlag" shape=ellipse]
+2 [label="2:CtParameterImpl@boolean b" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@useEFS" shape=ellipse]
+5 [label="3:CtVariableReadImpl@b" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@isUTF8()" shape=ellipse]
+7 [label="3:CtVirtualElement@isUTF8" shape=ellipse]
+8 [label="3:CtTypeAccessImpl@ZipEncodingHelper" shape=ellipse]
+9 [label="3:CtFieldReadImpl@encoding" shape=ellipse]
+10 [label="3:CtInvocationImpl@ZipEncodingHelper.isUTF8(encoding)" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@b && ZipEncodingHelper.isUTF8(encoding)" shape=ellipse]
+12 [label="3:CtAssignmentImpl@useEFS = b && ZipEncodingHelper.isUTF8(encoding)" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    useEFS = b && ZipEncodingHelper.isUTF8(encoding);
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public void setUseLanguageEncodingFlag(boolean b) \{
+    useEFS = b && ZipEncodingHelper.isUTF8(encoding);
+\}" shape=ellipse]
+15 [label="3:Update@UPDATE" shape=ellipse]
+16 [label="3:CtFieldWriteImpl@useUTF8Flag" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 15 [label="Action"];
+5 -> 4 [label="Data Dep"];
+9 -> 4 [label="Data Dep"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 4 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 16 [label="Action"];
+}

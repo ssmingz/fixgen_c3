@@ -1,0 +1,84 @@
+digraph "Pattern" {
+0 [label="visitMethodDef#?,DetailAST#3:INSERT
+isCheckedMethod#?,DetailAST#3:INSERT" shape=ellipse]
+1 [label="visitMethodDef#?,DetailAST#3:String name = aAST.findFirstToken(IDENT).getText()
+isCheckedMethod#?,DetailAST#3:String methodName = aAST.findFirstToken(IDENT).getText()" shape=ellipse]
+2 [label="visitMethodDef#?,DetailAST#2:\{
+    String name = aAST.findFirstToken(IDENT).getText();
+    if (name.equalsIgnoreCase(SET_UP_METHOD_NAME)) \{
+        checkSetUpTearDownMethod(aAST, name, SET_UP_METHOD_NAME);
+    \} else if (name.equalsIgnoreCase(TEAR_DOWN_METHOD_NAME)) \{
+        checkSetUpTearDownMethod(aAST, name, TEAR_DOWN_METHOD_NAME);
+    \} else if (name.equalsIgnoreCase(SUITE_METHOD_NAME)) \{
+        checkSuiteMethod(aAST, name);
+    \}
+\}
+isCheckedMethod#?,DetailAST#2:\{
+    String methodName = aAST.findFirstToken(IDENT).getText();
+    return !mIgnoredMethodNames.contains(methodName);
+\}" shape=ellipse]
+3 [label="visitMethodDef#?,DetailAST#2:private void visitMethodDef(DetailAST aAST) \{
+    String name = aAST.findFirstToken(IDENT).getText();
+    if (name.equalsIgnoreCase(SET_UP_METHOD_NAME)) \{
+        checkSetUpTearDownMethod(aAST, name, SET_UP_METHOD_NAME);
+    \} else if (name.equalsIgnoreCase(TEAR_DOWN_METHOD_NAME)) \{
+        checkSetUpTearDownMethod(aAST, name, TEAR_DOWN_METHOD_NAME);
+    \} else if (name.equalsIgnoreCase(SUITE_METHOD_NAME)) \{
+        checkSuiteMethod(aAST, name);
+    \}
+\}
+isCheckedMethod#?,DetailAST#2:private boolean isCheckedMethod(DetailAST aAST) \{
+    String methodName = aAST.findFirstToken(IDENT).getText();
+    return !mIgnoredMethodNames.contains(methodName);
+\}" shape=ellipse]
+4 [label="visitMethodDef#?,DetailAST#4:if (name.equalsIgnoreCase(SET_UP_METHOD_NAME)) \{
+    checkSetUpTearDownMethod(aAST, name, SET_UP_METHOD_NAME);
+\} else if (name.equalsIgnoreCase(TEAR_DOWN_METHOD_NAME)) \{
+    checkSetUpTearDownMethod(aAST, name, TEAR_DOWN_METHOD_NAME);
+\} else if (name.equalsIgnoreCase(SUITE_METHOD_NAME)) \{
+    checkSuiteMethod(aAST, name);
+\}
+isCheckedMethod#?,DetailAST#4:return !mIgnoredMethodNames.contains(methodName)" shape=ellipse]
+5 [label="visitMethodDef#?,DetailAST#3:name
+isCheckedMethod#?,DetailAST#3:methodName" shape=ellipse]
+6 [label="visitMethodDef#?,DetailAST#3:aAST
+isCheckedMethod#?,DetailAST#3:aAST" shape=ellipse]
+7 [label="visitMethodDef#?,DetailAST#4:name
+isCheckedMethod#?,DetailAST#4:methodName" shape=ellipse]
+8 [label="visitMethodDef#?,DetailAST#5:name" shape=ellipse]
+9 [label="visitMethodDef#?,DetailAST#6:name" shape=ellipse]
+10 [label="visitMethodDef#?,DetailAST#7:name" shape=ellipse]
+11 [label="visitMethodDef#?,DetailAST#8:name" shape=ellipse]
+12 [label="visitMethodDef#?,DetailAST#9:name" shape=ellipse]
+13 [label="visitMethodDef#?,DetailAST#3:String
+isCheckedMethod#?,DetailAST#3:String" shape=ellipse]
+14 [label="visitMethodDef#?,DetailAST#3:java.lang
+isCheckedMethod#?,DetailAST#3:java.lang" shape=ellipse]
+15 [label="visitMethodDef#?,DetailAST#3:aAST.findFirstToken(IDENT).getText()
+isCheckedMethod#?,DetailAST#3:aAST.findFirstToken(IDENT).getText()" shape=ellipse]
+16 [label="visitMethodDef#?,DetailAST#3:getText
+isCheckedMethod#?,DetailAST#3:getText" shape=ellipse]
+17 [label="visitMethodDef#?,DetailAST#3:aAST.findFirstToken(IDENT)
+isCheckedMethod#?,DetailAST#3:aAST.findFirstToken(IDENT)" shape=ellipse]
+18 [label="visitMethodDef#?,DetailAST#3:getText()
+isCheckedMethod#?,DetailAST#3:getText()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 7 [label="Define Use:2"];
+5 -> 8 [label="Define Use:1"];
+5 -> 9 [label="Define Use:1"];
+5 -> 10 [label="Define Use:1"];
+5 -> 11 [label="Define Use:1"];
+5 -> 12 [label="Define Use:1"];
+6 -> 5 [label="Data Dep:2"];
+13 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+15 -> 17 [label="AST:2"];
+15 -> 18 [label="AST:2"];
+17 -> 6 [label="AST:2"];
+}

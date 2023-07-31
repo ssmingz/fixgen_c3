@@ -1,0 +1,73 @@
+digraph "Pattern" {
+0 [label="getFilteredTrace#?,Throwable#8:UPDATE
+testFilter#?#3:UPDATE" shape=ellipse]
+1 [label="getFilteredTrace#?,Throwable#8:BaseTestRunner.filterStack(trace)
+testFilter#?#3:BaseTestRunner.filterStack(fUnfiltered)" shape=ellipse]
+2 [label="getFilteredTrace#?,Throwable#8:return BaseTestRunner.filterStack(trace)" shape=ellipse]
+3 [label="getFilteredTrace#?,Throwable#2:\{
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter writer = new PrintWriter(stringWriter);
+    t.printStackTrace(writer);
+    StringBuffer buffer = stringWriter.getBuffer();
+    String trace = buffer.toString();
+    return BaseTestRunner.filterStack(trace);
+\}
+testFilter#?#2:\{
+    assertEquals(fFiltered, BaseTestRunner.filterStack(fUnfiltered));
+\}" shape=ellipse]
+4 [label="getFilteredTrace#?,Throwable#8:filterStack
+testFilter#?#3:filterStack" shape=ellipse]
+5 [label="getFilteredTrace#?,Throwable#8:BaseTestRunner
+testFilter#?#3:BaseTestRunner" shape=ellipse]
+6 [label="getFilteredTrace#?,Throwable#8:BaseTestRunner
+testFilter#?#3:BaseTestRunner" shape=ellipse]
+7 [label="getFilteredTrace#?,Throwable#8:filterStack(java.lang.String)
+testFilter#?#3:filterStack()" shape=ellipse]
+8 [label="getFilteredTrace#?,Throwable#8:BaseTestRunner
+testFilter#?#3:BaseTestRunner" shape=ellipse]
+9 [label="getFilteredTrace#?,Throwable#8:String" shape=ellipse]
+10 [label="getFilteredTrace#?,Throwable#8:String" shape=ellipse]
+11 [label="getFilteredTrace#?,Throwable#8:trace
+testFilter#?#3:fUnfiltered" shape=ellipse]
+12 [label="getFilteredTrace#?,Throwable#7:trace" shape=ellipse]
+13 [label="getFilteredTrace#?,Throwable#8:trace
+testFilter#?#3:fUnfiltered" shape=ellipse]
+14 [label="getFilteredTrace#?,Throwable#8:getFilteredTrace
+testFilter#?#3:getFilteredTrace" shape=ellipse]
+15 [label="getFilteredTrace#?,Throwable#8:getFilteredTrace(java.lang.String)
+testFilter#?#3:getFilteredTrace()" shape=ellipse]
+16 [label="getFilteredTrace#?,Throwable#8:BaseTestRunner
+testFilter#?#3:BaseTestRunner" shape=ellipse]
+17 [label="getFilteredTrace#?,Throwable#8:
+testFilter#?#3:" shape=ellipse]
+18 [label="getFilteredTrace#?,Throwable#8:String" shape=ellipse]
+19 [label="getFilteredTrace#?,Throwable#8:java.lang
+testFilter#?#3:assertEquals(<unknown>,<unknown>)" shape=ellipse]
+20 [label="testFilter#?#3:assertEquals(fFiltered, BaseTestRunner.filterStack(fUnfiltered))" shape=ellipse]
+21 [label="testFilter#?#3:" shape=ellipse]
+22 [label="testFilter#?#3:fFiltered" shape=ellipse]
+23 [label="testFilter#?#3:assertEquals" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 20 [label="AST:1"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:1"];
+7 -> 10 [label="AST:1"];
+11 -> 13 [label="AST:2"];
+12 -> 11 [label="Define Use:1"];
+15 -> 16 [label="AST:2"];
+15 -> 18 [label="AST:1"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+20 -> 19 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 1 [label="AST:1"];
+}

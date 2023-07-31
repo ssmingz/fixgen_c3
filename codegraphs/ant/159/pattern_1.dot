@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testContainsIncomplete2#?#2:INSERT
+testIstrueIncomplete1#?#2:INSERT" shape=ellipse]
+1 [label="testContainsIncomplete2#?#2:public void testContainsIncomplete2() \{
+    expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\");
+\}
+testIstrueIncomplete1#?#2:public void testIstrueIncomplete1() \{
+    expectSpecificBuildException(\"istrue-incomplete\", \"Missing attribute\", \"Nothing to test for truth\");
+\}" shape=ellipse]
+2 [label="testContainsIncomplete2#?#2:testContainsIncomplete2
+testIstrueIncomplete1#?#2:testIstrueIncomplete1" shape=ellipse]
+3 [label="testContainsIncomplete2#?#2:void
+testIstrueIncomplete1#?#2:void" shape=ellipse]
+4 [label="testContainsIncomplete2#?#2:\{
+    expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\");
+\}
+testIstrueIncomplete1#?#2:\{
+    expectSpecificBuildException(\"istrue-incomplete\", \"Missing attribute\", \"Nothing to test for truth\");
+\}" shape=ellipse]
+5 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\")
+testIstrueIncomplete1#?#3:expectSpecificBuildException(\"istrue-incomplete\", \"Missing attribute\", \"Nothing to test for truth\")" shape=ellipse]
+6 [label="testContainsIncomplete2#?#2:VE: Modifiers_Method
+testIstrueIncomplete1#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testContainsIncomplete2#?#2:public
+testIstrueIncomplete1#?#2:public" shape=ellipse]
+8 [label="testContainsIncomplete2#?#4:INSERT
+testIstrueIncomplete1#?#4:INSERT" shape=ellipse]
+9 [label="testContainsIncomplete2#?#4:try \{
+    buildRule.executeTarget(\"contains-incomplete2\");
+    fail(\"BuildException should have been thrown - Missing contains attribute\");
+\} catch (BuildException ex) \{
+    assertEquals(\"both string and substring are required in contains\", ex.getMessage());
+\}
+testIstrueIncomplete1#?#4:try \{
+    buildRule.executeTarget(\"istrue-incomplete\");
+    fail(\"BuildException should have been thrown - Missing attribute\");
+\} catch (BuildException ex) \{
+    assertEquals(\"Nothing to test for truth\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testContainsIncomplete2#?#2:@Test
+testIstrueIncomplete1#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

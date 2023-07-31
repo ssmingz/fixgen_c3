@@ -1,0 +1,182 @@
+digraph "Pattern" {
+0 [label="getRef#?,Project#-1:INSERT
+resolveFile#?,File,String#-1:INSERT
+setReplace#?,String#-1:INSERT" shape=ellipse]
+1 [label="getRef#?,Project#2:private PatternSet getRef(Project p) \{
+    if (!checked) \{
+        Stack stk = new Stack();
+        stk.push(this);
+        dieOnCircularReference(stk, p);
+    \}
+    Object o = ref.getReferencedObject(p);
+    if (!(o instanceof PatternSet)) \{
+        String msg = ref.getRefId() + \" doesn\'t denote a patternset\";
+        throw new BuildException(msg);
+    \} else \{
+        return ((PatternSet) (o));
+    \}
+\}
+resolveFile#?,File,String#2:public File resolveFile(File file, String filename) \{
+    filename = filename.replace('/', separatorChar).replace('\\', separatorChar);
+    if (filename.startsWith(separator) || (((filename.length() >= 2) && Character.isLetter(filename.charAt(0))) && (filename.charAt(1) == ':'))) \{
+        return normalize(filename);
+    \}
+    if (file == null) \{
+        return new File(filename);
+    \}
+    File helpFile = new File(file.getAbsolutePath());
+    StringTokenizer tok = new StringTokenizer(filename, File.separator);
+    while (tok.hasMoreTokens()) \{
+        String part = tok.nextToken();
+        if (part.equals(\"..\")) \{
+            helpFile = getParentFile(helpFile);
+            if (helpFile == null) \{
+                String msg = ((\"The file or path you specified (\" + filename) + \") is invalid relative to \") + file.getPath();
+                throw new BuildException(msg);
+            \}
+        \} else if (part.equals(\".\")) \{
+        \} else \{
+            helpFile = new File(helpFile, part);
+        \}
+    \} 
+    return new File(helpFile.getAbsolutePath());
+\}
+setReplace#?,String#2:public void setReplace(String replace) \{
+    if (subs != null) \{
+        throw new BuildException(\"Only one substitution expression is allowed\");
+    \}
+    subs = new Substitution();
+    subs.setExpression(replace);
+\}" shape=ellipse]
+2 [label="getRef#?,Project#2:getRef
+resolveFile#?,File,String#2:VE: Modifiers_Method
+setReplace#?,String#2:setReplace" shape=ellipse]
+3 [label="getRef#?,Project#2:PatternSet
+resolveFile#?,File,String#2:File
+setReplace#?,String#2:void" shape=ellipse]
+4 [label="getRef#?,Project#-1:
+resolveFile#?,File,String#-1:" shape=ellipse]
+5 [label="getRef#?,Project#2:Project p
+resolveFile#?,File,String#2:String filename
+setReplace#?,String#2:String replace" shape=ellipse]
+6 [label="getRef#?,Project#2:Project
+resolveFile#?,File,String#2:String
+setReplace#?,String#2:String" shape=ellipse]
+7 [label="getRef#?,Project#2:\{
+    if (!checked) \{
+        Stack stk = new Stack();
+        stk.push(this);
+        dieOnCircularReference(stk, p);
+    \}
+    Object o = ref.getReferencedObject(p);
+    if (!(o instanceof PatternSet)) \{
+        String msg = ref.getRefId() + \" doesn\'t denote a patternset\";
+        throw new BuildException(msg);
+    \} else \{
+        return ((PatternSet) (o));
+    \}
+\}
+resolveFile#?,File,String#2:\{
+    filename = filename.replace('/', separatorChar).replace('\\', separatorChar);
+    if (filename.startsWith(separator) || (((filename.length() >= 2) && Character.isLetter(filename.charAt(0))) && (filename.charAt(1) == ':'))) \{
+        return normalize(filename);
+    \}
+    if (file == null) \{
+        return new File(filename);
+    \}
+    File helpFile = new File(file.getAbsolutePath());
+    StringTokenizer tok = new StringTokenizer(filename, File.separator);
+    while (tok.hasMoreTokens()) \{
+        String part = tok.nextToken();
+        if (part.equals(\"..\")) \{
+            helpFile = getParentFile(helpFile);
+            if (helpFile == null) \{
+                String msg = ((\"The file or path you specified (\" + filename) + \") is invalid relative to \") + file.getPath();
+                throw new BuildException(msg);
+            \}
+        \} else if (part.equals(\".\")) \{
+        \} else \{
+            helpFile = new File(helpFile, part);
+        \}
+    \} 
+    return new File(helpFile.getAbsolutePath());
+\}
+setReplace#?,String#2:\{
+    if (subs != null) \{
+        throw new BuildException(\"Only one substitution expression is allowed\");
+    \}
+    subs = new Substitution();
+    subs.setExpression(replace);
+\}" shape=ellipse]
+8 [label="getRef#?,Project#3:if (!checked) \{
+    Stack stk = new Stack();
+    stk.push(this);
+    dieOnCircularReference(stk, p);
+\}
+resolveFile#?,File,String#9:if (file == null) \{
+    return new File(filename);
+\}
+setReplace#?,String#3:if (subs != null) \{
+    throw new BuildException(\"Only one substitution expression is allowed\");
+\}" shape=ellipse]
+9 [label="getRef#?,Project#8:Object o = ref.getReferencedObject(p)
+resolveFile#?,File,String#12:File helpFile = new File(file.getAbsolutePath())
+setReplace#?,String#6:subs = new Substitution()" shape=ellipse]
+10 [label="getRef#?,Project#9:if (!(o instanceof PatternSet)) \{
+    String msg = ref.getRefId() + \" doesn\'t denote a patternset\";
+    throw new BuildException(msg);
+\} else \{
+    return ((PatternSet) (o));
+\}
+resolveFile#?,File,String#3:filename = filename.replace('/', separatorChar).replace('\\', separatorChar)" shape=ellipse]
+11 [label="getRef#?,Project#2:VE: Modifiers_Method
+resolveFile#?,File,String#2:resolveFile
+setReplace#?,String#2:VE: Modifiers_Method" shape=ellipse]
+12 [label="getRef#?,Project#2:private
+resolveFile#?,File,String#2:public
+setReplace#?,String#2:public" shape=ellipse]
+13 [label="getRef#?,Project#-1:
+resolveFile#?,File,String#-1:
+setReplace#?,String#-1:" shape=ellipse]
+14 [label="resolveFile#?,File,String#2:File file" shape=ellipse]
+15 [label="resolveFile#?,File,String#4:if (filename.startsWith(separator) || (((filename.length() >= 2) && Character.isLetter(filename.charAt(0))) && (filename.charAt(1) == ':'))) \{
+    return normalize(filename);
+\}" shape=ellipse]
+16 [label="resolveFile#?,File,String#14:while (tok.hasMoreTokens()) \{
+    String part = tok.nextToken();
+    if (part.equals(\"..\")) \{
+        helpFile = getParentFile(helpFile);
+        if (helpFile == null) \{
+            String msg = ((\"The file or path you specified (\" + filename) + \") is invalid relative to \") + file.getPath();
+            throw new BuildException(msg);
+        \}
+    \} else if (part.equals(\".\")) \{
+    \} else \{
+        helpFile = new File(helpFile, part);
+    \}
+\} " shape=ellipse]
+17 [label="resolveFile#?,File,String#2:File" shape=ellipse]
+18 [label="resolveFile#?,File,String#13:StringTokenizer tok = new StringTokenizer(filename, File.separator)" shape=ellipse]
+19 [label="resolveFile#?,File,String#29:return new File(helpFile.getAbsolutePath())" shape=ellipse]
+20 [label="setReplace#?,String#7:subs.setExpression(replace)" shape=ellipse]
+0 -> 13 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 12 [label="AST:3"];
+1 -> 14 [label="AST:1"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:3"];
+7 -> 8 [label="AST:3"];
+7 -> 9 [label="AST:3"];
+7 -> 10 [label="AST:2"];
+7 -> 15 [label="AST:1"];
+7 -> 16 [label="AST:1"];
+7 -> 18 [label="AST:1"];
+7 -> 19 [label="AST:1"];
+7 -> 20 [label="AST:1"];
+14 -> 17 [label="AST:1"];
+}

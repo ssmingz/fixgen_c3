@@ -1,0 +1,28 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#6:DELETE
+leaveToken#?,DetailAST#4:DELETE" shape=ellipse]
+1 [label="visitToken#?,DetailAST#6:MethodNode
+leaveToken#?,DetailAST#4:MethodNode" shape=ellipse]
+2 [label="visitToken#?,DetailAST#6:((MethodNode) (mMethodStack.getLast()))
+leaveToken#?,DetailAST#4:((MethodNode) (mMethodStack.removeLast()))" shape=ellipse]
+3 [label="visitToken#?,DetailAST#5:isSuperCall(aAST)
+leaveToken#?,DetailAST#3:isOverridingMethod(aAST)" shape=ellipse]
+4 [label="visitToken#?,DetailAST#6:final MethodNode methodNode = ((MethodNode) (mMethodStack.getLast()))
+leaveToken#?,DetailAST#4:final MethodNode methodNode = ((MethodNode) (mMethodStack.removeLast()))" shape=ellipse]
+5 [label="visitToken#?,DetailAST#6:getLast
+leaveToken#?,DetailAST#4:removeLast" shape=ellipse]
+6 [label="visitToken#?,DetailAST#6:mMethodStack
+leaveToken#?,DetailAST#4:mMethodStack" shape=ellipse]
+7 [label="visitToken#?,DetailAST#6:getLast()
+leaveToken#?,DetailAST#4:removeLast()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 7 [label="Control Dep:2"];
+3 -> 6 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+}

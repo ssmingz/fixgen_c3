@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/257/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/257/0/after.java
+@@ -6,1 +6,10 @@
+-    _model.openProject(_projFile);
++    Utilities.invokeAndWait(
++        new Runnable() {
++          public void run() {
++            try {
++              _model.openProject(_projFile);
++            } catch (Exception e) {
++              throw new UnexpectedException(e);
++            }
++          }
++        });

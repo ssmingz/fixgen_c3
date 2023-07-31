@@ -1,0 +1,55 @@
+digraph "setRequestMethod#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setRequestMethod" shape=ellipse]
+2 [label="2:CtParameterImpl@String method" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.requestMethod" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtVariableReadImpl@method" shape=ellipse]
+7 [label="3:CtLiteralImpl@null" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@method == null" shape=ellipse]
+9 [label="3:CtFieldReadImpl@DEFAULT_REQUEST_METHOD" shape=ellipse]
+10 [label="3:CtExecutableReferenceImpl@toUpperCase(java.util.Locale)" shape=ellipse]
+11 [label="3:CtVirtualElement@toUpperCase" shape=ellipse]
+12 [label="3:CtVariableReadImpl@method" shape=ellipse]
+13 [label="3:CtTypeAccessImpl@US" shape=ellipse]
+14 [label="3:CtInvocationImpl@method.toUpperCase(US)" shape=ellipse]
+15 [label="3:CtConditionalImpl@(method == null) ? DEFAULT_REQUEST_METHOD : method.toUpperCase(US)" shape=ellipse]
+16 [label="3:CtAssignmentImpl@this.requestMethod = (method == null) ? DEFAULT_REQUEST_METHOD : method.toUpperCase(US)" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    this.requestMethod = (method == null) ? DEFAULT_REQUEST_METHOD : method.toUpperCase(US);
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public void setRequestMethod(String method) \{
+    this.requestMethod = (method == null) ? DEFAULT_REQUEST_METHOD : method.toUpperCase(US);
+\}" shape=ellipse]
+19 [label="3:Update@UPDATE" shape=ellipse]
+20 [label="4:CtTypeAccessImpl@ENGLISH" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="Data Dep"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 9 [label="Control Dep"];
+8 -> 14 [label="Control Dep"];
+8 -> 10 [label="Control Dep"];
+8 -> 12 [label="Control Dep"];
+8 -> 13 [label="Control Dep"];
+9 -> 4 [label="Data Dep"];
+12 -> 4 [label="Data Dep"];
+13 -> 19 [label="Action"];
+14 -> 11 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 4 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 2 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 20 [label="Action"];
+}

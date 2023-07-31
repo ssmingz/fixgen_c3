@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/542/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/542/1/after.java
+@@ -4,2 +4,2 @@
+-    assertTrue("1/foo is not included", !getProject().resolveFile("unziptestout/1/foo").exists());
+-    assertTrue("2/bar is included", getProject().resolveFile("unziptestout/2/bar").exists());
++    assertFileMissing("1/foo is not included", "unziptestout/1/foo");
++    assertFileExists("2/bar is included", "unziptestout/2/bar");

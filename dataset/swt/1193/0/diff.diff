@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1193/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1193/0/after.java
+@@ -13,1 +13,3 @@
+-          (style & SWT.H_SCROLL) != 0 ? OS.XmMAX_ON_RIGHT : OS.XmMAX_ON_BOTTOM
++          (style & SWT.H_SCROLL) != 0 ? OS.XmMAX_ON_RIGHT : OS.XmMAX_ON_BOTTOM,
++          OS.XmNancestorSensitive,
++          1
+@@ -15,1 +17,2 @@
+-    handle = OS.XmCreateScale(handle, null, argList, argList.length / 2);
++    int parentHandle = parent.handle;
++    handle = OS.XmCreateScale(parentHandle, null, argList, argList.length / 2);

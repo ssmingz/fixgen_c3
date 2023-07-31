@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="testDuplicateTextName2#?#2:INSERT
+testDuplicateTextName#?#2:INSERT" shape=ellipse]
+1 [label="testDuplicateTextName2#?#2:public void testDuplicateTextName2() \{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}
+testDuplicateTextName#?#2:public void testDuplicateTextName() \{
+    expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\");
+\}" shape=ellipse]
+2 [label="testDuplicateTextName2#?#2:testDuplicateTextName2
+testDuplicateTextName#?#2:testDuplicateTextName" shape=ellipse]
+3 [label="testDuplicateTextName2#?#2:void
+testDuplicateTextName#?#2:void" shape=ellipse]
+4 [label="testDuplicateTextName2#?#2:\{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}
+testDuplicateTextName#?#2:\{
+    expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\");
+\}" shape=ellipse]
+5 [label="testDuplicateTextName2#?#3:expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\")
+testDuplicateTextName#?#3:expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\")" shape=ellipse]
+6 [label="testDuplicateTextName2#?#2:public
+testDuplicateTextName#?#2:public" shape=ellipse]
+7 [label="testDuplicateTextName2#?#2:VE: Modifiers_Method
+testDuplicateTextName#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testDuplicateTextName2#?#4:INSERT
+testDuplicateTextName#?#4:INSERT" shape=ellipse]
+9 [label="testDuplicateTextName2#?#4:try \{
+    buildRule.executeTarget(\"duplicatetextname2\");
+    fail(\"BuildException expected: the attribute name \\"text\\" has already been used by the text\" + \" element\");
+\} catch (BuildException ex) \{
+\}
+testDuplicateTextName#?#4:try \{
+    buildRule.executeTarget(\"duplicatetextname\");
+    fail(\"BuildException expected: the name \\"text\\" is already used as an attribute\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+10 [label="testDuplicateTextName2#?#2:@Test
+testDuplicateTextName#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

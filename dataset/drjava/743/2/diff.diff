@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/2/after.java
+@@ -6,1 +6,6 @@
+-    _notifier.currThreadResumed();
++    Utilities.invokeLater(
++        new Runnable() {
++          public void run() {
++            _notifier.currThreadResumed();
++          }
++        });

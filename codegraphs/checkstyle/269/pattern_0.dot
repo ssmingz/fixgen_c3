@@ -1,0 +1,39 @@
+digraph "Pattern" {
+0 [label="isMultiLevel#?#3:UPDATE
+getFirstIndentLevel#?#3:UPDATE
+getLastIndentLevel#?#3:UPDATE" shape=ellipse]
+1 [label="isMultiLevel#?#3:mLevels
+getFirstIndentLevel#?#3:mLevels
+getLastIndentLevel#?#3:mLevels" shape=ellipse]
+2 [label="isMultiLevel#?#3:mLevels.cardinality()
+getFirstIndentLevel#?#3:mLevels.nextSetBit(0)
+getLastIndentLevel#?#3:mLevels.length()" shape=ellipse]
+3 [label="isMultiLevel#?#3:mLevels.cardinality() > 1
+getLastIndentLevel#?#3:mLevels.length() - 1" shape=ellipse]
+4 [label="isMultiLevel#?#3:cardinality
+getFirstIndentLevel#?#3:nextSetBit
+getLastIndentLevel#?#3:length" shape=ellipse]
+5 [label="isMultiLevel#?#3:cardinality()
+getFirstIndentLevel#?#3:nextSetBit(int)
+getLastIndentLevel#?#3:length()" shape=ellipse]
+6 [label="isMultiLevel#?#3:mLevels
+getFirstIndentLevel#?#3:mLevels
+getLastIndentLevel#?#3:mLevels" shape=ellipse]
+7 [label="isMultiLevel#?#3:PlaceHold
+getFirstIndentLevel#?#3:PlaceHold
+getLastIndentLevel#?#3:PlaceHold" shape=ellipse]
+8 [label="isMultiLevel#?#3:levels
+getFirstIndentLevel#?#3:levels
+getLastIndentLevel#?#3:levels" shape=ellipse]
+9 [label="getFirstIndentLevel#?#3:return mLevels.nextSetBit(0)" shape=ellipse]
+10 [label="getFirstIndentLevel#?#3:0" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 10 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:3"];
+9 -> 2 [label="AST:1"];
+}

@@ -1,0 +1,19 @@
+digraph "Pattern" {
+0 [label="testEmptySkip#?#-1:DELETE
+testNamespace#?#-1:DELETE" shape=ellipse]
+1 [label="testEmptySkip#?#-1:PlaceHold
+testNamespace#?#-1:PlaceHold" shape=ellipse]
+2 [label="testEmptySkip#?#-1:
+testNamespace#?#-1:" shape=ellipse]
+3 [label="testEmptySkip#?#3:executeTarget(\"testEmptySkip\")
+testNamespace#?#3:executeTarget(\"namespacetest\")" shape=ellipse]
+4 [label="testEmptySkip#?#-1:PlaceHold
+testNamespace#?#-1:PlaceHold" shape=ellipse]
+5 [label="testEmptySkip#?#-1:PlaceHold
+testNamespace#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

@@ -1,0 +1,110 @@
+digraph "setContainsInstrumentationInfo#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setContainsInstrumentationInfo" shape=ellipse]
+2 [label="3:CtFieldReferenceImpl@containsInstrumentationInfo" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.containsInstrumentationInfo" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtLiteralImpl@true" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+8 [label="3:CtAssignmentImpl@this.containsInstrumentationInfo = true" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    this.containsInstrumentationInfo = true;
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void setContainsInstrumentationInfo() \{
+    this.containsInstrumentationInfo = true;
+\}" shape=ellipse]
+11 [label="3:Insert@INSERT" shape=ellipse]
+12 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+13 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+14 [label="3:CtFieldReferenceImpl@lock" shape=ellipse]
+15 [label="3:CtFieldReadImpl@lock" shape=ellipse]
+16 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+17 [label="3:CtTypeReferenceImpl@lock" shape=ellipse]
+18 [label="3:CtExecutableReferenceImpl@lock()" shape=ellipse]
+19 [label="3:CtInvocationImpl@lock.lock()" shape=ellipse]
+20 [label="3:CtVirtualElement@lock" shape=ellipse]
+21 [label="4:Insert@INSERT" shape=ellipse]
+22 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+23 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+24 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+25 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+26 [label="5:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+27 [label="5:CtThisAccessImpl@this" shape=ellipse]
+28 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+29 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+30 [label="5:CtFieldReferenceImpl@containsInstrumentationInfo" shape=ellipse]
+31 [label="5:CtFieldWriteImpl@this.containsInstrumentationInfo" shape=ellipse]
+32 [label="5:CtTypeReferenceImpl@boolean" shape=ellipse]
+33 [label="5:CtLiteralImpl@true" shape=ellipse]
+34 [label="5:CtAssignmentImpl@this.containsInstrumentationInfo = true" shape=ellipse]
+35 [label="4:CtBlockImpl@\{
+    this.containsInstrumentationInfo = true;
+\}" shape=ellipse]
+36 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+37 [label="7:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+38 [label="7:CtFieldReferenceImpl@lock" shape=ellipse]
+39 [label="7:CtFieldReadImpl@lock" shape=ellipse]
+40 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+41 [label="7:CtTypeReferenceImpl@lock" shape=ellipse]
+42 [label="7:CtExecutableReferenceImpl@unlock()" shape=ellipse]
+43 [label="7:CtInvocationImpl@lock.unlock()" shape=ellipse]
+44 [label="7:CtVirtualElement@unlock" shape=ellipse]
+45 [label="6:CtBlockImpl@\{
+    lock.unlock();
+\}" shape=ellipse]
+46 [label="4:CtTryImpl@try \{
+
+\} finally \{
+    lock.unlock();
+\}" shape=ellipse]
+47 [label="3:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 2 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 47 [label="Action"];
+9 -> 8 [label="AST"];
+9 -> 11 [label="Action"];
+9 -> 21 [label="Action"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 19 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 15 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 46 [label="Action"];
+23 -> 22 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 26 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 44 [label="AST"];
+43 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+46 -> 35 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 46 [label="Action"];
+}

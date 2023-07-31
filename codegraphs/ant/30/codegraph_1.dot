@@ -1,0 +1,105 @@
+digraph "setHaltonfailure#?,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setHaltonfailure" shape=ellipse]
+2 [label="2:CtParameterImpl@boolean value" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@allTests()" shape=ellipse]
+6 [label="3:CtVirtualElement@allTests" shape=ellipse]
+7 [label="3:CtInvocationImpl@allTests()" shape=ellipse]
+8 [label="3:CtVirtualElement@e" shape=ellipse]
+9 [label="3:CtLocalVariableImpl@Enumeration e = allTests()" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+11 [label="4:CtVirtualElement@hasMoreElements" shape=ellipse]
+12 [label="4:CtVariableReadImpl@e" shape=ellipse]
+13 [label="4:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+14 [label="5:CtTypeReferenceImpl@BaseTest" shape=ellipse]
+15 [label="5:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+16 [label="5:CtVirtualElement@nextElement" shape=ellipse]
+17 [label="5:CtVariableReadImpl@e" shape=ellipse]
+18 [label="5:CtInvocationImpl@((BaseTest) (e.nextElement()))" shape=ellipse]
+19 [label="5:CtTypeReferenceImpl@BaseTest" shape=ellipse]
+20 [label="5:CtVirtualElement@test" shape=ellipse]
+21 [label="5:CtLocalVariableImpl@BaseTest test = ((BaseTest) (e.nextElement()))" shape=ellipse]
+22 [label="6:CtExecutableReferenceImpl@setHaltonfailure(boolean)" shape=ellipse]
+23 [label="6:CtVirtualElement@setHaltonfailure" shape=ellipse]
+24 [label="6:CtVariableReadImpl@test" shape=ellipse]
+25 [label="6:CtVariableReadImpl@value" shape=ellipse]
+26 [label="6:CtInvocationImpl@test.setHaltonfailure(value)" shape=ellipse]
+27 [label="4:CtBlockImpl@\{
+    BaseTest test = ((BaseTest) (e.nextElement()));
+    test.setHaltonfailure(value);
+\}" shape=ellipse]
+28 [label="4:CtWhileImpl@while (e.hasMoreElements()) \{
+    BaseTest test = ((BaseTest) (e.nextElement()));
+    test.setHaltonfailure(value);
+\} " shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    Enumeration e = allTests();
+    while (e.hasMoreElements()) \{
+        BaseTest test = ((BaseTest) (e.nextElement()));
+        test.setHaltonfailure(value);
+    \} 
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public void setHaltonfailure(boolean value) \{
+    Enumeration e = allTests();
+    while (e.hasMoreElements()) \{
+        BaseTest test = ((BaseTest) (e.nextElement()));
+        test.setHaltonfailure(value);
+    \} 
+\}" shape=ellipse]
+31 [label="3:Delete@DELETE" shape=ellipse]
+32 [label="4:Delete@DELETE" shape=ellipse]
+33 [label="3:Insert@INSERT" shape=ellipse]
+34 [label="3:CtAssignmentImpl@this.haltOnFail = value" shape=ellipse]
+35 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+8 -> 12 [label="Define-Use"];
+8 -> 17 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 31 [label="Action"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 27 [label="Control Dep"];
+13 -> 21 [label="Control Dep"];
+13 -> 18 [label="Control Dep"];
+13 -> 15 [label="Control Dep"];
+13 -> 17 [label="Control Dep"];
+13 -> 26 [label="Control Dep"];
+13 -> 22 [label="Control Dep"];
+13 -> 24 [label="Control Dep"];
+13 -> 25 [label="Control Dep"];
+17 -> 20 [label="Data Dep"];
+18 -> 16 [label="AST"];
+18 -> 19 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+20 -> 24 [label="Define-Use"];
+21 -> 20 [label="AST"];
+21 -> 14 [label="AST"];
+21 -> 18 [label="AST"];
+25 -> 35 [label="Action"];
+26 -> 23 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 13 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 32 [label="Action"];
+29 -> 9 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 33 [label="Action"];
+33 -> 34 [label="Action"];
+35 -> 34 [label="Action"];
+}

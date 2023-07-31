@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/481/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/481/0/after.java
+@@ -3,0 +3,1 @@
++    int code = callWindowProc(WM_KILLFOCUS, wParam, lParam);
+@@ -15,1 +16,4 @@
+-    return null;
++    if (code == 0) {
++      return LRESULT.ZERO;
++    }
++    return new LRESULT(code);

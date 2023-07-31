@@ -1,0 +1,886 @@
+digraph "Pattern" {
+0 [label="execute#?#36:INSERT
+execute#?#28:INSERT
+execute#?#28:INSERT" shape=ellipse]
+1 [label="execute#?#4:\{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreMethodAnnotations.size(); i++) \{
+        IgnoreMethodAnnotation ignoreMethodAnn = ((IgnoreMethodAnnotation) (ignoreMethodAnnotations.get(i)));
+        builder.addArg(\"--ignoreMethodAnnotation\", ignoreMethodAnn.getAnnotationName());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (ignoreTrivial) \{
+        builder.addArg(\"--ignoreTrivial\");
+    \}
+    if (failOnError) \{
+        builder.addArg(\"--failOnError\");
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\}
+execute#?#4:\{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\}
+execute#?#4:\{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (failOnError) \{
+        builder.addArg(\"--failOnError\");
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\}" shape=ellipse]
+2 [label="execute#?#4:try \{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreMethodAnnotations.size(); i++) \{
+        IgnoreMethodAnnotation ignoreMethodAnn = ((IgnoreMethodAnnotation) (ignoreMethodAnnotations.get(i)));
+        builder.addArg(\"--ignoreMethodAnnotation\", ignoreMethodAnn.getAnnotationName());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (ignoreTrivial) \{
+        builder.addArg(\"--ignoreTrivial\");
+    \}
+    if (failOnError) \{
+        builder.addArg(\"--failOnError\");
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\} catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}
+execute#?#4:try \{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\} catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}
+execute#?#4:try \{
+    builder = new CommandLineBuilder();
+    if (dataFile != null) \{
+        builder.addArg(\"--datafile\", dataFile);
+    \}
+    if (toDir != null) \{
+        builder.addArg(\"--destination\", toDir.getAbsolutePath());
+    \}
+    for (int i = 0; i < ignoreRegexs.size(); i++) \{
+        Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+        builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+    \}
+    for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+        IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+        builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+    \}
+    for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+        IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+        builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+    \}
+    for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+        ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+        builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+    \}
+    if (failOnError) \{
+        builder.addArg(\"--failOnError\");
+    \}
+    if (instrumentationClasspath != null) \{
+        processInstrumentationClasspath();
+    \}
+    createArgumentsForFilesets(builder);
+    builder.saveArgs();
+\} catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}" shape=ellipse]
+3 [label="execute#?#2:\{
+    CommandLineBuilder builder = null;
+    try \{
+        builder = new CommandLineBuilder();
+        if (dataFile != null) \{
+            builder.addArg(\"--datafile\", dataFile);
+        \}
+        if (toDir != null) \{
+            builder.addArg(\"--destination\", toDir.getAbsolutePath());
+        \}
+        for (int i = 0; i < ignoreRegexs.size(); i++) \{
+            Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+            builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+        \}
+        for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+            IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+            builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+        \}
+        for (int i = 0; i < ignoreMethodAnnotations.size(); i++) \{
+            IgnoreMethodAnnotation ignoreMethodAnn = ((IgnoreMethodAnnotation) (ignoreMethodAnnotations.get(i)));
+            builder.addArg(\"--ignoreMethodAnnotation\", ignoreMethodAnn.getAnnotationName());
+        \}
+        for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+            IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+            builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+        \}
+        for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+            ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+            builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+        \}
+        if (ignoreTrivial) \{
+            builder.addArg(\"--ignoreTrivial\");
+        \}
+        if (failOnError) \{
+            builder.addArg(\"--failOnError\");
+        \}
+        if (instrumentationClasspath != null) \{
+            processInstrumentationClasspath();
+        \}
+        createArgumentsForFilesets(builder);
+        builder.saveArgs();
+    \} catch (IOException ioe) \{
+        getProject().log(\"Error creating commands file.\", MSG_ERR);
+        throw new BuildException(\"Unable to create the commands file.\", ioe);
+    \}
+    getJava().createArg().setValue(\"--commandsfile\");
+    getJava().createArg().setValue(builder.getCommandLineFile());
+    if ((forkedJVMDebugPort != null) && (forkedJVMDebugPort.intValue() > 0)) \{
+        getJava().createJvmarg().setValue(\"-Xdebug\");
+        getJava().createJvmarg().setValue((\"-Xrunjdwp:transport=dt_socket,address=\" + forkedJVMDebugPort) + \",server=y,suspend=y\");
+    \}
+    AntUtil.transferCoberturaDataFileProperty(getJava());
+    if (getJava().executeJava() != 0) \{
+        throw new BuildException(\"Error instrumenting classes. See messages above.\");
+    \}
+    builder.dispose();
+\}
+execute#?#2:\{
+    CommandLineBuilder builder = null;
+    try \{
+        builder = new CommandLineBuilder();
+        if (dataFile != null) \{
+            builder.addArg(\"--datafile\", dataFile);
+        \}
+        if (toDir != null) \{
+            builder.addArg(\"--destination\", toDir.getAbsolutePath());
+        \}
+        for (int i = 0; i < ignoreRegexs.size(); i++) \{
+            Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+            builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+        \}
+        for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+            IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+            builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+        \}
+        for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+            IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+            builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+        \}
+        for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+            ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+            builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+        \}
+        if (instrumentationClasspath != null) \{
+            processInstrumentationClasspath();
+        \}
+        createArgumentsForFilesets(builder);
+        builder.saveArgs();
+    \} catch (IOException ioe) \{
+        getProject().log(\"Error creating commands file.\", MSG_ERR);
+        throw new BuildException(\"Unable to create the commands file.\", ioe);
+    \}
+    getJava().createArg().setValue(\"--commandsfile\");
+    getJava().createArg().setValue(builder.getCommandLineFile());
+    if ((forkedJVMDebugPort != null) && (forkedJVMDebugPort.intValue() > 0)) \{
+        getJava().createJvmarg().setValue(\"-Xdebug\");
+        getJava().createJvmarg().setValue((\"-Xrunjdwp:transport=dt_socket,address=\" + forkedJVMDebugPort) + \",server=y,suspend=y\");
+    \}
+    AntUtil.transferCoberturaDataFileProperty(getJava());
+    if (getJava().executeJava() != 0) \{
+        throw new BuildException(\"Error instrumenting classes. See messages above.\");
+    \}
+    builder.dispose();
+\}
+execute#?#2:\{
+    CommandLineBuilder builder = null;
+    try \{
+        builder = new CommandLineBuilder();
+        if (dataFile != null) \{
+            builder.addArg(\"--datafile\", dataFile);
+        \}
+        if (toDir != null) \{
+            builder.addArg(\"--destination\", toDir.getAbsolutePath());
+        \}
+        for (int i = 0; i < ignoreRegexs.size(); i++) \{
+            Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+            builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+        \}
+        for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+            IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+            builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+        \}
+        for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+            IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+            builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+        \}
+        for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+            ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+            builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+        \}
+        if (failOnError) \{
+            builder.addArg(\"--failOnError\");
+        \}
+        if (instrumentationClasspath != null) \{
+            processInstrumentationClasspath();
+        \}
+        createArgumentsForFilesets(builder);
+        builder.saveArgs();
+    \} catch (IOException ioe) \{
+        getProject().log(\"Error creating commands file.\", MSG_ERR);
+        throw new BuildException(\"Unable to create the commands file.\", ioe);
+    \}
+    getJava().createArg().setValue(\"--commandsfile\");
+    getJava().createArg().setValue(builder.getCommandLineFile());
+    if ((forkedJVMDebugPort != null) && (forkedJVMDebugPort.intValue() > 0)) \{
+        getJava().createJvmarg().setValue(\"-Xdebug\");
+        getJava().createJvmarg().setValue((\"-Xrunjdwp:transport=dt_socket,address=\" + forkedJVMDebugPort) + \",server=y,suspend=y\");
+    \}
+    AntUtil.transferCoberturaDataFileProperty(getJava());
+    if (getJava().executeJava() != 0) \{
+        throw new BuildException(\"Error instrumenting classes. See messages above.\");
+    \}
+    builder.dispose();
+\}" shape=ellipse]
+4 [label="execute#?#44: catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}
+execute#?#33: catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}
+execute#?#36: catch (IOException ioe) \{
+    getProject().log(\"Error creating commands file.\", MSG_ERR);
+    throw new BuildException(\"Unable to create the commands file.\", ioe);
+\}" shape=ellipse]
+5 [label="execute#?#5:builder = new CommandLineBuilder()
+execute#?#5:builder = new CommandLineBuilder()
+execute#?#5:builder = new CommandLineBuilder()" shape=ellipse]
+6 [label="execute#?#5:builder
+execute#?#5:builder
+execute#?#5:builder" shape=ellipse]
+7 [label="execute#?#5:new CommandLineBuilder()
+execute#?#5:new CommandLineBuilder()
+execute#?#5:new CommandLineBuilder()" shape=ellipse]
+8 [label="execute#?#6:if (dataFile != null) \{
+    builder.addArg(\"--datafile\", dataFile);
+\}
+execute#?#6:if (dataFile != null) \{
+    builder.addArg(\"--datafile\", dataFile);
+\}
+execute#?#6:if (dataFile != null) \{
+    builder.addArg(\"--datafile\", dataFile);
+\}" shape=ellipse]
+9 [label="execute#?#6:dataFile != null
+execute#?#6:dataFile != null
+execute#?#6:dataFile != null" shape=ellipse]
+10 [label="execute#?#6:\{
+    builder.addArg(\"--datafile\", dataFile);
+\}
+execute#?#6:\{
+    builder.addArg(\"--datafile\", dataFile);
+\}
+execute#?#6:\{
+    builder.addArg(\"--datafile\", dataFile);
+\}" shape=ellipse]
+11 [label="execute#?#9:if (toDir != null) \{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}
+execute#?#9:if (toDir != null) \{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}
+execute#?#9:if (toDir != null) \{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}" shape=ellipse]
+12 [label="execute#?#9:toDir != null
+execute#?#9:toDir != null
+execute#?#9:toDir != null" shape=ellipse]
+13 [label="execute#?#9:\{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}
+execute#?#9:\{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}
+execute#?#9:\{
+    builder.addArg(\"--destination\", toDir.getAbsolutePath());
+\}" shape=ellipse]
+14 [label="execute#?#12:for (int i = 0; i < ignoreRegexs.size(); i++) \{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}
+execute#?#12:for (int i = 0; i < ignoreRegexs.size(); i++) \{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}
+execute#?#12:for (int i = 0; i < ignoreRegexs.size(); i++) \{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}" shape=ellipse]
+15 [label="execute#?#12:int i = 0
+execute#?#12:int i = 0
+execute#?#12:int i = 0" shape=ellipse]
+16 [label="execute#?#12:i < ignoreRegexs.size()
+execute#?#12:i < ignoreRegexs.size()
+execute#?#12:i < ignoreRegexs.size()" shape=ellipse]
+17 [label="execute#?#12:i++
+execute#?#12:i++
+execute#?#12:i++" shape=ellipse]
+18 [label="execute#?#12:\{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}
+execute#?#12:\{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}
+execute#?#12:\{
+    Ignore ignoreRegex = ((Ignore) (ignoreRegexs.get(i)));
+    builder.addArg(\"--ignore\", ignoreRegex.getRegex());
+\}" shape=ellipse]
+19 [label="execute#?#16:for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}
+execute#?#16:for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}
+execute#?#16:for (int i = 0; i < ignoreBranchesRegexs.size(); i++) \{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}" shape=ellipse]
+20 [label="execute#?#16:int i = 0
+execute#?#16:int i = 0
+execute#?#16:int i = 0" shape=ellipse]
+21 [label="execute#?#16:i < ignoreBranchesRegexs.size()
+execute#?#16:i < ignoreBranchesRegexs.size()
+execute#?#16:i < ignoreBranchesRegexs.size()" shape=ellipse]
+22 [label="execute#?#16:i++
+execute#?#16:i++
+execute#?#16:i++" shape=ellipse]
+23 [label="execute#?#16:\{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}
+execute#?#16:\{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}
+execute#?#16:\{
+    IgnoreBranches ignoreBranchesRegex = ((IgnoreBranches) (ignoreBranchesRegexs.get(i)));
+    builder.addArg(\"--ignoreBranches\", ignoreBranchesRegex.getRegex());
+\}" shape=ellipse]
+24 [label="execute#?#20:for (int i = 0; i < ignoreMethodAnnotations.size(); i++) \{
+    IgnoreMethodAnnotation ignoreMethodAnn = ((IgnoreMethodAnnotation) (ignoreMethodAnnotations.get(i)));
+    builder.addArg(\"--ignoreMethodAnnotation\", ignoreMethodAnn.getAnnotationName());
+\}
+execute#?#20:for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}
+execute#?#20:for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}" shape=ellipse]
+25 [label="execute#?#20:int i = 0
+execute#?#20:int i = 0
+execute#?#20:int i = 0" shape=ellipse]
+26 [label="execute#?#20:i < ignoreMethodAnnotations.size()
+execute#?#20:i < includeClassesRegexs.size()
+execute#?#20:i < includeClassesRegexs.size()" shape=ellipse]
+27 [label="execute#?#20:i++
+execute#?#20:i++
+execute#?#20:i++" shape=ellipse]
+28 [label="execute#?#20:\{
+    IgnoreMethodAnnotation ignoreMethodAnn = ((IgnoreMethodAnnotation) (ignoreMethodAnnotations.get(i)));
+    builder.addArg(\"--ignoreMethodAnnotation\", ignoreMethodAnn.getAnnotationName());
+\}
+execute#?#20:\{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}
+execute#?#20:\{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}" shape=ellipse]
+29 [label="execute#?#25:for (int i = 0; i < includeClassesRegexs.size(); i++) \{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}
+execute#?#24:for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}
+execute#?#24:for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}" shape=ellipse]
+30 [label="execute#?#25:int i = 0
+execute#?#24:int i = 0
+execute#?#24:int i = 0" shape=ellipse]
+31 [label="execute#?#25:i < includeClassesRegexs.size()
+execute#?#24:i < excludeClassesRegexs.size()
+execute#?#24:i < excludeClassesRegexs.size()" shape=ellipse]
+32 [label="execute#?#25:i++
+execute#?#24:i++
+execute#?#24:i++" shape=ellipse]
+33 [label="execute#?#25:\{
+    IncludeClasses includeClassesRegex = ((IncludeClasses) (includeClassesRegexs.get(i)));
+    builder.addArg(\"--includeClasses\", includeClassesRegex.getRegex());
+\}
+execute#?#24:\{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}
+execute#?#24:\{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}" shape=ellipse]
+34 [label="execute#?#29:for (int i = 0; i < excludeClassesRegexs.size(); i++) \{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}" shape=ellipse]
+35 [label="execute#?#29:int i = 0" shape=ellipse]
+36 [label="execute#?#29:i < excludeClassesRegexs.size()
+execute#?#28:instrumentationClasspath != null
+execute#?#31:instrumentationClasspath != null" shape=ellipse]
+37 [label="execute#?#29:i++
+execute#?#28:failOnError
+execute#?#28:failOnError" shape=ellipse]
+38 [label="execute#?#29:\{
+    ExcludeClasses excludeClassesRegex = ((ExcludeClasses) (excludeClassesRegexs.get(i)));
+    builder.addArg(\"--excludeClasses\", excludeClassesRegex.getRegex());
+\}
+execute#?#28:\{
+    processInstrumentationClasspath();
+\}
+execute#?#31:\{
+    processInstrumentationClasspath();
+\}" shape=ellipse]
+39 [label="execute#?#33:if (ignoreTrivial) \{
+    builder.addArg(\"--ignoreTrivial\");
+\}" shape=ellipse]
+40 [label="execute#?#33:ignoreTrivial
+execute#?#31:
+execute#?#28:ignoreTrivial" shape=ellipse]
+41 [label="execute#?#33:\{
+    builder.addArg(\"--ignoreTrivial\");
+\}
+execute#?#28:\{
+    builder.addArg(\"--ignoreTrivial\");
+\}" shape=ellipse]
+42 [label="execute#?#36:if (failOnError) \{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+43 [label="execute#?#36:failOnError
+execute#?#34:" shape=ellipse]
+44 [label="execute#?#36:\{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+45 [label="execute#?#39:if (instrumentationClasspath != null) \{
+    processInstrumentationClasspath();
+\}" shape=ellipse]
+46 [label="execute#?#39:instrumentationClasspath != null" shape=ellipse]
+47 [label="execute#?#39:\{
+    processInstrumentationClasspath();
+\}" shape=ellipse]
+48 [label="execute#?#42:createArgumentsForFilesets(builder)
+execute#?#32:builder.saveArgs()
+execute#?#35:builder.saveArgs()" shape=ellipse]
+49 [label="execute#?#42:createArgumentsForFilesets
+execute#?#32:saveArgs
+execute#?#35:saveArgs" shape=ellipse]
+50 [label="execute#?#42:" shape=ellipse]
+51 [label="execute#?#42:createArgumentsForFilesets(<unknown>)
+execute#?#32:saveArgs()
+execute#?#35:saveArgs()" shape=ellipse]
+52 [label="execute#?#42:builder
+execute#?#32:builder
+execute#?#35:builder" shape=ellipse]
+53 [label="execute#?#43:builder.saveArgs()" shape=ellipse]
+54 [label="execute#?#43:saveArgs
+execute#?#29:addArg
+execute#?#29:addArg" shape=ellipse]
+55 [label="execute#?#43:builder
+execute#?#31:builder
+execute#?#34:builder" shape=ellipse]
+56 [label="execute#?#43:saveArgs()
+execute#?#31:createArgumentsForFilesets(<unknown>)
+execute#?#34:createArgumentsForFilesets(<unknown>)" shape=ellipse]
+57 [label="execute#?#36:if (threadsafeRigorous) \{
+    builder.addArg(\"--threadsafeRigorous\");
+\}" shape=ellipse]
+58 [label="execute#?#36:threadsafeRigorous" shape=ellipse]
+59 [label="execute#?#36:threadsafeRigorous
+execute#?#29:builder
+execute#?#29:builder" shape=ellipse]
+60 [label="execute#?#36:PlaceHold
+execute#?#29:CommandLineBuilder
+execute#?#29:CommandLineBuilder" shape=ellipse]
+61 [label="execute#?#36:
+execute#?#29:
+execute#?#29:" shape=ellipse]
+62 [label="execute#?#36:\{
+    builder.addArg(\"--threadsafeRigorous\");
+\}" shape=ellipse]
+63 [label="execute#?#37:builder.addArg(\"--threadsafeRigorous\")" shape=ellipse]
+64 [label="execute#?#37:addArg
+execute#?#31:createArgumentsForFilesets
+execute#?#34:createArgumentsForFilesets" shape=ellipse]
+65 [label="execute#?#37:builder" shape=ellipse]
+66 [label="execute#?#37:builder" shape=ellipse]
+67 [label="execute#?#37:CommandLineBuilder
+execute#?#29:CommandLineBuilder
+execute#?#29:CommandLineBuilder" shape=ellipse]
+68 [label="execute#?#37:
+execute#?#29:
+execute#?#29:" shape=ellipse]
+69 [label="execute#?#37:addArg(java.lang.String)
+execute#?#29:java.lang
+execute#?#29:java.lang" shape=ellipse]
+70 [label="execute#?#37:CommandLineBuilder" shape=ellipse]
+71 [label="execute#?#37:
+execute#?#28:
+execute#?#28:" shape=ellipse]
+72 [label="execute#?#37:String" shape=ellipse]
+73 [label="execute#?#37:java.lang
+execute#?#29:java.lang
+execute#?#29:java.lang" shape=ellipse]
+74 [label="execute#?#37:\"--threadsafeRigorous\"" shape=ellipse]
+75 [label="execute#?#37:String" shape=ellipse]
+76 [label="execute#?#37:java.lang" shape=ellipse]
+77 [label="execute#?#28:if (instrumentationClasspath != null) \{
+    processInstrumentationClasspath();
+\}" shape=ellipse]
+78 [label="execute#?#31:createArgumentsForFilesets(builder)" shape=ellipse]
+79 [label="execute#?#28:if (failOnError) \{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+80 [label="execute#?#28:\{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+81 [label="execute#?#29:builder.addArg(\"--failOnError\")" shape=ellipse]
+82 [label="execute#?#29:builder" shape=ellipse]
+83 [label="execute#?#29:\"--failOnError\"" shape=ellipse]
+84 [label="execute#?#29:addArg(java.lang.String)" shape=ellipse]
+85 [label="execute#?#28:PlaceHold" shape=ellipse]
+86 [label="execute#?#29:String" shape=ellipse]
+87 [label="execute#?#29:String" shape=ellipse]
+88 [label="execute#?#28:failOnError" shape=ellipse]
+89 [label="execute#?#28:if (failOnError) \{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+90 [label="execute#?#28:\{
+    builder.addArg(\"--failOnError\");
+\}" shape=ellipse]
+91 [label="execute#?#31:if (instrumentationClasspath != null) \{
+    processInstrumentationClasspath();
+\}" shape=ellipse]
+92 [label="execute#?#34:createArgumentsForFilesets(builder)" shape=ellipse]
+93 [label="execute#?#28:if (ignoreTrivial) \{
+    builder.addArg(\"--ignoreTrivial\");
+\}" shape=ellipse]
+94 [label="execute#?#29:builder.addArg(\"--ignoreTrivial\")" shape=ellipse]
+95 [label="execute#?#29:builder" shape=ellipse]
+96 [label="execute#?#29:\"--ignoreTrivial\"" shape=ellipse]
+97 [label="execute#?#29:addArg(java.lang.String)" shape=ellipse]
+98 [label="execute#?#29:String" shape=ellipse]
+99 [label="execute#?#29:String" shape=ellipse]
+100 [label="execute#?#28:ignoreTrivial" shape=ellipse]
+101 [label="execute#?#28:PlaceHold" shape=ellipse]
+0 -> 57 [label="Action:1"];
+0 -> 79 [label="Action:1"];
+0 -> 93 [label="Action:1"];
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 14 [label="AST:3"];
+1 -> 19 [label="AST:3"];
+1 -> 24 [label="AST:3"];
+1 -> 29 [label="AST:3"];
+1 -> 34 [label="AST:1"];
+1 -> 39 [label="AST:1"];
+1 -> 42 [label="AST:1"];
+1 -> 45 [label="AST:1"];
+1 -> 48 [label="AST:3"];
+1 -> 53 [label="AST:1"];
+1 -> 77 [label="AST:1"];
+1 -> 78 [label="AST:1"];
+1 -> 89 [label="AST:1"];
+1 -> 91 [label="AST:1"];
+1 -> 92 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+6 -> 52 [label="Define Use:3"];
+6 -> 55 [label="Define Use:3"];
+6 -> 65 [label="Define Use:1"];
+6 -> 65 [label="Data Dep:1"];
+6 -> 65 [label="Control Dep:1"];
+6 -> 82 [label="Define Use:1"];
+6 -> 82 [label="Data Dep:1"];
+6 -> 82 [label="Control Dep:1"];
+6 -> 95 [label="Define Use:1"];
+6 -> 95 [label="Data Dep:1"];
+6 -> 95 [label="Control Dep:1"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+9 -> 10 [label="Control Dep:3"];
+11 -> 12 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+12 -> 13 [label="Control Dep:3"];
+14 -> 15 [label="AST:3"];
+14 -> 16 [label="AST:3"];
+14 -> 17 [label="AST:3"];
+14 -> 18 [label="AST:3"];
+16 -> 18 [label="Control Dep:3"];
+19 -> 20 [label="AST:3"];
+19 -> 21 [label="AST:3"];
+19 -> 22 [label="AST:3"];
+19 -> 23 [label="AST:3"];
+21 -> 23 [label="Control Dep:3"];
+24 -> 25 [label="AST:3"];
+24 -> 26 [label="AST:3"];
+24 -> 27 [label="AST:3"];
+24 -> 28 [label="AST:3"];
+26 -> 28 [label="Control Dep:3"];
+29 -> 30 [label="AST:3"];
+29 -> 31 [label="AST:3"];
+29 -> 32 [label="AST:3"];
+29 -> 33 [label="AST:3"];
+31 -> 33 [label="Control Dep:3"];
+34 -> 35 [label="AST:1"];
+34 -> 36 [label="AST:1"];
+34 -> 37 [label="AST:1"];
+34 -> 38 [label="AST:1"];
+36 -> 38 [label="Control Dep:3"];
+37 -> 80 [label="Control Dep:1"];
+37 -> 81 [label="Control Dep:1"];
+37 -> 82 [label="Control Dep:1"];
+37 -> 83 [label="Control Dep:1"];
+37 -> 84 [label="Control Dep:1"];
+37 -> 88 [label="AST:1"];
+37 -> 90 [label="Control Dep:1"];
+39 -> 40 [label="AST:1"];
+39 -> 41 [label="AST:1"];
+40 -> 41 [label="Control Dep:2"];
+40 -> 94 [label="Control Dep:1"];
+40 -> 95 [label="Control Dep:1"];
+40 -> 96 [label="Control Dep:1"];
+40 -> 97 [label="Control Dep:1"];
+40 -> 100 [label="AST:1"];
+41 -> 94 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+42 -> 44 [label="AST:1"];
+43 -> 44 [label="Control Dep:1"];
+45 -> 46 [label="AST:1"];
+45 -> 47 [label="AST:1"];
+46 -> 47 [label="Control Dep:1"];
+48 -> 49 [label="AST:3"];
+48 -> 50 [label="AST:1"];
+48 -> 51 [label="AST:3"];
+48 -> 52 [label="AST:3"];
+53 -> 54 [label="AST:1"];
+53 -> 55 [label="AST:1"];
+53 -> 56 [label="AST:1"];
+57 -> 58 [label="AST:1"];
+57 -> 62 [label="AST:1"];
+58 -> 59 [label="AST:1"];
+58 -> 62 [label="Control Dep:1"];
+58 -> 63 [label="Control Dep:1"];
+58 -> 69 [label="Control Dep:1"];
+58 -> 65 [label="Control Dep:1"];
+58 -> 74 [label="Control Dep:1"];
+59 -> 60 [label="AST:3"];
+60 -> 61 [label="AST:3"];
+62 -> 63 [label="AST:1"];
+63 -> 64 [label="AST:1"];
+63 -> 65 [label="AST:1"];
+63 -> 69 [label="AST:1"];
+63 -> 74 [label="AST:1"];
+65 -> 66 [label="AST:1"];
+66 -> 67 [label="AST:1"];
+67 -> 68 [label="AST:3"];
+69 -> 70 [label="AST:1"];
+69 -> 72 [label="AST:1"];
+70 -> 71 [label="AST:1"];
+72 -> 73 [label="AST:1"];
+74 -> 75 [label="AST:1"];
+75 -> 76 [label="AST:1"];
+77 -> 36 [label="AST:1"];
+77 -> 38 [label="AST:1"];
+78 -> 64 [label="AST:1"];
+78 -> 40 [label="AST:1"];
+78 -> 56 [label="AST:1"];
+78 -> 55 [label="AST:1"];
+79 -> 37 [label="AST:1"];
+79 -> 80 [label="AST:1"];
+80 -> 81 [label="AST:1"];
+81 -> 54 [label="AST:1"];
+81 -> 82 [label="AST:1"];
+81 -> 84 [label="AST:1"];
+81 -> 83 [label="AST:1"];
+82 -> 59 [label="AST:1"];
+83 -> 87 [label="AST:1"];
+84 -> 67 [label="AST:1"];
+84 -> 86 [label="AST:1"];
+85 -> 71 [label="AST:1"];
+86 -> 69 [label="AST:1"];
+87 -> 73 [label="AST:1"];
+88 -> 85 [label="AST:1"];
+89 -> 37 [label="AST:1"];
+89 -> 90 [label="AST:1"];
+91 -> 36 [label="AST:1"];
+91 -> 38 [label="AST:1"];
+92 -> 64 [label="AST:1"];
+92 -> 43 [label="AST:1"];
+92 -> 56 [label="AST:1"];
+92 -> 55 [label="AST:1"];
+93 -> 40 [label="AST:1"];
+93 -> 41 [label="AST:1"];
+94 -> 54 [label="AST:1"];
+94 -> 95 [label="AST:1"];
+94 -> 97 [label="AST:1"];
+94 -> 96 [label="AST:1"];
+95 -> 59 [label="AST:1"];
+96 -> 99 [label="AST:1"];
+97 -> 67 [label="AST:1"];
+97 -> 98 [label="AST:1"];
+98 -> 69 [label="AST:1"];
+99 -> 73 [label="AST:1"];
+100 -> 101 [label="AST:1"];
+101 -> 71 [label="AST:1"];
+}

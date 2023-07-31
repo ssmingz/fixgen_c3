@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testNoFile#?#2:INSERT
+testEmpty#?#2:INSERT" shape=ellipse]
+1 [label="testNoFile#?#2:public void testNoFile() \{
+    expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\");
+\}
+testEmpty#?#2:public void testEmpty() \{
+    expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\");
+\}" shape=ellipse]
+2 [label="testNoFile#?#2:testNoFile
+testEmpty#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="testNoFile#?#2:void
+testEmpty#?#2:void" shape=ellipse]
+4 [label="testNoFile#?#2:\{
+    expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\");
+\}
+testEmpty#?#2:\{
+    expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\");
+\}" shape=ellipse]
+5 [label="testNoFile#?#3:expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\")
+testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\")" shape=ellipse]
+6 [label="testNoFile#?#2:VE: Modifiers_Method
+testEmpty#?#2:testEmpty" shape=ellipse]
+7 [label="testNoFile#?#2:public
+testEmpty#?#2:public" shape=ellipse]
+8 [label="testNoFile#?#4:INSERT
+testEmpty#?#4:INSERT" shape=ellipse]
+9 [label="testNoFile#?#4:try \{
+    buildRule.executeTarget(\"testNoFile\");
+    fail(\"BuildException expected: missing file\");
+\} catch (BuildException ex) \{
+    assertContains(\"file\", ex.getMessage());
+\}
+testEmpty#?#4:try \{
+    buildRule.executeTarget(\"testEmpty\");
+    fail(\"BuildException expected: missing property\");
+\} catch (BuildException ex) \{
+    assertContains(\"property\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testNoFile#?#2:@Test
+testEmpty#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

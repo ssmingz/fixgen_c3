@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1381/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1381/0/after.java
+@@ -11,1 +11,5 @@
+-    setForegroundColor(gdkColor);
++    GdkColor oldColor = new GdkColor();
++    OS.gtk_style_get_fg(OS.gtk_widget_get_style(fontHandle()), GTK_STATE_NORMAL, oldColor);
++    if ((gdkColor == null) || (oldColor.pixel != gdkColor.pixel)) {
++      setForegroundColor(gdkColor);
++    }

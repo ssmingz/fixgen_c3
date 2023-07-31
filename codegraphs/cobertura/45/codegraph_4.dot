@@ -1,0 +1,77 @@
+digraph "DetectIgnoredCodeClassVisitor#?,ClassVisitor,boolean,Set" {
+0 [label="2:CtVirtualElement@DetectIgnoredCodeClassVisitor" shape=ellipse]
+1 [label="3:CtParameterImpl@ClassVisitor cv" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@ClassVisitor" shape=ellipse]
+3 [label="3:CtParameterImpl@boolean ignoreTrivial" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+5 [label="3:CtParameterImpl@Set<String> ignoreAnnotations" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@Set<String>" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@()" shape=ellipse]
+8 [label="4:CtVirtualElement@" shape=ellipse]
+9 [label="4:CtVariableReadImpl@cv" shape=ellipse]
+10 [label="4:CtParameterReferenceImpl@cv" shape=ellipse]
+11 [label="4:CtInvocationImpl@(cv)" shape=ellipse]
+12 [label="5:CtFieldReferenceImpl@ignoreTrivial" shape=ellipse]
+13 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+14 [label="5:CtFieldWriteImpl@this.ignoreTrivial" shape=ellipse]
+15 [label="5:CtThisAccessImpl@this" shape=ellipse]
+16 [label="5:CtVariableReadImpl@ignoreTrivial" shape=ellipse]
+17 [label="5:CtParameterReferenceImpl@ignoreTrivial" shape=ellipse]
+18 [label="5:CtAssignmentImpl@this.ignoreTrivial = ignoreTrivial" shape=ellipse]
+19 [label="6:CtFieldReferenceImpl@ignoreAnnotations" shape=ellipse]
+20 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+21 [label="6:CtFieldWriteImpl@this.ignoreAnnotations" shape=ellipse]
+22 [label="6:CtThisAccessImpl@this" shape=ellipse]
+23 [label="6:CtVariableReadImpl@ignoreAnnotations" shape=ellipse]
+24 [label="6:CtParameterReferenceImpl@ignoreAnnotations" shape=ellipse]
+25 [label="6:CtAssignmentImpl@this.ignoreAnnotations = ignoreAnnotations" shape=ellipse]
+26 [label="3:CtBlockImpl@\{
+    (cv);
+    this.ignoreTrivial = ignoreTrivial;
+    this.ignoreAnnotations = ignoreAnnotations;
+\}" shape=ellipse]
+27 [label="2:CtMethodImpl@public  DetectIgnoredCodeClassVisitor(ClassVisitor cv, boolean ignoreTrivial, Set<String> ignoreAnnotations) \{
+    (cv);
+    this.ignoreTrivial = ignoreTrivial;
+    this.ignoreAnnotations = ignoreAnnotations;
+\}" shape=ellipse]
+28 [label="4:Insert@INSERT" shape=ellipse]
+29 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+30 [label="4:CtTypeReferenceImpl@ASM4" shape=ellipse]
+31 [label="4:CtTypeAccessImpl@ASM4" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+5 -> 6 [label="AST"];
+9 -> 10 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 28 [label="Action"];
+12 -> 13 [label="AST"];
+12 -> 16 [label="Define-Use"];
+14 -> 15 [label="AST"];
+14 -> 12 [label="AST"];
+16 -> 17 [label="AST"];
+16 -> 14 [label="Data Dep"];
+18 -> 14 [label="AST"];
+18 -> 16 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 23 [label="Define-Use"];
+21 -> 22 [label="AST"];
+21 -> 19 [label="AST"];
+23 -> 24 [label="AST"];
+23 -> 21 [label="Data Dep"];
+25 -> 21 [label="AST"];
+25 -> 23 [label="AST"];
+26 -> 11 [label="AST"];
+26 -> 18 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 0 [label="AST"];
+27 -> 1 [label="AST"];
+27 -> 3 [label="AST"];
+27 -> 5 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 31 [label="Action"];
+30 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+}

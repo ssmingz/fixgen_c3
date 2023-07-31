@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2056/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2056/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,8 @@
+-    expectBuildExceptionContaining(
+-        "test13",
+-        "Duplicate Attribute",
+-        "The attribute \"Test\" may not occur more than once in the same section");
++    try {
++      buildRule.executeTarget("test13");
++      fail("BuildException expected: Duplicate Attribute");
++    } catch (BuildException ex) {
++      assertContains(
++          "The attribute \"Test\" may not occur more than once in the same section",
++          ex.getMessage());
++    }

@@ -1,0 +1,100 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Insert
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:INSERT
+value2:" shape=ellipse]
+1 [label="locationInParent:TARGET
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:i.next()
+value2:Iterator.next()" shape=ellipse]
+2 [label="locationInParent:ASSIGNMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+3 [label="locationInParent:FOR_UPDATE
+nodeType:CtOperatorAssignmentImpl
+nodeType2:CtAssignmentImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+4 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object" shape=ellipse]
+5 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl" shape=ellipse]
+6 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:next
+value2:Iterator.next()" shape=ellipse]
+7 [label="locationInParent:TARGET
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:i
+value2:Iterator" shape=ellipse]
+8 [label="locationInParent:LOCAL_VAR_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:i
+value2:Iterator<LineData> i = PlaceHold.values().iterator()" shape=ellipse]
+9 [label="locationInParent:VARIABLE
+nodeType:CtLocalVariableReferenceImpl
+nodeType2:CtVariableReferenceImpl
+nodeType3:CtVariableReferenceImpl
+value:i
+value2:Iterator" shape=ellipse]
+10 [label="locationInParent:ASSIGNED
+nodeType:CtVariableWriteImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:number
+value2:int" shape=ellipse]
+11 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:next()
+value2:next()" shape=ellipse]
+12 [label="locationInParent:DECLARING_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:Iterator<LineData>
+value2:Iterator<LineData>" shape=ellipse]
+13 [label="locationInParent:CAST
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:LineData
+value2:LineData" shape=ellipse]
+14 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:
+value2:" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 10 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="Data Dep:2"];
+8 -> 7 [label="Define Use:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

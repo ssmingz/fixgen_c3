@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2254/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2254/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,3 @@
+-    expectLogContaining("testSimpleScale", "Processing File");
+-    File f = new File(getOutputDir(), LARGEIMAGE);
++    buildRule.executeTarget("testSimpleScale");
++    AntAssert.assertContains("Processing File", buildRule.getLog());
++    File f = new File(buildRule.getOutputDir(), LARGEIMAGE);

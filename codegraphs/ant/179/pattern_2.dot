@@ -1,0 +1,70 @@
+digraph "Pattern" {
+0 [label="testGZip#?#2:INSERT
+testFileResourceWithFilter#?#2:INSERT" shape=ellipse]
+1 [label="testGZip#?#2:public void testGZip() \{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}
+testFileResourceWithFilter#?#2:public void testFileResourceWithFilter() \{
+    executeTarget(\"testFileResourceWithFilter\");
+    File file1 = new File(getProject().getProperty(\"to.dir\") + \"/fileNR.txt\");
+    assertTrue(file1.exists());
+    try \{
+        String file1Content = FileUtils.readFully(new FileReader(file1));
+        assertEquals(\"This is file 42\", file1Content);
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+2 [label="testGZip#?#2:testGZip
+testFileResourceWithFilter#?#2:testFileResourceWithFilter" shape=ellipse]
+3 [label="testGZip#?#2:void
+testFileResourceWithFilter#?#2:void" shape=ellipse]
+4 [label="testGZip#?#2:\{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}
+testFileResourceWithFilter#?#2:\{
+    executeTarget(\"testFileResourceWithFilter\");
+    File file1 = new File(getProject().getProperty(\"to.dir\") + \"/fileNR.txt\");
+    assertTrue(file1.exists());
+    try \{
+        String file1Content = FileUtils.readFully(new FileReader(file1));
+        assertEquals(\"This is file 42\", file1Content);
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+5 [label="testGZip#?#3:executeTarget(\"realTest\")
+testFileResourceWithFilter#?#3:executeTarget(\"testFileResourceWithFilter\")" shape=ellipse]
+6 [label="testGZip#?#4:String log = getLog()
+testFileResourceWithFilter#?#4:File file1 = new File(getProject().getProperty(\"to.dir\") + \"/fileNR.txt\")" shape=ellipse]
+7 [label="testGZip#?#5:assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"))
+testFileResourceWithFilter#?#5:assertTrue(file1.exists())" shape=ellipse]
+8 [label="testGZip#?#8:assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"))" shape=ellipse]
+9 [label="testGZip#?#2:public
+testFileResourceWithFilter#?#2:public" shape=ellipse]
+10 [label="testGZip#?#2:VE: Modifiers_Method
+testFileResourceWithFilter#?#2:VE: Modifiers_Method" shape=ellipse]
+11 [label="testGZip#?#2:@Test
+testFileResourceWithFilter#?#2:@Test" shape=ellipse]
+12 [label="testFileResourceWithFilter#?#6:try \{
+    String file1Content = FileUtils.readFully(new FileReader(file1));
+    assertEquals(\"This is file 42\", file1Content);
+\} catch (IOException e) \{
+\}" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 8 [label="AST:1"];
+4 -> 12 [label="AST:1"];
+}

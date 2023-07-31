@@ -1,0 +1,85 @@
+digraph "getDependencies#?" {
+0 [label="2:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+1 [label="2:CtVirtualElement@getDependencies" shape=ellipse]
+2 [label="3:CtFieldReadImpl@dependencies" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtBinaryOperatorImpl@dependencies != null" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@enumeration()" shape=ellipse]
+6 [label="4:CtVirtualElement@enumeration" shape=ellipse]
+7 [label="4:CtTypeAccessImpl@Collections" shape=ellipse]
+8 [label="4:CtFieldReadImpl@dependencies" shape=ellipse]
+9 [label="4:CtInvocationImpl@Collections.enumeration(dependencies)" shape=ellipse]
+10 [label="4:CtReturnImpl@return Collections.enumeration(dependencies)" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    return Collections.enumeration(dependencies);
+\}" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@CollectionUtils.EmptyEnumeration" shape=ellipse]
+13 [label="6:CtConstructorCallImpl@new CollectionUtils.EmptyEnumeration()" shape=ellipse]
+14 [label="6:CtReturnImpl@return new CollectionUtils.EmptyEnumeration()" shape=ellipse]
+15 [label="5:CtBlockImpl@\{
+    return new CollectionUtils.EmptyEnumeration();
+\}" shape=ellipse]
+16 [label="3:CtIfImpl@if (dependencies != null) \{
+    return Collections.enumeration(dependencies);
+\} else \{
+    return new CollectionUtils.EmptyEnumeration();
+\}" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    if (dependencies != null) \{
+        return Collections.enumeration(dependencies);
+    \} else \{
+        return new CollectionUtils.EmptyEnumeration();
+    \}
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public Enumeration getDependencies() \{
+    if (dependencies != null) \{
+        return Collections.enumeration(dependencies);
+    \} else \{
+        return new CollectionUtils.EmptyEnumeration();
+    \}
+\}" shape=ellipse]
+19 [label="3:Delete@DELETE" shape=ellipse]
+20 [label="3:Insert@INSERT" shape=ellipse]
+21 [label="3:CtConditionalImpl@dependencies != null ? Collections.enumeration(dependencies) : new CollectionUtils.EmptyEnumeration()" shape=ellipse]
+22 [label="4:Move@MOVE" shape=ellipse]
+23 [label="3:Move@MOVE" shape=ellipse]
+24 [label="4:Move@MOVE" shape=ellipse]
+25 [label="6:Move@MOVE" shape=ellipse]
+4 -> 2 [label="AST"];
+4 -> 3 [label="AST"];
+4 -> 11 [label="Control Dep"];
+4 -> 10 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 15 [label="Control Dep"];
+4 -> 14 [label="Control Dep"];
+4 -> 13 [label="Control Dep"];
+4 -> 23 [label="Action"];
+9 -> 6 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 24 [label="Action"];
+10 -> 9 [label="AST"];
+10 -> 20 [label="Action"];
+10 -> 22 [label="Action"];
+11 -> 10 [label="AST"];
+13 -> 25 [label="Action"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 4 [label="AST"];
+16 -> 11 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 19 [label="Action"];
+17 -> 16 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 17 [label="AST"];
+20 -> 21 [label="Action"];
+22 -> 18 [label="Action"];
+23 -> 21 [label="Action"];
+24 -> 21 [label="Action"];
+25 -> 21 [label="Action"];
+}

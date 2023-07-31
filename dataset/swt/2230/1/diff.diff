@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2230/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2230/1/after.java
+@@ -4,5 +4,5 @@
+-    int selection = OS.GTK_CLIST_SELECTION(handle);
+-    if (selection == 0) {
+-      return 0;
+-    }
+-    return OS.g_list_length(selection);
++    selSize = 0;
++    selIndices = new int[items.length];
++    int selection = OS.gtk_tree_view_get_selection(handle);
++    OS.gtk_tree_selection_selected_foreach(selection, getDisplay().selectionIterProc, handle);
++    return selSize;

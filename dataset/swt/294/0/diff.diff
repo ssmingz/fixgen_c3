@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/294/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/294/0/after.java
+@@ -6,7 +6,0 @@
+-    int superType = OS.g_type_class_peek_parent(OS.G_OBJECT_GET_CLASS(atkObject));
+-    AtkObjectClass objectClass = new AtkObjectClass();
+-    OS.memmove(objectClass, superType);
+-    int parentResult = 0;
+-    if (objectClass.get_name != 0) {
+-      parentResult = OS.call(objectClass.get_name, atkObject);
+-    }
+@@ -14,5 +7,2 @@
+-    if (object != null) {
+-      int result = object.atkObject_get_name();
+-      if (result != AccessibleObject.NO_ANSWER) {
+-        return result;
+-      }
++    if (object == null) {
++      return 0;
+@@ -20,1 +10,1 @@
+-    return parentResult;
++    return object.atkObject_get_name();

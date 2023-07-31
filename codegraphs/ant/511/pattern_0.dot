@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="test21#?#3:UPDATE
+applyWebProxySettings#?#43:UPDATE
+testEncoding#?#3:UPDATE" shape=ellipse]
+1 [label="test21#?#3:project.getJavaVersion()
+applyWebProxySettings#?#43:project.getJavaVersion()
+testEncoding#?#3:project.getJavaVersion()" shape=ellipse]
+2 [label="test21#?#3:project.getJavaVersion() == Project.JAVA_1_1
+applyWebProxySettings#?#43:(project.getJavaVersion() == Project.JAVA_1_1)
+testEncoding#?#3:project.getJavaVersion() == Project.JAVA_1_1" shape=ellipse]
+3 [label="test21#?#3:if (project.getJavaVersion() == Project.JAVA_1_1) \{
+    return;
+\}
+testEncoding#?#3:if (project.getJavaVersion() == Project.JAVA_1_1) \{
+    return;
+\}" shape=ellipse]
+4 [label="test21#?#3:Project.JAVA_1_1
+applyWebProxySettings#?#43:Project.JAVA_1_1
+testEncoding#?#3:Project.JAVA_1_1" shape=ellipse]
+5 [label="test21#?#3:\{
+    return;
+\}
+testEncoding#?#3:\{
+    return;
+\}" shape=ellipse]
+6 [label="test21#?#4:return
+testEncoding#?#4:return" shape=ellipse]
+7 [label="test21#?#3:DELETE
+applyWebProxySettings#?#43:DELETE
+testEncoding#?#3:DELETE" shape=ellipse]
+8 [label="test21#?#3:getJavaVersion
+applyWebProxySettings#?#43:getJavaVersion
+testEncoding#?#3:getJavaVersion" shape=ellipse]
+9 [label="test21#?#3:project
+applyWebProxySettings#?#43:project
+testEncoding#?#3:project" shape=ellipse]
+10 [label="test21#?#-1:project
+applyWebProxySettings#?#-1:project
+testEncoding#?#-1:project" shape=ellipse]
+11 [label="test21#?#3:getJavaVersion()
+applyWebProxySettings#?#43:getJavaVersion()
+testEncoding#?#3:getJavaVersion()" shape=ellipse]
+12 [label="test21#?#-1:project
+applyWebProxySettings#?#-1:project
+testEncoding#?#-1:project" shape=ellipse]
+13 [label="test21#?#3:MOVE
+applyWebProxySettings#?#43:MOVE
+testEncoding#?#3:MOVE" shape=ellipse]
+14 [label="test21#?#3:JavaEnvUtils.isJavaVersion(JAVA_1_1)
+applyWebProxySettings#?#43:JavaEnvUtils.isJavaVersion(JAVA_1_1)
+testEncoding#?#3:JavaEnvUtils.isJavaVersion(JAVA_1_1)" shape=ellipse]
+15 [label="applyWebProxySettings#?#43:settingsChanged && (project.getJavaVersion() == Project.JAVA_1_1)" shape=ellipse]
+0 -> 14 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 8 [label="AST:3"];
+1 -> 9 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 13 [label="Action:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="Control Dep:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Action:3"];
+3 -> 2 [label="AST:2"];
+3 -> 5 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+9 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+13 -> 3 [label="Action:2"];
+13 -> 15 [label="Action:1"];
+15 -> 2 [label="AST:1"];
+}

@@ -1,0 +1,24 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/30/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/30/1/after.java
+@@ -4,8 +4,13 @@
+-    NSRect rect = printInfo.imageablePageBounds();
+-    Point dpi = getDPI();
+-    Point screenDPI = getIndependentDPI();
+-    return new Rectangle(
+-        0,
+-        0,
+-        ((int) ((rect.width * dpi.x) / screenDPI.x)),
+-        ((int) ((rect.height * dpi.y) / screenDPI.y)));
++    NSAutoreleasePool pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    try {
++      NSRect rect = printInfo.imageablePageBounds();
++      Point dpi = getDPI();
++      Point screenDPI = getIndependentDPI();
++      return new Rectangle(
++          0,
++          0,
++          ((int) ((rect.width * dpi.x) / screenDPI.x)),
++          ((int) ((rect.height * dpi.y) / screenDPI.y)));
++    } finally {
++      pool.release();
++    }

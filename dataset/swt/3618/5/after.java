@@ -1,0 +1,11 @@
+class PlaceHold {
+  public void dispose() {
+    if (isDisposed()) {
+      return;
+    }
+    if (display.getThread() != Thread.currentThread()) {
+      DND.error(ERROR_THREAD_INVALID_ACCESS);
+    }
+    display = null;
+  }
+}

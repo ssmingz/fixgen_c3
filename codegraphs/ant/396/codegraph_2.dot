@@ -1,0 +1,234 @@
+digraph "addClasspathEntry#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addClasspathEntry" shape=ellipse]
+2 [label="2:CtParameterImpl@String resource" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@startsWith(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@startsWith" shape=ellipse]
+6 [label="3:CtVariableReadImpl@resource" shape=ellipse]
+7 [label="3:CtLiteralImpl@\"/\"" shape=ellipse]
+8 [label="3:CtInvocationImpl@resource.startsWith(\"/\")" shape=ellipse]
+9 [label="4:CtVariableWriteImpl@resource" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@substring(int)" shape=ellipse]
+11 [label="4:CtVirtualElement@substring" shape=ellipse]
+12 [label="4:CtVariableReadImpl@resource" shape=ellipse]
+13 [label="4:CtLiteralImpl@1" shape=ellipse]
+14 [label="4:CtInvocationImpl@resource.substring(1)" shape=ellipse]
+15 [label="4:CtAssignmentImpl@resource = resource.substring(1)" shape=ellipse]
+16 [label="3:CtBlockImpl@\{
+    resource = resource.substring(1);
+\}" shape=ellipse]
+17 [label="6:CtVariableWriteImpl@resource" shape=ellipse]
+18 [label="6:CtLiteralImpl@\"org/apache/tools/ant/taskdefs/optional/\"" shape=ellipse]
+19 [label="6:CtVariableReadImpl@resource" shape=ellipse]
+20 [label="6:CtBinaryOperatorImpl@\"org/apache/tools/ant/taskdefs/optional/\" + resource" shape=ellipse]
+21 [label="6:CtAssignmentImpl@resource = \"org/apache/tools/ant/taskdefs/optional/\" + resource" shape=ellipse]
+22 [label="5:CtBlockImpl@\{
+    resource = \"org/apache/tools/ant/taskdefs/optional/\" + resource;
+\}" shape=ellipse]
+23 [label="3:CtIfImpl@if (resource.startsWith(\"/\")) \{
+    resource = resource.substring(1);
+\} else \{
+    resource = \"org/apache/tools/ant/taskdefs/optional/\" + resource;
+\}" shape=ellipse]
+24 [label="8:CtTypeReferenceImpl@File" shape=ellipse]
+25 [label="8:CtExecutableReferenceImpl@getResourceSource(java.lang.ClassLoader,java.lang.String)" shape=ellipse]
+26 [label="8:CtVirtualElement@getResourceSource" shape=ellipse]
+27 [label="8:CtTypeAccessImpl@LoaderUtils" shape=ellipse]
+28 [label="8:CtExecutableReferenceImpl@getClassLoader()" shape=ellipse]
+29 [label="8:CtVirtualElement@getClassLoader" shape=ellipse]
+30 [label="8:CtExecutableReferenceImpl@getClass()" shape=ellipse]
+31 [label="8:CtVirtualElement@getClass" shape=ellipse]
+32 [label="8:CtInvocationImpl@getClass()" shape=ellipse]
+33 [label="8:CtInvocationImpl@getClass().getClassLoader()" shape=ellipse]
+34 [label="8:CtVariableReadImpl@resource" shape=ellipse]
+35 [label="8:CtInvocationImpl@LoaderUtils.getResourceSource(getClass().getClassLoader(), resource)" shape=ellipse]
+36 [label="8:CtVirtualElement@f" shape=ellipse]
+37 [label="8:CtLocalVariableImpl@File f = LoaderUtils.getResourceSource(getClass().getClassLoader(), resource)" shape=ellipse]
+38 [label="9:CtVariableReadImpl@f" shape=ellipse]
+39 [label="9:CtLiteralImpl@null" shape=ellipse]
+40 [label="9:CtBinaryOperatorImpl@f != null" shape=ellipse]
+41 [label="10:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+42 [label="10:CtVirtualElement@log" shape=ellipse]
+43 [label="10:CtLiteralImpl@\"Found \"" shape=ellipse]
+44 [label="10:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+45 [label="10:CtVirtualElement@getAbsolutePath" shape=ellipse]
+46 [label="10:CtVariableReadImpl@f" shape=ellipse]
+47 [label="10:CtInvocationImpl@f.getAbsolutePath()" shape=ellipse]
+48 [label="10:CtBinaryOperatorImpl@\"Found \" + f.getAbsolutePath()" shape=ellipse]
+49 [label="10:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+50 [label="10:CtInvocationImpl@log(\"Found \" + f.getAbsolutePath(), MSG_DEBUG)" shape=ellipse]
+51 [label="11:CtExecutableReferenceImpl@setLocation(File)" shape=ellipse]
+52 [label="11:CtVirtualElement@setLocation" shape=ellipse]
+53 [label="11:CtExecutableReferenceImpl@createClasspath()" shape=ellipse]
+54 [label="11:CtVirtualElement@createClasspath" shape=ellipse]
+55 [label="11:CtInvocationImpl@createClasspath()" shape=ellipse]
+56 [label="11:CtVariableReadImpl@f" shape=ellipse]
+57 [label="11:CtInvocationImpl@createClasspath().setLocation(f)" shape=ellipse]
+58 [label="9:CtBlockImpl@\{
+    log(\"Found \" + f.getAbsolutePath(), MSG_DEBUG);
+    createClasspath().setLocation(f);
+\}" shape=ellipse]
+59 [label="13:CtExecutableReferenceImpl@log(java.lang.String,<unknown>)" shape=ellipse]
+60 [label="13:CtVirtualElement@log" shape=ellipse]
+61 [label="13:CtLiteralImpl@\"Couldn\'t find \"" shape=ellipse]
+62 [label="13:CtVariableReadImpl@resource" shape=ellipse]
+63 [label="13:CtBinaryOperatorImpl@\"Couldn\'t find \" + resource" shape=ellipse]
+64 [label="13:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+65 [label="13:CtInvocationImpl@log(\"Couldn\'t find \" + resource, MSG_DEBUG)" shape=ellipse]
+66 [label="12:CtBlockImpl@\{
+    log(\"Couldn\'t find \" + resource, MSG_DEBUG);
+\}" shape=ellipse]
+67 [label="9:CtIfImpl@if (f != null) \{
+    log(\"Found \" + f.getAbsolutePath(), MSG_DEBUG);
+    createClasspath().setLocation(f);
+\} else \{
+    log(\"Couldn\'t find \" + resource, MSG_DEBUG);
+\}" shape=ellipse]
+68 [label="2:CtBlockImpl@\{
+    if (resource.startsWith(\"/\")) \{
+        resource = resource.substring(1);
+    \} else \{
+        resource = \"org/apache/tools/ant/taskdefs/optional/\" + resource;
+    \}
+    File f = LoaderUtils.getResourceSource(getClass().getClassLoader(), resource);
+    if (f != null) \{
+        log(\"Found \" + f.getAbsolutePath(), MSG_DEBUG);
+        createClasspath().setLocation(f);
+    \} else \{
+        log(\"Couldn\'t find \" + resource, MSG_DEBUG);
+    \}
+\}" shape=ellipse]
+69 [label="2:CtMethodImpl@protected void addClasspathEntry(String resource) \{
+    if (resource.startsWith(\"/\")) \{
+        resource = resource.substring(1);
+    \} else \{
+        resource = \"org/apache/tools/ant/taskdefs/optional/\" + resource;
+    \}
+    File f = LoaderUtils.getResourceSource(getClass().getClassLoader(), resource);
+    if (f != null) \{
+        log(\"Found \" + f.getAbsolutePath(), MSG_DEBUG);
+        createClasspath().setLocation(f);
+    \} else \{
+        log(\"Couldn\'t find \" + resource, MSG_DEBUG);
+    \}
+\}" shape=ellipse]
+70 [label="13:Update@UPDATE" shape=ellipse]
+71 [label="13:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 16 [label="Control Dep"];
+8 -> 15 [label="Control Dep"];
+8 -> 9 [label="Control Dep"];
+8 -> 14 [label="Control Dep"];
+8 -> 10 [label="Control Dep"];
+8 -> 12 [label="Control Dep"];
+8 -> 13 [label="Control Dep"];
+8 -> 22 [label="Control Dep"];
+8 -> 21 [label="Control Dep"];
+8 -> 17 [label="Control Dep"];
+8 -> 20 [label="Control Dep"];
+8 -> 18 [label="Control Dep"];
+8 -> 19 [label="Control Dep"];
+9 -> 19 [label="Define-Use"];
+9 -> 34 [label="Define-Use"];
+9 -> 62 [label="Define-Use"];
+12 -> 9 [label="Data Dep"];
+14 -> 11 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 34 [label="Define-Use"];
+17 -> 62 [label="Define-Use"];
+19 -> 17 [label="Data Dep"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 8 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 22 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 30 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 28 [label="AST"];
+34 -> 36 [label="Data Dep"];
+35 -> 26 [label="AST"];
+35 -> 27 [label="AST"];
+35 -> 25 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 38 [label="Define-Use"];
+36 -> 46 [label="Define-Use"];
+36 -> 56 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 24 [label="AST"];
+37 -> 35 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 58 [label="Control Dep"];
+40 -> 50 [label="Control Dep"];
+40 -> 41 [label="Control Dep"];
+40 -> 48 [label="Control Dep"];
+40 -> 43 [label="Control Dep"];
+40 -> 47 [label="Control Dep"];
+40 -> 44 [label="Control Dep"];
+40 -> 46 [label="Control Dep"];
+40 -> 49 [label="Control Dep"];
+40 -> 57 [label="Control Dep"];
+40 -> 51 [label="Control Dep"];
+40 -> 55 [label="Control Dep"];
+40 -> 53 [label="Control Dep"];
+40 -> 56 [label="Control Dep"];
+40 -> 66 [label="Control Dep"];
+40 -> 65 [label="Control Dep"];
+40 -> 59 [label="Control Dep"];
+40 -> 63 [label="Control Dep"];
+40 -> 61 [label="Control Dep"];
+40 -> 62 [label="Control Dep"];
+40 -> 64 [label="Control Dep"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 43 [label="AST"];
+48 -> 47 [label="AST"];
+50 -> 42 [label="AST"];
+50 -> 41 [label="AST"];
+50 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 53 [label="AST"];
+57 -> 52 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 51 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 50 [label="AST"];
+58 -> 57 [label="AST"];
+63 -> 61 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 70 [label="Action"];
+65 -> 60 [label="AST"];
+65 -> 59 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 40 [label="AST"];
+67 -> 58 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 23 [label="AST"];
+68 -> 37 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 1 [label="AST"];
+69 -> 0 [label="AST"];
+69 -> 2 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 71 [label="Action"];
+}

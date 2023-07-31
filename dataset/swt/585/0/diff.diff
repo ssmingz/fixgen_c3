@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/585/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/585/0/after.java
+@@ -4,1 +4,4 @@
+-    return OS.IsWindowVisible(handle);
++    if (OS.IsWindowVisible(handle)) {
++      return true;
++    }
++    return getVisible() && parent.isVisible();

@@ -1,0 +1,41 @@
+digraph "addDefinition#?,String,Class" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addDefinition" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@Class c" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@Class" shape=ellipse]
+6 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@addDataTypeDefinition(java.lang.String,java.lang.Class)" shape=ellipse]
+8 [label="3:CtVirtualElement@addDataTypeDefinition" shape=ellipse]
+9 [label="3:CtFieldReadImpl@project" shape=ellipse]
+10 [label="3:CtVariableReadImpl@name" shape=ellipse]
+11 [label="3:CtVariableReadImpl@c" shape=ellipse]
+12 [label="3:CtInvocationImpl@project.addDataTypeDefinition(name, c)" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    project.addDataTypeDefinition(name, c);
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@protected void addDefinition(String name, Class c) throws BuildException \{
+    project.addDataTypeDefinition(name, c);
+\}" shape=ellipse]
+15 [label="3:Delete@DELETE" shape=ellipse]
+16 [label="3:Insert@INSERT" shape=ellipse]
+17 [label="3:CtInvocationImpl@getProject()" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+9 -> 15 [label="Action"];
+12 -> 8 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 7 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 16 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 6 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 17 [label="Action"];
+}

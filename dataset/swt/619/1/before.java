@@ -1,0 +1,10 @@
+class PlaceHold {
+  public Image getImage(int columnIndex) {
+    checkWidget();
+    int validColumnCount = Math.max(1, parent.columns.length);
+    if (!((0 <= columnIndex) && (columnIndex < validColumnCount))) {
+      return null;
+    }
+    return images[columnIndex];
+  }
+}

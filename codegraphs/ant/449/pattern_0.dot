@@ -1,0 +1,78 @@
+digraph "Pattern" {
+0 [label="printElementDecl#?,PrintWriter,String,Class#9:INSERT
+handleChildren#?,Object,RuntimeConfigurable#9:INSERT" shape=ellipse]
+1 [label="printElementDecl#?,PrintWriter,String,Class#9:IntrospectionHelper.getHelper(element)
+handleChildren#?,Object,RuntimeConfigurable#9:IntrospectionHelper.getHelper(parentClass)" shape=ellipse]
+2 [label="printElementDecl#?,PrintWriter,String,Class#9:ih = IntrospectionHelper.getHelper(element)
+handleChildren#?,Object,RuntimeConfigurable#9:IntrospectionHelper ih = IntrospectionHelper.getHelper(parentClass)" shape=ellipse]
+3 [label="printElementDecl#?,PrintWriter,String,Class#8:\{
+    ih = IntrospectionHelper.getHelper(element);
+\}
+handleChildren#?,Object,RuntimeConfigurable#3:\{
+    if (parent instanceof TypeAdapter) \{
+        parent = ((TypeAdapter) (parent)).getProxy();
+    \}
+    String parentUri = getNamespace();
+    Class parentClass = parent.getClass();
+    IntrospectionHelper ih = IntrospectionHelper.getHelper(parentClass);
+    if (children != null) \{
+        Iterator it = children.iterator();
+        for (int i = 0; it.hasNext(); i++) \{
+            RuntimeConfigurable childWrapper = parentWrapper.getChild(i);
+            UnknownElement child = ((UnknownElement) (it.next()));
+            try \{
+                if (!handleChild(parentUri, ih, parent, child, childWrapper)) \{
+                    if (!(parent instanceof TaskContainer)) \{
+                        ih.throwNotSupported(getProject(), parent, child.getTag());
+                    \} else \{
+                        TaskContainer container = ((TaskContainer) (parent));
+                        container.addTask(child);
+                    \}
+                \}
+            \} catch (UnsupportedElementException ex) \{
+                throw new BuildException(((parentWrapper.getElementTag() + \" doesn\'t support the nested \\"\") + ex.getElement()) + \"\\" element.\", ex);
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="printElementDecl#?,PrintWriter,String,Class#9:ih
+handleChildren#?,Object,RuntimeConfigurable#9:ih" shape=ellipse]
+5 [label="printElementDecl#?,PrintWriter,String,Class#9:getHelper
+handleChildren#?,Object,RuntimeConfigurable#9:getHelper" shape=ellipse]
+6 [label="printElementDecl#?,PrintWriter,String,Class#9:IntrospectionHelper
+handleChildren#?,Object,RuntimeConfigurable#9:IntrospectionHelper" shape=ellipse]
+7 [label="printElementDecl#?,PrintWriter,String,Class#-1:IntrospectionHelper
+handleChildren#?,Object,RuntimeConfigurable#-1:IntrospectionHelper" shape=ellipse]
+8 [label="printElementDecl#?,PrintWriter,String,Class#9:getHelper(java.lang.Class)
+handleChildren#?,Object,RuntimeConfigurable#9:getHelper(java.lang.Class)" shape=ellipse]
+9 [label="printElementDecl#?,PrintWriter,String,Class#-1:IntrospectionHelper
+handleChildren#?,Object,RuntimeConfigurable#-1:IntrospectionHelper" shape=ellipse]
+10 [label="printElementDecl#?,PrintWriter,String,Class#-1:Class
+handleChildren#?,Object,RuntimeConfigurable#-1:Class" shape=ellipse]
+11 [label="printElementDecl#?,PrintWriter,String,Class#9:element
+handleChildren#?,Object,RuntimeConfigurable#9:parentClass" shape=ellipse]
+12 [label="printElementDecl#?,PrintWriter,String,Class#-1:element
+handleChildren#?,Object,RuntimeConfigurable#-1:parentClass" shape=ellipse]
+13 [label="printElementDecl#?,PrintWriter,String,Class#9:getProject()
+handleChildren#?,Object,RuntimeConfigurable#9:getProject()" shape=ellipse]
+14 [label="handleChildren#?,Object,RuntimeConfigurable#9:IntrospectionHelper" shape=ellipse]
+15 [label="handleChildren#?,Object,RuntimeConfigurable#8:parentClass" shape=ellipse]
+16 [label="handleChildren#?,Object,RuntimeConfigurable#-1:IntrospectionHelper" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 14 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 16 [label="AST:1"];
+11 -> 4 [label="Data Dep:2"];
+11 -> 12 [label="AST:2"];
+15 -> 11 [label="Define Use:1"];
+}

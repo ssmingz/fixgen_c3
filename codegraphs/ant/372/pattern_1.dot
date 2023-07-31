@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="testRedirect3#?#2:INSERT
+testRedirect2#?#2:INSERT
+testRedirect1#?#2:INSERT" shape=ellipse]
+1 [label="testRedirect3#?#2:public void testRedirect3() \{
+    executeTarget(\"redirect3\");
+\}
+testRedirect2#?#2:public void testRedirect2() \{
+    executeTarget(\"redirect2\");
+\}
+testRedirect1#?#2:public void testRedirect1() \{
+    executeTarget(\"redirect1\");
+\}" shape=ellipse]
+2 [label="testRedirect3#?#2:testRedirect3
+testRedirect2#?#2:testRedirect2
+testRedirect1#?#2:testRedirect1" shape=ellipse]
+3 [label="testRedirect3#?#2:void
+testRedirect2#?#2:void
+testRedirect1#?#2:void" shape=ellipse]
+4 [label="testRedirect3#?#2:\{
+    executeTarget(\"redirect3\");
+\}
+testRedirect2#?#2:\{
+    executeTarget(\"redirect2\");
+\}
+testRedirect1#?#2:\{
+    executeTarget(\"redirect1\");
+\}" shape=ellipse]
+5 [label="testRedirect3#?#3:executeTarget(\"redirect3\")
+testRedirect2#?#3:executeTarget(\"redirect2\")
+testRedirect1#?#3:executeTarget(\"redirect1\")" shape=ellipse]
+6 [label="testRedirect3#?#2:public
+testRedirect2#?#2:public
+testRedirect1#?#2:public" shape=ellipse]
+7 [label="testRedirect3#?#2:VE: Modifiers_Method
+testRedirect2#?#2:VE: Modifiers_Method
+testRedirect1#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testRedirect3#?#2:@Test
+testRedirect2#?#2:@Test
+testRedirect1#?#2:@Test" shape=ellipse]
+0 -> 8 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+4 -> 5 [label="AST:3"];
+}

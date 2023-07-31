@@ -1,0 +1,61 @@
+digraph "Pattern" {
+0 [label="fireTestStarted#?,Description#3:UPDATE
+pleaseStop#?#3:UPDATE" shape=ellipse]
+1 [label="fireTestStarted#?,Description#3:fPleaseStop
+pleaseStop#?#3:fPleaseStop" shape=ellipse]
+2 [label="fireTestStarted#?,Description#3:if (fPleaseStop) \{
+    throw new StoppedByUserException();
+\}
+pleaseStop#?#3:fPleaseStop = true" shape=ellipse]
+3 [label="fireTestStarted#?,Description#2:\{
+    if (fPleaseStop) \{
+        throw new StoppedByUserException();
+    \}
+    new SafeNotifier() \{
+        @Override
+        protected void notifyListener(RunListener each) throws Exception \{
+            each.testStarted(description);
+        \}
+    \}.run();
+\}
+pleaseStop#?#2:\{
+    fPleaseStop = true;
+\}" shape=ellipse]
+4 [label="fireTestStarted#?,Description#3:\{
+    throw new StoppedByUserException();
+\}" shape=ellipse]
+5 [label="fireTestStarted#?,Description#3:pleaseStop
+pleaseStop#?#3:pleaseStop" shape=ellipse]
+6 [label="fireTestStarted#?,Description#3:PlaceHold" shape=ellipse]
+7 [label="fireTestStarted#?,Description#3:
+pleaseStop#?#3:PlaceHold" shape=ellipse]
+8 [label="fireTestStarted#?,Description#4:throw new StoppedByUserException()" shape=ellipse]
+9 [label="fireTestStarted#?,Description#4:new StoppedByUserException()" shape=ellipse]
+10 [label="fireTestStarted#?,Description#4:StoppedByUserException()" shape=ellipse]
+11 [label="fireTestStarted#?,Description#4:StoppedByUserException" shape=ellipse]
+12 [label="fireTestStarted#?,Description#4:StoppedByUserException" shape=ellipse]
+13 [label="fireTestStarted#?,Description#3:fPleaseStop" shape=ellipse]
+14 [label="fireTestStarted#?,Description#3:PlaceHold" shape=ellipse]
+15 [label="pleaseStop#?#3:true" shape=ellipse]
+16 [label="pleaseStop#?#3:fPleaseStop" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 13 [label="AST:1"];
+1 -> 4 [label="Control Dep:1"];
+1 -> 8 [label="Control Dep:1"];
+1 -> 9 [label="Control Dep:1"];
+1 -> 10 [label="Control Dep:1"];
+1 -> 16 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 15 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+4 -> 8 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+16 -> 7 [label="AST:1"];
+}

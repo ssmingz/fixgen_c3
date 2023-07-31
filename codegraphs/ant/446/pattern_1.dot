@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testRunFailWithFailOnError#?#2:INSERT
+testExceptingFoe#?#2:INSERT" shape=ellipse]
+1 [label="testRunFailWithFailOnError#?#2:public void testRunFailWithFailOnError() \{
+    expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\");
+\}
+testExceptingFoe#?#2:public void testExceptingFoe() \{
+    expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\");
+\}" shape=ellipse]
+2 [label="testRunFailWithFailOnError#?#2:testRunFailWithFailOnError
+testExceptingFoe#?#2:testExceptingFoe" shape=ellipse]
+3 [label="testRunFailWithFailOnError#?#2:void
+testExceptingFoe#?#2:void" shape=ellipse]
+4 [label="testRunFailWithFailOnError#?#2:\{
+    expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\");
+\}
+testExceptingFoe#?#2:\{
+    expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\");
+\}" shape=ellipse]
+5 [label="testRunFailWithFailOnError#?#3:expectBuildExceptionContaining(\"testRunFailWithFailOnError\", \"non zero return code\", \"Java returned:\")
+testExceptingFoe#?#3:expectBuildExceptionContaining(\"testExceptingFoe\", \"passes exception through\", \"Exception raised inside called program\")" shape=ellipse]
+6 [label="testRunFailWithFailOnError#?#2:VE: Modifiers_Method
+testExceptingFoe#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testRunFailWithFailOnError#?#2:public
+testExceptingFoe#?#2:public" shape=ellipse]
+8 [label="testRunFailWithFailOnError#?#4:INSERT
+testExceptingFoe#?#4:INSERT" shape=ellipse]
+9 [label="testRunFailWithFailOnError#?#4:try \{
+    buildRule.executeTarget(\"testRunFailWithFailOnError\");
+    fail(\"Build exception should have been thrown - \" + \"non zero return code\");
+\} catch (BuildException ex) \{
+    assertContains(\"Java returned:\", ex.getMessage());
+\}
+testExceptingFoe#?#4:try \{
+    buildRule.executeTarget(\"testExceptingFoe\");
+    fail(\"Build exception should have been thrown - \" + \"passes exception through\");
+\} catch (BuildException ex) \{
+    assertContains(\"Exception raised inside called program\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testRunFailWithFailOnError#?#2:@Test
+testExceptingFoe#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

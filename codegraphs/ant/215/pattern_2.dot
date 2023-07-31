@@ -1,0 +1,80 @@
+digraph "Pattern" {
+0 [label="testFullPathMatchesCaseInsensitive#?#2:INSERT
+test2bisButCaseInsensitive#?#2:INSERT" shape=ellipse]
+1 [label="testFullPathMatchesCaseInsensitive#?#2:public void testFullPathMatchesCaseInsensitive() \{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setCaseSensitive(false);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+        \}
+    \}
+\}
+test2bisButCaseInsensitive#?#2:public void test2bisButCaseInsensitive() \{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+            ds.setCaseSensitive(false);
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="testFullPathMatchesCaseInsensitive#?#5:MOVE
+test2bisButCaseInsensitive#?#5:MOVE" shape=ellipse]
+3 [label="testFullPathMatchesCaseInsensitive#?#5:FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)
+test2bisButCaseInsensitive#?#5:FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)" shape=ellipse]
+4 [label="testFullPathMatchesCaseInsensitive#?#6:MOVE
+test2bisButCaseInsensitive#?#6:MOVE" shape=ellipse]
+5 [label="testFullPathMatchesCaseInsensitive#?#6:ds.setCaseSensitive(false)
+test2bisButCaseInsensitive#?#6:ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))" shape=ellipse]
+6 [label="testFullPathMatchesCaseInsensitive#?#7:MOVE
+test2bisButCaseInsensitive#?#7:MOVE" shape=ellipse]
+7 [label="testFullPathMatchesCaseInsensitive#?#7:ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))
+test2bisButCaseInsensitive#?#7:ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \})" shape=ellipse]
+8 [label="testFullPathMatchesCaseInsensitive#?#8:MOVE
+test2bisButCaseInsensitive#?#8:MOVE" shape=ellipse]
+9 [label="testFullPathMatchesCaseInsensitive#?#8:ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \})
+test2bisButCaseInsensitive#?#8:ds.setCaseSensitive(false)" shape=ellipse]
+10 [label="testFullPathMatchesCaseInsensitive#?#9:MOVE
+test2bisButCaseInsensitive#?#9:MOVE" shape=ellipse]
+11 [label="testFullPathMatchesCaseInsensitive#?#9:ds.scan()
+test2bisButCaseInsensitive#?#9:ds.scan()" shape=ellipse]
+12 [label="testFullPathMatchesCaseInsensitive#?#10:MOVE
+test2bisButCaseInsensitive#?#10:MOVE" shape=ellipse]
+13 [label="testFullPathMatchesCaseInsensitive#?#10:compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \})
+test2bisButCaseInsensitive#?#10:compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \})" shape=ellipse]
+14 [label="testFullPathMatchesCaseInsensitive#?#4:INSERT
+test2bisButCaseInsensitive#?#4:INSERT" shape=ellipse]
+15 [label="testFullPathMatchesCaseInsensitive#?#4:Assume.assumeTrue(loginFailureMessage, loginSuceeded)
+test2bisButCaseInsensitive#?#4:Assume.assumeTrue(loginFailureMessage, loginSuceeded)" shape=ellipse]
+16 [label="testFullPathMatchesCaseInsensitive#?#5:INSERT
+test2bisButCaseInsensitive#?#5:INSERT" shape=ellipse]
+17 [label="testFullPathMatchesCaseInsensitive#?#5:Assume.assumeTrue(\"Could not change remote directory\", changeRemoteDir(remoteTmpDir))
+test2bisButCaseInsensitive#?#5:Assume.assumeTrue(\"Could not change remote directory\", changeRemoteDir(remoteTmpDir))" shape=ellipse]
+18 [label="testFullPathMatchesCaseInsensitive#?#2:@Test
+test2bisButCaseInsensitive#?#2:@Test" shape=ellipse]
+0 -> 18 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 14 [label="Action:2"];
+1 -> 16 [label="Action:2"];
+2 -> 1 [label="Action:2"];
+3 -> 2 [label="Action:2"];
+4 -> 1 [label="Action:2"];
+5 -> 4 [label="Action:2"];
+6 -> 1 [label="Action:2"];
+7 -> 6 [label="Action:2"];
+8 -> 1 [label="Action:2"];
+9 -> 8 [label="Action:2"];
+10 -> 1 [label="Action:2"];
+11 -> 10 [label="Action:2"];
+12 -> 1 [label="Action:2"];
+13 -> 12 [label="Action:2"];
+14 -> 15 [label="Action:2"];
+16 -> 17 [label="Action:2"];
+}

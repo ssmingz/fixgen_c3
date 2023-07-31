@@ -1,0 +1,80 @@
+digraph "Pattern" {
+0 [label="testDuplicateTextName2#?#3:UPDATE
+testDuplicateTextName#?#3:UPDATE" shape=ellipse]
+1 [label="testDuplicateTextName2#?#3:expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\")
+testDuplicateTextName#?#3:expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\")" shape=ellipse]
+2 [label="testDuplicateTextName2#?#2:\{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}
+testDuplicateTextName#?#2:\{
+    expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\");
+\}" shape=ellipse]
+3 [label="testDuplicateTextName2#?#2:public void testDuplicateTextName2() \{
+    expectBuildException(\"duplicatetextname2\", \"the attribute name \\"text\\" has already been used by the text element\");
+\}
+testDuplicateTextName#?#2:public void testDuplicateTextName() \{
+    expectBuildException(\"duplicatetextname\", \"the name \\"text\\" is already used as an attribute\");
+\}" shape=ellipse]
+4 [label="testDuplicateTextName2#?#3:expectBuildException
+testDuplicateTextName#?#3:expectBuildException" shape=ellipse]
+5 [label="testDuplicateTextName2#?#-1:
+testDuplicateTextName#?#-1:" shape=ellipse]
+6 [label="testDuplicateTextName2#?#-1:PlaceHold
+testDuplicateTextName#?#-1:PlaceHold" shape=ellipse]
+7 [label="testDuplicateTextName2#?#-1:PlaceHold
+testDuplicateTextName#?#-1:PlaceHold" shape=ellipse]
+8 [label="testDuplicateTextName2#?#3:expectBuildException(java.lang.String,java.lang.String)
+testDuplicateTextName#?#3:expectBuildException(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testDuplicateTextName2#?#-1:String
+testDuplicateTextName#?#-1:String" shape=ellipse]
+10 [label="testDuplicateTextName2#?#-1:String
+testDuplicateTextName#?#-1:String" shape=ellipse]
+11 [label="testDuplicateTextName2#?#4:\"duplicatetextname2\"
+testDuplicateTextName#?#3:\"duplicatetextname\"" shape=ellipse]
+12 [label="testDuplicateTextName2#?#-1:String
+testDuplicateTextName#?#-1:String" shape=ellipse]
+13 [label="testDuplicateTextName2#?#4:UPDATE" shape=ellipse]
+14 [label="testDuplicateTextName2#?#4:MOVE" shape=ellipse]
+15 [label="testDuplicateTextName2#?#5:\"the attribute name \\"text\\" has already been used by the text element\"
+testDuplicateTextName#?#3:\"the name \\"text\\" is already used as an attribute\"" shape=ellipse]
+16 [label="testDuplicateTextName2#?#-1:String
+testDuplicateTextName#?#-1:String" shape=ellipse]
+17 [label="testDuplicateTextName2#?#5:UPDATE
+testDuplicateTextName#?#3:UPDATE" shape=ellipse]
+18 [label="testDuplicateTextName2#?#5:MOVE" shape=ellipse]
+19 [label="testDuplicateTextName2#?#3:MOVE
+testDuplicateTextName#?#3:MOVE" shape=ellipse]
+20 [label="testDuplicateTextName2#?#4:try \{
+    buildRule.executeTarget(\"duplicatetextname2\");
+    fail(\"BuildException expected: the attribute name \\"text\\" has already been used by the text\" + \" element\");
+\} catch (BuildException ex) \{
+\}
+testDuplicateTextName#?#4:try \{
+    buildRule.executeTarget(\"duplicatetextname\");
+    fail(\"BuildException expected: the name \\"text\\" is already used as an attribute\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+21 [label="testDuplicateTextName2#?#6:fail(\"BuildException expected: the attribute name \\"text\\" has already been used by the text\" + \" element\")
+testDuplicateTextName#?#6:fail(\"BuildException expected: the name \\"text\\" is already used as an attribute\")" shape=ellipse]
+0 -> 21 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 19 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="Action:1"];
+11 -> 14 [label="Action:1"];
+15 -> 16 [label="AST:2"];
+15 -> 17 [label="Action:2"];
+15 -> 18 [label="Action:1"];
+19 -> 20 [label="Action:2"];
+}

@@ -1,0 +1,58 @@
+digraph "setUseTimestamp#?,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setUseTimestamp" shape=ellipse]
+2 [label="2:CtParameterImpl@boolean v" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@getJavaVersion()" shape=ellipse]
+5 [label="3:CtVirtualElement@getJavaVersion" shape=ellipse]
+6 [label="3:CtFieldReadImpl@project" shape=ellipse]
+7 [label="3:CtInvocationImpl@project.getJavaVersion()" shape=ellipse]
+8 [label="3:CtFieldReadImpl@Project.JAVA_1_1" shape=ellipse]
+9 [label="3:CtBinaryOperatorImpl@project.getJavaVersion() != Project.JAVA_1_1" shape=ellipse]
+10 [label="4:CtFieldWriteImpl@useTimestamp" shape=ellipse]
+11 [label="4:CtVariableReadImpl@v" shape=ellipse]
+12 [label="4:CtAssignmentImpl@useTimestamp = v" shape=ellipse]
+13 [label="3:CtBlockImpl@\{
+    useTimestamp = v;
+\}" shape=ellipse]
+14 [label="3:CtIfImpl@if (project.getJavaVersion() != Project.JAVA_1_1) \{
+    useTimestamp = v;
+\}" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    if (project.getJavaVersion() != Project.JAVA_1_1) \{
+        useTimestamp = v;
+    \}
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public void setUseTimestamp(boolean v) \{
+    if (project.getJavaVersion() != Project.JAVA_1_1) \{
+        useTimestamp = v;
+    \}
+\}" shape=ellipse]
+17 [label="3:Delete@DELETE" shape=ellipse]
+18 [label="3:Insert@INSERT" shape=ellipse]
+19 [label="3:CtInvocationImpl@getProject()" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 17 [label="Action"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 4 [label="AST"];
+7 -> 18 [label="Action"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 13 [label="Control Dep"];
+9 -> 12 [label="Control Dep"];
+9 -> 10 [label="Control Dep"];
+9 -> 11 [label="Control Dep"];
+11 -> 10 [label="Data Dep"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 19 [label="Action"];
+}

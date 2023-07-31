@@ -1,0 +1,44 @@
+digraph "Pattern" {
+0 [label="setLong2#?,long#3:UPDATE
+setLong#?,Long#3:UPDATE" shape=ellipse]
+1 [label="setLong2#?,long#3:getLogger()
+setLong#?,Long#3:getLogger()" shape=ellipse]
+2 [label="setLong2#?,long#3:getLogger().warn((\"setLong2( \" + value) + \" );\")
+setLong#?,Long#3:getLogger().warn((\"setLong( \" + value) + \" );\")" shape=ellipse]
+3 [label="setLong2#?,long#2:\{
+    getLogger().warn((\"setLong2( \" + value) + \" );\");
+\}
+setLong#?,Long#2:\{
+    getLogger().warn((\"setLong( \" + value) + \" );\");
+\}" shape=ellipse]
+4 [label="setLong2#?,long#3:warn
+setLong#?,Long#3:warn" shape=ellipse]
+5 [label="setLong2#?,long#3:warn(java.lang.String)
+setLong#?,Long#3:warn(java.lang.String)" shape=ellipse]
+6 [label="setLong2#?,long#3:(\"setLong2( \" + value) + \" );\"
+setLong#?,Long#3:(\"setLong( \" + value) + \" );\"" shape=ellipse]
+7 [label="setLong2#?,long#3:getLogger
+setLong#?,Long#3:getLogger" shape=ellipse]
+8 [label="setLong2#?,long#-1:
+setLong#?,Long#-1:" shape=ellipse]
+9 [label="setLong2#?,long#-1:PlaceHold
+setLong#?,Long#-1:PlaceHold" shape=ellipse]
+10 [label="setLong2#?,long#-1:PlaceHold
+setLong#?,Long#-1:PlaceHold" shape=ellipse]
+11 [label="setLong2#?,long#3:getLogger()
+setLong#?,Long#3:getLogger()" shape=ellipse]
+12 [label="setLong2#?,long#3:getContext()
+setLong#?,Long#3:getContext()" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+}

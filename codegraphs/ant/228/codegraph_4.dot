@@ -1,0 +1,86 @@
+digraph "addPathElement#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addPathElement" shape=ellipse]
+2 [label="2:CtParameterImpl@String pathElement" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@File" shape=ellipse]
+6 [label="4:CtFieldReadImpl@project" shape=ellipse]
+7 [label="4:CtLiteralImpl@null" shape=ellipse]
+8 [label="4:CtBinaryOperatorImpl@project != null" shape=ellipse]
+9 [label="5:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+10 [label="5:CtVirtualElement@resolveFile" shape=ellipse]
+11 [label="5:CtTypeAccessImpl@FileUtil" shape=ellipse]
+12 [label="5:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+13 [label="5:CtVirtualElement@getBaseDir" shape=ellipse]
+14 [label="5:CtFieldReadImpl@project" shape=ellipse]
+15 [label="5:CtInvocationImpl@project.getBaseDir()" shape=ellipse]
+16 [label="5:CtVariableReadImpl@pathElement" shape=ellipse]
+17 [label="5:CtInvocationImpl@FileUtil.resolveFile(project.getBaseDir(), pathElement)" shape=ellipse]
+18 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+19 [label="6:CtVariableReadImpl@pathElement" shape=ellipse]
+20 [label="6:CtConstructorCallImpl@new File(pathElement)" shape=ellipse]
+21 [label="4:CtConditionalImpl@(project != null) ? FileUtil.resolveFile(project.getBaseDir(), pathElement) : new File(pathElement)" shape=ellipse]
+22 [label="3:CtVirtualElement@pathComponent" shape=ellipse]
+23 [label="3:CtLocalVariableImpl@File pathComponent = (project != null) ? FileUtil.resolveFile(project.getBaseDir(), pathElement) : new File(pathElement)" shape=ellipse]
+24 [label="7:CtExecutableReferenceImpl@addElement(File)" shape=ellipse]
+25 [label="7:CtVirtualElement@addElement" shape=ellipse]
+26 [label="7:CtFieldReadImpl@pathComponents" shape=ellipse]
+27 [label="7:CtVariableReadImpl@pathComponent" shape=ellipse]
+28 [label="7:CtInvocationImpl@pathComponents.addElement(pathComponent)" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    File pathComponent = (project != null) ? FileUtil.resolveFile(project.getBaseDir(), pathElement) : new File(pathElement);
+    pathComponents.addElement(pathComponent);
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public void addPathElement(String pathElement) throws TaskException \{
+    File pathComponent = (project != null) ? FileUtil.resolveFile(project.getBaseDir(), pathElement) : new File(pathElement);
+    pathComponents.addElement(pathComponent);
+\}" shape=ellipse]
+31 [label="7:Update@UPDATE" shape=ellipse]
+32 [label="7:CtInvocationImpl@pathComponents.add(pathComponent)" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 22 [label="Data Dep"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 17 [label="Control Dep"];
+8 -> 9 [label="Control Dep"];
+8 -> 11 [label="Control Dep"];
+8 -> 15 [label="Control Dep"];
+8 -> 12 [label="Control Dep"];
+8 -> 14 [label="Control Dep"];
+8 -> 16 [label="Control Dep"];
+8 -> 20 [label="Control Dep"];
+8 -> 19 [label="Control Dep"];
+14 -> 22 [label="Data Dep"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+16 -> 22 [label="Data Dep"];
+17 -> 10 [label="AST"];
+17 -> 11 [label="AST"];
+17 -> 9 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+19 -> 22 [label="Data Dep"];
+20 -> 19 [label="AST"];
+21 -> 8 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 27 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 5 [label="AST"];
+23 -> 21 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 24 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 31 [label="Action"];
+29 -> 23 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 4 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 32 [label="Action"];
+}

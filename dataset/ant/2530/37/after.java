@@ -1,0 +1,16 @@
+class PlaceHold {
+  public int getConstantEntry(Object constantValue) {
+    int index = -1;
+    final int size = entries.size();
+    for (int i = 0; (i < size) && (index == (-1)); ++i) {
+      Object element = entries.get(i);
+      if (element instanceof ConstantCPInfo) {
+        ConstantCPInfo constantEntry = ((ConstantCPInfo) (element));
+        if (constantEntry.getValue().equals(constantValue)) {
+          index = i;
+        }
+      }
+    }
+    return index;
+  }
+}

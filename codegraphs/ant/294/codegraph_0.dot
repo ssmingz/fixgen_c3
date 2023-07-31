@@ -1,0 +1,28 @@
+digraph "setLog#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setLog" shape=ellipse]
+2 [label="2:CtParameterImpl@String log" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@m_Log" shape=ellipse]
+5 [label="3:CtVariableReadImpl@log" shape=ellipse]
+6 [label="3:CtAssignmentImpl@m_Log = log" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    m_Log = log;
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void setLog(String log) \{
+    m_Log = log;
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtFieldWriteImpl@mLog" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 9 [label="Action"];
+5 -> 4 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 10 [label="Action"];
+}

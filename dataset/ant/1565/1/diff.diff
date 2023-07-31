@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1565/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1565/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "nolang", "Absence of language attribute not detected", "requires a language attribute");
++    try {
++      buildRule.executeTarget("nolang");
++      fail("Absence of language attribute not detected");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("requires a language attribute", ex.getMessage());
++    }

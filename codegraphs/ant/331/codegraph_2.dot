@@ -1,0 +1,42 @@
+digraph "MultipleChoiceInputRequest#?,String,Vector" {
+0 [label="2:CtVirtualElement@MultipleChoiceInputRequest" shape=ellipse]
+1 [label="2:CtParameterImpl@String prompt" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+3 [label="2:CtParameterImpl@Vector choices" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@Vector" shape=ellipse]
+5 [label="3:CtVirtualElement@" shape=ellipse]
+6 [label="3:CtVariableReadImpl@prompt" shape=ellipse]
+7 [label="3:CtInvocationImpl@(prompt)" shape=ellipse]
+8 [label="4:CtFieldWriteImpl@this.choices" shape=ellipse]
+9 [label="4:CtThisAccessImpl@this" shape=ellipse]
+10 [label="4:CtVariableReadImpl@choices" shape=ellipse]
+11 [label="4:CtAssignmentImpl@this.choices = choices" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    (prompt);
+    this.choices = choices;
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@public  MultipleChoiceInputRequest(String prompt, Vector choices) \{
+    (prompt);
+    this.choices = choices;
+\}" shape=ellipse]
+14 [label="4:Insert@INSERT" shape=ellipse]
+15 [label="4:CtIfImpl@if (choices == null) \{
+    throw new IllegalArgumentException(\"choices must not be null\");
+\}" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 8 [label="Data Dep"];
+11 -> 8 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 7 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 1 [label="AST"];
+13 -> 3 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 14 [label="Action"];
+14 -> 15 [label="Action"];
+}

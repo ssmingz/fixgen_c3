@@ -1,0 +1,31 @@
+digraph "Pattern" {
+0 [label="setBackups#?,boolean#3:DELETE
+setIgnorewhitespace#?,boolean#3:DELETE" shape=ellipse]
+1 [label="setBackups#?,boolean#3:backup = backups
+setIgnorewhitespace#?,boolean#3:ignoreWhitespace = ignore" shape=ellipse]
+2 [label="setBackups#?,boolean#2:\{
+    backup = backups;
+\}
+setIgnorewhitespace#?,boolean#2:\{
+    ignoreWhitespace = ignore;
+\}" shape=ellipse]
+3 [label="setBackups#?,boolean#2:public void setBackups(boolean backups) \{
+    backup = backups;
+\}
+setIgnorewhitespace#?,boolean#2:public void setIgnorewhitespace(boolean ignore) \{
+    ignoreWhitespace = ignore;
+\}" shape=ellipse]
+4 [label="setBackups#?,boolean#3:backup
+setIgnorewhitespace#?,boolean#3:ignoreWhitespace" shape=ellipse]
+5 [label="setBackups#?,boolean#3:backups
+setIgnorewhitespace#?,boolean#3:ignore" shape=ellipse]
+6 [label="setBackups#?,boolean#-1:backup
+setIgnorewhitespace#?,boolean#-1:ignoreWhitespace" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+5 -> 4 [label="Data Dep:2"];
+}

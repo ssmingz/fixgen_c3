@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3206/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3206/0/after.java
+@@ -28,0 +28,8 @@
++    if (COM.IsEqualGUID(guid, IIDIOleDocumentSite)) {
++      String progID = getProgramID();
++      if (!progID.startsWith("PowerPoint")) {
++        COM.MoveMemory(ppvObject, new int[] {iOleDocumentSite.getAddress()}, 4);
++        AddRef();
++        return COM.S_OK;
++      }
++    }

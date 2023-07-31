@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2418/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2418/3/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectSpecificBuildException(
+-        "isfalse-incomplete", "Missing attribute", "Nothing to test for falsehood");
++    try {
++      buildRule.executeTarget("isfalse-incomplete");
++      fail("BuildException should have been thrown - Missing attribute");
++    } catch (BuildException ex) {
++      assertEquals("Nothing to test for falsehood", ex.getMessage());
++    }

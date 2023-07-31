@@ -1,0 +1,86 @@
+digraph "Pattern" {
+0 [label="testTail#?#7:UPDATE
+testTailSkip#?#8:UPDATE
+testTailLines#?#8:UPDATE
+testTailLinesSkip#?#8:UPDATE
+testHead#?#7:UPDATE
+testHeadSkip#?#8:UPDATE" shape=ellipse]
+1 [label="testTail#?#7:FILE_UTILS
+testTailSkip#?#8:FILE_UTILS
+testTailLines#?#8:FILE_UTILS
+testTailLinesSkip#?#8:FILE_UTILS
+testHead#?#7:FILE_UTILS
+testHeadSkip#?#8:FILE_UTILS" shape=ellipse]
+2 [label="testTail#?#7:FILE_UTILS.contentEquals(expected, result)
+testTailSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLines#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLinesSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testHead#?#7:FILE_UTILS.contentEquals(expected, result)
+testHeadSkip#?#8:FILE_UTILS.contentEquals(expected, result)" shape=ellipse]
+3 [label="testTail#?#7:assertTrue(\"testTail: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailSkip#?#7:assertTrue(\"testTailSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLines#?#7:assertTrue(\"testTailLines: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLinesSkip#?#7:assertTrue(\"testTailLinesSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHead#?#7:assertTrue(\"testHead: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHeadSkip#?#7:assertTrue(\"testHeadSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))" shape=ellipse]
+4 [label="testTail#?#7:contentEquals
+testTailSkip#?#8:contentEquals
+testTailLines#?#8:contentEquals
+testTailLinesSkip#?#8:contentEquals
+testHead#?#7:contentEquals
+testHeadSkip#?#8:contentEquals" shape=ellipse]
+5 [label="testTail#?#7:contentEquals(File,File)
+testTailSkip#?#8:contentEquals(File,File)
+testTailLines#?#8:contentEquals(File,File)
+testTailLinesSkip#?#8:contentEquals(File,File)
+testHead#?#7:contentEquals(File,File)
+testHeadSkip#?#8:contentEquals(File,File)" shape=ellipse]
+6 [label="testTail#?#7:expected
+testTailSkip#?#8:expected
+testTailLines#?#8:expected
+testTailLinesSkip#?#8:expected
+testHead#?#7:expected
+testHeadSkip#?#8:expected" shape=ellipse]
+7 [label="testTail#?#7:result
+testTailSkip#?#8:result
+testTailLines#?#8:result
+testTailLinesSkip#?#8:result
+testHead#?#7:result
+testHeadSkip#?#8:result" shape=ellipse]
+8 [label="testTail#?#-1:FILE_UTILS
+testTailSkip#?#-1:FILE_UTILS
+testTailLines#?#-1:FILE_UTILS
+testTailLinesSkip#?#-1:FILE_UTILS
+testHead#?#-1:FILE_UTILS
+testHeadSkip#?#-1:FILE_UTILS" shape=ellipse]
+9 [label="testTail#?#7:MOVE
+testTailSkip#?#8:MOVE
+testTailLines#?#8:MOVE
+testTailLinesSkip#?#8:MOVE
+testHead#?#7:MOVE
+testHeadSkip#?#8:MOVE" shape=ellipse]
+10 [label="testTail#?#9:FileUtilities.getFileContents(expected)
+testTailSkip#?#10:FileUtilities.getFileContents(expected)
+testTailLines#?#10:FileUtilities.getFileContents(expected)
+testTailLinesSkip#?#10:FileUtilities.getFileContents(expected)
+testHead#?#9:FileUtilities.getFileContents(expected)
+testHeadSkip#?#10:FileUtilities.getFileContents(expected)" shape=ellipse]
+11 [label="testTail#?#9:FileUtilities
+testTailSkip#?#10:FileUtilities
+testTailLines#?#10:FileUtilities
+testTailLinesSkip#?#10:FileUtilities
+testHead#?#9:FileUtilities
+testHeadSkip#?#10:FileUtilities" shape=ellipse]
+0 -> 11 [label="Action:6"];
+1 -> 0 [label="Action:6"];
+1 -> 8 [label="AST:6"];
+1 -> 9 [label="Action:6"];
+2 -> 1 [label="AST:6"];
+2 -> 4 [label="AST:6"];
+2 -> 5 [label="AST:6"];
+2 -> 6 [label="AST:6"];
+2 -> 7 [label="AST:6"];
+3 -> 2 [label="AST:6"];
+9 -> 10 [label="Action:6"];
+10 -> 11 [label="AST:6"];
+}

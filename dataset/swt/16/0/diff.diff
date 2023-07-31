@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/16/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/16/0/after.java
+@@ -3,15 +3,1 @@
+-    if (eventTable == null) {
+-      return;
+-    }
+-    Display display = getDisplay();
+-    event.type = eventType;
+-    event.widget = this;
+-    event.display = display;
+-    if (event.time == 0) {
+-      if (OS.IsWinCE) {
+-        event.time = OS.GetTickCount();
+-      } else {
+-        event.time = OS.GetMessageTime();
+-      }
+-    }
+-    display.postEvent(event);
++    sendEvent(eventType, event, false);

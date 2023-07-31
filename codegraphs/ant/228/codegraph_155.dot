@@ -1,0 +1,81 @@
+digraph "appendSelector#?,FileSelector" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@appendSelector" shape=ellipse]
+2 [label="2:CtParameterImpl@FileSelector selector" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileSelector" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+5 [label="3:CtVirtualElement@isReference" shape=ellipse]
+6 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@noChildrenAllowed()" shape=ellipse]
+8 [label="4:CtVirtualElement@noChildrenAllowed" shape=ellipse]
+9 [label="4:CtInvocationImpl@noChildrenAllowed()" shape=ellipse]
+10 [label="4:CtThrowImpl@throw noChildrenAllowed()" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+12 [label="3:CtIfImpl@if (isReference()) \{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+13 [label="6:CtExecutableReferenceImpl@addElement(FileSelector)" shape=ellipse]
+14 [label="6:CtVirtualElement@addElement" shape=ellipse]
+15 [label="6:CtFieldReadImpl@selectors" shape=ellipse]
+16 [label="6:CtVariableReadImpl@selector" shape=ellipse]
+17 [label="6:CtInvocationImpl@selectors.addElement(selector)" shape=ellipse]
+18 [label="7:CtFieldWriteImpl@directoryScanner" shape=ellipse]
+19 [label="7:CtLiteralImpl@null" shape=ellipse]
+20 [label="7:CtAssignmentImpl@directoryScanner = null" shape=ellipse]
+21 [label="8:CtExecutableReferenceImpl@setChecked(boolean)" shape=ellipse]
+22 [label="8:CtVirtualElement@setChecked" shape=ellipse]
+23 [label="8:CtLiteralImpl@false" shape=ellipse]
+24 [label="8:CtInvocationImpl@setChecked(false)" shape=ellipse]
+25 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    selectors.addElement(selector);
+    directoryScanner = null;
+    setChecked(false);
+\}" shape=ellipse]
+26 [label="2:CtMethodImpl@public synchronized void appendSelector(FileSelector selector) \{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    selectors.addElement(selector);
+    directoryScanner = null;
+    setChecked(false);
+\}" shape=ellipse]
+27 [label="6:Update@UPDATE" shape=ellipse]
+28 [label="6:CtInvocationImpl@selectors.add(selector)" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 11 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+6 -> 7 [label="Control Dep"];
+9 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 6 [label="AST"];
+12 -> 11 [label="AST"];
+17 -> 14 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 27 [label="Action"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 21 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 12 [label="AST"];
+25 -> 17 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 1 [label="AST"];
+26 -> 0 [label="AST"];
+26 -> 2 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 28 [label="Action"];
+}

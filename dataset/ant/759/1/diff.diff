@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/759/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/759/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testNoEmptySchemaNamespace", "empty namespace URI", ERROR_NO_URI);
++    try {
++      buildRule.executeTarget("testNoEmptySchemaNamespace");
++      fail("Empty namespace URI");
++    } catch (BuildException ex) {
++      AntAssert.assertContains(ERROR_NO_URI, ex.getMessage());
++    }

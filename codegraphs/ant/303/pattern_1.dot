@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testEscape#?#2:INSERT
+testDefaultTest#?#2:INSERT" shape=ellipse]
+1 [label="testEscape#?#2:public void testEscape() \{
+    expectLog(\"escape\", \"a@b or a@b is avalue@bvalue\");
+\}
+testDefaultTest#?#2:public void testDefaultTest() \{
+    expectLog(\"defaulttest\", \"attribute is false\");
+\}" shape=ellipse]
+2 [label="testEscape#?#2:testEscape
+testDefaultTest#?#2:testDefaultTest" shape=ellipse]
+3 [label="testEscape#?#2:void
+testDefaultTest#?#2:void" shape=ellipse]
+4 [label="testEscape#?#2:\{
+    expectLog(\"escape\", \"a@b or a@b is avalue@bvalue\");
+\}
+testDefaultTest#?#2:\{
+    expectLog(\"defaulttest\", \"attribute is false\");
+\}" shape=ellipse]
+5 [label="testEscape#?#3:expectLog(\"escape\", \"a@b or a@b is avalue@bvalue\")
+testDefaultTest#?#3:expectLog(\"defaulttest\", \"attribute is false\")" shape=ellipse]
+6 [label="testEscape#?#2:VE: Modifiers_Method
+testDefaultTest#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testEscape#?#2:public
+testDefaultTest#?#2:public" shape=ellipse]
+8 [label="testEscape#?#4:INSERT
+testDefaultTest#?#4:INSERT" shape=ellipse]
+9 [label="testEscape#?#4:buildRule.executeTarget(\"escape\")
+testDefaultTest#?#4:buildRule.executeTarget(\"defaulttest\")" shape=ellipse]
+10 [label="testEscape#?#2:@Test
+testDefaultTest#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

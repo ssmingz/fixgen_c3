@@ -1,0 +1,197 @@
+digraph "Pattern" {
+0 [label="addInterface#?,Class,Hashtable#6:INSERT
+addSuperClass#?,Class,Hashtable#6:INSERT
+usingBaseJarName#?#-1:INSERT" shape=ellipse]
+1 [label="addInterface#?,Class,Hashtable#6:srcDir.getAbsolutePath()
+addSuperClass#?,Class,Hashtable#6:srcDir.getAbsolutePath()" shape=ellipse]
+2 [label="addInterface#?,Class,Hashtable#3:!theInterface.getName().startsWith(\"java\")
+addSuperClass#?,Class,Hashtable#3:!superClass.getName().startsWith(\"java\")" shape=ellipse]
+3 [label="addInterface#?,Class,Hashtable#3:if (!theInterface.getName().startsWith(\"java\")) \{
+    File interfaceFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar)) + \".class\");
+    if (interfaceFile.exists() && interfaceFile.isFile()) \{
+        checkEntries.put(theInterface.getName().replace('.', separatorChar) + \".class\", interfaceFile);
+        Class[] superInterfaces = theInterface.getInterfaces();
+        for (int i = 0; i < superInterfaces.length; i++) \{
+            addInterface(superInterfaces[i], checkEntries);
+        \}
+    \}
+\}
+addSuperClass#?,Class,Hashtable#3:if (!superClass.getName().startsWith(\"java\")) \{
+    File superClassFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar)) + \".class\");
+    if (superClassFile.exists() && superClassFile.isFile()) \{
+        checkEntries.put(superClass.getName().replace('.', separatorChar) + \".class\", superClassFile);
+        Class[] superInterfaces = superClass.getInterfaces();
+        for (int i = 0; i < superInterfaces.length; i++) \{
+            addInterface(superInterfaces[i], checkEntries);
+        \}
+        addSuperClass(superClass.getSuperclass(), checkEntries);
+    \}
+\}
+usingBaseJarName#?#3:return baseJarName != null" shape=ellipse]
+4 [label="addInterface#?,Class,Hashtable#-1:boolean
+addSuperClass#?,Class,Hashtable#-1:boolean" shape=ellipse]
+5 [label="addInterface#?,Class,Hashtable#3:theInterface.getName().startsWith(\"java\")
+addSuperClass#?,Class,Hashtable#3:superClass.getName().startsWith(\"java\")" shape=ellipse]
+6 [label="addInterface#?,Class,Hashtable#3:\{
+    File interfaceFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar)) + \".class\");
+    if (interfaceFile.exists() && interfaceFile.isFile()) \{
+        checkEntries.put(theInterface.getName().replace('.', separatorChar) + \".class\", interfaceFile);
+        Class[] superInterfaces = theInterface.getInterfaces();
+        for (int i = 0; i < superInterfaces.length; i++) \{
+            addInterface(superInterfaces[i], checkEntries);
+        \}
+    \}
+\}
+addSuperClass#?,Class,Hashtable#3:\{
+    File superClassFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar)) + \".class\");
+    if (superClassFile.exists() && superClassFile.isFile()) \{
+        checkEntries.put(superClass.getName().replace('.', separatorChar) + \".class\", superClassFile);
+        Class[] superInterfaces = superClass.getInterfaces();
+        for (int i = 0; i < superInterfaces.length; i++) \{
+            addInterface(superInterfaces[i], checkEntries);
+        \}
+        addSuperClass(superClass.getSuperclass(), checkEntries);
+    \}
+\}" shape=ellipse]
+7 [label="addInterface#?,Class,Hashtable#4:File interfaceFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar)) + \".class\")
+addSuperClass#?,Class,Hashtable#4:File superClassFile = new File(((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar)) + \".class\")
+usingBaseJarName#?#-1:baseJarName" shape=ellipse]
+8 [label="addInterface#?,Class,Hashtable#5:new File(((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar)) + \".class\")
+addSuperClass#?,Class,Hashtable#5:new File(((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar)) + \".class\")" shape=ellipse]
+9 [label="addInterface#?,Class,Hashtable#-1:File()
+addSuperClass#?,Class,Hashtable#-1:File()" shape=ellipse]
+10 [label="addInterface#?,Class,Hashtable#6:((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar)) + \".class\"
+addSuperClass#?,Class,Hashtable#6:((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar)) + \".class\"" shape=ellipse]
+11 [label="addInterface#?,Class,Hashtable#6:((srcDir.getAbsolutePath() + File.separatorChar) + theInterface.getName().replace('.', separatorChar))
+addSuperClass#?,Class,Hashtable#6:((srcDir.getAbsolutePath() + File.separatorChar) + superClass.getName().replace('.', separatorChar))" shape=ellipse]
+12 [label="addInterface#?,Class,Hashtable#6:(srcDir.getAbsolutePath() + File.separatorChar)
+addSuperClass#?,Class,Hashtable#6:(srcDir.getAbsolutePath() + File.separatorChar)" shape=ellipse]
+13 [label="addInterface#?,Class,Hashtable#6:getAbsolutePath()
+addSuperClass#?,Class,Hashtable#6:getAbsolutePath()" shape=ellipse]
+14 [label="addInterface#?,Class,Hashtable#6:srcDir
+addSuperClass#?,Class,Hashtable#6:srcDir
+usingBaseJarName#?#3:null" shape=ellipse]
+15 [label="addInterface#?,Class,Hashtable#6:File.separatorChar
+addSuperClass#?,Class,Hashtable#6:File.separatorChar" shape=ellipse]
+16 [label="addInterface#?,Class,Hashtable#-1:File
+addSuperClass#?,Class,Hashtable#-1:File" shape=ellipse]
+17 [label="addInterface#?,Class,Hashtable#7:theInterface.getName().replace('.', separatorChar)
+addSuperClass#?,Class,Hashtable#7:superClass.getName().replace('.', separatorChar)" shape=ellipse]
+18 [label="addInterface#?,Class,Hashtable#7:replace(char,char)
+addSuperClass#?,Class,Hashtable#7:replace(char,char)" shape=ellipse]
+19 [label="addInterface#?,Class,Hashtable#7:theInterface.getName()
+addSuperClass#?,Class,Hashtable#7:superClass.getName()" shape=ellipse]
+20 [label="addInterface#?,Class,Hashtable#7:getName()
+addSuperClass#?,Class,Hashtable#7:getName()" shape=ellipse]
+21 [label="addInterface#?,Class,Hashtable#7:theInterface
+addSuperClass#?,Class,Hashtable#7:superClass" shape=ellipse]
+22 [label="addInterface#?,Class,Hashtable#7:'.'
+addSuperClass#?,Class,Hashtable#7:'.'" shape=ellipse]
+23 [label="addInterface#?,Class,Hashtable#7:separatorChar
+addSuperClass#?,Class,Hashtable#7:separatorChar" shape=ellipse]
+24 [label="addInterface#?,Class,Hashtable#8:\".class\"
+addSuperClass#?,Class,Hashtable#8:\".class\"" shape=ellipse]
+25 [label="addInterface#?,Class,Hashtable#9:if (interfaceFile.exists() && interfaceFile.isFile()) \{
+    checkEntries.put(theInterface.getName().replace('.', separatorChar) + \".class\", interfaceFile);
+    Class[] superInterfaces = theInterface.getInterfaces();
+    for (int i = 0; i < superInterfaces.length; i++) \{
+        addInterface(superInterfaces[i], checkEntries);
+    \}
+\}
+addSuperClass#?,Class,Hashtable#9:if (superClassFile.exists() && superClassFile.isFile()) \{
+    checkEntries.put(superClass.getName().replace('.', separatorChar) + \".class\", superClassFile);
+    Class[] superInterfaces = superClass.getInterfaces();
+    for (int i = 0; i < superInterfaces.length; i++) \{
+        addInterface(superInterfaces[i], checkEntries);
+    \}
+    addSuperClass(superClass.getSuperclass(), checkEntries);
+\}" shape=ellipse]
+26 [label="addInterface#?,Class,Hashtable#9:interfaceFile.exists() && interfaceFile.isFile()
+addSuperClass#?,Class,Hashtable#9:superClassFile.exists() && superClassFile.isFile()" shape=ellipse]
+27 [label="addInterface#?,Class,Hashtable#9:interfaceFile.exists()
+addSuperClass#?,Class,Hashtable#9:superClassFile.exists()" shape=ellipse]
+28 [label="addInterface#?,Class,Hashtable#9:exists()
+addSuperClass#?,Class,Hashtable#9:exists()" shape=ellipse]
+29 [label="addInterface#?,Class,Hashtable#9:interfaceFile
+addSuperClass#?,Class,Hashtable#9:superClassFile" shape=ellipse]
+30 [label="addInterface#?,Class,Hashtable#9:interfaceFile.isFile()
+addSuperClass#?,Class,Hashtable#9:superClassFile.isFile()" shape=ellipse]
+31 [label="addInterface#?,Class,Hashtable#9:isFile()
+addSuperClass#?,Class,Hashtable#9:isFile()" shape=ellipse]
+32 [label="addInterface#?,Class,Hashtable#9:interfaceFile
+addSuperClass#?,Class,Hashtable#9:superClassFile" shape=ellipse]
+33 [label="addInterface#?,Class,Hashtable#6:getAbsolutePath
+addSuperClass#?,Class,Hashtable#6:getAbsolutePath" shape=ellipse]
+34 [label="addInterface#?,Class,Hashtable#6:srcDir
+addSuperClass#?,Class,Hashtable#6:srcDir
+usingBaseJarName#?#-1:config" shape=ellipse]
+35 [label="usingBaseJarName#?#3:baseJarName" shape=ellipse]
+36 [label="usingBaseJarName#?#3:baseJarName != null" shape=ellipse]
+0 -> 34 [label="Action:3"];
+1 -> 0 [label="Action:2"];
+1 -> 33 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+2 -> 22 [label="Control Dep:2"];
+2 -> 23 [label="Control Dep:2"];
+2 -> 24 [label="Control Dep:2"];
+2 -> 25 [label="Control Dep:2"];
+2 -> 26 [label="Control Dep:2"];
+2 -> 27 [label="Control Dep:2"];
+2 -> 28 [label="Control Dep:2"];
+2 -> 29 [label="Control Dep:2"];
+2 -> 30 [label="Control Dep:2"];
+2 -> 31 [label="Control Dep:2"];
+2 -> 32 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+3 -> 36 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+6 -> 25 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 24 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 17 [label="AST:2"];
+12 -> 1 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+17 -> 22 [label="AST:2"];
+17 -> 23 [label="AST:2"];
+19 -> 21 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+25 -> 26 [label="AST:2"];
+26 -> 27 [label="AST:2"];
+26 -> 30 [label="AST:2"];
+27 -> 29 [label="AST:2"];
+27 -> 28 [label="AST:2"];
+30 -> 32 [label="AST:2"];
+30 -> 31 [label="AST:2"];
+35 -> 7 [label="AST:1"];
+35 -> 0 [label="Action:1"];
+36 -> 35 [label="AST:1"];
+36 -> 14 [label="AST:1"];
+}

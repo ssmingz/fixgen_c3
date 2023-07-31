@@ -1,0 +1,159 @@
+digraph "Pattern" {
+0 [label="checkUnusedTypeParamTags#?,List,List#8:UPDATE
+checkTag#?,int,List,String,Pattern,String#12:UPDATE" shape=ellipse]
+1 [label="checkUnusedTypeParamTags#?,List,List#8:tag.getArg1()
+checkTag#?,int,List,String,Pattern,String#12:tag.getArg1()" shape=ellipse]
+2 [label="checkUnusedTypeParamTags#?,List,List#7:tag.isParamTag()
+checkTag#?,int,List,String,Pattern,String#10:tag.getTagName().equals(tagName)" shape=ellipse]
+3 [label="checkUnusedTypeParamTags#?,List,List#5:i >= 0
+checkTag#?,int,List,String,Pattern,String#8:i >= 0" shape=ellipse]
+4 [label="checkUnusedTypeParamTags#?,List,List#7:if (tag.isParamTag()) \{
+    final Matcher matcher = pattern.matcher(tag.getArg1());
+    matcher.find();
+    final String typeParamName = matcher.group(1).trim();
+    if (!typeParamNames.contains(typeParamName)) \{
+        log(tag.getLineNo(), tag.getColumnNo(), UNUSED_TAG, PARAM.getText(), (\"<\" + typeParamName) + \">\");
+    \}
+\}
+checkTag#?,int,List,String,Pattern,String#10:if (tag.getTagName().equals(tagName)) \{
+    tagCount++;
+    if (!formatPattern.matcher(tag.getArg1()).find()) \{
+        log(lineNo, TAG_FORMAT, \"@\" + tagName, format);
+    \}
+\}" shape=ellipse]
+5 [label="checkUnusedTypeParamTags#?,List,List#7:isParamTag
+checkTag#?,int,List,String,Pattern,String#10:equals" shape=ellipse]
+6 [label="checkUnusedTypeParamTags#?,List,List#7:tag
+checkTag#?,int,List,String,Pattern,String#10:tagName" shape=ellipse]
+7 [label="checkUnusedTypeParamTags#?,List,List#7:isParamTag()
+checkTag#?,int,List,String,Pattern,String#10:equals(java.lang.String)" shape=ellipse]
+8 [label="checkUnusedTypeParamTags#?,List,List#7:\{
+    final Matcher matcher = pattern.matcher(tag.getArg1());
+    matcher.find();
+    final String typeParamName = matcher.group(1).trim();
+    if (!typeParamNames.contains(typeParamName)) \{
+        log(tag.getLineNo(), tag.getColumnNo(), UNUSED_TAG, PARAM.getText(), (\"<\" + typeParamName) + \">\");
+    \}
+\}
+checkTag#?,int,List,String,Pattern,String#10:\{
+    tagCount++;
+    if (!formatPattern.matcher(tag.getArg1()).find()) \{
+        log(lineNo, TAG_FORMAT, \"@\" + tagName, format);
+    \}
+\}" shape=ellipse]
+9 [label="checkUnusedTypeParamTags#?,List,List#8:final Matcher matcher = pattern.matcher(tag.getArg1())
+checkTag#?,int,List,String,Pattern,String#12:if (!formatPattern.matcher(tag.getArg1()).find()) \{
+    log(lineNo, TAG_FORMAT, \"@\" + tagName, format);
+\}" shape=ellipse]
+10 [label="checkUnusedTypeParamTags#?,List,List#8:pattern.matcher(tag.getArg1())" shape=ellipse]
+11 [label="checkUnusedTypeParamTags#?,List,List#8:matcher()
+checkTag#?,int,List,String,Pattern,String#12:matcher()" shape=ellipse]
+12 [label="checkUnusedTypeParamTags#?,List,List#8:pattern
+checkTag#?,int,List,String,Pattern,String#12:formatPattern" shape=ellipse]
+13 [label="checkUnusedTypeParamTags#?,List,List#8:getArg1()
+checkTag#?,int,List,String,Pattern,String#12:getArg1()" shape=ellipse]
+14 [label="checkUnusedTypeParamTags#?,List,List#8:tag
+checkTag#?,int,List,String,Pattern,String#12:tag" shape=ellipse]
+15 [label="checkUnusedTypeParamTags#?,List,List#9:matcher.find()" shape=ellipse]
+16 [label="checkUnusedTypeParamTags#?,List,List#9:find()
+checkTag#?,int,List,String,Pattern,String#12:find()" shape=ellipse]
+17 [label="checkUnusedTypeParamTags#?,List,List#9:matcher" shape=ellipse]
+18 [label="checkUnusedTypeParamTags#?,List,List#10:final String typeParamName = matcher.group(1).trim()" shape=ellipse]
+19 [label="checkUnusedTypeParamTags#?,List,List#10:matcher.group(1).trim()" shape=ellipse]
+20 [label="checkUnusedTypeParamTags#?,List,List#10:trim()" shape=ellipse]
+21 [label="checkUnusedTypeParamTags#?,List,List#10:matcher.group(1)" shape=ellipse]
+22 [label="checkUnusedTypeParamTags#?,List,List#10:group(int)" shape=ellipse]
+23 [label="checkUnusedTypeParamTags#?,List,List#10:matcher" shape=ellipse]
+24 [label="checkUnusedTypeParamTags#?,List,List#10:1" shape=ellipse]
+25 [label="checkUnusedTypeParamTags#?,List,List#11:if (!typeParamNames.contains(typeParamName)) \{
+    log(tag.getLineNo(), tag.getColumnNo(), UNUSED_TAG, PARAM.getText(), (\"<\" + typeParamName) + \">\");
+\}" shape=ellipse]
+26 [label="checkUnusedTypeParamTags#?,List,List#11:!typeParamNames.contains(typeParamName)" shape=ellipse]
+27 [label="checkUnusedTypeParamTags#?,List,List#11:typeParamNames.contains(typeParamName)" shape=ellipse]
+28 [label="checkUnusedTypeParamTags#?,List,List#11:contains(java.lang.String)" shape=ellipse]
+29 [label="checkUnusedTypeParamTags#?,List,List#11:typeParamNames
+checkTag#?,int,List,String,Pattern,String#11:tagCount" shape=ellipse]
+30 [label="checkUnusedTypeParamTags#?,List,List#11:typeParamName" shape=ellipse]
+31 [label="checkUnusedTypeParamTags#?,List,List#8:getFirstArg
+checkTag#?,int,List,String,Pattern,String#12:getFirstArg" shape=ellipse]
+32 [label="checkUnusedTypeParamTags#?,List,List#8:getArg1
+checkTag#?,int,List,String,Pattern,String#12:getArg1" shape=ellipse]
+33 [label="checkTag#?,int,List,String,Pattern,String#10:tag.getTagName()" shape=ellipse]
+34 [label="checkTag#?,int,List,String,Pattern,String#11:tagCount++" shape=ellipse]
+35 [label="checkTag#?,int,List,String,Pattern,String#12:!formatPattern.matcher(tag.getArg1()).find()" shape=ellipse]
+36 [label="checkTag#?,int,List,String,Pattern,String#12:formatPattern.matcher(tag.getArg1()).find()" shape=ellipse]
+37 [label="checkTag#?,int,List,String,Pattern,String#12:formatPattern.matcher(tag.getArg1())" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 32 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:2"];
+2 -> 30 [label="Control Dep:1"];
+2 -> 33 [label="AST:1"];
+2 -> 34 [label="Control Dep:1"];
+2 -> 35 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 7 [label="Control Dep:2"];
+3 -> 6 [label="Control Dep:2"];
+3 -> 33 [label="Control Dep:1"];
+4 -> 2 [label="AST:2"];
+4 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 15 [label="AST:1"];
+8 -> 18 [label="AST:1"];
+8 -> 25 [label="AST:1"];
+8 -> 34 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 35 [label="AST:1"];
+10 -> 1 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+19 -> 21 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 24 [label="AST:1"];
+25 -> 26 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+27 -> 30 [label="AST:1"];
+34 -> 29 [label="AST:1"];
+35 -> 36 [label="AST:1"];
+36 -> 37 [label="AST:1"];
+36 -> 16 [label="AST:1"];
+37 -> 12 [label="AST:1"];
+37 -> 11 [label="AST:1"];
+37 -> 1 [label="AST:1"];
+}

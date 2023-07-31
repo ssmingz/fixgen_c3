@@ -1,0 +1,22 @@
+digraph "initialValue#?" {
+0 [label="2:CtTypeReferenceImpl@Object" shape=ellipse]
+1 [label="2:CtVirtualElement@initialValue" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@LocalPropertyStack" shape=ellipse]
+3 [label="3:CtConstructorCallImpl@new LocalPropertyStack()" shape=ellipse]
+4 [label="3:CtReturnImpl@return new LocalPropertyStack()" shape=ellipse]
+5 [label="2:CtBlockImpl@\{
+    return new LocalPropertyStack();
+\}" shape=ellipse]
+6 [label="2:CtMethodImpl@protected synchronized Object initialValue() \{
+    return new LocalPropertyStack();
+\}" shape=ellipse]
+7 [label="3:Update@UPDATE" shape=ellipse]
+8 [label="3:CtConstructorCallImpl@new LocalPropertyStack(null)" shape=ellipse]
+3 -> 7 [label="Action"];
+4 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+6 -> 1 [label="AST"];
+6 -> 0 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 8 [label="Action"];
+}

@@ -1,0 +1,187 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@Commandline" shape=ellipse]
+5 [label="3:CtConstructorCallImpl@new Commandline()" shape=ellipse]
+6 [label="3:CtVirtualElement@commandLine" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@Commandline commandLine = new Commandline()" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@Project" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+10 [label="4:CtVirtualElement@getProject" shape=ellipse]
+11 [label="4:CtInvocationImpl@getProject()" shape=ellipse]
+12 [label="4:CtVirtualElement@aProj" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@Project aProj = getProject()" shape=ellipse]
+14 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+15 [label="5:CtLiteralImpl@0" shape=ellipse]
+16 [label="5:CtVirtualElement@result" shape=ellipse]
+17 [label="5:CtLocalVariableImpl@int result = 0" shape=ellipse]
+18 [label="6:CtExecutableReferenceImpl@setExecutable()" shape=ellipse]
+19 [label="6:CtVirtualElement@setExecutable" shape=ellipse]
+20 [label="6:CtVariableReadImpl@commandLine" shape=ellipse]
+21 [label="6:CtExecutableReferenceImpl@getCcmCommand()" shape=ellipse]
+22 [label="6:CtVirtualElement@getCcmCommand" shape=ellipse]
+23 [label="6:CtInvocationImpl@getCcmCommand()" shape=ellipse]
+24 [label="6:CtInvocationImpl@commandLine.setExecutable(getCcmCommand())" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@setValue()" shape=ellipse]
+26 [label="7:CtVirtualElement@setValue" shape=ellipse]
+27 [label="7:CtExecutableReferenceImpl@createArgument()" shape=ellipse]
+28 [label="7:CtVirtualElement@createArgument" shape=ellipse]
+29 [label="7:CtVariableReadImpl@commandLine" shape=ellipse]
+30 [label="7:CtInvocationImpl@commandLine.createArgument()" shape=ellipse]
+31 [label="7:CtExecutableReferenceImpl@getCcmAction()" shape=ellipse]
+32 [label="7:CtVirtualElement@getCcmAction" shape=ellipse]
+33 [label="7:CtInvocationImpl@getCcmAction()" shape=ellipse]
+34 [label="7:CtInvocationImpl@commandLine.createArgument().setValue(getCcmAction())" shape=ellipse]
+35 [label="8:CtExecutableReferenceImpl@checkOptions(<unknown>)" shape=ellipse]
+36 [label="8:CtVirtualElement@checkOptions" shape=ellipse]
+37 [label="8:CtVariableReadImpl@commandLine" shape=ellipse]
+38 [label="8:CtInvocationImpl@checkOptions(commandLine)" shape=ellipse]
+39 [label="9:CtVariableWriteImpl@result" shape=ellipse]
+40 [label="9:CtExecutableReferenceImpl@run(<unknown>)" shape=ellipse]
+41 [label="9:CtVirtualElement@run" shape=ellipse]
+42 [label="9:CtVariableReadImpl@commandLine" shape=ellipse]
+43 [label="9:CtInvocationImpl@run(commandLine)" shape=ellipse]
+44 [label="9:CtAssignmentImpl@result = run(commandLine)" shape=ellipse]
+45 [label="10:CtVariableReadImpl@result" shape=ellipse]
+46 [label="10:CtLiteralImpl@0" shape=ellipse]
+47 [label="10:CtBinaryOperatorImpl@result != 0" shape=ellipse]
+48 [label="11:CtTypeReferenceImpl@String" shape=ellipse]
+49 [label="11:CtLiteralImpl@\"Failed executing: \"" shape=ellipse]
+50 [label="11:CtExecutableReferenceImpl@toString()" shape=ellipse]
+51 [label="11:CtVirtualElement@toString" shape=ellipse]
+52 [label="11:CtVariableReadImpl@commandLine" shape=ellipse]
+53 [label="11:CtInvocationImpl@commandLine.toString()" shape=ellipse]
+54 [label="11:CtBinaryOperatorImpl@\"Failed executing: \" + commandLine.toString()" shape=ellipse]
+55 [label="11:CtVirtualElement@msg" shape=ellipse]
+56 [label="11:CtLocalVariableImpl@String msg = \"Failed executing: \" + commandLine.toString()" shape=ellipse]
+57 [label="12:CtTypeReferenceImpl@BuildException" shape=ellipse]
+58 [label="12:CtVariableReadImpl@msg" shape=ellipse]
+59 [label="12:CtFieldReadImpl@location" shape=ellipse]
+60 [label="12:CtConstructorCallImpl@new BuildException(msg, location)" shape=ellipse]
+61 [label="12:CtThrowImpl@throw new BuildException(msg, location)" shape=ellipse]
+62 [label="10:CtBlockImpl@\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+63 [label="10:CtIfImpl@if (result != 0) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+64 [label="2:CtBlockImpl@\{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    commandLine.setExecutable(getCcmCommand());
+    commandLine.createArgument().setValue(getCcmAction());
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (result != 0) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}" shape=ellipse]
+65 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    commandLine.setExecutable(getCcmCommand());
+    commandLine.createArgument().setValue(getCcmAction());
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (result != 0) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}" shape=ellipse]
+66 [label="12:Delete@DELETE" shape=ellipse]
+67 [label="12:Insert@INSERT" shape=ellipse]
+68 [label="12:CtInvocationImpl@getLocation()" shape=ellipse]
+6 -> 20 [label="Define-Use"];
+6 -> 29 [label="Define-Use"];
+6 -> 37 [label="Define-Use"];
+6 -> 42 [label="Define-Use"];
+6 -> 52 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 11 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 14 [label="AST"];
+17 -> 15 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 23 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 27 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 31 [label="AST"];
+34 -> 26 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 25 [label="AST"];
+34 -> 33 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 35 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 45 [label="Define-Use"];
+42 -> 39 [label="Data Dep"];
+43 -> 41 [label="AST"];
+43 -> 40 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 39 [label="AST"];
+44 -> 43 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 62 [label="Control Dep"];
+47 -> 56 [label="Control Dep"];
+47 -> 54 [label="Control Dep"];
+47 -> 49 [label="Control Dep"];
+47 -> 53 [label="Control Dep"];
+47 -> 50 [label="Control Dep"];
+47 -> 52 [label="Control Dep"];
+47 -> 61 [label="Control Dep"];
+47 -> 60 [label="Control Dep"];
+47 -> 58 [label="Control Dep"];
+47 -> 59 [label="Control Dep"];
+52 -> 55 [label="Data Dep"];
+53 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+53 -> 50 [label="AST"];
+54 -> 49 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 58 [label="Define-Use"];
+56 -> 55 [label="AST"];
+56 -> 48 [label="AST"];
+56 -> 54 [label="AST"];
+59 -> 66 [label="Action"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 67 [label="Action"];
+61 -> 60 [label="AST"];
+62 -> 56 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 47 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 7 [label="AST"];
+64 -> 13 [label="AST"];
+64 -> 17 [label="AST"];
+64 -> 24 [label="AST"];
+64 -> 34 [label="AST"];
+64 -> 38 [label="AST"];
+64 -> 44 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 1 [label="AST"];
+65 -> 0 [label="AST"];
+65 -> 2 [label="AST"];
+65 -> 64 [label="AST"];
+67 -> 68 [label="Action"];
+}

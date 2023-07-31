@@ -1,0 +1,51 @@
+digraph "Pattern" {
+0 [label="testDosLineOutput#?#2:INSERT
+testUnixLineOutput#?#2:INSERT" shape=ellipse]
+1 [label="testDosLineOutput#?#2:public void testDosLineOutput() throws IOException \{
+    expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\");
+\}
+testUnixLineOutput#?#2:public void testUnixLineOutput() throws IOException \{
+    expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\");
+\}" shape=ellipse]
+2 [label="testDosLineOutput#?#2:testDosLineOutput
+testUnixLineOutput#?#2:testUnixLineOutput" shape=ellipse]
+3 [label="testDosLineOutput#?#2:void
+testUnixLineOutput#?#2:void" shape=ellipse]
+4 [label="testDosLineOutput#?#2:IOException
+testUnixLineOutput#?#2:IOException" shape=ellipse]
+5 [label="testDosLineOutput#?#-1:
+testUnixLineOutput#?#-1:" shape=ellipse]
+6 [label="testDosLineOutput#?#2:\{
+    expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\");
+\}
+testUnixLineOutput#?#2:\{
+    expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\");
+\}" shape=ellipse]
+7 [label="testDosLineOutput#?#3:expectFileContains(\"doslineoutput\", getProject().getProperty(\"output\") + \"/doslineoutput\", \"\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n\")
+testUnixLineOutput#?#3:expectFileContains(\"unixlineoutput\", getProject().getProperty(\"output\") + \"/unixlineoutput\", \"\nThis\nis\na\nnumber\nof\nwords\n\")" shape=ellipse]
+8 [label="testDosLineOutput#?#2:VE: ThrownTypes_testDosLineOutput
+testUnixLineOutput#?#2:VE: ThrownTypes_testUnixLineOutput" shape=ellipse]
+9 [label="testDosLineOutput#?#2:public
+testUnixLineOutput#?#2:public" shape=ellipse]
+10 [label="testDosLineOutput#?#2:VE: Modifiers_Method
+testUnixLineOutput#?#2:VE: Modifiers_Method" shape=ellipse]
+11 [label="testDosLineOutput#?#4:INSERT
+testUnixLineOutput#?#4:INSERT" shape=ellipse]
+12 [label="testDosLineOutput#?#4:buildRule.executeTarget(\"doslineoutput\")
+testUnixLineOutput#?#4:buildRule.executeTarget(\"unixlineoutput\")" shape=ellipse]
+13 [label="testDosLineOutput#?#2:@Test
+testUnixLineOutput#?#2:@Test" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+11 -> 12 [label="Action:2"];
+}

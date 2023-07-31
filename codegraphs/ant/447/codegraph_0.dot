@@ -1,0 +1,116 @@
+digraph "notifyTestSuiteEnded#?,long" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@notifyTestSuiteEnded" shape=ellipse]
+2 [label="2:CtParameterImpl@long elapsedtime" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@long" shape=ellipse]
+4 [label="3:CtFieldReadImpl@listeners" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+6 [label="4:CtLiteralImpl@0" shape=ellipse]
+7 [label="4:CtVirtualElement@i" shape=ellipse]
+8 [label="4:CtLocalVariableImpl@int i = 0" shape=ellipse]
+9 [label="4:CtVariableReadImpl@i" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@size()" shape=ellipse]
+11 [label="4:CtVirtualElement@size" shape=ellipse]
+12 [label="4:CtFieldReadImpl@listeners" shape=ellipse]
+13 [label="4:CtInvocationImpl@listeners.size()" shape=ellipse]
+14 [label="4:CtBinaryOperatorImpl@i < listeners.size()" shape=ellipse]
+15 [label="4:CtVariableWriteImpl@i" shape=ellipse]
+16 [label="4:CtUnaryOperatorImpl@i++" shape=ellipse]
+17 [label="5:CtExecutableReferenceImpl@testRunEnded(long)" shape=ellipse]
+18 [label="5:CtVirtualElement@testRunEnded" shape=ellipse]
+19 [label="5:CtExecutableReferenceImpl@elementAt(int)" shape=ellipse]
+20 [label="5:CtVirtualElement@elementAt" shape=ellipse]
+21 [label="5:CtFieldReadImpl@listeners" shape=ellipse]
+22 [label="5:CtVariableReadImpl@i" shape=ellipse]
+23 [label="5:CtInvocationImpl@((TestRunListener) (listeners.elementAt(i)))" shape=ellipse]
+24 [label="5:CtTypeReferenceImpl@TestRunListener" shape=ellipse]
+25 [label="5:CtVariableReadImpl@elapsedtime" shape=ellipse]
+26 [label="5:CtInvocationImpl@((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime)" shape=ellipse]
+27 [label="4:CtBlockImpl@\{
+    ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+\}" shape=ellipse]
+28 [label="4:CtForImpl@for (int i = 0; i < listeners.size(); i++) \{
+    ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+\}" shape=ellipse]
+29 [label="3:CtBlockImpl@\{
+    for (int i = 0; i < listeners.size(); i++) \{
+        ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+    \}
+\}" shape=ellipse]
+30 [label="3:CtSynchronizedImpl@synchronized(listeners) \{
+    for (int i = 0; i < listeners.size(); i++) \{
+        ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+    \}
+\}" shape=ellipse]
+31 [label="2:CtBlockImpl@\{
+    synchronized(listeners) \{
+        for (int i = 0; i < listeners.size(); i++) \{
+            ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+        \}
+    \}
+\}" shape=ellipse]
+32 [label="2:CtMethodImpl@protected void notifyTestSuiteEnded(long elapsedtime) \{
+    synchronized(listeners) \{
+        for (int i = 0; i < listeners.size(); i++) \{
+            ((TestRunListener) (listeners.elementAt(i))).testRunEnded(elapsedtime);
+        \}
+    \}
+\}" shape=ellipse]
+33 [label="5:Update@UPDATE" shape=ellipse]
+34 [label="5:CtInvocationImpl@((TestRunListener) (listeners.elementAt(i))).onTestRunEnded(elapsedtime)" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 29 [label="Control Dep"];
+4 -> 28 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 6 [label="Control Dep"];
+4 -> 14 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 13 [label="Control Dep"];
+4 -> 10 [label="Control Dep"];
+4 -> 12 [label="Control Dep"];
+4 -> 16 [label="Control Dep"];
+4 -> 15 [label="Control Dep"];
+7 -> 9 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 10 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 27 [label="Control Dep"];
+14 -> 26 [label="Control Dep"];
+14 -> 17 [label="Control Dep"];
+14 -> 23 [label="Control Dep"];
+14 -> 19 [label="Control Dep"];
+14 -> 21 [label="Control Dep"];
+14 -> 22 [label="Control Dep"];
+14 -> 25 [label="Control Dep"];
+15 -> 22 [label="Define-Use"];
+16 -> 15 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 24 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+26 -> 18 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 17 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 33 [label="Action"];
+27 -> 26 [label="AST"];
+28 -> 8 [label="AST"];
+28 -> 14 [label="AST"];
+28 -> 16 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 4 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 1 [label="AST"];
+32 -> 0 [label="AST"];
+32 -> 2 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 34 [label="Action"];
+}

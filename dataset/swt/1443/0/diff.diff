@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1443/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1443/0/after.java
+@@ -8,1 +8,2 @@
+-    gdk_pixbuf_get_from_window(pixbuf, src, srcX, srcY, 0, 0, srcWidth, srcHeight);
++    long colormap = OS.gdk_colormap_get_system();
++    OS.gdk_pixbuf_get_from_drawable(pixbuf, src, colormap, srcX, srcY, 0, 0, srcWidth, srcHeight);

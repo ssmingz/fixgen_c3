@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1614/4/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1614/4/after.java
+@@ -10,1 +10,10 @@
+-    return XPCOM.NS_ERROR_NOT_IMPLEMENTED;
++    return XPCOM.VtblCall(
++        nsISupports.LAST_METHOD_ID + 8,
++        getAddress(),
++        parent,
++        dialogTitle,
++        text,
++        password,
++        checkMsg,
++        checkValue,
++        _retval);

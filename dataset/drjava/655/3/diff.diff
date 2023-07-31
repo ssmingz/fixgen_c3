@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/3/after.java
+@@ -2,3 +2,4 @@
+-  public void setPackageScope(String packageName) {
+-    if (!_restart) {
+-      return;
++  public boolean setPackageScope(String packageName) {
++    InterpreterJVMRemoteI remote = _accessInterpreterJVM();
++    if (remote == null) {
++      return false;
+@@ -6,1 +7,0 @@
+-    InterpreterJVMRemoteI slave = ensureInterpreterConnected();
+@@ -8,3 +8,5 @@
+-      slave.interpret(("package " + packageName) + ";");
+-    } catch (RemoteException re) {
+-      _threwException(re);
++      remote.interpret(("package " + packageName) + ";");
++      return true;
++    } catch (RemoteException e) {
++      _handleRemoteException(e);
++      return false;

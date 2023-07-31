@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1082/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1082/1/after.java
+@@ -8,1 +8,10 @@
+-    _documentNavigator.clear();
++    try {
++      Utilities.invokeAndWait(
++          new Runnable() {
++            public void run() {
++              _documentNavigator.clear();
++            }
++          });
++    } catch (InterruptedException e) {
++      throw new UnexpectedException(e);
++    }

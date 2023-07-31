@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2359/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2359/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,2 @@
+-    expectLogContaining("testFrom", ERROR_FROM_FORBIDDEN);
++    buildRule.executeTarget("testFrom");
++    assertContains(ERROR_FROM_FORBIDDEN, buildRule.getLog());

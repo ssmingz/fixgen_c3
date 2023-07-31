@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1104/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1104/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectSpecificBuildException(
+-        "encoding",
+-        "<untar> overrides setEncoding.",
+-        "The untar task doesn't support the " + "encoding attribute");
++    try {
++      buildRule.executeTarget("encoding");
++      fail("<untar> overrides setEncoding.");
++    } catch (BuildException ex) {
++      assertEquals("The untar task doesn't support the encoding attribute", ex.getMessage());
++    }

@@ -1,0 +1,111 @@
+digraph "Pattern" {
+0 [label="testDefaults#?#3:DELETE
+testTags#?#3:DELETE
+testStrictJavadoc#?#3:DELETE
+testTypeParamsTags#?#3:DELETE" shape=ellipse]
+1 [label="testDefaults#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RedundantThrowsCheck.class)
+testTags#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)
+testStrictJavadoc#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)
+testTypeParamsTags#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)" shape=ellipse]
+2 [label="testDefaults#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RedundantThrowsCheck.class);
+    final String[] expected = new String[]\{ \"7:37: Redundant throws: 'java.io.FileNotFoundException' is subclass of\" + \" 'java.io.IOException'.\", \"13:16: Redundant throws: 'RuntimeException' is unchecked exception.\", \"19:29: Redundant throws: 'java.io.IOException' listed more then one time.\", \"39:27: Redundant throws: 'NullPointerException' is subclass of 'RuntimeException'.\", \"39:27: Redundant throws: 'NullPointerException' is unchecked exception.\", \"39:49: Redundant throws: 'RuntimeException' is unchecked exception.\" \};
+    verify(checkConfig, getPath(\"InputRedundantThrows.java\"), expected);
+\}
+testTags#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"14:5: Missing a Javadoc comment.\", \"18:9: Unused @param tag for 'unused'.\", \"24: Expected an @return tag.\", \"33: Expected an @return tag.\", \"40:16: Expected @throws tag for 'Exception'.\", \"49:16: Expected @throws tag for 'Exception'.\", \"53:9: Unused @throws tag for 'WrongException'.\", \"55:16: Expected @throws tag for 'Exception'.\", \"55:27: Expected @throws tag for 'NullPointerException'.\", \"60:22: Expected @param tag for 'aOne'.\", \"68:22: Expected @param tag for 'aOne'.\", \"72:9: Unused @param tag for 'WrongParam'.\", \"73:23: Expected @param tag for 'aOne'.\", \"73:33: Expected @param tag for 'aTwo'.\", \"78:8: Unused @param tag for 'Unneeded'.\", \"79: Unused Javadoc tag.\", \"87:8: Duplicate @return tag.\", \"109:23: Expected @param tag for 'aOne'.\", \"109:55: Expected @param tag for 'aFour'.\", \"109:66: Expected @param tag for 'aFive'.\", \"178:8: Unused @throws tag for 'ThreadDeath'.\", \"179:8: Unused @throws tag for 'ArrayStoreException'.\", \"236:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"254:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"256:28: Expected @throws tag for 'IOException'.\", \"262:8: Unused @param tag for 'aParam'.\", \"320:9: Missing a Javadoc comment.\", \"329:5: Missing a Javadoc comment.\", \"333: Unused Javadoc tag.\" \};
+    verify(checkConfig, getPath(\"InputTags.java\"), expected);
+\}
+testStrictJavadoc#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"12:9: Missing a Javadoc comment.\", \"18:13: Missing a Javadoc comment.\", \"25:13: Missing a Javadoc comment.\", \"38:9: Missing a Javadoc comment.\", \"49:5: Missing a Javadoc comment.\", \"54:5: Missing a Javadoc comment.\", \"59:5: Missing a Javadoc comment.\", \"64:5: Missing a Javadoc comment.\", \"69:5: Missing a Javadoc comment.\", \"74:5: Missing a Javadoc comment.\", \"79:5: Missing a Javadoc comment.\", \"84:5: Missing a Javadoc comment.\", \"94:32: Expected @param tag for 'aA'.\" \};
+    verify(checkConfig, getPath(\"InputPublicOnly.java\"), expected);
+\}
+testTypeParamsTags#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"26:8: Unused @param tag for '<BB>'.\", \"28:13: Expected @param tag for '<Z>'.\" \};
+    verify(checkConfig, getPath(\"InputTypeParamsTags.java\"), expected);
+\}" shape=ellipse]
+3 [label="testDefaults#?#2:public void testDefaults() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(RedundantThrowsCheck.class);
+    final String[] expected = new String[]\{ \"7:37: Redundant throws: 'java.io.FileNotFoundException' is subclass of\" + \" 'java.io.IOException'.\", \"13:16: Redundant throws: 'RuntimeException' is unchecked exception.\", \"19:29: Redundant throws: 'java.io.IOException' listed more then one time.\", \"39:27: Redundant throws: 'NullPointerException' is subclass of 'RuntimeException'.\", \"39:27: Redundant throws: 'NullPointerException' is unchecked exception.\", \"39:49: Redundant throws: 'RuntimeException' is unchecked exception.\" \};
+    verify(checkConfig, getPath(\"InputRedundantThrows.java\"), expected);
+\}
+testTags#?#2:public void testTags() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"14:5: Missing a Javadoc comment.\", \"18:9: Unused @param tag for 'unused'.\", \"24: Expected an @return tag.\", \"33: Expected an @return tag.\", \"40:16: Expected @throws tag for 'Exception'.\", \"49:16: Expected @throws tag for 'Exception'.\", \"53:9: Unused @throws tag for 'WrongException'.\", \"55:16: Expected @throws tag for 'Exception'.\", \"55:27: Expected @throws tag for 'NullPointerException'.\", \"60:22: Expected @param tag for 'aOne'.\", \"68:22: Expected @param tag for 'aOne'.\", \"72:9: Unused @param tag for 'WrongParam'.\", \"73:23: Expected @param tag for 'aOne'.\", \"73:33: Expected @param tag for 'aTwo'.\", \"78:8: Unused @param tag for 'Unneeded'.\", \"79: Unused Javadoc tag.\", \"87:8: Duplicate @return tag.\", \"109:23: Expected @param tag for 'aOne'.\", \"109:55: Expected @param tag for 'aFour'.\", \"109:66: Expected @param tag for 'aFive'.\", \"178:8: Unused @throws tag for 'ThreadDeath'.\", \"179:8: Unused @throws tag for 'ArrayStoreException'.\", \"236:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"254:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"256:28: Expected @throws tag for 'IOException'.\", \"262:8: Unused @param tag for 'aParam'.\", \"320:9: Missing a Javadoc comment.\", \"329:5: Missing a Javadoc comment.\", \"333: Unused Javadoc tag.\" \};
+    verify(checkConfig, getPath(\"InputTags.java\"), expected);
+\}
+testStrictJavadoc#?#2:public void testStrictJavadoc() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"12:9: Missing a Javadoc comment.\", \"18:13: Missing a Javadoc comment.\", \"25:13: Missing a Javadoc comment.\", \"38:9: Missing a Javadoc comment.\", \"49:5: Missing a Javadoc comment.\", \"54:5: Missing a Javadoc comment.\", \"59:5: Missing a Javadoc comment.\", \"64:5: Missing a Javadoc comment.\", \"69:5: Missing a Javadoc comment.\", \"74:5: Missing a Javadoc comment.\", \"79:5: Missing a Javadoc comment.\", \"84:5: Missing a Javadoc comment.\", \"94:32: Expected @param tag for 'aA'.\" \};
+    verify(checkConfig, getPath(\"InputPublicOnly.java\"), expected);
+\}
+testTypeParamsTags#?#2:public void testTypeParamsTags() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"26:8: Unused @param tag for '<BB>'.\", \"28:13: Expected @param tag for '<Z>'.\" \};
+    verify(checkConfig, getPath(\"InputTypeParamsTags.java\"), expected);
+\}" shape=ellipse]
+4 [label="testDefaults#?#4:final String[] expected = new String[]\{ \"7:37: Redundant throws: 'java.io.FileNotFoundException' is subclass of\" + \" 'java.io.IOException'.\", \"13:16: Redundant throws: 'RuntimeException' is unchecked exception.\", \"19:29: Redundant throws: 'java.io.IOException' listed more then one time.\", \"39:27: Redundant throws: 'NullPointerException' is subclass of 'RuntimeException'.\", \"39:27: Redundant throws: 'NullPointerException' is unchecked exception.\", \"39:49: Redundant throws: 'RuntimeException' is unchecked exception.\" \}
+testTags#?#4:final String[] expected = new String[]\{ \"14:5: Missing a Javadoc comment.\", \"18:9: Unused @param tag for 'unused'.\", \"24: Expected an @return tag.\", \"33: Expected an @return tag.\", \"40:16: Expected @throws tag for 'Exception'.\", \"49:16: Expected @throws tag for 'Exception'.\", \"53:9: Unused @throws tag for 'WrongException'.\", \"55:16: Expected @throws tag for 'Exception'.\", \"55:27: Expected @throws tag for 'NullPointerException'.\", \"60:22: Expected @param tag for 'aOne'.\", \"68:22: Expected @param tag for 'aOne'.\", \"72:9: Unused @param tag for 'WrongParam'.\", \"73:23: Expected @param tag for 'aOne'.\", \"73:33: Expected @param tag for 'aTwo'.\", \"78:8: Unused @param tag for 'Unneeded'.\", \"79: Unused Javadoc tag.\", \"87:8: Duplicate @return tag.\", \"109:23: Expected @param tag for 'aOne'.\", \"109:55: Expected @param tag for 'aFour'.\", \"109:66: Expected @param tag for 'aFive'.\", \"178:8: Unused @throws tag for 'ThreadDeath'.\", \"179:8: Unused @throws tag for 'ArrayStoreException'.\", \"236:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"254:8: Unused @throws tag for 'java.io.FileNotFoundException'.\", \"256:28: Expected @throws tag for 'IOException'.\", \"262:8: Unused @param tag for 'aParam'.\", \"320:9: Missing a Javadoc comment.\", \"329:5: Missing a Javadoc comment.\", \"333: Unused Javadoc tag.\" \}
+testStrictJavadoc#?#4:final String[] expected = new String[]\{ \"12:9: Missing a Javadoc comment.\", \"18:13: Missing a Javadoc comment.\", \"25:13: Missing a Javadoc comment.\", \"38:9: Missing a Javadoc comment.\", \"49:5: Missing a Javadoc comment.\", \"54:5: Missing a Javadoc comment.\", \"59:5: Missing a Javadoc comment.\", \"64:5: Missing a Javadoc comment.\", \"69:5: Missing a Javadoc comment.\", \"74:5: Missing a Javadoc comment.\", \"79:5: Missing a Javadoc comment.\", \"84:5: Missing a Javadoc comment.\", \"94:32: Expected @param tag for 'aA'.\" \}
+testTypeParamsTags#?#4:final String[] expected = new String[]\{ \"26:8: Unused @param tag for '<BB>'.\", \"28:13: Expected @param tag for '<Z>'.\" \}" shape=ellipse]
+5 [label="testDefaults#?#14:verify(checkConfig, getPath(\"InputRedundantThrows.java\"), expected)
+testTags#?#36:verify(checkConfig, getPath(\"InputTags.java\"), expected)
+testStrictJavadoc#?#20:verify(checkConfig, getPath(\"InputPublicOnly.java\"), expected)
+testTypeParamsTags#?#8:verify(checkConfig, getPath(\"InputTypeParamsTags.java\"), expected)" shape=ellipse]
+6 [label="testDefaults#?#3:checkConfig
+testTags#?#3:checkConfig
+testStrictJavadoc#?#3:checkConfig
+testTypeParamsTags#?#3:checkConfig" shape=ellipse]
+7 [label="testDefaults#?#3:
+testTags#?#3:
+testStrictJavadoc#?#3:
+testTypeParamsTags#?#3:" shape=ellipse]
+8 [label="testDefaults#?#3:RedundantThrowsCheck.class
+testTags#?#3:JavadocMethodCheck.class
+testStrictJavadoc#?#3:JavadocMethodCheck.class
+testTypeParamsTags#?#3:JavadocMethodCheck.class" shape=ellipse]
+9 [label="testDefaults#?#14:checkConfig
+testTags#?#36:checkConfig
+testStrictJavadoc#?#20:checkConfig
+testTypeParamsTags#?#8:checkConfig" shape=ellipse]
+10 [label="testDefaults#?#3:DefaultConfiguration
+testTags#?#3:DefaultConfiguration
+testStrictJavadoc#?#3:DefaultConfiguration
+testTypeParamsTags#?#3:DefaultConfiguration" shape=ellipse]
+11 [label="testDefaults#?#3:
+testTags#?#3:
+testStrictJavadoc#?#3:
+testTypeParamsTags#?#3:" shape=ellipse]
+12 [label="testDefaults#?#3:createCheckConfig(RedundantThrowsCheck.class)
+testTags#?#3:createCheckConfig(JavadocMethodCheck.class)
+testStrictJavadoc#?#3:createCheckConfig(JavadocMethodCheck.class)
+testTypeParamsTags#?#3:createCheckConfig(JavadocMethodCheck.class)" shape=ellipse]
+13 [label="testDefaults#?#3:createCheckConfig
+testTags#?#3:createCheckConfig
+testStrictJavadoc#?#3:createCheckConfig
+testTypeParamsTags#?#3:createCheckConfig" shape=ellipse]
+14 [label="testDefaults#?#3:createCheckConfig(java.lang.Class)
+testTags#?#3:createCheckConfig(java.lang.Class)
+testStrictJavadoc#?#3:createCheckConfig(java.lang.Class)
+testTypeParamsTags#?#3:createCheckConfig(java.lang.Class)" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+1 -> 10 [label="AST:4"];
+1 -> 12 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+5 -> 9 [label="AST:4"];
+6 -> 9 [label="Define Use:4"];
+7 -> 6 [label="Data Dep:4"];
+8 -> 6 [label="Data Dep:4"];
+10 -> 11 [label="AST:4"];
+12 -> 7 [label="AST:4"];
+12 -> 8 [label="AST:4"];
+12 -> 13 [label="AST:4"];
+12 -> 14 [label="AST:4"];
+}

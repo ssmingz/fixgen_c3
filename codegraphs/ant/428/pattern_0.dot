@@ -1,0 +1,143 @@
+digraph "Pattern" {
+0 [label="execute#?#15:UPDATE
+execute#?#14:UPDATE" shape=ellipse]
+1 [label="execute#?#15:getContext().debug(cmdl.toString())
+execute#?#14:getContext().debug(cmdl.toString())" shape=ellipse]
+2 [label="execute#?#10:\{
+    cmdl.setExecutable(new File(m_home, \"jplauncher\").getAbsolutePath());
+    cmdl.addArgument(\"-jp_input=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage failed (\" + exitValue) + \")\");
+    \}
+\}
+execute#?#5:\{
+    Commandline cmdl = new Commandline();
+    cmdl.setExecutable(new File(home, \"jpcovmerge\").getAbsolutePath());
+    if (verbose) \{
+        cmdl.addArgument(\"-v\");
+    \}
+    cmdl.addArgument(\"-jp_paramfile=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage Merging failed (\" + exitValue) + \")\");
+    \}
+\}" shape=ellipse]
+3 [label="execute#?#10:try \{
+    cmdl.setExecutable(new File(m_home, \"jplauncher\").getAbsolutePath());
+    cmdl.addArgument(\"-jp_input=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage failed (\" + exitValue) + \")\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to execute JProbe Coverage.\", e);
+\} finally \{
+    if ((m_inputFile == null) && (paramfile != null)) \{
+        paramfile.delete();
+    \}
+\}
+execute#?#5:try \{
+    Commandline cmdl = new Commandline();
+    cmdl.setExecutable(new File(home, \"jpcovmerge\").getAbsolutePath());
+    if (verbose) \{
+        cmdl.addArgument(\"-v\");
+    \}
+    cmdl.addArgument(\"-jp_paramfile=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage Merging failed (\" + exitValue) + \")\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to run JProbe Coverage Merge: \" + e);
+\} finally \{
+    paramfile.delete();
+\}" shape=ellipse]
+4 [label="execute#?#11:cmdl.setExecutable(new File(m_home, \"jplauncher\").getAbsolutePath())
+execute#?#7:cmdl.setExecutable(new File(home, \"jpcovmerge\").getAbsolutePath())" shape=ellipse]
+5 [label="execute#?#12:cmdl.addArgument(\"-jp_input=\" + paramfile.getAbsolutePath())
+execute#?#11:cmdl.addArgument(\"-jp_paramfile=\" + paramfile.getAbsolutePath())" shape=ellipse]
+6 [label="execute#?#13:final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)))
+execute#?#12:final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)))" shape=ellipse]
+7 [label="execute#?#14:final Execute exe = new Execute(execManager)
+execute#?#13:final Execute exe = new Execute(execManager)" shape=ellipse]
+8 [label="execute#?#16:exe.setCommandline(cmdl)
+execute#?#15:exe.setCommandline(cmdl)" shape=ellipse]
+9 [label="execute#?#17:int exitValue = exe.execute()
+execute#?#16:int exitValue = exe.execute()" shape=ellipse]
+10 [label="execute#?#18:if (exitValue != 0) \{
+    throw new TaskException((\"JProbe Coverage failed (\" + exitValue) + \")\");
+\}
+execute#?#17:if (exitValue != 0) \{
+    throw new TaskException((\"JProbe Coverage Merging failed (\" + exitValue) + \")\");
+\}" shape=ellipse]
+11 [label="execute#?#15:debug
+execute#?#14:debug" shape=ellipse]
+12 [label="execute#?#15:getContext()
+execute#?#14:getContext()" shape=ellipse]
+13 [label="execute#?#15:getContext
+execute#?#14:getContext" shape=ellipse]
+14 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+15 [label="execute#?#15:getContext()
+execute#?#14:getContext()" shape=ellipse]
+16 [label="execute#?#15:debug()
+execute#?#14:debug()" shape=ellipse]
+17 [label="execute#?#15:cmdl.toString()
+execute#?#14:cmdl.toString()" shape=ellipse]
+18 [label="execute#?#15:toString
+execute#?#14:toString" shape=ellipse]
+19 [label="execute#?#15:cmdl
+execute#?#14:cmdl" shape=ellipse]
+20 [label="execute#?#15:toString()
+execute#?#14:toString()" shape=ellipse]
+21 [label="execute#?#15:MOVE
+execute#?#14:MOVE" shape=ellipse]
+22 [label="execute#?#16:exe.execute(getContext())
+execute#?#15:exe.execute(getContext())" shape=ellipse]
+23 [label="execute#?#8:if (verbose) \{
+    cmdl.addArgument(\"-v\");
+\}" shape=ellipse]
+24 [label="execute#?#6:Commandline cmdl = new Commandline()" shape=ellipse]
+0 -> 22 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 21 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 23 [label="AST:1"];
+2 -> 24 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 20 [label="AST:2"];
+21 -> 3 [label="Action:2"];
+}

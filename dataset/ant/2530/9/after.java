@@ -1,0 +1,17 @@
+class PlaceHold {
+  public int getMethodRefEntry(String methodClassName, String methodName, String methodType) {
+    int index = -1;
+    for (int i = 0; (i < entries.size()) && (index == (-1)); ++i) {
+      Object element = entries.get(i);
+      if (element instanceof MethodRefCPInfo) {
+        MethodRefCPInfo methodRefEntry = ((MethodRefCPInfo) (element));
+        if ((methodRefEntry.getMethodClassName().equals(methodClassName)
+                && methodRefEntry.getMethodName().equals(methodName))
+            && methodRefEntry.getMethodType().equals(methodType)) {
+          index = i;
+        }
+      }
+    }
+    return index;
+  }
+}

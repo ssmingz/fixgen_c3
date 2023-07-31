@@ -1,0 +1,32 @@
+digraph "getModTime#?" {
+0 [label="2:CtTypeReferenceImpl@Date" shape=ellipse]
+1 [label="2:CtVirtualElement@getModTime" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@Date" shape=ellipse]
+3 [label="3:CtThisAccessImpl@this" shape=ellipse]
+4 [label="3:CtFieldReadImpl@this.modTime" shape=ellipse]
+5 [label="3:CtLiteralImpl@1000" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@this.modTime * 1000" shape=ellipse]
+7 [label="3:CtConstructorCallImpl@new Date(this.modTime * 1000)" shape=ellipse]
+8 [label="3:CtReturnImpl@return new Date(this.modTime * 1000)" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    return new Date(this.modTime * 1000);
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public Date getModTime() \{
+    return new Date(this.modTime * 1000);
+\}" shape=ellipse]
+11 [label="3:Delete@DELETE" shape=ellipse]
+12 [label="3:Insert@INSERT" shape=ellipse]
+13 [label="3:CtFieldReadImpl@MILLIS_PER_SECOND" shape=ellipse]
+4 -> 3 [label="AST"];
+5 -> 11 [label="Action"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 12 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 13 [label="Action"];
+}

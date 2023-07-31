@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="test2#?#2:INSERT
+test5#?#2:INSERT" shape=ellipse]
+1 [label="test2#?#2:public void test2() \{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}
+test5#?#2:public void test5() \{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}" shape=ellipse]
+2 [label="test2#?#2:test2
+test5#?#2:test5" shape=ellipse]
+3 [label="test2#?#2:void
+test5#?#2:void" shape=ellipse]
+4 [label="test2#?#2:\{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}
+test5#?#2:\{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}" shape=ellipse]
+5 [label="test2#?#3:configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\")
+test5#?#3:configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\")" shape=ellipse]
+6 [label="test2#?#4:expectLog(\"test1\", \"from included entity\")
+test5#?#4:expectLog(\"test1\", \"from included entity\")" shape=ellipse]
+7 [label="test2#?#2:VE: Modifiers_Method
+test5#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="test2#?#2:public
+test5#?#2:public" shape=ellipse]
+9 [label="test2#?#5:INSERT
+test5#?#5:INSERT" shape=ellipse]
+10 [label="test2#?#5:buildRule.executeTarget(\"test1\")
+test5#?#5:buildRule.executeTarget(\"test1\")" shape=ellipse]
+11 [label="test2#?#2:@Test
+test5#?#2:@Test" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+9 -> 10 [label="Action:2"];
+}

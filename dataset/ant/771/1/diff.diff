@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/771/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/771/1/after.java
+@@ -2,1 +2,2 @@
+-  public void testCcOnly() {
++  @Test
++  public void testCcOnly() throws InterruptedException {
+@@ -13,6 +14,2 @@
+-    try {
+-      server.join(60 * 1000);
+-      client.join(30 * 1000);
+-    } catch (InterruptedException ie) {
+-      fail("InterruptedException: " + ie);
+-    }
++    server.join(60 * 1000);
++    client.join(30 * 1000);
+@@ -55,3 +52,1 @@
+-    if (testMailClient.isFailed()) {
+-      fail(testMailClient.getFailMessage());
+-    }
++    assertFalse(testMailClient.getFailMessage(), testMailClient.isFailed());

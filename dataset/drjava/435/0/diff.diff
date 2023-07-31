@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/435/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/435/0/after.java
+@@ -3,2 +3,7 @@
+-    synchronized (_reduced) {
+-      return _reduced.moveWalkerGetState(dist);
++    readLock();
++    try {
++      synchronized (_reduced) {
++        return _reduced.moveWalkerGetState(dist);
++      }
++    } finally {
++      readUnlock();

@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/32/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/32/0/after.java
+@@ -4,5 +4,2 @@
+-    int result = invoke(dispIdMember, rgvarg, rgdispidNamedArgs, pVarResult);
+-    if (result == COM.S_OK) {
+-      return pVarResult;
+-    }
+-    return null;
++    int result = invoke(dispIdMember, DISPATCH_METHOD, rgvarg, rgdispidNamedArgs, pVarResult);
++    return result == COM.S_OK ? pVarResult : null;

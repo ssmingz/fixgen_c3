@@ -1,0 +1,424 @@
+digraph "Pattern" {
+0 [label="saveGlobalProjectData#?#3:DELETE
+saveGlobalProjectData#?#3:DELETE" shape=ellipse]
+1 [label="saveGlobalProjectData#?#3:ProjectData projectDataToSave = globalProjectData
+saveGlobalProjectData#?#3:ProjectData projectDataToSave = new ProjectData()" shape=ellipse]
+2 [label="saveGlobalProjectData#?#2:\{
+    ProjectData projectDataToSave = globalProjectData;
+    globalProjectData = new ProjectData();
+    try \{
+        Thread.sleep(1000);
+    \} catch (InterruptedException e) \{
+    \}
+    File dataFile = CoverageDataFileHandler.getDefaultDataFile();
+    FileLocker fileLocker = new FileLocker(dataFile);
+    if (fileLocker.lock()) \{
+        ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+        if (datafileProjectData == null) \{
+            datafileProjectData = projectDataToSave;
+        \} else \{
+            datafileProjectData.merge(projectDataToSave);
+        \}
+        CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+    \}
+    fileLocker.release();
+\}
+saveGlobalProjectData#?#2:\{
+    ProjectData projectDataToSave = new ProjectData();
+    TouchCollector.applyTouchesOnProjectData(projectDataToSave);
+    File dataFile = CoverageDataFileHandler.getDefaultDataFile();
+    synchronized(dataFile.getPath().intern()) \{
+        FileLocker fileLocker = new FileLocker(dataFile);
+        try \{
+            if (fileLocker.lock()) \{
+                ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+                if (datafileProjectData == null) \{
+                    datafileProjectData = projectDataToSave;
+                \} else \{
+                    datafileProjectData.merge(projectDataToSave);
+                \}
+                CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+            \}
+        \} finally \{
+            fileLocker.release();
+        \}
+    \}
+\}" shape=ellipse]
+3 [label="saveGlobalProjectData#?#2:public static void saveGlobalProjectData() \{
+    ProjectData projectDataToSave = globalProjectData;
+    globalProjectData = new ProjectData();
+    try \{
+        Thread.sleep(1000);
+    \} catch (InterruptedException e) \{
+    \}
+    File dataFile = CoverageDataFileHandler.getDefaultDataFile();
+    FileLocker fileLocker = new FileLocker(dataFile);
+    if (fileLocker.lock()) \{
+        ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+        if (datafileProjectData == null) \{
+            datafileProjectData = projectDataToSave;
+        \} else \{
+            datafileProjectData.merge(projectDataToSave);
+        \}
+        CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+    \}
+    fileLocker.release();
+\}
+saveGlobalProjectData#?#2:public static void saveGlobalProjectData() \{
+    ProjectData projectDataToSave = new ProjectData();
+    TouchCollector.applyTouchesOnProjectData(projectDataToSave);
+    File dataFile = CoverageDataFileHandler.getDefaultDataFile();
+    synchronized(dataFile.getPath().intern()) \{
+        FileLocker fileLocker = new FileLocker(dataFile);
+        try \{
+            if (fileLocker.lock()) \{
+                ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+                if (datafileProjectData == null) \{
+                    datafileProjectData = projectDataToSave;
+                \} else \{
+                    datafileProjectData.merge(projectDataToSave);
+                \}
+                CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+            \}
+        \} finally \{
+            fileLocker.release();
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="saveGlobalProjectData#?#4:globalProjectData = new ProjectData()
+saveGlobalProjectData#?#5:File dataFile = CoverageDataFileHandler.getDefaultDataFile()" shape=ellipse]
+5 [label="saveGlobalProjectData#?#5:try \{
+    Thread.sleep(1000);
+\} catch (InterruptedException e) \{
+\}
+saveGlobalProjectData#?#6:synchronized(dataFile.getPath().intern()) \{
+    FileLocker fileLocker = new FileLocker(dataFile);
+    try \{
+        if (fileLocker.lock()) \{
+            ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+            if (datafileProjectData == null) \{
+                datafileProjectData = projectDataToSave;
+            \} else \{
+                datafileProjectData.merge(projectDataToSave);
+            \}
+            CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+        \}
+    \} finally \{
+        fileLocker.release();
+    \}
+\}" shape=ellipse]
+6 [label="saveGlobalProjectData#?#9:File dataFile = CoverageDataFileHandler.getDefaultDataFile()" shape=ellipse]
+7 [label="saveGlobalProjectData#?#10:FileLocker fileLocker = new FileLocker(dataFile)" shape=ellipse]
+8 [label="saveGlobalProjectData#?#11:if (fileLocker.lock()) \{
+    ProjectData datafileProjectData = loadCoverageDataFromDatafile(dataFile);
+    if (datafileProjectData == null) \{
+        datafileProjectData = projectDataToSave;
+    \} else \{
+        datafileProjectData.merge(projectDataToSave);
+    \}
+    CoverageDataFileHandler.saveCoverageData(datafileProjectData, dataFile);
+\}" shape=ellipse]
+9 [label="saveGlobalProjectData#?#20:fileLocker.release()
+saveGlobalProjectData#?#4:TouchCollector.applyTouchesOnProjectData(projectDataToSave)" shape=ellipse]
+10 [label="saveGlobalProjectData#?#3:INSERT
+saveGlobalProjectData#?#3:INSERT" shape=ellipse]
+11 [label="saveGlobalProjectData#?#3: projectDataToSave = null
+saveGlobalProjectData#?#3: projectDataToSave = null" shape=ellipse]
+12 [label="saveGlobalProjectData#?#3:projectDataToSave
+saveGlobalProjectData#?#3:projectDataToSave" shape=ellipse]
+13 [label="saveGlobalProjectData#?#3:ProjectData
+saveGlobalProjectData#?#3:ProjectData" shape=ellipse]
+14 [label="saveGlobalProjectData#?#3:
+saveGlobalProjectData#?#3:" shape=ellipse]
+15 [label="saveGlobalProjectData#?#3:null
+saveGlobalProjectData#?#3:null" shape=ellipse]
+16 [label="saveGlobalProjectData#?#3:<nulltype>
+saveGlobalProjectData#?#3:<nulltype>" shape=ellipse]
+17 [label="saveGlobalProjectData#?#4:INSERT
+saveGlobalProjectData#?#4:INSERT" shape=ellipse]
+18 [label="saveGlobalProjectData#?#4:globalProjectDataLock.lock()
+saveGlobalProjectData#?#4:globalProjectDataLock.lock()" shape=ellipse]
+19 [label="saveGlobalProjectData#?#4:lock
+saveGlobalProjectData#?#4:lock" shape=ellipse]
+20 [label="saveGlobalProjectData#?#4:globalProjectDataLock
+saveGlobalProjectData#?#4:globalProjectDataLock" shape=ellipse]
+21 [label="saveGlobalProjectData#?#4:globalProjectDataLock
+saveGlobalProjectData#?#4:globalProjectDataLock" shape=ellipse]
+22 [label="saveGlobalProjectData#?#4:PlaceHold
+saveGlobalProjectData#?#4:PlaceHold" shape=ellipse]
+23 [label="saveGlobalProjectData#?#4:
+saveGlobalProjectData#?#4:" shape=ellipse]
+24 [label="saveGlobalProjectData#?#4:lock()
+saveGlobalProjectData#?#4:lock()" shape=ellipse]
+25 [label="saveGlobalProjectData#?#4:globalProjectDataLock
+saveGlobalProjectData#?#4:globalProjectDataLock" shape=ellipse]
+26 [label="saveGlobalProjectData#?#4:
+saveGlobalProjectData#?#4:" shape=ellipse]
+27 [label="saveGlobalProjectData#?#5:INSERT
+saveGlobalProjectData#?#5:INSERT" shape=ellipse]
+28 [label="saveGlobalProjectData#?#5:try \{
+    projectDataToSave = ;
+
+\} finally \{
+    globalProjectDataLock.unlock();
+\}
+saveGlobalProjectData#?#5:try \{
+    projectDataToSave = getGlobalProjectData();
+    globalProjectData = ;
+\} finally \{
+    globalProjectDataLock.unlock();
+\}" shape=ellipse]
+29 [label="saveGlobalProjectData#?#5:\{
+    projectDataToSave = globalProjectData;
+    globalProjectData = new ProjectData();
+\}
+saveGlobalProjectData#?#5:\{
+    projectDataToSave = getGlobalProjectData();
+    globalProjectData = new ProjectData();
+\}" shape=ellipse]
+30 [label="saveGlobalProjectData#?#6:projectDataToSave = globalProjectData
+saveGlobalProjectData#?#6:projectDataToSave = getGlobalProjectData()" shape=ellipse]
+31 [label="saveGlobalProjectData#?#6:projectDataToSave
+saveGlobalProjectData#?#6:projectDataToSave" shape=ellipse]
+32 [label="saveGlobalProjectData#?#6:projectDataToSave
+saveGlobalProjectData#?#6:projectDataToSave" shape=ellipse]
+33 [label="saveGlobalProjectData#?#6:ProjectData
+saveGlobalProjectData#?#6:ProjectData" shape=ellipse]
+34 [label="saveGlobalProjectData#?#6:
+saveGlobalProjectData#?#6:" shape=ellipse]
+35 [label="saveGlobalProjectData#?#14:projectDataToSave
+saveGlobalProjectData#?#12:projectDataToSave" shape=ellipse]
+36 [label="saveGlobalProjectData#?#14:projectDataToSave
+saveGlobalProjectData#?#12:projectDataToSave" shape=ellipse]
+37 [label="saveGlobalProjectData#?#14:datafileProjectData
+saveGlobalProjectData#?#12:datafileProjectData" shape=ellipse]
+38 [label="saveGlobalProjectData#?#14:datafileProjectData
+saveGlobalProjectData#?#12:datafileProjectData" shape=ellipse]
+39 [label="saveGlobalProjectData#?#16:datafileProjectData
+saveGlobalProjectData#?#14:datafileProjectData" shape=ellipse]
+40 [label="saveGlobalProjectData#?#16:datafileProjectData
+saveGlobalProjectData#?#14:datafileProjectData" shape=ellipse]
+41 [label="saveGlobalProjectData#?#18:datafileProjectData
+saveGlobalProjectData#?#16:datafileProjectData" shape=ellipse]
+42 [label="saveGlobalProjectData#?#18:datafileProjectData
+saveGlobalProjectData#?#16:datafileProjectData" shape=ellipse]
+43 [label="saveGlobalProjectData#?#16:projectDataToSave
+saveGlobalProjectData#?#14:projectDataToSave" shape=ellipse]
+44 [label="saveGlobalProjectData#?#16:projectDataToSave
+saveGlobalProjectData#?#14:projectDataToSave" shape=ellipse]
+45 [label="saveGlobalProjectData#?#6:globalProjectData" shape=ellipse]
+46 [label="saveGlobalProjectData#?#6:globalProjectData
+saveGlobalProjectData#?#7:globalProjectData" shape=ellipse]
+47 [label="saveGlobalProjectData#?#6:PlaceHold
+saveGlobalProjectData#?#7:PlaceHold" shape=ellipse]
+48 [label="saveGlobalProjectData#?#6:
+saveGlobalProjectData#?#7:" shape=ellipse]
+49 [label="saveGlobalProjectData#?#8:\{
+    globalProjectDataLock.unlock();
+\}
+saveGlobalProjectData#?#8:\{
+    globalProjectDataLock.unlock();
+\}" shape=ellipse]
+50 [label="saveGlobalProjectData#?#9:globalProjectDataLock.unlock()
+saveGlobalProjectData#?#9:globalProjectDataLock.unlock()" shape=ellipse]
+51 [label="saveGlobalProjectData#?#9:unlock
+saveGlobalProjectData#?#9:unlock" shape=ellipse]
+52 [label="saveGlobalProjectData#?#9:globalProjectDataLock
+saveGlobalProjectData#?#9:globalProjectDataLock" shape=ellipse]
+53 [label="saveGlobalProjectData#?#9:globalProjectDataLock
+saveGlobalProjectData#?#9:globalProjectDataLock" shape=ellipse]
+54 [label="saveGlobalProjectData#?#9:PlaceHold
+saveGlobalProjectData#?#9:PlaceHold" shape=ellipse]
+55 [label="saveGlobalProjectData#?#9:
+saveGlobalProjectData#?#9:" shape=ellipse]
+56 [label="saveGlobalProjectData#?#9:unlock()
+saveGlobalProjectData#?#9:unlock()" shape=ellipse]
+57 [label="saveGlobalProjectData#?#9:globalProjectDataLock
+saveGlobalProjectData#?#9:globalProjectDataLock" shape=ellipse]
+58 [label="saveGlobalProjectData#?#9:
+saveGlobalProjectData#?#9:" shape=ellipse]
+59 [label="saveGlobalProjectData#?#3:projectDataToSave
+saveGlobalProjectData#?#3:projectDataToSave" shape=ellipse]
+60 [label="saveGlobalProjectData#?#3:globalProjectData" shape=ellipse]
+61 [label="saveGlobalProjectData#?#3:ProjectData
+saveGlobalProjectData#?#3:ProjectData" shape=ellipse]
+62 [label="saveGlobalProjectData#?#3:
+saveGlobalProjectData#?#3:" shape=ellipse]
+63 [label="saveGlobalProjectData#?#3:MOVE
+saveGlobalProjectData#?#3:MOVE" shape=ellipse]
+64 [label="saveGlobalProjectData#?#6:" shape=ellipse]
+65 [label="saveGlobalProjectData#?#4:projectDataToSave" shape=ellipse]
+66 [label="saveGlobalProjectData#?#11:try \{
+    java.lang.Thread.sleep(1000);
+\} catch (java.lang.InterruptedException e) \{
+\}" shape=ellipse]
+67 [label="saveGlobalProjectData#?#12:Thread" shape=ellipse]
+68 [label="saveGlobalProjectData#?#3:new ProjectData()" shape=ellipse]
+69 [label="saveGlobalProjectData#?#6:getGlobalProjectData()" shape=ellipse]
+70 [label="saveGlobalProjectData#?#6:" shape=ellipse]
+71 [label="saveGlobalProjectData#?#13: catch (InterruptedException e) \{
+\}" shape=ellipse]
+72 [label="saveGlobalProjectData#?#6:PlaceHold" shape=ellipse]
+73 [label="saveGlobalProjectData#?#6:" shape=ellipse]
+74 [label="saveGlobalProjectData#?#13:\{
+\}" shape=ellipse]
+75 [label="saveGlobalProjectData#?#11:\{
+    Thread.sleep(1000);
+\}" shape=ellipse]
+76 [label="saveGlobalProjectData#?#12:1000" shape=ellipse]
+77 [label="saveGlobalProjectData#?#7:globalProjectData = new ProjectData()" shape=ellipse]
+78 [label="saveGlobalProjectData#?#11:INSERT" shape=ellipse]
+79 [label="saveGlobalProjectData#?#3:MOVE" shape=ellipse]
+80 [label="saveGlobalProjectData#?#7:globalProjectData" shape=ellipse]
+81 [label="saveGlobalProjectData#?#7:new ProjectData()" shape=ellipse]
+82 [label="saveGlobalProjectData#?#7:" shape=ellipse]
+83 [label="saveGlobalProjectData#?#12:Thread.sleep(1000)" shape=ellipse]
+84 [label="saveGlobalProjectData#?#7:" shape=ellipse]
+85 [label="saveGlobalProjectData#?#6:getGlobalProjectData" shape=ellipse]
+86 [label="saveGlobalProjectData#?#12:sleep" shape=ellipse]
+87 [label="saveGlobalProjectData#?#13:InterruptedException" shape=ellipse]
+88 [label="saveGlobalProjectData#?#4:projectDataToSave" shape=ellipse]
+89 [label="saveGlobalProjectData#?#12:long" shape=ellipse]
+90 [label="saveGlobalProjectData#?#7:ProjectData" shape=ellipse]
+91 [label="saveGlobalProjectData#?#7:ProjectData" shape=ellipse]
+92 [label="saveGlobalProjectData#?#6:getGlobalProjectData()" shape=ellipse]
+93 [label="saveGlobalProjectData#?#12:sleep(long)" shape=ellipse]
+94 [label="saveGlobalProjectData#?#12:void" shape=ellipse]
+95 [label="saveGlobalProjectData#?#13:InterruptedException e" shape=ellipse]
+96 [label="saveGlobalProjectData#?#13:e" shape=ellipse]
+97 [label="saveGlobalProjectData#?#7:ProjectData()" shape=ellipse]
+98 [label="saveGlobalProjectData#?#3:ProjectData()" shape=ellipse]
+99 [label="saveGlobalProjectData#?#12:Thread" shape=ellipse]
+100 [label="saveGlobalProjectData#?#12:Thread" shape=ellipse]
+101 [label="saveGlobalProjectData#?#12:int" shape=ellipse]
+102 [label="saveGlobalProjectData#?#12:java.lang" shape=ellipse]
+103 [label="saveGlobalProjectData#?#12:java.lang" shape=ellipse]
+104 [label="saveGlobalProjectData#?#13:java.lang" shape=ellipse]
+105 [label="saveGlobalProjectData#?#6:PlaceHold" shape=ellipse]
+106 [label="saveGlobalProjectData#?#6:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 59 [label="AST:2"];
+1 -> 61 [label="AST:2"];
+1 -> 60 [label="AST:1"];
+1 -> 68 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="AST:1"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="Action:2"];
+2 -> 17 [label="Action:2"];
+2 -> 27 [label="Action:2"];
+2 -> 78 [label="Action:1"];
+3 -> 2 [label="AST:2"];
+9 -> 65 [label="AST:1"];
+10 -> 11 [label="Action:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 15 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 18 [label="Action:2"];
+18 -> 19 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+18 -> 24 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+24 -> 25 [label="AST:2"];
+25 -> 26 [label="AST:2"];
+27 -> 28 [label="Action:2"];
+28 -> 29 [label="AST:2"];
+28 -> 49 [label="AST:2"];
+29 -> 30 [label="AST:2"];
+29 -> 77 [label="AST:1"];
+30 -> 31 [label="AST:2"];
+30 -> 45 [label="AST:1"];
+30 -> 69 [label="AST:1"];
+31 -> 32 [label="AST:2"];
+31 -> 35 [label="Define Use:2"];
+31 -> 35 [label="Data Dep:2"];
+31 -> 35 [label="Control Dep:2"];
+31 -> 43 [label="Define Use:2"];
+31 -> 43 [label="Data Dep:2"];
+31 -> 43 [label="Control Dep:2"];
+31 -> 65 [label="Define Use:1"];
+31 -> 65 [label="Data Dep:1"];
+31 -> 65 [label="Control Dep:1"];
+32 -> 33 [label="AST:2"];
+33 -> 34 [label="AST:2"];
+35 -> 36 [label="AST:2"];
+35 -> 37 [label="Data Dep:2"];
+37 -> 38 [label="AST:2"];
+37 -> 39 [label="Define Use:2"];
+37 -> 41 [label="Define Use:2"];
+38 -> 39 [label="Define Use:2"];
+38 -> 41 [label="Define Use:2"];
+39 -> 40 [label="AST:2"];
+41 -> 42 [label="AST:2"];
+43 -> 44 [label="AST:2"];
+45 -> 31 [label="Data Dep:1"];
+45 -> 46 [label="AST:1"];
+46 -> 47 [label="AST:2"];
+47 -> 48 [label="AST:2"];
+49 -> 50 [label="AST:2"];
+50 -> 51 [label="AST:2"];
+50 -> 52 [label="AST:2"];
+50 -> 56 [label="AST:2"];
+52 -> 53 [label="AST:2"];
+53 -> 54 [label="AST:2"];
+54 -> 55 [label="AST:2"];
+56 -> 57 [label="AST:2"];
+57 -> 58 [label="AST:2"];
+59 -> 35 [label="Define Use:2"];
+59 -> 43 [label="Define Use:2"];
+59 -> 65 [label="Define Use:1"];
+60 -> 59 [label="Data Dep:1"];
+61 -> 62 [label="AST:2"];
+61 -> 63 [label="Action:2"];
+63 -> 11 [label="Action:2"];
+64 -> 105 [label="AST:1"];
+64 -> 72 [label="AST:1"];
+64 -> 31 [label="Data Dep:1"];
+65 -> 88 [label="AST:1"];
+66 -> 75 [label="AST:1"];
+66 -> 71 [label="AST:1"];
+67 -> 99 [label="AST:1"];
+68 -> 98 [label="AST:1"];
+68 -> 79 [label="Action:1"];
+69 -> 64 [label="AST:1"];
+69 -> 85 [label="AST:1"];
+69 -> 92 [label="AST:1"];
+71 -> 95 [label="AST:1"];
+71 -> 74 [label="AST:1"];
+72 -> 106 [label="AST:1"];
+75 -> 83 [label="AST:1"];
+76 -> 101 [label="AST:1"];
+77 -> 80 [label="AST:1"];
+77 -> 81 [label="AST:1"];
+78 -> 66 [label="Action:1"];
+79 -> 77 [label="Action:1"];
+80 -> 46 [label="AST:1"];
+81 -> 97 [label="AST:1"];
+83 -> 67 [label="AST:1"];
+83 -> 76 [label="AST:1"];
+83 -> 86 [label="AST:1"];
+83 -> 93 [label="AST:1"];
+87 -> 104 [label="AST:1"];
+90 -> 82 [label="AST:1"];
+91 -> 84 [label="AST:1"];
+93 -> 89 [label="AST:1"];
+93 -> 100 [label="AST:1"];
+93 -> 94 [label="AST:1"];
+95 -> 74 [label="Control Dep:1"];
+95 -> 87 [label="AST:1"];
+95 -> 96 [label="AST:1"];
+97 -> 90 [label="AST:1"];
+97 -> 91 [label="AST:1"];
+99 -> 102 [label="AST:1"];
+100 -> 103 [label="AST:1"];
+105 -> 70 [label="AST:1"];
+106 -> 73 [label="AST:1"];
+}

@@ -1,0 +1,178 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@property" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@(property == null)" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@length()" shape=ellipse]
+7 [label="3:CtVirtualElement@length" shape=ellipse]
+8 [label="3:CtFieldReadImpl@property" shape=ellipse]
+9 [label="3:CtInvocationImpl@property.length()" shape=ellipse]
+10 [label="3:CtLiteralImpl@0" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@(property.length() == 0)" shape=ellipse]
+12 [label="3:CtBinaryOperatorImpl@(property == null) || (property.length() == 0)" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+14 [label="4:CtLiteralImpl@\"no property specified\"" shape=ellipse]
+15 [label="4:CtConstructorCallImpl@new BuildException(\"no property specified\")" shape=ellipse]
+16 [label="4:CtThrowImpl@throw new BuildException(\"no property specified\")" shape=ellipse]
+17 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"no property specified\");
+\}" shape=ellipse]
+18 [label="3:CtIfImpl@if ((property == null) || (property.length() == 0)) \{
+    throw new BuildException(\"no property specified\");
+\}" shape=ellipse]
+19 [label="6:CtFieldReadImpl@destDir" shape=ellipse]
+20 [label="6:CtLiteralImpl@null" shape=ellipse]
+21 [label="6:CtBinaryOperatorImpl@destDir == null" shape=ellipse]
+22 [label="7:CtFieldWriteImpl@destDir" shape=ellipse]
+23 [label="7:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+24 [label="7:CtVirtualElement@resolveFile" shape=ellipse]
+25 [label="7:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+27 [label="7:CtVirtualElement@getBaseDir" shape=ellipse]
+28 [label="7:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+29 [label="7:CtVirtualElement@getProject" shape=ellipse]
+30 [label="7:CtInvocationImpl@getProject()" shape=ellipse]
+31 [label="7:CtInvocationImpl@getProject().getBaseDir()" shape=ellipse]
+32 [label="7:CtLiteralImpl@\".\"" shape=ellipse]
+33 [label="7:CtInvocationImpl@FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\")" shape=ellipse]
+34 [label="7:CtAssignmentImpl@destDir = FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\")" shape=ellipse]
+35 [label="6:CtBlockImpl@\{
+    destDir = FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\");
+\}" shape=ellipse]
+36 [label="6:CtIfImpl@if (destDir == null) \{
+    destDir = FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\");
+\}" shape=ellipse]
+37 [label="9:CtTypeReferenceImpl@File" shape=ellipse]
+38 [label="9:CtExecutableReferenceImpl@createTempFile()" shape=ellipse]
+39 [label="9:CtVirtualElement@createTempFile" shape=ellipse]
+40 [label="9:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+41 [label="9:CtFieldReadImpl@prefix" shape=ellipse]
+42 [label="9:CtFieldReadImpl@suffix" shape=ellipse]
+43 [label="9:CtFieldReadImpl@destDir" shape=ellipse]
+44 [label="9:CtFieldReadImpl@deleteOnExit" shape=ellipse]
+45 [label="9:CtInvocationImpl@FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit)" shape=ellipse]
+46 [label="9:CtVirtualElement@tfile" shape=ellipse]
+47 [label="9:CtLocalVariableImpl@File tfile = FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit)" shape=ellipse]
+48 [label="10:CtExecutableReferenceImpl@setNewProperty()" shape=ellipse]
+49 [label="10:CtVirtualElement@setNewProperty" shape=ellipse]
+50 [label="10:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+51 [label="10:CtVirtualElement@getProject" shape=ellipse]
+52 [label="10:CtInvocationImpl@getProject()" shape=ellipse]
+53 [label="10:CtFieldReadImpl@property" shape=ellipse]
+54 [label="10:CtExecutableReferenceImpl@toString()" shape=ellipse]
+55 [label="10:CtVirtualElement@toString" shape=ellipse]
+56 [label="10:CtVariableReadImpl@tfile" shape=ellipse]
+57 [label="10:CtInvocationImpl@tfile.toString()" shape=ellipse]
+58 [label="10:CtInvocationImpl@getProject().setNewProperty(property, tfile.toString())" shape=ellipse]
+59 [label="2:CtBlockImpl@\{
+    if ((property == null) || (property.length() == 0)) \{
+        throw new BuildException(\"no property specified\");
+    \}
+    if (destDir == null) \{
+        destDir = FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\");
+    \}
+    File tfile = FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit);
+    getProject().setNewProperty(property, tfile.toString());
+\}" shape=ellipse]
+60 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    if ((property == null) || (property.length() == 0)) \{
+        throw new BuildException(\"no property specified\");
+    \}
+    if (destDir == null) \{
+        destDir = FILE_UTILS.resolveFile(getProject().getBaseDir(), \".\");
+    \}
+    File tfile = FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit);
+    getProject().setNewProperty(property, tfile.toString());
+\}" shape=ellipse]
+61 [label="7:Update@UPDATE" shape=ellipse]
+62 [label="7:CtInvocationImpl@getProject().resolveFile(\".\")" shape=ellipse]
+63 [label="7:Delete@DELETE" shape=ellipse]
+64 [label="7:Move@MOVE" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 5 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 17 [label="Control Dep"];
+12 -> 16 [label="Control Dep"];
+12 -> 15 [label="Control Dep"];
+12 -> 14 [label="Control Dep"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 35 [label="Control Dep"];
+21 -> 34 [label="Control Dep"];
+21 -> 22 [label="Control Dep"];
+21 -> 33 [label="Control Dep"];
+21 -> 23 [label="Control Dep"];
+21 -> 25 [label="Control Dep"];
+21 -> 31 [label="Control Dep"];
+21 -> 26 [label="Control Dep"];
+21 -> 30 [label="Control Dep"];
+21 -> 28 [label="Control Dep"];
+21 -> 32 [label="Control Dep"];
+22 -> 43 [label="Define-Use"];
+30 -> 29 [label="AST"];
+30 -> 28 [label="AST"];
+31 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 61 [label="Action"];
+31 -> 64 [label="Action"];
+33 -> 24 [label="AST"];
+33 -> 25 [label="AST"];
+33 -> 23 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 63 [label="Action"];
+34 -> 22 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 21 [label="AST"];
+36 -> 35 [label="AST"];
+41 -> 46 [label="Data Dep"];
+42 -> 46 [label="Data Dep"];
+43 -> 46 [label="Data Dep"];
+44 -> 46 [label="Data Dep"];
+45 -> 39 [label="AST"];
+45 -> 40 [label="AST"];
+45 -> 38 [label="AST"];
+45 -> 41 [label="AST"];
+45 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 56 [label="Define-Use"];
+47 -> 46 [label="AST"];
+47 -> 37 [label="AST"];
+47 -> 45 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 50 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+57 -> 54 [label="AST"];
+58 -> 49 [label="AST"];
+58 -> 52 [label="AST"];
+58 -> 48 [label="AST"];
+58 -> 53 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 18 [label="AST"];
+59 -> 36 [label="AST"];
+59 -> 47 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 1 [label="AST"];
+60 -> 0 [label="AST"];
+60 -> 2 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 62 [label="Action"];
+64 -> 34 [label="Action"];
+}

@@ -1,0 +1,27 @@
+digraph "testXml#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testXml" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectOutputContaining(java.lang.String,java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectOutputContaining" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"xml\"" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"<Package>java.lang</Package>\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@expectOutputContaining(\"xml\", \"<Package>java.lang</Package>\")" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    expectOutputContaining(\"xml\", \"<Package>java.lang</Package>\");
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void testXml() \{
+    expectOutputContaining(\"xml\", \"<Package>java.lang</Package>\");
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtLiteralImpl@\"<DependsUpon>\"" shape=ellipse]
+5 -> 9 [label="Action"];
+6 -> 3 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 10 [label="Action"];
+}

@@ -1,0 +1,44 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1441/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1441/0/after.java
+@@ -17,40 +17,1 @@
+-      if (System.getProperty("java.vendor").toLowerCase().indexOf("microsoft") >= 0) {
+-        FileSet msZipFiles = new FileSet();
+-        msZipFiles.setDir(
+-            new File((System.getProperty("java.home") + File.separator) + "Packages"));
+-        msZipFiles.setIncludes("*.ZIP");
+-        classpath.addFileset(msZipFiles);
+-      } else if (Project.getJavaVersion() == Project.JAVA_1_1) {
+-        classpath.addExisting(
+-            new Path(
+-                null,
+-                (((System.getProperty("java.home") + File.separator) + "lib") + File.separator)
+-                    + "classes.zip"));
+-      } else {
+-        classpath.addExisting(
+-            new Path(
+-                null,
+-                (((System.getProperty("java.home") + File.separator) + "lib") + File.separator)
+-                    + "rt.jar"));
+-        classpath.addExisting(
+-            new Path(
+-                null,
+-                (((((System.getProperty("java.home") + File.separator) + "jre") + File.separator)
+-                            + "lib")
+-                        + File.separator)
+-                    + "rt.jar"));
+-        classpath.addExisting(
+-            new Path(
+-                null,
+-                (((((System.getProperty("java.home") + File.separator) + "..") + File.separator)
+-                            + "Classes")
+-                        + File.separator)
+-                    + "classes.jar"));
+-        classpath.addExisting(
+-            new Path(
+-                null,
+-                (((((System.getProperty("java.home") + File.separator) + "..") + File.separator)
+-                            + "Classes")
+-                        + File.separator)
+-                    + "ui.jar"));
+-      }
++      classpath.addJavaRuntime();

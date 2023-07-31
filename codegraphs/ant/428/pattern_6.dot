@@ -1,0 +1,102 @@
+digraph "Pattern" {
+0 [label="execute#?#21:DELETE
+execute#?#20:DELETE" shape=ellipse]
+1 [label="execute#?#21: catch (IOException e) \{
+    throw new TaskException(\"Failed to execute JProbe Coverage.\", e);
+\}
+execute#?#20: catch (IOException e) \{
+    throw new TaskException(\"Failed to run JProbe Coverage Merge: \" + e);
+\}" shape=ellipse]
+2 [label="execute#?#10:try \{
+    cmdl.setExecutable(new File(m_home, \"jplauncher\").getAbsolutePath());
+    cmdl.addArgument(\"-jp_input=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage failed (\" + exitValue) + \")\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to execute JProbe Coverage.\", e);
+\} finally \{
+    if ((m_inputFile == null) && (paramfile != null)) \{
+        paramfile.delete();
+    \}
+\}
+execute#?#5:try \{
+    Commandline cmdl = new Commandline();
+    cmdl.setExecutable(new File(home, \"jpcovmerge\").getAbsolutePath());
+    if (verbose) \{
+        cmdl.addArgument(\"-v\");
+    \}
+    cmdl.addArgument(\"-jp_paramfile=\" + paramfile.getAbsolutePath());
+    final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+    final Execute exe = new Execute(execManager);
+    getContext().debug(cmdl.toString());
+    exe.setCommandline(cmdl);
+    int exitValue = exe.execute();
+    if (exitValue != 0) \{
+        throw new TaskException((\"JProbe Coverage Merging failed (\" + exitValue) + \")\");
+    \}
+\} catch (IOException e) \{
+    throw new TaskException(\"Failed to run JProbe Coverage Merge: \" + e);
+\} finally \{
+    paramfile.delete();
+\}" shape=ellipse]
+3 [label="execute#?#15:MOVE
+execute#?#14:MOVE" shape=ellipse]
+4 [label="execute#?#15:INSERT
+execute#?#14:INSERT" shape=ellipse]
+5 [label="execute#?#21:IOException e
+execute#?#20:IOException e" shape=ellipse]
+6 [label="execute#?#21:e
+execute#?#20:e" shape=ellipse]
+7 [label="execute#?#21:IOException
+execute#?#20:IOException" shape=ellipse]
+8 [label="execute#?#21:\{
+    throw new TaskException(\"Failed to execute JProbe Coverage.\", e);
+\}
+execute#?#20:\{
+    throw new TaskException(\"Failed to run JProbe Coverage Merge: \" + e);
+\}" shape=ellipse]
+9 [label="execute#?#22:throw new TaskException(\"Failed to execute JProbe Coverage.\", e)
+execute#?#21:throw new TaskException(\"Failed to run JProbe Coverage Merge: \" + e)" shape=ellipse]
+10 [label="execute#?#22:new TaskException(\"Failed to execute JProbe Coverage.\", e)
+execute#?#21:new TaskException(\"Failed to run JProbe Coverage Merge: \" + e)" shape=ellipse]
+11 [label="execute#?#-1:TaskException()
+execute#?#-1:TaskException()" shape=ellipse]
+12 [label="execute#?#22:\"Failed to execute JProbe Coverage.\"" shape=ellipse]
+13 [label="execute#?#22:e" shape=ellipse]
+14 [label="execute#?#21:\"Failed to run JProbe Coverage Merge: \"" shape=ellipse]
+15 [label="execute#?#21:e" shape=ellipse]
+16 [label="execute#?#21:\"Failed to run JProbe Coverage Merge: \" + e" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="Action:2"];
+3 -> 2 [label="Action:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="Control Dep:2"];
+5 -> 9 [label="Control Dep:2"];
+5 -> 10 [label="Control Dep:2"];
+5 -> 11 [label="Control Dep:2"];
+5 -> 12 [label="Control Dep:1"];
+5 -> 13 [label="Control Dep:1"];
+5 -> 14 [label="Control Dep:1"];
+5 -> 15 [label="Control Dep:1"];
+5 -> 16 [label="Control Dep:1"];
+6 -> 13 [label="Define Use:1"];
+6 -> 15 [label="Define Use:1"];
+8 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:1"];
+10 -> 13 [label="AST:1"];
+10 -> 16 [label="AST:1"];
+16 -> 14 [label="AST:1"];
+16 -> 15 [label="AST:1"];
+}

@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="testClassNotFound#?#2:INSERT
+test4#?#2:INSERT" shape=ellipse]
+1 [label="testClassNotFound#?#2:public void testClassNotFound() \{
+    expectBuildException(\"classNotFound\", \"classname specified doesn't exist\");
+\}
+test4#?#2:public void test4() \{
+    expectBuildException(\"test4\", \"classname specified doesn't exist\");
+\}" shape=ellipse]
+2 [label="testClassNotFound#?#2:testClassNotFound
+test4#?#2:test4" shape=ellipse]
+3 [label="testClassNotFound#?#2:void
+test4#?#2:void" shape=ellipse]
+4 [label="testClassNotFound#?#2:\{
+    expectBuildException(\"classNotFound\", \"classname specified doesn't exist\");
+\}
+test4#?#2:\{
+    expectBuildException(\"test4\", \"classname specified doesn't exist\");
+\}" shape=ellipse]
+5 [label="testClassNotFound#?#3:expectBuildException(\"classNotFound\", \"classname specified doesn't exist\")
+test4#?#3:expectBuildException(\"test4\", \"classname specified doesn't exist\")" shape=ellipse]
+6 [label="testClassNotFound#?#2:public
+test4#?#2:public" shape=ellipse]
+7 [label="testClassNotFound#?#2:VE: Modifiers_Method
+test4#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testClassNotFound#?#4:INSERT
+test4#?#4:INSERT" shape=ellipse]
+9 [label="testClassNotFound#?#4:try \{
+    buildRule.executeTarget(\"classNotFound\");
+    fail(\"BuildException expected: classname specified doesn't exist\");
+\} catch (BuildException ex) \{
+\}
+test4#?#4:try \{
+    buildRule.executeTarget(\"test4\");
+    fail(\"BuildException expected: classname specified doesn't exist\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+10 [label="testClassNotFound#?#2:@Test
+test4#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

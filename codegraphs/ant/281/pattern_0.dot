@@ -1,0 +1,97 @@
+digraph "Pattern" {
+0 [label="testException#?#3:DELETE
+testNoDuplicateSchema#?#3:DELETE
+testNoName#?#3:DELETE" shape=ellipse]
+1 [label="testException#?#3:expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\")
+testNoDuplicateSchema#?#3:expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA)
+testNoName#?#3:expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\")" shape=ellipse]
+2 [label="testException#?#2:\{
+    expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\");
+\}
+testNoDuplicateSchema#?#2:\{
+    expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA);
+\}
+testNoName#?#2:\{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+3 [label="testException#?#2:public void testException() \{
+    expectBuildExceptionContaining(\"exception\", \"Should have thrown an exception in the script\", \"TypeError\");
+\}
+testNoDuplicateSchema#?#2:public void testNoDuplicateSchema() throws Exception \{
+    expectBuildExceptionContaining(\"testNoDuplicateSchema\", \"duplicate schemas with different values\", ERROR_DUPLICATE_SCHEMA);
+\}
+testNoName#?#2:public void testNoName() \{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+4 [label="testException#?#3:expectBuildExceptionContaining
+testNoDuplicateSchema#?#3:expectBuildExceptionContaining
+testNoName#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testException#?#-1:
+testNoDuplicateSchema#?#-1:
+testNoName#?#-1:" shape=ellipse]
+6 [label="testException#?#-1:PlaceHold
+testNoDuplicateSchema#?#-1:PlaceHold
+testNoName#?#-1:PlaceHold" shape=ellipse]
+7 [label="testException#?#-1:PlaceHold
+testNoDuplicateSchema#?#-1:PlaceHold
+testNoName#?#-1:PlaceHold" shape=ellipse]
+8 [label="testException#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoDuplicateSchema#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,<unknown>)
+testNoName#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:String
+testNoName#?#-1:String" shape=ellipse]
+10 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:String
+testNoName#?#-1:String" shape=ellipse]
+11 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:null
+testNoName#?#-1:String" shape=ellipse]
+12 [label="testException#?#4:\"exception\"
+testNoDuplicateSchema#?#4:\"testNoDuplicateSchema\"
+testNoName#?#4:\"Absence of name attribute not detected\"" shape=ellipse]
+13 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:String
+testNoName#?#-1:String" shape=ellipse]
+14 [label="testException#?#4:\"Should have thrown an exception in the script\"
+testNoDuplicateSchema#?#4:\"duplicate schemas with different values\"
+testNoName#?#4:\"scriptdef requires a name attribute\"" shape=ellipse]
+15 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:String
+testNoName#?#-1:String" shape=ellipse]
+16 [label="testException#?#4:MOVE
+testNoDuplicateSchema#?#4:MOVE
+testNoName#?#4:MOVE" shape=ellipse]
+17 [label="testException#?#4:\"TypeError\"
+testNoName#?#4:\"noname\"" shape=ellipse]
+18 [label="testException#?#-1:String
+testNoDuplicateSchema#?#-1:ERROR_DUPLICATE_SCHEMA
+testNoName#?#-1:String" shape=ellipse]
+19 [label="testException#?#4:MOVE
+testNoDuplicateSchema#?#4:MOVE" shape=ellipse]
+20 [label="testNoDuplicateSchema#?#4:ERROR_DUPLICATE_SCHEMA" shape=ellipse]
+21 [label="testNoName#?#4:MOVE" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 12 [label="AST:3"];
+1 -> 14 [label="AST:3"];
+1 -> 17 [label="AST:2"];
+1 -> 20 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+8 -> 11 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+12 -> 21 [label="Action:1"];
+14 -> 15 [label="AST:3"];
+14 -> 16 [label="Action:3"];
+17 -> 18 [label="AST:2"];
+17 -> 19 [label="Action:1"];
+20 -> 18 [label="AST:1"];
+20 -> 19 [label="Action:1"];
+}

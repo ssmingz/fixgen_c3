@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1448/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1448/1/after.java
+@@ -5,0 +5,2 @@
++      Display display = this.display;
++      display.captureChanged = false;
+@@ -27,2 +29,4 @@
+-      if (OS.GetCapture() != handle) {
+-        OS.SetCapture(handle);
++      if ((!display.captureChanged) && (!isDisposed())) {
++        if (OS.GetCapture() != handle) {
++          OS.SetCapture(handle);
++        }

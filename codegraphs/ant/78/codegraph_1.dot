@@ -1,0 +1,63 @@
+digraph "fireMessageLogged#?,Target,String,int" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@fireMessageLogged" shape=ellipse]
+2 [label="2:CtParameterImpl@Target target" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Target" shape=ellipse]
+4 [label="2:CtParameterImpl@String message" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="2:CtParameterImpl@int priority" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@BuildEvent" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@BuildEvent" shape=ellipse]
+10 [label="3:CtVariableReadImpl@target" shape=ellipse]
+11 [label="3:CtConstructorCallImpl@new BuildEvent(target)" shape=ellipse]
+12 [label="3:CtVirtualElement@event" shape=ellipse]
+13 [label="3:CtLocalVariableImpl@BuildEvent event = new BuildEvent(target)" shape=ellipse]
+14 [label="4:CtExecutableReferenceImpl@fireMessageLoggedEvent(<unknown>,java.lang.String,int)" shape=ellipse]
+15 [label="4:CtVirtualElement@fireMessageLoggedEvent" shape=ellipse]
+16 [label="4:CtVariableReadImpl@event" shape=ellipse]
+17 [label="4:CtVariableReadImpl@message" shape=ellipse]
+18 [label="4:CtVariableReadImpl@priority" shape=ellipse]
+19 [label="4:CtInvocationImpl@fireMessageLoggedEvent(event, message, priority)" shape=ellipse]
+20 [label="2:CtBlockImpl@\{
+    BuildEvent event = new BuildEvent(target);
+    fireMessageLoggedEvent(event, message, priority);
+\}" shape=ellipse]
+21 [label="2:CtMethodImpl@protected void fireMessageLogged(Target target, String message, int priority) \{
+    BuildEvent event = new BuildEvent(target);
+    fireMessageLoggedEvent(event, message, priority);
+\}" shape=ellipse]
+22 [label="4:Update@UPDATE" shape=ellipse]
+23 [label="3:CtInvocationImpl@fireMessageLogged(target, message, null, priority)" shape=ellipse]
+24 [label="4:Update@UPDATE" shape=ellipse]
+25 [label="3:CtVariableReadImpl@target" shape=ellipse]
+26 [label="3:Delete@DELETE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+10 -> 12 [label="Data Dep"];
+11 -> 10 [label="AST"];
+12 -> 16 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 26 [label="Action"];
+16 -> 24 [label="Action"];
+19 -> 15 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 16 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 22 [label="Action"];
+20 -> 13 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 1 [label="AST"];
+21 -> 0 [label="AST"];
+21 -> 2 [label="AST"];
+21 -> 4 [label="AST"];
+21 -> 6 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 23 [label="Action"];
+23 -> 25 [label="AST"];
+24 -> 25 [label="Action"];
+}

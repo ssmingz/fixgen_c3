@@ -1,0 +1,93 @@
+digraph "Pattern" {
+0 [label="zipFile#?,File,ZipOutputStream,String#4:INSERT
+zipFile#?,File,GZIPOutputStream#4:INSERT" shape=ellipse]
+1 [label="zipFile#?,File,ZipOutputStream,String#2:protected void zipFile(File file, ZipOutputStream zOut, String vPath) throws IOException \{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut, vPath, file.lastModified());
+    fIn.close();
+\}
+zipFile#?,File,GZIPOutputStream#2:private void zipFile(File file, GZIPOutputStream zOut) throws IOException \{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut);
+    fIn.close();
+\}" shape=ellipse]
+2 [label="zipFile#?,File,ZipOutputStream,String#2:zipFile
+zipFile#?,File,GZIPOutputStream#2:zipFile" shape=ellipse]
+3 [label="zipFile#?,File,ZipOutputStream,String#2:void
+zipFile#?,File,GZIPOutputStream#2:void" shape=ellipse]
+4 [label="zipFile#?,File,ZipOutputStream,String#2:File file
+zipFile#?,File,GZIPOutputStream#2:File file" shape=ellipse]
+5 [label="zipFile#?,File,ZipOutputStream,String#2:File
+zipFile#?,File,GZIPOutputStream#2:File" shape=ellipse]
+6 [label="zipFile#?,File,ZipOutputStream,String#2:ZipOutputStream zOut
+zipFile#?,File,GZIPOutputStream#2:GZIPOutputStream zOut" shape=ellipse]
+7 [label="zipFile#?,File,ZipOutputStream,String#2:ZipOutputStream
+zipFile#?,File,GZIPOutputStream#2:GZIPOutputStream" shape=ellipse]
+8 [label="zipFile#?,File,ZipOutputStream,String#2:String vPath" shape=ellipse]
+9 [label="zipFile#?,File,ZipOutputStream,String#2:String
+zipFile#?,File,GZIPOutputStream#-1:" shape=ellipse]
+10 [label="zipFile#?,File,ZipOutputStream,String#2:IOException" shape=ellipse]
+11 [label="zipFile#?,File,ZipOutputStream,String#-1:" shape=ellipse]
+12 [label="zipFile#?,File,ZipOutputStream,String#2:\{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut, vPath, file.lastModified());
+    fIn.close();
+\}
+zipFile#?,File,GZIPOutputStream#2:\{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut);
+    fIn.close();
+\}" shape=ellipse]
+13 [label="zipFile#?,File,ZipOutputStream,String#3:FileInputStream fIn = new FileInputStream(file)
+zipFile#?,File,GZIPOutputStream#3:FileInputStream fIn = new FileInputStream(file)" shape=ellipse]
+14 [label="zipFile#?,File,ZipOutputStream,String#4:zipFile(fIn, zOut, vPath, file.lastModified())
+zipFile#?,File,GZIPOutputStream#4:zipFile(fIn, zOut)" shape=ellipse]
+15 [label="zipFile#?,File,ZipOutputStream,String#5:fIn.close()
+zipFile#?,File,GZIPOutputStream#5:fIn.close()" shape=ellipse]
+16 [label="zipFile#?,File,ZipOutputStream,String#2:VE: Modifiers_Method
+zipFile#?,File,GZIPOutputStream#2:VE: Modifiers_Method" shape=ellipse]
+17 [label="zipFile#?,File,ZipOutputStream,String#2:VE: ThrownTypes_zipFile
+zipFile#?,File,GZIPOutputStream#2:VE: ThrownTypes_zipFile" shape=ellipse]
+18 [label="zipFile#?,File,ZipOutputStream,String#2:protected
+zipFile#?,File,GZIPOutputStream#2:private" shape=ellipse]
+19 [label="zipFile#?,File,ZipOutputStream,String#4:try \{
+    zipFile(fIn, zOut, vPath, file.lastModified());
+\} finally \{
+    fIn.close();
+\}
+zipFile#?,File,GZIPOutputStream#4:try \{
+    zipFile(fIn, zOut);
+\} finally \{
+    fIn.close();
+\}" shape=ellipse]
+20 [label="zipFile#?,File,ZipOutputStream,String#4:MOVE
+zipFile#?,File,GZIPOutputStream#4:MOVE" shape=ellipse]
+21 [label="zipFile#?,File,ZipOutputStream,String#5:MOVE
+zipFile#?,File,GZIPOutputStream#5:MOVE" shape=ellipse]
+22 [label="zipFile#?,File,GZIPOutputStream#2:IOException" shape=ellipse]
+0 -> 19 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:1"];
+1 -> 10 [label="AST:1"];
+1 -> 12 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 22 [label="AST:1"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+14 -> 20 [label="Action:2"];
+15 -> 21 [label="Action:2"];
+20 -> 19 [label="Action:2"];
+21 -> 19 [label="Action:2"];
+22 -> 9 [label="AST:1"];
+}

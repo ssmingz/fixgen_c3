@@ -1,0 +1,66 @@
+digraph "Pattern" {
+0 [label="testSubant#?#2:INSERT
+testAnt#?#2:INSERT" shape=ellipse]
+1 [label="testSubant#?#2:public void testSubant() \{
+    try \{
+        configureProject(\"src/etc/testcases/taskdefs/toplevelsubant.xml\");
+        fail(\"no exception thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"subant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+    \}
+\}
+testAnt#?#2:public void testAnt() \{
+    try \{
+        configureProject(\"src/etc/testcases/taskdefs/toplevelant.xml\");
+        fail(\"no exception thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"ant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+    \}
+\}" shape=ellipse]
+2 [label="testSubant#?#2:testSubant
+testAnt#?#2:testAnt" shape=ellipse]
+3 [label="testSubant#?#2:void
+testAnt#?#2:void" shape=ellipse]
+4 [label="testSubant#?#2:\{
+    try \{
+        configureProject(\"src/etc/testcases/taskdefs/toplevelsubant.xml\");
+        fail(\"no exception thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"subant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+    \}
+\}
+testAnt#?#2:\{
+    try \{
+        configureProject(\"src/etc/testcases/taskdefs/toplevelant.xml\");
+        fail(\"no exception thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"ant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+    \}
+\}" shape=ellipse]
+5 [label="testSubant#?#3:try \{
+    configureProject(\"src/etc/testcases/taskdefs/toplevelsubant.xml\");
+    fail(\"no exception thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"subant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+\}
+testAnt#?#3:try \{
+    configureProject(\"src/etc/testcases/taskdefs/toplevelant.xml\");
+    fail(\"no exception thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"ant task at the top level must not invoke its own\" + \" build file.\", e.getMessage());
+\}" shape=ellipse]
+6 [label="testSubant#?#2:public
+testAnt#?#2:public" shape=ellipse]
+7 [label="testSubant#?#2:VE: Modifiers_Method
+testAnt#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testSubant#?#2:@Test
+testAnt#?#2:@Test" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+}

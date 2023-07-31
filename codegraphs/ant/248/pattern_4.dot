@@ -1,0 +1,16 @@
+digraph "Pattern" {
+0 [label="testFilterReaderHeadLinesSkip#?#5:DELETE
+testFilterReaderTailLinesSkip#?#5:DELETE" shape=ellipse]
+1 [label="testFilterReaderHeadLinesSkip#?#5:FILE_UTILS
+testFilterReaderTailLinesSkip#?#5:FILE_UTILS" shape=ellipse]
+2 [label="testFilterReaderHeadLinesSkip#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.headLinesSkip.test\")
+testFilterReaderTailLinesSkip#?#5:FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLinesSkip.test\")" shape=ellipse]
+3 [label="testFilterReaderHeadLinesSkip#?#5:MOVE
+testFilterReaderTailLinesSkip#?#5:MOVE" shape=ellipse]
+4 [label="testFilterReaderHeadLinesSkip#?#-1:FILE_UTILS
+testFilterReaderTailLinesSkip#?#-1:FILE_UTILS" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="Action:2"];
+}

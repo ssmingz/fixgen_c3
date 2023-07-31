@@ -1,0 +1,37 @@
+digraph "logStarteamVersion#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@logStarteamVersion" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+3 [label="3:CtVirtualElement@log" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"StarTeam version: \"" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getDisplayString()" shape=ellipse]
+6 [label="3:CtVirtualElement@getDisplayString" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@BuildNumber" shape=ellipse]
+8 [label="3:CtInvocationImpl@BuildNumber.getDisplayString()" shape=ellipse]
+9 [label="3:CtBinaryOperatorImpl@\"StarTeam version: \" + BuildNumber.getDisplayString()" shape=ellipse]
+10 [label="3:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+11 [label="3:CtInvocationImpl@log(\"StarTeam version: \" + BuildNumber.getDisplayString(), MSG_DEBUG)" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    log(\"StarTeam version: \" + BuildNumber.getDisplayString(), MSG_DEBUG);
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@private void logStarteamVersion() \{
+    log(\"StarTeam version: \" + BuildNumber.getDisplayString(), MSG_DEBUG);
+\}" shape=ellipse]
+14 [label="3:Update@UPDATE" shape=ellipse]
+15 [label="3:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 5 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 14 [label="Action"];
+11 -> 3 [label="AST"];
+11 -> 2 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 1 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 15 [label="Action"];
+}

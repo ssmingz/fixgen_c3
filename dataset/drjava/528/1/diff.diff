@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/528/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/528/1/after.java
+@@ -3,2 +3,6 @@
+-    assert EventQueue.isDispatchThread();
+-    _junitErrorPanel.getErrorListPane().testStarted(name);
++    Utilities.invokeLater(
++        new Runnable() {
++          public void run() {
++            _junitErrorPanel.getErrorListPane().testStarted(name);
++          }
++        });

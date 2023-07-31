@@ -1,0 +1,92 @@
+digraph "Pattern" {
+0 [label="testTail#?#7:MOVE
+testTailSkip#?#8:MOVE
+testTailLines#?#8:MOVE
+testTailLinesSkip#?#8:MOVE
+testHead#?#7:MOVE
+testHeadSkip#?#8:MOVE" shape=ellipse]
+1 [label="testTail#?#7:result
+testTailSkip#?#8:result
+testTailLines#?#8:result
+testTailLinesSkip#?#8:result
+testHead#?#7:result
+testHeadSkip#?#8:result" shape=ellipse]
+2 [label="testTail#?#6:result
+testTailSkip#?#6:result
+testTailLines#?#6:result
+testTailLinesSkip#?#6:result
+testHead#?#6:result
+testHeadSkip#?#6:result" shape=ellipse]
+3 [label="testTail#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tail.test\")
+testTailSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailSkip.test\")
+testTailLines#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLines.test\")
+testTailLinesSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLinesSkip.test\")
+testHead#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.head.test\")
+testHeadSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.headSkip.test\")" shape=ellipse]
+4 [label="testTail#?#-1:
+testTailSkip#?#-1:
+testTailLines#?#-1:
+testTailLinesSkip#?#-1:
+testHead#?#-1:
+testHeadSkip#?#-1:" shape=ellipse]
+5 [label="testTail#?#7:FILE_UTILS.contentEquals(expected, result)
+testTailSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLines#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLinesSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testHead#?#7:FILE_UTILS.contentEquals(expected, result)
+testHeadSkip#?#8:FILE_UTILS.contentEquals(expected, result)" shape=ellipse]
+6 [label="testTail#?#7:assertTrue(\"testTail: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailSkip#?#7:assertTrue(\"testTailSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLines#?#7:assertTrue(\"testTailLines: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLinesSkip#?#7:assertTrue(\"testTailLinesSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHead#?#7:assertTrue(\"testHead: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHeadSkip#?#7:assertTrue(\"testHeadSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))" shape=ellipse]
+7 [label="testTail#?#7:contentEquals
+testTailSkip#?#8:contentEquals
+testTailLines#?#8:contentEquals
+testTailLinesSkip#?#8:contentEquals
+testHead#?#7:contentEquals
+testHeadSkip#?#8:contentEquals" shape=ellipse]
+8 [label="testTail#?#7:FILE_UTILS
+testTailSkip#?#8:FILE_UTILS
+testTailLines#?#8:FILE_UTILS
+testTailLinesSkip#?#8:FILE_UTILS
+testHead#?#7:FILE_UTILS
+testHeadSkip#?#8:FILE_UTILS" shape=ellipse]
+9 [label="testTail#?#7:contentEquals(File,File)
+testTailSkip#?#8:contentEquals(File,File)
+testTailLines#?#8:contentEquals(File,File)
+testTailLinesSkip#?#8:contentEquals(File,File)
+testHead#?#7:contentEquals(File,File)
+testHeadSkip#?#8:contentEquals(File,File)" shape=ellipse]
+10 [label="testTail#?#7:expected
+testTailSkip#?#8:expected
+testTailLines#?#8:expected
+testTailLinesSkip#?#8:expected
+testHead#?#7:expected
+testHeadSkip#?#8:expected" shape=ellipse]
+11 [label="testTail#?#-1:result
+testTailSkip#?#-1:result
+testTailLines#?#-1:result
+testTailLinesSkip#?#-1:result
+testHead#?#-1:result
+testHeadSkip#?#-1:result" shape=ellipse]
+12 [label="testTail#?#10:FileUtilities.getFileContents(result)
+testTailSkip#?#11:FileUtilities.getFileContents(result)
+testTailLines#?#11:FileUtilities.getFileContents(result)
+testTailLinesSkip#?#11:FileUtilities.getFileContents(result)
+testHead#?#10:FileUtilities.getFileContents(result)
+testHeadSkip#?#11:FileUtilities.getFileContents(result)" shape=ellipse]
+0 -> 12 [label="Action:6"];
+1 -> 0 [label="Action:6"];
+1 -> 11 [label="AST:6"];
+2 -> 1 [label="Define Use:6"];
+3 -> 2 [label="AST:6"];
+4 -> 2 [label="Data Dep:6"];
+5 -> 1 [label="AST:6"];
+5 -> 7 [label="AST:6"];
+5 -> 8 [label="AST:6"];
+5 -> 9 [label="AST:6"];
+5 -> 10 [label="AST:6"];
+6 -> 5 [label="AST:6"];
+}

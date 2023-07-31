@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1583/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1583/2/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,5 +4,4 @@
+-    executeTarget("testEscapeUnicode");
+-    File expected =
+-        FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/escapeunicode.test");
+-    File result = new File(getProject().getProperty("output"), "escapeunicode.test");
+-    assertTrue(FILE_UTILS.contentEquals(expected, result));
++    buildRule.executeTarget("testEscapeUnicode");
++    File expected = buildRule.getProject().resolveFile("expected/escapeunicode.test");
++    File result = new File(buildRule.getProject().getProperty("output"), "escapeunicode.test");
++    assertEquals(FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result));

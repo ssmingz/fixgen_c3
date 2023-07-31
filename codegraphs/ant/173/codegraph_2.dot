@@ -1,0 +1,64 @@
+digraph "eval#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@eval" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@property" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@property == null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@TaskException" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"No property specified for isset condition\"" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new TaskException(\"No property specified for isset condition\")" shape=ellipse]
+9 [label="4:CtThrowImpl@throw new TaskException(\"No property specified for isset condition\")" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    throw new TaskException(\"No property specified for isset condition\");
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (property == null) \{
+    throw new TaskException(\"No property specified for isset condition\");
+\}" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@getProperty(<unknown>)" shape=ellipse]
+13 [label="6:CtVirtualElement@getProperty" shape=ellipse]
+14 [label="6:CtFieldReadImpl@property" shape=ellipse]
+15 [label="6:CtInvocationImpl@getProperty(property)" shape=ellipse]
+16 [label="6:CtLiteralImpl@null" shape=ellipse]
+17 [label="6:CtBinaryOperatorImpl@getProperty(property) != null" shape=ellipse]
+18 [label="6:CtReturnImpl@return getProperty(property) != null" shape=ellipse]
+19 [label="2:CtBlockImpl@\{
+    if (property == null) \{
+        throw new TaskException(\"No property specified for isset condition\");
+    \}
+    return getProperty(property) != null;
+\}" shape=ellipse]
+20 [label="2:CtMethodImpl@public boolean eval() throws TaskException \{
+    if (property == null) \{
+        throw new TaskException(\"No property specified for isset condition\");
+    \}
+    return getProperty(property) != null;
+\}" shape=ellipse]
+21 [label="6:Insert@INSERT" shape=ellipse]
+22 [label="6:CtInvocationImpl@getContext()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 10 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 21 [label="Action"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 11 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 1 [label="AST"];
+20 -> 0 [label="AST"];
+20 -> 2 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 22 [label="Action"];
+}

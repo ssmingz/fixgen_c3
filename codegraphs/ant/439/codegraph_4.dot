@@ -1,0 +1,357 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@counter" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@(counter == null)" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@length()" shape=ellipse]
+7 [label="3:CtVirtualElement@length" shape=ellipse]
+8 [label="3:CtFieldReadImpl@counter" shape=ellipse]
+9 [label="3:CtInvocationImpl@counter.length()" shape=ellipse]
+10 [label="3:CtLiteralImpl@0" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@(counter.length() == 0)" shape=ellipse]
+12 [label="3:CtBinaryOperatorImpl@(counter == null) || (counter.length() == 0)" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+14 [label="4:CtLiteralImpl@\"No counter specified to retrieve\"" shape=ellipse]
+15 [label="4:CtConstructorCallImpl@new BuildException(\"No counter specified to retrieve\")" shape=ellipse]
+16 [label="4:CtThrowImpl@throw new BuildException(\"No counter specified to retrieve\")" shape=ellipse]
+17 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"No counter specified to retrieve\");
+\}" shape=ellipse]
+18 [label="3:CtIfImpl@if ((counter == null) || (counter.length() == 0)) \{
+    throw new BuildException(\"No counter specified to retrieve\");
+\}" shape=ellipse]
+19 [label="6:CtFieldReadImpl@shouldSetValue" shape=ellipse]
+20 [label="6:CtFieldReadImpl@shouldSetProperty" shape=ellipse]
+21 [label="6:CtBinaryOperatorImpl@shouldSetValue && shouldSetProperty" shape=ellipse]
+22 [label="7:CtTypeReferenceImpl@BuildException" shape=ellipse]
+23 [label="8:CtLiteralImpl@\"Cannot both set the value of the property and retrieve the value of the property.\"" shape=ellipse]
+24 [label="7:CtConstructorCallImpl@new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\")" shape=ellipse]
+25 [label="7:CtThrowImpl@throw new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\")" shape=ellipse]
+26 [label="6:CtBlockImpl@\{
+    throw new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\");
+\}" shape=ellipse]
+27 [label="6:CtIfImpl@if (shouldSetValue && shouldSetProperty) \{
+    throw new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\");
+\}" shape=ellipse]
+28 [label="10:CtTypeReferenceImpl@String" shape=ellipse]
+29 [label="10:CtLiteralImpl@\"counter \"" shape=ellipse]
+30 [label="10:CtFieldReadImpl@P4CmdOpts" shape=ellipse]
+31 [label="10:CtBinaryOperatorImpl@(\"counter \" + P4CmdOpts)" shape=ellipse]
+32 [label="10:CtLiteralImpl@\" \"" shape=ellipse]
+33 [label="10:CtBinaryOperatorImpl@((\"counter \" + P4CmdOpts) + \" \")" shape=ellipse]
+34 [label="10:CtFieldReadImpl@counter" shape=ellipse]
+35 [label="10:CtBinaryOperatorImpl@((\"counter \" + P4CmdOpts) + \" \") + counter" shape=ellipse]
+36 [label="10:CtVirtualElement@command" shape=ellipse]
+37 [label="10:CtLocalVariableImpl@String command = ((\"counter \" + P4CmdOpts) + \" \") + counter" shape=ellipse]
+38 [label="11:CtFieldReadImpl@shouldSetProperty" shape=ellipse]
+39 [label="11:CtUnaryOperatorImpl@!shouldSetProperty" shape=ellipse]
+40 [label="12:CtVariableWriteImpl@command" shape=ellipse]
+41 [label="12:CtLiteralImpl@\"-s \"" shape=ellipse]
+42 [label="12:CtVariableReadImpl@command" shape=ellipse]
+43 [label="12:CtBinaryOperatorImpl@\"-s \" + command" shape=ellipse]
+44 [label="12:CtAssignmentImpl@command = \"-s \" + command" shape=ellipse]
+45 [label="11:CtBlockImpl@\{
+    command = \"-s \" + command;
+\}" shape=ellipse]
+46 [label="11:CtIfImpl@if (!shouldSetProperty) \{
+    command = \"-s \" + command;
+\}" shape=ellipse]
+47 [label="14:CtFieldReadImpl@shouldSetValue" shape=ellipse]
+48 [label="15:CtVariableWriteImpl@command" shape=ellipse]
+49 [label="15:CtLiteralImpl@\" \"" shape=ellipse]
+50 [label="15:CtFieldReadImpl@value" shape=ellipse]
+51 [label="15:CtBinaryOperatorImpl@\" \" + value" shape=ellipse]
+52 [label="15:CtOperatorAssignmentImpl@command += \" \" + value" shape=ellipse]
+53 [label="14:CtBlockImpl@\{
+    command += \" \" + value;
+\}" shape=ellipse]
+54 [label="14:CtIfImpl@if (shouldSetValue) \{
+    command += \" \" + value;
+\}" shape=ellipse]
+55 [label="17:CtFieldReadImpl@shouldSetProperty" shape=ellipse]
+56 [label="18:CtTypeReferenceImpl@Project" shape=ellipse]
+57 [label="18:CtFieldReadImpl@project" shape=ellipse]
+58 [label="18:CtVirtualElement@myProj" shape=ellipse]
+59 [label="18:CtLocalVariableImpl@final Project myProj = project" shape=ellipse]
+60 [label="19:CtTypeReferenceImpl@P4Handler" shape=ellipse]
+61 [label="20:CtTypeReferenceImpl@P4HandlerAdapter" shape=ellipse]
+62 [label="20:CtNewClassImpl@new P4HandlerAdapter() \{
+    public void process(String line) \{
+        log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+        try \{
+            value = Integer.parseInt(line);
+            myProj.setProperty(property, \"\" + value);
+        \} catch (NumberFormatException nfe) \{
+            throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+        \}
+    \}
+\}" shape=ellipse]
+63 [label="20:CtClassImpl@ \{
+    public void process(String line) \{
+        log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+        try \{
+            value = Integer.parseInt(line);
+            myProj.setProperty(property, \"\" + value);
+        \} catch (NumberFormatException nfe) \{
+            throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+        \}
+    \}
+\}" shape=ellipse]
+64 [label="19:CtVirtualElement@handler" shape=ellipse]
+65 [label="19:CtLocalVariableImpl@P4Handler handler = new P4HandlerAdapter() \{
+    public void process(String line) \{
+        log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+        try \{
+            value = Integer.parseInt(line);
+            myProj.setProperty(property, \"\" + value);
+        \} catch (NumberFormatException nfe) \{
+            throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+        \}
+    \}
+\}" shape=ellipse]
+66 [label="31:CtExecutableReferenceImpl@execP4Command(java.lang.String,<unknown>)" shape=ellipse]
+67 [label="31:CtVirtualElement@execP4Command" shape=ellipse]
+68 [label="31:CtVariableReadImpl@command" shape=ellipse]
+69 [label="31:CtVariableReadImpl@handler" shape=ellipse]
+70 [label="31:CtInvocationImpl@execP4Command(command, handler)" shape=ellipse]
+71 [label="17:CtBlockImpl@\{
+    final Project myProj = project;
+    P4Handler handler = new P4HandlerAdapter() \{
+        public void process(String line) \{
+            log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+            try \{
+                value = Integer.parseInt(line);
+                myProj.setProperty(property, \"\" + value);
+            \} catch (NumberFormatException nfe) \{
+                throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+            \}
+        \}
+    \};
+    execP4Command(command, handler);
+\}" shape=ellipse]
+72 [label="33:CtExecutableReferenceImpl@execP4Command(java.lang.String,<unknown>)" shape=ellipse]
+73 [label="33:CtVirtualElement@execP4Command" shape=ellipse]
+74 [label="33:CtVariableReadImpl@command" shape=ellipse]
+75 [label="33:CtTypeReferenceImpl@SimpleP4OutputHandler" shape=ellipse]
+76 [label="33:CtThisAccessImpl@this" shape=ellipse]
+77 [label="33:CtConstructorCallImpl@new SimpleP4OutputHandler(this)" shape=ellipse]
+78 [label="33:CtInvocationImpl@execP4Command(command, new SimpleP4OutputHandler(this))" shape=ellipse]
+79 [label="32:CtBlockImpl@\{
+    execP4Command(command, new SimpleP4OutputHandler(this));
+\}" shape=ellipse]
+80 [label="17:CtIfImpl@if (shouldSetProperty) \{
+    final Project myProj = project;
+    P4Handler handler = new P4HandlerAdapter() \{
+        public void process(String line) \{
+            log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+            try \{
+                value = Integer.parseInt(line);
+                myProj.setProperty(property, \"\" + value);
+            \} catch (NumberFormatException nfe) \{
+                throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+            \}
+        \}
+    \};
+    execP4Command(command, handler);
+\} else \{
+    execP4Command(command, new SimpleP4OutputHandler(this));
+\}" shape=ellipse]
+81 [label="2:CtBlockImpl@\{
+    if ((counter == null) || (counter.length() == 0)) \{
+        throw new BuildException(\"No counter specified to retrieve\");
+    \}
+    if (shouldSetValue && shouldSetProperty) \{
+        throw new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\");
+    \}
+    String command = ((\"counter \" + P4CmdOpts) + \" \") + counter;
+    if (!shouldSetProperty) \{
+        command = \"-s \" + command;
+    \}
+    if (shouldSetValue) \{
+        command += \" \" + value;
+    \}
+    if (shouldSetProperty) \{
+        final Project myProj = project;
+        P4Handler handler = new P4HandlerAdapter() \{
+            public void process(String line) \{
+                log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+                try \{
+                    value = Integer.parseInt(line);
+                    myProj.setProperty(property, \"\" + value);
+                \} catch (NumberFormatException nfe) \{
+                    throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+                \}
+            \}
+        \};
+        execP4Command(command, handler);
+    \} else \{
+        execP4Command(command, new SimpleP4OutputHandler(this));
+    \}
+\}" shape=ellipse]
+82 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    if ((counter == null) || (counter.length() == 0)) \{
+        throw new BuildException(\"No counter specified to retrieve\");
+    \}
+    if (shouldSetValue && shouldSetProperty) \{
+        throw new BuildException(\"Cannot both set the value of the property and retrieve the value of the property.\");
+    \}
+    String command = ((\"counter \" + P4CmdOpts) + \" \") + counter;
+    if (!shouldSetProperty) \{
+        command = \"-s \" + command;
+    \}
+    if (shouldSetValue) \{
+        command += \" \" + value;
+    \}
+    if (shouldSetProperty) \{
+        final Project myProj = project;
+        P4Handler handler = new P4HandlerAdapter() \{
+            public void process(String line) \{
+                log((\"P4Counter retrieved line \\"\" + line) + \"\\"\", MSG_VERBOSE);
+                try \{
+                    value = Integer.parseInt(line);
+                    myProj.setProperty(property, \"\" + value);
+                \} catch (NumberFormatException nfe) \{
+                    throw new BuildException(\"Perforce error. Could not retrieve counter value.\");
+                \}
+            \}
+        \};
+        execP4Command(command, handler);
+    \} else \{
+        execP4Command(command, new SimpleP4OutputHandler(this));
+    \}
+\}" shape=ellipse]
+83 [label="18:Delete@DELETE" shape=ellipse]
+84 [label="18:Insert@INSERT" shape=ellipse]
+85 [label="18:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 5 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 17 [label="Control Dep"];
+12 -> 16 [label="Control Dep"];
+12 -> 15 [label="Control Dep"];
+12 -> 14 [label="Control Dep"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 26 [label="Control Dep"];
+21 -> 25 [label="Control Dep"];
+21 -> 24 [label="Control Dep"];
+21 -> 23 [label="Control Dep"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 26 [label="AST"];
+30 -> 36 [label="Data Dep"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 36 [label="Data Dep"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 42 [label="Define-Use"];
+36 -> 68 [label="Define-Use"];
+36 -> 74 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 28 [label="AST"];
+37 -> 35 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 45 [label="Control Dep"];
+39 -> 44 [label="Control Dep"];
+39 -> 40 [label="Control Dep"];
+39 -> 43 [label="Control Dep"];
+39 -> 41 [label="Control Dep"];
+39 -> 42 [label="Control Dep"];
+40 -> 68 [label="Define-Use"];
+40 -> 74 [label="Define-Use"];
+42 -> 40 [label="Data Dep"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 40 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 39 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 53 [label="Control Dep"];
+47 -> 52 [label="Control Dep"];
+47 -> 48 [label="Control Dep"];
+47 -> 51 [label="Control Dep"];
+47 -> 49 [label="Control Dep"];
+47 -> 50 [label="Control Dep"];
+48 -> 68 [label="Define-Use"];
+48 -> 74 [label="Define-Use"];
+50 -> 48 [label="Data Dep"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 48 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 47 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 71 [label="Control Dep"];
+55 -> 59 [label="Control Dep"];
+55 -> 57 [label="Control Dep"];
+55 -> 65 [label="Control Dep"];
+55 -> 62 [label="Control Dep"];
+55 -> 70 [label="Control Dep"];
+55 -> 66 [label="Control Dep"];
+55 -> 68 [label="Control Dep"];
+55 -> 69 [label="Control Dep"];
+55 -> 79 [label="Control Dep"];
+55 -> 78 [label="Control Dep"];
+55 -> 72 [label="Control Dep"];
+55 -> 74 [label="Control Dep"];
+55 -> 77 [label="Control Dep"];
+55 -> 76 [label="Control Dep"];
+57 -> 58 [label="Data Dep"];
+57 -> 83 [label="Action"];
+59 -> 58 [label="AST"];
+59 -> 56 [label="AST"];
+59 -> 57 [label="AST"];
+59 -> 84 [label="Action"];
+62 -> 63 [label="AST"];
+64 -> 69 [label="Define-Use"];
+65 -> 64 [label="AST"];
+65 -> 60 [label="AST"];
+65 -> 62 [label="AST"];
+70 -> 67 [label="AST"];
+70 -> 66 [label="AST"];
+70 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 59 [label="AST"];
+71 -> 65 [label="AST"];
+71 -> 70 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 73 [label="AST"];
+78 -> 72 [label="AST"];
+78 -> 74 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 55 [label="AST"];
+80 -> 71 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 18 [label="AST"];
+81 -> 27 [label="AST"];
+81 -> 37 [label="AST"];
+81 -> 46 [label="AST"];
+81 -> 54 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 1 [label="AST"];
+82 -> 0 [label="AST"];
+82 -> 2 [label="AST"];
+82 -> 81 [label="AST"];
+84 -> 85 [label="Action"];
+}

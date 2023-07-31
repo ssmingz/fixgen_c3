@@ -1,0 +1,45 @@
+digraph "Pattern" {
+0 [label="getFailureCount#?#3:UPDATE
+testFailure#?,Failure#4:UPDATE
+getFailures#?#3:UPDATE" shape=ellipse]
+1 [label="getFailureCount#?#3:fFailures
+testFailure#?,Failure#4:fFailures
+getFailures#?#3:fFailures" shape=ellipse]
+2 [label="getFailureCount#?#3:fFailures.size()
+testFailure#?,Failure#4:fFailures.add(failure)" shape=ellipse]
+3 [label="getFailureCount#?#3:return fFailures.size()" shape=ellipse]
+4 [label="getFailureCount#?#3:size
+testFailure#?,Failure#4:add" shape=ellipse]
+5 [label="getFailureCount#?#3:size()
+testFailure#?,Failure#4:add(Failure)
+getFailures#?#3:PlaceHold" shape=ellipse]
+6 [label="getFailureCount#?#3:fFailures
+testFailure#?,Failure#4:fFailures" shape=ellipse]
+7 [label="getFailureCount#?#3:PlaceHold
+testFailure#?,Failure#4:PlaceHold" shape=ellipse]
+8 [label="getFailureCount#?#3:failures
+testFailure#?,Failure#4:failures
+getFailures#?#3:failures" shape=ellipse]
+9 [label="testFailure#?,Failure#3:\{
+    fFailures.add(failure);
+\}
+getFailures#?#2:\{
+    return fFailures;
+\}" shape=ellipse]
+10 [label="testFailure#?,Failure#4:failure" shape=ellipse]
+11 [label="getFailures#?#3:return fFailures" shape=ellipse]
+12 [label="getFailures#?#3:fFailures" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:2"];
+1 -> 12 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 10 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+9 -> 2 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+11 -> 1 [label="AST:1"];
+12 -> 5 [label="AST:1"];
+}

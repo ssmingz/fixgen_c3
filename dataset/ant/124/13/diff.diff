@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/124/13/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/124/13/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test5", "dest invalid (or no http-server on local machine)");
++    try {
++      buildRule.executeTarget("test5");
++      fail("dest invalid (or no http-server on local machine");
++    } catch (BuildException ex) {
++    }

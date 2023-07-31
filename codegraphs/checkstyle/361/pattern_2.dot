@@ -1,0 +1,176 @@
+digraph "Pattern" {
+0 [label="startElement#?,String,String,String,Attributes#2:INSERT
+endElement#?,String,String,String#2:INSERT" shape=ellipse]
+1 [label="startElement#?,String,String,String,Attributes#2:public void startElement(String aNamespaceURI, String aLocalName, String aQName, Attributes aAtts) throws SAXException \{
+    if (aQName.equals(MODULE)) \{
+        final String name = aAtts.getValue(NAME);
+        final DefaultConfiguration conf = new DefaultConfiguration(name);
+        if (mConfiguration == null) \{
+            mConfiguration = conf;
+        \}
+        if (!mConfigStack.isEmpty()) \{
+            final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+            top.addChild(conf);
+        \}
+        mConfigStack.push(conf);
+    \} else if (aQName.equals(PROPERTY)) \{
+        final String name = aAtts.getValue(NAME);
+        final String value;
+        try \{
+            value = replaceProperties(aAtts.getValue(VALUE), mOverridePropsResolver, aAtts.getValue(DEFAULT));
+        \} catch (final CheckstyleException ex) \{
+            throw new SAXException(ex.getMessage());
+        \}
+        final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+        top.addAttribute(name, value);
+    \}
+\}
+endElement#?,String,String,String#2:public void endElement(String aNamespaceURI, String aLocalName, String aQName) throws SAXException \{
+    if (aQName.equals(MODULE)) \{
+        final Configuration recentModule = ((Configuration) (mConfigStack.pop()));
+        SeverityLevel level = null;
+        try \{
+            final String severity = recentModule.getAttribute(SEVERITY);
+            level = SeverityLevel.getInstance(severity);
+        \} catch (final CheckstyleException e) \{
+        \}
+        final boolean omitModule = mOmitIgnoredModules && IGNORE.equals(level);
+        if (omitModule && (!mConfigStack.isEmpty())) \{
+            final DefaultConfiguration parentModule = ((DefaultConfiguration) (mConfigStack.peek()));
+            parentModule.removeChild(recentModule);
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="startElement#?,String,String,String,Attributes#2:startElement
+endElement#?,String,String,String#2:endElement" shape=ellipse]
+3 [label="startElement#?,String,String,String,Attributes#2:void
+endElement#?,String,String,String#2:void" shape=ellipse]
+4 [label="startElement#?,String,String,String,Attributes#2:String aNamespaceURI
+endElement#?,String,String,String#2:String aNamespaceURI" shape=ellipse]
+5 [label="startElement#?,String,String,String,Attributes#2:String
+endElement#?,String,String,String#2:String" shape=ellipse]
+6 [label="startElement#?,String,String,String,Attributes#2:String aLocalName
+endElement#?,String,String,String#2:String aLocalName" shape=ellipse]
+7 [label="startElement#?,String,String,String,Attributes#2:String
+endElement#?,String,String,String#2:String" shape=ellipse]
+8 [label="startElement#?,String,String,String,Attributes#2:String aQName
+endElement#?,String,String,String#2:String aQName" shape=ellipse]
+9 [label="startElement#?,String,String,String,Attributes#2:String
+endElement#?,String,String,String#2:String" shape=ellipse]
+10 [label="startElement#?,String,String,String,Attributes#2:Attributes aAtts" shape=ellipse]
+11 [label="startElement#?,String,String,String,Attributes#2:Attributes
+endElement#?,String,String,String#2:Override" shape=ellipse]
+12 [label="startElement#?,String,String,String,Attributes#3:SAXException
+endElement#?,String,String,String#3:SAXException" shape=ellipse]
+13 [label="startElement#?,String,String,String,Attributes#3:
+endElement#?,String,String,String#3:" shape=ellipse]
+14 [label="startElement#?,String,String,String,Attributes#3:\{
+    if (aQName.equals(MODULE)) \{
+        final String name = aAtts.getValue(NAME);
+        final DefaultConfiguration conf = new DefaultConfiguration(name);
+        if (mConfiguration == null) \{
+            mConfiguration = conf;
+        \}
+        if (!mConfigStack.isEmpty()) \{
+            final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+            top.addChild(conf);
+        \}
+        mConfigStack.push(conf);
+    \} else if (aQName.equals(PROPERTY)) \{
+        final String name = aAtts.getValue(NAME);
+        final String value;
+        try \{
+            value = replaceProperties(aAtts.getValue(VALUE), mOverridePropsResolver, aAtts.getValue(DEFAULT));
+        \} catch (final CheckstyleException ex) \{
+            throw new SAXException(ex.getMessage());
+        \}
+        final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+        top.addAttribute(name, value);
+    \}
+\}
+endElement#?,String,String,String#3:\{
+    if (aQName.equals(MODULE)) \{
+        final Configuration recentModule = ((Configuration) (mConfigStack.pop()));
+        SeverityLevel level = null;
+        try \{
+            final String severity = recentModule.getAttribute(SEVERITY);
+            level = SeverityLevel.getInstance(severity);
+        \} catch (final CheckstyleException e) \{
+        \}
+        final boolean omitModule = mOmitIgnoredModules && IGNORE.equals(level);
+        if (omitModule && (!mConfigStack.isEmpty())) \{
+            final DefaultConfiguration parentModule = ((DefaultConfiguration) (mConfigStack.peek()));
+            parentModule.removeChild(recentModule);
+        \}
+    \}
+\}" shape=ellipse]
+15 [label="startElement#?,String,String,String,Attributes#4:if (aQName.equals(MODULE)) \{
+    final String name = aAtts.getValue(NAME);
+    final DefaultConfiguration conf = new DefaultConfiguration(name);
+    if (mConfiguration == null) \{
+        mConfiguration = conf;
+    \}
+    if (!mConfigStack.isEmpty()) \{
+        final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+        top.addChild(conf);
+    \}
+    mConfigStack.push(conf);
+\} else if (aQName.equals(PROPERTY)) \{
+    final String name = aAtts.getValue(NAME);
+    final String value;
+    try \{
+        value = replaceProperties(aAtts.getValue(VALUE), mOverridePropsResolver, aAtts.getValue(DEFAULT));
+    \} catch (final CheckstyleException ex) \{
+        throw new SAXException(ex.getMessage());
+    \}
+    final DefaultConfiguration top = ((DefaultConfiguration) (mConfigStack.peek()));
+    top.addAttribute(name, value);
+\}
+endElement#?,String,String,String#4:if (aQName.equals(MODULE)) \{
+    final Configuration recentModule = ((Configuration) (mConfigStack.pop()));
+    SeverityLevel level = null;
+    try \{
+        final String severity = recentModule.getAttribute(SEVERITY);
+        level = SeverityLevel.getInstance(severity);
+    \} catch (final CheckstyleException e) \{
+    \}
+    final boolean omitModule = mOmitIgnoredModules && IGNORE.equals(level);
+    if (omitModule && (!mConfigStack.isEmpty())) \{
+        final DefaultConfiguration parentModule = ((DefaultConfiguration) (mConfigStack.peek()));
+        parentModule.removeChild(recentModule);
+    \}
+\}" shape=ellipse]
+16 [label="startElement#?,String,String,String,Attributes#2:@java.lang.Override" shape=ellipse]
+17 [label="startElement#?,String,String,String,Attributes#2:Override
+endElement#?,String,String,String#2:Override" shape=ellipse]
+18 [label="startElement#?,String,String,String,Attributes#2:java.lang
+endElement#?,String,String,String#2:java.lang" shape=ellipse]
+19 [label="startElement#?,String,String,String,Attributes#2:Override" shape=ellipse]
+20 [label="startElement#?,String,String,String,Attributes#2:java.lang" shape=ellipse]
+21 [label="endElement#?,String,String,String#2:@java.lang.Override" shape=ellipse]
+22 [label="endElement#?,String,String,String#2:java.lang" shape=ellipse]
+0 -> 16 [label="Action:1"];
+0 -> 21 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:1"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:1"];
+11 -> 22 [label="AST:1"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+16 -> 19 [label="AST:1"];
+17 -> 18 [label="AST:2"];
+19 -> 20 [label="AST:1"];
+21 -> 11 [label="AST:1"];
+21 -> 17 [label="AST:1"];
+}

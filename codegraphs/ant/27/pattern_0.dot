@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#-1:UPDATE
+contentEquals#?,File,File,boolean#-1:UPDATE
+setFileLastModified#?,File,long#-1:UPDATE" shape=ellipse]
+1 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#-1:PlaceHold
+contentEquals#?,File,File,boolean#-1:PlaceHold
+setFileLastModified#?,File,long#-1:PlaceHold" shape=ellipse]
+2 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#-1:
+contentEquals#?,File,File,boolean#-1:
+setFileLastModified#?,File,long#-1:" shape=ellipse]
+3 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#13:copyResource(new FileResource(sourceFile), new FileResource(destFile), filters, filterChains, overwrite, preserveLastModified, inputEncoding, outputEncoding, project)
+contentEquals#?,File,File,boolean#3:contentEquals(new FileResource(f1), new FileResource(f2), textfile)
+setFileLastModified#?,File,long#3:setLastModified(new FileResource(file), time)" shape=ellipse]
+4 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#-1:PlaceHold
+contentEquals#?,File,File,boolean#-1:PlaceHold
+setFileLastModified#?,File,long#-1:PlaceHold" shape=ellipse]
+5 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#-1:PlaceHold
+contentEquals#?,File,File,boolean#-1:PlaceHold
+setFileLastModified#?,File,long#-1:PlaceHold" shape=ellipse]
+6 [label="copyFile#?,File,File,FilterSetCollection,Vector,boolean,boolean,String,String,Project#13:ResourceUtils
+contentEquals#?,File,File,boolean#3:ResourceUtils
+setFileLastModified#?,File,long#3:ResourceUtils" shape=ellipse]
+0 -> 6 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+}

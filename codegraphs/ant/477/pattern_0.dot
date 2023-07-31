@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="test4#?#4:UPDATE
+test9#?#5:UPDATE" shape=ellipse]
+1 [label="test4#?#4:\"Manifest is invalid - section starts with continuation line\"
+test9#?#5:\"Construction is invalid - Name attribute should not be used\"" shape=ellipse]
+2 [label="test4#?#3:expectBuildExceptionContaining(\"test4\", \"Manifest is invalid - section starts with continuation line\", \"Invalid Manifest\")
+test9#?#3:expectBuildExceptionContaining(\"test9\", \"Construction is invalid - Name attribute should not be used\", \"Specify the section name using the \\"name\\" attribute of the <section> element\")" shape=ellipse]
+3 [label="test4#?#2:\{
+    expectBuildExceptionContaining(\"test4\", \"Manifest is invalid - section starts with continuation line\", \"Invalid Manifest\");
+\}
+test9#?#2:\{
+    expectBuildExceptionContaining(\"test9\", \"Construction is invalid - Name attribute should not be used\", \"Specify the section name using the \\"name\\" attribute of the <section> element\");
+\}" shape=ellipse]
+4 [label="test4#?#3:expectBuildExceptionContaining
+test9#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="test4#?#-1:
+test9#?#-1:" shape=ellipse]
+6 [label="test4#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test9#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="test4#?#4:\"test4\"
+test9#?#4:\"test9\"" shape=ellipse]
+8 [label="test4#?#4:\"Invalid Manifest\"
+test9#?#6:\"Specify the section name using the \\"name\\" attribute of the <section> element\"" shape=ellipse]
+9 [label="test4#?#3:DELETE
+test9#?#3:DELETE" shape=ellipse]
+10 [label="test4#?#-1:String
+test9#?#-1:String" shape=ellipse]
+11 [label="test4#?#4:MOVE
+test9#?#5:MOVE" shape=ellipse]
+12 [label="test4#?#6:fail(\"BuildException expected: Manifest is invalid - section starts with continuation line\")
+test9#?#6:fail(\"BuildException expected: Construction is invalid - Name attribute should not be used\")" shape=ellipse]
+13 [label="test4#?#6:\"BuildException expected: Manifest is invalid - section starts with continuation line\"
+test9#?#6:\"BuildException expected: Construction is invalid - Name attribute should not be used\"" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="Action:2"];
+12 -> 13 [label="AST:2"];
+}

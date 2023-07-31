@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1089/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1089/0/after.java
+@@ -2,3 +2,3 @@
+-  public Node visit(BlockStatement node) {
+-    LinkedList<Node> statements = new LinkedList<Node>();
+-    Iterator<Node> it = node.getStatements().iterator();
++  public Object visit(BlockStatement node) {
++    LinkedList statements = new LinkedList();
++    Iterator it = node.getStatements().iterator();
+@@ -6,1 +6,1 @@
+-      statements.add(it.next().acceptVisitor(this));
++      statements.add(((Node) (((Node) (it.next())).acceptVisitor(this))));

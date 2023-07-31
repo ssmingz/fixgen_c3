@@ -1,0 +1,139 @@
+digraph "Pattern" {
+0 [label="loadClass#?,String#6:INSERT
+loadClass#?,String#6:INSERT" shape=ellipse]
+1 [label="loadClass#?,String#6:new AntClassLoader(project, m_classpath)
+loadClass#?,String#6:new AntClassLoader(project, classpath)" shape=ellipse]
+2 [label="loadClass#?,String#3:m_classpath == null
+loadClass#?,String#3:classpath == null" shape=ellipse]
+3 [label="loadClass#?,String#3:if (m_classpath == null) \{
+    return Class.forName(classname);
+\} else \{
+    AntClassLoader al = new AntClassLoader(project, m_classpath);
+    Class c = al.loadClass(classname);
+    AntClassLoader.initializeClass(c);
+    return c;
+\}
+loadClass#?,String#3:if (classpath == null) \{
+    return Class.forName(classname);
+\} else \{
+    AntClassLoader al = new AntClassLoader(project, classpath);
+    Class c = al.loadClass(classname);
+    AntClassLoader.initializeClass(c);
+    return c;
+\}" shape=ellipse]
+4 [label="loadClass#?,String#3:m_classpath
+loadClass#?,String#3:classpath" shape=ellipse]
+5 [label="loadClass#?,String#3:null
+loadClass#?,String#3:null" shape=ellipse]
+6 [label="loadClass#?,String#3:\{
+    return Class.forName(classname);
+\}
+loadClass#?,String#3:\{
+    return Class.forName(classname);
+\}" shape=ellipse]
+7 [label="loadClass#?,String#4:return Class.forName(classname)
+loadClass#?,String#4:return Class.forName(classname)" shape=ellipse]
+8 [label="loadClass#?,String#4:Class.forName(classname)
+loadClass#?,String#4:Class.forName(classname)" shape=ellipse]
+9 [label="loadClass#?,String#4:forName(java.lang.String)
+loadClass#?,String#4:forName(java.lang.String)" shape=ellipse]
+10 [label="loadClass#?,String#4:Class
+loadClass#?,String#4:Class" shape=ellipse]
+11 [label="loadClass#?,String#4:classname
+loadClass#?,String#4:classname" shape=ellipse]
+12 [label="loadClass#?,String#5:\{
+    AntClassLoader al = new AntClassLoader(project, m_classpath);
+    Class c = al.loadClass(classname);
+    AntClassLoader.initializeClass(c);
+    return c;
+\}
+loadClass#?,String#5:\{
+    AntClassLoader al = new AntClassLoader(project, classpath);
+    Class c = al.loadClass(classname);
+    AntClassLoader.initializeClass(c);
+    return c;
+\}" shape=ellipse]
+13 [label="loadClass#?,String#6:AntClassLoader al = new AntClassLoader(project, m_classpath)
+loadClass#?,String#6:AntClassLoader al = new AntClassLoader(project, classpath)" shape=ellipse]
+14 [label="loadClass#?,String#-1:AntClassLoader()
+loadClass#?,String#-1:AntClassLoader()" shape=ellipse]
+15 [label="loadClass#?,String#6:project
+loadClass#?,String#6:project" shape=ellipse]
+16 [label="loadClass#?,String#6:m_classpath
+loadClass#?,String#6:classpath" shape=ellipse]
+17 [label="loadClass#?,String#7:Class c = al.loadClass(classname)
+loadClass#?,String#7:Class c = al.loadClass(classname)" shape=ellipse]
+18 [label="loadClass#?,String#7:al.loadClass(classname)
+loadClass#?,String#7:al.loadClass(classname)" shape=ellipse]
+19 [label="loadClass#?,String#7:loadClass(java.lang.String)
+loadClass#?,String#7:loadClass(java.lang.String)" shape=ellipse]
+20 [label="loadClass#?,String#7:al
+loadClass#?,String#7:al" shape=ellipse]
+21 [label="loadClass#?,String#7:classname
+loadClass#?,String#7:classname" shape=ellipse]
+22 [label="loadClass#?,String#8:AntClassLoader.initializeClass(c)
+loadClass#?,String#8:AntClassLoader.initializeClass(c)" shape=ellipse]
+23 [label="loadClass#?,String#8:initializeClass(java.lang.Class)
+loadClass#?,String#8:initializeClass(java.lang.Class)" shape=ellipse]
+24 [label="loadClass#?,String#8:AntClassLoader
+loadClass#?,String#8:AntClassLoader" shape=ellipse]
+25 [label="loadClass#?,String#8:c
+loadClass#?,String#8:c" shape=ellipse]
+26 [label="loadClass#?,String#9:return c
+loadClass#?,String#9:return c" shape=ellipse]
+27 [label="loadClass#?,String#9:c
+loadClass#?,String#9:c" shape=ellipse]
+28 [label="loadClass#?,String#6:getProject()
+loadClass#?,String#6:getProject()" shape=ellipse]
+0 -> 28 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 14 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+2 -> 22 [label="Control Dep:2"];
+2 -> 23 [label="Control Dep:2"];
+2 -> 24 [label="Control Dep:2"];
+2 -> 25 [label="Control Dep:2"];
+2 -> 26 [label="Control Dep:2"];
+2 -> 27 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+3 -> 12 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 17 [label="AST:2"];
+12 -> 22 [label="AST:2"];
+12 -> 26 [label="AST:2"];
+13 -> 1 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 21 [label="AST:2"];
+22 -> 24 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+22 -> 25 [label="AST:2"];
+26 -> 27 [label="AST:2"];
+}

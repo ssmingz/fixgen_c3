@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="testNoTargetOs#?#4:INSERT
+testTestMethods#?#4:INSERT" shape=ellipse]
+1 [label="testNoTargetOs#?#3:executeTarget(\"testnotargetos\")
+testTestMethods#?#3:executeTarget(\"testTestMethods\")" shape=ellipse]
+2 [label="testNoTargetOs#?#2:\{
+    executeTarget(\"testnotargetos\");
+\}
+testTestMethods#?#2:\{
+    executeTarget(\"testTestMethods\");
+\}" shape=ellipse]
+3 [label="testNoTargetOs#?#2:public void testNoTargetOs() \{
+    executeTarget(\"testnotargetos\");
+\}
+testTestMethods#?#2:public void testTestMethods() throws Exception \{
+    executeTarget(\"testTestMethods\");
+\}" shape=ellipse]
+4 [label="testNoTargetOs#?#3:executeTarget
+testTestMethods#?#3:executeTarget" shape=ellipse]
+5 [label="testNoTargetOs#?#-1:
+testTestMethods#?#-1:" shape=ellipse]
+6 [label="testNoTargetOs#?#-1:PlaceHold
+testTestMethods#?#-1:PlaceHold" shape=ellipse]
+7 [label="testNoTargetOs#?#-1:PlaceHold
+testTestMethods#?#-1:PlaceHold" shape=ellipse]
+8 [label="testNoTargetOs#?#3:executeTarget(java.lang.String)
+testTestMethods#?#3:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testNoTargetOs#?#-1:String
+testTestMethods#?#-1:String" shape=ellipse]
+10 [label="testNoTargetOs#?#3:\"testnotargetos\"
+testTestMethods#?#3:\"testTestMethods\"" shape=ellipse]
+11 [label="testNoTargetOs#?#-1:String
+testTestMethods#?#-1:String" shape=ellipse]
+12 [label="testNoTargetOs#?#4:buildRule
+testTestMethods#?#4:buildRule" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+}

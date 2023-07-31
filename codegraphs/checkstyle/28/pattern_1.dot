@@ -1,0 +1,90 @@
+digraph "Pattern" {
+0 [label="test_1168408_1#?#5:DELETE
+test_1168408_2#?#5:DELETE
+test_generics_3#?#13:DELETE" shape=ellipse]
+1 [label="test_1168408_1#?#5:checkConfig
+test_1168408_2#?#5:checkConfig
+test_generics_3#?#13:checkConfig" shape=ellipse]
+2 [label="test_1168408_1#?#3:checkConfig
+test_1168408_2#?#3:checkConfig
+test_generics_3#?#3:checkConfig" shape=ellipse]
+3 [label="test_1168408_1#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)
+test_1168408_2#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)
+test_generics_3#?#3:final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class)" shape=ellipse]
+4 [label="test_1168408_1#?#3:
+test_1168408_2#?#3:
+test_generics_3#?#3:" shape=ellipse]
+5 [label="test_1168408_1#?#3:JavadocMethodCheck.class
+test_1168408_2#?#3:JavadocMethodCheck.class
+test_generics_3#?#3:JavadocMethodCheck.class" shape=ellipse]
+6 [label="test_1168408_1#?#5:verify(checkConfig, getPath(\"javadoc/Test1.java\"), expected)
+test_1168408_2#?#5:verify(checkConfig, getPath(\"javadoc/Test2.java\"), expected)
+test_generics_3#?#13:verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected)" shape=ellipse]
+7 [label="test_1168408_1#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"javadoc/Test1.java\"), expected);
+\}
+test_1168408_2#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"javadoc/Test2.java\"), expected);
+\}
+test_generics_3#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(JavadocMethodCheck.class);
+    final String[] expected = new String[]\{ \"6:8: Unused @throws tag for 'RE'.\", \"15:34: Expected @throws tag for 'RE'.\", \"31:13: Expected @param tag for '<NPE>'.\", \"38:12: Unused @throws tag for 'E'.\", \"41:38: Expected @throws tag for 'RuntimeException'.\", \"42:13: Expected @throws tag for 'java.lang.RuntimeException'.\" \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}" shape=ellipse]
+8 [label="test_1168408_1#?#5:verify
+test_1168408_2#?#5:verify
+test_generics_3#?#13:verify" shape=ellipse]
+9 [label="test_1168408_1#?#5:
+test_1168408_2#?#5:
+test_generics_3#?#13:" shape=ellipse]
+10 [label="test_1168408_1#?#5:verify(<unknown>,<unknown>,java.lang.String[])
+test_1168408_2#?#5:verify(<unknown>,<unknown>,java.lang.String[])
+test_generics_3#?#13:verify(<unknown>,<unknown>,java.lang.String[])" shape=ellipse]
+11 [label="test_1168408_1#?#5:getPath(\"javadoc/Test1.java\")
+test_1168408_2#?#5:getPath(\"javadoc/Test2.java\")
+test_generics_3#?#13:getPath(\"javadoc/TestGenerics.java\")" shape=ellipse]
+12 [label="test_1168408_1#?#5:expected
+test_1168408_2#?#5:expected
+test_generics_3#?#13:expected" shape=ellipse]
+13 [label="test_1168408_1#?#4:INSERT
+test_1168408_2#?#4:INSERT
+test_generics_3#?#12:INSERT" shape=ellipse]
+14 [label="test_1168408_1#?#4:mCheckConfig
+test_1168408_2#?#4:mCheckConfig
+test_generics_3#?#12:mCheckConfig" shape=ellipse]
+15 [label="test_1168408_1#?#4:mCheckConfig
+test_1168408_2#?#4:mCheckConfig
+test_generics_3#?#12:mCheckConfig" shape=ellipse]
+16 [label="test_1168408_1#?#4:PlaceHold
+test_1168408_2#?#4:PlaceHold
+test_generics_3#?#12:PlaceHold" shape=ellipse]
+17 [label="test_1168408_1#?#4:
+test_1168408_2#?#4:
+test_generics_3#?#12:" shape=ellipse]
+18 [label="test_1168408_1#?#5:checkConfig
+test_1168408_2#?#5:checkConfig
+test_generics_3#?#13:checkConfig" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 18 [label="AST:3"];
+2 -> 1 [label="Define Use:3"];
+3 -> 2 [label="AST:3"];
+4 -> 2 [label="Data Dep:3"];
+5 -> 2 [label="Data Dep:3"];
+6 -> 1 [label="AST:3"];
+6 -> 8 [label="AST:3"];
+6 -> 9 [label="AST:3"];
+6 -> 10 [label="AST:3"];
+6 -> 11 [label="AST:3"];
+6 -> 12 [label="AST:3"];
+6 -> 13 [label="Action:3"];
+7 -> 3 [label="AST:3"];
+7 -> 6 [label="AST:3"];
+13 -> 14 [label="Action:3"];
+14 -> 15 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+16 -> 17 [label="AST:3"];
+}

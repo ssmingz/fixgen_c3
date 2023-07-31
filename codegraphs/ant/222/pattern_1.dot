@@ -1,0 +1,154 @@
+digraph "Pattern" {
+0 [label="writeCachedDependencies#?,Hashtable#20:INSERT
+registerTestCase#?,String#11:INSERT
+registerNonCrash#?#10:INSERT
+createCommandFile#?,String[],String[]#28:INSERT" shape=ellipse]
+1 [label="writeCachedDependencies#?,Hashtable#21:pw.close()
+registerTestCase#?,String#12:out.close()
+registerNonCrash#?#11:out.close()
+createCommandFile#?,String[],String[]#29:out.close()" shape=ellipse]
+2 [label="writeCachedDependencies#?,Hashtable#20:pw != null
+registerTestCase#?,String#11:out != null
+registerNonCrash#?#10:out != null
+createCommandFile#?,String[],String[]#28:out != null" shape=ellipse]
+3 [label="writeCachedDependencies#?,Hashtable#3:cache != null
+registerTestCase#?,String#3:crashFile != null
+registerNonCrash#?#3:crashFile != null" shape=ellipse]
+4 [label="writeCachedDependencies#?,Hashtable#20:if (pw != null) \{
+    pw.close();
+\}
+registerTestCase#?,String#11:if (out != null) \{
+    out.close();
+\}
+registerNonCrash#?#10:if (out != null) \{
+    out.close();
+\}
+createCommandFile#?,String[],String[]#28:if (out != null) \{
+    out.close();
+\}" shape=ellipse]
+5 [label="writeCachedDependencies#?,Hashtable#20:pw
+registerTestCase#?,String#11:out
+registerNonCrash#?#10:out
+createCommandFile#?,String[],String[]#28:out" shape=ellipse]
+6 [label="writeCachedDependencies#?,Hashtable#20:null
+registerTestCase#?,String#11:null
+registerNonCrash#?#10:null
+createCommandFile#?,String[],String[]#28:null" shape=ellipse]
+7 [label="writeCachedDependencies#?,Hashtable#20:\{
+    pw.close();
+\}
+registerTestCase#?,String#11:\{
+    out.close();
+\}
+registerNonCrash#?#10:\{
+    out.close();
+\}
+createCommandFile#?,String[],String[]#28:\{
+    out.close();
+\}" shape=ellipse]
+8 [label="writeCachedDependencies#?,Hashtable#21:close()
+registerTestCase#?,String#12:close()
+registerNonCrash#?#11:close()
+createCommandFile#?,String[],String[]#29:close()" shape=ellipse]
+9 [label="writeCachedDependencies#?,Hashtable#21:pw
+registerTestCase#?,String#12:out
+registerNonCrash#?#11:out
+createCommandFile#?,String[],String[]#29:out" shape=ellipse]
+10 [label="writeCachedDependencies#?,Hashtable#21:close
+registerTestCase#?,String#12:close
+registerNonCrash#?#11:close
+createCommandFile#?,String[],String[]#29:close" shape=ellipse]
+11 [label="writeCachedDependencies#?,Hashtable#21:MOVE
+registerTestCase#?,String#12:MOVE
+registerNonCrash#?#11:MOVE
+createCommandFile#?,String[],String[]#29:MOVE" shape=ellipse]
+12 [label="writeCachedDependencies#?,Hashtable#5:try \{
+    cache.mkdirs();
+    File depFile = new File(cache, CACHE_FILE_NAME);
+    pw = new PrintWriter(new FileWriter(depFile));
+    Enumeration e = dependencyMap.keys();
+    while (e.hasMoreElements()) \{
+        String className = ((String) (e.nextElement()));
+        pw.println(CLASSNAME_PREPEND + className);
+        Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+        int size = dependencyList.size();
+        for (int x = 0; x < size; x++) \{
+            pw.println(dependencyList.elementAt(x));
+        \}
+    \} 
+\} finally \{
+    if (pw != null) \{
+        pw.close();
+    \}
+\}
+registerTestCase#?,String#6:try \{
+    out = new FileWriter(crashFile);
+    out.write(testCase + \"\n\");
+    out.flush();
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}
+registerNonCrash#?#5:try \{
+    out = new FileWriter(crashFile);
+    out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\");
+    out.flush();
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}
+createCommandFile#?,String[],String[]#5:try \{
+    out = new BufferedWriter(new FileWriter(script));
+    if (env != null) \{
+        int eqIndex;
+        for (int i = 0; i < env.length; i++) \{
+            eqIndex = env[i].indexOf('=');
+            if (eqIndex != (-1)) \{
+                out.write(\"$ DEFINE/NOLOG \");
+                out.write(env[i].substring(0, eqIndex));
+                out.write(\" \\"\");
+                out.write(env[i].substring(eqIndex + 1));
+                out.write('\\"');
+                out.newLine();
+            \}
+        \}
+    \}
+    out.write(\"$ \" + cmd[0]);
+    for (int i = 1; i < cmd.length; i++) \{
+        out.write(\" -\");
+        out.newLine();
+        out.write(cmd[i]);
+    \}
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+13 [label="writeCachedDependencies#?,Hashtable#20:FileUtils
+registerTestCase#?,String#11:FileUtils
+registerNonCrash#?#10:FileUtils
+createCommandFile#?,String[],String[]#28:FileUtils" shape=ellipse]
+0 -> 13 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 10 [label="AST:4"];
+1 -> 9 [label="AST:4"];
+1 -> 8 [label="AST:4"];
+1 -> 11 [label="Action:4"];
+2 -> 1 [label="Control Dep:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="Control Dep:4"];
+2 -> 8 [label="Control Dep:4"];
+2 -> 9 [label="Control Dep:4"];
+3 -> 2 [label="Control Dep:3"];
+3 -> 12 [label="Control Dep:3"];
+3 -> 4 [label="Control Dep:3"];
+3 -> 5 [label="Control Dep:3"];
+3 -> 6 [label="Control Dep:3"];
+4 -> 2 [label="AST:4"];
+4 -> 7 [label="AST:4"];
+7 -> 1 [label="AST:4"];
+11 -> 12 [label="Action:4"];
+}

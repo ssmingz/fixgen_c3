@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3667/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3667/0/after.java
+@@ -31,2 +31,6 @@
+-      int flags = OS.RDW_UPDATENOW | OS.RDW_ALLCHILDREN;
+-      OS.RedrawWindow(hwndTrack, null, 0, flags);
++      if (OS.IsWinCE) {
++        OS.UpdateWindow(hwndTrack);
++      } else {
++        int flags = OS.RDW_UPDATENOW | OS.RDW_ALLCHILDREN;
++        OS.RedrawWindow(hwndTrack, null, 0, flags);
++      }

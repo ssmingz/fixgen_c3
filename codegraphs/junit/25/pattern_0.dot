@@ -1,0 +1,92 @@
+digraph "Pattern" {
+0 [label="testFailure#?,Failure#4:UPDATE
+testAssumptionFailure#?,Failure#4:UPDATE" shape=ellipse]
+1 [label="testFailure#?,Failure#4:fMonitor
+testAssumptionFailure#?,Failure#4:fMonitor" shape=ellipse]
+2 [label="testFailure#?,Failure#4:synchronized(fMonitor) \{
+    fListener.testFailure(failure);
+\}
+testAssumptionFailure#?,Failure#4:synchronized(fMonitor) \{
+    fListener.testAssumptionFailure(failure);
+\}" shape=ellipse]
+3 [label="testFailure#?,Failure#3:\{
+    synchronized(fMonitor) \{
+        fListener.testFailure(failure);
+    \}
+\}
+testAssumptionFailure#?,Failure#3:\{
+    synchronized(fMonitor) \{
+        fListener.testAssumptionFailure(failure);
+    \}
+\}" shape=ellipse]
+4 [label="testFailure#?,Failure#4:\{
+    fListener.testFailure(failure);
+\}
+testAssumptionFailure#?,Failure#4:\{
+    fListener.testAssumptionFailure(failure);
+\}" shape=ellipse]
+5 [label="testFailure#?,Failure#4:monitor
+testAssumptionFailure#?,Failure#4:monitor" shape=ellipse]
+6 [label="testFailure#?,Failure#4:PlaceHold
+testAssumptionFailure#?,Failure#4:PlaceHold" shape=ellipse]
+7 [label="testFailure#?,Failure#4:
+testAssumptionFailure#?,Failure#4:" shape=ellipse]
+8 [label="testFailure#?,Failure#5:fListener.testFailure(failure)
+testAssumptionFailure#?,Failure#5:fListener.testAssumptionFailure(failure)" shape=ellipse]
+9 [label="testFailure#?,Failure#5:fListener
+testAssumptionFailure#?,Failure#5:fListener" shape=ellipse]
+10 [label="testFailure#?,Failure#5:listener
+testAssumptionFailure#?,Failure#5:listener" shape=ellipse]
+11 [label="testFailure#?,Failure#5:PlaceHold
+testAssumptionFailure#?,Failure#5:PlaceHold" shape=ellipse]
+12 [label="testFailure#?,Failure#5:
+testAssumptionFailure#?,Failure#5:" shape=ellipse]
+13 [label="testFailure#?,Failure#5:testFailure(Failure)
+testAssumptionFailure#?,Failure#5:testAssumptionFailure(Failure)" shape=ellipse]
+14 [label="testFailure#?,Failure#5:failure
+testAssumptionFailure#?,Failure#5:failure" shape=ellipse]
+15 [label="testFailure#?,Failure#5:failure
+testAssumptionFailure#?,Failure#5:failure" shape=ellipse]
+16 [label="testFailure#?,Failure#5:testFailure
+testAssumptionFailure#?,Failure#5:testAssumptionFailure" shape=ellipse]
+17 [label="testFailure#?,Failure#5:fListener
+testAssumptionFailure#?,Failure#5:fListener" shape=ellipse]
+18 [label="testFailure#?,Failure#5:PlaceHold
+testAssumptionFailure#?,Failure#5:PlaceHold" shape=ellipse]
+19 [label="testFailure#?,Failure#5:UPDATE
+testAssumptionFailure#?,Failure#5:UPDATE" shape=ellipse]
+20 [label="testFailure#?,Failure#5:fListener
+testAssumptionFailure#?,Failure#5:fListener" shape=ellipse]
+21 [label="testFailure#?,Failure#5:Failure
+testAssumptionFailure#?,Failure#5:Failure" shape=ellipse]
+22 [label="testFailure#?,Failure#4:fMonitor
+testAssumptionFailure#?,Failure#4:fMonitor" shape=ellipse]
+23 [label="testFailure#?,Failure#4:PlaceHold
+testAssumptionFailure#?,Failure#4:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 22 [label="AST:2"];
+1 -> 4 [label="Control Dep:2"];
+1 -> 8 [label="Control Dep:2"];
+1 -> 13 [label="Control Dep:2"];
+1 -> 9 [label="Control Dep:2"];
+1 -> 14 [label="Control Dep:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 8 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+8 -> 16 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 13 [label="AST:2"];
+8 -> 14 [label="AST:2"];
+9 -> 17 [label="AST:2"];
+9 -> 19 [label="Action:2"];
+10 -> 11 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 20 [label="AST:2"];
+13 -> 21 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+}

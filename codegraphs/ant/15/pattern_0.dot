@@ -1,0 +1,98 @@
+digraph "Pattern" {
+0 [label="targetStarted#?,BuildEvent#4:UPDATE
+targetStarted#?,BuildEvent#4:UPDATE" shape=ellipse]
+1 [label="targetStarted#?,BuildEvent#4:lSep
+targetStarted#?,BuildEvent#4:lSep" shape=ellipse]
+2 [label="targetStarted#?,BuildEvent#4:(lSep + event.getTarget().getName())
+targetStarted#?,BuildEvent#4:(lSep + event.getTarget().getName())" shape=ellipse]
+3 [label="targetStarted#?,BuildEvent#4:(lSep + event.getTarget().getName()) + \":\"
+targetStarted#?,BuildEvent#4:(lSep + event.getTarget().getName()) + \":\"" shape=ellipse]
+4 [label="targetStarted#?,BuildEvent#4:event.getTarget().getName()
+targetStarted#?,BuildEvent#4:event.getTarget().getName()" shape=ellipse]
+5 [label="targetStarted#?,BuildEvent#-1:lSep
+targetStarted#?,BuildEvent#-1:lSep" shape=ellipse]
+6 [label="targetStarted#?,BuildEvent#4:StringUtils.LINE_SEP
+targetStarted#?,BuildEvent#4:StringUtils.LINE_SEP" shape=ellipse]
+7 [label="targetStarted#?,BuildEvent#5:out" shape=ellipse]
+8 [label="targetStarted#?,BuildEvent#3:\{
+    String msg = (lSep + event.getTarget().getName()) + \":\";
+    out.println(msg);
+    log(msg);
+\}" shape=ellipse]
+9 [label="targetStarted#?,BuildEvent#3:Project.MSG_INFO <= msgOutputLevel" shape=ellipse]
+10 [label="targetStarted#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+11 [label="targetStarted#?,BuildEvent#5:msg" shape=ellipse]
+12 [label="targetStarted#?,BuildEvent#3:Project.MSG_INFO" shape=ellipse]
+13 [label="targetStarted#?,BuildEvent#4:getTarget()" shape=ellipse]
+14 [label="targetStarted#?,BuildEvent#4:msg" shape=ellipse]
+15 [label="targetStarted#?,BuildEvent#6:log(java.lang.String)" shape=ellipse]
+16 [label="targetStarted#?,BuildEvent#3:if (Project.MSG_INFO <= msgOutputLevel) \{
+    String msg = (lSep + event.getTarget().getName()) + \":\";
+    out.println(msg);
+    log(msg);
+\}" shape=ellipse]
+17 [label="targetStarted#?,BuildEvent#3:msgOutputLevel" shape=ellipse]
+18 [label="targetStarted#?,BuildEvent#4:\":\"" shape=ellipse]
+19 [label="targetStarted#?,BuildEvent#4:getName()" shape=ellipse]
+20 [label="targetStarted#?,BuildEvent#5:out.println(msg)" shape=ellipse]
+21 [label="targetStarted#?,BuildEvent#4:msg" shape=ellipse]
+22 [label="targetStarted#?,BuildEvent#6:log(msg)" shape=ellipse]
+23 [label="targetStarted#?,BuildEvent#5:println(java.lang.String)" shape=ellipse]
+24 [label="targetStarted#?,BuildEvent#-1:" shape=ellipse]
+25 [label="targetStarted#?,BuildEvent#4:event.getTarget()" shape=ellipse]
+26 [label="targetStarted#?,BuildEvent#4:String msg = (lSep + event.getTarget().getName()) + \":\"" shape=ellipse]
+27 [label="targetStarted#?,BuildEvent#6:msg" shape=ellipse]
+28 [label="targetStarted#?,BuildEvent#4:event" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 14 [label="Data Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 18 [label="AST:1"];
+4 -> 19 [label="AST:1"];
+4 -> 25 [label="AST:1"];
+6 -> 21 [label="Data Dep:1"];
+8 -> 26 [label="AST:1"];
+8 -> 20 [label="AST:1"];
+8 -> 22 [label="AST:1"];
+9 -> 7 [label="Control Dep:1"];
+9 -> 8 [label="Control Dep:1"];
+9 -> 12 [label="AST:1"];
+9 -> 17 [label="AST:1"];
+9 -> 26 [label="Control Dep:1"];
+9 -> 3 [label="Control Dep:1"];
+9 -> 2 [label="Control Dep:1"];
+9 -> 1 [label="Control Dep:1"];
+9 -> 4 [label="Control Dep:1"];
+9 -> 19 [label="Control Dep:1"];
+9 -> 25 [label="Control Dep:1"];
+9 -> 13 [label="Control Dep:1"];
+9 -> 28 [label="Control Dep:1"];
+9 -> 18 [label="Control Dep:1"];
+9 -> 20 [label="Control Dep:1"];
+9 -> 23 [label="Control Dep:1"];
+9 -> 11 [label="Control Dep:1"];
+9 -> 22 [label="Control Dep:1"];
+9 -> 15 [label="Control Dep:1"];
+9 -> 24 [label="Control Dep:1"];
+9 -> 10 [label="Control Dep:1"];
+9 -> 27 [label="Control Dep:1"];
+14 -> 11 [label="Define Use:1"];
+14 -> 27 [label="Define Use:1"];
+16 -> 8 [label="AST:1"];
+16 -> 9 [label="AST:1"];
+20 -> 7 [label="AST:1"];
+20 -> 11 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+22 -> 15 [label="AST:1"];
+22 -> 24 [label="AST:1"];
+22 -> 27 [label="AST:1"];
+24 -> 10 [label="AST:1"];
+25 -> 13 [label="AST:1"];
+25 -> 28 [label="AST:1"];
+26 -> 14 [label="AST:1"];
+26 -> 3 [label="AST:1"];
+28 -> 14 [label="Data Dep:1"];
+}

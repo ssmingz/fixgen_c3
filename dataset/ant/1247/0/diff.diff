@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1247/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1247/0/after.java
+@@ -3,10 +3,1 @@
+-    File result = null;
+-    String parent =
+-        (parentDir == null) ? System.getProperty("java.io.tmpdir") : parentDir.getPath();
+-    DecimalFormat fmt = new DecimalFormat("#####");
+-    synchronized (rand) {
+-      do {
+-        result = new File(parent, (prefix + fmt.format(Math.abs(rand.nextInt()))) + suffix);
+-      } while (result.exists());
+-    }
+-    return result;
++    return createTempFile(prefix, suffix, parentDir, false);

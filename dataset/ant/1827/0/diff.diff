@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1827/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1827/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testnosource", "No source specified", "srcdir attribute must be set");
++    try {
++      buildRule.executeTarget("testnosource");
++      fail("Build exception expected: No source specified");
++    } catch (BuildException ex) {
++      assertContains("srcdir attribute must be set", ex.getMessage());
++    }

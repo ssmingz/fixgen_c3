@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2124/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2124/1/after.java
+@@ -39,1 +39,6 @@
+-      throw new BuildException("Problem exec'ing P4 command: " + e.getMessage());
++      String failMsg = "Problem exec'ing P4 command: " + e.getMessage();
++      if (failOnError) {
++        throw new BuildException(failMsg);
++      } else {
++        log(failMsg, MSG_ERR);
++      }

@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2325/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2325/1/after.java
+@@ -3,4 +3,1 @@
+-    if ((unlessCondition == null) || "".equals(unlessCondition)) {
+-      return true;
+-    }
+-    return getProject().getProperty(unlessCondition) == null;
++    return PropertyHelper.getPropertyHelper(getProject()).testUnlessCondition(unlessCondition);

@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1981/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1981/1/after.java
+@@ -3,1 +3,7 @@
+-    Image image = new Image(display, 10, 10);
++    final Image image = new Image(display, 10, 10);
++    testPerformance(
++        new Runnable() {
++          public void run() {
++            image.getBackground();
++          }
++        });

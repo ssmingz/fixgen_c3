@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1157/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1157/0/after.java
+@@ -20,2 +20,12 @@
+-    freeRuns();
+-    this.tabs = tabs;
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      freeRuns();
++      this.tabs = tabs;
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

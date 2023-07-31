@@ -1,0 +1,48 @@
+digraph "getRequiredTokens#?" {
+0 [label="3:CtVirtualElement@int[]" shape=ellipse]
+1 [label="3:CtArrayTypeReferenceImpl@int[]" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+3 [label="3:CtVirtualElement@getRequiredTokens" shape=ellipse]
+4 [label="4:CtNewArrayImpl@new int[]\{  \}" shape=ellipse]
+5 [label="4:CtArrayTypeReferenceImpl@int[]" shape=ellipse]
+6 [label="4:CtReturnImpl@return new int[]\{  \}" shape=ellipse]
+7 [label="3:CtBlockImpl@\{
+    return new int[]\{  \};
+\}" shape=ellipse]
+8 [label="3:CtMethodImpl@@Override
+public int[] getRequiredTokens() \{
+    return new int[]\{  \};
+\}" shape=ellipse]
+9 [label="2:CtAnnotationImpl@@Override" shape=ellipse]
+10 [label="4:Delete@DELETE" shape=ellipse]
+11 [label="4:Insert@INSERT" shape=ellipse]
+12 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@ArrayUtils" shape=ellipse]
+14 [label="4:CtTypeAccessImpl@ArrayUtils" shape=ellipse]
+15 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+16 [label="4:CtTypeReferenceImpl@ArrayUtils" shape=ellipse]
+17 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+18 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+19 [label="4:CtFieldReferenceImpl@ArrayUtils.EMPTY_INT_ARRAY" shape=ellipse]
+20 [label="4:CtFieldReadImpl@ArrayUtils.EMPTY_INT_ARRAY" shape=ellipse]
+1 -> 0 [label="AST"];
+1 -> 2 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 10 [label="Action"];
+6 -> 4 [label="AST"];
+6 -> 11 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 9 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 7 [label="AST"];
+11 -> 20 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 16 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 14 [label="AST"];
+20 -> 19 [label="AST"];
+}

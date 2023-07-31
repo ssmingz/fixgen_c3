@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/403/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/403/1/after.java
+@@ -14,1 +14,6 @@
+-      _model.getInteractionsModel().addListener(_watchListener);
++      SwingUtilities.invokeLater(
++          new Runnable() {
++            public void run() {
++              _model.getInteractionsModel().addListener(_watchListener);
++            }
++          });

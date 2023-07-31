@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="testDoubleDef#?#2:INSERT
+testGZip#?#2:INSERT" shape=ellipse]
+1 [label="testDoubleDef#?#2:public void testDoubleDef() \{
+    executeTarget(\"doubledef\");
+    String log = getLog();
+    assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1));
+    assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1));
+\}
+testGZip#?#2:public void testGZip() \{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}" shape=ellipse]
+2 [label="testDoubleDef#?#2:testDoubleDef
+testGZip#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="testDoubleDef#?#2:void
+testGZip#?#2:void" shape=ellipse]
+4 [label="testDoubleDef#?#2:\{
+    executeTarget(\"doubledef\");
+    String log = getLog();
+    assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1));
+    assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1));
+\}
+testGZip#?#2:\{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}" shape=ellipse]
+5 [label="testDoubleDef#?#3:executeTarget(\"doubledef\")
+testGZip#?#3:executeTarget(\"realTest\")" shape=ellipse]
+6 [label="testDoubleDef#?#4:String log = getLog()
+testGZip#?#4:String log = getLog()" shape=ellipse]
+7 [label="testDoubleDef#?#5:assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1))
+testGZip#?#8:assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"))" shape=ellipse]
+8 [label="testDoubleDef#?#6:assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1))
+testGZip#?#5:assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"))" shape=ellipse]
+9 [label="testDoubleDef#?#2:VE: Modifiers_Method
+testGZip#?#2:testGZip" shape=ellipse]
+10 [label="testDoubleDef#?#2:public
+testGZip#?#2:public" shape=ellipse]
+11 [label="testDoubleDef#?#2:@Test
+testGZip#?#2:@Test" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 8 [label="AST:2"];
+}

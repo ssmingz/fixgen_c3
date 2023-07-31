@@ -1,0 +1,146 @@
+digraph "write#?,PrintWriter,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@write" shape=ellipse]
+2 [label="2:CtParameterImpl@PrintWriter writer" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+4 [label="2:CtParameterImpl@boolean flatten" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+6 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+7 [label="3:CtVariableReadImpl@flatten" shape=ellipse]
+8 [label="3:CtUnaryOperatorImpl@!flatten" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@getValues()" shape=ellipse]
+11 [label="4:CtVirtualElement@getValues" shape=ellipse]
+12 [label="4:CtInvocationImpl@getValues()" shape=ellipse]
+13 [label="4:CtVirtualElement@e" shape=ellipse]
+14 [label="4:CtLocalVariableImpl@Enumeration e = getValues()" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+16 [label="4:CtVirtualElement@hasMoreElements" shape=ellipse]
+17 [label="4:CtVariableReadImpl@e" shape=ellipse]
+18 [label="4:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+19 [label="5:CtExecutableReferenceImpl@writeValue(<unknown>,java.lang.String)" shape=ellipse]
+20 [label="5:CtVirtualElement@writeValue" shape=ellipse]
+21 [label="5:CtVariableReadImpl@writer" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+23 [label="5:CtVirtualElement@nextElement" shape=ellipse]
+24 [label="5:CtVariableReadImpl@e" shape=ellipse]
+25 [label="5:CtInvocationImpl@((String) (e.nextElement()))" shape=ellipse]
+26 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+27 [label="5:CtInvocationImpl@writeValue(writer, ((String) (e.nextElement())))" shape=ellipse]
+28 [label="4:CtBlockImpl@\{
+    writeValue(writer, ((String) (e.nextElement())));
+\}" shape=ellipse]
+29 [label="4:CtForImpl@for (Enumeration e = getValues(); e.hasMoreElements();) \{
+    writeValue(writer, ((String) (e.nextElement())));
+\}" shape=ellipse]
+30 [label="3:CtBlockImpl@\{
+    for (Enumeration e = getValues(); e.hasMoreElements();) \{
+        writeValue(writer, ((String) (e.nextElement())));
+    \}
+\}" shape=ellipse]
+31 [label="8:CtExecutableReferenceImpl@writeValue(<unknown>,<unknown>)" shape=ellipse]
+32 [label="8:CtVirtualElement@writeValue" shape=ellipse]
+33 [label="8:CtVariableReadImpl@writer" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+35 [label="8:CtVirtualElement@getValue" shape=ellipse]
+36 [label="8:CtInvocationImpl@getValue()" shape=ellipse]
+37 [label="8:CtInvocationImpl@writeValue(writer, getValue())" shape=ellipse]
+38 [label="7:CtBlockImpl@\{
+    writeValue(writer, getValue());
+\}" shape=ellipse]
+39 [label="3:CtIfImpl@if (!flatten) \{
+    for (Enumeration e = getValues(); e.hasMoreElements();) \{
+        writeValue(writer, ((String) (e.nextElement())));
+    \}
+\} else \{
+    writeValue(writer, getValue());
+\}" shape=ellipse]
+40 [label="2:CtBlockImpl@\{
+    if (!flatten) \{
+        for (Enumeration e = getValues(); e.hasMoreElements();) \{
+            writeValue(writer, ((String) (e.nextElement())));
+        \}
+    \} else \{
+        writeValue(writer, getValue());
+    \}
+\}" shape=ellipse]
+41 [label="2:CtMethodImpl@public void write(PrintWriter writer, boolean flatten) throws IOException \{
+    if (!flatten) \{
+        for (Enumeration e = getValues(); e.hasMoreElements();) \{
+            writeValue(writer, ((String) (e.nextElement())));
+        \}
+    \} else \{
+        writeValue(writer, getValue());
+    \}
+\}" shape=ellipse]
+42 [label="5:Delete@DELETE" shape=ellipse]
+43 [label="4:Insert@INSERT" shape=ellipse]
+44 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 30 [label="Control Dep"];
+8 -> 29 [label="Control Dep"];
+8 -> 14 [label="Control Dep"];
+8 -> 12 [label="Control Dep"];
+8 -> 10 [label="Control Dep"];
+8 -> 18 [label="Control Dep"];
+8 -> 15 [label="Control Dep"];
+8 -> 17 [label="Control Dep"];
+8 -> 38 [label="Control Dep"];
+8 -> 37 [label="Control Dep"];
+8 -> 31 [label="Control Dep"];
+8 -> 33 [label="Control Dep"];
+8 -> 36 [label="Control Dep"];
+8 -> 34 [label="Control Dep"];
+9 -> 43 [label="Action"];
+12 -> 11 [label="AST"];
+12 -> 10 [label="AST"];
+13 -> 17 [label="Define-Use"];
+13 -> 24 [label="Define-Use"];
+14 -> 13 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 28 [label="Control Dep"];
+18 -> 27 [label="Control Dep"];
+18 -> 19 [label="Control Dep"];
+18 -> 21 [label="Control Dep"];
+18 -> 25 [label="Control Dep"];
+18 -> 22 [label="Control Dep"];
+18 -> 24 [label="Control Dep"];
+25 -> 23 [label="AST"];
+25 -> 26 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+26 -> 42 [label="Action"];
+27 -> 20 [label="AST"];
+27 -> 19 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 14 [label="AST"];
+29 -> 18 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 34 [label="AST"];
+37 -> 32 [label="AST"];
+37 -> 31 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 8 [label="AST"];
+39 -> 30 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 1 [label="AST"];
+41 -> 0 [label="AST"];
+41 -> 2 [label="AST"];
+41 -> 4 [label="AST"];
+41 -> 6 [label="AST"];
+41 -> 40 [label="AST"];
+43 -> 44 [label="Action"];
+}

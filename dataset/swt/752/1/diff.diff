@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/752/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/752/1/after.java
+@@ -3,2 +3,6 @@
+-    sendMouseEvent(MouseEnter, 0, mme);
+-    return OS.noErr;
++    Event event = new Event();
++    Point p = MacUtil.toControl(handle, mme.getWhere());
++    event.x = p.x;
++    event.y = p.y;
++    postEvent(MouseEnter, event);
++    return 0;

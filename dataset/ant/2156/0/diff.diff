@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2156/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2156/0/after.java
+@@ -2,2 +2,7 @@
+-  protected String[] getFiles(File basedir, DirectoryScanner ds) {
+-    return ds.getIncludedFiles();
++  protected String[] getFiles(File baseDir, DirectoryScanner ds) {
++    if (mapper != null) {
++      SourceFileScanner sfs = new SourceFileScanner(this);
++      return sfs.restrict(ds.getIncludedFiles(), baseDir, destDir, mapper);
++    } else {
++      return ds.getIncludedFiles();
++    }

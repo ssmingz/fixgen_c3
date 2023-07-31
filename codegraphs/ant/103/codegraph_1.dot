@@ -1,0 +1,307 @@
+digraph "mapFileName#?,String" {
+0 [label="2:CtVirtualElement@String[]" shape=ellipse]
+1 [label="2:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+2 [label="2:CtVirtualElement@mapFileName" shape=ellipse]
+3 [label="2:CtParameterImpl@String sourceFileName" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@Reader" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@StringReader" shape=ellipse]
+7 [label="4:CtVariableReadImpl@sourceFileName" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new StringReader(sourceFileName)" shape=ellipse]
+9 [label="4:CtVirtualElement@stringReader" shape=ellipse]
+10 [label="4:CtLocalVariableImpl@Reader stringReader = new StringReader(sourceFileName)" shape=ellipse]
+11 [label="5:CtTypeReferenceImpl@ChainReaderHelper" shape=ellipse]
+12 [label="5:CtTypeReferenceImpl@ChainReaderHelper" shape=ellipse]
+13 [label="5:CtConstructorCallImpl@new ChainReaderHelper()" shape=ellipse]
+14 [label="5:CtVirtualElement@helper" shape=ellipse]
+15 [label="5:CtLocalVariableImpl@ChainReaderHelper helper = new ChainReaderHelper()" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@setBufferSize(int)" shape=ellipse]
+17 [label="6:CtVirtualElement@setBufferSize" shape=ellipse]
+18 [label="6:CtVariableReadImpl@helper" shape=ellipse]
+19 [label="6:CtLiteralImpl@8192" shape=ellipse]
+20 [label="6:CtInvocationImpl@helper.setBufferSize(8192)" shape=ellipse]
+21 [label="7:CtExecutableReferenceImpl@setPrimaryReader(Reader)" shape=ellipse]
+22 [label="7:CtVirtualElement@setPrimaryReader" shape=ellipse]
+23 [label="7:CtVariableReadImpl@helper" shape=ellipse]
+24 [label="7:CtVariableReadImpl@stringReader" shape=ellipse]
+25 [label="7:CtInvocationImpl@helper.setPrimaryReader(stringReader)" shape=ellipse]
+26 [label="8:CtExecutableReferenceImpl@setProject()" shape=ellipse]
+27 [label="8:CtVirtualElement@setProject" shape=ellipse]
+28 [label="8:CtVariableReadImpl@helper" shape=ellipse]
+29 [label="8:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+30 [label="8:CtVirtualElement@getProject" shape=ellipse]
+31 [label="8:CtInvocationImpl@getProject()" shape=ellipse]
+32 [label="8:CtInvocationImpl@helper.setProject(getProject())" shape=ellipse]
+33 [label="9:CtTypeReferenceImpl@Vector" shape=ellipse]
+34 [label="9:CtTypeReferenceImpl@Vector" shape=ellipse]
+35 [label="9:CtConstructorCallImpl@new Vector()" shape=ellipse]
+36 [label="9:CtVirtualElement@filterChains" shape=ellipse]
+37 [label="9:CtLocalVariableImpl@Vector filterChains = new Vector()" shape=ellipse]
+38 [label="10:CtExecutableReferenceImpl@add(PlaceHold)" shape=ellipse]
+39 [label="10:CtVirtualElement@add" shape=ellipse]
+40 [label="10:CtVariableReadImpl@filterChains" shape=ellipse]
+41 [label="10:CtThisAccessImpl@this" shape=ellipse]
+42 [label="10:CtInvocationImpl@filterChains.add(this)" shape=ellipse]
+43 [label="11:CtExecutableReferenceImpl@setFilterChains(Vector)" shape=ellipse]
+44 [label="11:CtVirtualElement@setFilterChains" shape=ellipse]
+45 [label="11:CtVariableReadImpl@helper" shape=ellipse]
+46 [label="11:CtVariableReadImpl@filterChains" shape=ellipse]
+47 [label="11:CtInvocationImpl@helper.setFilterChains(filterChains)" shape=ellipse]
+48 [label="12:CtTypeReferenceImpl@String" shape=ellipse]
+49 [label="12:CtExecutableReferenceImpl@safeReadFully()" shape=ellipse]
+50 [label="12:CtVirtualElement@safeReadFully" shape=ellipse]
+51 [label="12:CtTypeAccessImpl@FileUtils" shape=ellipse]
+52 [label="12:CtExecutableReferenceImpl@getAssembledReader()" shape=ellipse]
+53 [label="12:CtVirtualElement@getAssembledReader" shape=ellipse]
+54 [label="12:CtVariableReadImpl@helper" shape=ellipse]
+55 [label="12:CtInvocationImpl@helper.getAssembledReader()" shape=ellipse]
+56 [label="12:CtInvocationImpl@FileUtils.safeReadFully(helper.getAssembledReader())" shape=ellipse]
+57 [label="12:CtVirtualElement@result" shape=ellipse]
+58 [label="12:CtLocalVariableImpl@String result = FileUtils.safeReadFully(helper.getAssembledReader())" shape=ellipse]
+59 [label="13:CtExecutableReferenceImpl@length()" shape=ellipse]
+60 [label="13:CtVirtualElement@length" shape=ellipse]
+61 [label="13:CtVariableReadImpl@result" shape=ellipse]
+62 [label="13:CtInvocationImpl@result.length()" shape=ellipse]
+63 [label="13:CtLiteralImpl@0" shape=ellipse]
+64 [label="13:CtBinaryOperatorImpl@result.length() == 0" shape=ellipse]
+65 [label="14:CtLiteralImpl@null" shape=ellipse]
+66 [label="14:CtReturnImpl@return null" shape=ellipse]
+67 [label="13:CtBlockImpl@\{
+    return null;
+\}" shape=ellipse]
+68 [label="16:CtNewArrayImpl@new String[]\{ result \}" shape=ellipse]
+69 [label="16:CtVariableReadImpl@result" shape=ellipse]
+70 [label="16:CtReturnImpl@return new String[]\{ result \}" shape=ellipse]
+71 [label="15:CtBlockImpl@\{
+    return new String[]\{ result \};
+\}" shape=ellipse]
+72 [label="13:CtIfImpl@if (result.length() == 0) \{
+    return null;
+\} else \{
+    return new String[]\{ result \};
+\}" shape=ellipse]
+73 [label="3:CtBlockImpl@\{
+    Reader stringReader = new StringReader(sourceFileName);
+    ChainReaderHelper helper = new ChainReaderHelper();
+    helper.setBufferSize(8192);
+    helper.setPrimaryReader(stringReader);
+    helper.setProject(getProject());
+    Vector filterChains = new Vector();
+    filterChains.add(this);
+    helper.setFilterChains(filterChains);
+    String result = FileUtils.safeReadFully(helper.getAssembledReader());
+    if (result.length() == 0) \{
+        return null;
+    \} else \{
+        return new String[]\{ result \};
+    \}
+\}" shape=ellipse]
+74 [label="18:CtVirtualElement@ex" shape=ellipse]
+75 [label="18:CtTypeReferenceImpl@BuildException" shape=ellipse]
+76 [label="18:CtCatchVariableImpl@BuildException ex" shape=ellipse]
+77 [label="19:CtVariableReadImpl@ex" shape=ellipse]
+78 [label="19:CtThrowImpl@throw ex" shape=ellipse]
+79 [label="18:CtBlockImpl@\{
+    throw ex;
+\}" shape=ellipse]
+80 [label="18:CtCatchImpl@ catch (BuildException ex) \{
+    throw ex;
+\}" shape=ellipse]
+81 [label="20:CtVirtualElement@ex" shape=ellipse]
+82 [label="20:CtTypeReferenceImpl@Exception" shape=ellipse]
+83 [label="20:CtCatchVariableImpl@Exception ex" shape=ellipse]
+84 [label="21:CtTypeReferenceImpl@BuildException" shape=ellipse]
+85 [label="21:CtVariableReadImpl@ex" shape=ellipse]
+86 [label="21:CtConstructorCallImpl@new BuildException(ex)" shape=ellipse]
+87 [label="21:CtThrowImpl@throw new BuildException(ex)" shape=ellipse]
+88 [label="20:CtBlockImpl@\{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+89 [label="20:CtCatchImpl@ catch (Exception ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+90 [label="3:CtTryImpl@try \{
+    Reader stringReader = new StringReader(sourceFileName);
+    ChainReaderHelper helper = new ChainReaderHelper();
+    helper.setBufferSize(8192);
+    helper.setPrimaryReader(stringReader);
+    helper.setProject(getProject());
+    Vector filterChains = new Vector();
+    filterChains.add(this);
+    helper.setFilterChains(filterChains);
+    String result = FileUtils.safeReadFully(helper.getAssembledReader());
+    if (result.length() == 0) \{
+        return null;
+    \} else \{
+        return new String[]\{ result \};
+    \}
+\} catch (BuildException ex) \{
+    throw ex;
+\} catch (Exception ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+91 [label="2:CtBlockImpl@\{
+    try \{
+        Reader stringReader = new StringReader(sourceFileName);
+        ChainReaderHelper helper = new ChainReaderHelper();
+        helper.setBufferSize(8192);
+        helper.setPrimaryReader(stringReader);
+        helper.setProject(getProject());
+        Vector filterChains = new Vector();
+        filterChains.add(this);
+        helper.setFilterChains(filterChains);
+        String result = FileUtils.safeReadFully(helper.getAssembledReader());
+        if (result.length() == 0) \{
+            return null;
+        \} else \{
+            return new String[]\{ result \};
+        \}
+    \} catch (BuildException ex) \{
+        throw ex;
+    \} catch (Exception ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+92 [label="2:CtMethodImpl@public String[] mapFileName(String sourceFileName) \{
+    try \{
+        Reader stringReader = new StringReader(sourceFileName);
+        ChainReaderHelper helper = new ChainReaderHelper();
+        helper.setBufferSize(8192);
+        helper.setPrimaryReader(stringReader);
+        helper.setProject(getProject());
+        Vector filterChains = new Vector();
+        filterChains.add(this);
+        helper.setFilterChains(filterChains);
+        String result = FileUtils.safeReadFully(helper.getAssembledReader());
+        if (result.length() == 0) \{
+            return null;
+        \} else \{
+            return new String[]\{ result \};
+        \}
+    \} catch (BuildException ex) \{
+        throw ex;
+    \} catch (Exception ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+93 [label="6:Delete@DELETE" shape=ellipse]
+94 [label="6:Insert@INSERT" shape=ellipse]
+95 [label="6:CtTypeAccessImpl@BUFFER_SIZE" shape=ellipse]
+1 -> 0 [label="AST"];
+3 -> 4 [label="AST"];
+7 -> 9 [label="Data Dep"];
+8 -> 7 [label="AST"];
+9 -> 24 [label="Define-Use"];
+10 -> 9 [label="AST"];
+10 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+14 -> 18 [label="Define-Use"];
+14 -> 23 [label="Define-Use"];
+14 -> 28 [label="Define-Use"];
+14 -> 45 [label="Define-Use"];
+14 -> 54 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 11 [label="AST"];
+15 -> 13 [label="AST"];
+19 -> 93 [label="Action"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 16 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 94 [label="Action"];
+25 -> 22 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 29 [label="AST"];
+32 -> 27 [label="AST"];
+32 -> 28 [label="AST"];
+32 -> 26 [label="AST"];
+32 -> 31 [label="AST"];
+36 -> 40 [label="Define-Use"];
+36 -> 46 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 35 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 38 [label="AST"];
+42 -> 41 [label="AST"];
+47 -> 44 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 43 [label="AST"];
+47 -> 46 [label="AST"];
+54 -> 57 [label="Data Dep"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 52 [label="AST"];
+56 -> 50 [label="AST"];
+56 -> 51 [label="AST"];
+56 -> 49 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 61 [label="Define-Use"];
+58 -> 57 [label="AST"];
+58 -> 48 [label="AST"];
+58 -> 56 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 59 [label="AST"];
+64 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+64 -> 67 [label="Control Dep"];
+64 -> 66 [label="Control Dep"];
+64 -> 65 [label="Control Dep"];
+64 -> 71 [label="Control Dep"];
+64 -> 70 [label="Control Dep"];
+64 -> 68 [label="Control Dep"];
+66 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 69 [label="AST"];
+70 -> 68 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 64 [label="AST"];
+72 -> 67 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 10 [label="AST"];
+73 -> 15 [label="AST"];
+73 -> 20 [label="AST"];
+73 -> 25 [label="AST"];
+73 -> 32 [label="AST"];
+73 -> 37 [label="AST"];
+73 -> 42 [label="AST"];
+73 -> 47 [label="AST"];
+73 -> 58 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 77 [label="Define-Use"];
+76 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+76 -> 79 [label="Control Dep"];
+76 -> 78 [label="Control Dep"];
+76 -> 77 [label="Control Dep"];
+78 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 76 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 85 [label="Define-Use"];
+83 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+83 -> 88 [label="Control Dep"];
+83 -> 87 [label="Control Dep"];
+83 -> 86 [label="Control Dep"];
+83 -> 85 [label="Control Dep"];
+86 -> 85 [label="AST"];
+87 -> 86 [label="AST"];
+88 -> 87 [label="AST"];
+89 -> 83 [label="AST"];
+89 -> 88 [label="AST"];
+90 -> 73 [label="AST"];
+90 -> 80 [label="AST"];
+90 -> 89 [label="AST"];
+91 -> 90 [label="AST"];
+92 -> 2 [label="AST"];
+92 -> 1 [label="AST"];
+92 -> 3 [label="AST"];
+92 -> 91 [label="AST"];
+94 -> 95 [label="Action"];
+}

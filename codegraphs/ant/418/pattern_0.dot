@@ -1,0 +1,248 @@
+digraph "Pattern" {
+0 [label="accountForIncludedDir#?,String,File,boolean#17:INSERT
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:INSERT" shape=ellipse]
+1 [label="accountForIncludedDir#?,String,File,boolean#17:if (fast && couldHoldIncluded(name)) \{
+    scandir(file, name + File.separator, fast);
+\}
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:if (fast && couldHoldIncluded(newPath)) \{
+    scandir(file, newPath, fast, children, directoryNamesFollowed);
+\}" shape=ellipse]
+2 [label="accountForIncludedDir#?,String,File,boolean#2:\{
+    if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+        return;
+    \}
+    boolean included = false;
+    if (isExcluded(name)) \{
+        dirsExcluded.addElement(name);
+    \} else if (isSelected(name, file)) \{
+        included = true;
+        dirsIncluded.addElement(name);
+    \} else \{
+        dirsDeselected.addElement(name);
+    \}
+    everythingIncluded &= included;
+    if (fast && couldHoldIncluded(name)) \{
+        scandir(file, name + File.separator, fast);
+    \}
+\}
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#63:\{
+    everythingIncluded = false;
+    dirsNotIncluded.addElement(name);
+    if (fast && couldHoldIncluded(newPath)) \{
+        scandir(file, newPath, fast, children, directoryNamesFollowed);
+    \}
+\}" shape=ellipse]
+3 [label="accountForIncludedDir#?,String,File,boolean#2:private void accountForIncludedDir(String name, File file, boolean fast) \{
+    if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+        return;
+    \}
+    boolean included = false;
+    if (isExcluded(name)) \{
+        dirsExcluded.addElement(name);
+    \} else if (isSelected(name, file)) \{
+        included = true;
+        dirsIncluded.addElement(name);
+    \} else \{
+        dirsDeselected.addElement(name);
+    \}
+    everythingIncluded &= included;
+    if (fast && couldHoldIncluded(name)) \{
+        scandir(file, name + File.separator, fast);
+    \}
+\}" shape=ellipse]
+4 [label="accountForIncludedDir#?,String,File,boolean#3:if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+    return;
+\}
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#64:everythingIncluded = false" shape=ellipse]
+5 [label="accountForIncludedDir#?,String,File,boolean#7:boolean included = false" shape=ellipse]
+6 [label="accountForIncludedDir#?,String,File,boolean#8:if (isExcluded(name)) \{
+    dirsExcluded.addElement(name);
+\} else if (isSelected(name, file)) \{
+    included = true;
+    dirsIncluded.addElement(name);
+\} else \{
+    dirsDeselected.addElement(name);
+\}" shape=ellipse]
+7 [label="accountForIncludedDir#?,String,File,boolean#16:everythingIncluded &= included" shape=ellipse]
+8 [label="accountForIncludedDir#?,String,File,boolean#17:fast && couldHoldIncluded(name)
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:fast && couldHoldIncluded(newPath)" shape=ellipse]
+9 [label="accountForIncludedDir#?,String,File,boolean#17:fast
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:fast" shape=ellipse]
+10 [label="accountForIncludedDir#?,String,File,boolean#17:couldHoldIncluded(name)
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:couldHoldIncluded(newPath)" shape=ellipse]
+11 [label="accountForIncludedDir#?,String,File,boolean#17:\{
+    scandir(file, name + File.separator, fast);
+\}
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:\{
+    scandir(file, newPath, fast, children, directoryNamesFollowed);
+\}" shape=ellipse]
+12 [label="accountForIncludedDir#?,String,File,boolean#18:scandir(file, name + File.separator, fast)
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:scandir(file, newPath, fast, children, directoryNamesFollowed)" shape=ellipse]
+13 [label="accountForIncludedDir#?,String,File,boolean#18:scandir(<unknown>,<unknown>,boolean)" shape=ellipse]
+14 [label="accountForIncludedDir#?,String,File,boolean#-1:" shape=ellipse]
+15 [label="accountForIncludedDir#?,String,File,boolean#-1:PlaceHold" shape=ellipse]
+16 [label="accountForIncludedDir#?,String,File,boolean#18:file" shape=ellipse]
+17 [label="accountForIncludedDir#?,String,File,boolean#18:name + File.separator" shape=ellipse]
+18 [label="accountForIncludedDir#?,String,File,boolean#18:name" shape=ellipse]
+19 [label="accountForIncludedDir#?,String,File,boolean#18:File.separator" shape=ellipse]
+20 [label="accountForIncludedDir#?,String,File,boolean#-1:File" shape=ellipse]
+21 [label="accountForIncludedDir#?,String,File,boolean#18:fast" shape=ellipse]
+22 [label="accountForIncludedDir#?,String,File,boolean#17:MOVE
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:MOVE" shape=ellipse]
+23 [label="accountForIncludedDir#?,String,File,boolean#17:(fast && couldHoldIncluded(name)) && (!contentsExcluded(name))
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:(fast && couldHoldIncluded(newPath)) && (!contentsExcluded(newPath))" shape=ellipse]
+24 [label="accountForIncludedDir#?,String,File,boolean#18:scandir(<unknown>,<unknown>,boolean)
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:scandir(File,TokenizedPath,boolean,java.lang.String[],LinkedList)" shape=ellipse]
+25 [label="accountForIncludedDir#?,String,File,boolean#-1:
+scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:" shape=ellipse]
+26 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:file" shape=ellipse]
+27 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#64:false" shape=ellipse]
+28 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:newPath" shape=ellipse]
+29 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:" shape=ellipse]
+30 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:isIncluded" shape=ellipse]
+31 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#42:newPath" shape=ellipse]
+32 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:isIncluded(newPath)" shape=ellipse]
+33 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:directoryNamesFollowed" shape=ellipse]
+34 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:couldHoldIncluded(<unknown>)" shape=ellipse]
+35 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:" shape=ellipse]
+36 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:fast" shape=ellipse]
+37 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#66:newPath" shape=ellipse]
+38 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:newPath" shape=ellipse]
+39 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#43:file" shape=ellipse]
+40 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#65:dirsNotIncluded.addElement(name)" shape=ellipse]
+41 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:if (isIncluded(newPath)) \{
+    accountForIncludedDir(newPath, file, fast, children, directoryNamesFollowed);
+\} else \{
+    everythingIncluded = false;
+    dirsNotIncluded.addElement(name);
+    if (fast && couldHoldIncluded(newPath)) \{
+        scandir(file, newPath, fast, children, directoryNamesFollowed);
+    \}
+\}" shape=ellipse]
+42 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:\{
+    accountForIncludedDir(newPath, file, fast, children, directoryNamesFollowed);
+\}" shape=ellipse]
+43 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:accountForIncludedDir(newPath, file, fast, children, directoryNamesFollowed)" shape=ellipse]
+44 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#65:addElement(java.lang.String)" shape=ellipse]
+45 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:PlaceHold" shape=ellipse]
+46 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:fast" shape=ellipse]
+47 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:PlaceHold" shape=ellipse]
+48 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#45:children == null" shape=ellipse]
+49 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#44:children" shape=ellipse]
+50 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:directoryNamesFollowed" shape=ellipse]
+51 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#61:isIncluded(<unknown>)" shape=ellipse]
+52 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#64:everythingIncluded" shape=ellipse]
+53 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:children" shape=ellipse]
+54 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:accountForIncludedDir(<unknown>,<unknown>,boolean,java.lang.String[],<unknown>)" shape=ellipse]
+55 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#65:dirsNotIncluded" shape=ellipse]
+56 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#62:newPath" shape=ellipse]
+57 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:children" shape=ellipse]
+58 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#65:name" shape=ellipse]
+59 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#67:file" shape=ellipse]
+60 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:PlaceHold" shape=ellipse]
+61 [label="scandir#?,File,TokenizedPath,boolean,String[],LinkedList#-1:" shape=ellipse]
+0 -> 23 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 40 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+4 -> 27 [label="AST:1"];
+4 -> 52 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="Control Dep:2"];
+8 -> 12 [label="Control Dep:2"];
+8 -> 13 [label="Control Dep:1"];
+8 -> 14 [label="Control Dep:1"];
+8 -> 15 [label="Control Dep:1"];
+8 -> 16 [label="Control Dep:1"];
+8 -> 17 [label="Control Dep:1"];
+8 -> 18 [label="Control Dep:1"];
+8 -> 19 [label="Control Dep:1"];
+8 -> 20 [label="Control Dep:1"];
+8 -> 21 [label="Control Dep:1"];
+8 -> 22 [label="Action:2"];
+10 -> 34 [label="AST:1"];
+10 -> 35 [label="AST:1"];
+10 -> 37 [label="AST:1"];
+11 -> 12 [label="AST:2"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+12 -> 17 [label="AST:1"];
+12 -> 21 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+22 -> 23 [label="Action:2"];
+23 -> 24 [label="Control Dep:2"];
+23 -> 25 [label="Control Dep:2"];
+23 -> 33 [label="Control Dep:1"];
+23 -> 38 [label="Control Dep:1"];
+23 -> 46 [label="Control Dep:1"];
+23 -> 47 [label="Control Dep:1"];
+23 -> 57 [label="Control Dep:1"];
+23 -> 59 [label="Control Dep:1"];
+25 -> 47 [label="AST:1"];
+31 -> 38 [label="Define Use:1"];
+32 -> 26 [label="Control Dep:1"];
+32 -> 27 [label="Control Dep:1"];
+32 -> 28 [label="AST:1"];
+32 -> 29 [label="AST:1"];
+32 -> 30 [label="AST:1"];
+32 -> 51 [label="AST:1"];
+32 -> 42 [label="Control Dep:1"];
+32 -> 43 [label="Control Dep:1"];
+32 -> 54 [label="Control Dep:1"];
+32 -> 61 [label="Control Dep:1"];
+32 -> 45 [label="Control Dep:1"];
+32 -> 56 [label="Control Dep:1"];
+32 -> 36 [label="Control Dep:1"];
+32 -> 53 [label="Control Dep:1"];
+32 -> 50 [label="Control Dep:1"];
+32 -> 2 [label="Control Dep:1"];
+32 -> 4 [label="Control Dep:1"];
+32 -> 52 [label="Control Dep:1"];
+32 -> 40 [label="Control Dep:1"];
+32 -> 44 [label="Control Dep:1"];
+32 -> 55 [label="Control Dep:1"];
+32 -> 58 [label="Control Dep:1"];
+32 -> 1 [label="Control Dep:1"];
+32 -> 8 [label="Control Dep:1"];
+32 -> 9 [label="Control Dep:1"];
+32 -> 10 [label="Control Dep:1"];
+32 -> 34 [label="Control Dep:1"];
+32 -> 35 [label="Control Dep:1"];
+32 -> 60 [label="Control Dep:1"];
+32 -> 37 [label="Control Dep:1"];
+35 -> 60 [label="AST:1"];
+39 -> 59 [label="Define Use:1"];
+40 -> 55 [label="AST:1"];
+40 -> 44 [label="AST:1"];
+40 -> 58 [label="AST:1"];
+41 -> 32 [label="AST:1"];
+41 -> 42 [label="AST:1"];
+41 -> 2 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+43 -> 26 [label="AST:1"];
+43 -> 36 [label="AST:1"];
+43 -> 61 [label="AST:1"];
+43 -> 54 [label="AST:1"];
+43 -> 56 [label="AST:1"];
+43 -> 53 [label="AST:1"];
+43 -> 50 [label="AST:1"];
+48 -> 28 [label="Control Dep:1"];
+48 -> 29 [label="Control Dep:1"];
+48 -> 32 [label="Control Dep:1"];
+48 -> 41 [label="Control Dep:1"];
+48 -> 51 [label="Control Dep:1"];
+49 -> 57 [label="Define Use:1"];
+61 -> 45 [label="AST:1"];
+}

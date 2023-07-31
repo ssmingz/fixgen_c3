@@ -1,0 +1,83 @@
+digraph "Pattern" {
+0 [label="test4#?#3:UPDATE
+testTwoMappers#?#3:UPDATE" shape=ellipse]
+1 [label="test4#?#3:expectBuildException(\"test4\", \"zipfile must not point to a directory\")
+testTwoMappers#?#3:expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS)" shape=ellipse]
+2 [label="test4#?#2:\{
+    expectBuildException(\"test4\", \"zipfile must not point to a directory\");
+\}
+testTwoMappers#?#2:\{
+    expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS);
+\}" shape=ellipse]
+3 [label="test4#?#2:public void test4() \{
+    expectBuildException(\"test4\", \"zipfile must not point to a directory\");
+\}
+testTwoMappers#?#2:public void testTwoMappers() \{
+    expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS);
+\}" shape=ellipse]
+4 [label="test4#?#3:expectBuildException
+testTwoMappers#?#3:expectBuildException" shape=ellipse]
+5 [label="test4#?#-1:
+testTwoMappers#?#-1:" shape=ellipse]
+6 [label="test4#?#-1:PlaceHold
+testTwoMappers#?#-1:PlaceHold" shape=ellipse]
+7 [label="test4#?#-1:PlaceHold
+testTwoMappers#?#-1:PlaceHold" shape=ellipse]
+8 [label="test4#?#3:expectBuildException(java.lang.String,java.lang.String)
+testTwoMappers#?#3:expectBuildException(java.lang.String,<unknown>)" shape=ellipse]
+9 [label="test4#?#-1:String
+testTwoMappers#?#-1:String" shape=ellipse]
+10 [label="test4#?#-1:String
+testTwoMappers#?#-1:null" shape=ellipse]
+11 [label="test4#?#3:\"test4\"
+testTwoMappers#?#3:\"testTwoMappers\"" shape=ellipse]
+12 [label="test4#?#-1:String
+testTwoMappers#?#-1:String" shape=ellipse]
+13 [label="test4#?#3:\"zipfile must not point to a directory\"" shape=ellipse]
+14 [label="test4#?#-1:String
+testTwoMappers#?#-1:ERROR_MULTIPLE_MAPPERS" shape=ellipse]
+15 [label="test4#?#3:UPDATE
+testTwoMappers#?#3:UPDATE" shape=ellipse]
+16 [label="test4#?#3:MOVE
+testTwoMappers#?#3:MOVE" shape=ellipse]
+17 [label="test4#?#4:try \{
+    buildRule.executeTarget(\"test4\");
+    fail(\"BuildException expected: zipfile must not point to a directory\");
+\} catch (BuildException ex) \{
+\}
+testTwoMappers#?#4:try \{
+    buildRule.executeTarget(\"testTwoMappers\");
+    fail(\"BuildException expected: \" + Expand.ERROR_MULTIPLE_MAPPERS);
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+18 [label="test4#?#6:fail(\"BuildException expected: zipfile must not point to a directory\")
+testTwoMappers#?#6:fail(\"BuildException expected: \" + Expand.ERROR_MULTIPLE_MAPPERS)" shape=ellipse]
+19 [label="testTwoMappers#?#3:UPDATE" shape=ellipse]
+20 [label="testTwoMappers#?#3:MOVE" shape=ellipse]
+21 [label="testTwoMappers#?#3:ERROR_MULTIPLE_MAPPERS" shape=ellipse]
+22 [label="testTwoMappers#?#3:MOVE" shape=ellipse]
+0 -> 18 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:1"];
+1 -> 16 [label="Action:2"];
+1 -> 21 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 19 [label="Action:1"];
+11 -> 20 [label="Action:1"];
+13 -> 14 [label="AST:1"];
+13 -> 15 [label="Action:1"];
+16 -> 17 [label="Action:2"];
+21 -> 14 [label="AST:1"];
+21 -> 15 [label="Action:1"];
+21 -> 22 [label="Action:1"];
+}

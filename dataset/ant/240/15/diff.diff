@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/240/15/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/240/15/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,9 @@
+-    expectBuildExceptionContaining(
+-        "taskcase", "Task names are case sensitive", "Problem: failed to create task or type ecHO");
++    try {
++      buildRule.executeTarget("taskcase");
++      fail("Build exception should have been thrown due to case sensitivity of name");
++    } catch (BuildException ex) {
++      assertContains(
++          "Task names should be case sensitive",
++          "Problem: failed to create task or type ecHO",
++          ex.getMessage());
++    }

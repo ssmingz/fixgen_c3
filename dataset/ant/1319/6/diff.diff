@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1319/6/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1319/6/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test6", "Invalid value specified for longfile attribute.");
++    try {
++      buildRule.executeTarget("test6");
++      fail("BuildException expected: Invalid value specified for longfile attribute.");
++    } catch (BuildException ex) {
++    }

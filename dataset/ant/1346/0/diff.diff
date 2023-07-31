@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1346/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1346/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,4 @@
+-    expectReportWithText("testWrongElement", WARNING_INVALID_ROOT_ELEMENT);
++    buildRule.executeTarget("testWrongElement");
++    assertIndexCreated();
++    assertContains(
++        "Required text not found in log", WARNING_INVALID_ROOT_ELEMENT, buildRule.getLog());

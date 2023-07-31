@@ -1,0 +1,23 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2978/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2978/1/after.java
+@@ -8,7 +8,10 @@
+-    if ((!table.isRowSelected(row))
+-        && ((modifiers & ((OS.NSCommandKeyMask | OS.NSShiftKeyMask) | OS.NSAlternateKeyMask))
+-            == 0)) {
+-      NSIndexSet set = ((NSIndexSet) (new NSIndexSet().alloc()));
+-      set = set.initWithIndex(row);
+-      table.selectRowIndexes(set, false);
+-      set.release();
++    boolean drag = ((state & DRAG_DETECT) != 0) && hooks(DragDetect);
++    if (drag) {
++      if ((!table.isRowSelected(row))
++          && ((modifiers & ((OS.NSCommandKeyMask | OS.NSShiftKeyMask) | OS.NSAlternateKeyMask))
++              == 0)) {
++        NSIndexSet set = ((NSIndexSet) (new NSIndexSet().alloc()));
++        set = set.initWithIndex(row);
++        table.selectRowIndexes(set, false);
++        set.release();
++      }
+@@ -16,1 +19,1 @@
+-    return (table.isRowSelected(row) && ((state & DRAG_DETECT) != 0)) && hooks(DragDetect);
++    return table.isRowSelected(row) && drag;

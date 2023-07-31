@@ -1,0 +1,55 @@
+digraph "addAddFile#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addAddFile" shape=ellipse]
+2 [label="2:CtParameterImpl@String addfile" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtVariableReadImpl@addfile" shape=ellipse]
+5 [label="3:CtLiteralImpl@null" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@addfile == null" shape=ellipse]
+7 [label="4:CtReturnImpl@return" shape=ellipse]
+8 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+9 [label="3:CtIfImpl@if (addfile == null) \{
+    return;
+\}" shape=ellipse]
+10 [label="6:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+11 [label="6:CtVirtualElement@addElement" shape=ellipse]
+12 [label="6:CtFieldReadImpl@addfiles" shape=ellipse]
+13 [label="6:CtVariableReadImpl@addfile" shape=ellipse]
+14 [label="6:CtInvocationImpl@addfiles.addElement(addfile)" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    if (addfile == null) \{
+        return;
+    \}
+    addfiles.addElement(addfile);
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public void addAddFile(String addfile) \{
+    if (addfile == null) \{
+        return;
+    \}
+    addfiles.addElement(addfile);
+\}" shape=ellipse]
+17 [label="6:Update@UPDATE" shape=ellipse]
+18 [label="6:CtInvocationImpl@addfiles.add(addfile)" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 8 [label="Control Dep"];
+6 -> 7 [label="Control Dep"];
+8 -> 7 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 8 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 17 [label="Action"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

@@ -1,0 +1,94 @@
+digraph "getClearToolCommand#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getClearToolCommand" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+3 [label="3:CtFieldReadImpl@m_ClearToolDir" shape=ellipse]
+4 [label="3:CtVirtualElement@toReturn" shape=ellipse]
+5 [label="3:CtLocalVariableImpl@String toReturn = m_ClearToolDir" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@equals(java.lang.Object)" shape=ellipse]
+7 [label="4:CtVirtualElement@equals" shape=ellipse]
+8 [label="4:CtVariableReadImpl@toReturn" shape=ellipse]
+9 [label="4:CtLiteralImpl@\"\"" shape=ellipse]
+10 [label="4:CtInvocationImpl@toReturn.equals(\"\")" shape=ellipse]
+11 [label="4:CtUnaryOperatorImpl@(!toReturn.equals(\"\"))" shape=ellipse]
+12 [label="4:CtExecutableReferenceImpl@endsWith(java.lang.String)" shape=ellipse]
+13 [label="4:CtVirtualElement@endsWith" shape=ellipse]
+14 [label="4:CtVariableReadImpl@toReturn" shape=ellipse]
+15 [label="4:CtLiteralImpl@\"/\"" shape=ellipse]
+16 [label="4:CtInvocationImpl@toReturn.endsWith(\"/\")" shape=ellipse]
+17 [label="4:CtUnaryOperatorImpl@(!toReturn.endsWith(\"/\"))" shape=ellipse]
+18 [label="4:CtBinaryOperatorImpl@(!toReturn.equals(\"\")) && (!toReturn.endsWith(\"/\"))" shape=ellipse]
+19 [label="5:CtVariableWriteImpl@toReturn" shape=ellipse]
+20 [label="5:CtLiteralImpl@\"/\"" shape=ellipse]
+21 [label="5:CtOperatorAssignmentImpl@toReturn += \"/\"" shape=ellipse]
+22 [label="4:CtBlockImpl@\{
+    toReturn += \"/\";
+\}" shape=ellipse]
+23 [label="4:CtIfImpl@if ((!toReturn.equals(\"\")) && (!toReturn.endsWith(\"/\"))) \{
+    toReturn += \"/\";
+\}" shape=ellipse]
+24 [label="7:CtVariableWriteImpl@toReturn" shape=ellipse]
+25 [label="7:CtFieldReadImpl@CLEARTOOL_EXE" shape=ellipse]
+26 [label="7:CtOperatorAssignmentImpl@toReturn += CLEARTOOL_EXE" shape=ellipse]
+27 [label="8:CtVariableReadImpl@toReturn" shape=ellipse]
+28 [label="8:CtReturnImpl@return toReturn" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    String toReturn = m_ClearToolDir;
+    if ((!toReturn.equals(\"\")) && (!toReturn.endsWith(\"/\"))) \{
+        toReturn += \"/\";
+    \}
+    toReturn += CLEARTOOL_EXE;
+    return toReturn;
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@protected final String getClearToolCommand() \{
+    String toReturn = m_ClearToolDir;
+    if ((!toReturn.equals(\"\")) && (!toReturn.endsWith(\"/\"))) \{
+        toReturn += \"/\";
+    \}
+    toReturn += CLEARTOOL_EXE;
+    return toReturn;
+\}" shape=ellipse]
+31 [label="3:Update@UPDATE" shape=ellipse]
+32 [label="3:CtFieldReadImpl@mClearToolDir" shape=ellipse]
+3 -> 4 [label="Data Dep"];
+3 -> 31 [label="Action"];
+4 -> 8 [label="Define-Use"];
+4 -> 14 [label="Define-Use"];
+5 -> 4 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 3 [label="AST"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 11 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 22 [label="Control Dep"];
+18 -> 21 [label="Control Dep"];
+18 -> 19 [label="Control Dep"];
+18 -> 20 [label="Control Dep"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 18 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 27 [label="Define-Use"];
+25 -> 24 [label="Data Dep"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 5 [label="AST"];
+29 -> 23 [label="AST"];
+29 -> 26 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 32 [label="Action"];
+}

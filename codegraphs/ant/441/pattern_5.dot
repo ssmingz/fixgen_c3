@@ -1,0 +1,51 @@
+digraph "Pattern" {
+0 [label="testEndTestFired#?#4:INSERT
+testStartTestFired#?#4:INSERT" shape=ellipse]
+1 [label="testEndTestFired#?#3:getProject()
+testStartTestFired#?#3:getProject()" shape=ellipse]
+2 [label="testEndTestFired#?#3:getProject().setProperty(\"enableEvents\", \"true\")
+testStartTestFired#?#3:getProject().setProperty(\"enableEvents\", \"true\")" shape=ellipse]
+3 [label="testEndTestFired#?#2:\{
+    getProject().setProperty(\"enableEvents\", \"true\");
+    executeTarget(PASS_TEST_TARGET);
+    assertTrue(\"expecting test ended message\", hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"endTest(\") + PASS_TEST) + \")\"));
+\}
+testStartTestFired#?#2:\{
+    getProject().setProperty(\"enableEvents\", \"true\");
+    executeTarget(PASS_TEST_TARGET);
+    assertTrue(\"expecting test started message\", hasEventMessage(((JUnitTask.TESTLISTENER_PREFIX + \"startTest(\") + PASS_TEST) + \")\"));
+\}" shape=ellipse]
+4 [label="testEndTestFired#?#3:setProperty
+testStartTestFired#?#3:setProperty" shape=ellipse]
+5 [label="testEndTestFired#?#3:setProperty(java.lang.String,java.lang.String)
+testStartTestFired#?#3:setProperty(java.lang.String,java.lang.String)" shape=ellipse]
+6 [label="testEndTestFired#?#3:\"enableEvents\"
+testStartTestFired#?#3:\"enableEvents\"" shape=ellipse]
+7 [label="testEndTestFired#?#3:\"true\"
+testStartTestFired#?#3:\"true\"" shape=ellipse]
+8 [label="testEndTestFired#?#3:getProject
+testStartTestFired#?#3:getProject" shape=ellipse]
+9 [label="testEndTestFired#?#-1:
+testStartTestFired#?#-1:" shape=ellipse]
+10 [label="testEndTestFired#?#-1:PlaceHold
+testStartTestFired#?#-1:PlaceHold" shape=ellipse]
+11 [label="testEndTestFired#?#-1:PlaceHold
+testStartTestFired#?#-1:PlaceHold" shape=ellipse]
+12 [label="testEndTestFired#?#3:getProject()
+testStartTestFired#?#3:getProject()" shape=ellipse]
+13 [label="testEndTestFired#?#4:buildRule
+testStartTestFired#?#4:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+}

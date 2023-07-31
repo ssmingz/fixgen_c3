@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2466/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2466/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,3 @@
+-    configureProject("src/etc/testcases/core/include/basic/relative.xml");
+-    expectLog("test1", "from included entity");
++    buildRule.configureProject("src/etc/testcases/core/include/basic/relative.xml");
++    buildRule.executeTarget("test1");
++    assertEquals("from included entity", buildRule.getLog());

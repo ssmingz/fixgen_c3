@@ -1,0 +1,35 @@
+digraph "addSystemPackageRoot#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addSystemPackageRoot" shape=ellipse]
+2 [label="2:CtParameterImpl@String packageRoot" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@addElement" shape=ellipse]
+6 [label="3:CtFieldReadImpl@systemPackages" shape=ellipse]
+7 [label="3:CtVariableReadImpl@packageRoot" shape=ellipse]
+8 [label="3:CtLiteralImpl@\".\"" shape=ellipse]
+9 [label="3:CtBinaryOperatorImpl@packageRoot + \".\"" shape=ellipse]
+10 [label="3:CtInvocationImpl@systemPackages.addElement(packageRoot + \".\")" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    systemPackages.addElement(packageRoot + \".\");
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public void addSystemPackageRoot(String packageRoot) \{
+    systemPackages.addElement(packageRoot + \".\");
+\}" shape=ellipse]
+13 [label="3:Update@UPDATE" shape=ellipse]
+14 [label="3:CtInvocationImpl@systemPackages.add(packageRoot + \".\")" shape=ellipse]
+2 -> 3 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 5 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 13 [label="Action"];
+11 -> 10 [label="AST"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 14 [label="Action"];
+}

@@ -1,0 +1,726 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@baseDir" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@baseDir == null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@TaskException" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"base attribute must be set!\"" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new TaskException(\"base attribute must be set!\")" shape=ellipse]
+9 [label="4:CtThrowImpl@throw new TaskException(\"base attribute must be set!\")" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    throw new TaskException(\"base attribute must be set!\");
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (baseDir == null) \{
+    throw new TaskException(\"base attribute must be set!\");
+\}" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@exists()" shape=ellipse]
+13 [label="6:CtVirtualElement@exists" shape=ellipse]
+14 [label="6:CtFieldReadImpl@baseDir" shape=ellipse]
+15 [label="6:CtInvocationImpl@baseDir.exists()" shape=ellipse]
+16 [label="6:CtUnaryOperatorImpl@!baseDir.exists()" shape=ellipse]
+17 [label="7:CtTypeReferenceImpl@TaskException" shape=ellipse]
+18 [label="7:CtLiteralImpl@\"base does not exist!\"" shape=ellipse]
+19 [label="7:CtConstructorCallImpl@new TaskException(\"base does not exist!\")" shape=ellipse]
+20 [label="7:CtThrowImpl@throw new TaskException(\"base does not exist!\")" shape=ellipse]
+21 [label="6:CtBlockImpl@\{
+    throw new TaskException(\"base does not exist!\");
+\}" shape=ellipse]
+22 [label="6:CtIfImpl@if (!baseDir.exists()) \{
+    throw new TaskException(\"base does not exist!\");
+\}" shape=ellipse]
+23 [label="9:CtFieldReadImpl@verify" shape=ellipse]
+24 [label="10:CtExecutableReferenceImpl@info(java.lang.String)" shape=ellipse]
+25 [label="10:CtVirtualElement@info" shape=ellipse]
+26 [label="10:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+27 [label="10:CtVirtualElement@getLogger" shape=ellipse]
+28 [label="10:CtInvocationImpl@getLogger()" shape=ellipse]
+29 [label="10:CtLiteralImpl@\"Verify has been turned on.\"" shape=ellipse]
+30 [label="10:CtInvocationImpl@getLogger().info(\"Verify has been turned on.\")" shape=ellipse]
+31 [label="9:CtBlockImpl@\{
+    getLogger().info(\"Verify has been turned on.\");
+\}" shape=ellipse]
+32 [label="9:CtIfImpl@if (verify) \{
+    getLogger().info(\"Verify has been turned on.\");
+\}" shape=ellipse]
+33 [label="12:CtTypeReferenceImpl@String" shape=ellipse]
+34 [label="12:CtExecutableReferenceImpl@toString()" shape=ellipse]
+35 [label="12:CtVirtualElement@toString" shape=ellipse]
+36 [label="12:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+37 [label="12:CtVirtualElement@getProperty" shape=ellipse]
+38 [label="12:CtLiteralImpl@\"build.rmic\"" shape=ellipse]
+39 [label="12:CtInvocationImpl@getProperty(\"build.rmic\")" shape=ellipse]
+40 [label="12:CtInvocationImpl@getProperty(\"build.rmic\").toString()" shape=ellipse]
+41 [label="12:CtVirtualElement@compiler" shape=ellipse]
+42 [label="12:CtLocalVariableImpl@String compiler = getProperty(\"build.rmic\").toString()" shape=ellipse]
+43 [label="13:CtTypeReferenceImpl@RmicAdapter" shape=ellipse]
+44 [label="13:CtExecutableReferenceImpl@getRmic(java.lang.String,PlaceHold)" shape=ellipse]
+45 [label="13:CtVirtualElement@getRmic" shape=ellipse]
+46 [label="13:CtTypeAccessImpl@RmicAdapterFactory" shape=ellipse]
+47 [label="13:CtVariableReadImpl@compiler" shape=ellipse]
+48 [label="13:CtThisAccessImpl@this" shape=ellipse]
+49 [label="13:CtInvocationImpl@RmicAdapterFactory.getRmic(compiler, this)" shape=ellipse]
+50 [label="13:CtVirtualElement@adapter" shape=ellipse]
+51 [label="13:CtLocalVariableImpl@RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this)" shape=ellipse]
+52 [label="14:CtExecutableReferenceImpl@setRmic(PlaceHold)" shape=ellipse]
+53 [label="14:CtVirtualElement@setRmic" shape=ellipse]
+54 [label="14:CtVariableReadImpl@adapter" shape=ellipse]
+55 [label="14:CtThisAccessImpl@this" shape=ellipse]
+56 [label="14:CtInvocationImpl@adapter.setRmic(this)" shape=ellipse]
+57 [label="15:CtTypeReferenceImpl@Path" shape=ellipse]
+58 [label="15:CtExecutableReferenceImpl@getClasspath()" shape=ellipse]
+59 [label="15:CtVirtualElement@getClasspath" shape=ellipse]
+60 [label="15:CtVariableReadImpl@adapter" shape=ellipse]
+61 [label="15:CtInvocationImpl@adapter.getClasspath()" shape=ellipse]
+62 [label="15:CtVirtualElement@classpath" shape=ellipse]
+63 [label="15:CtLocalVariableImpl@Path classpath = adapter.getClasspath()" shape=ellipse]
+64 [label="16:CtFieldWriteImpl@loader" shape=ellipse]
+65 [label="16:CtTypeReferenceImpl@URLClassLoader" shape=ellipse]
+66 [label="16:CtExecutableReferenceImpl@toURLs()" shape=ellipse]
+67 [label="16:CtVirtualElement@toURLs" shape=ellipse]
+68 [label="16:CtVariableReadImpl@classpath" shape=ellipse]
+69 [label="16:CtInvocationImpl@classpath.toURLs()" shape=ellipse]
+70 [label="16:CtConstructorCallImpl@new URLClassLoader(classpath.toURLs())" shape=ellipse]
+71 [label="16:CtAssignmentImpl@loader = new URLClassLoader(classpath.toURLs())" shape=ellipse]
+72 [label="17:CtFieldReadImpl@classname" shape=ellipse]
+73 [label="17:CtLiteralImpl@null" shape=ellipse]
+74 [label="17:CtBinaryOperatorImpl@classname == null" shape=ellipse]
+75 [label="18:CtTypeReferenceImpl@DirectoryScanner" shape=ellipse]
+76 [label="18:CtExecutableReferenceImpl@getDirectoryScanner()" shape=ellipse]
+77 [label="18:CtVirtualElement@getDirectoryScanner" shape=ellipse]
+78 [label="18:CtThisAccessImpl@this" shape=ellipse]
+79 [label="18:CtFieldReadImpl@baseDir" shape=ellipse]
+80 [label="18:CtInvocationImpl@this.getDirectoryScanner(baseDir)" shape=ellipse]
+81 [label="18:CtVirtualElement@ds" shape=ellipse]
+82 [label="18:CtLocalVariableImpl@DirectoryScanner ds = this.getDirectoryScanner(baseDir)" shape=ellipse]
+83 [label="19:CtVirtualElement@String[]" shape=ellipse]
+84 [label="19:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+85 [label="19:CtExecutableReferenceImpl@getIncludedFiles()" shape=ellipse]
+86 [label="19:CtVirtualElement@getIncludedFiles" shape=ellipse]
+87 [label="19:CtVariableReadImpl@ds" shape=ellipse]
+88 [label="19:CtInvocationImpl@ds.getIncludedFiles()" shape=ellipse]
+89 [label="19:CtVirtualElement@files" shape=ellipse]
+90 [label="19:CtLocalVariableImpl@String[] files = ds.getIncludedFiles()" shape=ellipse]
+91 [label="20:CtExecutableReferenceImpl@scanDir(<unknown>,java.lang.String[],<unknown>)" shape=ellipse]
+92 [label="20:CtVirtualElement@scanDir" shape=ellipse]
+93 [label="20:CtFieldReadImpl@baseDir" shape=ellipse]
+94 [label="20:CtVariableReadImpl@files" shape=ellipse]
+95 [label="20:CtExecutableReferenceImpl@getMapper()" shape=ellipse]
+96 [label="20:CtVirtualElement@getMapper" shape=ellipse]
+97 [label="20:CtVariableReadImpl@adapter" shape=ellipse]
+98 [label="20:CtInvocationImpl@adapter.getMapper()" shape=ellipse]
+99 [label="20:CtInvocationImpl@scanDir(baseDir, files, adapter.getMapper())" shape=ellipse]
+100 [label="17:CtBlockImpl@\{
+    DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(baseDir, files, adapter.getMapper());
+\}" shape=ellipse]
+101 [label="22:CtExecutableReferenceImpl@scanDir(<unknown>,java.lang.String[],<unknown>)" shape=ellipse]
+102 [label="22:CtVirtualElement@scanDir" shape=ellipse]
+103 [label="23:CtFieldReadImpl@baseDir" shape=ellipse]
+104 [label="24:CtNewArrayImpl@new String[]\{ classname.replace('.', separatorChar) + \".class\" \}" shape=ellipse]
+105 [label="24:CtBinaryOperatorImpl@classname.replace('.', separatorChar) + \".class\"" shape=ellipse]
+106 [label="25:CtExecutableReferenceImpl@getMapper()" shape=ellipse]
+107 [label="25:CtVirtualElement@getMapper" shape=ellipse]
+108 [label="25:CtVariableReadImpl@adapter" shape=ellipse]
+109 [label="25:CtInvocationImpl@adapter.getMapper()" shape=ellipse]
+110 [label="22:CtInvocationImpl@scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper())" shape=ellipse]
+111 [label="21:CtBlockImpl@\{
+    scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+\}" shape=ellipse]
+112 [label="17:CtIfImpl@if (classname == null) \{
+    DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(baseDir, files, adapter.getMapper());
+\} else \{
+    scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+\}" shape=ellipse]
+113 [label="27:CtTypeReferenceImpl@int" shape=ellipse]
+114 [label="27:CtExecutableReferenceImpl@size()" shape=ellipse]
+115 [label="27:CtVirtualElement@size" shape=ellipse]
+116 [label="27:CtFieldReadImpl@compileList" shape=ellipse]
+117 [label="27:CtInvocationImpl@compileList.size()" shape=ellipse]
+118 [label="27:CtVirtualElement@fileCount" shape=ellipse]
+119 [label="27:CtLocalVariableImpl@int fileCount = compileList.size()" shape=ellipse]
+120 [label="28:CtVariableReadImpl@fileCount" shape=ellipse]
+121 [label="28:CtLiteralImpl@0" shape=ellipse]
+122 [label="28:CtBinaryOperatorImpl@fileCount > 0" shape=ellipse]
+123 [label="30:CtExecutableReferenceImpl@info()" shape=ellipse]
+124 [label="29:CtVirtualElement@info" shape=ellipse]
+125 [label="29:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+126 [label="29:CtVirtualElement@getLogger" shape=ellipse]
+127 [label="29:CtInvocationImpl@getLogger()" shape=ellipse]
+128 [label="31:CtLiteralImpl@\"RMI Compiling \"" shape=ellipse]
+129 [label="31:CtVariableReadImpl@fileCount" shape=ellipse]
+130 [label="31:CtBinaryOperatorImpl@(\"RMI Compiling \" + fileCount)" shape=ellipse]
+131 [label="31:CtLiteralImpl@\" class\"" shape=ellipse]
+132 [label="31:CtBinaryOperatorImpl@((\"RMI Compiling \" + fileCount) + \" class\")" shape=ellipse]
+133 [label="31:CtVariableReadImpl@fileCount" shape=ellipse]
+134 [label="31:CtLiteralImpl@1" shape=ellipse]
+135 [label="31:CtBinaryOperatorImpl@fileCount > 1" shape=ellipse]
+136 [label="31:CtLiteralImpl@\"es\"" shape=ellipse]
+137 [label="31:CtLiteralImpl@\"\"" shape=ellipse]
+138 [label="31:CtConditionalImpl@(fileCount > 1 ? \"es\" : \"\")" shape=ellipse]
+139 [label="31:CtBinaryOperatorImpl@(((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\"))" shape=ellipse]
+140 [label="31:CtLiteralImpl@\" to \"" shape=ellipse]
+141 [label="31:CtBinaryOperatorImpl@((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \")" shape=ellipse]
+142 [label="32:CtFieldReadImpl@baseDir" shape=ellipse]
+143 [label="31:CtBinaryOperatorImpl@((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir" shape=ellipse]
+144 [label="29:CtInvocationImpl@getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir)" shape=ellipse]
+145 [label="33:CtExecutableReferenceImpl@execute()" shape=ellipse]
+146 [label="33:CtVirtualElement@execute" shape=ellipse]
+147 [label="33:CtVariableReadImpl@adapter" shape=ellipse]
+148 [label="33:CtInvocationImpl@adapter.execute()" shape=ellipse]
+149 [label="33:CtUnaryOperatorImpl@!adapter.execute()" shape=ellipse]
+150 [label="34:CtTypeReferenceImpl@TaskException" shape=ellipse]
+151 [label="34:CtFieldReadImpl@FAIL_MSG" shape=ellipse]
+152 [label="34:CtConstructorCallImpl@new TaskException(FAIL_MSG)" shape=ellipse]
+153 [label="34:CtThrowImpl@throw new TaskException(FAIL_MSG)" shape=ellipse]
+154 [label="33:CtBlockImpl@\{
+    throw new TaskException(FAIL_MSG);
+\}" shape=ellipse]
+155 [label="33:CtIfImpl@if (!adapter.execute()) \{
+    throw new TaskException(FAIL_MSG);
+\}" shape=ellipse]
+156 [label="28:CtBlockImpl@\{
+    getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+    if (!adapter.execute()) \{
+        throw new TaskException(FAIL_MSG);
+    \}
+\}" shape=ellipse]
+157 [label="28:CtIfImpl@if (fileCount > 0) \{
+    getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+    if (!adapter.execute()) \{
+        throw new TaskException(FAIL_MSG);
+    \}
+\}" shape=ellipse]
+158 [label="37:CtLiteralImpl@null" shape=ellipse]
+159 [label="37:CtFieldReadImpl@sourceBase" shape=ellipse]
+160 [label="37:CtBinaryOperatorImpl@(null != sourceBase)" shape=ellipse]
+161 [label="37:CtExecutableReferenceImpl@equals()" shape=ellipse]
+162 [label="37:CtVirtualElement@equals" shape=ellipse]
+163 [label="37:CtFieldReadImpl@baseDir" shape=ellipse]
+164 [label="37:CtFieldReadImpl@sourceBase" shape=ellipse]
+165 [label="37:CtInvocationImpl@baseDir.equals(sourceBase)" shape=ellipse]
+166 [label="37:CtUnaryOperatorImpl@(!baseDir.equals(sourceBase))" shape=ellipse]
+167 [label="37:CtBinaryOperatorImpl@(null != sourceBase) && (!baseDir.equals(sourceBase))" shape=ellipse]
+168 [label="38:CtFieldReadImpl@idl" shape=ellipse]
+169 [label="39:CtExecutableReferenceImpl@warn(java.lang.String)" shape=ellipse]
+170 [label="39:CtVirtualElement@warn" shape=ellipse]
+171 [label="39:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+172 [label="39:CtVirtualElement@getLogger" shape=ellipse]
+173 [label="39:CtInvocationImpl@getLogger()" shape=ellipse]
+174 [label="39:CtLiteralImpl@\"Cannot determine sourcefiles in idl mode, \"" shape=ellipse]
+175 [label="39:CtInvocationImpl@getLogger().warn(\"Cannot determine sourcefiles in idl mode, \")" shape=ellipse]
+176 [label="40:CtExecutableReferenceImpl@warn(java.lang.String)" shape=ellipse]
+177 [label="40:CtVirtualElement@warn" shape=ellipse]
+178 [label="40:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+179 [label="40:CtVirtualElement@getLogger" shape=ellipse]
+180 [label="40:CtInvocationImpl@getLogger()" shape=ellipse]
+181 [label="40:CtLiteralImpl@\"sourcebase attribute will be ignored.\"" shape=ellipse]
+182 [label="40:CtInvocationImpl@getLogger().warn(\"sourcebase attribute will be ignored.\")" shape=ellipse]
+183 [label="38:CtBlockImpl@\{
+    getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+    getLogger().warn(\"sourcebase attribute will be ignored.\");
+\}" shape=ellipse]
+184 [label="42:CtTypeReferenceImpl@int" shape=ellipse]
+185 [label="42:CtLiteralImpl@0" shape=ellipse]
+186 [label="42:CtVirtualElement@j" shape=ellipse]
+187 [label="42:CtLocalVariableImpl@int j = 0" shape=ellipse]
+188 [label="42:CtVariableReadImpl@j" shape=ellipse]
+189 [label="42:CtVariableReadImpl@fileCount" shape=ellipse]
+190 [label="42:CtBinaryOperatorImpl@j < fileCount" shape=ellipse]
+191 [label="42:CtVariableWriteImpl@j" shape=ellipse]
+192 [label="42:CtUnaryOperatorImpl@j++" shape=ellipse]
+193 [label="43:CtExecutableReferenceImpl@moveGeneratedFile(<unknown>,<unknown>,java.lang.String,<unknown>)" shape=ellipse]
+194 [label="43:CtVirtualElement@moveGeneratedFile" shape=ellipse]
+195 [label="43:CtFieldReadImpl@baseDir" shape=ellipse]
+196 [label="43:CtFieldReadImpl@sourceBase" shape=ellipse]
+197 [label="43:CtExecutableReferenceImpl@get(int)" shape=ellipse]
+198 [label="43:CtVirtualElement@get" shape=ellipse]
+199 [label="43:CtFieldReadImpl@compileList" shape=ellipse]
+200 [label="43:CtVariableReadImpl@j" shape=ellipse]
+201 [label="43:CtInvocationImpl@((String) (compileList.get(j)))" shape=ellipse]
+202 [label="43:CtTypeReferenceImpl@String" shape=ellipse]
+203 [label="43:CtVariableReadImpl@adapter" shape=ellipse]
+204 [label="43:CtInvocationImpl@moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter)" shape=ellipse]
+205 [label="42:CtBlockImpl@\{
+    moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+\}" shape=ellipse]
+206 [label="42:CtForImpl@for (int j = 0; j < fileCount; j++) \{
+    moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+\}" shape=ellipse]
+207 [label="41:CtBlockImpl@\{
+    for (int j = 0; j < fileCount; j++) \{
+        moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+    \}
+\}" shape=ellipse]
+208 [label="38:CtIfImpl@if (idl) \{
+    getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+    getLogger().warn(\"sourcebase attribute will be ignored.\");
+\} else \{
+    for (int j = 0; j < fileCount; j++) \{
+        moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+    \}
+\}" shape=ellipse]
+209 [label="37:CtBlockImpl@\{
+    if (idl) \{
+        getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+        getLogger().warn(\"sourcebase attribute will be ignored.\");
+    \} else \{
+        for (int j = 0; j < fileCount; j++) \{
+            moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+        \}
+    \}
+\}" shape=ellipse]
+210 [label="37:CtIfImpl@if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+    if (idl) \{
+        getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+        getLogger().warn(\"sourcebase attribute will be ignored.\");
+    \} else \{
+        for (int j = 0; j < fileCount; j++) \{
+            moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+        \}
+    \}
+\}" shape=ellipse]
+211 [label="47:CtExecutableReferenceImpl@clear()" shape=ellipse]
+212 [label="47:CtVirtualElement@clear" shape=ellipse]
+213 [label="47:CtFieldReadImpl@compileList" shape=ellipse]
+214 [label="47:CtInvocationImpl@compileList.clear()" shape=ellipse]
+215 [label="2:CtBlockImpl@\{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}" shape=ellipse]
+216 [label="2:CtMethodImpl@public void execute() throws TaskException \{
+    if (baseDir == null) \{
+        throw new TaskException(\"base attribute must be set!\");
+    \}
+    if (!baseDir.exists()) \{
+        throw new TaskException(\"base does not exist!\");
+    \}
+    if (verify) \{
+        getLogger().info(\"Verify has been turned on.\");
+    \}
+    String compiler = getProperty(\"build.rmic\").toString();
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(compiler, this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = new URLClassLoader(classpath.toURLs());
+    if (classname == null) \{
+        DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(baseDir, files, adapter.getMapper());
+    \} else \{
+        scanDir(baseDir, new String[]\{ classname.replace('.', separatorChar) + \".class\" \}, adapter.getMapper());
+    \}
+    int fileCount = compileList.size();
+    if (fileCount > 0) \{
+        getLogger().info(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir);
+        if (!adapter.execute()) \{
+            throw new TaskException(FAIL_MSG);
+        \}
+    \}
+    if ((null != sourceBase) && (!baseDir.equals(sourceBase))) \{
+        if (idl) \{
+            getLogger().warn(\"Cannot determine sourcefiles in idl mode, \");
+            getLogger().warn(\"sourcebase attribute will be ignored.\");
+        \} else \{
+            for (int j = 0; j < fileCount; j++) \{
+                moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.get(j))), adapter);
+            \}
+        \}
+    \}
+    compileList.clear();
+\}" shape=ellipse]
+217 [label="16:Update@UPDATE" shape=ellipse]
+218 [label="17:CtVariableReadImpl@urls" shape=ellipse]
+219 [label="16:Delete@DELETE" shape=ellipse]
+220 [label="16:Insert@INSERT" shape=ellipse]
+221 [label="16:CtLocalVariableImpl@final URL[] urls = PathUtil.toURLs(classpath)" shape=ellipse]
+222 [label="16:Move@MOVE" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 10 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 21 [label="Control Dep"];
+16 -> 20 [label="Control Dep"];
+16 -> 19 [label="Control Dep"];
+16 -> 18 [label="Control Dep"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 31 [label="Control Dep"];
+23 -> 30 [label="Control Dep"];
+23 -> 24 [label="Control Dep"];
+23 -> 28 [label="Control Dep"];
+23 -> 26 [label="Control Dep"];
+23 -> 29 [label="Control Dep"];
+28 -> 27 [label="AST"];
+28 -> 26 [label="AST"];
+30 -> 25 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 23 [label="AST"];
+32 -> 31 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 36 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 35 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 34 [label="AST"];
+41 -> 47 [label="Define-Use"];
+42 -> 41 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 40 [label="AST"];
+47 -> 50 [label="Data Dep"];
+48 -> 50 [label="Data Dep"];
+49 -> 45 [label="AST"];
+49 -> 46 [label="AST"];
+49 -> 44 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 54 [label="Define-Use"];
+50 -> 60 [label="Define-Use"];
+50 -> 97 [label="Define-Use"];
+50 -> 108 [label="Define-Use"];
+50 -> 147 [label="Define-Use"];
+50 -> 203 [label="Define-Use"];
+51 -> 50 [label="AST"];
+51 -> 43 [label="AST"];
+51 -> 49 [label="AST"];
+56 -> 53 [label="AST"];
+56 -> 54 [label="AST"];
+56 -> 52 [label="AST"];
+56 -> 55 [label="AST"];
+60 -> 62 [label="Data Dep"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+61 -> 58 [label="AST"];
+62 -> 68 [label="Define-Use"];
+63 -> 62 [label="AST"];
+63 -> 57 [label="AST"];
+63 -> 61 [label="AST"];
+68 -> 64 [label="Data Dep"];
+68 -> 217 [label="Action"];
+68 -> 222 [label="Action"];
+69 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+69 -> 66 [label="AST"];
+69 -> 219 [label="Action"];
+70 -> 69 [label="AST"];
+71 -> 64 [label="AST"];
+71 -> 70 [label="AST"];
+74 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+74 -> 100 [label="Control Dep"];
+74 -> 82 [label="Control Dep"];
+74 -> 80 [label="Control Dep"];
+74 -> 76 [label="Control Dep"];
+74 -> 78 [label="Control Dep"];
+74 -> 79 [label="Control Dep"];
+74 -> 90 [label="Control Dep"];
+74 -> 84 [label="Control Dep"];
+74 -> 88 [label="Control Dep"];
+74 -> 85 [label="Control Dep"];
+74 -> 87 [label="Control Dep"];
+74 -> 99 [label="Control Dep"];
+74 -> 91 [label="Control Dep"];
+74 -> 93 [label="Control Dep"];
+74 -> 94 [label="Control Dep"];
+74 -> 98 [label="Control Dep"];
+74 -> 95 [label="Control Dep"];
+74 -> 97 [label="Control Dep"];
+74 -> 111 [label="Control Dep"];
+74 -> 110 [label="Control Dep"];
+74 -> 101 [label="Control Dep"];
+74 -> 103 [label="Control Dep"];
+74 -> 104 [label="Control Dep"];
+74 -> 109 [label="Control Dep"];
+74 -> 106 [label="Control Dep"];
+74 -> 108 [label="Control Dep"];
+78 -> 81 [label="Data Dep"];
+79 -> 81 [label="Data Dep"];
+80 -> 77 [label="AST"];
+80 -> 78 [label="AST"];
+80 -> 76 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 87 [label="Define-Use"];
+82 -> 81 [label="AST"];
+82 -> 75 [label="AST"];
+82 -> 80 [label="AST"];
+84 -> 83 [label="AST"];
+87 -> 89 [label="Data Dep"];
+88 -> 86 [label="AST"];
+88 -> 87 [label="AST"];
+88 -> 85 [label="AST"];
+89 -> 94 [label="Define-Use"];
+90 -> 89 [label="AST"];
+90 -> 84 [label="AST"];
+90 -> 88 [label="AST"];
+98 -> 96 [label="AST"];
+98 -> 97 [label="AST"];
+98 -> 95 [label="AST"];
+99 -> 92 [label="AST"];
+99 -> 91 [label="AST"];
+99 -> 93 [label="AST"];
+99 -> 94 [label="AST"];
+99 -> 98 [label="AST"];
+100 -> 82 [label="AST"];
+100 -> 90 [label="AST"];
+100 -> 99 [label="AST"];
+104 -> 105 [label="AST"];
+109 -> 107 [label="AST"];
+109 -> 108 [label="AST"];
+109 -> 106 [label="AST"];
+110 -> 102 [label="AST"];
+110 -> 101 [label="AST"];
+110 -> 103 [label="AST"];
+110 -> 104 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 74 [label="AST"];
+112 -> 100 [label="AST"];
+112 -> 111 [label="AST"];
+116 -> 118 [label="Data Dep"];
+117 -> 115 [label="AST"];
+117 -> 116 [label="AST"];
+117 -> 114 [label="AST"];
+118 -> 120 [label="Define-Use"];
+118 -> 129 [label="Define-Use"];
+118 -> 133 [label="Define-Use"];
+118 -> 189 [label="Define-Use"];
+119 -> 118 [label="AST"];
+119 -> 113 [label="AST"];
+119 -> 117 [label="AST"];
+122 -> 120 [label="AST"];
+122 -> 121 [label="AST"];
+122 -> 156 [label="Control Dep"];
+122 -> 144 [label="Control Dep"];
+122 -> 123 [label="Control Dep"];
+122 -> 127 [label="Control Dep"];
+122 -> 125 [label="Control Dep"];
+122 -> 143 [label="Control Dep"];
+122 -> 141 [label="Control Dep"];
+122 -> 139 [label="Control Dep"];
+122 -> 132 [label="Control Dep"];
+122 -> 130 [label="Control Dep"];
+122 -> 128 [label="Control Dep"];
+122 -> 129 [label="Control Dep"];
+122 -> 131 [label="Control Dep"];
+122 -> 138 [label="Control Dep"];
+122 -> 135 [label="Control Dep"];
+122 -> 133 [label="Control Dep"];
+122 -> 134 [label="Control Dep"];
+122 -> 140 [label="Control Dep"];
+122 -> 142 [label="Control Dep"];
+122 -> 155 [label="Control Dep"];
+122 -> 149 [label="Control Dep"];
+122 -> 148 [label="Control Dep"];
+122 -> 145 [label="Control Dep"];
+122 -> 147 [label="Control Dep"];
+127 -> 126 [label="AST"];
+127 -> 125 [label="AST"];
+130 -> 128 [label="AST"];
+130 -> 129 [label="AST"];
+132 -> 130 [label="AST"];
+132 -> 131 [label="AST"];
+135 -> 133 [label="AST"];
+135 -> 134 [label="AST"];
+135 -> 136 [label="Control Dep"];
+135 -> 137 [label="Control Dep"];
+138 -> 135 [label="AST"];
+138 -> 136 [label="AST"];
+138 -> 137 [label="AST"];
+139 -> 132 [label="AST"];
+139 -> 138 [label="AST"];
+141 -> 139 [label="AST"];
+141 -> 140 [label="AST"];
+143 -> 141 [label="AST"];
+143 -> 142 [label="AST"];
+144 -> 124 [label="AST"];
+144 -> 127 [label="AST"];
+144 -> 123 [label="AST"];
+144 -> 143 [label="AST"];
+148 -> 146 [label="AST"];
+148 -> 147 [label="AST"];
+148 -> 145 [label="AST"];
+149 -> 148 [label="AST"];
+149 -> 154 [label="Control Dep"];
+149 -> 153 [label="Control Dep"];
+149 -> 152 [label="Control Dep"];
+149 -> 151 [label="Control Dep"];
+152 -> 151 [label="AST"];
+153 -> 152 [label="AST"];
+154 -> 153 [label="AST"];
+155 -> 149 [label="AST"];
+155 -> 154 [label="AST"];
+156 -> 144 [label="AST"];
+156 -> 155 [label="AST"];
+157 -> 122 [label="AST"];
+157 -> 156 [label="AST"];
+160 -> 158 [label="AST"];
+160 -> 159 [label="AST"];
+165 -> 162 [label="AST"];
+165 -> 163 [label="AST"];
+165 -> 161 [label="AST"];
+165 -> 164 [label="AST"];
+166 -> 165 [label="AST"];
+167 -> 160 [label="AST"];
+167 -> 166 [label="AST"];
+167 -> 209 [label="Control Dep"];
+167 -> 208 [label="Control Dep"];
+167 -> 168 [label="Control Dep"];
+168 -> 183 [label="Control Dep"];
+168 -> 175 [label="Control Dep"];
+168 -> 169 [label="Control Dep"];
+168 -> 173 [label="Control Dep"];
+168 -> 171 [label="Control Dep"];
+168 -> 174 [label="Control Dep"];
+168 -> 182 [label="Control Dep"];
+168 -> 176 [label="Control Dep"];
+168 -> 180 [label="Control Dep"];
+168 -> 178 [label="Control Dep"];
+168 -> 181 [label="Control Dep"];
+168 -> 207 [label="Control Dep"];
+168 -> 206 [label="Control Dep"];
+168 -> 187 [label="Control Dep"];
+168 -> 185 [label="Control Dep"];
+168 -> 190 [label="Control Dep"];
+168 -> 188 [label="Control Dep"];
+168 -> 189 [label="Control Dep"];
+168 -> 192 [label="Control Dep"];
+168 -> 191 [label="Control Dep"];
+173 -> 172 [label="AST"];
+173 -> 171 [label="AST"];
+175 -> 170 [label="AST"];
+175 -> 173 [label="AST"];
+175 -> 169 [label="AST"];
+175 -> 174 [label="AST"];
+180 -> 179 [label="AST"];
+180 -> 178 [label="AST"];
+182 -> 177 [label="AST"];
+182 -> 180 [label="AST"];
+182 -> 176 [label="AST"];
+182 -> 181 [label="AST"];
+183 -> 175 [label="AST"];
+183 -> 182 [label="AST"];
+186 -> 188 [label="Define-Use"];
+186 -> 200 [label="Define-Use"];
+187 -> 186 [label="AST"];
+187 -> 184 [label="AST"];
+187 -> 185 [label="AST"];
+190 -> 188 [label="AST"];
+190 -> 189 [label="AST"];
+190 -> 205 [label="Control Dep"];
+190 -> 204 [label="Control Dep"];
+190 -> 193 [label="Control Dep"];
+190 -> 195 [label="Control Dep"];
+190 -> 196 [label="Control Dep"];
+190 -> 201 [label="Control Dep"];
+190 -> 197 [label="Control Dep"];
+190 -> 199 [label="Control Dep"];
+190 -> 200 [label="Control Dep"];
+190 -> 203 [label="Control Dep"];
+191 -> 200 [label="Define-Use"];
+192 -> 191 [label="AST"];
+201 -> 198 [label="AST"];
+201 -> 202 [label="AST"];
+201 -> 199 [label="AST"];
+201 -> 197 [label="AST"];
+201 -> 200 [label="AST"];
+204 -> 194 [label="AST"];
+204 -> 193 [label="AST"];
+204 -> 195 [label="AST"];
+204 -> 196 [label="AST"];
+204 -> 201 [label="AST"];
+204 -> 203 [label="AST"];
+205 -> 204 [label="AST"];
+206 -> 187 [label="AST"];
+206 -> 190 [label="AST"];
+206 -> 192 [label="AST"];
+206 -> 205 [label="AST"];
+207 -> 206 [label="AST"];
+208 -> 168 [label="AST"];
+208 -> 183 [label="AST"];
+208 -> 207 [label="AST"];
+209 -> 208 [label="AST"];
+210 -> 167 [label="AST"];
+210 -> 209 [label="AST"];
+214 -> 212 [label="AST"];
+214 -> 213 [label="AST"];
+214 -> 211 [label="AST"];
+215 -> 11 [label="AST"];
+215 -> 22 [label="AST"];
+215 -> 32 [label="AST"];
+215 -> 42 [label="AST"];
+215 -> 51 [label="AST"];
+215 -> 56 [label="AST"];
+215 -> 63 [label="AST"];
+215 -> 71 [label="AST"];
+215 -> 112 [label="AST"];
+215 -> 119 [label="AST"];
+215 -> 157 [label="AST"];
+215 -> 210 [label="AST"];
+215 -> 214 [label="AST"];
+216 -> 1 [label="AST"];
+216 -> 0 [label="AST"];
+216 -> 2 [label="AST"];
+216 -> 215 [label="AST"];
+216 -> 220 [label="Action"];
+217 -> 218 [label="Action"];
+220 -> 221 [label="Action"];
+222 -> 70 [label="Action"];
+}

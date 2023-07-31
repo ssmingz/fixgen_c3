@@ -1,0 +1,176 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Update
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:UPDATE
+value2:" shape=ellipse]
+1 [label="locationInParent:TARGET
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String.trim()" shape=ellipse]
+2 [label="locationInParent:LEFT_OPERAND
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String.trim().length()" shape=ellipse]
+3 [label="locationInParent:RIGHT_OPERAND
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:(String.trim().length() == Integer)" shape=ellipse]
+4 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:length
+value2:String.trim().length()" shape=ellipse]
+5 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:length()
+value2:length()" shape=ellipse]
+6 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:trim
+value2:String.trim()" shape=ellipse]
+7 [label="locationInParent:TARGET
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value2:String" shape=ellipse]
+8 [label="locationInParent:VARIABLE
+nodeType:CtParameterReferenceImpl
+nodeType2:CtVariableReferenceImpl
+nodeType3:CtVariableReferenceImpl
+value2:String" shape=ellipse]
+9 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:trim()
+value2:trim()" shape=ellipse]
+10 [label="locationInParent:DECLARING_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+11 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+12 [label="locationInParent:ACTION
+nodeType:Move
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:MOVE
+value2:" shape=ellipse]
+13 [label="locationInParent:STATEMENT
+nodeType:CtIfImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:if ((String == null) || (String.trim().length() == Integer)) \{
+    return;
+\}" shape=ellipse]
+14 [label="locationInParent:CONDITION
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:(String == null) || (String.trim().length() == Integer)" shape=ellipse]
+15 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:boolean
+value2:boolean" shape=ellipse]
+16 [label="locationInParent:LEFT_OPERAND
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:(String == null)" shape=ellipse]
+17 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:boolean
+value2:boolean" shape=ellipse]
+18 [label="locationInParent:LEFT_OPERAND
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value2:String" shape=ellipse]
+19 [label="locationInParent:VARIABLE
+nodeType:CtParameterReferenceImpl
+nodeType2:CtVariableReferenceImpl
+nodeType3:CtVariableReferenceImpl
+value2:String" shape=ellipse]
+20 [label="locationInParent:RIGHT_OPERAND
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:null
+value2:null" shape=ellipse]
+21 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:<nulltype>
+value2:<nulltype>" shape=ellipse]
+22 [label="locationInParent:THEN
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:\{
+    return;
+\}
+value2:\{
+    return;
+\}" shape=ellipse]
+23 [label="locationInParent:STATEMENT
+nodeType:CtReturnImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:return
+value2:return" shape=ellipse]
+24 [label="locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+12 -> 13 [label="Action:2"];
+13 -> 14 [label="AST:2"];
+13 -> 22 [label="AST:2"];
+14 -> 3 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+14 -> 22 [label="Control Dep:2"];
+14 -> 23 [label="Control Dep:2"];
+14 -> 24 [label="Action:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+16 -> 20 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+}

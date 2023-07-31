@@ -1,0 +1,116 @@
+digraph "Pattern" {
+0 [label="toExtension#?#3:INSERT
+toExtensions#?,Project#3:INSERT" shape=ellipse]
+1 [label="toExtension#?#2:Extension toExtension() throws BuildException \{
+    if (null == extensionName) \{
+        final String message = \"Extension is missing name.\";
+        throw new BuildException(message);
+    \}
+    String specificationVersionString = null;
+    if (null != specificationVersion) \{
+        specificationVersionString = specificationVersion.toString();
+    \}
+    String implementationVersionString = null;
+    if (null != implementationVersion) \{
+        implementationVersionString = implementationVersion.toString();
+    \}
+    return new Extension(extensionName, specificationVersionString, specificationVendor, implementationVersionString, implementationVendor, implementationVendorID, implementationURL);
+\}
+toExtensions#?,Project#2:public Extension[] toExtensions(final Project proj) throws BuildException \{
+    final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions);
+    ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets);
+    return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])));
+\}" shape=ellipse]
+2 [label="toExtension#?#2:toExtension
+toExtensions#?,Project#2:toExtensions" shape=ellipse]
+3 [label="toExtension#?#2:Extension
+toExtensions#?,Project#2:BuildException" shape=ellipse]
+4 [label="toExtension#?#-1:
+toExtensions#?,Project#-1:" shape=ellipse]
+5 [label="toExtension#?#2:BuildException" shape=ellipse]
+6 [label="toExtension#?#-1:
+toExtensions#?,Project#-1:Extension" shape=ellipse]
+7 [label="toExtension#?#2:\{
+    if (null == extensionName) \{
+        final String message = \"Extension is missing name.\";
+        throw new BuildException(message);
+    \}
+    String specificationVersionString = null;
+    if (null != specificationVersion) \{
+        specificationVersionString = specificationVersion.toString();
+    \}
+    String implementationVersionString = null;
+    if (null != implementationVersion) \{
+        implementationVersionString = implementationVersion.toString();
+    \}
+    return new Extension(extensionName, specificationVersionString, specificationVendor, implementationVersionString, implementationVendor, implementationVendorID, implementationURL);
+\}
+toExtensions#?,Project#2:\{
+    final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions);
+    ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets);
+    return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])));
+\}" shape=ellipse]
+8 [label="toExtension#?#3:if (null == extensionName) \{
+    final String message = \"Extension is missing name.\";
+    throw new BuildException(message);
+\}
+toExtensions#?,Project#3:final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions)" shape=ellipse]
+9 [label="toExtension#?#7:String specificationVersionString = null
+toExtensions#?,Project#5:return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])))" shape=ellipse]
+10 [label="toExtension#?#8:if (null != specificationVersion) \{
+    specificationVersionString = specificationVersion.toString();
+\}" shape=ellipse]
+11 [label="toExtension#?#11:String implementationVersionString = null" shape=ellipse]
+12 [label="toExtension#?#12:if (null != implementationVersion) \{
+    implementationVersionString = implementationVersion.toString();
+\}" shape=ellipse]
+13 [label="toExtension#?#15:return new Extension(extensionName, specificationVersionString, specificationVendor, implementationVersionString, implementationVendor, implementationVendorID, implementationURL)" shape=ellipse]
+14 [label="toExtension#?#2:VE: ThrownTypes_toExtension
+toExtensions#?,Project#2:VE: ThrownTypes_toExtensions" shape=ellipse]
+15 [label="toExtension#?#6:INSERT
+toExtensions#?,Project#6:INSERT" shape=ellipse]
+16 [label="toExtension#?#6:dieOnCircularReference()
+toExtensions#?,Project#6:dieOnCircularReference()" shape=ellipse]
+17 [label="toExtension#?#3:if (isReference()) \{
+    return ((ExtensionAdapter) (getCheckedRef())).toExtension();
+\}
+toExtensions#?,Project#3:if (isReference()) \{
+    return ((ExtensionSet) (getCheckedRef())).toExtensions(proj);
+\}" shape=ellipse]
+18 [label="toExtensions#?,Project#2:Project" shape=ellipse]
+19 [label="toExtensions#?,Project#2:final" shape=ellipse]
+20 [label="toExtensions#?,Project#4:ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets)" shape=ellipse]
+21 [label="toExtensions#?,Project#2:Extension[]" shape=ellipse]
+22 [label="toExtensions#?,Project#2:final Project proj" shape=ellipse]
+23 [label="toExtensions#?,Project#2:Extension[]" shape=ellipse]
+24 [label="toExtensions#?,Project#2:VE: Modifiers_Parameter" shape=ellipse]
+25 [label="toExtensions#?,Project#2:public" shape=ellipse]
+26 [label="toExtensions#?,Project#2:VE: Modifiers_Method" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:1"];
+1 -> 7 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 15 [label="Action:2"];
+1 -> 22 [label="AST:1"];
+1 -> 23 [label="AST:1"];
+1 -> 25 [label="AST:1"];
+1 -> 26 [label="AST:1"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:1"];
+7 -> 11 [label="AST:1"];
+7 -> 12 [label="AST:1"];
+7 -> 13 [label="AST:1"];
+7 -> 20 [label="AST:1"];
+15 -> 16 [label="Action:2"];
+22 -> 18 [label="AST:1"];
+22 -> 19 [label="AST:1"];
+22 -> 24 [label="AST:1"];
+23 -> 21 [label="AST:1"];
+23 -> 6 [label="AST:1"];
+}

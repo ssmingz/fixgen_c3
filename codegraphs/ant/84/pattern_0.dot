@@ -1,0 +1,31 @@
+digraph "Pattern" {
+0 [label="testRmicDest#?#-1:DELETE
+testRmicJArg#?#-1:DELETE
+testZipEmptyDirFilesOnly#?#-1:DELETE
+testRmicJArgDest#?#-1:DELETE" shape=ellipse]
+1 [label="testRmicDest#?#-1:PlaceHold
+testRmicJArg#?#-1:PlaceHold
+testZipEmptyDirFilesOnly#?#-1:PlaceHold
+testRmicJArgDest#?#-1:PlaceHold" shape=ellipse]
+2 [label="testRmicDest#?#-1:
+testRmicJArg#?#-1:
+testZipEmptyDirFilesOnly#?#-1:
+testRmicJArgDest#?#-1:" shape=ellipse]
+3 [label="testRmicDest#?#3:executeTarget(\"testRmicDest\")
+testRmicJArg#?#3:executeTarget(\"testRmicJArg\")
+testZipEmptyDirFilesOnly#?#3:executeTarget(\"zipEmptyDirFilesOnly\")
+testRmicJArgDest#?#3:executeTarget(\"testRmicJArgDest\")" shape=ellipse]
+4 [label="testRmicDest#?#-1:PlaceHold
+testRmicJArg#?#-1:PlaceHold
+testZipEmptyDirFilesOnly#?#-1:PlaceHold
+testRmicJArgDest#?#-1:PlaceHold" shape=ellipse]
+5 [label="testRmicDest#?#-1:PlaceHold
+testRmicJArg#?#-1:PlaceHold
+testZipEmptyDirFilesOnly#?#-1:PlaceHold
+testRmicJArgDest#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 5 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+}

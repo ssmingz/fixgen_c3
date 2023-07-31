@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1029/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1029/0/after.java
+@@ -4,1 +4,6 @@
+-    doc.indentLines(selStart, selEnd);
++    doc.acquireWriteLock();
++    try {
++      doc.indentLines(selStart, selEnd);
++    } finally {
++      doc.releaseWriteLock();
++    }

@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/888/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/888/2/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,2 @@
+-    executeTarget("simplecopy");
+-    String d = getProject().getProperty("dest") + "/a/b/c/d";
++    buildRule.executeTarget("simplecopy");
++    String d = buildRule.getProject().getProperty("dest") + "/a/b/c/d";
+@@ -6,1 +7,1 @@
+-    assertTrue(getFullLog().indexOf("dangling") == (-1));
++    assertTrue(buildRule.getFullLog().indexOf("dangling") == (-1));

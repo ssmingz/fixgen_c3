@@ -1,0 +1,171 @@
+digraph "setIncludesfile#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setIncludesfile" shape=ellipse]
+2 [label="2:CtParameterImpl@String includesfile" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtVariableReadImpl@includesfile" shape=ellipse]
+5 [label="3:CtLiteralImpl@null" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@(includesfile != null)" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@length()" shape=ellipse]
+8 [label="3:CtVirtualElement@length" shape=ellipse]
+9 [label="3:CtVariableReadImpl@includesfile" shape=ellipse]
+10 [label="3:CtInvocationImpl@includesfile.length()" shape=ellipse]
+11 [label="3:CtLiteralImpl@0" shape=ellipse]
+12 [label="3:CtBinaryOperatorImpl@(includesfile.length() > 0)" shape=ellipse]
+13 [label="3:CtBinaryOperatorImpl@(includesfile != null) && (includesfile.length() > 0)" shape=ellipse]
+14 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+16 [label="4:CtVirtualElement@resolveFile" shape=ellipse]
+17 [label="4:CtFieldReadImpl@project" shape=ellipse]
+18 [label="4:CtVariableReadImpl@includesfile" shape=ellipse]
+19 [label="4:CtInvocationImpl@project.resolveFile(includesfile)" shape=ellipse]
+20 [label="4:CtVirtualElement@incl" shape=ellipse]
+21 [label="4:CtLocalVariableImpl@File incl = project.resolveFile(includesfile)" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@exists()" shape=ellipse]
+23 [label="5:CtVirtualElement@exists" shape=ellipse]
+24 [label="5:CtVariableReadImpl@incl" shape=ellipse]
+25 [label="5:CtInvocationImpl@incl.exists()" shape=ellipse]
+26 [label="5:CtUnaryOperatorImpl@!incl.exists()" shape=ellipse]
+27 [label="6:CtExecutableReferenceImpl@log(java.lang.String)" shape=ellipse]
+28 [label="6:CtVirtualElement@log" shape=ellipse]
+29 [label="6:CtFieldReadImpl@project" shape=ellipse]
+30 [label="6:CtLiteralImpl@\"Includesfile \"" shape=ellipse]
+31 [label="6:CtVariableReadImpl@includesfile" shape=ellipse]
+32 [label="6:CtBinaryOperatorImpl@(\"Includesfile \" + includesfile)" shape=ellipse]
+33 [label="6:CtLiteralImpl@\" not found.\"" shape=ellipse]
+34 [label="6:CtBinaryOperatorImpl@(\"Includesfile \" + includesfile) + \" not found.\"" shape=ellipse]
+35 [label="6:CtTypeAccessImpl@MSG_ERR" shape=ellipse]
+36 [label="6:CtInvocationImpl@project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR)" shape=ellipse]
+37 [label="5:CtBlockImpl@\{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\}" shape=ellipse]
+38 [label="8:CtExecutableReferenceImpl@readPatterns(<unknown>,<unknown>)" shape=ellipse]
+39 [label="8:CtVirtualElement@readPatterns" shape=ellipse]
+40 [label="8:CtVariableReadImpl@incl" shape=ellipse]
+41 [label="8:CtFieldReadImpl@includeList" shape=ellipse]
+42 [label="8:CtInvocationImpl@readPatterns(incl, includeList)" shape=ellipse]
+43 [label="7:CtBlockImpl@\{
+    readPatterns(incl, includeList);
+\}" shape=ellipse]
+44 [label="5:CtIfImpl@if (!incl.exists()) \{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\} else \{
+    readPatterns(incl, includeList);
+\}" shape=ellipse]
+45 [label="3:CtBlockImpl@\{
+    File incl = project.resolveFile(includesfile);
+    if (!incl.exists()) \{
+        project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+    \} else \{
+        readPatterns(incl, includeList);
+    \}
+\}" shape=ellipse]
+46 [label="3:CtIfImpl@if ((includesfile != null) && (includesfile.length() > 0)) \{
+    File incl = project.resolveFile(includesfile);
+    if (!incl.exists()) \{
+        project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+    \} else \{
+        readPatterns(incl, includeList);
+    \}
+\}" shape=ellipse]
+47 [label="2:CtBlockImpl@\{
+    if ((includesfile != null) && (includesfile.length() > 0)) \{
+        File incl = project.resolveFile(includesfile);
+        if (!incl.exists()) \{
+            project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+        \} else \{
+            readPatterns(incl, includeList);
+        \}
+    \}
+\}" shape=ellipse]
+48 [label="2:CtMethodImpl@public void setIncludesfile(String includesfile) \{
+    if ((includesfile != null) && (includesfile.length() > 0)) \{
+        File incl = project.resolveFile(includesfile);
+        if (!incl.exists()) \{
+            project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+        \} else \{
+            readPatterns(incl, includeList);
+        \}
+    \}
+\}" shape=ellipse]
+49 [label="6:Delete@DELETE" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 6 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 45 [label="Control Dep"];
+13 -> 21 [label="Control Dep"];
+13 -> 19 [label="Control Dep"];
+13 -> 15 [label="Control Dep"];
+13 -> 17 [label="Control Dep"];
+13 -> 18 [label="Control Dep"];
+13 -> 44 [label="Control Dep"];
+13 -> 26 [label="Control Dep"];
+13 -> 25 [label="Control Dep"];
+13 -> 22 [label="Control Dep"];
+13 -> 24 [label="Control Dep"];
+17 -> 20 [label="Data Dep"];
+18 -> 20 [label="Data Dep"];
+19 -> 16 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 15 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 24 [label="Define-Use"];
+20 -> 40 [label="Define-Use"];
+21 -> 20 [label="AST"];
+21 -> 14 [label="AST"];
+21 -> 19 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 37 [label="Control Dep"];
+26 -> 36 [label="Control Dep"];
+26 -> 27 [label="Control Dep"];
+26 -> 29 [label="Control Dep"];
+26 -> 34 [label="Control Dep"];
+26 -> 32 [label="Control Dep"];
+26 -> 30 [label="Control Dep"];
+26 -> 31 [label="Control Dep"];
+26 -> 33 [label="Control Dep"];
+26 -> 35 [label="Control Dep"];
+26 -> 43 [label="Control Dep"];
+26 -> 42 [label="Control Dep"];
+26 -> 38 [label="Control Dep"];
+26 -> 40 [label="Control Dep"];
+26 -> 41 [label="Control Dep"];
+29 -> 49 [label="Action"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+36 -> 28 [label="AST"];
+36 -> 29 [label="AST"];
+36 -> 27 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 38 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 26 [label="AST"];
+44 -> 37 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 21 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 13 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 1 [label="AST"];
+48 -> 0 [label="AST"];
+48 -> 2 [label="AST"];
+48 -> 47 [label="AST"];
+}

@@ -1,0 +1,59 @@
+digraph "testRunFail#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testRunFail" shape=ellipse]
+2 [label="3:CtFieldReadImpl@runFatalTests" shape=ellipse]
+3 [label="4:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+4 [label="4:CtVirtualElement@executeTarget" shape=ellipse]
+5 [label="4:CtLiteralImpl@\"testRunFail\"" shape=ellipse]
+6 [label="4:CtInvocationImpl@executeTarget(\"testRunFail\")" shape=ellipse]
+7 [label="3:CtBlockImpl@\{
+    executeTarget(\"testRunFail\");
+\}" shape=ellipse]
+8 [label="3:CtIfImpl@if (runFatalTests) \{
+    executeTarget(\"testRunFail\");
+\}" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    if (runFatalTests) \{
+        executeTarget(\"testRunFail\");
+    \}
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void testRunFail() \{
+    if (runFatalTests) \{
+        executeTarget(\"testRunFail\");
+    \}
+\}" shape=ellipse]
+11 [label="3:Delete@DELETE" shape=ellipse]
+12 [label="2:Insert@INSERT" shape=ellipse]
+13 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+14 [label="4:Insert@INSERT" shape=ellipse]
+15 [label="4:CtInvocationImpl@Assume.assumeTrue(\"Fatal tests have not been set to run\", runFatalTests)" shape=ellipse]
+16 [label="5:Insert@INSERT" shape=ellipse]
+17 [label="5:CtFieldReadImpl@buildRule" shape=ellipse]
+18 [label="4:Move@MOVE" shape=ellipse]
+19 [label="3:Move@MOVE" shape=ellipse]
+2 -> 7 [label="Control Dep"];
+2 -> 6 [label="Control Dep"];
+2 -> 3 [label="Control Dep"];
+2 -> 5 [label="Control Dep"];
+2 -> 19 [label="Action"];
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 16 [label="Action"];
+6 -> 18 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 11 [label="Action"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 12 [label="Action"];
+10 -> 14 [label="Action"];
+12 -> 13 [label="Action"];
+14 -> 15 [label="Action"];
+16 -> 17 [label="Action"];
+18 -> 10 [label="Action"];
+19 -> 15 [label="Action"];
+}

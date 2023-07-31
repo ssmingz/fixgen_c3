@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="warn#?,String,Throwable#3:UPDATE
+info#?,String,Throwable#3:UPDATE" shape=ellipse]
+1 [label="warn#?,String,Throwable#3:m_logger.warn(message, throwable)
+info#?,String,Throwable#3:m_logger.warn(message, throwable)" shape=ellipse]
+2 [label="warn#?,String,Throwable#2:\{
+    m_logger.warn(message, throwable);
+\}" shape=ellipse]
+3 [label="warn#?,String,Throwable#2:public void warn(final String message, final Throwable throwable) \{
+    m_logger.warn(message, throwable);
+\}
+info#?,String,Throwable#2:public void info(final String message, final Throwable throwable) \{
+    m_logger.info(message, throwable);
+\}" shape=ellipse]
+4 [label="warn#?,String,Throwable#3:warn" shape=ellipse]
+5 [label="warn#?,String,Throwable#3:m_logger" shape=ellipse]
+6 [label="warn#?,String,Throwable#-1:m_logger
+info#?,String,Throwable#3:m_logger" shape=ellipse]
+7 [label="warn#?,String,Throwable#3:warn(java.lang.String,java.lang.Throwable)" shape=ellipse]
+8 [label="warn#?,String,Throwable#-1:m_logger
+info#?,String,Throwable#-1:m_logger" shape=ellipse]
+9 [label="warn#?,String,Throwable#-1:String
+info#?,String,Throwable#-1:String" shape=ellipse]
+10 [label="warn#?,String,Throwable#-1:Throwable
+info#?,String,Throwable#-1:Throwable" shape=ellipse]
+11 [label="warn#?,String,Throwable#3:message" shape=ellipse]
+12 [label="warn#?,String,Throwable#-1:message
+info#?,String,Throwable#3:message" shape=ellipse]
+13 [label="warn#?,String,Throwable#3:throwable" shape=ellipse]
+14 [label="warn#?,String,Throwable#-1:throwable
+info#?,String,Throwable#3:throwable" shape=ellipse]
+15 [label="warn#?,String,Throwable#3:m_logger.error(message, throwable)" shape=ellipse]
+16 [label="info#?,String,Throwable#3:info" shape=ellipse]
+17 [label="info#?,String,Throwable#3:m_logger.info(message, throwable)" shape=ellipse]
+18 [label="info#?,String,Throwable#2:\{
+    m_logger.info(message, throwable);
+\}" shape=ellipse]
+19 [label="info#?,String,Throwable#-1:message" shape=ellipse]
+20 [label="info#?,String,Throwable#-1:m_logger" shape=ellipse]
+21 [label="info#?,String,Throwable#-1:throwable" shape=ellipse]
+22 [label="info#?,String,Throwable#3:info(java.lang.String,java.lang.Throwable)" shape=ellipse]
+0 -> 15 [label="Action:1"];
+0 -> 1 [label="Action:1"];
+1 -> 0 [label="Action:1"];
+1 -> 4 [label="AST:1"];
+1 -> 5 [label="AST:1"];
+1 -> 7 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 18 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+6 -> 20 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+12 -> 19 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+14 -> 21 [label="AST:1"];
+17 -> 16 [label="AST:1"];
+17 -> 6 [label="AST:1"];
+17 -> 22 [label="AST:1"];
+17 -> 12 [label="AST:1"];
+17 -> 14 [label="AST:1"];
+17 -> 0 [label="Action:1"];
+18 -> 17 [label="AST:1"];
+22 -> 8 [label="AST:1"];
+22 -> 9 [label="AST:1"];
+22 -> 10 [label="AST:1"];
+}

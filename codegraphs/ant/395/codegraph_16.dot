@@ -1,0 +1,298 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@checkParameters()" shape=ellipse]
+4 [label="3:CtVirtualElement@checkParameters" shape=ellipse]
+5 [label="3:CtInvocationImpl@checkParameters()" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@resetFileLists()" shape=ellipse]
+7 [label="4:CtVirtualElement@resetFileLists" shape=ellipse]
+8 [label="4:CtInvocationImpl@resetFileLists()" shape=ellipse]
+9 [label="5:CtVirtualElement@String[]" shape=ellipse]
+10 [label="5:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@list()" shape=ellipse]
+12 [label="5:CtVirtualElement@list" shape=ellipse]
+13 [label="5:CtFieldReadImpl@src" shape=ellipse]
+14 [label="5:CtInvocationImpl@src.list()" shape=ellipse]
+15 [label="5:CtVirtualElement@list" shape=ellipse]
+16 [label="5:CtLocalVariableImpl@String[] list = src.list()" shape=ellipse]
+17 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+18 [label="6:CtLiteralImpl@0" shape=ellipse]
+19 [label="6:CtVirtualElement@i" shape=ellipse]
+20 [label="6:CtLocalVariableImpl@int i = 0" shape=ellipse]
+21 [label="6:CtVariableReadImpl@i" shape=ellipse]
+22 [label="6:CtVariableReadImpl@list" shape=ellipse]
+23 [label="6:CtLocalVariableReferenceImpl@list" shape=ellipse]
+24 [label="6:CtFieldReadImpl@list.length" shape=ellipse]
+25 [label="6:CtBinaryOperatorImpl@i < list.length" shape=ellipse]
+26 [label="6:CtVariableWriteImpl@i" shape=ellipse]
+27 [label="6:CtUnaryOperatorImpl@i++" shape=ellipse]
+28 [label="7:CtTypeReferenceImpl@File" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+30 [label="7:CtVirtualElement@resolveFile" shape=ellipse]
+31 [label="7:CtFieldReadImpl@project" shape=ellipse]
+32 [label="7:CtVariableReadImpl@list" shape=ellipse]
+33 [label="7:CtVariableReadImpl@i" shape=ellipse]
+34 [label="7:CtArrayReadImpl@list[i]" shape=ellipse]
+35 [label="7:CtInvocationImpl@project.resolveFile(list[i])" shape=ellipse]
+36 [label="7:CtVirtualElement@srcDir" shape=ellipse]
+37 [label="7:CtLocalVariableImpl@File srcDir = project.resolveFile(list[i])" shape=ellipse]
+38 [label="8:CtExecutableReferenceImpl@exists()" shape=ellipse]
+39 [label="8:CtVirtualElement@exists" shape=ellipse]
+40 [label="8:CtVariableReadImpl@srcDir" shape=ellipse]
+41 [label="8:CtInvocationImpl@srcDir.exists()" shape=ellipse]
+42 [label="8:CtUnaryOperatorImpl@!srcDir.exists()" shape=ellipse]
+43 [label="9:CtTypeReferenceImpl@BuildException" shape=ellipse]
+44 [label="9:CtLiteralImpl@\"srcdir \\"\"" shape=ellipse]
+45 [label="9:CtExecutableReferenceImpl@getPath()" shape=ellipse]
+46 [label="9:CtVirtualElement@getPath" shape=ellipse]
+47 [label="9:CtVariableReadImpl@srcDir" shape=ellipse]
+48 [label="9:CtInvocationImpl@srcDir.getPath()" shape=ellipse]
+49 [label="9:CtBinaryOperatorImpl@(\"srcdir \\"\" + srcDir.getPath())" shape=ellipse]
+50 [label="9:CtLiteralImpl@\"\\" does not exist!\"" shape=ellipse]
+51 [label="9:CtBinaryOperatorImpl@(\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\"" shape=ellipse]
+52 [label="9:CtFieldReadImpl@location" shape=ellipse]
+53 [label="9:CtConstructorCallImpl@new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)" shape=ellipse]
+54 [label="9:CtThrowImpl@throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location)" shape=ellipse]
+55 [label="8:CtBlockImpl@\{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}" shape=ellipse]
+56 [label="8:CtIfImpl@if (!srcDir.exists()) \{
+    throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+\}" shape=ellipse]
+57 [label="11:CtTypeReferenceImpl@DirectoryScanner" shape=ellipse]
+58 [label="11:CtExecutableReferenceImpl@getDirectoryScanner(File)" shape=ellipse]
+59 [label="11:CtVirtualElement@getDirectoryScanner" shape=ellipse]
+60 [label="11:CtThisAccessImpl@this" shape=ellipse]
+61 [label="11:CtVariableReadImpl@srcDir" shape=ellipse]
+62 [label="11:CtInvocationImpl@this.getDirectoryScanner(srcDir)" shape=ellipse]
+63 [label="11:CtVirtualElement@ds" shape=ellipse]
+64 [label="11:CtLocalVariableImpl@DirectoryScanner ds = this.getDirectoryScanner(srcDir)" shape=ellipse]
+65 [label="12:CtVirtualElement@String[]" shape=ellipse]
+66 [label="12:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+67 [label="12:CtExecutableReferenceImpl@getIncludedFiles()" shape=ellipse]
+68 [label="12:CtVirtualElement@getIncludedFiles" shape=ellipse]
+69 [label="12:CtVariableReadImpl@ds" shape=ellipse]
+70 [label="12:CtInvocationImpl@ds.getIncludedFiles()" shape=ellipse]
+71 [label="12:CtVirtualElement@files" shape=ellipse]
+72 [label="12:CtLocalVariableImpl@String[] files = ds.getIncludedFiles()" shape=ellipse]
+73 [label="13:CtExecutableReferenceImpl@scanDir(<unknown>,<unknown>,java.lang.String[])" shape=ellipse]
+74 [label="13:CtVirtualElement@scanDir" shape=ellipse]
+75 [label="13:CtVariableReadImpl@srcDir" shape=ellipse]
+76 [label="13:CtFieldReadImpl@destDir" shape=ellipse]
+77 [label="13:CtLiteralImpl@null" shape=ellipse]
+78 [label="13:CtBinaryOperatorImpl@destDir != null" shape=ellipse]
+79 [label="13:CtFieldReadImpl@destDir" shape=ellipse]
+80 [label="13:CtVariableReadImpl@srcDir" shape=ellipse]
+81 [label="13:CtConditionalImpl@destDir != null ? destDir : srcDir" shape=ellipse]
+82 [label="13:CtVariableReadImpl@files" shape=ellipse]
+83 [label="13:CtInvocationImpl@scanDir(srcDir, destDir != null ? destDir : srcDir, files)" shape=ellipse]
+84 [label="6:CtBlockImpl@\{
+    File srcDir = project.resolveFile(list[i]);
+    if (!srcDir.exists()) \{
+        throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+    \}
+    DirectoryScanner ds = this.getDirectoryScanner(srcDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(srcDir, destDir != null ? destDir : srcDir, files);
+\}" shape=ellipse]
+85 [label="6:CtForImpl@for (int i = 0; i < list.length; i++) \{
+    File srcDir = project.resolveFile(list[i]);
+    if (!srcDir.exists()) \{
+        throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+    \}
+    DirectoryScanner ds = this.getDirectoryScanner(srcDir);
+    String[] files = ds.getIncludedFiles();
+    scanDir(srcDir, destDir != null ? destDir : srcDir, files);
+\}" shape=ellipse]
+86 [label="15:CtExecutableReferenceImpl@compile()" shape=ellipse]
+87 [label="15:CtVirtualElement@compile" shape=ellipse]
+88 [label="15:CtInvocationImpl@compile()" shape=ellipse]
+89 [label="2:CtBlockImpl@\{
+    checkParameters();
+    resetFileLists();
+    String[] list = src.list();
+    for (int i = 0; i < list.length; i++) \{
+        File srcDir = project.resolveFile(list[i]);
+        if (!srcDir.exists()) \{
+            throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+        \}
+        DirectoryScanner ds = this.getDirectoryScanner(srcDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(srcDir, destDir != null ? destDir : srcDir, files);
+    \}
+    compile();
+\}" shape=ellipse]
+90 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    checkParameters();
+    resetFileLists();
+    String[] list = src.list();
+    for (int i = 0; i < list.length; i++) \{
+        File srcDir = project.resolveFile(list[i]);
+        if (!srcDir.exists()) \{
+            throw new BuildException((\"srcdir \\"\" + srcDir.getPath()) + \"\\" does not exist!\", location);
+        \}
+        DirectoryScanner ds = this.getDirectoryScanner(srcDir);
+        String[] files = ds.getIncludedFiles();
+        scanDir(srcDir, destDir != null ? destDir : srcDir, files);
+    \}
+    compile();
+\}" shape=ellipse]
+91 [label="7:Delete@DELETE" shape=ellipse]
+92 [label="7:Insert@INSERT" shape=ellipse]
+93 [label="7:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+13 -> 15 [label="Data Dep"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 11 [label="AST"];
+15 -> 22 [label="Define-Use"];
+15 -> 32 [label="Define-Use"];
+15 -> 34 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+19 -> 21 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+22 -> 23 [label="AST"];
+24 -> 22 [label="AST"];
+25 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 84 [label="Control Dep"];
+25 -> 37 [label="Control Dep"];
+25 -> 35 [label="Control Dep"];
+25 -> 29 [label="Control Dep"];
+25 -> 31 [label="Control Dep"];
+25 -> 34 [label="Control Dep"];
+25 -> 32 [label="Control Dep"];
+25 -> 33 [label="Control Dep"];
+25 -> 56 [label="Control Dep"];
+25 -> 42 [label="Control Dep"];
+25 -> 41 [label="Control Dep"];
+25 -> 38 [label="Control Dep"];
+25 -> 40 [label="Control Dep"];
+25 -> 64 [label="Control Dep"];
+25 -> 62 [label="Control Dep"];
+25 -> 58 [label="Control Dep"];
+25 -> 60 [label="Control Dep"];
+25 -> 61 [label="Control Dep"];
+25 -> 72 [label="Control Dep"];
+25 -> 66 [label="Control Dep"];
+25 -> 70 [label="Control Dep"];
+25 -> 67 [label="Control Dep"];
+25 -> 69 [label="Control Dep"];
+25 -> 83 [label="Control Dep"];
+25 -> 73 [label="Control Dep"];
+25 -> 75 [label="Control Dep"];
+25 -> 81 [label="Control Dep"];
+25 -> 78 [label="Control Dep"];
+25 -> 76 [label="Control Dep"];
+25 -> 77 [label="Control Dep"];
+25 -> 82 [label="Control Dep"];
+26 -> 33 [label="Define-Use"];
+27 -> 26 [label="AST"];
+31 -> 36 [label="Data Dep"];
+31 -> 91 [label="Action"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 36 [label="Data Dep"];
+35 -> 30 [label="AST"];
+35 -> 31 [label="AST"];
+35 -> 29 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 92 [label="Action"];
+36 -> 40 [label="Define-Use"];
+36 -> 47 [label="Define-Use"];
+36 -> 61 [label="Define-Use"];
+36 -> 75 [label="Define-Use"];
+36 -> 80 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 28 [label="AST"];
+37 -> 35 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+41 -> 38 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 55 [label="Control Dep"];
+42 -> 54 [label="Control Dep"];
+42 -> 53 [label="Control Dep"];
+42 -> 51 [label="Control Dep"];
+42 -> 49 [label="Control Dep"];
+42 -> 44 [label="Control Dep"];
+42 -> 48 [label="Control Dep"];
+42 -> 45 [label="Control Dep"];
+42 -> 47 [label="Control Dep"];
+42 -> 50 [label="Control Dep"];
+42 -> 52 [label="Control Dep"];
+48 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+48 -> 45 [label="AST"];
+49 -> 44 [label="AST"];
+49 -> 48 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+53 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 42 [label="AST"];
+56 -> 55 [label="AST"];
+60 -> 63 [label="Data Dep"];
+61 -> 63 [label="Data Dep"];
+62 -> 59 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 58 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 69 [label="Define-Use"];
+64 -> 63 [label="AST"];
+64 -> 57 [label="AST"];
+64 -> 62 [label="AST"];
+66 -> 65 [label="AST"];
+69 -> 71 [label="Data Dep"];
+70 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+70 -> 67 [label="AST"];
+71 -> 82 [label="Define-Use"];
+72 -> 71 [label="AST"];
+72 -> 66 [label="AST"];
+72 -> 70 [label="AST"];
+78 -> 76 [label="AST"];
+78 -> 77 [label="AST"];
+78 -> 79 [label="Control Dep"];
+78 -> 80 [label="Control Dep"];
+81 -> 78 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+83 -> 74 [label="AST"];
+83 -> 73 [label="AST"];
+83 -> 75 [label="AST"];
+83 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 37 [label="AST"];
+84 -> 56 [label="AST"];
+84 -> 64 [label="AST"];
+84 -> 72 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 20 [label="AST"];
+85 -> 25 [label="AST"];
+85 -> 27 [label="AST"];
+85 -> 84 [label="AST"];
+88 -> 87 [label="AST"];
+88 -> 86 [label="AST"];
+89 -> 5 [label="AST"];
+89 -> 8 [label="AST"];
+89 -> 16 [label="AST"];
+89 -> 85 [label="AST"];
+89 -> 88 [label="AST"];
+90 -> 1 [label="AST"];
+90 -> 0 [label="AST"];
+90 -> 2 [label="AST"];
+90 -> 89 [label="AST"];
+92 -> 93 [label="Action"];
+}

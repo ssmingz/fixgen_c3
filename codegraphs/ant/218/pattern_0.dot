@@ -1,0 +1,30 @@
+digraph "Pattern" {
+0 [label="getValue#?#8:DELETE
+write#?,PrintWriter,boolean#5:DELETE" shape=ellipse]
+1 [label="getValue#?#8:String
+write#?,PrintWriter,boolean#5:String" shape=ellipse]
+2 [label="getValue#?#8:((String) (e.nextElement()))
+write#?,PrintWriter,boolean#5:((String) (e.nextElement()))" shape=ellipse]
+3 [label="getValue#?#7:e.hasMoreElements()
+write#?,PrintWriter,boolean#4:e.hasMoreElements()" shape=ellipse]
+4 [label="getValue#?#8:String value = ((String) (e.nextElement()))" shape=ellipse]
+5 [label="getValue#?#8:nextElement
+write#?,PrintWriter,boolean#5:nextElement" shape=ellipse]
+6 [label="getValue#?#8:e
+write#?,PrintWriter,boolean#5:e" shape=ellipse]
+7 [label="getValue#?#8:nextElement()
+write#?,PrintWriter,boolean#5:nextElement()" shape=ellipse]
+8 [label="write#?,PrintWriter,boolean#5:writeValue(writer, ((String) (e.nextElement())))" shape=ellipse]
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 7 [label="Control Dep:2"];
+3 -> 6 [label="Control Dep:2"];
+3 -> 8 [label="Control Dep:1"];
+4 -> 2 [label="AST:1"];
+8 -> 2 [label="AST:1"];
+}

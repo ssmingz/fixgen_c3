@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/983/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/983/1/after.java
+@@ -47,1 +47,6 @@
+-    int window = OS.GTK_WIDGET_WINDOW(control.handle);
++    int window;
++    if (OS.GTK_VERSION >= OS.VERSION(2, 14, 0)) {
++      window = OS.gtk_widget_get_window(control.handle);
++    } else {
++      window = OS.GTK_WIDGET_WINDOW(control.handle);
++    }

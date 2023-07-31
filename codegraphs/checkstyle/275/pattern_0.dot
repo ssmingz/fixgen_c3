@@ -1,0 +1,138 @@
+digraph "Pattern" {
+0 [label="mustCheckName#?,DetailAST#8:UPDATE
+isOverridingMethod#?,DetailAST#3:UPDATE
+visitVariableDef#?,DetailAST#4:UPDATE
+isSkipCase#?,DetailAST#3:UPDATE" shape=ellipse]
+1 [label="mustCheckName#?,DetailAST#8:ScopeUtils.inInterfaceOrAnnotationBlock(ast)
+isOverridingMethod#?,DetailAST#3:ScopeUtils.inInterfaceOrAnnotationBlock(ast)
+visitVariableDef#?,DetailAST#4:ScopeUtils.inInterfaceOrAnnotationBlock(variableDef)
+isSkipCase#?,DetailAST#3:ScopeUtils.inInterfaceOrAnnotationBlock(ast)" shape=ellipse]
+2 [label="mustCheckName#?,DetailAST#8:(!ScopeUtils.inInterfaceOrAnnotationBlock(ast))" shape=ellipse]
+3 [label="mustCheckName#?,DetailAST#7:((isStatic && (!isFinal)) && shouldCheckInScope(modifiersAST)) && (!ScopeUtils.inInterfaceOrAnnotationBlock(ast))
+isOverridingMethod#?,DetailAST#3:(ast.getType() != TokenTypes.METHOD_DEF)" shape=ellipse]
+4 [label="mustCheckName#?,DetailAST#8:inInterfaceOrAnnotationBlock
+isOverridingMethod#?,DetailAST#3:inInterfaceOrAnnotationBlock
+visitVariableDef#?,DetailAST#4:inInterfaceOrAnnotationBlock
+isSkipCase#?,DetailAST#3:inInterfaceOrAnnotationBlock" shape=ellipse]
+5 [label="mustCheckName#?,DetailAST#8:ScopeUtils
+isOverridingMethod#?,DetailAST#3:ScopeUtils
+visitVariableDef#?,DetailAST#4:ScopeUtils
+isSkipCase#?,DetailAST#3:ScopeUtils" shape=ellipse]
+6 [label="mustCheckName#?,DetailAST#8:ScopeUtils
+isOverridingMethod#?,DetailAST#3:ScopeUtils
+visitVariableDef#?,DetailAST#4:ScopeUtils
+isSkipCase#?,DetailAST#3:ScopeUtils" shape=ellipse]
+7 [label="mustCheckName#?,DetailAST#8:inInterfaceOrAnnotationBlock(DetailAST)
+isOverridingMethod#?,DetailAST#3:inInterfaceOrAnnotationBlock(DetailAST)
+visitVariableDef#?,DetailAST#4:inInterfaceOrAnnotationBlock(DetailAST)
+isSkipCase#?,DetailAST#3:inInterfaceOrAnnotationBlock(DetailAST)" shape=ellipse]
+8 [label="mustCheckName#?,DetailAST#8:ScopeUtils
+isOverridingMethod#?,DetailAST#3:ScopeUtils
+visitVariableDef#?,DetailAST#4:ScopeUtils
+isSkipCase#?,DetailAST#3:ScopeUtils" shape=ellipse]
+9 [label="mustCheckName#?,DetailAST#8:DetailAST
+isOverridingMethod#?,DetailAST#3:DetailAST
+visitVariableDef#?,DetailAST#4:DetailAST
+isSkipCase#?,DetailAST#3:DetailAST" shape=ellipse]
+10 [label="mustCheckName#?,DetailAST#8:ast
+isOverridingMethod#?,DetailAST#3:ast
+visitVariableDef#?,DetailAST#4:variableDef
+isSkipCase#?,DetailAST#3:ast" shape=ellipse]
+11 [label="mustCheckName#?,DetailAST#8:ast
+isOverridingMethod#?,DetailAST#3:ast
+visitVariableDef#?,DetailAST#4:variableDef
+isSkipCase#?,DetailAST#3:ast" shape=ellipse]
+12 [label="mustCheckName#?,DetailAST#8:isInInterfaceOrAnnotationBlock
+isOverridingMethod#?,DetailAST#4:isInInterfaceOrAnnotationBlock
+visitVariableDef#?,DetailAST#4:isInInterfaceOrAnnotationBlock
+isSkipCase#?,DetailAST#3:isInInterfaceOrAnnotationBlock" shape=ellipse]
+13 [label="mustCheckName#?,DetailAST#8:isInInterfaceOrAnnotationBlock(DetailAST)
+isOverridingMethod#?,DetailAST#4:isInInterfaceOrAnnotationBlock(DetailAST)
+visitVariableDef#?,DetailAST#4:isInInterfaceOrAnnotationBlock(DetailAST)
+isSkipCase#?,DetailAST#3:isInInterfaceOrAnnotationBlock(DetailAST)" shape=ellipse]
+14 [label="mustCheckName#?,DetailAST#8:ScopeUtils
+isOverridingMethod#?,DetailAST#4:ScopeUtils
+visitVariableDef#?,DetailAST#4:ScopeUtils
+isSkipCase#?,DetailAST#3:ScopeUtils" shape=ellipse]
+15 [label="mustCheckName#?,DetailAST#8:
+isOverridingMethod#?,DetailAST#4:
+visitVariableDef#?,DetailAST#4:
+isSkipCase#?,DetailAST#3:" shape=ellipse]
+16 [label="mustCheckName#?,DetailAST#8:DetailAST
+isOverridingMethod#?,DetailAST#4:DetailAST
+visitVariableDef#?,DetailAST#4:DetailAST
+isSkipCase#?,DetailAST#3:DetailAST" shape=ellipse]
+17 [label="mustCheckName#?,DetailAST#8:
+isOverridingMethod#?,DetailAST#4:
+visitVariableDef#?,DetailAST#4:
+isSkipCase#?,DetailAST#3:" shape=ellipse]
+18 [label="isOverridingMethod#?,DetailAST#3:(ast.getType() != TokenTypes.METHOD_DEF) || ScopeUtils.inInterfaceOrAnnotationBlock(ast)" shape=ellipse]
+19 [label="isOverridingMethod#?,DetailAST#3:if ((ast.getType() != TokenTypes.METHOD_DEF) || ScopeUtils.inInterfaceOrAnnotationBlock(ast)) \{
+    return false;
+\}
+isSkipCase#?,DetailAST#3:if (ScopeUtils.isLocalVariableDef(ast) || ScopeUtils.inInterfaceOrAnnotationBlock(ast)) \{
+    return true;
+\}" shape=ellipse]
+20 [label="isOverridingMethod#?,DetailAST#3:\{
+    return false;
+\}
+visitVariableDef#?,DetailAST#2:\{
+    final boolean inInterfaceOrAnnotationBlock = ScopeUtils.inInterfaceOrAnnotationBlock(variableDef);
+    if ((!inInterfaceOrAnnotationBlock) && (!hasIgnoreAnnotation(variableDef))) \{
+        final DetailAST varNameAST = variableDef.findFirstToken(TYPE).getNextSibling();
+        final String varName = varNameAST.getText();
+        if (!hasProperAccessModifier(variableDef, varName)) \{
+            log(varNameAST.getLineNo(), varNameAST.getColumnNo(), MSG_KEY, varName);
+        \}
+    \}
+\}
+isSkipCase#?,DetailAST#3:\{
+    return true;
+\}" shape=ellipse]
+21 [label="isOverridingMethod#?,DetailAST#4:return false
+isSkipCase#?,DetailAST#4:return true" shape=ellipse]
+22 [label="isOverridingMethod#?,DetailAST#4:false
+isSkipCase#?,DetailAST#4:true" shape=ellipse]
+23 [label="visitVariableDef#?,DetailAST#3:final boolean inInterfaceOrAnnotationBlock = ScopeUtils.inInterfaceOrAnnotationBlock(variableDef)" shape=ellipse]
+24 [label="visitVariableDef#?,DetailAST#3:boolean" shape=ellipse]
+25 [label="visitVariableDef#?,DetailAST#4:boolean" shape=ellipse]
+26 [label="visitVariableDef#?,DetailAST#3:inInterfaceOrAnnotationBlock" shape=ellipse]
+27 [label="isSkipCase#?,DetailAST#3:ScopeUtils.isLocalVariableDef(ast) || ScopeUtils.inInterfaceOrAnnotationBlock(ast)" shape=ellipse]
+28 [label="isSkipCase#?,DetailAST#3:ScopeUtils.isLocalVariableDef(ast)" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 4 [label="AST:4"];
+1 -> 5 [label="AST:4"];
+1 -> 7 [label="AST:4"];
+1 -> 10 [label="AST:4"];
+2 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+5 -> 6 [label="AST:4"];
+7 -> 8 [label="AST:4"];
+7 -> 9 [label="AST:4"];
+7 -> 25 [label="AST:1"];
+10 -> 11 [label="AST:4"];
+10 -> 26 [label="Data Dep:1"];
+13 -> 14 [label="AST:4"];
+13 -> 16 [label="AST:4"];
+14 -> 15 [label="AST:4"];
+16 -> 17 [label="AST:4"];
+18 -> 3 [label="AST:1"];
+18 -> 1 [label="AST:1"];
+18 -> 20 [label="Control Dep:1"];
+18 -> 21 [label="Control Dep:1"];
+18 -> 22 [label="Control Dep:1"];
+19 -> 18 [label="AST:1"];
+19 -> 20 [label="AST:2"];
+19 -> 27 [label="AST:1"];
+20 -> 21 [label="AST:2"];
+20 -> 23 [label="AST:1"];
+21 -> 22 [label="AST:2"];
+23 -> 26 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 1 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+27 -> 1 [label="AST:1"];
+27 -> 20 [label="Control Dep:1"];
+27 -> 21 [label="Control Dep:1"];
+27 -> 22 [label="Control Dep:1"];
+}

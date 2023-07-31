@@ -1,0 +1,156 @@
+digraph "testDefaultExcludesAndUpdate#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testDefaultExcludesAndUpdate" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@ZipException" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@executeTarget" shape=ellipse]
+6 [label="3:CtLiteralImpl@\"testDefaultExcludesAndUpdate\"" shape=ellipse]
+7 [label="3:CtInvocationImpl@executeTarget(\"testDefaultExcludesAndUpdate\")" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+9 [label="4:CtLiteralImpl@null" shape=ellipse]
+10 [label="4:CtVirtualElement@f" shape=ellipse]
+11 [label="4:CtLocalVariableImpl@ZipFile f = null" shape=ellipse]
+12 [label="6:CtVariableWriteImpl@f" shape=ellipse]
+13 [label="6:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+14 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+15 [label="6:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+16 [label="6:CtVirtualElement@getProperty" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+18 [label="6:CtVirtualElement@getProject" shape=ellipse]
+19 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+20 [label="6:CtLiteralImpl@\"output\"" shape=ellipse]
+21 [label="6:CtInvocationImpl@getProject().getProperty(\"output\")" shape=ellipse]
+22 [label="6:CtLiteralImpl@\"test3.zip\"" shape=ellipse]
+23 [label="6:CtConstructorCallImpl@new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+24 [label="6:CtConstructorCallImpl@new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"))" shape=ellipse]
+25 [label="6:CtAssignmentImpl@f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"))" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@assertNotNull(java.lang.String,<unknown>)" shape=ellipse]
+27 [label="7:CtVirtualElement@assertNotNull" shape=ellipse]
+28 [label="7:CtLiteralImpl@\"ziptest~ should be included\"" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@getEntry(java.lang.String)" shape=ellipse]
+30 [label="7:CtVirtualElement@getEntry" shape=ellipse]
+31 [label="7:CtVariableReadImpl@f" shape=ellipse]
+32 [label="7:CtLiteralImpl@\"ziptest~\"" shape=ellipse]
+33 [label="7:CtInvocationImpl@f.getEntry(\"ziptest~\")" shape=ellipse]
+34 [label="7:CtInvocationImpl@assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"))" shape=ellipse]
+35 [label="5:CtBlockImpl@\{
+    f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+\}" shape=ellipse]
+36 [label="9:CtVariableReadImpl@f" shape=ellipse]
+37 [label="9:CtLiteralImpl@null" shape=ellipse]
+38 [label="9:CtBinaryOperatorImpl@f != null" shape=ellipse]
+39 [label="10:CtExecutableReferenceImpl@close()" shape=ellipse]
+40 [label="10:CtVirtualElement@close" shape=ellipse]
+41 [label="10:CtVariableReadImpl@f" shape=ellipse]
+42 [label="10:CtInvocationImpl@f.close()" shape=ellipse]
+43 [label="9:CtBlockImpl@\{
+    f.close();
+\}" shape=ellipse]
+44 [label="9:CtIfImpl@if (f != null) \{
+    f.close();
+\}" shape=ellipse]
+45 [label="8:CtBlockImpl@\{
+    if (f != null) \{
+        f.close();
+    \}
+\}" shape=ellipse]
+46 [label="5:CtTryImpl@try \{
+    f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+\} finally \{
+    if (f != null) \{
+        f.close();
+    \}
+\}" shape=ellipse]
+47 [label="2:CtBlockImpl@\{
+    executeTarget(\"testDefaultExcludesAndUpdate\");
+    ZipFile f = null;
+    try \{
+        f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+    \} finally \{
+        if (f != null) \{
+            f.close();
+        \}
+    \}
+\}" shape=ellipse]
+48 [label="2:CtMethodImpl@public void testDefaultExcludesAndUpdate() throws ZipException, IOException \{
+    executeTarget(\"testDefaultExcludesAndUpdate\");
+    ZipFile f = null;
+    try \{
+        f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+    \} finally \{
+        if (f != null) \{
+            f.close();
+        \}
+    \}
+\}" shape=ellipse]
+49 [label="2:Insert@INSERT" shape=ellipse]
+50 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+51 [label="4:Insert@INSERT" shape=ellipse]
+52 [label="4:CtFieldReadImpl@buildRule" shape=ellipse]
+53 [label="7:Insert@INSERT" shape=ellipse]
+54 [label="7:CtFieldReadImpl@buildRule" shape=ellipse]
+7 -> 5 [label="AST"];
+7 -> 4 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 51 [label="Action"];
+11 -> 10 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+12 -> 31 [label="Define-Use"];
+12 -> 36 [label="Define-Use"];
+12 -> 41 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 53 [label="Action"];
+21 -> 16 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 15 [label="AST"];
+21 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 12 [label="AST"];
+25 -> 24 [label="AST"];
+33 -> 30 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 27 [label="AST"];
+34 -> 26 [label="AST"];
+34 -> 28 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 25 [label="AST"];
+35 -> 34 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 43 [label="Control Dep"];
+38 -> 42 [label="Control Dep"];
+38 -> 39 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 38 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 35 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 7 [label="AST"];
+47 -> 11 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 1 [label="AST"];
+48 -> 0 [label="AST"];
+48 -> 2 [label="AST"];
+48 -> 3 [label="AST"];
+48 -> 47 [label="AST"];
+48 -> 49 [label="Action"];
+49 -> 50 [label="Action"];
+51 -> 52 [label="Action"];
+53 -> 54 [label="Action"];
+}

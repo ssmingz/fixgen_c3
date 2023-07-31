@@ -1,0 +1,41 @@
+digraph "addRootFileset#?,FileSet" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addRootFileset" shape=ellipse]
+2 [label="2:CtParameterImpl@FileSet rootFileSet" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileSet" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addElement(FileSet)" shape=ellipse]
+5 [label="3:CtVirtualElement@addElement" shape=ellipse]
+6 [label="3:CtFieldReadImpl@rootFileSets" shape=ellipse]
+7 [label="3:CtVariableReadImpl@rootFileSet" shape=ellipse]
+8 [label="3:CtInvocationImpl@rootFileSets.addElement(rootFileSet)" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@setChecked(boolean)" shape=ellipse]
+10 [label="4:CtVirtualElement@setChecked" shape=ellipse]
+11 [label="4:CtLiteralImpl@false" shape=ellipse]
+12 [label="4:CtInvocationImpl@setChecked(false)" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    rootFileSets.addElement(rootFileSet);
+    setChecked(false);
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public void addRootFileset(FileSet rootFileSet) \{
+    rootFileSets.addElement(rootFileSet);
+    setChecked(false);
+\}" shape=ellipse]
+15 [label="3:Update@UPDATE" shape=ellipse]
+16 [label="3:CtInvocationImpl@rootFileSets.add(rootFileSet)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 15 [label="Action"];
+12 -> 10 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 8 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 16 [label="Action"];
+}

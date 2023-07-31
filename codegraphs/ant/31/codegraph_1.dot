@@ -1,0 +1,167 @@
+digraph "getHeight#?" {
+0 [label="2:CtTypeReferenceImpl@float" shape=ellipse]
+1 [label="2:CtVirtualElement@getHeight" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@indexOf(char)" shape=ellipse]
+4 [label="3:CtVirtualElement@indexOf" shape=ellipse]
+5 [label="3:CtFieldReadImpl@heightStr" shape=ellipse]
+6 [label="3:CtLiteralImpl@'%'" shape=ellipse]
+7 [label="3:CtInvocationImpl@heightStr.indexOf('%')" shape=ellipse]
+8 [label="3:CtVirtualElement@percIndex" shape=ellipse]
+9 [label="3:CtLocalVariableImpl@int percIndex = heightStr.indexOf('%')" shape=ellipse]
+10 [label="4:CtVariableReadImpl@percIndex" shape=ellipse]
+11 [label="4:CtLiteralImpl@0" shape=ellipse]
+12 [label="4:CtBinaryOperatorImpl@percIndex > 0" shape=ellipse]
+13 [label="5:CtTypeReferenceImpl@float" shape=ellipse]
+14 [label="5:CtExecutableReferenceImpl@parseFloat(java.lang.String)" shape=ellipse]
+15 [label="5:CtVirtualElement@parseFloat" shape=ellipse]
+16 [label="5:CtTypeAccessImpl@Float" shape=ellipse]
+17 [label="5:CtExecutableReferenceImpl@substring(int,int)" shape=ellipse]
+18 [label="5:CtVirtualElement@substring" shape=ellipse]
+19 [label="5:CtFieldReadImpl@heightStr" shape=ellipse]
+20 [label="5:CtLiteralImpl@0" shape=ellipse]
+21 [label="5:CtVariableReadImpl@percIndex" shape=ellipse]
+22 [label="5:CtInvocationImpl@heightStr.substring(0, percIndex)" shape=ellipse]
+23 [label="5:CtInvocationImpl@Float.parseFloat(heightStr.substring(0, percIndex))" shape=ellipse]
+24 [label="5:CtVirtualElement@height" shape=ellipse]
+25 [label="5:CtLocalVariableImpl@float height = Float.parseFloat(heightStr.substring(0, percIndex))" shape=ellipse]
+26 [label="6:CtFieldWriteImpl@yPercent" shape=ellipse]
+27 [label="6:CtLiteralImpl@true" shape=ellipse]
+28 [label="6:CtAssignmentImpl@yPercent = true" shape=ellipse]
+29 [label="7:CtVariableReadImpl@height" shape=ellipse]
+30 [label="7:CtLiteralImpl@100" shape=ellipse]
+31 [label="7:CtBinaryOperatorImpl@height / 100" shape=ellipse]
+32 [label="7:CtReturnImpl@return height / 100" shape=ellipse]
+33 [label="4:CtBlockImpl@\{
+    float height = Float.parseFloat(heightStr.substring(0, percIndex));
+    yPercent = true;
+    return height / 100;
+\}" shape=ellipse]
+34 [label="9:CtFieldWriteImpl@yPercent" shape=ellipse]
+35 [label="9:CtLiteralImpl@false" shape=ellipse]
+36 [label="9:CtAssignmentImpl@yPercent = false" shape=ellipse]
+37 [label="10:CtExecutableReferenceImpl@parseFloat(java.lang.String)" shape=ellipse]
+38 [label="10:CtVirtualElement@parseFloat" shape=ellipse]
+39 [label="10:CtTypeAccessImpl@Float" shape=ellipse]
+40 [label="10:CtFieldReadImpl@heightStr" shape=ellipse]
+41 [label="10:CtInvocationImpl@Float.parseFloat(heightStr)" shape=ellipse]
+42 [label="10:CtReturnImpl@return Float.parseFloat(heightStr)" shape=ellipse]
+43 [label="8:CtBlockImpl@\{
+    yPercent = false;
+    return Float.parseFloat(heightStr);
+\}" shape=ellipse]
+44 [label="4:CtIfImpl@if (percIndex > 0) \{
+    float height = Float.parseFloat(heightStr.substring(0, percIndex));
+    yPercent = true;
+    return height / 100;
+\} else \{
+    yPercent = false;
+    return Float.parseFloat(heightStr);
+\}" shape=ellipse]
+45 [label="2:CtBlockImpl@\{
+    int percIndex = heightStr.indexOf('%');
+    if (percIndex > 0) \{
+        float height = Float.parseFloat(heightStr.substring(0, percIndex));
+        yPercent = true;
+        return height / 100;
+    \} else \{
+        yPercent = false;
+        return Float.parseFloat(heightStr);
+    \}
+\}" shape=ellipse]
+46 [label="2:CtMethodImpl@public float getHeight() \{
+    int percIndex = heightStr.indexOf('%');
+    if (percIndex > 0) \{
+        float height = Float.parseFloat(heightStr.substring(0, percIndex));
+        yPercent = true;
+        return height / 100;
+    \} else \{
+        yPercent = false;
+        return Float.parseFloat(heightStr);
+    \}
+\}" shape=ellipse]
+47 [label="7:Delete@DELETE" shape=ellipse]
+48 [label="7:Insert@INSERT" shape=ellipse]
+49 [label="7:CtFieldReadImpl@HUNDRED" shape=ellipse]
+5 -> 8 [label="Data Dep"];
+7 -> 4 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 10 [label="Define-Use"];
+8 -> 21 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 2 [label="AST"];
+9 -> 7 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 33 [label="Control Dep"];
+12 -> 25 [label="Control Dep"];
+12 -> 23 [label="Control Dep"];
+12 -> 14 [label="Control Dep"];
+12 -> 16 [label="Control Dep"];
+12 -> 22 [label="Control Dep"];
+12 -> 17 [label="Control Dep"];
+12 -> 19 [label="Control Dep"];
+12 -> 20 [label="Control Dep"];
+12 -> 21 [label="Control Dep"];
+12 -> 28 [label="Control Dep"];
+12 -> 26 [label="Control Dep"];
+12 -> 27 [label="Control Dep"];
+12 -> 32 [label="Control Dep"];
+12 -> 31 [label="Control Dep"];
+12 -> 29 [label="Control Dep"];
+12 -> 30 [label="Control Dep"];
+12 -> 43 [label="Control Dep"];
+12 -> 36 [label="Control Dep"];
+12 -> 34 [label="Control Dep"];
+12 -> 35 [label="Control Dep"];
+12 -> 42 [label="Control Dep"];
+12 -> 41 [label="Control Dep"];
+12 -> 37 [label="Control Dep"];
+12 -> 39 [label="Control Dep"];
+12 -> 40 [label="Control Dep"];
+19 -> 24 [label="Data Dep"];
+21 -> 24 [label="Data Dep"];
+22 -> 18 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 15 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 14 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 29 [label="Define-Use"];
+25 -> 24 [label="AST"];
+25 -> 13 [label="AST"];
+25 -> 23 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+30 -> 47 [label="Action"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 48 [label="Action"];
+32 -> 31 [label="AST"];
+33 -> 25 [label="AST"];
+33 -> 28 [label="AST"];
+33 -> 32 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+41 -> 38 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 37 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 36 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 12 [label="AST"];
+44 -> 33 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 9 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 1 [label="AST"];
+46 -> 0 [label="AST"];
+46 -> 45 [label="AST"];
+48 -> 49 [label="Action"];
+}

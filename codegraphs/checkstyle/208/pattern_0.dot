@@ -1,0 +1,141 @@
+digraph "Pattern" {
+0 [label="testSemantic#?#7:UPDATE
+testSemantic2#?#7:UPDATE" shape=ellipse]
+1 [label="testSemantic#?#7:mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true)
+testSemantic2#?#7:mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true)" shape=ellipse]
+2 [label="testSemantic#?#2:\{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setTryBlock(STMT);
+    mConfig.setCatchBlock(STMT);
+    mConfig.setFinallyBlock(STMT);
+    mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true);
+    mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, false);
+    mConfig.setIllegalInstantiations(((\"java.lang.Boolean,\" + \"com.puppycrawl.tools.checkstyle.InputModifier,\") + \"java.io.File,\") + \"java.awt.Color\");
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputSemantic.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":19:21: Avoid instantiation of java.lang.Boolean\", filepath + \":24:21: Avoid instantiation of java.lang.Boolean\", filepath + \":30:16: Avoid instantiation of java.lang.Boolean\", (filepath + \":37:21: Avoid instantiation of \") + \"com.puppycrawl.tools.checkstyle.InputModifier\", filepath + \":40:18: Avoid instantiation of java.io.File\", filepath + \":43:21: Avoid instantiation of java.awt.Color\", filepath + \":51:65: Must have at least one statement.\", filepath + \":53:41: Must have at least one statement.\", filepath + \":70:38: Must have at least one statement.\", filepath + \":71:52: Must have at least one statement.\", filepath + \":72:45: Must have at least one statement.\", filepath + \":74:13: Must have at least one statement.\", filepath + \":76:17: Must have at least one statement.\", filepath + \":78:13: Must have at least one statement.\", filepath + \":81:17: Must have at least one statement.\", filepath + \":93:43: Should use uppercase 'L'.\" \};
+    verify(c, filepath, expected);
+\}
+testSemantic2#?#2:\{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setTryBlock(TEXT);
+    mConfig.setCatchBlock(TEXT);
+    mConfig.setFinallyBlock(TEXT);
+    mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true);
+    mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, true);
+    mConfig.setIllegalInstantiations(\"\");
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputSemantic.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":51:65: Empty catch block.\", filepath + \":71:52: Empty catch block.\", filepath + \":72:45: Empty catch block.\", filepath + \":74:13: Empty try block.\", filepath + \":76:17: Empty finally block.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+3 [label="testSemantic#?#2:public void testSemantic() throws Exception \{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setTryBlock(STMT);
+    mConfig.setCatchBlock(STMT);
+    mConfig.setFinallyBlock(STMT);
+    mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true);
+    mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, false);
+    mConfig.setIllegalInstantiations(((\"java.lang.Boolean,\" + \"com.puppycrawl.tools.checkstyle.InputModifier,\") + \"java.io.File,\") + \"java.awt.Color\");
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputSemantic.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":19:21: Avoid instantiation of java.lang.Boolean\", filepath + \":24:21: Avoid instantiation of java.lang.Boolean\", filepath + \":30:16: Avoid instantiation of java.lang.Boolean\", (filepath + \":37:21: Avoid instantiation of \") + \"com.puppycrawl.tools.checkstyle.InputModifier\", filepath + \":40:18: Avoid instantiation of java.io.File\", filepath + \":43:21: Avoid instantiation of java.awt.Color\", filepath + \":51:65: Must have at least one statement.\", filepath + \":53:41: Must have at least one statement.\", filepath + \":70:38: Must have at least one statement.\", filepath + \":71:52: Must have at least one statement.\", filepath + \":72:45: Must have at least one statement.\", filepath + \":74:13: Must have at least one statement.\", filepath + \":76:17: Must have at least one statement.\", filepath + \":78:13: Must have at least one statement.\", filepath + \":81:17: Must have at least one statement.\", filepath + \":93:43: Should use uppercase 'L'.\" \};
+    verify(c, filepath, expected);
+\}
+testSemantic2#?#2:public void testSemantic2() throws Exception \{
+    mConfig.setJavadocScope(NOTHING);
+    mConfig.setTryBlock(TEXT);
+    mConfig.setCatchBlock(TEXT);
+    mConfig.setFinallyBlock(TEXT);
+    mConfig.setBooleanFlag(IGNORE_IMPORTS_PROP, true);
+    mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, true);
+    mConfig.setIllegalInstantiations(\"\");
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputSemantic.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":51:65: Empty catch block.\", filepath + \":71:52: Empty catch block.\", filepath + \":72:45: Empty catch block.\", filepath + \":74:13: Empty try block.\", filepath + \":76:17: Empty finally block.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+4 [label="testSemantic#?#3:mConfig.setJavadocScope(NOTHING)
+testSemantic2#?#3:mConfig.setJavadocScope(NOTHING)" shape=ellipse]
+5 [label="testSemantic#?#4:mConfig.setTryBlock(STMT)
+testSemantic2#?#4:mConfig.setTryBlock(TEXT)" shape=ellipse]
+6 [label="testSemantic#?#5:mConfig.setCatchBlock(STMT)
+testSemantic2#?#5:mConfig.setCatchBlock(TEXT)" shape=ellipse]
+7 [label="testSemantic#?#6:mConfig.setFinallyBlock(STMT)
+testSemantic2#?#6:mConfig.setFinallyBlock(TEXT)" shape=ellipse]
+8 [label="testSemantic#?#8:mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, false)
+testSemantic2#?#8:mConfig.setBooleanFlag(IGNORE_LONG_ELL_PROP, true)" shape=ellipse]
+9 [label="testSemantic#?#9:mConfig.setIllegalInstantiations(((\"java.lang.Boolean,\" + \"com.puppycrawl.tools.checkstyle.InputModifier,\") + \"java.io.File,\") + \"java.awt.Color\")
+testSemantic2#?#9:mConfig.setIllegalInstantiations(\"\")" shape=ellipse]
+10 [label="testSemantic#?#13:final Checker c = createChecker()
+testSemantic2#?#10:final Checker c = createChecker()" shape=ellipse]
+11 [label="testSemantic#?#14:final String filepath = getPath(\"InputSemantic.java\")
+testSemantic2#?#11:final String filepath = getPath(\"InputSemantic.java\")" shape=ellipse]
+12 [label="testSemantic#?#15:assertNotNull(c)
+testSemantic2#?#12:assertNotNull(c)" shape=ellipse]
+13 [label="testSemantic#?#16:final String[] expected = new String[]\{ filepath + \":19:21: Avoid instantiation of java.lang.Boolean\", filepath + \":24:21: Avoid instantiation of java.lang.Boolean\", filepath + \":30:16: Avoid instantiation of java.lang.Boolean\", (filepath + \":37:21: Avoid instantiation of \") + \"com.puppycrawl.tools.checkstyle.InputModifier\", filepath + \":40:18: Avoid instantiation of java.io.File\", filepath + \":43:21: Avoid instantiation of java.awt.Color\", filepath + \":51:65: Must have at least one statement.\", filepath + \":53:41: Must have at least one statement.\", filepath + \":70:38: Must have at least one statement.\", filepath + \":71:52: Must have at least one statement.\", filepath + \":72:45: Must have at least one statement.\", filepath + \":74:13: Must have at least one statement.\", filepath + \":76:17: Must have at least one statement.\", filepath + \":78:13: Must have at least one statement.\", filepath + \":81:17: Must have at least one statement.\", filepath + \":93:43: Should use uppercase 'L'.\" \}
+testSemantic2#?#13:final String[] expected = new String[]\{ filepath + \":51:65: Empty catch block.\", filepath + \":71:52: Empty catch block.\", filepath + \":72:45: Empty catch block.\", filepath + \":74:13: Empty try block.\", filepath + \":76:17: Empty finally block.\" \}" shape=ellipse]
+14 [label="testSemantic#?#36:verify(c, filepath, expected)
+testSemantic2#?#21:verify(c, filepath, expected)" shape=ellipse]
+15 [label="testSemantic#?#7:setBooleanFlag
+testSemantic2#?#7:setBooleanFlag" shape=ellipse]
+16 [label="testSemantic#?#7:mConfig
+testSemantic2#?#7:mConfig" shape=ellipse]
+17 [label="testSemantic#?#7:mConfig
+testSemantic2#?#7:mConfig" shape=ellipse]
+18 [label="testSemantic#?#7:setBooleanFlag(boolean)
+testSemantic2#?#7:setBooleanFlag(boolean)" shape=ellipse]
+19 [label="testSemantic#?#7:mConfig
+testSemantic2#?#7:mConfig" shape=ellipse]
+20 [label="testSemantic#?#7:boolean
+testSemantic2#?#7:boolean" shape=ellipse]
+21 [label="testSemantic#?#7:IGNORE_IMPORTS_PROP
+testSemantic2#?#7:IGNORE_IMPORTS_PROP" shape=ellipse]
+22 [label="testSemantic#?#7:IGNORE_IMPORTS_PROP
+testSemantic2#?#7:IGNORE_IMPORTS_PROP" shape=ellipse]
+23 [label="testSemantic#?#7:true
+testSemantic2#?#7:true" shape=ellipse]
+24 [label="testSemantic#?#7:boolean
+testSemantic2#?#7:boolean" shape=ellipse]
+25 [label="testSemantic#?#7:setBooleanProperty
+testSemantic2#?#7:setBooleanProperty" shape=ellipse]
+26 [label="testSemantic#?#7:setBooleanProperty(boolean)
+testSemantic2#?#7:setBooleanProperty(boolean)" shape=ellipse]
+27 [label="testSemantic#?#7:mConfig
+testSemantic2#?#7:mConfig" shape=ellipse]
+28 [label="testSemantic#?#7:
+testSemantic2#?#7:" shape=ellipse]
+29 [label="testSemantic#?#7:boolean
+testSemantic2#?#7:boolean" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 21 [label="AST:2"];
+1 -> 23 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 11 [label="AST:2"];
+2 -> 12 [label="AST:2"];
+2 -> 13 [label="AST:2"];
+2 -> 14 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+26 -> 27 [label="AST:2"];
+26 -> 29 [label="AST:2"];
+27 -> 28 [label="AST:2"];
+}

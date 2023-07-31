@@ -1,0 +1,56 @@
+digraph "Pattern" {
+0 [label="testNotSelector#?#-1:MOVE
+testCorrectTaskNameBadAttr#?#-1:MOVE
+testConditionConditionTask#?#-1:MOVE
+testCorrectTaskNameBadEl#?#-1:MOVE
+testExcluded#?#-1:MOVE" shape=ellipse]
+1 [label="testNotSelector#?#-1:PlaceHold
+testCorrectTaskNameBadAttr#?#-1:PlaceHold
+testConditionConditionTask#?#-1:PlaceHold
+testCorrectTaskNameBadEl#?#-1:PlaceHold
+testExcluded#?#-1:PlaceHold" shape=ellipse]
+2 [label="testNotSelector#?#-1:
+testCorrectTaskNameBadAttr#?#-1:
+testConditionConditionTask#?#-1:
+testCorrectTaskNameBadEl#?#-1:
+testExcluded#?#-1:" shape=ellipse]
+3 [label="testNotSelector#?#3:expectBuildExceptionContaining(\"not.selector\", \"checking for use as a selector (not allowed)\", \"fileset doesn\'t support the nested \\"isfile\")
+testCorrectTaskNameBadAttr#?#3:expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\")
+testConditionConditionTask#?#3:expectBuildExceptionContaining(\"condition.condition.task\", \"task masking condition\", \"doesn't support the nested\")
+testCorrectTaskNameBadEl#?#3:expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\")
+testExcluded#?#3:expectBuildExceptionContaining(\"excluded\", \"excluded uri\", \"Attempt to use a reserved URI ant:notallowed\")" shape=ellipse]
+4 [label="testNotSelector#?#-1:PlaceHold
+testCorrectTaskNameBadAttr#?#-1:PlaceHold
+testConditionConditionTask#?#-1:PlaceHold
+testCorrectTaskNameBadEl#?#-1:PlaceHold
+testExcluded#?#-1:PlaceHold" shape=ellipse]
+5 [label="testNotSelector#?#-1:PlaceHold
+testCorrectTaskNameBadAttr#?#-1:PlaceHold
+testConditionConditionTask#?#-1:PlaceHold
+testCorrectTaskNameBadEl#?#-1:PlaceHold
+testExcluded#?#-1:PlaceHold" shape=ellipse]
+6 [label="testNotSelector#?#6:fail(\"Exception should have been thrown: checking for use as a selector (not allowed)\")
+testCorrectTaskNameBadAttr#?#6:fail(\"BuildException expected: attribute message\")
+testConditionConditionTask#?#6:fail(\"Build exception expected: Task masking condition\")
+testCorrectTaskNameBadEl#?#6:fail(\"BuildException expected: element message\")
+testExcluded#?#6:fail(\"BuildException expected: excluded uri\")" shape=ellipse]
+7 [label="testNotSelector#?#5:MOVE
+testCorrectTaskNameBadAttr#?#4:MOVE
+testConditionConditionTask#?#4:MOVE
+testCorrectTaskNameBadEl#?#4:MOVE
+testExcluded#?#4:MOVE" shape=ellipse]
+8 [label="testNotSelector#?#5:\"checking for use as a selector (not allowed)\"
+testCorrectTaskNameBadAttr#?#4:\"attribute message\"
+testConditionConditionTask#?#4:\"task masking condition\"
+testCorrectTaskNameBadEl#?#4:\"element message\"
+testExcluded#?#4:\"excluded uri\"" shape=ellipse]
+0 -> 6 [label="Action:5"];
+1 -> 0 [label="Action:5"];
+1 -> 5 [label="AST:5"];
+2 -> 1 [label="AST:5"];
+2 -> 4 [label="AST:5"];
+3 -> 2 [label="AST:5"];
+3 -> 8 [label="AST:5"];
+7 -> 6 [label="Action:5"];
+8 -> 7 [label="Action:5"];
+}

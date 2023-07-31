@@ -1,0 +1,200 @@
+digraph "Pattern" {
+0 [label="setUp#?#9:INSERT
+getAlgoName#?,String#4:INSERT
+execute#?#40:INSERT" shape=ellipse]
+1 [label="setUp#?#2:public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/optional/net/ftp.xml\");
+    getProject().executeTarget(\"setup\");
+    tmpDir = getProject().getProperty(\"tmp.dir\");
+    ftp = new FTPClient();
+    ftpFileSep = getProject().getProperty(\"ftp.filesep\");
+    myFTPTask.setSeparator(ftpFileSep);
+    remoteTmpDir = myFTPTask.resolveFile(tmpDir);
+    String remoteHost = getProject().getProperty(\"ftp.host\");
+    int port = Integer.parseInt(getProject().getProperty(\"ftp.port\"));
+    String remoteUser = getProject().getProperty(\"ftp.user\");
+    String password = getProject().getProperty(\"ftp.password\");
+    try \{
+        ftp.connect(remoteHost, port);
+    \} catch (Exception ex) \{
+        connectionSucceeded = false;
+        loginSuceeded = false;
+        System.out.println(((\"could not connect to host \" + remoteHost) + \" on port \") + port);
+    \}
+    if (connectionSucceeded) \{
+        try \{
+            ftp.login(remoteUser, password);
+        \} catch (IOException ioe) \{
+            loginSuceeded = false;
+            System.out.println(((\"could not log on to \" + remoteHost) + \" as user \") + remoteUser);
+        \}
+    \}
+\}
+getAlgoName#?,String#2:private String getAlgoName(String classname) \{
+    ModifiedSelector sel = new ModifiedSelector();
+    sel.addClasspath(testclasses);
+    sel.setAlgorithmClass(classname);
+    sel.validate();
+    String s1 = sel.toString();
+    int posStart = s1.indexOf(\"algorithm=\") + 10;
+    int posEnd = s1.indexOf(\" comparator=\");
+    String algo = s1.substring(posStart, posEnd);
+    if (algo.startsWith(\"<\")) \{
+        algo = algo.substring(1);
+    \}
+    if (algo.endsWith(\">\")) \{
+        algo = algo.substring(0, algo.length() - 1);
+    \}
+    return algo;
+\}" shape=ellipse]
+2 [label="setUp#?#2:setUp
+getAlgoName#?,String#2:private" shape=ellipse]
+3 [label="setUp#?#2:void
+getAlgoName#?,String#2:String
+execute#?#-1:Message()" shape=ellipse]
+4 [label="setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/optional/net/ftp.xml\");
+    getProject().executeTarget(\"setup\");
+    tmpDir = getProject().getProperty(\"tmp.dir\");
+    ftp = new FTPClient();
+    ftpFileSep = getProject().getProperty(\"ftp.filesep\");
+    myFTPTask.setSeparator(ftpFileSep);
+    remoteTmpDir = myFTPTask.resolveFile(tmpDir);
+    String remoteHost = getProject().getProperty(\"ftp.host\");
+    int port = Integer.parseInt(getProject().getProperty(\"ftp.port\"));
+    String remoteUser = getProject().getProperty(\"ftp.user\");
+    String password = getProject().getProperty(\"ftp.password\");
+    try \{
+        ftp.connect(remoteHost, port);
+    \} catch (Exception ex) \{
+        connectionSucceeded = false;
+        loginSuceeded = false;
+        System.out.println(((\"could not connect to host \" + remoteHost) + \" on port \") + port);
+    \}
+    if (connectionSucceeded) \{
+        try \{
+            ftp.login(remoteUser, password);
+        \} catch (IOException ioe) \{
+            loginSuceeded = false;
+            System.out.println(((\"could not log on to \" + remoteHost) + \" as user \") + remoteUser);
+        \}
+    \}
+\}
+getAlgoName#?,String#2:\{
+    ModifiedSelector sel = new ModifiedSelector();
+    sel.addClasspath(testclasses);
+    sel.setAlgorithmClass(classname);
+    sel.validate();
+    String s1 = sel.toString();
+    int posStart = s1.indexOf(\"algorithm=\") + 10;
+    int posEnd = s1.indexOf(\" comparator=\");
+    String algo = s1.substring(posStart, posEnd);
+    if (algo.startsWith(\"<\")) \{
+        algo = algo.substring(1);
+    \}
+    if (algo.endsWith(\">\")) \{
+        algo = algo.substring(0, algo.length() - 1);
+    \}
+    return algo;
+\}" shape=ellipse]
+5 [label="setUp#?#3:configureProject(\"src/etc/testcases/taskdefs/optional/net/ftp.xml\")
+getAlgoName#?,String#5:sel.setAlgorithmClass(classname)" shape=ellipse]
+6 [label="setUp#?#4:getProject().executeTarget(\"setup\")
+getAlgoName#?,String#4:sel.addClasspath(testclasses)" shape=ellipse]
+7 [label="setUp#?#5:tmpDir = getProject().getProperty(\"tmp.dir\")
+getAlgoName#?,String#9:int posEnd = s1.indexOf(\" comparator=\")
+execute#?#39:message = new Message()" shape=ellipse]
+8 [label="setUp#?#6:ftp = new FTPClient()
+getAlgoName#?,String#3:ModifiedSelector sel = new ModifiedSelector()
+execute#?#38:if (message == null) \{
+    message = new Message();
+\}" shape=ellipse]
+9 [label="setUp#?#7:ftpFileSep = getProject().getProperty(\"ftp.filesep\")
+getAlgoName#?,String#7:String s1 = sel.toString()" shape=ellipse]
+10 [label="setUp#?#8:myFTPTask.setSeparator(ftpFileSep)
+getAlgoName#?,String#6:sel.validate()" shape=ellipse]
+11 [label="setUp#?#9:remoteTmpDir = myFTPTask.resolveFile(tmpDir)
+getAlgoName#?,String#8:int posStart = s1.indexOf(\"algorithm=\") + 10" shape=ellipse]
+12 [label="setUp#?#10:String remoteHost = getProject().getProperty(\"ftp.host\")
+getAlgoName#?,String#10:String algo = s1.substring(posStart, posEnd)
+execute#?#38:message" shape=ellipse]
+13 [label="setUp#?#11:int port = Integer.parseInt(getProject().getProperty(\"ftp.port\"))
+getAlgoName#?,String#11:if (algo.startsWith(\"<\")) \{
+    algo = algo.substring(1);
+\}" shape=ellipse]
+14 [label="setUp#?#12:String remoteUser = getProject().getProperty(\"ftp.user\")
+getAlgoName#?,String#14:if (algo.endsWith(\">\")) \{
+    algo = algo.substring(0, algo.length() - 1);
+\}" shape=ellipse]
+15 [label="setUp#?#13:String password = getProject().getProperty(\"ftp.password\")
+getAlgoName#?,String#17:return algo" shape=ellipse]
+16 [label="setUp#?#14:try \{
+    ftp.connect(remoteHost, port);
+\} catch (Exception ex) \{
+    connectionSucceeded = false;
+    loginSuceeded = false;
+    System.out.println(((\"could not connect to host \" + remoteHost) + \" on port \") + port);
+\}" shape=ellipse]
+17 [label="setUp#?#21:if (connectionSucceeded) \{
+    try \{
+        ftp.login(remoteUser, password);
+    \} catch (IOException ioe) \{
+        loginSuceeded = false;
+        System.out.println(((\"could not log on to \" + remoteHost) + \" as user \") + remoteUser);
+    \}
+\}" shape=ellipse]
+18 [label="setUp#?#2:public
+getAlgoName#?,String#2:getAlgoName" shape=ellipse]
+19 [label="setUp#?#2:VE: Modifiers_Method
+getAlgoName#?,String#2:VE: Modifiers_Method" shape=ellipse]
+20 [label="setUp#?#9:myFTPTask.setProject(getProject())
+getAlgoName#?,String#4:sel.setProject(getProject())
+execute#?#40:message.setProject(getProject())" shape=ellipse]
+21 [label="getAlgoName#?,String#-1:java.lang" shape=ellipse]
+22 [label="getAlgoName#?,String#2:String" shape=ellipse]
+23 [label="getAlgoName#?,String#2:String classname" shape=ellipse]
+24 [label="execute#?#38:null" shape=ellipse]
+25 [label="execute#?#38:\{
+    message = new Message();
+\}" shape=ellipse]
+26 [label="execute#?#39:message" shape=ellipse]
+27 [label="execute#?#38:message == null" shape=ellipse]
+28 [label="execute#?#39:new Message()" shape=ellipse]
+0 -> 20 [label="Action:3"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 23 [label="AST:1"];
+3 -> 21 [label="AST:1"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 8 [label="AST:2"];
+4 -> 9 [label="AST:2"];
+4 -> 10 [label="AST:2"];
+4 -> 11 [label="AST:2"];
+4 -> 12 [label="AST:2"];
+4 -> 13 [label="AST:2"];
+4 -> 14 [label="AST:2"];
+4 -> 15 [label="AST:2"];
+4 -> 16 [label="AST:1"];
+4 -> 17 [label="AST:1"];
+7 -> 26 [label="AST:1"];
+7 -> 28 [label="AST:1"];
+8 -> 25 [label="AST:1"];
+8 -> 27 [label="AST:1"];
+23 -> 22 [label="AST:1"];
+25 -> 7 [label="AST:1"];
+25 -> 0 [label="Action:1"];
+27 -> 24 [label="AST:1"];
+27 -> 25 [label="Control Dep:1"];
+27 -> 26 [label="Control Dep:1"];
+27 -> 12 [label="AST:1"];
+27 -> 7 [label="Control Dep:1"];
+27 -> 28 [label="Control Dep:1"];
+27 -> 3 [label="Control Dep:1"];
+28 -> 3 [label="AST:1"];
+}

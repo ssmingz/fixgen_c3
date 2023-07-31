@@ -1,0 +1,28 @@
+digraph "Pattern" {
+0 [label="getNumberOfValidBranches#?#6:INSERT
+getNumberOfCoveredBranches#?#6:INSERT" shape=ellipse]
+1 [label="getNumberOfValidBranches#?#6:Iterator
+getNumberOfCoveredBranches#?#6:Iterator" shape=ellipse]
+2 [label="getNumberOfValidBranches#?#6:Iterator i = branches.values().iterator()
+getNumberOfCoveredBranches#?#6:Iterator i = branches.values().iterator()" shape=ellipse]
+3 [label="getNumberOfValidBranches#?#6:for (Iterator i = branches.values().iterator(); i.hasNext(); number += ((LineData) (i.next())).getNumberOfValidBranches());
+getNumberOfCoveredBranches#?#6:for (Iterator i = branches.values().iterator(); i.hasNext(); number += ((LineData) (i.next())).getNumberOfCoveredBranches());" shape=ellipse]
+4 [label="getNumberOfValidBranches#?#6:i
+getNumberOfCoveredBranches#?#6:i" shape=ellipse]
+5 [label="getNumberOfValidBranches#?#6:branches.values().iterator()
+getNumberOfCoveredBranches#?#6:branches.values().iterator()" shape=ellipse]
+6 [label="getNumberOfValidBranches#?#6:
+getNumberOfCoveredBranches#?#6:" shape=ellipse]
+7 [label="getNumberOfValidBranches#?#6:LineData
+getNumberOfCoveredBranches#?#6:LineData" shape=ellipse]
+8 [label="getNumberOfValidBranches#?#6:
+getNumberOfCoveredBranches#?#6:" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+}

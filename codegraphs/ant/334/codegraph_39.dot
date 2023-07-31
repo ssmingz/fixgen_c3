@@ -1,0 +1,92 @@
+digraph "getIncludedDirectories#?" {
+0 [label="2:CtVirtualElement@String[]" shape=ellipse]
+1 [label="2:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+2 [label="2:CtVirtualElement@getIncludedDirectories" shape=ellipse]
+3 [label="3:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@dirsIncluded == null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@IllegalStateException" shape=ellipse]
+7 [label="4:CtConstructorCallImpl@new IllegalStateException()" shape=ellipse]
+8 [label="4:CtThrowImpl@throw new IllegalStateException()" shape=ellipse]
+9 [label="3:CtBlockImpl@\{
+    throw new IllegalStateException();
+\}" shape=ellipse]
+10 [label="3:CtIfImpl@if (dirsIncluded == null) \{
+    throw new IllegalStateException();
+\}" shape=ellipse]
+11 [label="6:CtVirtualElement@String[]" shape=ellipse]
+12 [label="6:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+13 [label="6:CtNewArrayImpl@new String[dirsIncluded.size()]" shape=ellipse]
+14 [label="6:CtInvocationImpl@dirsIncluded.size()" shape=ellipse]
+15 [label="6:CtVirtualElement@directories" shape=ellipse]
+16 [label="6:CtLocalVariableImpl@String[] directories = new String[dirsIncluded.size()]" shape=ellipse]
+17 [label="7:CtExecutableReferenceImpl@copyInto(java.lang.String[])" shape=ellipse]
+18 [label="7:CtVirtualElement@copyInto" shape=ellipse]
+19 [label="7:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+20 [label="7:CtVariableReadImpl@directories" shape=ellipse]
+21 [label="7:CtInvocationImpl@dirsIncluded.copyInto(directories)" shape=ellipse]
+22 [label="8:CtExecutableReferenceImpl@sort(java.lang.String[])" shape=ellipse]
+23 [label="8:CtVirtualElement@sort" shape=ellipse]
+24 [label="8:CtTypeAccessImpl@Arrays" shape=ellipse]
+25 [label="8:CtVariableReadImpl@directories" shape=ellipse]
+26 [label="8:CtInvocationImpl@Arrays.sort(directories)" shape=ellipse]
+27 [label="9:CtVariableReadImpl@directories" shape=ellipse]
+28 [label="9:CtReturnImpl@return directories" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    if (dirsIncluded == null) \{
+        throw new IllegalStateException();
+    \}
+    String[] directories = new String[dirsIncluded.size()];
+    dirsIncluded.copyInto(directories);
+    Arrays.sort(directories);
+    return directories;
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public synchronized String[] getIncludedDirectories() \{
+    if (dirsIncluded == null) \{
+        throw new IllegalStateException();
+    \}
+    String[] directories = new String[dirsIncluded.size()];
+    dirsIncluded.copyInto(directories);
+    Arrays.sort(directories);
+    return directories;
+\}" shape=ellipse]
+31 [label="4:Update@UPDATE" shape=ellipse]
+32 [label="4:CtConstructorCallImpl@new IllegalStateException(\"Must call scan() first\")" shape=ellipse]
+1 -> 0 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 9 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+7 -> 31 [label="Action"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 5 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 14 [label="AST"];
+15 -> 20 [label="Define-Use"];
+15 -> 25 [label="Define-Use"];
+15 -> 27 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 13 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 10 [label="AST"];
+29 -> 16 [label="AST"];
+29 -> 21 [label="AST"];
+29 -> 26 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 32 [label="Action"];
+}

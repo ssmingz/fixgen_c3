@@ -1,0 +1,43 @@
+digraph "Pattern" {
+0 [label="testResultPropertyZero#?#2:INSERT
+testResultPropertyNonZero#?#2:INSERT" shape=ellipse]
+1 [label="testResultPropertyZero#?#2:public void testResultPropertyZero() \{
+    executeTarget(\"testResultPropertyZero\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZero#?#2:public void testResultPropertyNonZero() \{
+    executeTarget(\"testResultPropertyNonZero\");
+    assertEquals(\"2\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+2 [label="testResultPropertyZero#?#2:testResultPropertyZero
+testResultPropertyNonZero#?#2:testResultPropertyNonZero" shape=ellipse]
+3 [label="testResultPropertyZero#?#2:void
+testResultPropertyNonZero#?#2:void" shape=ellipse]
+4 [label="testResultPropertyZero#?#2:\{
+    executeTarget(\"testResultPropertyZero\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZero#?#2:\{
+    executeTarget(\"testResultPropertyNonZero\");
+    assertEquals(\"2\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+5 [label="testResultPropertyZero#?#3:executeTarget(\"testResultPropertyZero\")
+testResultPropertyNonZero#?#3:executeTarget(\"testResultPropertyNonZero\")" shape=ellipse]
+6 [label="testResultPropertyZero#?#4:assertEquals(\"0\", project.getProperty(\"exitcode\"))
+testResultPropertyNonZero#?#4:assertEquals(\"2\", project.getProperty(\"exitcode\"))" shape=ellipse]
+7 [label="testResultPropertyZero#?#2:public
+testResultPropertyNonZero#?#2:public" shape=ellipse]
+8 [label="testResultPropertyZero#?#2:VE: Modifiers_Method
+testResultPropertyNonZero#?#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="testResultPropertyZero#?#2:@Test
+testResultPropertyNonZero#?#2:@Test" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+}

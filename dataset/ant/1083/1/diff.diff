@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1083/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1083/1/after.java
+@@ -3,15 +3,1 @@
+-    this.encoding = encoding;
+-    archive = new RandomAccessFile(f, "r");
+-    boolean success = false;
+-    try {
+-      populateFromCentralDirectory();
+-      resolveLocalFileHeaderData();
+-      success = true;
+-    } finally {
+-      if (!success) {
+-        try {
+-          archive.close();
+-        } catch (IOException e2) {
+-        }
+-      }
+-    }
++    this(f, encoding, false);

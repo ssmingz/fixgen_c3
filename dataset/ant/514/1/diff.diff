@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/514/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/514/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,7 @@
+-    expectBuildExceptionContaining(
+-        "test-bad-no-jarfile", "no-jarfile", "Missing 'jarfile' attribute!");
+-    assertPropertyUnset("jar.classpath");
++    try {
++      buildRule.executeTarget("test-bad-no-jarfile");
++      fail("Build exception should have been thrown on bad jar file");
++    } catch (BuildException ex) {
++      assertContains("Missing 'jarfile' attribute!", ex.getMessage());
++    }
++    assertNull(buildRule.getProject().getProperty("jar.classpath"));

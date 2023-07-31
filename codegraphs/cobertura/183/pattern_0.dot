@@ -1,0 +1,218 @@
+digraph "Pattern" {
+0 [label="assignCounterIds#?#4:UPDATE
+unregisterLine#?,int,int#5:UPDATE
+getTouchPointsInLineOrder#?#4:UPDATE" shape=ellipse]
+1 [label="assignCounterIds#?#4:currentLine2touchPoints
+unregisterLine#?,int,int#5:currentLine2touchPoints
+getTouchPointsInLineOrder#?#4:currentLine2touchPoints" shape=ellipse]
+2 [label="assignCounterIds#?#4:currentLine2touchPoints.values()
+unregisterLine#?,int,int#5:currentLine2touchPoints.get(currentLine)
+getTouchPointsInLineOrder#?#4:currentLine2touchPoints.values()" shape=ellipse]
+3 [label="assignCounterIds#?#4:for (List<TouchPointDescriptor> tpd : currentLine2touchPoints.values()) \{
+    for (TouchPointDescriptor t : tpd) \{
+        t.assignCounters(idGenerator);
+    \}
+\}
+getTouchPointsInLineOrder#?#4:for (List<TouchPointDescriptor> tpd : currentLine2touchPoints.values()) \{
+    for (TouchPointDescriptor t : tpd) \{
+        if (tpd instanceof LineTouchPointDescriptor) \{
+            res.add(t);
+        \}
+    \}
+    for (TouchPointDescriptor t : tpd) \{
+        if (!(tpd instanceof LineTouchPointDescriptor)) \{
+            res.add(t);
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="assignCounterIds#?#4:values
+getTouchPointsInLineOrder#?#4:values" shape=ellipse]
+5 [label="assignCounterIds#?#4:values()
+unregisterLine#?,int,int#5:get(int)
+getTouchPointsInLineOrder#?#4:values()" shape=ellipse]
+6 [label="assignCounterIds#?#4:\{
+    for (TouchPointDescriptor t : tpd) \{
+        t.assignCounters(idGenerator);
+    \}
+\}
+getTouchPointsInLineOrder#?#4:\{
+    for (TouchPointDescriptor t : tpd) \{
+        if (tpd instanceof LineTouchPointDescriptor) \{
+            res.add(t);
+        \}
+    \}
+    for (TouchPointDescriptor t : tpd) \{
+        if (!(tpd instanceof LineTouchPointDescriptor)) \{
+            res.add(t);
+        \}
+    \}
+\}" shape=ellipse]
+7 [label="assignCounterIds#?#5:for (TouchPointDescriptor t : tpd) \{
+    t.assignCounters(idGenerator);
+\}
+getTouchPointsInLineOrder#?#5:for (TouchPointDescriptor t : tpd) \{
+    if (tpd instanceof LineTouchPointDescriptor) \{
+        res.add(t);
+    \}
+\}" shape=ellipse]
+8 [label="assignCounterIds#?#5:TouchPointDescriptor t
+getTouchPointsInLineOrder#?#5:TouchPointDescriptor t" shape=ellipse]
+9 [label="assignCounterIds#?#5:tpd
+getTouchPointsInLineOrder#?#5:tpd" shape=ellipse]
+10 [label="assignCounterIds#?#4:currentLine2touchPoints
+unregisterLine#?,int,int#5:currentLine2touchPoints
+getTouchPointsInLineOrder#?#4:currentLine2touchPoints" shape=ellipse]
+11 [label="assignCounterIds#?#4:PlaceHold
+unregisterLine#?,int,int#5:PlaceHold
+getTouchPointsInLineOrder#?#4:PlaceHold" shape=ellipse]
+12 [label="assignCounterIds#?#4:line2touchPoints
+unregisterLine#?,int,int#5:line2touchPoints
+getTouchPointsInLineOrder#?#4:line2touchPoints" shape=ellipse]
+13 [label="unregisterLine#?,int,int#4:blockedLines" shape=ellipse]
+14 [label="unregisterLine#?,int,int#3:alreadyRegisteredEvents.add(eventId)" shape=ellipse]
+15 [label="unregisterLine#?,int,int#13:desc" shape=ellipse]
+16 [label="unregisterLine#?,int,int#3:if (alreadyRegisteredEvents.add(eventId)) \{
+    blockedLines.add(currentLine);
+    List<TouchPointDescriptor> res = currentLine2touchPoints.get(currentLine);
+    if (res != null) \{
+        Iterator<TouchPointDescriptor> iter = res.iterator();
+        while (iter.hasNext()) \{
+            TouchPointDescriptor desc = iter.next();
+            if (desc instanceof LineTouchPointDescriptor) \{
+                iter.remove();
+                eventId2touchPointDescriptor.remove(desc.getEventId());
+                eventId2label.remove(desc.getEventId());
+            \}
+        \} 
+    \}
+\}" shape=ellipse]
+17 [label="unregisterLine#?,int,int#3:alreadyRegisteredEvents" shape=ellipse]
+18 [label="unregisterLine#?,int,int#11:iter" shape=ellipse]
+19 [label="unregisterLine#?,int,int#3:eventId" shape=ellipse]
+20 [label="unregisterLine#?,int,int#3:\{
+    blockedLines.add(currentLine);
+    List<TouchPointDescriptor> res = currentLine2touchPoints.get(currentLine);
+    if (res != null) \{
+        Iterator<TouchPointDescriptor> iter = res.iterator();
+        while (iter.hasNext()) \{
+            TouchPointDescriptor desc = iter.next();
+            if (desc instanceof LineTouchPointDescriptor) \{
+                iter.remove();
+                eventId2touchPointDescriptor.remove(desc.getEventId());
+                eventId2label.remove(desc.getEventId());
+            \}
+        \} 
+    \}
+\}" shape=ellipse]
+21 [label="unregisterLine#?,int,int#6:null" shape=ellipse]
+22 [label="unregisterLine#?,int,int#9:iter" shape=ellipse]
+23 [label="unregisterLine#?,int,int#10:desc" shape=ellipse]
+24 [label="unregisterLine#?,int,int#8:iter" shape=ellipse]
+25 [label="unregisterLine#?,int,int#4:blockedLines.add(currentLine)" shape=ellipse]
+26 [label="unregisterLine#?,int,int#4:currentLine" shape=ellipse]
+27 [label="unregisterLine#?,int,int#12:desc" shape=ellipse]
+28 [label="unregisterLine#?,int,int#5:currentLine" shape=ellipse]
+29 [label="unregisterLine#?,int,int#6:if (res != null) \{
+    Iterator<TouchPointDescriptor> iter = res.iterator();
+    while (iter.hasNext()) \{
+        TouchPointDescriptor desc = iter.next();
+        if (desc instanceof LineTouchPointDescriptor) \{
+            iter.remove();
+            eventId2touchPointDescriptor.remove(desc.getEventId());
+            eventId2label.remove(desc.getEventId());
+        \}
+    \} 
+\}" shape=ellipse]
+30 [label="unregisterLine#?,int,int#7:res" shape=ellipse]
+31 [label="unregisterLine#?,int,int#6:res" shape=ellipse]
+32 [label="unregisterLine#?,int,int#6:res != null" shape=ellipse]
+33 [label="unregisterLine#?,int,int#5:" shape=ellipse]
+34 [label="unregisterLine#?,int,int#3:add" shape=ellipse]
+35 [label="unregisterLine#?,int,int#5:List<TouchPointDescriptor> res = currentLine2touchPoints.get(currentLine)" shape=ellipse]
+36 [label="unregisterLine#?,int,int#7:res" shape=ellipse]
+37 [label="unregisterLine#?,int,int#3:add(int)" shape=ellipse]
+38 [label="unregisterLine#?,int,int#4:add(int)" shape=ellipse]
+39 [label="unregisterLine#?,int,int#5:res" shape=ellipse]
+40 [label="unregisterLine#?,int,int#8:iter" shape=ellipse]
+41 [label="unregisterLine#?,int,int#9:iter" shape=ellipse]
+42 [label="unregisterLine#?,int,int#11:iter" shape=ellipse]
+43 [label="unregisterLine#?,int,int#5:PlaceHold" shape=ellipse]
+44 [label="unregisterLine#?,int,int#10:desc" shape=ellipse]
+45 [label="unregisterLine#?,int,int#12:desc" shape=ellipse]
+46 [label="unregisterLine#?,int,int#13:desc" shape=ellipse]
+47 [label="getTouchPointsInLineOrder#?#10:for (TouchPointDescriptor t : tpd) \{
+    if (!(tpd instanceof LineTouchPointDescriptor)) \{
+        res.add(t);
+    \}
+\}" shape=ellipse]
+48 [label="getTouchPointsInLineOrder#?#10:tpd" shape=ellipse]
+49 [label="getTouchPointsInLineOrder#?#10:TouchPointDescriptor t" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 10 [label="AST:3"];
+1 -> 39 [label="Data Dep:1"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 28 [label="AST:1"];
+2 -> 47 [label="Control Dep:1"];
+2 -> 48 [label="Control Dep:1"];
+2 -> 49 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 47 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:3"];
+12 -> 43 [label="AST:1"];
+14 -> 13 [label="Control Dep:1"];
+14 -> 34 [label="AST:1"];
+14 -> 17 [label="AST:1"];
+14 -> 37 [label="AST:1"];
+14 -> 19 [label="AST:1"];
+14 -> 20 [label="Control Dep:1"];
+14 -> 25 [label="Control Dep:1"];
+14 -> 38 [label="Control Dep:1"];
+14 -> 26 [label="Control Dep:1"];
+14 -> 35 [label="Control Dep:1"];
+14 -> 2 [label="Control Dep:1"];
+14 -> 5 [label="Control Dep:1"];
+14 -> 1 [label="Control Dep:1"];
+14 -> 28 [label="Control Dep:1"];
+14 -> 29 [label="Control Dep:1"];
+14 -> 32 [label="Control Dep:1"];
+14 -> 31 [label="Control Dep:1"];
+14 -> 21 [label="Control Dep:1"];
+15 -> 46 [label="AST:1"];
+16 -> 14 [label="AST:1"];
+16 -> 20 [label="AST:1"];
+18 -> 42 [label="AST:1"];
+20 -> 25 [label="AST:1"];
+20 -> 35 [label="AST:1"];
+20 -> 29 [label="AST:1"];
+22 -> 41 [label="AST:1"];
+23 -> 44 [label="AST:1"];
+24 -> 40 [label="AST:1"];
+25 -> 13 [label="AST:1"];
+25 -> 38 [label="AST:1"];
+25 -> 26 [label="AST:1"];
+27 -> 45 [label="AST:1"];
+28 -> 39 [label="Data Dep:1"];
+29 -> 32 [label="AST:1"];
+30 -> 36 [label="AST:1"];
+32 -> 21 [label="AST:1"];
+32 -> 24 [label="Control Dep:1"];
+32 -> 30 [label="Control Dep:1"];
+32 -> 31 [label="AST:1"];
+35 -> 39 [label="AST:1"];
+35 -> 2 [label="AST:1"];
+39 -> 30 [label="Define Use:1"];
+39 -> 31 [label="Define Use:1"];
+43 -> 33 [label="AST:1"];
+47 -> 49 [label="AST:1"];
+47 -> 48 [label="AST:1"];
+}

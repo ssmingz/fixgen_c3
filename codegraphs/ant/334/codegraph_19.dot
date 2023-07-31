@@ -1,0 +1,423 @@
+digraph "addFilesToImport#?,ImportCodeSpec,boolean,Vector,String,StringBuffer" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addFilesToImport" shape=ellipse]
+2 [label="3:CtParameterImpl@ImportCodeSpec spec" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@ImportCodeSpec" shape=ellipse]
+4 [label="4:CtParameterImpl@boolean doImport" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@boolean" shape=ellipse]
+6 [label="5:CtParameterImpl@Vector files" shape=ellipse]
+7 [label="5:CtTypeReferenceImpl@Vector" shape=ellipse]
+8 [label="6:CtParameterImpl@String fileType" shape=ellipse]
+9 [label="6:CtTypeReferenceImpl@String" shape=ellipse]
+10 [label="7:CtParameterImpl@StringBuffer summaryLog" shape=ellipse]
+11 [label="7:CtTypeReferenceImpl@StringBuffer" shape=ellipse]
+12 [label="8:CtVariableReadImpl@doImport" shape=ellipse]
+13 [label="9:CtVirtualElement@String[]" shape=ellipse]
+14 [label="9:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+15 [label="9:CtNewArrayImpl@new String[files.size()]" shape=ellipse]
+16 [label="9:CtInvocationImpl@files.size()" shape=ellipse]
+17 [label="9:CtVirtualElement@fileArr" shape=ellipse]
+18 [label="9:CtLocalVariableImpl@String[] fileArr = new String[files.size()]" shape=ellipse]
+19 [label="10:CtExecutableReferenceImpl@copyInto(java.lang.String[])" shape=ellipse]
+20 [label="10:CtVirtualElement@copyInto" shape=ellipse]
+21 [label="10:CtVariableReadImpl@files" shape=ellipse]
+22 [label="10:CtVariableReadImpl@fileArr" shape=ellipse]
+23 [label="10:CtInvocationImpl@files.copyInto(fileArr)" shape=ellipse]
+24 [label="12:CtTypeReferenceImpl@String" shape=ellipse]
+25 [label="12:CtLiteralImpl@\"set\"" shape=ellipse]
+26 [label="12:CtVariableReadImpl@fileType" shape=ellipse]
+27 [label="12:CtBinaryOperatorImpl@(\"set\" + fileType)" shape=ellipse]
+28 [label="12:CtLiteralImpl@\"Files\"" shape=ellipse]
+29 [label="12:CtBinaryOperatorImpl@(\"set\" + fileType) + \"Files\"" shape=ellipse]
+30 [label="12:CtVirtualElement@methodName" shape=ellipse]
+31 [label="12:CtLocalVariableImpl@String methodName = (\"set\" + fileType) + \"Files\"" shape=ellipse]
+32 [label="13:CtVirtualElement@Class[]" shape=ellipse]
+33 [label="13:CtArrayTypeReferenceImpl@Class[]" shape=ellipse]
+34 [label="13:CtNewArrayImpl@new Class[]\{ fileArr.getClass() \}" shape=ellipse]
+35 [label="13:CtInvocationImpl@fileArr.getClass()" shape=ellipse]
+36 [label="13:CtVirtualElement@methodParams" shape=ellipse]
+37 [label="13:CtLocalVariableImpl@Class[] methodParams = new Class[]\{ fileArr.getClass() \}" shape=ellipse]
+38 [label="14:CtTypeReferenceImpl@Method" shape=ellipse]
+39 [label="14:CtExecutableReferenceImpl@getDeclaredMethod(java.lang.String,java.lang.Class[])" shape=ellipse]
+40 [label="14:CtVirtualElement@getDeclaredMethod" shape=ellipse]
+41 [label="14:CtExecutableReferenceImpl@getClass()" shape=ellipse]
+42 [label="14:CtVirtualElement@getClass" shape=ellipse]
+43 [label="14:CtVariableReadImpl@spec" shape=ellipse]
+44 [label="14:CtInvocationImpl@spec.getClass()" shape=ellipse]
+45 [label="14:CtVariableReadImpl@methodName" shape=ellipse]
+46 [label="14:CtVariableReadImpl@methodParams" shape=ellipse]
+47 [label="14:CtInvocationImpl@spec.getClass().getDeclaredMethod(methodName, methodParams)" shape=ellipse]
+48 [label="14:CtVirtualElement@method" shape=ellipse]
+49 [label="14:CtLocalVariableImpl@Method method = spec.getClass().getDeclaredMethod(methodName, methodParams)" shape=ellipse]
+50 [label="15:CtExecutableReferenceImpl@invoke(ImportCodeSpec,java.lang.Object[])" shape=ellipse]
+51 [label="15:CtVirtualElement@invoke" shape=ellipse]
+52 [label="15:CtVariableReadImpl@method" shape=ellipse]
+53 [label="15:CtVariableReadImpl@spec" shape=ellipse]
+54 [label="15:CtNewArrayImpl@new Object[]\{ fileArr \}" shape=ellipse]
+55 [label="15:CtVariableReadImpl@fileArr" shape=ellipse]
+56 [label="15:CtInvocationImpl@method.invoke(spec, new Object[]\{ fileArr \})" shape=ellipse]
+57 [label="11:CtBlockImpl@\{
+    String methodName = (\"set\" + fileType) + \"Files\";
+    Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+    Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+    method.invoke(spec, new Object[]\{ fileArr \});
+\}" shape=ellipse]
+58 [label="16:CtVirtualElement@e" shape=ellipse]
+59 [label="16:CtTypeReferenceImpl@Exception" shape=ellipse]
+60 [label="16:CtCatchVariableImpl@Exception e" shape=ellipse]
+61 [label="17:CtTypeReferenceImpl@BuildException" shape=ellipse]
+62 [label="17:CtVariableReadImpl@e" shape=ellipse]
+63 [label="17:CtConstructorCallImpl@new BuildException(e)" shape=ellipse]
+64 [label="17:CtThrowImpl@throw new BuildException(e)" shape=ellipse]
+65 [label="16:CtBlockImpl@\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+66 [label="16:CtCatchImpl@ catch (Exception e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+67 [label="11:CtTryImpl@try \{
+    String methodName = (\"set\" + fileType) + \"Files\";
+    Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+    Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+    method.invoke(spec, new Object[]\{ fileArr \});
+\} catch (Exception e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+68 [label="19:CtExecutableReferenceImpl@size()" shape=ellipse]
+69 [label="19:CtVirtualElement@size" shape=ellipse]
+70 [label="19:CtVariableReadImpl@files" shape=ellipse]
+71 [label="19:CtInvocationImpl@files.size()" shape=ellipse]
+72 [label="19:CtLiteralImpl@0" shape=ellipse]
+73 [label="19:CtBinaryOperatorImpl@files.size() > 0" shape=ellipse]
+74 [label="20:CtExecutableReferenceImpl@logFiles(<unknown>,java.lang.String)" shape=ellipse]
+75 [label="20:CtVirtualElement@logFiles" shape=ellipse]
+76 [label="20:CtVariableReadImpl@files" shape=ellipse]
+77 [label="20:CtVariableReadImpl@fileType" shape=ellipse]
+78 [label="20:CtInvocationImpl@logFiles(files, fileType)" shape=ellipse]
+79 [label="21:CtExecutableReferenceImpl@append(java.lang.Object)" shape=ellipse]
+80 [label="21:CtVirtualElement@append" shape=ellipse]
+81 [label="21:CtVariableReadImpl@summaryLog" shape=ellipse]
+82 [label="21:CtExecutableReferenceImpl@size()" shape=ellipse]
+83 [label="21:CtVirtualElement@size" shape=ellipse]
+84 [label="21:CtVariableReadImpl@files" shape=ellipse]
+85 [label="21:CtInvocationImpl@files.size()" shape=ellipse]
+86 [label="21:CtInvocationImpl@summaryLog.append(files.size())" shape=ellipse]
+87 [label="22:CtExecutableReferenceImpl@append(java.lang.String)" shape=ellipse]
+88 [label="22:CtVirtualElement@append" shape=ellipse]
+89 [label="22:CtVariableReadImpl@summaryLog" shape=ellipse]
+90 [label="22:CtLiteralImpl@\" \"" shape=ellipse]
+91 [label="22:CtExecutableReferenceImpl@toLowerCase()" shape=ellipse]
+92 [label="22:CtVirtualElement@toLowerCase" shape=ellipse]
+93 [label="22:CtVariableReadImpl@fileType" shape=ellipse]
+94 [label="22:CtInvocationImpl@fileType.toLowerCase()" shape=ellipse]
+95 [label="22:CtBinaryOperatorImpl@(\" \" + fileType.toLowerCase())" shape=ellipse]
+96 [label="22:CtLiteralImpl@\" file\"" shape=ellipse]
+97 [label="22:CtBinaryOperatorImpl@(\" \" + fileType.toLowerCase()) + \" file\"" shape=ellipse]
+98 [label="22:CtInvocationImpl@summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\")" shape=ellipse]
+99 [label="23:CtExecutableReferenceImpl@append(java.lang.Object)" shape=ellipse]
+100 [label="23:CtVirtualElement@append" shape=ellipse]
+101 [label="23:CtVariableReadImpl@summaryLog" shape=ellipse]
+102 [label="23:CtExecutableReferenceImpl@size()" shape=ellipse]
+103 [label="23:CtVirtualElement@size" shape=ellipse]
+104 [label="23:CtVariableReadImpl@files" shape=ellipse]
+105 [label="23:CtInvocationImpl@files.size()" shape=ellipse]
+106 [label="23:CtLiteralImpl@1" shape=ellipse]
+107 [label="23:CtBinaryOperatorImpl@files.size() > 1" shape=ellipse]
+108 [label="23:CtLiteralImpl@\"s, \"" shape=ellipse]
+109 [label="23:CtLiteralImpl@\", \"" shape=ellipse]
+110 [label="23:CtConditionalImpl@files.size() > 1 ? \"s, \" : \", \"" shape=ellipse]
+111 [label="23:CtInvocationImpl@summaryLog.append(files.size() > 1 ? \"s, \" : \", \")" shape=ellipse]
+112 [label="19:CtBlockImpl@\{
+    logFiles(files, fileType);
+    summaryLog.append(files.size());
+    summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+    summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+\}" shape=ellipse]
+113 [label="19:CtIfImpl@if (files.size() > 0) \{
+    logFiles(files, fileType);
+    summaryLog.append(files.size());
+    summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+    summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+\}" shape=ellipse]
+114 [label="8:CtBlockImpl@\{
+    String[] fileArr = new String[files.size()];
+    files.copyInto(fileArr);
+    try \{
+        String methodName = (\"set\" + fileType) + \"Files\";
+        Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+        Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+        method.invoke(spec, new Object[]\{ fileArr \});
+    \} catch (Exception e) \{
+        throw new BuildException(e);
+    \}
+    if (files.size() > 0) \{
+        logFiles(files, fileType);
+        summaryLog.append(files.size());
+        summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+        summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+    \}
+\}" shape=ellipse]
+115 [label="8:CtIfImpl@if (doImport) \{
+    String[] fileArr = new String[files.size()];
+    files.copyInto(fileArr);
+    try \{
+        String methodName = (\"set\" + fileType) + \"Files\";
+        Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+        Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+        method.invoke(spec, new Object[]\{ fileArr \});
+    \} catch (Exception e) \{
+        throw new BuildException(e);
+    \}
+    if (files.size() > 0) \{
+        logFiles(files, fileType);
+        summaryLog.append(files.size());
+        summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+        summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+    \}
+\}" shape=ellipse]
+116 [label="7:CtBlockImpl@\{
+    if (doImport) \{
+        String[] fileArr = new String[files.size()];
+        files.copyInto(fileArr);
+        try \{
+            String methodName = (\"set\" + fileType) + \"Files\";
+            Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+            Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+            method.invoke(spec, new Object[]\{ fileArr \});
+        \} catch (Exception e) \{
+            throw new BuildException(e);
+        \}
+        if (files.size() > 0) \{
+            logFiles(files, fileType);
+            summaryLog.append(files.size());
+            summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+            summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+        \}
+    \}
+\}" shape=ellipse]
+117 [label="2:CtMethodImpl@private void addFilesToImport(ImportCodeSpec spec, boolean doImport, Vector files, String fileType, StringBuffer summaryLog) \{
+    if (doImport) \{
+        String[] fileArr = new String[files.size()];
+        files.copyInto(fileArr);
+        try \{
+            String methodName = (\"set\" + fileType) + \"Files\";
+            Class[] methodParams = new Class[]\{ fileArr.getClass() \};
+            Method method = spec.getClass().getDeclaredMethod(methodName, methodParams);
+            method.invoke(spec, new Object[]\{ fileArr \});
+        \} catch (Exception e) \{
+            throw new BuildException(e);
+        \}
+        if (files.size() > 0) \{
+            logFiles(files, fileType);
+            summaryLog.append(files.size());
+            summaryLog.append((\" \" + fileType.toLowerCase()) + \" file\");
+            summaryLog.append(files.size() > 1 ? \"s, \" : \", \");
+        \}
+    \}
+\}" shape=ellipse]
+118 [label="17:Update@UPDATE" shape=ellipse]
+119 [label="17:CtConstructorCallImpl@new BuildException(\"Error\", e)" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 11 [label="AST"];
+12 -> 114 [label="Control Dep"];
+12 -> 18 [label="Control Dep"];
+12 -> 14 [label="Control Dep"];
+12 -> 15 [label="Control Dep"];
+12 -> 23 [label="Control Dep"];
+12 -> 19 [label="Control Dep"];
+12 -> 21 [label="Control Dep"];
+12 -> 22 [label="Control Dep"];
+12 -> 67 [label="Control Dep"];
+12 -> 57 [label="Control Dep"];
+12 -> 31 [label="Control Dep"];
+12 -> 29 [label="Control Dep"];
+12 -> 27 [label="Control Dep"];
+12 -> 25 [label="Control Dep"];
+12 -> 26 [label="Control Dep"];
+12 -> 28 [label="Control Dep"];
+12 -> 37 [label="Control Dep"];
+12 -> 33 [label="Control Dep"];
+12 -> 34 [label="Control Dep"];
+12 -> 49 [label="Control Dep"];
+12 -> 47 [label="Control Dep"];
+12 -> 39 [label="Control Dep"];
+12 -> 44 [label="Control Dep"];
+12 -> 41 [label="Control Dep"];
+12 -> 43 [label="Control Dep"];
+12 -> 45 [label="Control Dep"];
+12 -> 46 [label="Control Dep"];
+12 -> 56 [label="Control Dep"];
+12 -> 50 [label="Control Dep"];
+12 -> 52 [label="Control Dep"];
+12 -> 53 [label="Control Dep"];
+12 -> 54 [label="Control Dep"];
+12 -> 66 [label="Control Dep"];
+12 -> 60 [label="Control Dep"];
+12 -> 113 [label="Control Dep"];
+12 -> 73 [label="Control Dep"];
+12 -> 71 [label="Control Dep"];
+12 -> 68 [label="Control Dep"];
+12 -> 70 [label="Control Dep"];
+12 -> 72 [label="Control Dep"];
+14 -> 13 [label="AST"];
+15 -> 16 [label="AST"];
+17 -> 22 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 15 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+26 -> 30 [label="Data Dep"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 45 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 24 [label="AST"];
+31 -> 29 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 35 [label="AST"];
+36 -> 46 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 34 [label="AST"];
+43 -> 48 [label="Data Dep"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 41 [label="AST"];
+45 -> 48 [label="Data Dep"];
+46 -> 48 [label="Data Dep"];
+47 -> 40 [label="AST"];
+47 -> 44 [label="AST"];
+47 -> 39 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 52 [label="Define-Use"];
+49 -> 48 [label="AST"];
+49 -> 38 [label="AST"];
+49 -> 47 [label="AST"];
+54 -> 55 [label="AST"];
+56 -> 51 [label="AST"];
+56 -> 52 [label="AST"];
+56 -> 50 [label="AST"];
+56 -> 53 [label="AST"];
+56 -> 54 [label="AST"];
+57 -> 31 [label="AST"];
+57 -> 37 [label="AST"];
+57 -> 49 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 62 [label="Define-Use"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 65 [label="Control Dep"];
+60 -> 64 [label="Control Dep"];
+60 -> 63 [label="Control Dep"];
+60 -> 62 [label="Control Dep"];
+63 -> 62 [label="AST"];
+63 -> 118 [label="Action"];
+64 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 60 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 57 [label="AST"];
+67 -> 66 [label="AST"];
+71 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+71 -> 68 [label="AST"];
+73 -> 71 [label="AST"];
+73 -> 72 [label="AST"];
+73 -> 112 [label="Control Dep"];
+73 -> 78 [label="Control Dep"];
+73 -> 74 [label="Control Dep"];
+73 -> 76 [label="Control Dep"];
+73 -> 77 [label="Control Dep"];
+73 -> 86 [label="Control Dep"];
+73 -> 79 [label="Control Dep"];
+73 -> 81 [label="Control Dep"];
+73 -> 85 [label="Control Dep"];
+73 -> 82 [label="Control Dep"];
+73 -> 84 [label="Control Dep"];
+73 -> 98 [label="Control Dep"];
+73 -> 87 [label="Control Dep"];
+73 -> 89 [label="Control Dep"];
+73 -> 97 [label="Control Dep"];
+73 -> 95 [label="Control Dep"];
+73 -> 90 [label="Control Dep"];
+73 -> 94 [label="Control Dep"];
+73 -> 91 [label="Control Dep"];
+73 -> 93 [label="Control Dep"];
+73 -> 96 [label="Control Dep"];
+73 -> 111 [label="Control Dep"];
+73 -> 99 [label="Control Dep"];
+73 -> 101 [label="Control Dep"];
+73 -> 110 [label="Control Dep"];
+73 -> 107 [label="Control Dep"];
+73 -> 105 [label="Control Dep"];
+73 -> 102 [label="Control Dep"];
+73 -> 104 [label="Control Dep"];
+73 -> 106 [label="Control Dep"];
+78 -> 75 [label="AST"];
+78 -> 74 [label="AST"];
+78 -> 76 [label="AST"];
+78 -> 77 [label="AST"];
+85 -> 83 [label="AST"];
+85 -> 84 [label="AST"];
+85 -> 82 [label="AST"];
+86 -> 80 [label="AST"];
+86 -> 81 [label="AST"];
+86 -> 79 [label="AST"];
+86 -> 85 [label="AST"];
+94 -> 92 [label="AST"];
+94 -> 93 [label="AST"];
+94 -> 91 [label="AST"];
+95 -> 90 [label="AST"];
+95 -> 94 [label="AST"];
+97 -> 95 [label="AST"];
+97 -> 96 [label="AST"];
+98 -> 88 [label="AST"];
+98 -> 89 [label="AST"];
+98 -> 87 [label="AST"];
+98 -> 97 [label="AST"];
+105 -> 103 [label="AST"];
+105 -> 104 [label="AST"];
+105 -> 102 [label="AST"];
+107 -> 105 [label="AST"];
+107 -> 106 [label="AST"];
+107 -> 108 [label="Control Dep"];
+107 -> 109 [label="Control Dep"];
+110 -> 107 [label="AST"];
+110 -> 108 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 100 [label="AST"];
+111 -> 101 [label="AST"];
+111 -> 99 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 78 [label="AST"];
+112 -> 86 [label="AST"];
+112 -> 98 [label="AST"];
+112 -> 111 [label="AST"];
+113 -> 73 [label="AST"];
+113 -> 112 [label="AST"];
+114 -> 18 [label="AST"];
+114 -> 23 [label="AST"];
+114 -> 67 [label="AST"];
+114 -> 113 [label="AST"];
+115 -> 12 [label="AST"];
+115 -> 114 [label="AST"];
+116 -> 115 [label="AST"];
+117 -> 1 [label="AST"];
+117 -> 0 [label="AST"];
+117 -> 2 [label="AST"];
+117 -> 4 [label="AST"];
+117 -> 6 [label="AST"];
+117 -> 8 [label="AST"];
+117 -> 10 [label="AST"];
+117 -> 116 [label="AST"];
+118 -> 119 [label="Action"];
+}

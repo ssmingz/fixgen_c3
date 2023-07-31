@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/276/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/276/0/after.java
+@@ -3,6 +3,4 @@
+-    synchronized (_model) {
+-      LeafNode<ItemT> toRemove = getNodeForDoc(doc);
+-      if (toRemove == null) {
+-        return null;
+-      }
+-      return removeNode(getNodeForDoc(doc));
++    assert EventQueue.isDispatchThread();
++    LeafNode<ItemT> toRemove = getNodeForDoc(doc);
++    if (toRemove == null) {
++      return null;
+@@ -10,0 +8,1 @@
++    return removeNode(getNodeForDoc(doc));

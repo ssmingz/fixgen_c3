@@ -1,0 +1,81 @@
+digraph "Pattern" {
+0 [label="getSourceFiles#?#7:UPDATE
+dumpSourceFiles#?,PackageData#5:UPDATE" shape=ellipse]
+1 [label="getSourceFiles#?#7:packageData.getChildren()
+dumpSourceFiles#?,PackageData#5:packageData.getChildren()" shape=ellipse]
+2 [label="getSourceFiles#?#5:iter.hasNext()
+dumpSourceFiles#?,PackageData#5:packageData.getChildren().iterator()" shape=ellipse]
+3 [label="getSourceFiles#?#5:while (iter.hasNext()) \{
+    PackageData packageData = ((PackageData) (iter.next()));
+    sourceFiles.addAll(packageData.getChildren());
+\} " shape=ellipse]
+4 [label="getSourceFiles#?#5:hasNext
+dumpSourceFiles#?,PackageData#5:iterator" shape=ellipse]
+5 [label="getSourceFiles#?#5:iter" shape=ellipse]
+6 [label="getSourceFiles#?#5:hasNext()
+dumpSourceFiles#?,PackageData#5:iterator()" shape=ellipse]
+7 [label="getSourceFiles#?#5:\{
+    PackageData packageData = ((PackageData) (iter.next()));
+    sourceFiles.addAll(packageData.getChildren());
+\}" shape=ellipse]
+8 [label="getSourceFiles#?#6:PackageData packageData = ((PackageData) (iter.next()))" shape=ellipse]
+9 [label="getSourceFiles#?#6:((PackageData) (iter.next()))" shape=ellipse]
+10 [label="getSourceFiles#?#6:next()" shape=ellipse]
+11 [label="getSourceFiles#?#6:iter" shape=ellipse]
+12 [label="getSourceFiles#?#7:sourceFiles.addAll(packageData.getChildren())" shape=ellipse]
+13 [label="getSourceFiles#?#7:addAll()" shape=ellipse]
+14 [label="getSourceFiles#?#7:sourceFiles" shape=ellipse]
+15 [label="getSourceFiles#?#7:getChildren()" shape=ellipse]
+16 [label="getSourceFiles#?#7:packageData" shape=ellipse]
+17 [label="getSourceFiles#?#7:getSourceFiles
+dumpSourceFiles#?,PackageData#5:getSourceFiles" shape=ellipse]
+18 [label="getSourceFiles#?#7:getChildren
+dumpSourceFiles#?,PackageData#5:getChildren" shape=ellipse]
+19 [label="dumpSourceFiles#?,PackageData#5:packageData" shape=ellipse]
+20 [label="dumpSourceFiles#?,PackageData#5:" shape=ellipse]
+21 [label="dumpSourceFiles#?,PackageData#5:getChildren()" shape=ellipse]
+22 [label="dumpSourceFiles#?,PackageData#5:getSourceFiles()" shape=ellipse]
+23 [label="dumpSourceFiles#?,PackageData#5:packageData" shape=ellipse]
+24 [label="dumpSourceFiles#?,PackageData#5:Iterator it = packageData.getChildren().iterator()" shape=ellipse]
+25 [label="dumpSourceFiles#?,PackageData#5:it" shape=ellipse]
+26 [label="dumpSourceFiles#?,PackageData#5:PackageData" shape=ellipse]
+27 [label="dumpSourceFiles#?,PackageData#5:PackageData" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 18 [label="AST:2"];
+1 -> 16 [label="AST:1"];
+1 -> 15 [label="AST:1"];
+1 -> 19 [label="AST:1"];
+1 -> 21 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 12 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+12 -> 1 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+19 -> 23 [label="AST:1"];
+19 -> 25 [label="Data Dep:1"];
+21 -> 26 [label="AST:1"];
+22 -> 27 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+24 -> 2 [label="AST:1"];
+27 -> 20 [label="AST:1"];
+}

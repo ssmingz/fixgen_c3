@@ -1,0 +1,65 @@
+digraph "Pattern" {
+0 [label="testPassthrough#?#4:INSERT
+testAntClasspathDest#?#4:INSERT
+testInheritPath#?#4:INSERT" shape=ellipse]
+1 [label="testPassthrough#?#3:executeTarget(\"testPassthrough\")
+testAntClasspathDest#?#3:executeTarget(\"testAntClasspathDest\")
+testInheritPath#?#3:executeTarget(\"testInheritPath\")" shape=ellipse]
+2 [label="testPassthrough#?#2:\{
+    executeTarget(\"testPassthrough\");
+\}
+testAntClasspathDest#?#2:\{
+    executeTarget(\"testAntClasspathDest\");
+\}
+testInheritPath#?#2:\{
+    executeTarget(\"testInheritPath\");
+\}" shape=ellipse]
+3 [label="testPassthrough#?#2:public void testPassthrough() \{
+    executeTarget(\"testPassthrough\");
+\}
+testAntClasspathDest#?#2:public void testAntClasspathDest() throws Exception \{
+    executeTarget(\"testAntClasspathDest\");
+\}
+testInheritPath#?#2:public void testInheritPath() \{
+    executeTarget(\"testInheritPath\");
+\}" shape=ellipse]
+4 [label="testPassthrough#?#3:executeTarget
+testAntClasspathDest#?#3:executeTarget
+testInheritPath#?#3:executeTarget" shape=ellipse]
+5 [label="testPassthrough#?#-1:
+testAntClasspathDest#?#-1:
+testInheritPath#?#-1:" shape=ellipse]
+6 [label="testPassthrough#?#-1:PlaceHold
+testAntClasspathDest#?#-1:PlaceHold
+testInheritPath#?#-1:PlaceHold" shape=ellipse]
+7 [label="testPassthrough#?#-1:PlaceHold
+testAntClasspathDest#?#-1:PlaceHold
+testInheritPath#?#-1:PlaceHold" shape=ellipse]
+8 [label="testPassthrough#?#3:executeTarget(java.lang.String)
+testAntClasspathDest#?#3:executeTarget(java.lang.String)
+testInheritPath#?#3:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testPassthrough#?#-1:String
+testAntClasspathDest#?#-1:String
+testInheritPath#?#-1:String" shape=ellipse]
+10 [label="testPassthrough#?#3:\"testPassthrough\"
+testAntClasspathDest#?#3:\"testAntClasspathDest\"
+testInheritPath#?#3:\"testInheritPath\"" shape=ellipse]
+11 [label="testPassthrough#?#-1:String
+testAntClasspathDest#?#-1:String
+testInheritPath#?#-1:String" shape=ellipse]
+12 [label="testPassthrough#?#4:buildRule
+testAntClasspathDest#?#4:buildRule
+testInheritPath#?#4:buildRule" shape=ellipse]
+0 -> 12 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+}

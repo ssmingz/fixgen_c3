@@ -1,0 +1,35 @@
+digraph "Pattern" {
+0 [label="testAssertEqualsNaNFails#?#4:UPDATE
+testAssertNaNEqualsFails#?#4:UPDATE" shape=ellipse]
+1 [label="testAssertEqualsNaNFails#?#4:1.0E-5
+testAssertNaNEqualsFails#?#4:1.0E-5" shape=ellipse]
+2 [label="testAssertEqualsNaNFails#?#4:assertEquals(1.234, Double.NaN, 1.0E-5)
+testAssertNaNEqualsFails#?#4:assertEquals(Double.NaN, 1.234, 1.0E-5)" shape=ellipse]
+3 [label="testAssertEqualsNaNFails#?#3:\{
+    assertEquals(1.234, Double.NaN, 1.0E-5);
+\}
+testAssertNaNEqualsFails#?#3:\{
+    assertEquals(Double.NaN, 1.234, 1.0E-5);
+\}" shape=ellipse]
+4 [label="testAssertEqualsNaNFails#?#4:assertEquals
+testAssertNaNEqualsFails#?#4:assertEquals" shape=ellipse]
+5 [label="testAssertEqualsNaNFails#?#4:
+testAssertNaNEqualsFails#?#4:" shape=ellipse]
+6 [label="testAssertEqualsNaNFails#?#4:assertEquals(double,double,double)
+testAssertNaNEqualsFails#?#4:assertEquals(double,double,double)" shape=ellipse]
+7 [label="testAssertEqualsNaNFails#?#4:1.234
+testAssertNaNEqualsFails#?#4:1.234" shape=ellipse]
+8 [label="testAssertEqualsNaNFails#?#4:Double.NaN
+testAssertNaNEqualsFails#?#4:Double.NaN" shape=ellipse]
+9 [label="testAssertEqualsNaNFails#?#4:double
+testAssertNaNEqualsFails#?#4:double" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

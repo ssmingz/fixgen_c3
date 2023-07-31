@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3111/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3111/0/after.java
+@@ -6,1 +6,11 @@
+-    OS.OffsetRgn(handle, ((short) (x)), ((short) (y)));
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      OS.OffsetRgn(handle, ((short) (x)), ((short) (y)));
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

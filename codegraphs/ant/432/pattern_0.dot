@@ -1,0 +1,158 @@
+digraph "Pattern" {
+0 [label="targetStarted#?,BuildEvent#5:UPDATE
+execute#?#34:UPDATE" shape=ellipse]
+1 [label="targetStarted#?,BuildEvent#5:MSG_DEBUG
+execute#?#34:MSG_VERBOSE" shape=ellipse]
+2 [label="targetStarted#?,BuildEvent#3:initialized" shape=ellipse]
+3 [label="targetStarted#?,BuildEvent#3:if (initialized) \{
+    Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+    realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+\}
+execute#?#33:if (importStack.contains(importedFile)) \{
+    getProject().log((\"Skipped already imported file:\n   \" + importedFile) + \"\n\", MSG_WARN);
+    return;
+\}" shape=ellipse]
+4 [label="targetStarted#?,BuildEvent#-1:initialized
+execute#?#33:importedFile" shape=ellipse]
+5 [label="targetStarted#?,BuildEvent#3:\{
+    Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+    realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+\}
+execute#?#33:\{
+    getProject().log((\"Skipped already imported file:\n   \" + importedFile) + \"\n\", MSG_WARN);
+    return;
+\}" shape=ellipse]
+6 [label="targetStarted#?,BuildEvent#4:Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName())
+execute#?#35:return" shape=ellipse]
+7 [label="targetStarted#?,BuildEvent#4:getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName())" shape=ellipse]
+8 [label="targetStarted#?,BuildEvent#4:getLog(java.lang.String,<unknown>)
+execute#?#33:contains(File)" shape=ellipse]
+9 [label="targetStarted#?,BuildEvent#-1:
+execute#?#-1:" shape=ellipse]
+10 [label="targetStarted#?,BuildEvent#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+11 [label="targetStarted#?,BuildEvent#4:\"org.apache.tools.ant.Target\"
+execute#?#34:\"Skipped already imported file:\n   \"" shape=ellipse]
+12 [label="targetStarted#?,BuildEvent#4:event.getTarget().getName()" shape=ellipse]
+13 [label="targetStarted#?,BuildEvent#4:getName()
+execute#?#34:getProject()" shape=ellipse]
+14 [label="targetStarted#?,BuildEvent#4:event.getTarget()" shape=ellipse]
+15 [label="targetStarted#?,BuildEvent#4:getTarget()
+execute#?#34:log()" shape=ellipse]
+16 [label="targetStarted#?,BuildEvent#4:event
+execute#?#34:importedFile" shape=ellipse]
+17 [label="targetStarted#?,BuildEvent#5:realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null)" shape=ellipse]
+18 [label="targetStarted#?,BuildEvent#5:realLog(<unknown>,<unknown>,<unknown>,<unknown>)
+execute#?#-1:MSG_WARN" shape=ellipse]
+19 [label="targetStarted#?,BuildEvent#-1:
+execute#?#33:importStack" shape=ellipse]
+20 [label="targetStarted#?,BuildEvent#-1:PlaceHold" shape=ellipse]
+21 [label="targetStarted#?,BuildEvent#5:log" shape=ellipse]
+22 [label="targetStarted#?,BuildEvent#5:\"Start: \" + event.getTarget().getName()
+execute#?#34:(\"Skipped already imported file:\n   \" + importedFile) + \"\n\"" shape=ellipse]
+23 [label="targetStarted#?,BuildEvent#5:\"Start: \"
+execute#?#34:\"\n\"" shape=ellipse]
+24 [label="targetStarted#?,BuildEvent#5:event.getTarget().getName()" shape=ellipse]
+25 [label="targetStarted#?,BuildEvent#5:getName()" shape=ellipse]
+26 [label="targetStarted#?,BuildEvent#5:event.getTarget()" shape=ellipse]
+27 [label="targetStarted#?,BuildEvent#5:getTarget()" shape=ellipse]
+28 [label="targetStarted#?,BuildEvent#5:event" shape=ellipse]
+29 [label="targetStarted#?,BuildEvent#5:null" shape=ellipse]
+30 [label="targetStarted#?,BuildEvent#-1:MSG_DEBUG" shape=ellipse]
+31 [label="targetStarted#?,BuildEvent#5:MSG_VERBOSE" shape=ellipse]
+32 [label="execute#?#33:contains" shape=ellipse]
+33 [label="execute#?#34:getProject().log((\"Skipped already imported file:\n   \" + importedFile) + \"\n\", MSG_WARN)" shape=ellipse]
+34 [label="execute#?#33:importStack.contains(importedFile)" shape=ellipse]
+35 [label="execute#?#34:(\"Skipped already imported file:\n   \" + importedFile)" shape=ellipse]
+36 [label="execute#?#34:getProject()" shape=ellipse]
+37 [label="execute#?#34:MSG_WARN" shape=ellipse]
+0 -> 31 [label="Action:1"];
+0 -> 1 [label="Action:1"];
+1 -> 0 [label="Action:1"];
+1 -> 30 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="Control Dep:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 5 [label="AST:2"];
+3 -> 34 [label="AST:1"];
+5 -> 6 [label="AST:2"];
+5 -> 17 [label="AST:1"];
+5 -> 33 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 11 [label="AST:1"];
+7 -> 12 [label="AST:1"];
+9 -> 10 [label="AST:2"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+17 -> 1 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+17 -> 21 [label="AST:1"];
+17 -> 22 [label="AST:1"];
+17 -> 29 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+22 -> 23 [label="AST:2"];
+22 -> 24 [label="AST:1"];
+22 -> 35 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+26 -> 28 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+33 -> 36 [label="AST:1"];
+33 -> 15 [label="AST:1"];
+33 -> 22 [label="AST:1"];
+33 -> 37 [label="AST:1"];
+34 -> 32 [label="AST:1"];
+34 -> 33 [label="Control Dep:1"];
+34 -> 19 [label="AST:1"];
+34 -> 8 [label="AST:1"];
+34 -> 4 [label="AST:1"];
+34 -> 5 [label="Control Dep:1"];
+34 -> 15 [label="Control Dep:1"];
+34 -> 36 [label="Control Dep:1"];
+34 -> 13 [label="Control Dep:1"];
+34 -> 9 [label="Control Dep:1"];
+34 -> 10 [label="Control Dep:1"];
+34 -> 22 [label="Control Dep:1"];
+34 -> 35 [label="Control Dep:1"];
+34 -> 11 [label="Control Dep:1"];
+34 -> 16 [label="Control Dep:1"];
+34 -> 23 [label="Control Dep:1"];
+34 -> 37 [label="Control Dep:1"];
+34 -> 6 [label="Control Dep:1"];
+35 -> 11 [label="AST:1"];
+35 -> 16 [label="AST:1"];
+36 -> 9 [label="AST:1"];
+36 -> 13 [label="AST:1"];
+37 -> 18 [label="AST:1"];
+37 -> 0 [label="Action:1"];
+}

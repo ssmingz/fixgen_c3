@@ -1,0 +1,46 @@
+digraph "createEntry#?" {
+0 [label="2:CtTypeReferenceImpl@Entry" shape=ellipse]
+1 [label="2:CtVirtualElement@createEntry" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@Entry" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Entry" shape=ellipse]
+4 [label="3:CtConstructorCallImpl@new Entry()" shape=ellipse]
+5 [label="3:CtVirtualElement@e" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@Entry e = new Entry()" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@addElement(Entry)" shape=ellipse]
+8 [label="4:CtVirtualElement@addElement" shape=ellipse]
+9 [label="4:CtFieldReadImpl@entries" shape=ellipse]
+10 [label="4:CtVariableReadImpl@e" shape=ellipse]
+11 [label="4:CtInvocationImpl@entries.addElement(e)" shape=ellipse]
+12 [label="5:CtVariableReadImpl@e" shape=ellipse]
+13 [label="5:CtReturnImpl@return e" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    Entry e = new Entry();
+    entries.addElement(e);
+    return e;
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@public Entry createEntry() \{
+    Entry e = new Entry();
+    entries.addElement(e);
+    return e;
+\}" shape=ellipse]
+16 [label="4:Update@UPDATE" shape=ellipse]
+17 [label="4:CtInvocationImpl@entries.add(e)" shape=ellipse]
+5 -> 10 [label="Define-Use"];
+5 -> 12 [label="Define-Use"];
+6 -> 5 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 16 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 6 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 17 [label="Action"];
+}

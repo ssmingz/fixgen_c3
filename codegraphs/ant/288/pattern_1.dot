@@ -1,0 +1,61 @@
+digraph "Pattern" {
+0 [label="testDeleteRestart#?#6:DELETE
+testAppend#?#6:DELETE
+testNoAppend#?#6:DELETE
+testRestart#?#6:DELETE" shape=ellipse]
+1 [label="testDeleteRestart#?#6:fileUtils
+testAppend#?#6:fileUtils
+testNoAppend#?#6:fileUtils
+testRestart#?#6:fileUtils" shape=ellipse]
+2 [label="testDeleteRestart#?#3:fileUtils
+testAppend#?#3:fileUtils
+testNoAppend#?#3:fileUtils
+testRestart#?#3:fileUtils" shape=ellipse]
+3 [label="testDeleteRestart#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testAppend#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testNoAppend#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testRestart#?#3:FileUtils fileUtils = FileUtils.newFileUtils()" shape=ellipse]
+4 [label="testDeleteRestart#?#6:fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\"))
+testAppend#?#6:fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\"))
+testNoAppend#?#6:fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"))
+testRestart#?#6:fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\"))" shape=ellipse]
+5 [label="testDeleteRestart#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\")))
+testAppend#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")))
+testNoAppend#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")))
+testRestart#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\")))" shape=ellipse]
+6 [label="testDeleteRestart#?#6:contentEquals
+testAppend#?#6:contentEquals
+testNoAppend#?#6:contentEquals
+testRestart#?#6:contentEquals" shape=ellipse]
+7 [label="testDeleteRestart#?#6:contentEquals()
+testAppend#?#6:contentEquals()
+testNoAppend#?#6:contentEquals()
+testRestart#?#6:contentEquals()" shape=ellipse]
+8 [label="testDeleteRestart#?#7:project.resolveFile(REC_DIR + \"rectest4.result\")
+testAppend#?#7:project.resolveFile(REC_DIR + \"rectest2.result\")
+testNoAppend#?#7:project.resolveFile(REC_DIR + \"rectest1.result\")
+testRestart#?#7:project.resolveFile(REC_DIR + \"rectest3.result\")" shape=ellipse]
+9 [label="testDeleteRestart#?#8:project.resolveFile(REC_DIR + \"rectest4.log\")
+testAppend#?#8:project.resolveFile(REC_DIR + \"rectest2.log\")
+testNoAppend#?#8:project.resolveFile(REC_DIR + \"rectest1.log\")
+testRestart#?#8:project.resolveFile(REC_DIR + \"rectest3.log\")" shape=ellipse]
+10 [label="testDeleteRestart#?#5:INSERT
+testAppend#?#5:INSERT
+testNoAppend#?#5:INSERT
+testRestart#?#5:INSERT" shape=ellipse]
+11 [label="testDeleteRestart#?#-1:fileUtils
+testAppend#?#-1:fileUtils
+testNoAppend#?#-1:fileUtils
+testRestart#?#-1:fileUtils" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 11 [label="AST:4"];
+2 -> 1 [label="Define Use:4"];
+3 -> 2 [label="AST:4"];
+4 -> 1 [label="AST:4"];
+4 -> 6 [label="AST:4"];
+4 -> 7 [label="AST:4"];
+4 -> 8 [label="AST:4"];
+4 -> 9 [label="AST:4"];
+4 -> 10 [label="Action:4"];
+5 -> 4 [label="AST:4"];
+}

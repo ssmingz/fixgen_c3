@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="test4#?#2:INSERT
+test9#?#2:INSERT" shape=ellipse]
+1 [label="test4#?#2:public void test4() \{
+    expectBuildExceptionContaining(\"test4\", \"Manifest is invalid - section starts with continuation line\", \"Invalid Manifest\");
+\}
+test9#?#2:public void test9() \{
+    expectBuildExceptionContaining(\"test9\", \"Construction is invalid - Name attribute should not be used\", \"Specify the section name using the \\"name\\" attribute of the <section> element\");
+\}" shape=ellipse]
+2 [label="test4#?#2:test4
+test9#?#2:test9" shape=ellipse]
+3 [label="test4#?#2:void
+test9#?#2:void" shape=ellipse]
+4 [label="test4#?#2:\{
+    expectBuildExceptionContaining(\"test4\", \"Manifest is invalid - section starts with continuation line\", \"Invalid Manifest\");
+\}
+test9#?#2:\{
+    expectBuildExceptionContaining(\"test9\", \"Construction is invalid - Name attribute should not be used\", \"Specify the section name using the \\"name\\" attribute of the <section> element\");
+\}" shape=ellipse]
+5 [label="test4#?#3:expectBuildExceptionContaining(\"test4\", \"Manifest is invalid - section starts with continuation line\", \"Invalid Manifest\")
+test9#?#3:expectBuildExceptionContaining(\"test9\", \"Construction is invalid - Name attribute should not be used\", \"Specify the section name using the \\"name\\" attribute of the <section> element\")" shape=ellipse]
+6 [label="test4#?#2:public
+test9#?#2:public" shape=ellipse]
+7 [label="test4#?#2:VE: Modifiers_Method
+test9#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="test4#?#4:INSERT
+test9#?#4:INSERT" shape=ellipse]
+9 [label="test4#?#4:try \{
+    buildRule.executeTarget(\"test4\");
+    fail(\"BuildException expected: Manifest is invalid - section starts with continuation line\");
+\} catch (BuildException ex) \{
+    assertContains(\"Invalid Manifest\", ex.getMessage());
+\}
+test9#?#4:try \{
+    buildRule.executeTarget(\"test9\");
+    fail(\"BuildException expected: Construction is invalid - Name attribute should not be used\");
+\} catch (BuildException ex) \{
+    assertContains(\"Specify the section name using the \\"name\\" attribute of the <section> element\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="test4#?#2:@Test
+test9#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

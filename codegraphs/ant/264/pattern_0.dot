@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="processLine#?#4:UPDATE
+processLine#?#7:UPDATE" shape=ellipse]
+1 [label="processLine#?#4:project
+processLine#?#7:project" shape=ellipse]
+2 [label="processLine#?#4:project.log(s, msgOutputLevel)
+processLine#?#7:project.log(s)" shape=ellipse]
+3 [label="processLine#?#2:\{
+    String s = line.toString();
+    project.log(s, msgOutputLevel);
+    line = new StringBuffer();
+\}
+processLine#?#2:\{
+    String s = line.toString();
+    if (s.indexOf(\"error\") > (-1)) \{
+        errorFlag = true;
+    \}
+    project.log(s);
+    line = new StringBuffer();
+\}" shape=ellipse]
+4 [label="processLine#?#4:log
+processLine#?#7:log" shape=ellipse]
+5 [label="processLine#?#4:log(java.lang.String)
+processLine#?#7:log(java.lang.String)" shape=ellipse]
+6 [label="processLine#?#4:s
+processLine#?#7:s" shape=ellipse]
+7 [label="processLine#?#4:msgOutputLevel" shape=ellipse]
+8 [label="processLine#?#-1:project
+processLine#?#-1:project" shape=ellipse]
+9 [label="processLine#?#4:task
+processLine#?#7:task" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+}

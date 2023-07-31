@@ -1,0 +1,113 @@
+digraph "Pattern" {
+0 [label="checkLParen#?#3:INSERT
+checkRParen#?#3:INSERT" shape=ellipse]
+1 [label="checkLParen#?#3:DetailAST lparen = getMainAst()
+checkRParen#?#3:DetailAST rparen = getMainAst().findFirstToken(RPAREN)" shape=ellipse]
+2 [label="checkLParen#?#2:\{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}
+checkRParen#?#2:\{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}" shape=ellipse]
+3 [label="checkLParen#?#2:private void checkLParen() \{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}
+checkRParen#?#2:private void checkRParen() \{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}" shape=ellipse]
+4 [label="checkLParen#?#4:int columnNo = expandedTabsColumnNo(lparen)
+checkRParen#?#4:int columnNo = expandedTabsColumnNo(rparen)" shape=ellipse]
+5 [label="checkLParen#?#5:if (getLevel().accept(columnNo)) \{
+    return;
+\}
+checkRParen#?#5:if (getLevel().accept(columnNo)) \{
+    return;
+\}" shape=ellipse]
+6 [label="checkLParen#?#8:if (!startsLine(lparen)) \{
+    return;
+\}
+checkRParen#?#8:if (!startsLine(rparen)) \{
+    return;
+\}" shape=ellipse]
+7 [label="checkLParen#?#11:logError(lparen, \"lparen\", columnNo)
+checkRParen#?#11:logError(rparen, \"rparen\", columnNo)" shape=ellipse]
+8 [label="checkLParen#?#3:lparen
+checkRParen#?#3:rparen" shape=ellipse]
+9 [label="checkLParen#?#3:
+checkRParen#?#3:" shape=ellipse]
+10 [label="checkLParen#?#4:lparen
+checkRParen#?#4:rparen" shape=ellipse]
+11 [label="checkLParen#?#8:lparen
+checkRParen#?#8:rparen" shape=ellipse]
+12 [label="checkLParen#?#11:lparen
+checkRParen#?#11:rparen" shape=ellipse]
+13 [label="checkLParen#?#3:DetailAST
+checkRParen#?#3:DetailAST" shape=ellipse]
+14 [label="checkLParen#?#3:
+checkRParen#?#3:" shape=ellipse]
+15 [label="checkLParen#?#3:getMainAst()" shape=ellipse]
+16 [label="checkLParen#?#3:getMainAst
+checkRParen#?#3:findFirstToken" shape=ellipse]
+17 [label="checkLParen#?#3:getMainAst()
+checkRParen#?#3:findFirstToken()" shape=ellipse]
+18 [label="checkRParen#?#3:getMainAst().findFirstToken(RPAREN)" shape=ellipse]
+19 [label="checkRParen#?#3:getMainAst()" shape=ellipse]
+20 [label="checkRParen#?#3:RPAREN" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 15 [label="AST:1"];
+1 -> 18 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+8 -> 10 [label="Define Use:2"];
+8 -> 11 [label="Define Use:2"];
+8 -> 12 [label="Define Use:2"];
+9 -> 8 [label="Data Dep:2"];
+13 -> 14 [label="AST:2"];
+15 -> 9 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+18 -> 16 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 17 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+19 -> 9 [label="AST:1"];
+}

@@ -1,0 +1,41 @@
+digraph "getFailOnError#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@getFailOnError" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@equals()" shape=ellipse]
+3 [label="3:CtVirtualElement@equals" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@getWritableFiles()" shape=ellipse]
+5 [label="3:CtVirtualElement@getWritableFiles" shape=ellipse]
+6 [label="3:CtInvocationImpl@getWritableFiles()" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@WRITABLE_SKIP" shape=ellipse]
+8 [label="3:CtInvocationImpl@getWritableFiles().equals(WRITABLE_SKIP)" shape=ellipse]
+9 [label="3:CtLiteralImpl@false" shape=ellipse]
+10 [label="3:CtFieldReadImpl@m_FailOnError" shape=ellipse]
+11 [label="3:CtConditionalImpl@getWritableFiles().equals(WRITABLE_SKIP) ? false : m_FailOnError" shape=ellipse]
+12 [label="3:CtReturnImpl@return getWritableFiles().equals(WRITABLE_SKIP) ? false : m_FailOnError" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    return getWritableFiles().equals(WRITABLE_SKIP) ? false : m_FailOnError;
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@private boolean getFailOnError() \{
+    return getWritableFiles().equals(WRITABLE_SKIP) ? false : m_FailOnError;
+\}" shape=ellipse]
+15 [label="3:Update@UPDATE" shape=ellipse]
+16 [label="3:CtFieldReadImpl@failOnError" shape=ellipse]
+6 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+8 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 9 [label="Control Dep"];
+8 -> 10 [label="Control Dep"];
+10 -> 15 [label="Action"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 16 [label="Action"];
+}

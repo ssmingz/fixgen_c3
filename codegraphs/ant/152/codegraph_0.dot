@@ -1,0 +1,87 @@
+digraph "zipFile#?,File,ZipOutputStream,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@zipFile" shape=ellipse]
+2 [label="2:CtParameterImpl@File file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@ZipOutputStream zOut" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@ZipOutputStream" shape=ellipse]
+6 [label="2:CtParameterImpl@String vPath" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+8 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+11 [label="3:CtVariableReadImpl@file" shape=ellipse]
+12 [label="3:CtConstructorCallImpl@new FileInputStream(file)" shape=ellipse]
+13 [label="3:CtVirtualElement@fIn" shape=ellipse]
+14 [label="3:CtLocalVariableImpl@FileInputStream fIn = new FileInputStream(file)" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@zipFile(File,ZipOutputStream,java.lang.String)" shape=ellipse]
+16 [label="4:CtVirtualElement@zipFile" shape=ellipse]
+17 [label="4:CtVariableReadImpl@fIn" shape=ellipse]
+18 [label="4:CtVariableReadImpl@zOut" shape=ellipse]
+19 [label="4:CtVariableReadImpl@vPath" shape=ellipse]
+20 [label="4:CtExecutableReferenceImpl@lastModified()" shape=ellipse]
+21 [label="4:CtVirtualElement@lastModified" shape=ellipse]
+22 [label="4:CtVariableReadImpl@file" shape=ellipse]
+23 [label="4:CtInvocationImpl@file.lastModified()" shape=ellipse]
+24 [label="4:CtInvocationImpl@zipFile(fIn, zOut, vPath, file.lastModified())" shape=ellipse]
+25 [label="5:CtExecutableReferenceImpl@close()" shape=ellipse]
+26 [label="5:CtVirtualElement@close" shape=ellipse]
+27 [label="5:CtVariableReadImpl@fIn" shape=ellipse]
+28 [label="5:CtInvocationImpl@fIn.close()" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut, vPath, file.lastModified());
+    fIn.close();
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@protected void zipFile(File file, ZipOutputStream zOut, String vPath) throws IOException \{
+    FileInputStream fIn = new FileInputStream(file);
+    zipFile(fIn, zOut, vPath, file.lastModified());
+    fIn.close();
+\}" shape=ellipse]
+31 [label="4:Insert@INSERT" shape=ellipse]
+32 [label="4:CtTryImpl@try \{
+    zipFile(fIn, zOut, vPath, file.lastModified());
+\} finally \{
+    fIn.close();
+\}" shape=ellipse]
+33 [label="4:Move@MOVE" shape=ellipse]
+34 [label="5:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+11 -> 13 [label="Data Dep"];
+12 -> 11 [label="AST"];
+13 -> 17 [label="Define-Use"];
+13 -> 27 [label="Define-Use"];
+14 -> 13 [label="AST"];
+14 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+24 -> 16 [label="AST"];
+24 -> 15 [label="AST"];
+24 -> 17 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 33 [label="Action"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 34 [label="Action"];
+29 -> 14 [label="AST"];
+29 -> 24 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 4 [label="AST"];
+30 -> 6 [label="AST"];
+30 -> 8 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 31 [label="Action"];
+31 -> 32 [label="Action"];
+33 -> 32 [label="Action"];
+34 -> 32 [label="Action"];
+}

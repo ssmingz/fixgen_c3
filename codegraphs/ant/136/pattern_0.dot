@@ -1,0 +1,241 @@
+digraph "Pattern" {
+0 [label="test1#?#-1:DELETE
+test2#?#-1:DELETE
+testFullPathMatchesCaseSensitive#?#-1:DELETE" shape=ellipse]
+1 [label="test1#?#-1:PlaceHold
+test2#?#-1:PlaceHold
+testFullPathMatchesCaseSensitive#?#-1:PlaceHold" shape=ellipse]
+2 [label="test1#?#4:changeRemoteDir(remoteTmpDir)
+test2#?#4:changeRemoteDir(remoteTmpDir)
+testFullPathMatchesCaseSensitive#?#4:changeRemoteDir(remoteTmpDir)" shape=ellipse]
+3 [label="test1#?#3:loginSuceeded
+test2#?#3:loginSuceeded
+testFullPathMatchesCaseSensitive#?#3:loginSuceeded" shape=ellipse]
+4 [label="test1#?#4:if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+\}
+test2#?#4:if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{ \"alpha/beta/beta.xml\", \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha\", \"alpha/beta\", \"alpha/beta/gamma\" \});
+\}
+testFullPathMatchesCaseSensitive#?#4:if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{  \});
+\}" shape=ellipse]
+5 [label="test1#?#4:changeRemoteDir
+test2#?#4:changeRemoteDir
+testFullPathMatchesCaseSensitive#?#4:changeRemoteDir" shape=ellipse]
+6 [label="test1#?#-1:
+test2#?#-1:
+testFullPathMatchesCaseSensitive#?#-1:" shape=ellipse]
+7 [label="test1#?#4:changeRemoteDir(<unknown>)
+test2#?#4:changeRemoteDir(<unknown>)
+testFullPathMatchesCaseSensitive#?#4:changeRemoteDir(<unknown>)" shape=ellipse]
+8 [label="test1#?#4:remoteTmpDir
+test2#?#4:remoteTmpDir
+testFullPathMatchesCaseSensitive#?#4:remoteTmpDir" shape=ellipse]
+9 [label="test1#?#4:\{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+\}
+test2#?#4:\{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{ \"alpha/beta/beta.xml\", \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha\", \"alpha/beta\", \"alpha/beta/gamma\" \});
+\}
+testFullPathMatchesCaseSensitive#?#4:\{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{  \});
+\}" shape=ellipse]
+10 [label="test1#?#5:FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)
+test2#?#5:FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)
+testFullPathMatchesCaseSensitive#?#5:FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)" shape=ellipse]
+11 [label="test1#?#5:myFTPTask.newScanner(ftp)
+test2#?#5:myFTPTask.newScanner(ftp)
+testFullPathMatchesCaseSensitive#?#5:myFTPTask.newScanner(ftp)" shape=ellipse]
+12 [label="test1#?#5:newScanner()
+test2#?#5:newScanner()
+testFullPathMatchesCaseSensitive#?#5:newScanner()" shape=ellipse]
+13 [label="test1#?#5:myFTPTask
+test2#?#5:myFTPTask
+testFullPathMatchesCaseSensitive#?#5:myFTPTask" shape=ellipse]
+14 [label="test1#?#5:ftp
+test2#?#5:ftp
+testFullPathMatchesCaseSensitive#?#5:ftp" shape=ellipse]
+15 [label="test1#?#6:ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))
+test2#?#6:ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))
+testFullPathMatchesCaseSensitive#?#6:ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))" shape=ellipse]
+16 [label="test1#?#6:setBasedir(File)
+test2#?#6:setBasedir(File)
+testFullPathMatchesCaseSensitive#?#6:setBasedir(File)" shape=ellipse]
+17 [label="test1#?#6:ds
+test2#?#6:ds
+testFullPathMatchesCaseSensitive#?#6:ds" shape=ellipse]
+18 [label="test1#?#6:new File(getProject().getBaseDir(), \"tmp\")
+test2#?#6:new File(getProject().getBaseDir(), \"tmp\")
+testFullPathMatchesCaseSensitive#?#6:new File(getProject().getBaseDir(), \"tmp\")" shape=ellipse]
+19 [label="test1#?#-1:File()
+test2#?#-1:File()
+testFullPathMatchesCaseSensitive#?#-1:File()" shape=ellipse]
+20 [label="test1#?#6:getProject().getBaseDir()
+test2#?#6:getProject().getBaseDir()
+testFullPathMatchesCaseSensitive#?#6:getProject().getBaseDir()" shape=ellipse]
+21 [label="test1#?#6:getBaseDir()
+test2#?#6:getBaseDir()
+testFullPathMatchesCaseSensitive#?#6:getBaseDir()" shape=ellipse]
+22 [label="test1#?#6:getProject()
+test2#?#6:getProject()
+testFullPathMatchesCaseSensitive#?#6:getProject()" shape=ellipse]
+23 [label="test1#?#6:getProject()
+test2#?#6:getProject()
+testFullPathMatchesCaseSensitive#?#6:getProject()" shape=ellipse]
+24 [label="test1#?#-1:
+test2#?#-1:
+testFullPathMatchesCaseSensitive#?#-1:" shape=ellipse]
+25 [label="test1#?#6:\"tmp\"
+test2#?#6:\"tmp\"
+testFullPathMatchesCaseSensitive#?#6:\"tmp\"" shape=ellipse]
+26 [label="test1#?#7:ds.setIncludes(new String[]\{ \"alpha\" \})
+test2#?#7:ds.setIncludes(new String[]\{ \"alpha/\" \})
+testFullPathMatchesCaseSensitive#?#7:ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \})" shape=ellipse]
+27 [label="test1#?#7:setIncludes(java.lang.String[])
+test2#?#7:setIncludes(java.lang.String[])
+testFullPathMatchesCaseSensitive#?#7:setIncludes(java.lang.String[])" shape=ellipse]
+28 [label="test1#?#7:ds
+test2#?#7:ds
+testFullPathMatchesCaseSensitive#?#7:ds" shape=ellipse]
+29 [label="test1#?#7:new String[]\{ \"alpha\" \}
+test2#?#7:new String[]\{ \"alpha/\" \}
+testFullPathMatchesCaseSensitive#?#7:new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \}" shape=ellipse]
+30 [label="test1#?#8:ds.scan()
+test2#?#8:ds.scan()
+testFullPathMatchesCaseSensitive#?#8:ds.scan()" shape=ellipse]
+31 [label="test1#?#8:scan()
+test2#?#8:scan()
+testFullPathMatchesCaseSensitive#?#8:scan()" shape=ellipse]
+32 [label="test1#?#8:ds
+test2#?#8:ds
+testFullPathMatchesCaseSensitive#?#8:ds" shape=ellipse]
+33 [label="test1#?#9:compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \})
+test2#?#9:compareFiles(ds, new String[]\{ \"alpha/beta/beta.xml\", \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha\", \"alpha/beta\", \"alpha/beta/gamma\" \})
+testFullPathMatchesCaseSensitive#?#9:compareFiles(ds, new String[]\{  \}, new String[]\{  \})" shape=ellipse]
+34 [label="test1#?#9:compareFiles(<unknown>,java.lang.String[],java.lang.String[])
+test2#?#9:compareFiles(<unknown>,java.lang.String[],java.lang.String[])
+testFullPathMatchesCaseSensitive#?#9:compareFiles(<unknown>,java.lang.String[],java.lang.String[])" shape=ellipse]
+35 [label="test1#?#-1:
+test2#?#-1:
+testFullPathMatchesCaseSensitive#?#-1:" shape=ellipse]
+36 [label="test1#?#-1:PlaceHold
+test2#?#-1:PlaceHold
+testFullPathMatchesCaseSensitive#?#-1:PlaceHold" shape=ellipse]
+37 [label="test1#?#9:ds
+test2#?#10:ds
+testFullPathMatchesCaseSensitive#?#9:ds" shape=ellipse]
+38 [label="test1#?#9:new String[]\{  \}
+test2#?#12:new String[]\{ \"alpha\", \"alpha/beta\", \"alpha/beta/gamma\" \}
+testFullPathMatchesCaseSensitive#?#9:new String[]\{  \}" shape=ellipse]
+39 [label="test1#?#9:new String[]\{ \"alpha\" \}
+test2#?#11:new String[]\{ \"alpha/beta/beta.xml\", \"alpha/beta/gamma/gamma.xml\" \}
+testFullPathMatchesCaseSensitive#?#9:new String[]\{  \}" shape=ellipse]
+40 [label="test1#?#4:MOVE
+test2#?#4:MOVE
+testFullPathMatchesCaseSensitive#?#4:MOVE" shape=ellipse]
+41 [label="test1#?#-1:PlaceHold
+test2#?#-1:PlaceHold
+testFullPathMatchesCaseSensitive#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 41 [label="AST:3"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="AST:3"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:3"];
+2 -> 15 [label="Control Dep:3"];
+2 -> 16 [label="Control Dep:3"];
+2 -> 17 [label="Control Dep:3"];
+2 -> 18 [label="Control Dep:3"];
+2 -> 19 [label="Control Dep:3"];
+2 -> 20 [label="Control Dep:3"];
+2 -> 21 [label="Control Dep:3"];
+2 -> 22 [label="Control Dep:3"];
+2 -> 23 [label="Control Dep:3"];
+2 -> 24 [label="Control Dep:3"];
+2 -> 25 [label="Control Dep:3"];
+2 -> 26 [label="Control Dep:3"];
+2 -> 27 [label="Control Dep:3"];
+2 -> 28 [label="Control Dep:3"];
+2 -> 29 [label="Control Dep:3"];
+2 -> 30 [label="Control Dep:3"];
+2 -> 31 [label="Control Dep:3"];
+2 -> 32 [label="Control Dep:3"];
+2 -> 33 [label="Control Dep:3"];
+2 -> 34 [label="Control Dep:3"];
+2 -> 35 [label="Control Dep:3"];
+2 -> 36 [label="Control Dep:3"];
+2 -> 37 [label="Control Dep:3"];
+2 -> 38 [label="Control Dep:3"];
+2 -> 39 [label="Control Dep:3"];
+2 -> 40 [label="Action:3"];
+3 -> 2 [label="Control Dep:3"];
+3 -> 4 [label="Control Dep:3"];
+3 -> 7 [label="Control Dep:3"];
+3 -> 6 [label="Control Dep:3"];
+3 -> 8 [label="Control Dep:3"];
+4 -> 2 [label="AST:3"];
+4 -> 9 [label="AST:3"];
+9 -> 10 [label="AST:3"];
+9 -> 15 [label="AST:3"];
+9 -> 26 [label="AST:3"];
+9 -> 30 [label="AST:3"];
+9 -> 33 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 14 [label="AST:3"];
+15 -> 17 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+15 -> 18 [label="AST:3"];
+18 -> 19 [label="AST:3"];
+18 -> 20 [label="AST:3"];
+18 -> 25 [label="AST:3"];
+20 -> 22 [label="AST:3"];
+20 -> 21 [label="AST:3"];
+22 -> 24 [label="AST:3"];
+22 -> 23 [label="AST:3"];
+24 -> 1 [label="AST:3"];
+26 -> 28 [label="AST:3"];
+26 -> 27 [label="AST:3"];
+26 -> 29 [label="AST:3"];
+30 -> 32 [label="AST:3"];
+30 -> 31 [label="AST:3"];
+33 -> 35 [label="AST:3"];
+33 -> 34 [label="AST:3"];
+33 -> 37 [label="AST:3"];
+33 -> 38 [label="AST:3"];
+33 -> 39 [label="AST:3"];
+35 -> 36 [label="AST:3"];
+}

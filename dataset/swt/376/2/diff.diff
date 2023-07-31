@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/376/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/376/2/after.java
+@@ -4,1 +4,1 @@
+-    Rect bounds = new Rect();
++    MacRect bounds = new MacRect();
+@@ -8,1 +8,1 @@
+-        OS.GetPixBounds(pm, bounds);
++        OS.GetPixBounds(pm, bounds.getData());
+@@ -11,3 +11,1 @@
+-    int width = bounds.right - bounds.left;
+-    int height = bounds.bottom - bounds.top;
+-    return new Rectangle(bounds.left, bounds.top, width, height);
++    return bounds.toRectangle();

@@ -1,0 +1,47 @@
+digraph "Pattern" {
+0 [label="testDefaultExcludesAndUpdate#?#7:INSERT
+testPrefixAddsDir#?#5:INSERT" shape=ellipse]
+1 [label="testDefaultExcludesAndUpdate#?#6:getProject()
+testPrefixAddsDir#?#4:getProject()" shape=ellipse]
+2 [label="testDefaultExcludesAndUpdate#?#6:getProject().getProperty(\"output\")
+testPrefixAddsDir#?#4:getProject().getProperty(\"output\")" shape=ellipse]
+3 [label="testDefaultExcludesAndUpdate#?#6:new File(getProject().getProperty(\"output\"), \"test3.zip\")
+testPrefixAddsDir#?#4:new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+4 [label="testDefaultExcludesAndUpdate#?#6:getProperty
+testPrefixAddsDir#?#4:getProperty" shape=ellipse]
+5 [label="testDefaultExcludesAndUpdate#?#6:getProperty(java.lang.String)
+testPrefixAddsDir#?#4:getProperty(java.lang.String)" shape=ellipse]
+6 [label="testDefaultExcludesAndUpdate#?#6:\"output\"
+testPrefixAddsDir#?#4:\"output\"" shape=ellipse]
+7 [label="testDefaultExcludesAndUpdate#?#6:getProject
+testPrefixAddsDir#?#4:getProject" shape=ellipse]
+8 [label="testDefaultExcludesAndUpdate#?#-1:
+testPrefixAddsDir#?#-1:" shape=ellipse]
+9 [label="testDefaultExcludesAndUpdate#?#-1:PlaceHold
+testPrefixAddsDir#?#-1:PlaceHold" shape=ellipse]
+10 [label="testDefaultExcludesAndUpdate#?#-1:PlaceHold
+testPrefixAddsDir#?#-1:PlaceHold" shape=ellipse]
+11 [label="testDefaultExcludesAndUpdate#?#6:f
+testPrefixAddsDir#?#4:archive" shape=ellipse]
+12 [label="testDefaultExcludesAndUpdate#?#6:getProject()
+testPrefixAddsDir#?#4:getProject()" shape=ellipse]
+13 [label="testDefaultExcludesAndUpdate#?#7:buildRule
+testPrefixAddsDir#?#5:buildRule" shape=ellipse]
+14 [label="testPrefixAddsDir#?#6:archive" shape=ellipse]
+15 [label="testPrefixAddsDir#?#5:archive" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="Data Dep:2"];
+13 -> 15 [label="Data Dep:1"];
+15 -> 14 [label="Define Use:1"];
+}

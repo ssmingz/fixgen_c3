@@ -1,0 +1,675 @@
+digraph "Pattern" {
+0 [label="loadClass#?,String#7:INSERT
+determineDependencies#?#57:INSERT
+execute#?#46:INSERT
+execute#?#46:INSERT
+determineDependencies#?#57:INSERT" shape=ellipse]
+1 [label="loadClass#?,String#5:\{
+    final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+    return classLoader.loadClass(classname);
+\}
+determineDependencies#?#54:\{
+    classpathDependencies = new Hashtable();
+    final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs());
+    Hashtable classpathFileCache = new Hashtable();
+    Object nullFileMarker = new Object();
+    for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+        String className = ((String) (e.nextElement()));
+        ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+        Hashtable dependencies = new Hashtable();
+        classpathDependencies.put(className, dependencies);
+        for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+            String dependency = ((String) (e2.next()));
+            Object classpathFileObject = classpathFileCache.get(dependency);
+            if (classpathFileObject == null) \{
+                classpathFileObject = nullFileMarker;
+                if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                    final String name = dependency.replace('.', '/') + \".class\";
+                    URL classURL = classLoader.getResource(name);
+                    if (classURL != null) \{
+                        if (classURL.getProtocol().equals(\"jar\")) \{
+                            String jarFilePath = classURL.getFile();
+                            if (jarFilePath.startsWith(\"file:\")) \{
+                                int classMarker = jarFilePath.indexOf('!');
+                                jarFilePath = jarFilePath.substring(5, classMarker);
+                            \}
+                            classpathFileObject = new File(jarFilePath);
+                        \} else if (classURL.getProtocol().equals(\"file\")) \{
+                            String classFilePath = classURL.getFile();
+                            classpathFileObject = new File(classFilePath);
+                        \}
+                        getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                    \}
+                \}
+                classpathFileCache.put(dependency, classpathFileObject);
+            \}
+            if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+                File jarFile = ((File) (classpathFileObject));
+                dependencies.put(jarFile, jarFile);
+            \}
+        \}
+    \}
+\}
+execute#?#42:\{
+    getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath);
+    final ClassLoader classLoader = new URLClassLoader(classpath.toURLs());
+    dc = classLoader.loadClass(driver);
+\}
+execute#?#42:\{
+    getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath);
+    final ClassLoader classLoader = new URLClassLoader(classpath.toURLs());
+    dc = classLoader.loadClass(driver);
+\}
+determineDependencies#?#54:\{
+    classpathDependencies = new Hashtable();
+    final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs());
+    Hashtable classpathFileCache = new Hashtable();
+    Object nullFileMarker = new Object();
+    for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+        String className = ((String) (e.nextElement()));
+        ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+        Hashtable dependencies = new Hashtable();
+        classpathDependencies.put(className, dependencies);
+        for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+            String dependency = ((String) (e2.next()));
+            Object classpathFileObject = classpathFileCache.get(dependency);
+            if (classpathFileObject == null) \{
+                classpathFileObject = nullFileMarker;
+                if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                    final String name = dependency.replace('.', '/') + \".class\";
+                    URL classURL = classLoader.getResource(name);
+                    if (classURL != null) \{
+                        if (classURL.getProtocol().equals(\"jar\")) \{
+                            String jarFilePath = classURL.getFile();
+                            if (jarFilePath.startsWith(\"file:\")) \{
+                                int classMarker = jarFilePath.indexOf('!');
+                                jarFilePath = jarFilePath.substring(5, classMarker);
+                            \}
+                            classpathFileObject = new File(jarFilePath);
+                        \} else if (classURL.getProtocol().equals(\"file\")) \{
+                            String classFilePath = classURL.getFile();
+                            classpathFileObject = new File(classFilePath);
+                        \}
+                        getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                    \}
+                \}
+                classpathFileCache.put(dependency, classpathFileObject);
+            \}
+            if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+                File jarFile = ((File) (classpathFileObject));
+                dependencies.put(jarFile, jarFile);
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="loadClass#?,String#3:m_classpath == null
+determineDependencies#?#54:dependClasspath != null
+execute#?#42:classpath != null
+execute#?#42:classpath != null
+determineDependencies#?#54:dependClasspath != null" shape=ellipse]
+3 [label="loadClass#?,String#3:if (m_classpath == null) \{
+    return Class.forName(classname);
+\} else \{
+    final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+    return classLoader.loadClass(classname);
+\}
+determineDependencies#?#54:if (dependClasspath != null) \{
+    classpathDependencies = new Hashtable();
+    final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs());
+    Hashtable classpathFileCache = new Hashtable();
+    Object nullFileMarker = new Object();
+    for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+        String className = ((String) (e.nextElement()));
+        ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+        Hashtable dependencies = new Hashtable();
+        classpathDependencies.put(className, dependencies);
+        for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+            String dependency = ((String) (e2.next()));
+            Object classpathFileObject = classpathFileCache.get(dependency);
+            if (classpathFileObject == null) \{
+                classpathFileObject = nullFileMarker;
+                if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                    final String name = dependency.replace('.', '/') + \".class\";
+                    URL classURL = classLoader.getResource(name);
+                    if (classURL != null) \{
+                        if (classURL.getProtocol().equals(\"jar\")) \{
+                            String jarFilePath = classURL.getFile();
+                            if (jarFilePath.startsWith(\"file:\")) \{
+                                int classMarker = jarFilePath.indexOf('!');
+                                jarFilePath = jarFilePath.substring(5, classMarker);
+                            \}
+                            classpathFileObject = new File(jarFilePath);
+                        \} else if (classURL.getProtocol().equals(\"file\")) \{
+                            String classFilePath = classURL.getFile();
+                            classpathFileObject = new File(classFilePath);
+                        \}
+                        getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                    \}
+                \}
+                classpathFileCache.put(dependency, classpathFileObject);
+            \}
+            if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+                File jarFile = ((File) (classpathFileObject));
+                dependencies.put(jarFile, jarFile);
+            \}
+        \}
+    \}
+\}
+execute#?#42:if (classpath != null) \{
+    getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath);
+    final ClassLoader classLoader = new URLClassLoader(classpath.toURLs());
+    dc = classLoader.loadClass(driver);
+\} else \{
+    getLogger().debug((\"Loading \" + driver) + \" using system loader.\");
+    dc = Class.forName(driver);
+\}
+execute#?#42:if (classpath != null) \{
+    getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath);
+    final ClassLoader classLoader = new URLClassLoader(classpath.toURLs());
+    dc = classLoader.loadClass(driver);
+\} else \{
+    getLogger().debug((\"Loading \" + driver) + \" using system loader.\");
+    dc = Class.forName(driver);
+\}
+determineDependencies#?#54:if (dependClasspath != null) \{
+    classpathDependencies = new Hashtable();
+    final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs());
+    Hashtable classpathFileCache = new Hashtable();
+    Object nullFileMarker = new Object();
+    for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+        String className = ((String) (e.nextElement()));
+        ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+        Hashtable dependencies = new Hashtable();
+        classpathDependencies.put(className, dependencies);
+        for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+            String dependency = ((String) (e2.next()));
+            Object classpathFileObject = classpathFileCache.get(dependency);
+            if (classpathFileObject == null) \{
+                classpathFileObject = nullFileMarker;
+                if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                    final String name = dependency.replace('.', '/') + \".class\";
+                    URL classURL = classLoader.getResource(name);
+                    if (classURL != null) \{
+                        if (classURL.getProtocol().equals(\"jar\")) \{
+                            String jarFilePath = classURL.getFile();
+                            if (jarFilePath.startsWith(\"file:\")) \{
+                                int classMarker = jarFilePath.indexOf('!');
+                                jarFilePath = jarFilePath.substring(5, classMarker);
+                            \}
+                            classpathFileObject = new File(jarFilePath);
+                        \} else if (classURL.getProtocol().equals(\"file\")) \{
+                            String classFilePath = classURL.getFile();
+                            classpathFileObject = new File(classFilePath);
+                        \}
+                        getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                    \}
+                \}
+                classpathFileCache.put(dependency, classpathFileObject);
+            \}
+            if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+                File jarFile = ((File) (classpathFileObject));
+                dependencies.put(jarFile, jarFile);
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="loadClass#?,String#3:m_classpath
+determineDependencies#?#54:dependClasspath
+execute#?#42:classpath
+execute#?#42:classpath
+determineDependencies#?#54:dependClasspath" shape=ellipse]
+5 [label="loadClass#?,String#3:null
+determineDependencies#?#54:null
+execute#?#42:null
+execute#?#42:null
+determineDependencies#?#54:null" shape=ellipse]
+6 [label="loadClass#?,String#3:\{
+    return Class.forName(classname);
+\}
+execute#?#47:\{
+    getLogger().debug((\"Loading \" + driver) + \" using system loader.\");
+    dc = Class.forName(driver);
+\}
+execute#?#47:\{
+    getLogger().debug((\"Loading \" + driver) + \" using system loader.\");
+    dc = Class.forName(driver);
+\}" shape=ellipse]
+7 [label="loadClass#?,String#4:return Class.forName(classname)
+determineDependencies#?#59:Enumeration e = dependencyMap.keys()
+execute#?#49:dc = Class.forName(driver)
+execute#?#49:dc = Class.forName(driver)
+determineDependencies#?#59:Enumeration e = dependencyMap.keys()" shape=ellipse]
+8 [label="loadClass#?,String#4:Class.forName(classname)
+determineDependencies#?#59:dependencyMap.keys()
+execute#?#49:Class.forName(driver)
+execute#?#49:Class.forName(driver)
+determineDependencies#?#59:dependencyMap.keys()" shape=ellipse]
+9 [label="loadClass#?,String#4:forName(java.lang.String)
+determineDependencies#?#59:keys()
+execute#?#49:forName(java.lang.String)
+execute#?#49:forName(java.lang.String)
+determineDependencies#?#59:keys()" shape=ellipse]
+10 [label="loadClass#?,String#4:Class
+execute#?#49:Class
+execute#?#49:Class" shape=ellipse]
+11 [label="loadClass#?,String#4:classname
+determineDependencies#?#59:dependencyMap
+execute#?#49:driver
+execute#?#49:driver
+determineDependencies#?#59:dependencyMap" shape=ellipse]
+12 [label="loadClass#?,String#6:final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs())
+determineDependencies#?#56:final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs())
+execute#?#45:final ClassLoader classLoader = new URLClassLoader(classpath.toURLs())
+execute#?#45:final ClassLoader classLoader = new URLClassLoader(classpath.toURLs())
+determineDependencies#?#56:final ClassLoader classLoader = new URLClassLoader(dependClasspath.toURLs())" shape=ellipse]
+13 [label="loadClass#?,String#6:new URLClassLoader(m_classpath.toURLs())
+determineDependencies#?#56:new URLClassLoader(dependClasspath.toURLs())
+execute#?#45:new URLClassLoader(classpath.toURLs())
+execute#?#45:new URLClassLoader(classpath.toURLs())
+determineDependencies#?#56:new URLClassLoader(dependClasspath.toURLs())" shape=ellipse]
+14 [label="loadClass#?,String#-1:URLClassLoader()
+determineDependencies#?#-1:URLClassLoader()
+execute#?#-1:URLClassLoader()
+execute#?#-1:URLClassLoader()
+determineDependencies#?#-1:URLClassLoader()" shape=ellipse]
+15 [label="loadClass#?,String#6:m_classpath.toURLs()
+determineDependencies#?#56:dependClasspath.toURLs()
+execute#?#45:classpath.toURLs()
+execute#?#45:classpath.toURLs()
+determineDependencies#?#56:dependClasspath.toURLs()" shape=ellipse]
+16 [label="loadClass#?,String#6:toURLs()
+determineDependencies#?#56:toURLs()
+execute#?#45:toURLs()
+execute#?#45:toURLs()
+determineDependencies#?#56:toURLs()" shape=ellipse]
+17 [label="loadClass#?,String#6:m_classpath
+determineDependencies#?#56:dependClasspath
+execute#?#45:classpath
+execute#?#45:classpath
+determineDependencies#?#56:dependClasspath" shape=ellipse]
+18 [label="loadClass#?,String#7:return classLoader.loadClass(classname)
+determineDependencies#?#55:classpathDependencies = new Hashtable()
+execute#?#46:dc = classLoader.loadClass(driver)
+execute#?#46:dc = classLoader.loadClass(driver)
+determineDependencies#?#55:classpathDependencies = new Hashtable()" shape=ellipse]
+19 [label="loadClass#?,String#7:classLoader.loadClass(classname)
+execute#?#46:classLoader.loadClass(driver)
+execute#?#46:classLoader.loadClass(driver)" shape=ellipse]
+20 [label="loadClass#?,String#7:loadClass(java.lang.String)
+determineDependencies#?#-1:java.lang.Object()
+execute#?#46:loadClass(java.lang.String)
+execute#?#46:loadClass(java.lang.String)
+determineDependencies#?#-1:java.lang.Object()" shape=ellipse]
+21 [label="loadClass#?,String#7:classLoader
+execute#?#46:classLoader
+execute#?#46:classLoader" shape=ellipse]
+22 [label="loadClass#?,String#7:classname
+execute#?#46:driver
+execute#?#46:driver" shape=ellipse]
+23 [label="loadClass#?,String#7:final ClassLoader classLoader = new URLClassLoader(urls)
+determineDependencies#?#57:final ClassLoader classLoader = new URLClassLoader(urls)
+execute#?#46:final ClassLoader classLoader = new URLClassLoader(urls)
+execute#?#46:final ClassLoader classLoader = new URLClassLoader(urls)
+determineDependencies#?#57:final ClassLoader classLoader = new URLClassLoader(urls)" shape=ellipse]
+24 [label="loadClass#?,String#6:MOVE
+determineDependencies#?#56:MOVE
+execute#?#45:MOVE
+execute#?#45:MOVE
+determineDependencies#?#56:MOVE" shape=ellipse]
+25 [label="loadClass#?,String#6:
+determineDependencies#?#56:
+execute#?#45:
+execute#?#45:
+determineDependencies#?#56:" shape=ellipse]
+26 [label="determineDependencies#?#59:e" shape=ellipse]
+27 [label="determineDependencies#?#55:new Hashtable()" shape=ellipse]
+28 [label="determineDependencies#?#-1:Hashtable()" shape=ellipse]
+29 [label="determineDependencies#?#58:Object nullFileMarker = new Object()" shape=ellipse]
+30 [label="determineDependencies#?#57:Hashtable classpathFileCache = new Hashtable()" shape=ellipse]
+31 [label="determineDependencies#?#59:hasMoreElements()" shape=ellipse]
+32 [label="determineDependencies#?#55:classpathDependencies" shape=ellipse]
+33 [label="determineDependencies#?#-1:Hashtable()" shape=ellipse]
+34 [label="determineDependencies#?#58:new Object()" shape=ellipse]
+35 [label="determineDependencies#?#59:e.hasMoreElements()" shape=ellipse]
+36 [label="determineDependencies#?#57:new Hashtable()" shape=ellipse]
+37 [label="determineDependencies#?#59:for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+    String className = ((String) (e.nextElement()));
+    ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+    Hashtable dependencies = new Hashtable();
+    classpathDependencies.put(className, dependencies);
+    for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+        String dependency = ((String) (e2.next()));
+        Object classpathFileObject = classpathFileCache.get(dependency);
+        if (classpathFileObject == null) \{
+            classpathFileObject = nullFileMarker;
+            if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                final String name = dependency.replace('.', '/') + \".class\";
+                URL classURL = classLoader.getResource(name);
+                if (classURL != null) \{
+                    if (classURL.getProtocol().equals(\"jar\")) \{
+                        String jarFilePath = classURL.getFile();
+                        if (jarFilePath.startsWith(\"file:\")) \{
+                            int classMarker = jarFilePath.indexOf('!');
+                            jarFilePath = jarFilePath.substring(5, classMarker);
+                        \}
+                        classpathFileObject = new File(jarFilePath);
+                    \} else if (classURL.getProtocol().equals(\"file\")) \{
+                        String classFilePath = classURL.getFile();
+                        classpathFileObject = new File(classFilePath);
+                    \}
+                    getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                \}
+            \}
+            classpathFileCache.put(dependency, classpathFileObject);
+        \}
+        if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+            File jarFile = ((File) (classpathFileObject));
+            dependencies.put(jarFile, jarFile);
+        \}
+    \}
+\}" shape=ellipse]
+38 [label="execute#?#44:(\"Loading \" + driver)" shape=ellipse]
+39 [label="execute#?#-1:" shape=ellipse]
+40 [label="execute#?#44:\"Loading \"" shape=ellipse]
+41 [label="execute#?#44:((\"Loading \" + driver) + \" using AntClassLoader with classpath \")" shape=ellipse]
+42 [label="execute#?#43:getLogger()" shape=ellipse]
+43 [label="execute#?#46:dc" shape=ellipse]
+44 [label="execute#?#43:getLogger()" shape=ellipse]
+45 [label="execute#?#43:getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath)" shape=ellipse]
+46 [label="execute#?#48:\" using system loader.\"" shape=ellipse]
+47 [label="execute#?#49:dc" shape=ellipse]
+48 [label="execute#?#44:\" using AntClassLoader with classpath \"" shape=ellipse]
+49 [label="execute#?#44:((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath" shape=ellipse]
+50 [label="execute#?#44:driver" shape=ellipse]
+51 [label="execute#?#44:debug()" shape=ellipse]
+52 [label="execute#?#48:getLogger()" shape=ellipse]
+53 [label="execute#?#44:classpath" shape=ellipse]
+54 [label="execute#?#-1:PlaceHold" shape=ellipse]
+55 [label="execute#?#48:(\"Loading \" + driver)" shape=ellipse]
+56 [label="execute#?#48:getLogger()" shape=ellipse]
+57 [label="execute#?#48:debug()" shape=ellipse]
+58 [label="execute#?#48:(\"Loading \" + driver) + \" using system loader.\"" shape=ellipse]
+59 [label="execute#?#-1:PlaceHold" shape=ellipse]
+60 [label="execute#?#48:driver" shape=ellipse]
+61 [label="execute#?#48:\"Loading \"" shape=ellipse]
+62 [label="execute#?#48:getLogger().debug((\"Loading \" + driver) + \" using system loader.\")" shape=ellipse]
+63 [label="execute#?#-1:" shape=ellipse]
+64 [label="execute#?#44:classpath" shape=ellipse]
+65 [label="execute#?#44:driver" shape=ellipse]
+66 [label="execute#?#46:dc" shape=ellipse]
+67 [label="execute#?#-1:PlaceHold" shape=ellipse]
+68 [label="execute#?#43:getLogger()" shape=ellipse]
+69 [label="execute#?#48:(\"Loading \" + driver)" shape=ellipse]
+70 [label="execute#?#49:dc" shape=ellipse]
+71 [label="execute#?#44:\"Loading \"" shape=ellipse]
+72 [label="execute#?#44:\" using AntClassLoader with classpath \"" shape=ellipse]
+73 [label="execute#?#-1:PlaceHold" shape=ellipse]
+74 [label="execute#?#48:\"Loading \"" shape=ellipse]
+75 [label="execute#?#48:\" using system loader.\"" shape=ellipse]
+76 [label="execute#?#-1:" shape=ellipse]
+77 [label="execute#?#43:getLogger().debug(((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath)" shape=ellipse]
+78 [label="execute#?#43:getLogger()" shape=ellipse]
+79 [label="execute#?#48:debug()" shape=ellipse]
+80 [label="execute#?#48:(\"Loading \" + driver) + \" using system loader.\"" shape=ellipse]
+81 [label="execute#?#44:debug()" shape=ellipse]
+82 [label="execute#?#44:(\"Loading \" + driver)" shape=ellipse]
+83 [label="execute#?#44:((\"Loading \" + driver) + \" using AntClassLoader with classpath \") + classpath" shape=ellipse]
+84 [label="execute#?#48:getLogger()" shape=ellipse]
+85 [label="execute#?#48:getLogger()" shape=ellipse]
+86 [label="execute#?#48:driver" shape=ellipse]
+87 [label="execute#?#-1:" shape=ellipse]
+88 [label="execute#?#44:((\"Loading \" + driver) + \" using AntClassLoader with classpath \")" shape=ellipse]
+89 [label="execute#?#48:getLogger().debug((\"Loading \" + driver) + \" using system loader.\")" shape=ellipse]
+90 [label="determineDependencies#?#-1:Hashtable()" shape=ellipse]
+91 [label="determineDependencies#?#55:classpathDependencies" shape=ellipse]
+92 [label="determineDependencies#?#55:new Hashtable()" shape=ellipse]
+93 [label="determineDependencies#?#59:e" shape=ellipse]
+94 [label="determineDependencies#?#59:hasMoreElements()" shape=ellipse]
+95 [label="determineDependencies#?#57:Hashtable classpathFileCache = new Hashtable()" shape=ellipse]
+96 [label="determineDependencies#?#59:e.hasMoreElements()" shape=ellipse]
+97 [label="determineDependencies#?#59:for (Enumeration e = dependencyMap.keys(); e.hasMoreElements();) \{
+    String className = ((String) (e.nextElement()));
+    ArrayList dependencyList = ((ArrayList) (dependencyMap.get(className)));
+    Hashtable dependencies = new Hashtable();
+    classpathDependencies.put(className, dependencies);
+    for (Iterator e2 = dependencyList.iterator(); e2.hasNext();) \{
+        String dependency = ((String) (e2.next()));
+        Object classpathFileObject = classpathFileCache.get(dependency);
+        if (classpathFileObject == null) \{
+            classpathFileObject = nullFileMarker;
+            if ((!dependency.startsWith(\"java.\")) && (!dependency.startsWith(\"javax.\"))) \{
+                final String name = dependency.replace('.', '/') + \".class\";
+                URL classURL = classLoader.getResource(name);
+                if (classURL != null) \{
+                    if (classURL.getProtocol().equals(\"jar\")) \{
+                        String jarFilePath = classURL.getFile();
+                        if (jarFilePath.startsWith(\"file:\")) \{
+                            int classMarker = jarFilePath.indexOf('!');
+                            jarFilePath = jarFilePath.substring(5, classMarker);
+                        \}
+                        classpathFileObject = new File(jarFilePath);
+                    \} else if (classURL.getProtocol().equals(\"file\")) \{
+                        String classFilePath = classURL.getFile();
+                        classpathFileObject = new File(classFilePath);
+                    \}
+                    getLogger().debug(((((\"Class \" + className) + \" depends on \") + classpathFileObject) + \" due to \") + dependency);
+                \}
+            \}
+            classpathFileCache.put(dependency, classpathFileObject);
+        \}
+        if ((classpathFileObject != null) && (classpathFileObject != nullFileMarker)) \{
+            File jarFile = ((File) (classpathFileObject));
+            dependencies.put(jarFile, jarFile);
+        \}
+    \}
+\}" shape=ellipse]
+98 [label="determineDependencies#?#-1:Hashtable()" shape=ellipse]
+99 [label="determineDependencies#?#58:Object nullFileMarker = new Object()" shape=ellipse]
+100 [label="determineDependencies#?#57:new Hashtable()" shape=ellipse]
+101 [label="determineDependencies#?#58:new Object()" shape=ellipse]
+0 -> 23 [label="Action:5"];
+1 -> 0 [label="Action:5"];
+1 -> 12 [label="AST:5"];
+1 -> 18 [label="AST:5"];
+1 -> 29 [label="AST:1"];
+1 -> 30 [label="AST:1"];
+1 -> 37 [label="AST:1"];
+1 -> 45 [label="AST:1"];
+1 -> 77 [label="AST:1"];
+1 -> 95 [label="AST:1"];
+1 -> 97 [label="AST:1"];
+1 -> 99 [label="AST:1"];
+2 -> 1 [label="Control Dep:5"];
+2 -> 4 [label="AST:5"];
+2 -> 5 [label="AST:5"];
+2 -> 6 [label="Control Dep:3"];
+2 -> 7 [label="Control Dep:5"];
+2 -> 8 [label="Control Dep:5"];
+2 -> 9 [label="Control Dep:5"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:5"];
+2 -> 12 [label="Control Dep:5"];
+2 -> 13 [label="Control Dep:5"];
+2 -> 14 [label="Control Dep:5"];
+2 -> 15 [label="Control Dep:5"];
+2 -> 16 [label="Control Dep:5"];
+2 -> 17 [label="Control Dep:5"];
+2 -> 18 [label="Control Dep:5"];
+2 -> 19 [label="Control Dep:3"];
+2 -> 20 [label="Control Dep:5"];
+2 -> 21 [label="Control Dep:3"];
+2 -> 22 [label="Control Dep:3"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:1"];
+2 -> 31 [label="Control Dep:1"];
+2 -> 32 [label="Control Dep:1"];
+2 -> 33 [label="Control Dep:1"];
+2 -> 34 [label="Control Dep:1"];
+2 -> 35 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:1"];
+2 -> 38 [label="Control Dep:1"];
+2 -> 39 [label="Control Dep:1"];
+2 -> 40 [label="Control Dep:1"];
+2 -> 41 [label="Control Dep:1"];
+2 -> 42 [label="Control Dep:1"];
+2 -> 43 [label="Control Dep:1"];
+2 -> 44 [label="Control Dep:1"];
+2 -> 45 [label="Control Dep:1"];
+2 -> 46 [label="Control Dep:1"];
+2 -> 47 [label="Control Dep:1"];
+2 -> 48 [label="Control Dep:1"];
+2 -> 49 [label="Control Dep:1"];
+2 -> 50 [label="Control Dep:1"];
+2 -> 51 [label="Control Dep:1"];
+2 -> 52 [label="Control Dep:1"];
+2 -> 53 [label="Control Dep:1"];
+2 -> 54 [label="Control Dep:1"];
+2 -> 55 [label="Control Dep:1"];
+2 -> 56 [label="Control Dep:1"];
+2 -> 57 [label="Control Dep:1"];
+2 -> 58 [label="Control Dep:1"];
+2 -> 59 [label="Control Dep:1"];
+2 -> 60 [label="Control Dep:1"];
+2 -> 61 [label="Control Dep:1"];
+2 -> 62 [label="Control Dep:1"];
+2 -> 63 [label="Control Dep:1"];
+2 -> 64 [label="Control Dep:1"];
+2 -> 65 [label="Control Dep:1"];
+2 -> 66 [label="Control Dep:1"];
+2 -> 67 [label="Control Dep:1"];
+2 -> 68 [label="Control Dep:1"];
+2 -> 69 [label="Control Dep:1"];
+2 -> 70 [label="Control Dep:1"];
+2 -> 71 [label="Control Dep:1"];
+2 -> 72 [label="Control Dep:1"];
+2 -> 73 [label="Control Dep:1"];
+2 -> 74 [label="Control Dep:1"];
+2 -> 75 [label="Control Dep:1"];
+2 -> 76 [label="Control Dep:1"];
+2 -> 77 [label="Control Dep:1"];
+2 -> 78 [label="Control Dep:1"];
+2 -> 79 [label="Control Dep:1"];
+2 -> 80 [label="Control Dep:1"];
+2 -> 81 [label="Control Dep:1"];
+2 -> 82 [label="Control Dep:1"];
+2 -> 83 [label="Control Dep:1"];
+2 -> 84 [label="Control Dep:1"];
+2 -> 85 [label="Control Dep:1"];
+2 -> 86 [label="Control Dep:1"];
+2 -> 87 [label="Control Dep:1"];
+2 -> 88 [label="Control Dep:1"];
+2 -> 89 [label="Control Dep:1"];
+2 -> 90 [label="Control Dep:1"];
+2 -> 91 [label="Control Dep:1"];
+2 -> 92 [label="Control Dep:1"];
+2 -> 93 [label="Control Dep:1"];
+2 -> 94 [label="Control Dep:1"];
+2 -> 95 [label="Control Dep:1"];
+2 -> 96 [label="Control Dep:1"];
+2 -> 97 [label="Control Dep:1"];
+2 -> 98 [label="Control Dep:1"];
+2 -> 99 [label="Control Dep:1"];
+2 -> 100 [label="Control Dep:1"];
+2 -> 101 [label="Control Dep:1"];
+3 -> 1 [label="AST:5"];
+3 -> 2 [label="AST:5"];
+3 -> 6 [label="AST:3"];
+6 -> 7 [label="AST:3"];
+6 -> 62 [label="AST:1"];
+6 -> 89 [label="AST:1"];
+7 -> 8 [label="AST:5"];
+7 -> 47 [label="AST:1"];
+7 -> 70 [label="AST:1"];
+8 -> 10 [label="AST:3"];
+8 -> 9 [label="AST:5"];
+8 -> 11 [label="AST:5"];
+11 -> 47 [label="Data Dep:1"];
+11 -> 70 [label="Data Dep:1"];
+12 -> 13 [label="AST:5"];
+13 -> 14 [label="AST:5"];
+13 -> 15 [label="AST:5"];
+15 -> 17 [label="AST:5"];
+15 -> 16 [label="AST:5"];
+18 -> 19 [label="AST:3"];
+18 -> 27 [label="AST:1"];
+18 -> 32 [label="AST:1"];
+18 -> 43 [label="AST:1"];
+18 -> 66 [label="AST:1"];
+18 -> 91 [label="AST:1"];
+18 -> 92 [label="AST:1"];
+19 -> 21 [label="AST:3"];
+19 -> 20 [label="AST:3"];
+19 -> 22 [label="AST:3"];
+21 -> 43 [label="Data Dep:1"];
+21 -> 66 [label="Data Dep:1"];
+22 -> 43 [label="Data Dep:1"];
+22 -> 66 [label="Data Dep:1"];
+24 -> 23 [label="Action:5"];
+25 -> 24 [label="Action:5"];
+27 -> 28 [label="AST:1"];
+29 -> 34 [label="AST:1"];
+30 -> 36 [label="AST:1"];
+34 -> 20 [label="AST:1"];
+35 -> 26 [label="AST:1"];
+35 -> 31 [label="AST:1"];
+36 -> 33 [label="AST:1"];
+37 -> 35 [label="AST:1"];
+37 -> 7 [label="AST:1"];
+38 -> 40 [label="AST:1"];
+38 -> 50 [label="AST:1"];
+39 -> 59 [label="AST:1"];
+41 -> 38 [label="AST:1"];
+41 -> 48 [label="AST:1"];
+44 -> 39 [label="AST:1"];
+44 -> 42 [label="AST:1"];
+45 -> 44 [label="AST:1"];
+45 -> 51 [label="AST:1"];
+45 -> 49 [label="AST:1"];
+49 -> 41 [label="AST:1"];
+49 -> 53 [label="AST:1"];
+52 -> 63 [label="AST:1"];
+52 -> 56 [label="AST:1"];
+55 -> 61 [label="AST:1"];
+55 -> 60 [label="AST:1"];
+58 -> 46 [label="AST:1"];
+58 -> 55 [label="AST:1"];
+62 -> 52 [label="AST:1"];
+62 -> 57 [label="AST:1"];
+62 -> 58 [label="AST:1"];
+63 -> 54 [label="AST:1"];
+68 -> 76 [label="AST:1"];
+68 -> 78 [label="AST:1"];
+69 -> 74 [label="AST:1"];
+69 -> 86 [label="AST:1"];
+76 -> 67 [label="AST:1"];
+77 -> 68 [label="AST:1"];
+77 -> 81 [label="AST:1"];
+77 -> 83 [label="AST:1"];
+80 -> 69 [label="AST:1"];
+80 -> 75 [label="AST:1"];
+82 -> 65 [label="AST:1"];
+82 -> 71 [label="AST:1"];
+83 -> 64 [label="AST:1"];
+83 -> 88 [label="AST:1"];
+84 -> 87 [label="AST:1"];
+84 -> 85 [label="AST:1"];
+87 -> 73 [label="AST:1"];
+88 -> 72 [label="AST:1"];
+88 -> 82 [label="AST:1"];
+89 -> 79 [label="AST:1"];
+89 -> 80 [label="AST:1"];
+89 -> 84 [label="AST:1"];
+92 -> 90 [label="AST:1"];
+95 -> 100 [label="AST:1"];
+96 -> 93 [label="AST:1"];
+96 -> 94 [label="AST:1"];
+97 -> 96 [label="AST:1"];
+97 -> 7 [label="AST:1"];
+99 -> 101 [label="AST:1"];
+100 -> 98 [label="AST:1"];
+101 -> 20 [label="AST:1"];
+}

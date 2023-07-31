@@ -1,0 +1,31 @@
+digraph "setIncludes#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setIncludes" shape=ellipse]
+2 [label="2:CtParameterImpl@final String includes" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@setIncludes(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@setIncludes" shape=ellipse]
+6 [label="3:CtFieldReadImpl@m_defaultPatterns" shape=ellipse]
+7 [label="3:CtVariableReadImpl@includes" shape=ellipse]
+8 [label="3:CtInvocationImpl@m_defaultPatterns.setIncludes(includes)" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    m_defaultPatterns.setIncludes(includes);
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void setIncludes(final String includes) \{
+    m_defaultPatterns.setIncludes(includes);
+\}" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="3:CtFieldReadImpl@m_patternSet" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 11 [label="Action"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 2 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 12 [label="Action"];
+}

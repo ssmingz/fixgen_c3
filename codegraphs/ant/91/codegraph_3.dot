@@ -1,0 +1,986 @@
+digraph "cat#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@cat" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@OutputStream" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtVirtualElement@os" shape=ellipse]
+5 [label="3:CtLocalVariableImpl@OutputStream os = null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@Reader" shape=ellipse]
+7 [label="4:CtLiteralImpl@null" shape=ellipse]
+8 [label="4:CtVirtualElement@reader" shape=ellipse]
+9 [label="4:CtLocalVariableImpl@Reader reader = null" shape=ellipse]
+10 [label="5:CtVirtualElement@char[]" shape=ellipse]
+11 [label="5:CtArrayTypeReferenceImpl@char[]" shape=ellipse]
+12 [label="5:CtNewArrayImpl@new char[8192]" shape=ellipse]
+13 [label="5:CtLiteralImpl@8192" shape=ellipse]
+14 [label="5:CtVirtualElement@buffer" shape=ellipse]
+15 [label="5:CtLocalVariableImpl@char[] buffer = new char[8192]" shape=ellipse]
+16 [label="7:CtFieldReadImpl@destinationFile" shape=ellipse]
+17 [label="7:CtLiteralImpl@null" shape=ellipse]
+18 [label="7:CtBinaryOperatorImpl@destinationFile == null" shape=ellipse]
+19 [label="8:CtVariableWriteImpl@os" shape=ellipse]
+20 [label="8:CtTypeReferenceImpl@LogOutputStream" shape=ellipse]
+21 [label="8:CtThisAccessImpl@this" shape=ellipse]
+22 [label="8:CtFieldReadImpl@Project.MSG_WARN" shape=ellipse]
+23 [label="8:CtConstructorCallImpl@new LogOutputStream(this, Project.MSG_WARN)" shape=ellipse]
+24 [label="8:CtAssignmentImpl@os = new LogOutputStream(this, Project.MSG_WARN)" shape=ellipse]
+25 [label="7:CtBlockImpl@\{
+    os = new LogOutputStream(this, Project.MSG_WARN);
+\}" shape=ellipse]
+26 [label="10:CtTypeReferenceImpl@File" shape=ellipse]
+27 [label="10:CtExecutableReferenceImpl@getParentFile()" shape=ellipse]
+28 [label="10:CtVirtualElement@getParentFile" shape=ellipse]
+29 [label="10:CtFieldReadImpl@fileUtils" shape=ellipse]
+30 [label="10:CtFieldReadImpl@destinationFile" shape=ellipse]
+31 [label="10:CtInvocationImpl@fileUtils.getParentFile(destinationFile)" shape=ellipse]
+32 [label="10:CtVirtualElement@parent" shape=ellipse]
+33 [label="10:CtLocalVariableImpl@File parent = fileUtils.getParentFile(destinationFile)" shape=ellipse]
+34 [label="11:CtExecutableReferenceImpl@exists()" shape=ellipse]
+35 [label="11:CtVirtualElement@exists" shape=ellipse]
+36 [label="11:CtVariableReadImpl@parent" shape=ellipse]
+37 [label="11:CtInvocationImpl@parent.exists()" shape=ellipse]
+38 [label="11:CtUnaryOperatorImpl@!parent.exists()" shape=ellipse]
+39 [label="12:CtExecutableReferenceImpl@mkdirs()" shape=ellipse]
+40 [label="12:CtVirtualElement@mkdirs" shape=ellipse]
+41 [label="12:CtVariableReadImpl@parent" shape=ellipse]
+42 [label="12:CtInvocationImpl@parent.mkdirs()" shape=ellipse]
+43 [label="11:CtBlockImpl@\{
+    parent.mkdirs();
+\}" shape=ellipse]
+44 [label="11:CtIfImpl@if (!parent.exists()) \{
+    parent.mkdirs();
+\}" shape=ellipse]
+45 [label="14:CtVariableWriteImpl@os" shape=ellipse]
+46 [label="14:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+47 [label="14:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+48 [label="14:CtVirtualElement@getAbsolutePath" shape=ellipse]
+49 [label="14:CtFieldReadImpl@destinationFile" shape=ellipse]
+50 [label="14:CtInvocationImpl@destinationFile.getAbsolutePath()" shape=ellipse]
+51 [label="14:CtFieldReadImpl@append" shape=ellipse]
+52 [label="14:CtConstructorCallImpl@new FileOutputStream(destinationFile.getAbsolutePath(), append)" shape=ellipse]
+53 [label="14:CtAssignmentImpl@os = new FileOutputStream(destinationFile.getAbsolutePath(), append)" shape=ellipse]
+54 [label="9:CtBlockImpl@\{
+    File parent = fileUtils.getParentFile(destinationFile);
+    if (!parent.exists()) \{
+        parent.mkdirs();
+    \}
+    os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+\}" shape=ellipse]
+55 [label="7:CtIfImpl@if (destinationFile == null) \{
+    os = new LogOutputStream(this, Project.MSG_WARN);
+\} else \{
+    File parent = fileUtils.getParentFile(destinationFile);
+    if (!parent.exists()) \{
+        parent.mkdirs();
+    \}
+    os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+\}" shape=ellipse]
+56 [label="16:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+57 [label="16:CtLiteralImpl@null" shape=ellipse]
+58 [label="16:CtVirtualElement@writer" shape=ellipse]
+59 [label="16:CtLocalVariableImpl@PrintWriter writer = null" shape=ellipse]
+60 [label="17:CtFieldReadImpl@encoding" shape=ellipse]
+61 [label="17:CtLiteralImpl@null" shape=ellipse]
+62 [label="17:CtBinaryOperatorImpl@encoding == null" shape=ellipse]
+63 [label="18:CtVariableWriteImpl@writer" shape=ellipse]
+64 [label="18:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+65 [label="18:CtTypeReferenceImpl@BufferedWriter" shape=ellipse]
+66 [label="18:CtTypeReferenceImpl@OutputStreamWriter" shape=ellipse]
+67 [label="18:CtVariableReadImpl@os" shape=ellipse]
+68 [label="18:CtConstructorCallImpl@new OutputStreamWriter(os)" shape=ellipse]
+69 [label="18:CtConstructorCallImpl@new BufferedWriter(new OutputStreamWriter(os))" shape=ellipse]
+70 [label="18:CtConstructorCallImpl@new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)))" shape=ellipse]
+71 [label="18:CtAssignmentImpl@writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)))" shape=ellipse]
+72 [label="17:CtBlockImpl@\{
+    writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+\}" shape=ellipse]
+73 [label="20:CtVariableWriteImpl@writer" shape=ellipse]
+74 [label="20:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+75 [label="20:CtTypeReferenceImpl@BufferedWriter" shape=ellipse]
+76 [label="20:CtTypeReferenceImpl@OutputStreamWriter" shape=ellipse]
+77 [label="20:CtVariableReadImpl@os" shape=ellipse]
+78 [label="20:CtFieldReadImpl@encoding" shape=ellipse]
+79 [label="20:CtConstructorCallImpl@new OutputStreamWriter(os, encoding)" shape=ellipse]
+80 [label="20:CtConstructorCallImpl@new BufferedWriter(new OutputStreamWriter(os, encoding))" shape=ellipse]
+81 [label="20:CtConstructorCallImpl@new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)))" shape=ellipse]
+82 [label="20:CtAssignmentImpl@writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)))" shape=ellipse]
+83 [label="19:CtBlockImpl@\{
+    writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+\}" shape=ellipse]
+84 [label="17:CtIfImpl@if (encoding == null) \{
+    writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+\} else \{
+    writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+\}" shape=ellipse]
+85 [label="22:CtFieldReadImpl@header" shape=ellipse]
+86 [label="22:CtLiteralImpl@null" shape=ellipse]
+87 [label="22:CtBinaryOperatorImpl@header != null" shape=ellipse]
+88 [label="23:CtExecutableReferenceImpl@getFiltering()" shape=ellipse]
+89 [label="23:CtVirtualElement@getFiltering" shape=ellipse]
+90 [label="23:CtFieldReadImpl@header" shape=ellipse]
+91 [label="23:CtInvocationImpl@header.getFiltering()" shape=ellipse]
+92 [label="24:CtExecutableReferenceImpl@concatenate(char[],<unknown>,StringReader)" shape=ellipse]
+93 [label="24:CtVirtualElement@concatenate" shape=ellipse]
+94 [label="24:CtVariableReadImpl@buffer" shape=ellipse]
+95 [label="24:CtVariableReadImpl@writer" shape=ellipse]
+96 [label="24:CtTypeReferenceImpl@StringReader" shape=ellipse]
+97 [label="24:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+98 [label="24:CtVirtualElement@getValue" shape=ellipse]
+99 [label="24:CtFieldReadImpl@header" shape=ellipse]
+100 [label="24:CtInvocationImpl@header.getValue()" shape=ellipse]
+101 [label="24:CtConstructorCallImpl@new StringReader(header.getValue())" shape=ellipse]
+102 [label="24:CtInvocationImpl@concatenate(buffer, writer, new StringReader(header.getValue()))" shape=ellipse]
+103 [label="23:CtBlockImpl@\{
+    concatenate(buffer, writer, new StringReader(header.getValue()));
+\}" shape=ellipse]
+104 [label="26:CtExecutableReferenceImpl@print()" shape=ellipse]
+105 [label="26:CtVirtualElement@print" shape=ellipse]
+106 [label="26:CtVariableReadImpl@writer" shape=ellipse]
+107 [label="26:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+108 [label="26:CtVirtualElement@getValue" shape=ellipse]
+109 [label="26:CtFieldReadImpl@header" shape=ellipse]
+110 [label="26:CtInvocationImpl@header.getValue()" shape=ellipse]
+111 [label="26:CtInvocationImpl@writer.print(header.getValue())" shape=ellipse]
+112 [label="25:CtBlockImpl@\{
+    writer.print(header.getValue());
+\}" shape=ellipse]
+113 [label="23:CtIfImpl@if (header.getFiltering()) \{
+    concatenate(buffer, writer, new StringReader(header.getValue()));
+\} else \{
+    writer.print(header.getValue());
+\}" shape=ellipse]
+114 [label="22:CtBlockImpl@\{
+    if (header.getFiltering()) \{
+        concatenate(buffer, writer, new StringReader(header.getValue()));
+    \} else \{
+        writer.print(header.getValue());
+    \}
+\}" shape=ellipse]
+115 [label="22:CtIfImpl@if (header != null) \{
+    if (header.getFiltering()) \{
+        concatenate(buffer, writer, new StringReader(header.getValue()));
+    \} else \{
+        writer.print(header.getValue());
+    \}
+\}" shape=ellipse]
+116 [label="29:CtFieldReadImpl@textBuffer" shape=ellipse]
+117 [label="29:CtLiteralImpl@null" shape=ellipse]
+118 [label="29:CtBinaryOperatorImpl@textBuffer != null" shape=ellipse]
+119 [label="30:CtVariableWriteImpl@reader" shape=ellipse]
+120 [label="30:CtTypeReferenceImpl@StringReader" shape=ellipse]
+121 [label="30:CtExecutableReferenceImpl@replaceProperties()" shape=ellipse]
+122 [label="30:CtVirtualElement@replaceProperties" shape=ellipse]
+123 [label="30:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+124 [label="30:CtVirtualElement@getProject" shape=ellipse]
+125 [label="30:CtInvocationImpl@getProject()" shape=ellipse]
+126 [label="30:CtExecutableReferenceImpl@toString()" shape=ellipse]
+127 [label="30:CtVirtualElement@toString" shape=ellipse]
+128 [label="30:CtFieldReadImpl@textBuffer" shape=ellipse]
+129 [label="30:CtInvocationImpl@textBuffer.toString()" shape=ellipse]
+130 [label="30:CtInvocationImpl@getProject().replaceProperties(textBuffer.toString())" shape=ellipse]
+131 [label="30:CtConstructorCallImpl@new StringReader(getProject().replaceProperties(textBuffer.toString()))" shape=ellipse]
+132 [label="30:CtAssignmentImpl@reader = new StringReader(getProject().replaceProperties(textBuffer.toString()))" shape=ellipse]
+133 [label="29:CtBlockImpl@\{
+    reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+\}" shape=ellipse]
+134 [label="32:CtVariableWriteImpl@reader" shape=ellipse]
+135 [label="32:CtTypeReferenceImpl@MultiReader" shape=ellipse]
+136 [label="32:CtConstructorCallImpl@new MultiReader()" shape=ellipse]
+137 [label="32:CtAssignmentImpl@reader = new MultiReader()" shape=ellipse]
+138 [label="31:CtBlockImpl@\{
+    reader = new MultiReader();
+\}" shape=ellipse]
+139 [label="29:CtIfImpl@if (textBuffer != null) \{
+    reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+\} else \{
+    reader = new MultiReader();
+\}" shape=ellipse]
+140 [label="34:CtExecutableReferenceImpl@concatenate(char[],<unknown>,<unknown>)" shape=ellipse]
+141 [label="34:CtVirtualElement@concatenate" shape=ellipse]
+142 [label="34:CtVariableReadImpl@buffer" shape=ellipse]
+143 [label="34:CtVariableReadImpl@writer" shape=ellipse]
+144 [label="34:CtVariableReadImpl@reader" shape=ellipse]
+145 [label="34:CtInvocationImpl@concatenate(buffer, writer, reader)" shape=ellipse]
+146 [label="35:CtFieldReadImpl@footer" shape=ellipse]
+147 [label="35:CtLiteralImpl@null" shape=ellipse]
+148 [label="35:CtBinaryOperatorImpl@footer != null" shape=ellipse]
+149 [label="36:CtExecutableReferenceImpl@getFiltering()" shape=ellipse]
+150 [label="36:CtVirtualElement@getFiltering" shape=ellipse]
+151 [label="36:CtFieldReadImpl@footer" shape=ellipse]
+152 [label="36:CtInvocationImpl@footer.getFiltering()" shape=ellipse]
+153 [label="37:CtExecutableReferenceImpl@concatenate(char[],<unknown>,StringReader)" shape=ellipse]
+154 [label="37:CtVirtualElement@concatenate" shape=ellipse]
+155 [label="37:CtVariableReadImpl@buffer" shape=ellipse]
+156 [label="37:CtVariableReadImpl@writer" shape=ellipse]
+157 [label="37:CtTypeReferenceImpl@StringReader" shape=ellipse]
+158 [label="37:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+159 [label="37:CtVirtualElement@getValue" shape=ellipse]
+160 [label="37:CtFieldReadImpl@footer" shape=ellipse]
+161 [label="37:CtInvocationImpl@footer.getValue()" shape=ellipse]
+162 [label="37:CtConstructorCallImpl@new StringReader(footer.getValue())" shape=ellipse]
+163 [label="37:CtInvocationImpl@concatenate(buffer, writer, new StringReader(footer.getValue()))" shape=ellipse]
+164 [label="36:CtBlockImpl@\{
+    concatenate(buffer, writer, new StringReader(footer.getValue()));
+\}" shape=ellipse]
+165 [label="39:CtExecutableReferenceImpl@print()" shape=ellipse]
+166 [label="39:CtVirtualElement@print" shape=ellipse]
+167 [label="39:CtVariableReadImpl@writer" shape=ellipse]
+168 [label="39:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+169 [label="39:CtVirtualElement@getValue" shape=ellipse]
+170 [label="39:CtFieldReadImpl@footer" shape=ellipse]
+171 [label="39:CtInvocationImpl@footer.getValue()" shape=ellipse]
+172 [label="39:CtInvocationImpl@writer.print(footer.getValue())" shape=ellipse]
+173 [label="38:CtBlockImpl@\{
+    writer.print(footer.getValue());
+\}" shape=ellipse]
+174 [label="36:CtIfImpl@if (footer.getFiltering()) \{
+    concatenate(buffer, writer, new StringReader(footer.getValue()));
+\} else \{
+    writer.print(footer.getValue());
+\}" shape=ellipse]
+175 [label="35:CtBlockImpl@\{
+    if (footer.getFiltering()) \{
+        concatenate(buffer, writer, new StringReader(footer.getValue()));
+    \} else \{
+        writer.print(footer.getValue());
+    \}
+\}" shape=ellipse]
+176 [label="35:CtIfImpl@if (footer != null) \{
+    if (footer.getFiltering()) \{
+        concatenate(buffer, writer, new StringReader(footer.getValue()));
+    \} else \{
+        writer.print(footer.getValue());
+    \}
+\}" shape=ellipse]
+177 [label="42:CtExecutableReferenceImpl@flush()" shape=ellipse]
+178 [label="42:CtVirtualElement@flush" shape=ellipse]
+179 [label="42:CtVariableReadImpl@writer" shape=ellipse]
+180 [label="42:CtInvocationImpl@writer.flush()" shape=ellipse]
+181 [label="43:CtExecutableReferenceImpl@flush()" shape=ellipse]
+182 [label="43:CtVirtualElement@flush" shape=ellipse]
+183 [label="43:CtVariableReadImpl@os" shape=ellipse]
+184 [label="43:CtInvocationImpl@os.flush()" shape=ellipse]
+185 [label="6:CtBlockImpl@\{
+    if (destinationFile == null) \{
+        os = new LogOutputStream(this, Project.MSG_WARN);
+    \} else \{
+        File parent = fileUtils.getParentFile(destinationFile);
+        if (!parent.exists()) \{
+            parent.mkdirs();
+        \}
+        os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+    \}
+    PrintWriter writer = null;
+    if (encoding == null) \{
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+    \} else \{
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+    \}
+    if (header != null) \{
+        if (header.getFiltering()) \{
+            concatenate(buffer, writer, new StringReader(header.getValue()));
+        \} else \{
+            writer.print(header.getValue());
+        \}
+    \}
+    if (textBuffer != null) \{
+        reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+    \} else \{
+        reader = new MultiReader();
+    \}
+    concatenate(buffer, writer, reader);
+    if (footer != null) \{
+        if (footer.getFiltering()) \{
+            concatenate(buffer, writer, new StringReader(footer.getValue()));
+        \} else \{
+            writer.print(footer.getValue());
+        \}
+    \}
+    writer.flush();
+    os.flush();
+\}" shape=ellipse]
+186 [label="44:CtVirtualElement@ioex" shape=ellipse]
+187 [label="44:CtTypeReferenceImpl@IOException" shape=ellipse]
+188 [label="44:CtCatchVariableImpl@IOException ioex" shape=ellipse]
+189 [label="45:CtTypeReferenceImpl@BuildException" shape=ellipse]
+190 [label="45:CtLiteralImpl@\"Error while concatenating: \"" shape=ellipse]
+191 [label="45:CtExecutableReferenceImpl@getMessage()" shape=ellipse]
+192 [label="45:CtVirtualElement@getMessage" shape=ellipse]
+193 [label="45:CtVariableReadImpl@ioex" shape=ellipse]
+194 [label="45:CtInvocationImpl@ioex.getMessage()" shape=ellipse]
+195 [label="45:CtBinaryOperatorImpl@\"Error while concatenating: \" + ioex.getMessage()" shape=ellipse]
+196 [label="45:CtVariableReadImpl@ioex" shape=ellipse]
+197 [label="45:CtConstructorCallImpl@new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex)" shape=ellipse]
+198 [label="45:CtThrowImpl@throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex)" shape=ellipse]
+199 [label="44:CtBlockImpl@\{
+    throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex);
+\}" shape=ellipse]
+200 [label="44:CtCatchImpl@ catch (IOException ioex) \{
+    throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex);
+\}" shape=ellipse]
+201 [label="47:CtVariableReadImpl@reader" shape=ellipse]
+202 [label="47:CtLiteralImpl@null" shape=ellipse]
+203 [label="47:CtBinaryOperatorImpl@reader != null" shape=ellipse]
+204 [label="49:CtExecutableReferenceImpl@close()" shape=ellipse]
+205 [label="49:CtVirtualElement@close" shape=ellipse]
+206 [label="49:CtVariableReadImpl@reader" shape=ellipse]
+207 [label="49:CtInvocationImpl@reader.close()" shape=ellipse]
+208 [label="48:CtBlockImpl@\{
+    reader.close();
+\}" shape=ellipse]
+209 [label="50:CtVirtualElement@ignore" shape=ellipse]
+210 [label="50:CtTypeReferenceImpl@IOException" shape=ellipse]
+211 [label="50:CtCatchVariableImpl@IOException ignore" shape=ellipse]
+212 [label="50:CtBlockImpl@\{
+\}" shape=ellipse]
+213 [label="50:CtCatchImpl@ catch (IOException ignore) \{
+\}" shape=ellipse]
+214 [label="48:CtTryImpl@try \{
+    reader.close();
+\} catch (IOException ignore) \{
+\}" shape=ellipse]
+215 [label="47:CtBlockImpl@\{
+    try \{
+        reader.close();
+    \} catch (IOException ignore) \{
+    \}
+\}" shape=ellipse]
+216 [label="47:CtIfImpl@if (reader != null) \{
+    try \{
+        reader.close();
+    \} catch (IOException ignore) \{
+    \}
+\}" shape=ellipse]
+217 [label="53:CtVariableReadImpl@os" shape=ellipse]
+218 [label="53:CtLiteralImpl@null" shape=ellipse]
+219 [label="53:CtBinaryOperatorImpl@os != null" shape=ellipse]
+220 [label="55:CtExecutableReferenceImpl@close()" shape=ellipse]
+221 [label="55:CtVirtualElement@close" shape=ellipse]
+222 [label="55:CtVariableReadImpl@os" shape=ellipse]
+223 [label="55:CtInvocationImpl@os.close()" shape=ellipse]
+224 [label="54:CtBlockImpl@\{
+    os.close();
+\}" shape=ellipse]
+225 [label="56:CtVirtualElement@ignore" shape=ellipse]
+226 [label="56:CtTypeReferenceImpl@IOException" shape=ellipse]
+227 [label="56:CtCatchVariableImpl@IOException ignore" shape=ellipse]
+228 [label="56:CtBlockImpl@\{
+\}" shape=ellipse]
+229 [label="56:CtCatchImpl@ catch (IOException ignore) \{
+\}" shape=ellipse]
+230 [label="54:CtTryImpl@try \{
+    os.close();
+\} catch (IOException ignore) \{
+\}" shape=ellipse]
+231 [label="53:CtBlockImpl@\{
+    try \{
+        os.close();
+    \} catch (IOException ignore) \{
+    \}
+\}" shape=ellipse]
+232 [label="53:CtIfImpl@if (os != null) \{
+    try \{
+        os.close();
+    \} catch (IOException ignore) \{
+    \}
+\}" shape=ellipse]
+233 [label="46:CtBlockImpl@\{
+    if (reader != null) \{
+        try \{
+            reader.close();
+        \} catch (IOException ignore) \{
+        \}
+    \}
+    if (os != null) \{
+        try \{
+            os.close();
+        \} catch (IOException ignore) \{
+        \}
+    \}
+\}" shape=ellipse]
+234 [label="6:CtTryImpl@try \{
+    if (destinationFile == null) \{
+        os = new LogOutputStream(this, Project.MSG_WARN);
+    \} else \{
+        File parent = fileUtils.getParentFile(destinationFile);
+        if (!parent.exists()) \{
+            parent.mkdirs();
+        \}
+        os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+    \}
+    PrintWriter writer = null;
+    if (encoding == null) \{
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+    \} else \{
+        writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+    \}
+    if (header != null) \{
+        if (header.getFiltering()) \{
+            concatenate(buffer, writer, new StringReader(header.getValue()));
+        \} else \{
+            writer.print(header.getValue());
+        \}
+    \}
+    if (textBuffer != null) \{
+        reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+    \} else \{
+        reader = new MultiReader();
+    \}
+    concatenate(buffer, writer, reader);
+    if (footer != null) \{
+        if (footer.getFiltering()) \{
+            concatenate(buffer, writer, new StringReader(footer.getValue()));
+        \} else \{
+            writer.print(footer.getValue());
+        \}
+    \}
+    writer.flush();
+    os.flush();
+\} catch (IOException ioex) \{
+    throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex);
+\} finally \{
+    if (reader != null) \{
+        try \{
+            reader.close();
+        \} catch (IOException ignore) \{
+        \}
+    \}
+    if (os != null) \{
+        try \{
+            os.close();
+        \} catch (IOException ignore) \{
+        \}
+    \}
+\}" shape=ellipse]
+235 [label="2:CtBlockImpl@\{
+    OutputStream os = null;
+    Reader reader = null;
+    char[] buffer = new char[8192];
+    try \{
+        if (destinationFile == null) \{
+            os = new LogOutputStream(this, Project.MSG_WARN);
+        \} else \{
+            File parent = fileUtils.getParentFile(destinationFile);
+            if (!parent.exists()) \{
+                parent.mkdirs();
+            \}
+            os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+        \}
+        PrintWriter writer = null;
+        if (encoding == null) \{
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+        \} else \{
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+        \}
+        if (header != null) \{
+            if (header.getFiltering()) \{
+                concatenate(buffer, writer, new StringReader(header.getValue()));
+            \} else \{
+                writer.print(header.getValue());
+            \}
+        \}
+        if (textBuffer != null) \{
+            reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+        \} else \{
+            reader = new MultiReader();
+        \}
+        concatenate(buffer, writer, reader);
+        if (footer != null) \{
+            if (footer.getFiltering()) \{
+                concatenate(buffer, writer, new StringReader(footer.getValue()));
+            \} else \{
+                writer.print(footer.getValue());
+            \}
+        \}
+        writer.flush();
+        os.flush();
+    \} catch (IOException ioex) \{
+        throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex);
+    \} finally \{
+        if (reader != null) \{
+            try \{
+                reader.close();
+            \} catch (IOException ignore) \{
+            \}
+        \}
+        if (os != null) \{
+            try \{
+                os.close();
+            \} catch (IOException ignore) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+236 [label="2:CtMethodImpl@private void cat() \{
+    OutputStream os = null;
+    Reader reader = null;
+    char[] buffer = new char[8192];
+    try \{
+        if (destinationFile == null) \{
+            os = new LogOutputStream(this, Project.MSG_WARN);
+        \} else \{
+            File parent = fileUtils.getParentFile(destinationFile);
+            if (!parent.exists()) \{
+                parent.mkdirs();
+            \}
+            os = new FileOutputStream(destinationFile.getAbsolutePath(), append);
+        \}
+        PrintWriter writer = null;
+        if (encoding == null) \{
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os)));
+        \} else \{
+            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(os, encoding)));
+        \}
+        if (header != null) \{
+            if (header.getFiltering()) \{
+                concatenate(buffer, writer, new StringReader(header.getValue()));
+            \} else \{
+                writer.print(header.getValue());
+            \}
+        \}
+        if (textBuffer != null) \{
+            reader = new StringReader(getProject().replaceProperties(textBuffer.toString()));
+        \} else \{
+            reader = new MultiReader();
+        \}
+        concatenate(buffer, writer, reader);
+        if (footer != null) \{
+            if (footer.getFiltering()) \{
+                concatenate(buffer, writer, new StringReader(footer.getValue()));
+            \} else \{
+                writer.print(footer.getValue());
+            \}
+        \}
+        writer.flush();
+        os.flush();
+    \} catch (IOException ioex) \{
+        throw new BuildException(\"Error while concatenating: \" + ioex.getMessage(), ioex);
+    \} finally \{
+        if (reader != null) \{
+            try \{
+                reader.close();
+            \} catch (IOException ignore) \{
+            \}
+        \}
+        if (os != null) \{
+            try \{
+                os.close();
+            \} catch (IOException ignore) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+237 [label="30:Update@UPDATE" shape=ellipse]
+238 [label="30:CtInvocationImpl@textBuffer.substring(0)" shape=ellipse]
+4 -> 67 [label="Define-Use"];
+4 -> 77 [label="Define-Use"];
+4 -> 183 [label="Define-Use"];
+4 -> 217 [label="Define-Use"];
+4 -> 222 [label="Define-Use"];
+5 -> 4 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 3 [label="AST"];
+8 -> 144 [label="Define-Use"];
+8 -> 201 [label="Define-Use"];
+8 -> 206 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 13 [label="AST"];
+14 -> 94 [label="Define-Use"];
+14 -> 142 [label="Define-Use"];
+14 -> 155 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 11 [label="AST"];
+15 -> 12 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 25 [label="Control Dep"];
+18 -> 24 [label="Control Dep"];
+18 -> 19 [label="Control Dep"];
+18 -> 23 [label="Control Dep"];
+18 -> 21 [label="Control Dep"];
+18 -> 22 [label="Control Dep"];
+18 -> 54 [label="Control Dep"];
+18 -> 33 [label="Control Dep"];
+18 -> 31 [label="Control Dep"];
+18 -> 27 [label="Control Dep"];
+18 -> 29 [label="Control Dep"];
+18 -> 30 [label="Control Dep"];
+18 -> 44 [label="Control Dep"];
+18 -> 38 [label="Control Dep"];
+18 -> 37 [label="Control Dep"];
+18 -> 34 [label="Control Dep"];
+18 -> 36 [label="Control Dep"];
+18 -> 53 [label="Control Dep"];
+18 -> 45 [label="Control Dep"];
+18 -> 52 [label="Control Dep"];
+18 -> 50 [label="Control Dep"];
+18 -> 47 [label="Control Dep"];
+18 -> 49 [label="Control Dep"];
+18 -> 51 [label="Control Dep"];
+19 -> 67 [label="Define-Use"];
+19 -> 77 [label="Define-Use"];
+19 -> 183 [label="Define-Use"];
+19 -> 217 [label="Define-Use"];
+19 -> 222 [label="Define-Use"];
+21 -> 19 [label="Data Dep"];
+22 -> 19 [label="Data Dep"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+29 -> 32 [label="Data Dep"];
+30 -> 32 [label="Data Dep"];
+31 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 36 [label="Define-Use"];
+32 -> 41 [label="Define-Use"];
+33 -> 32 [label="AST"];
+33 -> 26 [label="AST"];
+33 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 43 [label="Control Dep"];
+38 -> 42 [label="Control Dep"];
+38 -> 39 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 38 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 67 [label="Define-Use"];
+45 -> 77 [label="Define-Use"];
+45 -> 183 [label="Define-Use"];
+45 -> 217 [label="Define-Use"];
+45 -> 222 [label="Define-Use"];
+49 -> 45 [label="Data Dep"];
+50 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+50 -> 47 [label="AST"];
+51 -> 45 [label="Data Dep"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 45 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 33 [label="AST"];
+54 -> 44 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 18 [label="AST"];
+55 -> 25 [label="AST"];
+55 -> 54 [label="AST"];
+58 -> 95 [label="Define-Use"];
+58 -> 106 [label="Define-Use"];
+58 -> 143 [label="Define-Use"];
+58 -> 156 [label="Define-Use"];
+58 -> 167 [label="Define-Use"];
+58 -> 179 [label="Define-Use"];
+59 -> 58 [label="AST"];
+59 -> 56 [label="AST"];
+59 -> 57 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 72 [label="Control Dep"];
+62 -> 71 [label="Control Dep"];
+62 -> 63 [label="Control Dep"];
+62 -> 70 [label="Control Dep"];
+62 -> 69 [label="Control Dep"];
+62 -> 68 [label="Control Dep"];
+62 -> 67 [label="Control Dep"];
+62 -> 83 [label="Control Dep"];
+62 -> 82 [label="Control Dep"];
+62 -> 73 [label="Control Dep"];
+62 -> 81 [label="Control Dep"];
+62 -> 80 [label="Control Dep"];
+62 -> 79 [label="Control Dep"];
+62 -> 77 [label="Control Dep"];
+62 -> 78 [label="Control Dep"];
+63 -> 95 [label="Define-Use"];
+63 -> 106 [label="Define-Use"];
+63 -> 143 [label="Define-Use"];
+63 -> 156 [label="Define-Use"];
+63 -> 167 [label="Define-Use"];
+63 -> 179 [label="Define-Use"];
+67 -> 63 [label="Data Dep"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 63 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 95 [label="Define-Use"];
+73 -> 106 [label="Define-Use"];
+73 -> 143 [label="Define-Use"];
+73 -> 156 [label="Define-Use"];
+73 -> 167 [label="Define-Use"];
+73 -> 179 [label="Define-Use"];
+77 -> 73 [label="Data Dep"];
+78 -> 73 [label="Data Dep"];
+79 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 73 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 62 [label="AST"];
+84 -> 72 [label="AST"];
+84 -> 83 [label="AST"];
+87 -> 85 [label="AST"];
+87 -> 86 [label="AST"];
+87 -> 114 [label="Control Dep"];
+87 -> 113 [label="Control Dep"];
+87 -> 91 [label="Control Dep"];
+87 -> 88 [label="Control Dep"];
+87 -> 90 [label="Control Dep"];
+91 -> 89 [label="AST"];
+91 -> 90 [label="AST"];
+91 -> 88 [label="AST"];
+91 -> 103 [label="Control Dep"];
+91 -> 102 [label="Control Dep"];
+91 -> 92 [label="Control Dep"];
+91 -> 94 [label="Control Dep"];
+91 -> 95 [label="Control Dep"];
+91 -> 101 [label="Control Dep"];
+91 -> 100 [label="Control Dep"];
+91 -> 97 [label="Control Dep"];
+91 -> 99 [label="Control Dep"];
+91 -> 112 [label="Control Dep"];
+91 -> 111 [label="Control Dep"];
+91 -> 104 [label="Control Dep"];
+91 -> 106 [label="Control Dep"];
+91 -> 110 [label="Control Dep"];
+91 -> 107 [label="Control Dep"];
+91 -> 109 [label="Control Dep"];
+100 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+100 -> 97 [label="AST"];
+101 -> 100 [label="AST"];
+102 -> 93 [label="AST"];
+102 -> 92 [label="AST"];
+102 -> 94 [label="AST"];
+102 -> 95 [label="AST"];
+102 -> 101 [label="AST"];
+103 -> 102 [label="AST"];
+110 -> 108 [label="AST"];
+110 -> 109 [label="AST"];
+110 -> 107 [label="AST"];
+111 -> 105 [label="AST"];
+111 -> 106 [label="AST"];
+111 -> 104 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 111 [label="AST"];
+113 -> 91 [label="AST"];
+113 -> 103 [label="AST"];
+113 -> 112 [label="AST"];
+114 -> 113 [label="AST"];
+115 -> 87 [label="AST"];
+115 -> 114 [label="AST"];
+118 -> 116 [label="AST"];
+118 -> 117 [label="AST"];
+118 -> 133 [label="Control Dep"];
+118 -> 132 [label="Control Dep"];
+118 -> 119 [label="Control Dep"];
+118 -> 131 [label="Control Dep"];
+118 -> 130 [label="Control Dep"];
+118 -> 121 [label="Control Dep"];
+118 -> 125 [label="Control Dep"];
+118 -> 123 [label="Control Dep"];
+118 -> 129 [label="Control Dep"];
+118 -> 126 [label="Control Dep"];
+118 -> 128 [label="Control Dep"];
+118 -> 138 [label="Control Dep"];
+118 -> 137 [label="Control Dep"];
+118 -> 134 [label="Control Dep"];
+118 -> 136 [label="Control Dep"];
+119 -> 144 [label="Define-Use"];
+119 -> 201 [label="Define-Use"];
+119 -> 206 [label="Define-Use"];
+125 -> 124 [label="AST"];
+125 -> 123 [label="AST"];
+128 -> 119 [label="Data Dep"];
+129 -> 127 [label="AST"];
+129 -> 128 [label="AST"];
+129 -> 126 [label="AST"];
+129 -> 237 [label="Action"];
+130 -> 122 [label="AST"];
+130 -> 125 [label="AST"];
+130 -> 121 [label="AST"];
+130 -> 129 [label="AST"];
+131 -> 130 [label="AST"];
+132 -> 119 [label="AST"];
+132 -> 131 [label="AST"];
+133 -> 132 [label="AST"];
+134 -> 144 [label="Define-Use"];
+134 -> 201 [label="Define-Use"];
+134 -> 206 [label="Define-Use"];
+137 -> 134 [label="AST"];
+137 -> 136 [label="AST"];
+138 -> 137 [label="AST"];
+139 -> 118 [label="AST"];
+139 -> 133 [label="AST"];
+139 -> 138 [label="AST"];
+145 -> 141 [label="AST"];
+145 -> 140 [label="AST"];
+145 -> 142 [label="AST"];
+145 -> 143 [label="AST"];
+145 -> 144 [label="AST"];
+148 -> 146 [label="AST"];
+148 -> 147 [label="AST"];
+148 -> 175 [label="Control Dep"];
+148 -> 174 [label="Control Dep"];
+148 -> 152 [label="Control Dep"];
+148 -> 149 [label="Control Dep"];
+148 -> 151 [label="Control Dep"];
+152 -> 150 [label="AST"];
+152 -> 151 [label="AST"];
+152 -> 149 [label="AST"];
+152 -> 164 [label="Control Dep"];
+152 -> 163 [label="Control Dep"];
+152 -> 153 [label="Control Dep"];
+152 -> 155 [label="Control Dep"];
+152 -> 156 [label="Control Dep"];
+152 -> 162 [label="Control Dep"];
+152 -> 161 [label="Control Dep"];
+152 -> 158 [label="Control Dep"];
+152 -> 160 [label="Control Dep"];
+152 -> 173 [label="Control Dep"];
+152 -> 172 [label="Control Dep"];
+152 -> 165 [label="Control Dep"];
+152 -> 167 [label="Control Dep"];
+152 -> 171 [label="Control Dep"];
+152 -> 168 [label="Control Dep"];
+152 -> 170 [label="Control Dep"];
+161 -> 159 [label="AST"];
+161 -> 160 [label="AST"];
+161 -> 158 [label="AST"];
+162 -> 161 [label="AST"];
+163 -> 154 [label="AST"];
+163 -> 153 [label="AST"];
+163 -> 155 [label="AST"];
+163 -> 156 [label="AST"];
+163 -> 162 [label="AST"];
+164 -> 163 [label="AST"];
+171 -> 169 [label="AST"];
+171 -> 170 [label="AST"];
+171 -> 168 [label="AST"];
+172 -> 166 [label="AST"];
+172 -> 167 [label="AST"];
+172 -> 165 [label="AST"];
+172 -> 171 [label="AST"];
+173 -> 172 [label="AST"];
+174 -> 152 [label="AST"];
+174 -> 164 [label="AST"];
+174 -> 173 [label="AST"];
+175 -> 174 [label="AST"];
+176 -> 148 [label="AST"];
+176 -> 175 [label="AST"];
+180 -> 178 [label="AST"];
+180 -> 179 [label="AST"];
+180 -> 177 [label="AST"];
+184 -> 182 [label="AST"];
+184 -> 183 [label="AST"];
+184 -> 181 [label="AST"];
+185 -> 55 [label="AST"];
+185 -> 59 [label="AST"];
+185 -> 84 [label="AST"];
+185 -> 115 [label="AST"];
+185 -> 139 [label="AST"];
+185 -> 145 [label="AST"];
+185 -> 176 [label="AST"];
+185 -> 180 [label="AST"];
+185 -> 184 [label="AST"];
+186 -> 193 [label="Define-Use"];
+186 -> 196 [label="Define-Use"];
+188 -> 186 [label="AST"];
+188 -> 187 [label="AST"];
+188 -> 199 [label="Control Dep"];
+188 -> 198 [label="Control Dep"];
+188 -> 197 [label="Control Dep"];
+188 -> 195 [label="Control Dep"];
+188 -> 190 [label="Control Dep"];
+188 -> 194 [label="Control Dep"];
+188 -> 191 [label="Control Dep"];
+188 -> 193 [label="Control Dep"];
+188 -> 196 [label="Control Dep"];
+194 -> 192 [label="AST"];
+194 -> 193 [label="AST"];
+194 -> 191 [label="AST"];
+195 -> 190 [label="AST"];
+195 -> 194 [label="AST"];
+197 -> 195 [label="AST"];
+197 -> 196 [label="AST"];
+198 -> 197 [label="AST"];
+199 -> 198 [label="AST"];
+200 -> 188 [label="AST"];
+200 -> 199 [label="AST"];
+203 -> 201 [label="AST"];
+203 -> 202 [label="AST"];
+203 -> 215 [label="Control Dep"];
+203 -> 214 [label="Control Dep"];
+203 -> 208 [label="Control Dep"];
+203 -> 207 [label="Control Dep"];
+203 -> 204 [label="Control Dep"];
+203 -> 206 [label="Control Dep"];
+203 -> 213 [label="Control Dep"];
+203 -> 211 [label="Control Dep"];
+207 -> 205 [label="AST"];
+207 -> 206 [label="AST"];
+207 -> 204 [label="AST"];
+208 -> 207 [label="AST"];
+211 -> 209 [label="AST"];
+211 -> 210 [label="AST"];
+211 -> 212 [label="Control Dep"];
+213 -> 211 [label="AST"];
+213 -> 212 [label="AST"];
+214 -> 208 [label="AST"];
+214 -> 213 [label="AST"];
+215 -> 214 [label="AST"];
+216 -> 203 [label="AST"];
+216 -> 215 [label="AST"];
+219 -> 217 [label="AST"];
+219 -> 218 [label="AST"];
+219 -> 231 [label="Control Dep"];
+219 -> 230 [label="Control Dep"];
+219 -> 224 [label="Control Dep"];
+219 -> 223 [label="Control Dep"];
+219 -> 220 [label="Control Dep"];
+219 -> 222 [label="Control Dep"];
+219 -> 229 [label="Control Dep"];
+219 -> 227 [label="Control Dep"];
+223 -> 221 [label="AST"];
+223 -> 222 [label="AST"];
+223 -> 220 [label="AST"];
+224 -> 223 [label="AST"];
+227 -> 225 [label="AST"];
+227 -> 226 [label="AST"];
+227 -> 228 [label="Control Dep"];
+229 -> 227 [label="AST"];
+229 -> 228 [label="AST"];
+230 -> 224 [label="AST"];
+230 -> 229 [label="AST"];
+231 -> 230 [label="AST"];
+232 -> 219 [label="AST"];
+232 -> 231 [label="AST"];
+233 -> 216 [label="AST"];
+233 -> 232 [label="AST"];
+234 -> 185 [label="AST"];
+234 -> 200 [label="AST"];
+234 -> 233 [label="AST"];
+235 -> 5 [label="AST"];
+235 -> 9 [label="AST"];
+235 -> 15 [label="AST"];
+235 -> 234 [label="AST"];
+236 -> 1 [label="AST"];
+236 -> 0 [label="AST"];
+236 -> 235 [label="AST"];
+237 -> 238 [label="Action"];
+}

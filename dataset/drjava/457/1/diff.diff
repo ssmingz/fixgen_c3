@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/457/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/457/1/after.java
+@@ -19,6 +19,2 @@
+-      TypeParameter[] typeParamAsts;
+-      if (ast instanceof PolymorphicMethodDeclaration) {
+-        typeParamAsts = ((PolymorphicMethodDeclaration) (ast)).getTypeParameters();
+-      } else {
+-        typeParamAsts = new TypeParameter[0];
+-      }
++      List<TypeParameter> typeParamAsts =
++          ast.getTypeParams().unwrap(Collections.<TypeParameter>emptyList());
+@@ -26,1 +22,1 @@
+-      if (typeParamAsts.length > 0) {
++      if (!typeParamAsts.isEmpty()) {

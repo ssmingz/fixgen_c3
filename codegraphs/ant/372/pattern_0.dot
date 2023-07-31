@@ -1,0 +1,25 @@
+digraph "Pattern" {
+0 [label="testRedirect3#?#-1:DELETE
+testRedirect2#?#-1:DELETE
+testRedirect1#?#-1:DELETE" shape=ellipse]
+1 [label="testRedirect3#?#-1:PlaceHold
+testRedirect2#?#-1:PlaceHold
+testRedirect1#?#-1:PlaceHold" shape=ellipse]
+2 [label="testRedirect3#?#-1:
+testRedirect2#?#-1:
+testRedirect1#?#-1:" shape=ellipse]
+3 [label="testRedirect3#?#3:executeTarget(\"redirect3\")
+testRedirect2#?#3:executeTarget(\"redirect2\")
+testRedirect1#?#3:executeTarget(\"redirect1\")" shape=ellipse]
+4 [label="testRedirect3#?#-1:PlaceHold
+testRedirect2#?#-1:PlaceHold
+testRedirect1#?#-1:PlaceHold" shape=ellipse]
+5 [label="testRedirect3#?#-1:PlaceHold
+testRedirect2#?#-1:PlaceHold
+testRedirect1#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+}

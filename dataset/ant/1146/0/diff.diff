@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1146/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1146/0/after.java
+@@ -22,1 +22,2 @@
+-        sf.addElement(new SourceFile(((FileProvider) (iter.next())).getFile()));
++        Resource r = ((Resource) (iter.next()));
++        sf.addElement(new SourceFile(((FileProvider) (r.as(FileProvider.class))).getFile()));

@@ -1,0 +1,104 @@
+digraph "Pattern" {
+0 [label="recreate#?#17:INSERT
+delete#?#9:INSERT" shape=ellipse]
+1 [label="recreate#?#17:deleteSymlink(lnk)
+delete#?#9:deleteSymlink(link)" shape=ellipse]
+2 [label="recreate#?#16:!test.getCanonicalPath().equals(new File(res).getCanonicalPath())" shape=ellipse]
+3 [label="recreate#?#14:!FILE_UTILS.isSymbolicLink(null, lnk)" shape=ellipse]
+4 [label="recreate#?#16:if (!test.getCanonicalPath().equals(new File(res).getCanonicalPath())) \{
+    deleteSymlink(lnk);
+    doLink(res, lnk);
+\}
+delete#?#4:if (link == null) \{
+    handleError(\"Must define the link name for symlink!\");
+    return;
+\}" shape=ellipse]
+5 [label="recreate#?#16:test.getCanonicalPath().equals(new File(res).getCanonicalPath())
+delete#?#8:log(\"Removing symlink: \" + link)" shape=ellipse]
+6 [label="recreate#?#16:\{
+    deleteSymlink(lnk);
+    doLink(res, lnk);
+\}" shape=ellipse]
+7 [label="recreate#?#17:deleteSymlink(java.lang.String)
+delete#?#9:deleteSymlink(<unknown>)" shape=ellipse]
+8 [label="recreate#?#-1:
+delete#?#-1:" shape=ellipse]
+9 [label="recreate#?#-1:PlaceHold
+delete#?#-1:PlaceHold" shape=ellipse]
+10 [label="recreate#?#17:lnk
+delete#?#9:link" shape=ellipse]
+11 [label="recreate#?#18:doLink(res, lnk)" shape=ellipse]
+12 [label="recreate#?#18:doLink(java.lang.String,java.lang.String)" shape=ellipse]
+13 [label="recreate#?#-1:" shape=ellipse]
+14 [label="recreate#?#-1:PlaceHold" shape=ellipse]
+15 [label="recreate#?#18:res" shape=ellipse]
+16 [label="recreate#?#18:lnk" shape=ellipse]
+17 [label="recreate#?#17:deleteSymlink
+delete#?#9:deleteSymlink" shape=ellipse]
+18 [label="recreate#?#17:this
+delete#?#9:this" shape=ellipse]
+19 [label="delete#?#-1:PlaceHold" shape=ellipse]
+20 [label="delete#?#3:\{
+    if (link == null) \{
+        handleError(\"Must define the link name for symlink!\");
+        return;
+    \}
+    log(\"Removing symlink: \" + link);
+    deleteSymlink(link);
+\}" shape=ellipse]
+21 [label="delete#?#3:try \{
+    if (link == null) \{
+        handleError(\"Must define the link name for symlink!\");
+        return;
+    \}
+    log(\"Removing symlink: \" + link);
+    deleteSymlink(link);
+\} catch (FileNotFoundException fnfe) \{
+    handleError(fnfe.toString());
+\} catch (IOException ioe) \{
+    handleError(ioe.toString());
+\} finally \{
+    setDefaults();
+\}" shape=ellipse]
+22 [label="delete#?#-1:null" shape=ellipse]
+23 [label="delete#?#-1:link" shape=ellipse]
+0 -> 18 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 17 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+6 -> 1 [label="AST:1"];
+6 -> 11 [label="AST:1"];
+7 -> 22 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+8 -> 19 [label="AST:1"];
+10 -> 23 [label="AST:1"];
+11 -> 13 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+11 -> 15 [label="AST:1"];
+11 -> 16 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+20 -> 4 [label="AST:1"];
+20 -> 5 [label="AST:1"];
+20 -> 1 [label="AST:1"];
+21 -> 20 [label="AST:1"];
+}

@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1054/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1054/1/after.java
+@@ -9,3 +9,13 @@
+-      if (index != (-1)) {
+-        if ((style & SWT.CHECK) != 0) {
+-          index--;
++      if (index == (-1)) {
++        return;
++      }
++      if ((index == 0) && ((style & SWT.CHECK) != 0)) {
++        return;
++      }
++      NSArray array = ((NSTableView) (view)).tableColumns();
++      int columnId = array.objectAtIndex(index).id;
++      for (int i = 0; i < columnCount; i++) {
++        TableColumn column = columns[i];
++        if (column.nsColumn.id == columnId) {
++          column.postEvent(Selection);
++          break;
+@@ -13,2 +23,0 @@
+-        TableColumn column = columns[index];
+-        column.postEvent(Selection);

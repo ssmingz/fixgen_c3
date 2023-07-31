@@ -1,0 +1,305 @@
+digraph "Pattern" {
+0 [label="getOptions#?#7:UPDATE
+execute#?#103:UPDATE" shape=ellipse]
+1 [label="getOptions#?#7:PathUtil
+execute#?#103:PathUtil" shape=ellipse]
+2 [label="getOptions#?#7:PathUtil.formatPath(classpath, getContext())
+execute#?#103:PathUtil.formatPath(afterInstrumentationClasspath, getContext())" shape=ellipse]
+3 [label="getOptions#?#7:final String formattedClasspath = PathUtil.formatPath(classpath, getContext())
+execute#?#103:final String classpath = PathUtil.formatPath(afterInstrumentationClasspath, getContext())" shape=ellipse]
+4 [label="getOptions#?#7:formatPath" shape=ellipse]
+5 [label="getOptions#?#7:formatPath(Path)
+execute#?#103:formatPath(Path)" shape=ellipse]
+6 [label="getOptions#?#7:classpath
+execute#?#103:afterInstrumentationClasspath" shape=ellipse]
+7 [label="getOptions#?#7:getContext()
+execute#?#103:getContext()" shape=ellipse]
+8 [label="getOptions#?#-1:PathUtil
+execute#?#-1:PathUtil" shape=ellipse]
+9 [label="getOptions#?#7:FileListUtil
+execute#?#104:FileListUtil" shape=ellipse]
+10 [label="execute#?#101:iControlProps" shape=ellipse]
+11 [label="execute#?#-1:Properties()" shape=ellipse]
+12 [label="execute#?#104:iControlProps.setProperty(\"classpath\", classpath)" shape=ellipse]
+13 [label="execute#?#106:iControlProps" shape=ellipse]
+14 [label="execute#?#108:store(FileOutputStream)" shape=ellipse]
+15 [label="execute#?#109:ICONTROL_PROPERTIES_HEADER" shape=ellipse]
+16 [label="execute#?#94:new Properties()" shape=ellipse]
+17 [label="execute#?#106:getAbsolutePath()" shape=ellipse]
+18 [label="execute#?#104:setProperty(java.lang.String,java.lang.String)" shape=ellipse]
+19 [label="execute#?#93:\{
+    Properties iControlProps = new Properties();
+    try \{
+        iControlProps.load(new FileInputStream(\"icontrol.properties\"));
+    \} catch (IOException e) \{
+        getContext().info(\"File icontrol.properties not found. That's ok. Writing a default one.\");
+    \}
+    iControlProps.setProperty(\"sourceRoot\", srcDir.getAbsolutePath());
+    iControlProps.setProperty(\"classRoot\", classDir.getAbsolutePath());
+    final String classpath = PathUtil.formatPath(afterInstrumentationClasspath, getContext());
+    iControlProps.setProperty(\"classpath\", classpath);
+    iControlProps.setProperty(\"controlFile\", controlFile.getAbsolutePath());
+    iControlProps.setProperty(\"targetsFile\", targets.getAbsolutePath());
+    try \{
+        iControlProps.store(new FileOutputStream(\"icontrol.properties\"), ICONTROL_PROPERTIES_HEADER);
+        getContext().info(\"Updated icontrol.properties\");
+    \} catch (IOException e) \{
+        getContext().info(\"Couldn't write icontrol.properties.\");
+    \}
+\}" shape=ellipse]
+20 [label="execute#?#102:setProperty(java.lang.String)" shape=ellipse]
+21 [label="execute#?#111: catch (IOException e) \{
+    getContext().info(\"Couldn't write icontrol.properties.\");
+\}" shape=ellipse]
+22 [label="execute#?#5:dirty" shape=ellipse]
+23 [label="execute#?#95:\{
+    iControlProps.load(new FileInputStream(\"icontrol.properties\"));
+\}" shape=ellipse]
+24 [label="execute#?#102:getAbsolutePath()" shape=ellipse]
+25 [label="execute#?#93:updateIcontrol" shape=ellipse]
+26 [label="execute#?#96:iControlProps.load(new FileInputStream(\"icontrol.properties\"))" shape=ellipse]
+27 [label="execute#?#-1:updateIcontrol" shape=ellipse]
+28 [label="execute#?#-1:PlaceHold" shape=ellipse]
+29 [label="execute#?#102:classDir" shape=ellipse]
+30 [label="execute#?#-1:FileInputStream(java.lang.String)" shape=ellipse]
+31 [label="execute#?#106:\"targetsFile\"" shape=ellipse]
+32 [label="execute#?#110:getContext().info(\"Updated icontrol.properties\")" shape=ellipse]
+33 [label="execute#?#107:\{
+    iControlProps.store(new FileOutputStream(\"icontrol.properties\"), ICONTROL_PROPERTIES_HEADER);
+    getContext().info(\"Updated icontrol.properties\");
+\}" shape=ellipse]
+34 [label="execute#?#102:iControlProps.setProperty(\"classRoot\", classDir.getAbsolutePath())" shape=ellipse]
+35 [label="execute#?#105:\"controlFile\"" shape=ellipse]
+36 [label="execute#?#96:load(FileInputStream)" shape=ellipse]
+37 [label="execute#?#109:\"icontrol.properties\"" shape=ellipse]
+38 [label="execute#?#96:new FileInputStream(\"icontrol.properties\")" shape=ellipse]
+39 [label="execute#?#97: catch (IOException e) \{
+    getContext().info(\"File icontrol.properties not found. That's ok. Writing a default one.\");
+\}" shape=ellipse]
+40 [label="execute#?#104:\"classpath\"" shape=ellipse]
+41 [label="execute#?#110:info(java.lang.String)" shape=ellipse]
+42 [label="execute#?#101:\"sourceRoot\"" shape=ellipse]
+43 [label="execute#?#110:\"Updated icontrol.properties\"" shape=ellipse]
+44 [label="execute#?#101:srcDir.getAbsolutePath()" shape=ellipse]
+45 [label="execute#?#102:iControlProps" shape=ellipse]
+46 [label="execute#?#105:getAbsolutePath()" shape=ellipse]
+47 [label="execute#?#103:getContext()" shape=ellipse]
+48 [label="execute#?#-1:" shape=ellipse]
+49 [label="execute#?#111:IOException e" shape=ellipse]
+50 [label="execute#?#102:classDir.getAbsolutePath()" shape=ellipse]
+51 [label="execute#?#109:new FileOutputStream(\"icontrol.properties\")" shape=ellipse]
+52 [label="execute#?#105:controlFile" shape=ellipse]
+53 [label="execute#?#105:iControlProps" shape=ellipse]
+54 [label="execute#?#101:iControlProps.setProperty(\"sourceRoot\", srcDir.getAbsolutePath())" shape=ellipse]
+55 [label="execute#?#96:\"icontrol.properties\"" shape=ellipse]
+56 [label="execute#?#105:controlFile.getAbsolutePath()" shape=ellipse]
+57 [label="execute#?#110:getContext()" shape=ellipse]
+58 [label="execute#?#101:srcDir" shape=ellipse]
+59 [label="execute#?#104:classpath" shape=ellipse]
+60 [label="execute#?#96:iControlProps" shape=ellipse]
+61 [label="execute#?#110:getContext()" shape=ellipse]
+62 [label="execute#?#101:setProperty(java.lang.String)" shape=ellipse]
+63 [label="execute#?#-1:" shape=ellipse]
+64 [label="execute#?#106:iControlProps.setProperty(\"targetsFile\", targets.getAbsolutePath())" shape=ellipse]
+65 [label="execute#?#105:setProperty(java.lang.String)" shape=ellipse]
+66 [label="execute#?#97:IOException e" shape=ellipse]
+67 [label="execute#?#107:try \{
+    iControlProps.store(new FileOutputStream(\"icontrol.properties\"), ICONTROL_PROPERTIES_HEADER);
+    getContext().info(\"Updated icontrol.properties\");
+\} catch (IOException e) \{
+    getContext().info(\"Couldn't write icontrol.properties.\");
+\}" shape=ellipse]
+68 [label="execute#?#-1:PlaceHold" shape=ellipse]
+69 [label="execute#?#105:iControlProps.setProperty(\"controlFile\", controlFile.getAbsolutePath())" shape=ellipse]
+70 [label="execute#?#106:setProperty(java.lang.String)" shape=ellipse]
+71 [label="execute#?#102:\"classRoot\"" shape=ellipse]
+72 [label="execute#?#108:iControlProps" shape=ellipse]
+73 [label="execute#?#95:try \{
+    iControlProps.load(new FileInputStream(\"icontrol.properties\"));
+\} catch (IOException e) \{
+    getContext().info(\"File icontrol.properties not found. That's ok. Writing a default one.\");
+\}" shape=ellipse]
+74 [label="execute#?#104:iControlProps" shape=ellipse]
+75 [label="execute#?#106:targets.getAbsolutePath()" shape=ellipse]
+76 [label="execute#?#-1:FileOutputStream(java.lang.String)" shape=ellipse]
+77 [label="execute#?#106:targets" shape=ellipse]
+78 [label="execute#?#94:Properties iControlProps = new Properties()" shape=ellipse]
+79 [label="execute#?#108:iControlProps.store(new FileOutputStream(\"icontrol.properties\"), ICONTROL_PROPERTIES_HEADER)" shape=ellipse]
+80 [label="execute#?#93:if (updateIcontrol) \{
+    Properties iControlProps = new Properties();
+    try \{
+        iControlProps.load(new FileInputStream(\"icontrol.properties\"));
+    \} catch (IOException e) \{
+        getContext().info(\"File icontrol.properties not found. That's ok. Writing a default one.\");
+    \}
+    iControlProps.setProperty(\"sourceRoot\", srcDir.getAbsolutePath());
+    iControlProps.setProperty(\"classRoot\", classDir.getAbsolutePath());
+    final String classpath = PathUtil.formatPath(afterInstrumentationClasspath, getContext());
+    iControlProps.setProperty(\"classpath\", classpath);
+    iControlProps.setProperty(\"controlFile\", controlFile.getAbsolutePath());
+    iControlProps.setProperty(\"targetsFile\", targets.getAbsolutePath());
+    try \{
+        iControlProps.store(new FileOutputStream(\"icontrol.properties\"), ICONTROL_PROPERTIES_HEADER);
+        getContext().info(\"Updated icontrol.properties\");
+    \} catch (IOException e) \{
+        getContext().info(\"Couldn't write icontrol.properties.\");
+    \}
+\}" shape=ellipse]
+81 [label="execute#?#101:getAbsolutePath()" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 47 [label="AST:1"];
+7 -> 48 [label="AST:1"];
+12 -> 74 [label="AST:1"];
+12 -> 18 [label="AST:1"];
+12 -> 40 [label="AST:1"];
+12 -> 59 [label="AST:1"];
+16 -> 11 [label="AST:1"];
+19 -> 12 [label="AST:1"];
+19 -> 78 [label="AST:1"];
+19 -> 73 [label="AST:1"];
+19 -> 54 [label="AST:1"];
+19 -> 34 [label="AST:1"];
+19 -> 3 [label="AST:1"];
+19 -> 69 [label="AST:1"];
+19 -> 64 [label="AST:1"];
+19 -> 67 [label="AST:1"];
+21 -> 49 [label="AST:1"];
+22 -> 80 [label="Control Dep:1"];
+22 -> 25 [label="Control Dep:1"];
+23 -> 26 [label="AST:1"];
+25 -> 10 [label="Control Dep:1"];
+25 -> 11 [label="Control Dep:1"];
+25 -> 12 [label="Control Dep:1"];
+25 -> 13 [label="Control Dep:1"];
+25 -> 14 [label="Control Dep:1"];
+25 -> 15 [label="Control Dep:1"];
+25 -> 16 [label="Control Dep:1"];
+25 -> 17 [label="Control Dep:1"];
+25 -> 18 [label="Control Dep:1"];
+25 -> 19 [label="Control Dep:1"];
+25 -> 20 [label="Control Dep:1"];
+25 -> 21 [label="Control Dep:1"];
+25 -> 23 [label="Control Dep:1"];
+25 -> 24 [label="Control Dep:1"];
+25 -> 27 [label="AST:1"];
+25 -> 78 [label="Control Dep:1"];
+25 -> 73 [label="Control Dep:1"];
+25 -> 26 [label="Control Dep:1"];
+25 -> 36 [label="Control Dep:1"];
+25 -> 60 [label="Control Dep:1"];
+25 -> 38 [label="Control Dep:1"];
+25 -> 30 [label="Control Dep:1"];
+25 -> 55 [label="Control Dep:1"];
+25 -> 39 [label="Control Dep:1"];
+25 -> 66 [label="Control Dep:1"];
+25 -> 54 [label="Control Dep:1"];
+25 -> 62 [label="Control Dep:1"];
+25 -> 42 [label="Control Dep:1"];
+25 -> 44 [label="Control Dep:1"];
+25 -> 81 [label="Control Dep:1"];
+25 -> 58 [label="Control Dep:1"];
+25 -> 34 [label="Control Dep:1"];
+25 -> 45 [label="Control Dep:1"];
+25 -> 71 [label="Control Dep:1"];
+25 -> 50 [label="Control Dep:1"];
+25 -> 29 [label="Control Dep:1"];
+25 -> 3 [label="Control Dep:1"];
+25 -> 2 [label="Control Dep:1"];
+25 -> 5 [label="Control Dep:1"];
+25 -> 1 [label="Control Dep:1"];
+25 -> 6 [label="Control Dep:1"];
+25 -> 7 [label="Control Dep:1"];
+25 -> 47 [label="Control Dep:1"];
+25 -> 48 [label="Control Dep:1"];
+25 -> 68 [label="Control Dep:1"];
+25 -> 74 [label="Control Dep:1"];
+25 -> 40 [label="Control Dep:1"];
+25 -> 59 [label="Control Dep:1"];
+25 -> 69 [label="Control Dep:1"];
+25 -> 65 [label="Control Dep:1"];
+25 -> 53 [label="Control Dep:1"];
+25 -> 35 [label="Control Dep:1"];
+25 -> 56 [label="Control Dep:1"];
+25 -> 46 [label="Control Dep:1"];
+25 -> 52 [label="Control Dep:1"];
+25 -> 64 [label="Control Dep:1"];
+25 -> 70 [label="Control Dep:1"];
+25 -> 31 [label="Control Dep:1"];
+25 -> 75 [label="Control Dep:1"];
+25 -> 77 [label="Control Dep:1"];
+25 -> 67 [label="Control Dep:1"];
+25 -> 33 [label="Control Dep:1"];
+25 -> 79 [label="Control Dep:1"];
+25 -> 72 [label="Control Dep:1"];
+25 -> 51 [label="Control Dep:1"];
+25 -> 76 [label="Control Dep:1"];
+25 -> 37 [label="Control Dep:1"];
+25 -> 32 [label="Control Dep:1"];
+25 -> 41 [label="Control Dep:1"];
+25 -> 61 [label="Control Dep:1"];
+25 -> 57 [label="Control Dep:1"];
+25 -> 63 [label="Control Dep:1"];
+25 -> 28 [label="Control Dep:1"];
+25 -> 43 [label="Control Dep:1"];
+25 -> 49 [label="Control Dep:1"];
+26 -> 60 [label="AST:1"];
+26 -> 36 [label="AST:1"];
+26 -> 38 [label="AST:1"];
+32 -> 61 [label="AST:1"];
+32 -> 41 [label="AST:1"];
+32 -> 43 [label="AST:1"];
+33 -> 32 [label="AST:1"];
+33 -> 79 [label="AST:1"];
+34 -> 20 [label="AST:1"];
+34 -> 45 [label="AST:1"];
+34 -> 71 [label="AST:1"];
+34 -> 50 [label="AST:1"];
+38 -> 30 [label="AST:1"];
+38 -> 55 [label="AST:1"];
+39 -> 66 [label="AST:1"];
+44 -> 58 [label="AST:1"];
+44 -> 81 [label="AST:1"];
+48 -> 68 [label="AST:1"];
+50 -> 24 [label="AST:1"];
+50 -> 29 [label="AST:1"];
+51 -> 37 [label="AST:1"];
+51 -> 76 [label="AST:1"];
+54 -> 10 [label="AST:1"];
+54 -> 42 [label="AST:1"];
+54 -> 44 [label="AST:1"];
+54 -> 62 [label="AST:1"];
+56 -> 46 [label="AST:1"];
+56 -> 52 [label="AST:1"];
+61 -> 57 [label="AST:1"];
+61 -> 63 [label="AST:1"];
+63 -> 28 [label="AST:1"];
+64 -> 13 [label="AST:1"];
+64 -> 31 [label="AST:1"];
+64 -> 70 [label="AST:1"];
+64 -> 75 [label="AST:1"];
+67 -> 21 [label="AST:1"];
+67 -> 33 [label="AST:1"];
+69 -> 35 [label="AST:1"];
+69 -> 53 [label="AST:1"];
+69 -> 56 [label="AST:1"];
+69 -> 65 [label="AST:1"];
+73 -> 23 [label="AST:1"];
+73 -> 39 [label="AST:1"];
+75 -> 17 [label="AST:1"];
+75 -> 77 [label="AST:1"];
+78 -> 16 [label="AST:1"];
+79 -> 14 [label="AST:1"];
+79 -> 15 [label="AST:1"];
+79 -> 51 [label="AST:1"];
+79 -> 72 [label="AST:1"];
+80 -> 19 [label="AST:1"];
+80 -> 25 [label="AST:1"];
+}

@@ -1,0 +1,43 @@
+digraph "setFloat#?,Float" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setFloat" shape=ellipse]
+2 [label="2:CtParameterImpl@final Float value" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Float" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@info(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@info" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+7 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+8 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+9 [label="3:CtLiteralImpl@\"setFloat( \"" shape=ellipse]
+10 [label="3:CtVariableReadImpl@value" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@(\"setFloat( \" + value)" shape=ellipse]
+12 [label="3:CtLiteralImpl@\" );\"" shape=ellipse]
+13 [label="3:CtBinaryOperatorImpl@(\"setFloat( \" + value) + \" );\"" shape=ellipse]
+14 [label="3:CtInvocationImpl@getLogger().info((\"setFloat( \" + value) + \" );\")" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    getLogger().info((\"setFloat( \" + value) + \" );\");
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public void setFloat(final Float value) \{
+    getLogger().info((\"setFloat( \" + value) + \" );\");
+\}" shape=ellipse]
+17 [label="3:Update@UPDATE" shape=ellipse]
+18 [label="3:CtInvocationImpl@getLogger().warn((\"setFloat( \" + value) + \" );\")" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 5 [label="AST"];
+14 -> 8 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 17 [label="Action"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

@@ -1,0 +1,160 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@emptyChangeList" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@emptyChangeList == null" shape=ellipse]
+6 [label="4:CtFieldWriteImpl@emptyChangeList" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@getEmptyChangeList()" shape=ellipse]
+8 [label="4:CtVirtualElement@getEmptyChangeList" shape=ellipse]
+9 [label="4:CtInvocationImpl@getEmptyChangeList()" shape=ellipse]
+10 [label="4:CtAssignmentImpl@emptyChangeList = getEmptyChangeList()" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    emptyChangeList = getEmptyChangeList();
+\}" shape=ellipse]
+12 [label="3:CtIfImpl@if (emptyChangeList == null) \{
+    emptyChangeList = getEmptyChangeList();
+\}" shape=ellipse]
+13 [label="6:CtTypeReferenceImpl@Project" shape=ellipse]
+14 [label="6:CtFieldReadImpl@project" shape=ellipse]
+15 [label="6:CtVirtualElement@myProj" shape=ellipse]
+16 [label="6:CtLocalVariableImpl@final Project myProj = project" shape=ellipse]
+17 [label="7:CtTypeReferenceImpl@P4Handler" shape=ellipse]
+18 [label="8:CtTypeReferenceImpl@P4HandlerAdapter" shape=ellipse]
+19 [label="8:CtNewClassImpl@new P4HandlerAdapter() \{
+    public void process(String line) \{
+        if (util.match(\"/Change/\", line)) \{
+            line = util.substitute(\"s/[^0-9]//g\", line);
+            int changenumber = Integer.parseInt(line);
+            log(\"Change Number is \" + changenumber, MSG_INFO);
+            myProj.setProperty(\"p4.change\", \"\" + changenumber);
+        \} else if (util.match(\"/error/\", line)) \{
+            throw new BuildException(\"Perforce Error, check client settings and/or server\");
+        \}
+    \}
+\}" shape=ellipse]
+20 [label="8:CtClassImpl@ \{
+    public void process(String line) \{
+        if (util.match(\"/Change/\", line)) \{
+            line = util.substitute(\"s/[^0-9]//g\", line);
+            int changenumber = Integer.parseInt(line);
+            log(\"Change Number is \" + changenumber, MSG_INFO);
+            myProj.setProperty(\"p4.change\", \"\" + changenumber);
+        \} else if (util.match(\"/error/\", line)) \{
+            throw new BuildException(\"Perforce Error, check client settings and/or server\");
+        \}
+    \}
+\}" shape=ellipse]
+21 [label="7:CtVirtualElement@handler" shape=ellipse]
+22 [label="7:CtLocalVariableImpl@P4Handler handler = new P4HandlerAdapter() \{
+    public void process(String line) \{
+        if (util.match(\"/Change/\", line)) \{
+            line = util.substitute(\"s/[^0-9]//g\", line);
+            int changenumber = Integer.parseInt(line);
+            log(\"Change Number is \" + changenumber, MSG_INFO);
+            myProj.setProperty(\"p4.change\", \"\" + changenumber);
+        \} else if (util.match(\"/error/\", line)) \{
+            throw new BuildException(\"Perforce Error, check client settings and/or server\");
+        \}
+    \}
+\}" shape=ellipse]
+23 [label="20:CtExecutableReferenceImpl@setOutput()" shape=ellipse]
+24 [label="20:CtVirtualElement@setOutput" shape=ellipse]
+25 [label="20:CtVariableReadImpl@handler" shape=ellipse]
+26 [label="20:CtFieldReadImpl@emptyChangeList" shape=ellipse]
+27 [label="20:CtInvocationImpl@handler.setOutput(emptyChangeList)" shape=ellipse]
+28 [label="21:CtExecutableReferenceImpl@execP4Command(java.lang.String,<unknown>)" shape=ellipse]
+29 [label="21:CtVirtualElement@execP4Command" shape=ellipse]
+30 [label="21:CtLiteralImpl@\"change -i\"" shape=ellipse]
+31 [label="21:CtVariableReadImpl@handler" shape=ellipse]
+32 [label="21:CtInvocationImpl@execP4Command(\"change -i\", handler)" shape=ellipse]
+33 [label="2:CtBlockImpl@\{
+    if (emptyChangeList == null) \{
+        emptyChangeList = getEmptyChangeList();
+    \}
+    final Project myProj = project;
+    P4Handler handler = new P4HandlerAdapter() \{
+        public void process(String line) \{
+            if (util.match(\"/Change/\", line)) \{
+                line = util.substitute(\"s/[^0-9]//g\", line);
+                int changenumber = Integer.parseInt(line);
+                log(\"Change Number is \" + changenumber, MSG_INFO);
+                myProj.setProperty(\"p4.change\", \"\" + changenumber);
+            \} else if (util.match(\"/error/\", line)) \{
+                throw new BuildException(\"Perforce Error, check client settings and/or server\");
+            \}
+        \}
+    \};
+    handler.setOutput(emptyChangeList);
+    execP4Command(\"change -i\", handler);
+\}" shape=ellipse]
+34 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    if (emptyChangeList == null) \{
+        emptyChangeList = getEmptyChangeList();
+    \}
+    final Project myProj = project;
+    P4Handler handler = new P4HandlerAdapter() \{
+        public void process(String line) \{
+            if (util.match(\"/Change/\", line)) \{
+                line = util.substitute(\"s/[^0-9]//g\", line);
+                int changenumber = Integer.parseInt(line);
+                log(\"Change Number is \" + changenumber, MSG_INFO);
+                myProj.setProperty(\"p4.change\", \"\" + changenumber);
+            \} else if (util.match(\"/error/\", line)) \{
+                throw new BuildException(\"Perforce Error, check client settings and/or server\");
+            \}
+        \}
+    \};
+    handler.setOutput(emptyChangeList);
+    execP4Command(\"change -i\", handler);
+\}" shape=ellipse]
+35 [label="6:Delete@DELETE" shape=ellipse]
+36 [label="6:Insert@INSERT" shape=ellipse]
+37 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 11 [label="Control Dep"];
+5 -> 10 [label="Control Dep"];
+5 -> 6 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+6 -> 26 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 5 [label="AST"];
+12 -> 11 [label="AST"];
+14 -> 15 [label="Data Dep"];
+14 -> 35 [label="Action"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 36 [label="Action"];
+19 -> 20 [label="AST"];
+21 -> 25 [label="Define-Use"];
+21 -> 31 [label="Define-Use"];
+22 -> 21 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 19 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 23 [label="AST"];
+27 -> 26 [label="AST"];
+32 -> 29 [label="AST"];
+32 -> 28 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 12 [label="AST"];
+33 -> 16 [label="AST"];
+33 -> 22 [label="AST"];
+33 -> 27 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 1 [label="AST"];
+34 -> 0 [label="AST"];
+34 -> 2 [label="AST"];
+34 -> 33 [label="AST"];
+36 -> 37 [label="Action"];
+}

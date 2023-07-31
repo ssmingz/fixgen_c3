@@ -1,0 +1,101 @@
+digraph "Pattern" {
+0 [label="send#?#35:UPDATE
+attach#?,File,PrintStream#5:UPDATE
+attach#?,File,PrintStream#5:UPDATE" shape=ellipse]
+1 [label="send#?#35:\"\\" does not exist or is not readable.\"
+attach#?,File,PrintStream#5:\"\\" does not exist or is not readable.\"
+attach#?,File,PrintStream#5:\"\\" does not exist or is not readable.\"" shape=ellipse]
+2 [label="send#?#33:(!file.exists()) || (!file.canRead())
+attach#?,File,PrintStream#3:(!file.exists()) || (!file.canRead())
+attach#?,File,PrintStream#3:(!file.exists()) || (!file.canRead())" shape=ellipse]
+3 [label="send#?#29:e.hasMoreElements()" shape=ellipse]
+4 [label="send#?#33:if ((!file.exists()) || (!file.canRead())) \{
+    throw new BuildException((\"File \\"\" + file.getAbsolutePath()) + \"\\" does not exist or is not readable.\");
+\}
+attach#?,File,PrintStream#3:if ((!file.exists()) || (!file.canRead())) \{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}
+attach#?,File,PrintStream#3:if ((!file.exists()) || (!file.canRead())) \{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}" shape=ellipse]
+5 [label="send#?#33:(!file.exists())
+attach#?,File,PrintStream#3:(!file.exists())
+attach#?,File,PrintStream#3:(!file.exists())" shape=ellipse]
+6 [label="send#?#33:(!file.canRead())
+attach#?,File,PrintStream#3:(!file.canRead())
+attach#?,File,PrintStream#3:(!file.canRead())" shape=ellipse]
+7 [label="send#?#33:\{
+    throw new BuildException((\"File \\"\" + file.getAbsolutePath()) + \"\\" does not exist or is not readable.\");
+\}
+attach#?,File,PrintStream#3:\{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}
+attach#?,File,PrintStream#3:\{
+    throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\");
+\}" shape=ellipse]
+8 [label="send#?#34:throw new BuildException((\"File \\"\" + file.getAbsolutePath()) + \"\\" does not exist or is not readable.\")
+attach#?,File,PrintStream#4:throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")
+attach#?,File,PrintStream#4:throw new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")" shape=ellipse]
+9 [label="send#?#34:new BuildException((\"File \\"\" + file.getAbsolutePath()) + \"\\" does not exist or is not readable.\")
+attach#?,File,PrintStream#4:new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")
+attach#?,File,PrintStream#4:new BuildException((\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\")" shape=ellipse]
+10 [label="send#?#-1:BuildException()
+attach#?,File,PrintStream#-1:BuildException()
+attach#?,File,PrintStream#-1:BuildException()" shape=ellipse]
+11 [label="send#?#35:(\"File \\"\" + file.getAbsolutePath()) + \"\\" does not exist or is not readable.\"
+attach#?,File,PrintStream#5:(\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\"
+attach#?,File,PrintStream#5:(\"File \\"\" + file.getName()) + \"\\" does not exist or is not readable.\"" shape=ellipse]
+12 [label="send#?#35:(\"File \\"\" + file.getAbsolutePath())
+attach#?,File,PrintStream#5:(\"File \\"\" + file.getName())
+attach#?,File,PrintStream#5:(\"File \\"\" + file.getName())" shape=ellipse]
+13 [label="send#?#35:\"File \\"\"
+attach#?,File,PrintStream#5:\"File \\"\"
+attach#?,File,PrintStream#5:\"File \\"\"" shape=ellipse]
+14 [label="send#?#35:file.getAbsolutePath()
+attach#?,File,PrintStream#5:file.getName()
+attach#?,File,PrintStream#5:file.getName()" shape=ellipse]
+15 [label="send#?#35:getAbsolutePath()
+attach#?,File,PrintStream#5:getName()
+attach#?,File,PrintStream#5:getName()" shape=ellipse]
+16 [label="send#?#35:file
+attach#?,File,PrintStream#5:file
+attach#?,File,PrintStream#5:file" shape=ellipse]
+17 [label="send#?#-1:String
+attach#?,File,PrintStream#-1:String
+attach#?,File,PrintStream#-1:String" shape=ellipse]
+18 [label="send#?#35:\"\\" does not exist or is not \"
+attach#?,File,PrintStream#5:\"\\" does not exist or is not \"
+attach#?,File,PrintStream#5:\"\\" does not exist or is not \"" shape=ellipse]
+0 -> 18 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 17 [label="AST:3"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="Control Dep:3"];
+2 -> 8 [label="Control Dep:3"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:3"];
+2 -> 15 [label="Control Dep:3"];
+2 -> 16 [label="Control Dep:3"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+3 -> 6 [label="Control Dep:1"];
+4 -> 2 [label="AST:3"];
+4 -> 7 [label="AST:3"];
+7 -> 8 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+9 -> 10 [label="AST:3"];
+9 -> 11 [label="AST:3"];
+11 -> 1 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+12 -> 14 [label="AST:3"];
+14 -> 16 [label="AST:3"];
+14 -> 15 [label="AST:3"];
+}

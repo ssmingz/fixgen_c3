@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="toExtension#?#22:UPDATE
+setImplementationUrl#?,String#4:UPDATE" shape=ellipse]
+1 [label="toExtension#?#22:implementationVendorURL
+setImplementationUrl#?,String#4:this.implementationVendorURL" shape=ellipse]
+2 [label="toExtension#?#15:new Extension(extensionName, specificationVersionString, specificationVendor, implementationVersionString, implementationVendor, implementationVendorID, implementationVendorURL)" shape=ellipse]
+3 [label="toExtension#?#15:return new Extension(extensionName, specificationVersionString, specificationVendor, implementationVersionString, implementationVendor, implementationVendorID, implementationVendorURL)" shape=ellipse]
+4 [label="toExtension#?#-1:Extension()
+setImplementationUrl#?,String#-1:PlaceHold" shape=ellipse]
+5 [label="toExtension#?#16:extensionName
+setImplementationUrl#?,String#-1:implementationURL" shape=ellipse]
+6 [label="toExtension#?#17:specificationVersionString" shape=ellipse]
+7 [label="toExtension#?#18:specificationVendor" shape=ellipse]
+8 [label="toExtension#?#19:implementationVersionString" shape=ellipse]
+9 [label="toExtension#?#20:implementationVendor" shape=ellipse]
+10 [label="toExtension#?#21:implementationVendorID" shape=ellipse]
+11 [label="toExtension#?#-1:implementationVendorURL
+setImplementationUrl#?,String#4:this" shape=ellipse]
+12 [label="toExtension#?#22:implementationURL
+setImplementationUrl#?,String#4:this.implementationURL" shape=ellipse]
+13 [label="setImplementationUrl#?,String#4:this.implementationVendorURL = implementationURL" shape=ellipse]
+14 [label="setImplementationUrl#?,String#4:implementationURL" shape=ellipse]
+15 [label="setImplementationUrl#?,String#-1:implementationVendorURL" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+1 -> 15 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="AST:1"];
+2 -> 9 [label="AST:1"];
+2 -> 10 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+13 -> 1 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+14 -> 5 [label="AST:1"];
+14 -> 1 [label="Data Dep:1"];
+15 -> 4 [label="AST:1"];
+}

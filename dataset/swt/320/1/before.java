@@ -1,0 +1,19 @@
+class PlaceHold {
+  public void remove(int start, int end) {
+    checkWidget();
+    if (start > end) {
+      return;
+    }
+    if (!(((0 <= start) && (start <= end)) && (end < itemCount))) {
+      error(ERROR_INVALID_RANGE);
+    }
+    if ((start == 0) && (end == (itemCount - 1))) {
+      removeAll();
+    } else {
+      int length = (end - start) + 1;
+      for (int i = 0; i < length; i++) {
+        remove(start);
+      }
+    }
+  }
+}

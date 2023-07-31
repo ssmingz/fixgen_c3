@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/263/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/263/2/after.java
+@@ -3,1 +3,5 @@
+-    redirector.setInputString(inputString);
++    if (input != null) {
++      throw new BuildException(
++          "The \"input\" and \"inputstring\" " + "attributes cannot both be specified");
++    }
++    this.inputString = inputString;

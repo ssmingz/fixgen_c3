@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/612/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/612/0/after.java
+@@ -3,2 +3,7 @@
+-    if (_condition.canInsertText(offs, str, null)) {
+-      super.insertString(offs, str, set);
++    writeLock();
++    try {
++      if (_condition.canInsertText(offs, str, null)) {
++        super.insertString(offs, str, set);
++      }
++    } finally {
++      writeUnlock();

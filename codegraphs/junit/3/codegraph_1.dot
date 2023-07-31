@@ -1,0 +1,68 @@
+digraph "getName#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@java.lang" shape=ellipse]
+2 [label="2:CtVirtualElement@getName" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@getName()" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@fClass" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtVirtualElement@getName" shape=ellipse]
+7 [label="3:CtFieldReferenceImpl@fClass" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+9 [label="3:CtFieldReadImpl@fClass" shape=ellipse]
+10 [label="3:CtInvocationImpl@fClass.getName()" shape=ellipse]
+11 [label="3:CtReturnImpl@return fClass.getName()" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    return fClass.getName();
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@public String getName() \{
+    return fClass.getName();
+\}" shape=ellipse]
+14 [label="3:Insert@INSERT" shape=ellipse]
+15 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+16 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+17 [label="3:CtFieldReferenceImpl@fClass" shape=ellipse]
+18 [label="3:CtFieldReadImpl@fClass" shape=ellipse]
+19 [label="3:CtTypeReferenceImpl@<nulltype>" shape=ellipse]
+20 [label="3:CtLiteralImpl@null" shape=ellipse]
+21 [label="3:CtBinaryOperatorImpl@fClass == null" shape=ellipse]
+22 [label="4:CtPackageReferenceImpl@java.lang" shape=ellipse]
+23 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+24 [label="4:CtLiteralImpl@\"null\"" shape=ellipse]
+25 [label="4:CtReturnImpl@return \"null\"" shape=ellipse]
+26 [label="3:CtBlockImpl@\{
+    return \"null\";
+\}" shape=ellipse]
+27 [label="3:CtIfImpl@if (fClass == null) \{
+    return \"null\";
+\}" shape=ellipse]
+0 -> 1 [label="AST"];
+3 -> 4 [label="AST"];
+3 -> 5 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 3 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 14 [label="Action"];
+13 -> 2 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 27 [label="Action"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 26 [label="Control Dep"];
+21 -> 25 [label="Control Dep"];
+21 -> 24 [label="Control Dep"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 26 [label="AST"];
+}

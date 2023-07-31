@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/610/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/610/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,3 @@
+-    executeTarget("testPresetdefWrappedTask");
+-    Echo e = ((Echo) (getProject().getReference("echo4")));
+-    assertTrue(getLog().indexOf("Line: " + (e.getLocation().getLineNumber() + 1)) > (-1));
++    buildRule.executeTarget("testPresetdefWrappedTask");
++    Echo e = ((Echo) (buildRule.getProject().getReference("echo4")));
++    assertTrue(buildRule.getLog().indexOf("Line: " + (e.getLocation().getLineNumber() + 1)) > (-1));

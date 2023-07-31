@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1872/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1872/1/after.java
+@@ -3,2 +3,5 @@
+-    expectLog(
+-        "no-redirect",
++    executeTarget("no-redirect");
++    if (getProject().getProperty("test.can.run") == null) {
++      return;
++    }
++    assertEquals(
+@@ -6,1 +9,2 @@
+-            + " err");
++            + " err",
++        getLog());

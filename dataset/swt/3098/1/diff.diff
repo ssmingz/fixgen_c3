@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3098/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3098/1/after.java
+@@ -4,1 +4,1 @@
+-      print("-->atkTable_get_column_at_index");
++      print((("-->atkTable_get_column_at_index: " + atkObject) + " ") + index);
+@@ -15,1 +15,5 @@
+-      return index % event.count;
++      int result = index % event.count;
++      if (DEBUG) {
++        print("---> " + result);
++      }
++      return result;

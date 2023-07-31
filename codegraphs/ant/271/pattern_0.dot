@@ -1,0 +1,156 @@
+digraph "Pattern" {
+0 [label="testSpawn#?#3:DELETE
+normalizeSource#?,File#4:DELETE" shape=ellipse]
+1 [label="testSpawn#?#3:FileUtils fileutils = FileUtils.newFileUtils()
+normalizeSource#?,File#4:FileUtils fileUtils = FileUtils.newFileUtils()" shape=ellipse]
+2 [label="testSpawn#?#2:\{
+    FileUtils fileutils = FileUtils.newFileUtils();
+    File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir());
+    assertTrue(\"log file not existing\", !logFile.exists());
+    project.setProperty(\"logFile\", logFile.getAbsolutePath());
+    project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT));
+    project.executeTarget(\"testSpawn\");
+    try \{
+        Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+    \} catch (Exception ex) \{
+        System.out.println(\"my sleep was interrupted\");
+    \}
+    if (!logFile.exists()) \{
+        System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+    \}
+    assertTrue(\"log file exists\", logFile.exists());
+\}
+normalizeSource#?,File#3:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+3 [label="testSpawn#?#2:public void testSpawn() \{
+    FileUtils fileutils = FileUtils.newFileUtils();
+    File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir());
+    assertTrue(\"log file not existing\", !logFile.exists());
+    project.setProperty(\"logFile\", logFile.getAbsolutePath());
+    project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT));
+    project.executeTarget(\"testSpawn\");
+    try \{
+        Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+    \} catch (Exception ex) \{
+        System.out.println(\"my sleep was interrupted\");
+    \}
+    if (!logFile.exists()) \{
+        System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+    \}
+    assertTrue(\"log file exists\", logFile.exists());
+\}" shape=ellipse]
+4 [label="testSpawn#?#4:File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir())
+normalizeSource#?,File#5:try \{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\} catch (BuildException e) \{
+\}" shape=ellipse]
+5 [label="testSpawn#?#5:assertTrue(\"log file not existing\", !logFile.exists())" shape=ellipse]
+6 [label="testSpawn#?#6:project.setProperty(\"logFile\", logFile.getAbsolutePath())" shape=ellipse]
+7 [label="testSpawn#?#7:project.setProperty(\"timeToWait\", Long.toString(TIME_TO_WAIT))" shape=ellipse]
+8 [label="testSpawn#?#8:project.executeTarget(\"testSpawn\")" shape=ellipse]
+9 [label="testSpawn#?#9:try \{
+    Thread.sleep((TIME_TO_WAIT * 1000) + SECURITY_MARGIN);
+\} catch (Exception ex) \{
+    System.out.println(\"my sleep was interrupted\");
+\}" shape=ellipse]
+10 [label="testSpawn#?#14:if (!logFile.exists()) \{
+    System.out.println(\"suggestion: increase the constant\" + \" SECURITY_MARGIN to give more time for java to start.\");
+\}" shape=ellipse]
+11 [label="testSpawn#?#19:assertTrue(\"log file exists\", logFile.exists())" shape=ellipse]
+12 [label="testSpawn#?#3:fileutils
+normalizeSource#?,File#4:fileUtils" shape=ellipse]
+13 [label="testSpawn#?#4:fileutils
+normalizeSource#?,File#6:fileUtils" shape=ellipse]
+14 [label="testSpawn#?#3:FileUtils
+normalizeSource#?,File#4:FileUtils" shape=ellipse]
+15 [label="testSpawn#?#-1:
+normalizeSource#?,File#-1:" shape=ellipse]
+16 [label="testSpawn#?#3:FileUtils.newFileUtils()
+normalizeSource#?,File#4:FileUtils.newFileUtils()" shape=ellipse]
+17 [label="testSpawn#?#3:newFileUtils" shape=ellipse]
+18 [label="testSpawn#?#3:FileUtils
+normalizeSource#?,File#4:FileUtils" shape=ellipse]
+19 [label="testSpawn#?#3:newFileUtils()
+normalizeSource#?,File#4:newFileUtils()" shape=ellipse]
+20 [label="normalizeSource#?,File#3:source != null" shape=ellipse]
+21 [label="normalizeSource#?,File#7: catch (BuildException e) \{
+\}" shape=ellipse]
+22 [label="normalizeSource#?,File#7:BuildException e" shape=ellipse]
+23 [label="normalizeSource#?,File#6:source = fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+24 [label="normalizeSource#?,File#6:getAbsolutePath()" shape=ellipse]
+25 [label="normalizeSource#?,File#6:source" shape=ellipse]
+26 [label="normalizeSource#?,File#3:source" shape=ellipse]
+27 [label="normalizeSource#?,File#3:null" shape=ellipse]
+28 [label="normalizeSource#?,File#6:source.getAbsolutePath()" shape=ellipse]
+29 [label="normalizeSource#?,File#6:source" shape=ellipse]
+30 [label="normalizeSource#?,File#5:\{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\}" shape=ellipse]
+31 [label="normalizeSource#?,File#6:normalize()" shape=ellipse]
+32 [label="normalizeSource#?,File#3:if (source != null) \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+33 [label="normalizeSource#?,File#6:fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="AST:1"];
+2 -> 9 [label="AST:1"];
+2 -> 10 [label="AST:1"];
+2 -> 11 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+4 -> 21 [label="AST:1"];
+4 -> 30 [label="AST:1"];
+12 -> 13 [label="Define Use:2"];
+13 -> 29 [label="Data Dep:1"];
+14 -> 15 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+16 -> 18 [label="AST:2"];
+16 -> 19 [label="AST:2"];
+20 -> 26 [label="AST:1"];
+20 -> 27 [label="AST:1"];
+20 -> 2 [label="Control Dep:1"];
+20 -> 1 [label="Control Dep:1"];
+20 -> 16 [label="Control Dep:1"];
+20 -> 19 [label="Control Dep:1"];
+20 -> 18 [label="Control Dep:1"];
+20 -> 4 [label="Control Dep:1"];
+20 -> 30 [label="Control Dep:1"];
+20 -> 23 [label="Control Dep:1"];
+20 -> 29 [label="Control Dep:1"];
+20 -> 33 [label="Control Dep:1"];
+20 -> 31 [label="Control Dep:1"];
+20 -> 13 [label="Control Dep:1"];
+20 -> 28 [label="Control Dep:1"];
+20 -> 24 [label="Control Dep:1"];
+20 -> 25 [label="Control Dep:1"];
+20 -> 21 [label="Control Dep:1"];
+20 -> 22 [label="Control Dep:1"];
+21 -> 22 [label="AST:1"];
+23 -> 29 [label="AST:1"];
+23 -> 33 [label="AST:1"];
+25 -> 29 [label="Data Dep:1"];
+28 -> 24 [label="AST:1"];
+28 -> 25 [label="AST:1"];
+30 -> 23 [label="AST:1"];
+32 -> 20 [label="AST:1"];
+32 -> 2 [label="AST:1"];
+33 -> 28 [label="AST:1"];
+33 -> 31 [label="AST:1"];
+33 -> 13 [label="AST:1"];
+}

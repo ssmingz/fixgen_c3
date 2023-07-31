@@ -1,0 +1,6 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1028/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1028/0/after.java
+@@ -18,1 +18,2 @@
+-    node.getReturnType().acceptVisitor(sigChecker);
++    Type returnT = node.getReturnType().acceptVisitor(sigChecker);
++    setErasedType(node, _opt.typeSystem().erasedClass(returnT));

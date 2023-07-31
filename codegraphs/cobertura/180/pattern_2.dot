@@ -1,0 +1,125 @@
+digraph "Pattern" {
+0 [label="getNumberOfValidBranches#?#2:INSERT
+getNumberOfCoveredBranches#?#2:INSERT" shape=ellipse]
+1 [label="getNumberOfValidBranches#?#2:public int getNumberOfValidBranches() \{
+    int ret = 0;
+    lock.lock();
+    try \{
+        if (jumps != null) \{
+            for (int i = jumps.size() - 1; i >= 0; i--) \{
+                ret += ((JumpData) (jumps.get(i))).getNumberOfValidBranches();
+            \}
+        \}
+        if (switches != null) \{
+            for (int i = switches.size() - 1; i >= 0; i--) \{
+                ret += ((SwitchData) (switches.get(i))).getNumberOfValidBranches();
+            \}
+        \}
+        return ret;
+    \} finally \{
+        lock.unlock();
+    \}
+\}
+getNumberOfCoveredBranches#?#2:public int getNumberOfCoveredBranches() \{
+    int ret = 0;
+    lock.lock();
+    try \{
+        if (jumps != null) \{
+            for (int i = jumps.size() - 1; i >= 0; i--) \{
+                ret += ((JumpData) (jumps.get(i))).getNumberOfCoveredBranches();
+            \}
+        \}
+        if (switches != null) \{
+            for (int i = switches.size() - 1; i >= 0; i--) \{
+                ret += ((SwitchData) (switches.get(i))).getNumberOfCoveredBranches();
+            \}
+        \}
+        return ret;
+    \} finally \{
+        lock.unlock();
+    \}
+\}" shape=ellipse]
+2 [label="getNumberOfValidBranches#?#2:getNumberOfValidBranches
+getNumberOfCoveredBranches#?#2:getNumberOfCoveredBranches" shape=ellipse]
+3 [label="getNumberOfValidBranches#?#2:int
+getNumberOfCoveredBranches#?#2:int" shape=ellipse]
+4 [label="getNumberOfValidBranches#?#2:\{
+    int ret = 0;
+    lock.lock();
+    try \{
+        if (jumps != null) \{
+            for (int i = jumps.size() - 1; i >= 0; i--) \{
+                ret += ((JumpData) (jumps.get(i))).getNumberOfValidBranches();
+            \}
+        \}
+        if (switches != null) \{
+            for (int i = switches.size() - 1; i >= 0; i--) \{
+                ret += ((SwitchData) (switches.get(i))).getNumberOfValidBranches();
+            \}
+        \}
+        return ret;
+    \} finally \{
+        lock.unlock();
+    \}
+\}
+getNumberOfCoveredBranches#?#2:\{
+    int ret = 0;
+    lock.lock();
+    try \{
+        if (jumps != null) \{
+            for (int i = jumps.size() - 1; i >= 0; i--) \{
+                ret += ((JumpData) (jumps.get(i))).getNumberOfCoveredBranches();
+            \}
+        \}
+        if (switches != null) \{
+            for (int i = switches.size() - 1; i >= 0; i--) \{
+                ret += ((SwitchData) (switches.get(i))).getNumberOfCoveredBranches();
+            \}
+        \}
+        return ret;
+    \} finally \{
+        lock.unlock();
+    \}
+\}" shape=ellipse]
+5 [label="getNumberOfValidBranches#?#3:int ret = 0
+getNumberOfCoveredBranches#?#3:int ret = 0" shape=ellipse]
+6 [label="getNumberOfValidBranches#?#4:lock.lock()
+getNumberOfCoveredBranches#?#4:lock.lock()" shape=ellipse]
+7 [label="getNumberOfValidBranches#?#5:try \{
+    if (jumps != null) \{
+        for (int i = jumps.size() - 1; i >= 0; i--) \{
+            ret += ((JumpData) (jumps.get(i))).getNumberOfValidBranches();
+        \}
+    \}
+    if (switches != null) \{
+        for (int i = switches.size() - 1; i >= 0; i--) \{
+            ret += ((SwitchData) (switches.get(i))).getNumberOfValidBranches();
+        \}
+    \}
+    return ret;
+\} finally \{
+    lock.unlock();
+\}
+getNumberOfCoveredBranches#?#5:try \{
+    if (jumps != null) \{
+        for (int i = jumps.size() - 1; i >= 0; i--) \{
+            ret += ((JumpData) (jumps.get(i))).getNumberOfCoveredBranches();
+        \}
+    \}
+    if (switches != null) \{
+        for (int i = switches.size() - 1; i >= 0; i--) \{
+            ret += ((SwitchData) (switches.get(i))).getNumberOfCoveredBranches();
+        \}
+    \}
+    return ret;
+\} finally \{
+    lock.unlock();
+\}" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+}

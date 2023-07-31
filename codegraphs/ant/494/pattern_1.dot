@@ -1,0 +1,131 @@
+digraph "Pattern" {
+0 [label="removeAspectHandler#?,String,AspectHandler#6:DELETE
+create#?,String#7:DELETE
+getClassName#?,String#5:DELETE
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:DELETE" shape=ellipse]
+1 [label="removeAspectHandler#?,String,AspectHandler#6:(\"No such aspect with name '\" + name) + \"'\"
+create#?,String#7:(\"Unable to instantiate '\" + name) + \"'\"
+getClassName#?,String#5:(\"Malconfigured factory, no clasname for '\" + name) + \"'\"
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:(\"No such aspect with name '\" + name) + \"'\"" shape=ellipse]
+2 [label="removeAspectHandler#?,String,AspectHandler#5:null == entry
+getClassName#?,String#4:null == className
+dispatchAspectSettings#?,String,Parameters,Configuration[]#6:null == handler" shape=ellipse]
+3 [label="removeAspectHandler#?,String,AspectHandler#5:if (null == entry) \{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}
+create#?,String#7:throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e)
+getClassName#?,String#4:if (null == className) \{
+    throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\");
+\}
+dispatchAspectSettings#?,String,Parameters,Configuration[]#6:if (null == handler) \{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}" shape=ellipse]
+4 [label="removeAspectHandler#?,String,AspectHandler#5:null
+create#?,String#7:\"Unable to instantiate '\"
+getClassName#?,String#4:null
+dispatchAspectSettings#?,String,Parameters,Configuration[]#6:null" shape=ellipse]
+5 [label="removeAspectHandler#?,String,AspectHandler#5:entry
+create#?,String#6:e
+getClassName#?,String#4:className
+dispatchAspectSettings#?,String,Parameters,Configuration[]#6:handler" shape=ellipse]
+6 [label="removeAspectHandler#?,String,AspectHandler#5:\{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}
+getClassName#?,String#4:\{
+    throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\");
+\}
+dispatchAspectSettings#?,String,Parameters,Configuration[]#6:\{
+    throw new TaskException((\"No such aspect with name '\" + name) + \"'\");
+\}" shape=ellipse]
+7 [label="removeAspectHandler#?,String,AspectHandler#6:throw new TaskException((\"No such aspect with name '\" + name) + \"'\")
+getClassName#?,String#5:throw new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\")
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:throw new TaskException((\"No such aspect with name '\" + name) + \"'\")" shape=ellipse]
+8 [label="removeAspectHandler#?,String,AspectHandler#6:new TaskException((\"No such aspect with name '\" + name) + \"'\")
+getClassName#?,String#5:new TypeException((\"Malconfigured factory, no clasname for '\" + name) + \"'\")
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:new TaskException((\"No such aspect with name '\" + name) + \"'\")" shape=ellipse]
+9 [label="removeAspectHandler#?,String,AspectHandler#-1:TaskException(java.lang.String)
+create#?,String#-1:TypeException(java.lang.String,java.lang.Exception)
+getClassName#?,String#-1:TypeException(java.lang.String)
+dispatchAspectSettings#?,String,Parameters,Configuration[]#-1:TaskException(java.lang.String)" shape=ellipse]
+10 [label="removeAspectHandler#?,String,AspectHandler#6:(\"No such aspect with name '\" + name)
+getClassName#?,String#5:(\"Malconfigured factory, no clasname for '\" + name)
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:(\"No such aspect with name '\" + name)" shape=ellipse]
+11 [label="removeAspectHandler#?,String,AspectHandler#6:\"No such aspect with name '\"
+getClassName#?,String#5:\"Malconfigured factory, no clasname for '\"
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:\"No such aspect with name '\"" shape=ellipse]
+12 [label="removeAspectHandler#?,String,AspectHandler#6:name
+create#?,String#7:name
+getClassName#?,String#5:name
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:name" shape=ellipse]
+13 [label="removeAspectHandler#?,String,AspectHandler#6:\"'\"
+create#?,String#7:\"'\"
+getClassName#?,String#5:\"'\"
+dispatchAspectSettings#?,String,Parameters,Configuration[]#7:\"'\"" shape=ellipse]
+14 [label="removeAspectHandler#?,String,AspectHandler#-1:String
+create#?,String#-1:String
+getClassName#?,String#-1:String
+dispatchAspectSettings#?,String,Parameters,Configuration[]#-1:String" shape=ellipse]
+15 [label="create#?,String#7:new TypeException((\"Unable to instantiate '\" + name) + \"'\", e)" shape=ellipse]
+16 [label="create#?,String#7:e" shape=ellipse]
+17 [label="create#?,String#7:(\"Unable to instantiate '\" + name)" shape=ellipse]
+18 [label="create#?,String#6:Exception" shape=ellipse]
+19 [label="create#?,String#6: catch (final Exception e) \{
+    throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e);
+\}" shape=ellipse]
+20 [label="create#?,String#6:final" shape=ellipse]
+21 [label="create#?,String#6:\{
+    throw new TypeException((\"Unable to instantiate '\" + name) + \"'\", e);
+\}" shape=ellipse]
+22 [label="create#?,String#6:VE: Modifiers_CatchVariable" shape=ellipse]
+23 [label="create#?,String#6:final Exception e" shape=ellipse]
+24 [label="getClassName#?,String#-1:boolean" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 14 [label="AST:4"];
+1 -> 10 [label="AST:3"];
+1 -> 13 [label="AST:4"];
+1 -> 17 [label="AST:1"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Control Dep:3"];
+2 -> 7 [label="Control Dep:3"];
+2 -> 8 [label="Control Dep:3"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 24 [label="AST:1"];
+3 -> 2 [label="AST:3"];
+3 -> 6 [label="AST:3"];
+3 -> 15 [label="AST:1"];
+5 -> 16 [label="Define Use:1"];
+6 -> 7 [label="AST:3"];
+7 -> 8 [label="AST:3"];
+8 -> 1 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+10 -> 12 [label="AST:3"];
+15 -> 9 [label="AST:1"];
+15 -> 1 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+17 -> 4 [label="AST:1"];
+17 -> 12 [label="AST:1"];
+19 -> 23 [label="AST:1"];
+19 -> 21 [label="AST:1"];
+21 -> 3 [label="AST:1"];
+23 -> 15 [label="Control Dep:1"];
+23 -> 16 [label="Control Dep:1"];
+23 -> 17 [label="Control Dep:1"];
+23 -> 18 [label="AST:1"];
+23 -> 20 [label="AST:1"];
+23 -> 21 [label="Control Dep:1"];
+23 -> 22 [label="AST:1"];
+23 -> 5 [label="AST:1"];
+23 -> 3 [label="Control Dep:1"];
+23 -> 9 [label="Control Dep:1"];
+23 -> 1 [label="Control Dep:1"];
+23 -> 4 [label="Control Dep:1"];
+23 -> 12 [label="Control Dep:1"];
+23 -> 13 [label="Control Dep:1"];
+}

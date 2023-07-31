@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2209/35/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2209/35/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,7 @@
+-    expectBuildException(
+-        "testIllegalNameInSection",
+-        "Manifest attribute names must not start with '-' at the begin.");
++    try {
++      buildRule.executeTarget("testIllegalNameInSection");
++      fail(
++          "BuildException expected: Manifest attribute names must not start with '-' at the"
++              + " begin.");
++    } catch (BuildException ex) {
++    }

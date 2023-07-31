@@ -1,0 +1,47 @@
+digraph "test3#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@test3" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectBuildException(java.lang.String,java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectBuildException" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"test3\"" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"required argument missing\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@expectBuildException(\"test3\", \"required argument missing\")" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    expectBuildException(\"test3\", \"required argument missing\");
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void test3() \{
+    expectBuildException(\"test3\", \"required argument missing\");
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="6:CtInvocationImpl@fail(\"BuildException expected: required argument missing\")" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="6:CtLiteralImpl@\"BuildException expected: required argument missing\"" shape=ellipse]
+13 [label="2:Insert@INSERT" shape=ellipse]
+14 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+15 [label="4:Insert@INSERT" shape=ellipse]
+16 [label="4:CtTryImpl@try \{
+    buildRule.executeTarget(\"test3\");
+    fail(\"BuildException expected: required argument missing\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+17 [label="3:Move@MOVE" shape=ellipse]
+5 -> 11 [label="Action"];
+6 -> 3 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 9 [label="Action"];
+6 -> 17 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 13 [label="Action"];
+8 -> 15 [label="Action"];
+9 -> 10 [label="Action"];
+10 -> 12 [label="AST"];
+11 -> 12 [label="Action"];
+13 -> 14 [label="Action"];
+15 -> 16 [label="Action"];
+17 -> 16 [label="Action"];
+}

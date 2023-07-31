@@ -1,0 +1,30 @@
+digraph "setFile#?,File" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setFile" shape=ellipse]
+2 [label="2:CtParameterImpl@File v" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.file" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtVariableReadImpl@v" shape=ellipse]
+7 [label="3:CtAssignmentImpl@this.file = v" shape=ellipse]
+8 [label="2:CtBlockImpl@\{
+    this.file = v;
+\}" shape=ellipse]
+9 [label="2:CtMethodImpl@public void setFile(File v) \{
+    this.file = v;
+\}" shape=ellipse]
+10 [label="3:Insert@INSERT" shape=ellipse]
+11 [label="3:CtInvocationImpl@log(\"working file \" + v, MSG_VERBOSE)" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="Data Dep"];
+7 -> 4 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 1 [label="AST"];
+9 -> 0 [label="AST"];
+9 -> 2 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 10 [label="Action"];
+10 -> 11 [label="Action"];
+}

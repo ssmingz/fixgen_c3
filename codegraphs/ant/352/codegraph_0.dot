@@ -1,0 +1,23 @@
+digraph "getUnsafe#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@getUnsafe" shape=ellipse]
+2 [label="3:CtThisAccessImpl@this" shape=ellipse]
+3 [label="3:CtFieldReadImpl@this._unsafe" shape=ellipse]
+4 [label="3:CtReturnImpl@return this._unsafe" shape=ellipse]
+5 [label="2:CtBlockImpl@\{
+    return this._unsafe;
+\}" shape=ellipse]
+6 [label="2:CtMethodImpl@public boolean getUnsafe() \{
+    return this._unsafe;
+\}" shape=ellipse]
+7 [label="3:Update@UPDATE" shape=ellipse]
+8 [label="3:CtFieldReadImpl@this.unsafe" shape=ellipse]
+3 -> 2 [label="AST"];
+3 -> 7 [label="Action"];
+4 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+6 -> 1 [label="AST"];
+6 -> 0 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 8 [label="Action"];
+}

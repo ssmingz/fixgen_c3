@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2183/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2183/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testMagicProperty", "magic property not working", ERROR_UNKNOWN_COMPILER);
++    try {
++      buildRule.executeTarget("testMagicProperty");
++      fail("Magic property not working");
++    } catch (BuildException ex) {
++      AntAssert.assertContains(ERROR_UNKNOWN_COMPILER, ex.getMessage());
++    }

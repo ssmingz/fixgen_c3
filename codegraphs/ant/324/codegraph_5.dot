@@ -1,0 +1,312 @@
+digraph "loadFile#?,File" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@loadFile" shape=ellipse]
+2 [label="2:CtParameterImpl@File file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Properties" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@Properties" shape=ellipse]
+7 [label="3:CtConstructorCallImpl@new Properties()" shape=ellipse]
+8 [label="3:CtVirtualElement@props" shape=ellipse]
+9 [label="3:CtLocalVariableImpl@Properties props = new Properties()" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+11 [label="4:CtVirtualElement@log" shape=ellipse]
+12 [label="4:CtLiteralImpl@\"Loading \"" shape=ellipse]
+13 [label="4:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+14 [label="4:CtVirtualElement@getAbsolutePath" shape=ellipse]
+15 [label="4:CtVariableReadImpl@file" shape=ellipse]
+16 [label="4:CtInvocationImpl@file.getAbsolutePath()" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@\"Loading \" + file.getAbsolutePath()" shape=ellipse]
+18 [label="4:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+19 [label="4:CtInvocationImpl@log(\"Loading \" + file.getAbsolutePath(), MSG_VERBOSE)" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@exists()" shape=ellipse]
+21 [label="6:CtVirtualElement@exists" shape=ellipse]
+22 [label="6:CtVariableReadImpl@file" shape=ellipse]
+23 [label="6:CtInvocationImpl@file.exists()" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+25 [label="7:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+26 [label="7:CtVariableReadImpl@file" shape=ellipse]
+27 [label="7:CtConstructorCallImpl@new FileInputStream(file)" shape=ellipse]
+28 [label="7:CtVirtualElement@fis" shape=ellipse]
+29 [label="7:CtLocalVariableImpl@FileInputStream fis = new FileInputStream(file)" shape=ellipse]
+30 [label="9:CtExecutableReferenceImpl@load(FileInputStream)" shape=ellipse]
+31 [label="9:CtVirtualElement@load" shape=ellipse]
+32 [label="9:CtVariableReadImpl@props" shape=ellipse]
+33 [label="9:CtVariableReadImpl@fis" shape=ellipse]
+34 [label="9:CtInvocationImpl@props.load(fis)" shape=ellipse]
+35 [label="8:CtBlockImpl@\{
+    props.load(fis);
+\}" shape=ellipse]
+36 [label="11:CtVariableReadImpl@fis" shape=ellipse]
+37 [label="11:CtLiteralImpl@null" shape=ellipse]
+38 [label="11:CtBinaryOperatorImpl@fis != null" shape=ellipse]
+39 [label="12:CtExecutableReferenceImpl@close()" shape=ellipse]
+40 [label="12:CtVirtualElement@close" shape=ellipse]
+41 [label="12:CtVariableReadImpl@fis" shape=ellipse]
+42 [label="12:CtInvocationImpl@fis.close()" shape=ellipse]
+43 [label="11:CtBlockImpl@\{
+    fis.close();
+\}" shape=ellipse]
+44 [label="11:CtIfImpl@if (fis != null) \{
+    fis.close();
+\}" shape=ellipse]
+45 [label="10:CtBlockImpl@\{
+    if (fis != null) \{
+        fis.close();
+    \}
+\}" shape=ellipse]
+46 [label="8:CtTryImpl@try \{
+    props.load(fis);
+\} finally \{
+    if (fis != null) \{
+        fis.close();
+    \}
+\}" shape=ellipse]
+47 [label="15:CtExecutableReferenceImpl@addProperties(<unknown>)" shape=ellipse]
+48 [label="15:CtVirtualElement@addProperties" shape=ellipse]
+49 [label="15:CtVariableReadImpl@props" shape=ellipse]
+50 [label="15:CtInvocationImpl@addProperties(props)" shape=ellipse]
+51 [label="6:CtBlockImpl@\{
+    FileInputStream fis = new FileInputStream(file);
+    try \{
+        props.load(fis);
+    \} finally \{
+        if (fis != null) \{
+            fis.close();
+        \}
+    \}
+    addProperties(props);
+\}" shape=ellipse]
+52 [label="17:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+53 [label="17:CtVirtualElement@log" shape=ellipse]
+54 [label="17:CtLiteralImpl@\"Unable to find property file: \"" shape=ellipse]
+55 [label="17:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+56 [label="17:CtVirtualElement@getAbsolutePath" shape=ellipse]
+57 [label="17:CtVariableReadImpl@file" shape=ellipse]
+58 [label="17:CtInvocationImpl@file.getAbsolutePath()" shape=ellipse]
+59 [label="17:CtBinaryOperatorImpl@\"Unable to find property file: \" + file.getAbsolutePath()" shape=ellipse]
+60 [label="17:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+61 [label="17:CtInvocationImpl@log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE)" shape=ellipse]
+62 [label="16:CtBlockImpl@\{
+    log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+\}" shape=ellipse]
+63 [label="6:CtIfImpl@if (file.exists()) \{
+    FileInputStream fis = new FileInputStream(file);
+    try \{
+        props.load(fis);
+    \} finally \{
+        if (fis != null) \{
+            fis.close();
+        \}
+    \}
+    addProperties(props);
+\} else \{
+    log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+\}" shape=ellipse]
+64 [label="5:CtBlockImpl@\{
+    if (file.exists()) \{
+        FileInputStream fis = new FileInputStream(file);
+        try \{
+            props.load(fis);
+        \} finally \{
+            if (fis != null) \{
+                fis.close();
+            \}
+        \}
+        addProperties(props);
+    \} else \{
+        log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+    \}
+\}" shape=ellipse]
+65 [label="19:CtVirtualElement@ex" shape=ellipse]
+66 [label="19:CtTypeReferenceImpl@IOException" shape=ellipse]
+67 [label="19:CtCatchVariableImpl@IOException ex" shape=ellipse]
+68 [label="20:CtTypeReferenceImpl@BuildException" shape=ellipse]
+69 [label="20:CtVariableReadImpl@ex" shape=ellipse]
+70 [label="20:CtConstructorCallImpl@new BuildException(ex)" shape=ellipse]
+71 [label="20:CtThrowImpl@throw new BuildException(ex)" shape=ellipse]
+72 [label="19:CtBlockImpl@\{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+73 [label="19:CtCatchImpl@ catch (IOException ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+74 [label="5:CtTryImpl@try \{
+    if (file.exists()) \{
+        FileInputStream fis = new FileInputStream(file);
+        try \{
+            props.load(fis);
+        \} finally \{
+            if (fis != null) \{
+                fis.close();
+            \}
+        \}
+        addProperties(props);
+    \} else \{
+        log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+    \}
+\} catch (IOException ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+75 [label="2:CtBlockImpl@\{
+    Properties props = new Properties();
+    log(\"Loading \" + file.getAbsolutePath(), MSG_VERBOSE);
+    try \{
+        if (file.exists()) \{
+            FileInputStream fis = new FileInputStream(file);
+            try \{
+                props.load(fis);
+            \} finally \{
+                if (fis != null) \{
+                    fis.close();
+                \}
+            \}
+            addProperties(props);
+        \} else \{
+            log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+        \}
+    \} catch (IOException ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+76 [label="2:CtMethodImpl@protected void loadFile(File file) throws BuildException \{
+    Properties props = new Properties();
+    log(\"Loading \" + file.getAbsolutePath(), MSG_VERBOSE);
+    try \{
+        if (file.exists()) \{
+            FileInputStream fis = new FileInputStream(file);
+            try \{
+                props.load(fis);
+            \} finally \{
+                if (fis != null) \{
+                    fis.close();
+                \}
+            \}
+            addProperties(props);
+        \} else \{
+            log(\"Unable to find property file: \" + file.getAbsolutePath(), MSG_VERBOSE);
+        \}
+    \} catch (IOException ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+77 [label="20:Insert@INSERT" shape=ellipse]
+78 [label="20:CtLiteralImpl@\"Error\"" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 32 [label="Define-Use"];
+8 -> 49 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+17 -> 12 [label="AST"];
+17 -> 16 [label="AST"];
+19 -> 11 [label="AST"];
+19 -> 10 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 51 [label="Control Dep"];
+23 -> 29 [label="Control Dep"];
+23 -> 27 [label="Control Dep"];
+23 -> 26 [label="Control Dep"];
+23 -> 46 [label="Control Dep"];
+23 -> 35 [label="Control Dep"];
+23 -> 34 [label="Control Dep"];
+23 -> 30 [label="Control Dep"];
+23 -> 32 [label="Control Dep"];
+23 -> 33 [label="Control Dep"];
+23 -> 45 [label="Control Dep"];
+23 -> 44 [label="Control Dep"];
+23 -> 38 [label="Control Dep"];
+23 -> 36 [label="Control Dep"];
+23 -> 37 [label="Control Dep"];
+23 -> 50 [label="Control Dep"];
+23 -> 47 [label="Control Dep"];
+23 -> 49 [label="Control Dep"];
+23 -> 62 [label="Control Dep"];
+23 -> 61 [label="Control Dep"];
+23 -> 52 [label="Control Dep"];
+23 -> 59 [label="Control Dep"];
+23 -> 54 [label="Control Dep"];
+23 -> 58 [label="Control Dep"];
+23 -> 55 [label="Control Dep"];
+23 -> 57 [label="Control Dep"];
+23 -> 60 [label="Control Dep"];
+26 -> 28 [label="Data Dep"];
+27 -> 26 [label="AST"];
+28 -> 33 [label="Define-Use"];
+28 -> 36 [label="Define-Use"];
+28 -> 41 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 24 [label="AST"];
+29 -> 27 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 43 [label="Control Dep"];
+38 -> 42 [label="Control Dep"];
+38 -> 39 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 38 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 35 [label="AST"];
+46 -> 45 [label="AST"];
+50 -> 48 [label="AST"];
+50 -> 47 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 29 [label="AST"];
+51 -> 46 [label="AST"];
+51 -> 50 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+58 -> 55 [label="AST"];
+59 -> 54 [label="AST"];
+59 -> 58 [label="AST"];
+61 -> 53 [label="AST"];
+61 -> 52 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 23 [label="AST"];
+63 -> 51 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 69 [label="Define-Use"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+67 -> 72 [label="Control Dep"];
+67 -> 71 [label="Control Dep"];
+67 -> 70 [label="Control Dep"];
+67 -> 69 [label="Control Dep"];
+70 -> 69 [label="AST"];
+70 -> 77 [label="Action"];
+71 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 67 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 64 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 9 [label="AST"];
+75 -> 19 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 1 [label="AST"];
+76 -> 0 [label="AST"];
+76 -> 2 [label="AST"];
+76 -> 4 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 78 [label="Action"];
+}

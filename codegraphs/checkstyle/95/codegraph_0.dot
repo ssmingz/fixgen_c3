@@ -1,0 +1,36 @@
+digraph "size#?" {
+0 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="3:CtVirtualElement@size" shape=ellipse]
+2 [label="4:CtFieldReferenceImpl@mLines.length" shape=ellipse]
+3 [label="4:CtTypeReferenceImpl@mLines" shape=ellipse]
+4 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+5 [label="4:CtFieldReadImpl@mLines.length" shape=ellipse]
+6 [label="4:CtTypeAccessImpl@mLines" shape=ellipse]
+7 [label="4:CtReturnImpl@return mLines.length" shape=ellipse]
+8 [label="3:CtBlockImpl@\{
+    return mLines.length;
+\}" shape=ellipse]
+9 [label="3:CtMethodImpl@@Override
+public int size() \{
+    return mLines.length;
+\}" shape=ellipse]
+10 [label="2:CtAnnotationImpl@@Override" shape=ellipse]
+11 [label="4:Update@UPDATE" shape=ellipse]
+12 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@lines" shape=ellipse]
+14 [label="4:CtTypeAccessImpl@lines" shape=ellipse]
+2 -> 3 [label="AST"];
+2 -> 4 [label="AST"];
+5 -> 6 [label="AST"];
+5 -> 2 [label="AST"];
+6 -> 11 [label="Action"];
+7 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 1 [label="AST"];
+9 -> 10 [label="AST"];
+9 -> 0 [label="AST"];
+9 -> 8 [label="AST"];
+11 -> 14 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+}

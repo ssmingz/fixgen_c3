@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/282/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/282/2/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "excluded", "excluded uri", "Attempt to use a reserved URI ant:notallowed");
++    try {
++      buildRule.executeTarget("excluded");
++      fail("BuildException expected: excluded uri");
++    } catch (BuildException ex) {
++      assertEquals("Attempt to use a reserved URI ant:notallowed", ex.getMessage());
++    }

@@ -1,0 +1,59 @@
+digraph "Pattern" {
+0 [label="setNotOverrideLocalProperties#?,LocalProperties#4:UPDATE
+initialValue#?#3:UPDATE
+setLocalProperties#?,LocalProperties#4:UPDATE" shape=ellipse]
+1 [label="setNotOverrideLocalProperties#?,LocalProperties#4:new LocalPropertyStack()
+initialValue#?#3:new LocalPropertyStack()
+setLocalProperties#?,LocalProperties#4:new LocalPropertyStack()" shape=ellipse]
+2 [label="setNotOverrideLocalProperties#?,LocalProperties#3:localProperties == null
+setLocalProperties#?,LocalProperties#3:localProperties == null" shape=ellipse]
+3 [label="setNotOverrideLocalProperties#?,LocalProperties#3:if (localProperties == null) \{
+    localProperties = new LocalPropertyStack();
+\}
+setLocalProperties#?,LocalProperties#3:if (localProperties == null) \{
+    localProperties = new LocalPropertyStack();
+\}" shape=ellipse]
+4 [label="setNotOverrideLocalProperties#?,LocalProperties#3:localProperties
+setLocalProperties#?,LocalProperties#3:localProperties" shape=ellipse]
+5 [label="setNotOverrideLocalProperties#?,LocalProperties#3:null
+setLocalProperties#?,LocalProperties#3:null" shape=ellipse]
+6 [label="setNotOverrideLocalProperties#?,LocalProperties#3:\{
+    localProperties = new LocalPropertyStack();
+\}
+initialValue#?#2:\{
+    return new LocalPropertyStack();
+\}
+setLocalProperties#?,LocalProperties#3:\{
+    localProperties = new LocalPropertyStack();
+\}" shape=ellipse]
+7 [label="setNotOverrideLocalProperties#?,LocalProperties#4:localProperties = new LocalPropertyStack()
+initialValue#?#3:return new LocalPropertyStack()
+setLocalProperties#?,LocalProperties#4:localProperties = new LocalPropertyStack()" shape=ellipse]
+8 [label="setNotOverrideLocalProperties#?,LocalProperties#4:localProperties
+setLocalProperties#?,LocalProperties#4:localProperties" shape=ellipse]
+9 [label="setNotOverrideLocalProperties#?,LocalProperties#-1:LocalPropertyStack()
+initialValue#?#-1:LocalPropertyStack()
+setLocalProperties#?,LocalProperties#-1:LocalPropertyStack()" shape=ellipse]
+10 [label="setNotOverrideLocalProperties#?,LocalProperties#4:new LocalPropertyStack(null)
+initialValue#?#3:new LocalPropertyStack(null)
+setLocalProperties#?,LocalProperties#4:new LocalPropertyStack(null)" shape=ellipse]
+11 [label="initialValue#?#-1:LocalPropertyStack" shape=ellipse]
+12 [label="initialValue#?#3:LocalPropertyStack" shape=ellipse]
+0 -> 10 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 9 [label="AST:3"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:3"];
+7 -> 1 [label="AST:3"];
+7 -> 8 [label="AST:2"];
+9 -> 11 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+}

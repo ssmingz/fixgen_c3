@@ -1,0 +1,88 @@
+digraph "Pattern" {
+0 [label="execute#?#15:DELETE
+execute#?#18:DELETE" shape=ellipse]
+1 [label="execute#?#15:location
+execute#?#18:location" shape=ellipse]
+2 [label="execute#?#13:Execute.isFailure(result)
+execute#?#16:Execute.isFailure(result)" shape=ellipse]
+3 [label="execute#?#13:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#16:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+4 [label="execute#?#13:isFailure
+execute#?#16:isFailure" shape=ellipse]
+5 [label="execute#?#13:Execute
+execute#?#16:Execute" shape=ellipse]
+6 [label="execute#?#13:isFailure(int)
+execute#?#16:isFailure(int)" shape=ellipse]
+7 [label="execute#?#13:result
+execute#?#16:result" shape=ellipse]
+8 [label="execute#?#13:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#16:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+9 [label="execute#?#14:String msg = \"Failed executing: \" + commandLine.toString()
+execute#?#17:String msg = \"Failed executing: \" + commandLine.toString()" shape=ellipse]
+10 [label="execute#?#14:\"Failed executing: \" + commandLine.toString()
+execute#?#17:\"Failed executing: \" + commandLine.toString()" shape=ellipse]
+11 [label="execute#?#14:\"Failed executing: \"
+execute#?#17:\"Failed executing: \"" shape=ellipse]
+12 [label="execute#?#14:commandLine.toString()
+execute#?#17:commandLine.toString()" shape=ellipse]
+13 [label="execute#?#14:toString()
+execute#?#17:toString()" shape=ellipse]
+14 [label="execute#?#14:commandLine
+execute#?#17:commandLine" shape=ellipse]
+15 [label="execute#?#15:throw new BuildException(msg, location)
+execute#?#18:throw new BuildException(msg, location)" shape=ellipse]
+16 [label="execute#?#15:new BuildException(msg, location)
+execute#?#18:new BuildException(msg, location)" shape=ellipse]
+17 [label="execute#?#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+18 [label="execute#?#15:msg
+execute#?#18:msg" shape=ellipse]
+19 [label="execute#?#13:MOVE
+execute#?#16:MOVE" shape=ellipse]
+20 [label="execute#?#-1:location
+execute#?#-1:location" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 20 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 15 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+16 -> 1 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+}

@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="setShort#?,Short#3:UPDATE
+setShort2#?,short#3:UPDATE" shape=ellipse]
+1 [label="setShort#?,Short#3:getContext().warn((\"setShort( \" + value) + \" );\")
+setShort2#?,short#3:getContext().warn((\"setShort2( \" + value) + \" );\")" shape=ellipse]
+2 [label="setShort#?,Short#2:\{
+    getContext().warn((\"setShort( \" + value) + \" );\");
+\}
+setShort2#?,short#2:\{
+    getContext().warn((\"setShort2( \" + value) + \" );\");
+\}" shape=ellipse]
+3 [label="setShort#?,Short#2:public void setShort(final Short value) \{
+    getContext().warn((\"setShort( \" + value) + \" );\");
+\}
+setShort2#?,short#2:public void setShort2(final short value) \{
+    getContext().warn((\"setShort2( \" + value) + \" );\");
+\}" shape=ellipse]
+4 [label="setShort#?,Short#3:warn
+setShort2#?,short#3:warn" shape=ellipse]
+5 [label="setShort#?,Short#3:getContext()
+setShort2#?,short#3:getContext()" shape=ellipse]
+6 [label="setShort#?,Short#3:getContext
+setShort2#?,short#3:getContext" shape=ellipse]
+7 [label="setShort#?,Short#-1:
+setShort2#?,short#-1:" shape=ellipse]
+8 [label="setShort#?,Short#3:getContext()
+setShort2#?,short#3:getContext()" shape=ellipse]
+9 [label="setShort#?,Short#3:warn(java.lang.String)
+setShort2#?,short#3:warn(java.lang.String)" shape=ellipse]
+10 [label="setShort#?,Short#-1:String
+setShort2#?,short#-1:String" shape=ellipse]
+11 [label="setShort#?,Short#3:(\"setShort( \" + value) + \" );\"
+setShort2#?,short#3:(\"setShort2( \" + value) + \" );\"" shape=ellipse]
+12 [label="setShort#?,Short#-1:String
+setShort2#?,short#-1:String" shape=ellipse]
+13 [label="setShort#?,Short#3:(\"setShort( \" + value)
+setShort2#?,short#3:(\"setShort2( \" + value)" shape=ellipse]
+14 [label="setShort#?,Short#3:\" );\"
+setShort2#?,short#3:\" );\"" shape=ellipse]
+15 [label="setShort#?,Short#3:getContext().info((\"setShort( \" + value) + \" );\")
+setShort2#?,short#3:getContext().info((\"setShort2( \" + value) + \" );\")" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+}

@@ -1,0 +1,222 @@
+digraph "Pattern" {
+0 [label="testTail#?#7:UPDATE
+testTailSkip#?#7:UPDATE
+testTailLines#?#7:UPDATE
+testTailLinesSkip#?#7:UPDATE
+testHead#?#7:UPDATE
+testHeadSkip#?#7:UPDATE" shape=ellipse]
+1 [label="testTail#?#7:assertTrue(\"testTail: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailSkip#?#7:assertTrue(\"testTailSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLines#?#7:assertTrue(\"testTailLines: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testTailLinesSkip#?#7:assertTrue(\"testTailLinesSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHead#?#7:assertTrue(\"testHead: Result not like expected\", FILE_UTILS.contentEquals(expected, result))
+testHeadSkip#?#7:assertTrue(\"testHeadSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result))" shape=ellipse]
+2 [label="testTail#?#2:\{
+    executeTarget(\"testTail\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tail.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tail.test\");
+    assertTrue(\"testTail: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailSkip#?#2:\{
+    executeTarget(\"testTailSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailSkip.test\");
+    assertTrue(\"testTailSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailLines#?#2:\{
+    executeTarget(\"testTailLines\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLines.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLines.test\");
+    assertTrue(\"testTailLines: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailLinesSkip#?#2:\{
+    executeTarget(\"testTailLinesSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLinesSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLinesSkip.test\");
+    assertTrue(\"testTailLinesSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testHead#?#2:\{
+    executeTarget(\"testHead\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.head.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.head.test\");
+    assertTrue(\"testHead: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testHeadSkip#?#2:\{
+    executeTarget(\"testHeadSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.headSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.headSkip.test\");
+    assertTrue(\"testHeadSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}" shape=ellipse]
+3 [label="testTail#?#2:public void testTail() throws IOException \{
+    executeTarget(\"testTail\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tail.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tail.test\");
+    assertTrue(\"testTail: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailSkip#?#2:public void testTailSkip() throws IOException \{
+    executeTarget(\"testTailSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailSkip.test\");
+    assertTrue(\"testTailSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailLines#?#2:public void testTailLines() throws IOException \{
+    executeTarget(\"testTailLines\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLines.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLines.test\");
+    assertTrue(\"testTailLines: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testTailLinesSkip#?#2:public void testTailLinesSkip() throws IOException \{
+    executeTarget(\"testTailLinesSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLinesSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLinesSkip.test\");
+    assertTrue(\"testTailLinesSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testHead#?#2:public void testHead() throws IOException \{
+    executeTarget(\"testHead\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.head.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.head.test\");
+    assertTrue(\"testHead: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}
+testHeadSkip#?#2:public void testHeadSkip() throws IOException \{
+    executeTarget(\"testHeadSkip\");
+    File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.headSkip.test\");
+    File result = new File(getProject().getProperty(\"output\") + \"/head-tail.headSkip.test\");
+    assertTrue(\"testHeadSkip: Result not like expected\", FILE_UTILS.contentEquals(expected, result));
+\}" shape=ellipse]
+4 [label="testTail#?#3:executeTarget(\"testTail\")
+testTailSkip#?#3:executeTarget(\"testTailSkip\")
+testTailLines#?#3:executeTarget(\"testTailLines\")
+testTailLinesSkip#?#3:executeTarget(\"testTailLinesSkip\")
+testHead#?#3:executeTarget(\"testHead\")
+testHeadSkip#?#3:executeTarget(\"testHeadSkip\")" shape=ellipse]
+5 [label="testTail#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tail.test\")
+testTailSkip#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailSkip.test\")
+testTailLines#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLines.test\")
+testTailLinesSkip#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.tailLinesSkip.test\")
+testHead#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.head.test\")
+testHeadSkip#?#4:File expected = FILE_UTILS.resolveFile(getProject().getBaseDir(), \"expected/head-tail.headSkip.test\")" shape=ellipse]
+6 [label="testTail#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tail.test\")
+testTailSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailSkip.test\")
+testTailLines#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLines.test\")
+testTailLinesSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.tailLinesSkip.test\")
+testHead#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.head.test\")
+testHeadSkip#?#6:File result = new File(getProject().getProperty(\"output\") + \"/head-tail.headSkip.test\")" shape=ellipse]
+7 [label="testTail#?#7:assertTrue
+testTailSkip#?#7:assertTrue
+testTailLines#?#7:assertTrue
+testTailLinesSkip#?#7:assertTrue
+testHead#?#7:assertTrue
+testHeadSkip#?#7:assertTrue" shape=ellipse]
+8 [label="testTail#?#-1:
+testTailSkip#?#-1:
+testTailLines#?#-1:
+testTailLinesSkip#?#-1:
+testHead#?#-1:
+testHeadSkip#?#-1:" shape=ellipse]
+9 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+10 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+11 [label="testTail#?#7:assertTrue(java.lang.String,<unknown>)
+testTailSkip#?#7:assertTrue(java.lang.String,<unknown>)
+testTailLines#?#7:assertTrue(java.lang.String,<unknown>)
+testTailLinesSkip#?#7:assertTrue(java.lang.String,<unknown>)
+testHead#?#7:assertTrue(java.lang.String,<unknown>)
+testHeadSkip#?#7:assertTrue(java.lang.String,<unknown>)" shape=ellipse]
+12 [label="testTail#?#-1:String
+testTailSkip#?#-1:String
+testTailLines#?#-1:String
+testTailLinesSkip#?#-1:String
+testHead#?#-1:String
+testHeadSkip#?#-1:String" shape=ellipse]
+13 [label="testTail#?#-1:null
+testTailSkip#?#-1:null
+testTailLines#?#-1:null
+testTailLinesSkip#?#-1:null
+testHead#?#-1:null
+testHeadSkip#?#-1:null" shape=ellipse]
+14 [label="testTail#?#7:\"testTail: Result not like expected\"
+testTailSkip#?#8:\"testTailSkip: Result not like expected\"
+testTailLines#?#8:\"testTailLines: Result not like expected\"
+testTailLinesSkip#?#8:\"testTailLinesSkip: Result not like expected\"
+testHead#?#7:\"testHead: Result not like expected\"
+testHeadSkip#?#8:\"testHeadSkip: Result not like expected\"" shape=ellipse]
+15 [label="testTail#?#-1:String
+testTailSkip#?#-1:String
+testTailLines#?#-1:String
+testTailLinesSkip#?#-1:String
+testHead#?#-1:String
+testHeadSkip#?#-1:String" shape=ellipse]
+16 [label="testTail#?#7:FILE_UTILS.contentEquals(expected, result)
+testTailSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLines#?#8:FILE_UTILS.contentEquals(expected, result)
+testTailLinesSkip#?#8:FILE_UTILS.contentEquals(expected, result)
+testHead#?#7:FILE_UTILS.contentEquals(expected, result)
+testHeadSkip#?#8:FILE_UTILS.contentEquals(expected, result)" shape=ellipse]
+17 [label="testTail#?#7:contentEquals
+testTailSkip#?#8:contentEquals
+testTailLines#?#8:contentEquals
+testTailLinesSkip#?#8:contentEquals
+testHead#?#7:contentEquals
+testHeadSkip#?#8:contentEquals" shape=ellipse]
+18 [label="testTail#?#7:FILE_UTILS
+testTailSkip#?#8:FILE_UTILS
+testTailLines#?#8:FILE_UTILS
+testTailLinesSkip#?#8:FILE_UTILS
+testHead#?#7:FILE_UTILS
+testHeadSkip#?#8:FILE_UTILS" shape=ellipse]
+19 [label="testTail#?#7:contentEquals(File,File)
+testTailSkip#?#8:contentEquals(File,File)
+testTailLines#?#8:contentEquals(File,File)
+testTailLinesSkip#?#8:contentEquals(File,File)
+testHead#?#7:contentEquals(File,File)
+testHeadSkip#?#8:contentEquals(File,File)" shape=ellipse]
+20 [label="testTail#?#7:expected
+testTailSkip#?#8:expected
+testTailLines#?#8:expected
+testTailLinesSkip#?#8:expected
+testHead#?#7:expected
+testHeadSkip#?#8:expected" shape=ellipse]
+21 [label="testTail#?#7:result
+testTailSkip#?#8:result
+testTailLines#?#8:result
+testTailLinesSkip#?#8:result
+testHead#?#7:result
+testHeadSkip#?#8:result" shape=ellipse]
+22 [label="testTail#?#7:assertEquals(\"testTail: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))
+testTailSkip#?#8:assertEquals(\"testTailSkip: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))
+testTailLines#?#8:assertEquals(\"testTailLines: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))
+testTailLinesSkip#?#8:assertEquals(\"testTailLinesSkip: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))
+testHead#?#7:assertEquals(\"testHead: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))
+testHeadSkip#?#8:assertEquals(\"testHeadSkip: Result not like expected\", FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result))" shape=ellipse]
+0 -> 22 [label="Action:6"];
+1 -> 0 [label="Action:6"];
+1 -> 7 [label="AST:6"];
+1 -> 8 [label="AST:6"];
+1 -> 11 [label="AST:6"];
+1 -> 14 [label="AST:6"];
+1 -> 16 [label="AST:6"];
+2 -> 1 [label="AST:6"];
+2 -> 4 [label="AST:6"];
+2 -> 5 [label="AST:6"];
+2 -> 6 [label="AST:6"];
+3 -> 2 [label="AST:6"];
+8 -> 9 [label="AST:6"];
+8 -> 10 [label="AST:6"];
+11 -> 12 [label="AST:6"];
+11 -> 13 [label="AST:6"];
+14 -> 15 [label="AST:6"];
+16 -> 17 [label="AST:6"];
+16 -> 18 [label="AST:6"];
+16 -> 19 [label="AST:6"];
+16 -> 20 [label="AST:6"];
+16 -> 21 [label="AST:6"];
+}

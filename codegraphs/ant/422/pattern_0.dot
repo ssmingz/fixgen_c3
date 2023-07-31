@@ -1,0 +1,145 @@
+digraph "Pattern" {
+0 [label="runExec#?,Execute#9:DELETE
+execute#?#56:DELETE" shape=ellipse]
+1 [label="runExec#?,Execute#9:location
+execute#?#56:location" shape=ellipse]
+2 [label="runExec#?,Execute#8:failIfExecFails" shape=ellipse]
+3 [label="runExec#?,Execute#7:IOException e
+execute#?#54: catch (final IOException ioe) \{
+    final String message = \"Unable to load file: \" + ioe.toString();
+    throw new BuildException(message, ioe, location);
+\}" shape=ellipse]
+4 [label="runExec#?,Execute#8:if (failIfExecFails) \{
+    throw new BuildException(\"Execute failed: \" + e.toString(), e, location);
+\} else \{
+    log(\"Execute failed: \" + e.toString(), MSG_ERR);
+\}" shape=ellipse]
+5 [label="runExec#?,Execute#-1:failIfExecFails
+execute#?#56:message" shape=ellipse]
+6 [label="runExec#?,Execute#8:\{
+    throw new BuildException(\"Execute failed: \" + e.toString(), e, location);
+\}" shape=ellipse]
+7 [label="runExec#?,Execute#9:throw new BuildException(\"Execute failed: \" + e.toString(), e, location)
+execute#?#56:throw new BuildException(message, ioe, location)" shape=ellipse]
+8 [label="runExec#?,Execute#9:new BuildException(\"Execute failed: \" + e.toString(), e, location)" shape=ellipse]
+9 [label="runExec#?,Execute#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+10 [label="runExec#?,Execute#9:\"Execute failed: \" + e.toString()
+execute#?#55:\"Unable to load file: \" + ioe.toString()" shape=ellipse]
+11 [label="runExec#?,Execute#9:\"Execute failed: \"
+execute#?#55:\"Unable to load file: \"" shape=ellipse]
+12 [label="runExec#?,Execute#9:e.toString()
+execute#?#55:ioe.toString()" shape=ellipse]
+13 [label="runExec#?,Execute#9:toString()
+execute#?#55:toString()" shape=ellipse]
+14 [label="runExec#?,Execute#9:e" shape=ellipse]
+15 [label="runExec#?,Execute#9:e" shape=ellipse]
+16 [label="runExec#?,Execute#10:\{
+    log(\"Execute failed: \" + e.toString(), MSG_ERR);
+\}" shape=ellipse]
+17 [label="runExec#?,Execute#11:log(\"Execute failed: \" + e.toString(), MSG_ERR)" shape=ellipse]
+18 [label="runExec#?,Execute#11:log(<unknown>,<unknown>)
+execute#?#54:IOException" shape=ellipse]
+19 [label="runExec#?,Execute#-1:
+execute#?#54:ioe" shape=ellipse]
+20 [label="runExec#?,Execute#-1:PlaceHold" shape=ellipse]
+21 [label="runExec#?,Execute#11:\"Execute failed: \" + e.toString()" shape=ellipse]
+22 [label="runExec#?,Execute#11:\"Execute failed: \"" shape=ellipse]
+23 [label="runExec#?,Execute#11:e.toString()" shape=ellipse]
+24 [label="runExec#?,Execute#11:toString()" shape=ellipse]
+25 [label="runExec#?,Execute#11:e" shape=ellipse]
+26 [label="runExec#?,Execute#11:MSG_ERR" shape=ellipse]
+27 [label="runExec#?,Execute#-1:location
+execute#?#-1:location" shape=ellipse]
+28 [label="execute#?#54:\{
+    final String message = \"Unable to load file: \" + ioe.toString();
+    throw new BuildException(message, ioe, location);
+\}" shape=ellipse]
+29 [label="execute#?#55:ioe" shape=ellipse]
+30 [label="execute#?#56:ioe" shape=ellipse]
+31 [label="execute#?#54:final" shape=ellipse]
+32 [label="execute#?#55:final String message = \"Unable to load file: \" + ioe.toString()" shape=ellipse]
+33 [label="execute#?#54:final IOException ioe" shape=ellipse]
+34 [label="execute#?#56:new BuildException(message, ioe, location)" shape=ellipse]
+35 [label="execute#?#54:VE: Modifiers_CatchVariable" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 27 [label="AST:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 28 [label="AST:1"];
+3 -> 33 [label="AST:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 34 [label="AST:1"];
+8 -> 1 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+8 -> 10 [label="AST:1"];
+8 -> 15 [label="AST:1"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:2"];
+12 -> 29 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+17 -> 21 [label="AST:1"];
+17 -> 26 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+19 -> 29 [label="Define Use:1"];
+19 -> 30 [label="Define Use:1"];
+21 -> 22 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+23 -> 25 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+28 -> 32 [label="AST:1"];
+28 -> 7 [label="AST:1"];
+32 -> 10 [label="AST:1"];
+33 -> 28 [label="Control Dep:1"];
+33 -> 29 [label="Control Dep:1"];
+33 -> 30 [label="Control Dep:1"];
+33 -> 31 [label="AST:1"];
+33 -> 32 [label="Control Dep:1"];
+33 -> 19 [label="AST:1"];
+33 -> 18 [label="AST:1"];
+33 -> 10 [label="Control Dep:1"];
+33 -> 11 [label="Control Dep:1"];
+33 -> 12 [label="Control Dep:1"];
+33 -> 13 [label="Control Dep:1"];
+33 -> 7 [label="Control Dep:1"];
+33 -> 34 [label="Control Dep:1"];
+33 -> 9 [label="Control Dep:1"];
+33 -> 5 [label="Control Dep:1"];
+33 -> 1 [label="Control Dep:1"];
+33 -> 35 [label="AST:1"];
+34 -> 30 [label="AST:1"];
+34 -> 9 [label="AST:1"];
+34 -> 5 [label="AST:1"];
+34 -> 1 [label="AST:1"];
+}

@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/541/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/541/0/after.java
+@@ -3,1 +3,4 @@
+-    return directory;
++    if (isReference()) {
++      return ((Resource) (getCheckedRef())).isDirectory();
++    }
++    return (directory != null) && directory.booleanValue();

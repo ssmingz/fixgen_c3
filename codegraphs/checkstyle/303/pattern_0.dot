@@ -1,0 +1,47 @@
+digraph "Pattern" {
+0 [label="MissingCtorCheck#?#6:DELETE
+MissingSwitchDefaultCheck#?#6:DELETE" shape=ellipse]
+1 [label="MissingCtorCheck#?#6:\"missing.ctor\"
+MissingSwitchDefaultCheck#?#6:\"missing.switch.default\"" shape=ellipse]
+2 [label="MissingCtorCheck#?#6:setMinimumMessage(\"missing.ctor\")
+MissingSwitchDefaultCheck#?#6:setMinimumMessage(\"missing.switch.default\")" shape=ellipse]
+3 [label="MissingCtorCheck#?#2:\{
+    setLimitedTokens(new String[]\{ TokenTypes.getTokenName(CTOR_DEF) \});
+    setMinimumNumber(1);
+    setMaximumDepth(2);
+    setMinimumMessage(\"missing.ctor\");
+\}
+MissingSwitchDefaultCheck#?#2:\{
+    setLimitedTokens(new String[]\{ TokenTypes.getTokenName(LITERAL_DEFAULT) \});
+    setMinimumNumber(1);
+    setMaximumDepth(2);
+    setMinimumMessage(\"missing.switch.default\");
+\}" shape=ellipse]
+4 [label="MissingCtorCheck#?#6:setMinimumMessage
+MissingSwitchDefaultCheck#?#6:setMinimumMessage" shape=ellipse]
+5 [label="MissingCtorCheck#?#6:
+MissingSwitchDefaultCheck#?#6:" shape=ellipse]
+6 [label="MissingCtorCheck#?#6:setMinimumMessage(java.lang.String)
+MissingSwitchDefaultCheck#?#6:setMinimumMessage(java.lang.String)" shape=ellipse]
+7 [label="MissingCtorCheck#?#6:INSERT
+MissingSwitchDefaultCheck#?#6:INSERT" shape=ellipse]
+8 [label="MissingCtorCheck#?#6:MSG_KEY
+MissingSwitchDefaultCheck#?#6:MSG_KEY" shape=ellipse]
+9 [label="MissingCtorCheck#?#6:MSG_KEY
+MissingSwitchDefaultCheck#?#6:MSG_KEY" shape=ellipse]
+10 [label="MissingCtorCheck#?#6:
+MissingSwitchDefaultCheck#?#6:" shape=ellipse]
+11 [label="MissingCtorCheck#?#6:String
+MissingSwitchDefaultCheck#?#6:String" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="Action:2"];
+8 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+}

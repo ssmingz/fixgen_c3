@@ -1,0 +1,161 @@
+digraph "Pattern" {
+0 [label="checkLParen#?#5:DELETE
+checkRParen#?#5:DELETE" shape=ellipse]
+1 [label="checkLParen#?#5:if (getLevel().accept(columnNo)) \{
+    return;
+\}
+checkRParen#?#5:if (getLevel().accept(columnNo)) \{
+    return;
+\}" shape=ellipse]
+2 [label="checkLParen#?#2:\{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}
+checkRParen#?#2:\{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}" shape=ellipse]
+3 [label="checkLParen#?#2:private void checkLParen() \{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}
+checkRParen#?#2:private void checkRParen() \{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (getLevel().accept(columnNo)) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}" shape=ellipse]
+4 [label="checkLParen#?#3:DetailAST lparen = getMainAst()
+checkRParen#?#3:DetailAST rparen = getMainAst().findFirstToken(RPAREN)" shape=ellipse]
+5 [label="checkLParen#?#4:int columnNo = expandedTabsColumnNo(lparen)
+checkRParen#?#4:int columnNo = expandedTabsColumnNo(rparen)" shape=ellipse]
+6 [label="checkLParen#?#8:if (!startsLine(lparen)) \{
+    return;
+\}
+checkRParen#?#8:if (!startsLine(rparen)) \{
+    return;
+\}" shape=ellipse]
+7 [label="checkLParen#?#11:logError(lparen, \"lparen\", columnNo)
+checkRParen#?#11:logError(rparen, \"rparen\", columnNo)" shape=ellipse]
+8 [label="checkLParen#?#5:getLevel().accept(columnNo)
+checkRParen#?#5:getLevel().accept(columnNo)" shape=ellipse]
+9 [label="checkLParen#?#5:accept
+checkRParen#?#5:accept" shape=ellipse]
+10 [label="checkLParen#?#5:getLevel()
+checkRParen#?#5:getLevel()" shape=ellipse]
+11 [label="checkLParen#?#5:accept(int)
+checkRParen#?#5:accept(int)" shape=ellipse]
+12 [label="checkLParen#?#5:columnNo
+checkRParen#?#5:columnNo" shape=ellipse]
+13 [label="checkLParen#?#5:\{
+    return;
+\}
+checkRParen#?#5:\{
+    return;
+\}" shape=ellipse]
+14 [label="checkLParen#?#6:return
+checkRParen#?#6:return" shape=ellipse]
+15 [label="checkLParen#?#5:MOVE
+checkRParen#?#5:MOVE" shape=ellipse]
+16 [label="checkLParen#?#5: || 
+checkRParen#?#5: || " shape=ellipse]
+17 [label="checkLParen#?#5:(!startsLine(lparen))
+checkRParen#?#5:(!startsLine(rparen))" shape=ellipse]
+18 [label="checkLParen#?#5:startsLine(lparen)
+checkRParen#?#5:startsLine(rparen)" shape=ellipse]
+19 [label="checkLParen#?#5:startsLine
+checkRParen#?#5:startsLine" shape=ellipse]
+20 [label="checkLParen#?#5:
+checkRParen#?#5:" shape=ellipse]
+21 [label="checkLParen#?#5:PlaceHold
+checkRParen#?#5:PlaceHold" shape=ellipse]
+22 [label="checkLParen#?#5:
+checkRParen#?#5:" shape=ellipse]
+23 [label="checkLParen#?#5:PlaceHold
+checkRParen#?#5:PlaceHold" shape=ellipse]
+24 [label="checkLParen#?#5:PlaceHold
+checkRParen#?#5:PlaceHold" shape=ellipse]
+25 [label="checkLParen#?#5:
+checkRParen#?#5:" shape=ellipse]
+26 [label="checkLParen#?#5:startsLine(<unknown>)
+checkRParen#?#5:startsLine(<unknown>)" shape=ellipse]
+27 [label="checkLParen#?#5:null
+checkRParen#?#5:null" shape=ellipse]
+28 [label="checkLParen#?#8:lparen
+checkRParen#?#8:rparen" shape=ellipse]
+29 [label="checkLParen#?#5:lparen
+checkRParen#?#5:rparen" shape=ellipse]
+30 [label="checkLParen#?#5:DetailAST
+checkRParen#?#5:DetailAST" shape=ellipse]
+31 [label="checkLParen#?#5:
+checkRParen#?#5:" shape=ellipse]
+32 [label="checkLParen#?#8:\{
+    return;
+\}
+checkRParen#?#8:\{
+    return;
+\}" shape=ellipse]
+33 [label="checkLParen#?#9:return
+checkRParen#?#9:return" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 32 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="AST:2"];
+8 -> 12 [label="AST:2"];
+8 -> 13 [label="Control Dep:2"];
+8 -> 14 [label="Control Dep:2"];
+8 -> 15 [label="Action:2"];
+13 -> 14 [label="AST:2"];
+15 -> 16 [label="Action:2"];
+16 -> 17 [label="AST:2"];
+16 -> 32 [label="Control Dep:2"];
+16 -> 33 [label="Control Dep:2"];
+17 -> 18 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+18 -> 26 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+20 -> 23 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+24 -> 25 [label="AST:2"];
+26 -> 27 [label="AST:2"];
+29 -> 30 [label="AST:2"];
+30 -> 31 [label="AST:2"];
+32 -> 33 [label="AST:2"];
+}

@@ -1,0 +1,74 @@
+digraph "isCaseSensitive#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@isCaseSensitive" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+3 [label="3:CtVirtualElement@isReference" shape=ellipse]
+4 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@isCaseSensitive()" shape=ellipse]
+6 [label="3:CtVirtualElement@isCaseSensitive" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@getRef(<unknown>)" shape=ellipse]
+8 [label="3:CtVirtualElement@getRef" shape=ellipse]
+9 [label="3:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+10 [label="3:CtVirtualElement@getProject" shape=ellipse]
+11 [label="3:CtInvocationImpl@getProject()" shape=ellipse]
+12 [label="3:CtInvocationImpl@getRef(getProject())" shape=ellipse]
+13 [label="3:CtInvocationImpl@getRef(getProject()).isCaseSensitive()" shape=ellipse]
+14 [label="3:CtFieldReadImpl@caseSensitive" shape=ellipse]
+15 [label="3:CtConditionalImpl@isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive" shape=ellipse]
+16 [label="3:CtReturnImpl@return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive;
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public synchronized boolean isCaseSensitive() \{
+    return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive;
+\}" shape=ellipse]
+19 [label="3:Delete@DELETE" shape=ellipse]
+20 [label="3:Insert@INSERT" shape=ellipse]
+21 [label="3:CtIfImpl@if (isReference()) \{
+    return getRef(getProject()).isCaseSensitive();
+\}" shape=ellipse]
+22 [label="6:Insert@INSERT" shape=ellipse]
+23 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+24 [label="7:Insert@INSERT" shape=ellipse]
+25 [label="7:CtReturnImpl@return caseSensitive" shape=ellipse]
+26 [label="3:Move@MOVE" shape=ellipse]
+27 [label="3:Move@MOVE" shape=ellipse]
+28 [label="3:Move@MOVE" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 13 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+4 -> 12 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 11 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 14 [label="Control Dep"];
+4 -> 26 [label="Action"];
+11 -> 10 [label="AST"];
+11 -> 9 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 7 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 6 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 5 [label="AST"];
+14 -> 27 [label="Action"];
+15 -> 4 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 19 [label="Action"];
+16 -> 15 [label="AST"];
+16 -> 28 [label="Action"];
+17 -> 16 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 20 [label="Action"];
+18 -> 22 [label="Action"];
+18 -> 24 [label="Action"];
+20 -> 21 [label="Action"];
+22 -> 23 [label="Action"];
+24 -> 25 [label="Action"];
+26 -> 21 [label="Action"];
+27 -> 25 [label="Action"];
+}

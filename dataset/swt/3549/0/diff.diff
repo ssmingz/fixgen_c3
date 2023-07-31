@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3549/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3549/0/after.java
+@@ -12,0 +12,11 @@
++    int cairo = data.cairo;
++    if (cairo != 0) {
++      cairo_font_extents_t extents = new cairo_font_extents_t();
++      Cairo.cairo_current_font_extents(cairo, extents);
++      double baseline = y + extents.ascent;
++      Cairo.cairo_move_to(cairo, x, baseline);
++      byte[] buffer = Converter.wcsToMbcs(null, string, true);
++      Cairo.cairo_text_path(cairo, buffer);
++      Cairo.cairo_fill(cairo);
++      return;
++    }

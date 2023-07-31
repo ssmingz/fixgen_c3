@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/326/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/326/0/after.java
+@@ -2,2 +2,8 @@
+-  public int getLineStartPos(int pos) {
+-    return getDocument().getLineStartPos(pos);
++  public int _getLineStartPos(int pos) {
++    DefinitionsDocument doc = getDocument();
++    doc.acquireReadLock();
++    try {
++      return doc._getLineStartPos(pos);
++    } finally {
++      doc.releaseReadLock();
++    }

@@ -1,0 +1,148 @@
+digraph "Pattern" {
+0 [label="suggestedChildLevel#?,ExpressionHandler#9:UPDATE
+checkIndentation#?#11:UPDATE" shape=ellipse]
+1 [label="suggestedChildLevel#?,ExpressionHandler#9:getIndentCheck().getIndentationAmount()
+checkIndentation#?#11:getIndentCheck().getIndentationAmount()" shape=ellipse]
+2 [label="suggestedChildLevel#?,ExpressionHandler#6:!areOnSameLine(((DetailAST) (aChild.getMainAst().getFirstChild())), ((DetailAST) (getMainAst().getFirstChild())))" shape=ellipse]
+3 [label="suggestedChildLevel#?,ExpressionHandler#5:aChild instanceof MethodCallHandler" shape=ellipse]
+4 [label="suggestedChildLevel#?,ExpressionHandler#6:if (!areOnSameLine(((DetailAST) (aChild.getMainAst().getFirstChild())), ((DetailAST) (getMainAst().getFirstChild())))) \{
+    indentLevel += getIndentCheck().getIndentationAmount();
+\}
+checkIndentation#?#8:if (rparen.getLineNo() != lparen.getLineNo()) \{
+    checkExpressionSubtree(getMainAst().findFirstToken(ELIST), getLevel() + getIndentCheck().getIndentationAmount(), false, true);
+    checkRParen();
+\}" shape=ellipse]
+5 [label="suggestedChildLevel#?,ExpressionHandler#6:areOnSameLine(((DetailAST) (aChild.getMainAst().getFirstChild())), ((DetailAST) (getMainAst().getFirstChild())))
+checkIndentation#?#9:checkExpressionSubtree(getMainAst().findFirstToken(ELIST), getLevel() + getIndentCheck().getIndentationAmount(), false, true)" shape=ellipse]
+6 [label="suggestedChildLevel#?,ExpressionHandler#8:\{
+    indentLevel += getIndentCheck().getIndentationAmount();
+\}" shape=ellipse]
+7 [label="suggestedChildLevel#?,ExpressionHandler#9:indentLevel += getIndentCheck().getIndentationAmount()" shape=ellipse]
+8 [label="suggestedChildLevel#?,ExpressionHandler#9:indentLevel
+checkIndentation#?#10:" shape=ellipse]
+9 [label="suggestedChildLevel#?,ExpressionHandler#9:getIndentationAmount()
+checkIndentation#?#11:getIndentationAmount()" shape=ellipse]
+10 [label="suggestedChildLevel#?,ExpressionHandler#9:getIndentCheck()
+checkIndentation#?#11:getIndentCheck()" shape=ellipse]
+11 [label="suggestedChildLevel#?,ExpressionHandler#9:getIndentCheck()
+checkIndentation#?#11:getIndentCheck()" shape=ellipse]
+12 [label="suggestedChildLevel#?,ExpressionHandler#9:" shape=ellipse]
+13 [label="suggestedChildLevel#?,ExpressionHandler#9:PlaceHold
+checkIndentation#?#9:PlaceHold" shape=ellipse]
+14 [label="suggestedChildLevel#?,ExpressionHandler#9:getBasicOffset
+checkIndentation#?#11:getBasicOffset" shape=ellipse]
+15 [label="suggestedChildLevel#?,ExpressionHandler#9:getIndentationAmount
+checkIndentation#?#11:getIndentationAmount" shape=ellipse]
+16 [label="checkIndentation#?#8:rparen.getLineNo() != lparen.getLineNo()" shape=ellipse]
+17 [label="checkIndentation#?#8:rparen.getLineNo()" shape=ellipse]
+18 [label="checkIndentation#?#8:lparen.getLineNo()" shape=ellipse]
+19 [label="checkIndentation#?#12:false" shape=ellipse]
+20 [label="checkIndentation#?#8:\{
+    checkExpressionSubtree(getMainAst().findFirstToken(ELIST), getLevel() + getIndentCheck().getIndentationAmount(), false, true);
+    checkRParen();
+\}" shape=ellipse]
+21 [label="checkIndentation#?#14:checkRParen()" shape=ellipse]
+22 [label="checkIndentation#?#9:" shape=ellipse]
+23 [label="checkIndentation#?#11:" shape=ellipse]
+24 [label="checkIndentation#?#10:getMainAst().findFirstToken(ELIST)" shape=ellipse]
+25 [label="checkIndentation#?#14:PlaceHold" shape=ellipse]
+26 [label="checkIndentation#?#10:getMainAst()" shape=ellipse]
+27 [label="checkIndentation#?#11:PlaceHold" shape=ellipse]
+28 [label="checkIndentation#?#11:" shape=ellipse]
+29 [label="checkIndentation#?#10:getMainAst()" shape=ellipse]
+30 [label="checkIndentation#?#10:PlaceHold" shape=ellipse]
+31 [label="checkIndentation#?#10:ELIST" shape=ellipse]
+32 [label="checkIndentation#?#13:true" shape=ellipse]
+33 [label="checkIndentation#?#14:" shape=ellipse]
+34 [label="checkIndentation#?#11:PlaceHold" shape=ellipse]
+35 [label="checkIndentation#?#11:getLevel()" shape=ellipse]
+36 [label="checkIndentation#?#11:getLevel() + getIndentCheck().getIndentationAmount()" shape=ellipse]
+37 [label="checkIndentation#?#9:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)" shape=ellipse]
+38 [label="checkIndentation#?#10:findFirstToken()" shape=ellipse]
+39 [label="checkIndentation#?#11:getLevel()" shape=ellipse]
+40 [label="checkIndentation#?#14:checkRParen()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 15 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+4 -> 20 [label="AST:1"];
+5 -> 19 [label="AST:1"];
+5 -> 22 [label="AST:1"];
+5 -> 24 [label="AST:1"];
+5 -> 32 [label="AST:1"];
+5 -> 36 [label="AST:1"];
+5 -> 37 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+7 -> 1 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+8 -> 30 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+10 -> 11 [label="AST:2"];
+10 -> 23 [label="AST:1"];
+12 -> 8 [label="Data Dep:1"];
+12 -> 13 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+16 -> 18 [label="AST:1"];
+16 -> 20 [label="Control Dep:1"];
+16 -> 5 [label="Control Dep:1"];
+16 -> 37 [label="Control Dep:1"];
+16 -> 22 [label="Control Dep:1"];
+16 -> 13 [label="Control Dep:1"];
+16 -> 24 [label="Control Dep:1"];
+16 -> 38 [label="Control Dep:1"];
+16 -> 26 [label="Control Dep:1"];
+16 -> 29 [label="Control Dep:1"];
+16 -> 8 [label="Control Dep:1"];
+16 -> 30 [label="Control Dep:1"];
+16 -> 31 [label="Control Dep:1"];
+16 -> 36 [label="Control Dep:1"];
+16 -> 35 [label="Control Dep:1"];
+16 -> 39 [label="Control Dep:1"];
+16 -> 28 [label="Control Dep:1"];
+16 -> 34 [label="Control Dep:1"];
+16 -> 1 [label="Control Dep:1"];
+16 -> 9 [label="Control Dep:1"];
+16 -> 10 [label="Control Dep:1"];
+16 -> 11 [label="Control Dep:1"];
+16 -> 23 [label="Control Dep:1"];
+16 -> 27 [label="Control Dep:1"];
+16 -> 19 [label="Control Dep:1"];
+16 -> 32 [label="Control Dep:1"];
+16 -> 21 [label="Control Dep:1"];
+16 -> 40 [label="Control Dep:1"];
+16 -> 33 [label="Control Dep:1"];
+16 -> 25 [label="Control Dep:1"];
+20 -> 5 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+21 -> 33 [label="AST:1"];
+21 -> 40 [label="AST:1"];
+22 -> 13 [label="AST:1"];
+23 -> 27 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+24 -> 38 [label="AST:1"];
+24 -> 31 [label="AST:1"];
+26 -> 8 [label="AST:1"];
+26 -> 29 [label="AST:1"];
+28 -> 34 [label="AST:1"];
+33 -> 25 [label="AST:1"];
+35 -> 28 [label="AST:1"];
+35 -> 39 [label="AST:1"];
+36 -> 35 [label="AST:1"];
+36 -> 1 [label="AST:1"];
+}

@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2619/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2619/0/after.java
+@@ -12,1 +12,3 @@
+-        ((NSOutlineView) (view)).reloadItem(item.handle);
++        NSOutlineView outlineView = ((NSOutlineView) (view));
++        NSRect rect = outlineView.rectOfRow(outlineView.rowForItem(item.handle));
++        outlineView.setNeedsDisplayInRect(rect);

@@ -1,0 +1,28 @@
+digraph "setPreserveTime#?,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setPreserveTime" shape=ellipse]
+2 [label="2:CtParameterImpl@boolean pt" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@m_Ptime" shape=ellipse]
+5 [label="3:CtVariableReadImpl@pt" shape=ellipse]
+6 [label="3:CtAssignmentImpl@m_Ptime = pt" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    m_Ptime = pt;
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void setPreserveTime(boolean pt) \{
+    m_Ptime = pt;
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtFieldWriteImpl@mPtime" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 9 [label="Action"];
+5 -> 4 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 10 [label="Action"];
+}

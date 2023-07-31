@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="assertEquals#?,String,double,double,double#3:DELETE
+assertEquals#?,String,float,float,float#3:DELETE" shape=ellipse]
+1 [label="assertEquals#?,String,double,double,double#3:if (Double.compare(expected, actual) == 0) \{
+    return;
+\}
+assertEquals#?,String,float,float,float#3:if (Float.compare(expected, actual) == 0) \{
+    return;
+\}" shape=ellipse]
+2 [label="assertEquals#?,String,double,double,double#2:\{
+    if (Double.compare(expected, actual) == 0) \{
+        return;
+    \}
+    if (!(Math.abs(expected - actual) <= delta)) \{
+        failNotEquals(message, new Double(expected), new Double(actual));
+    \}
+\}
+assertEquals#?,String,float,float,float#2:\{
+    if (Float.compare(expected, actual) == 0) \{
+        return;
+    \}
+    if (!(Math.abs(expected - actual) <= delta)) \{
+        failNotEquals(message, new Float(expected), new Float(actual));
+    \}
+\}" shape=ellipse]
+3 [label="assertEquals#?,String,double,double,double#2:public static void assertEquals(String message, double expected, double actual, double delta) \{
+    if (Double.compare(expected, actual) == 0) \{
+        return;
+    \}
+    if (!(Math.abs(expected - actual) <= delta)) \{
+        failNotEquals(message, new Double(expected), new Double(actual));
+    \}
+\}
+assertEquals#?,String,float,float,float#2:public static void assertEquals(String message, float expected, float actual, float delta) \{
+    if (Float.compare(expected, actual) == 0) \{
+        return;
+    \}
+    if (!(Math.abs(expected - actual) <= delta)) \{
+        failNotEquals(message, new Float(expected), new Float(actual));
+    \}
+\}" shape=ellipse]
+4 [label="assertEquals#?,String,double,double,double#6:if (!(Math.abs(expected - actual) <= delta)) \{
+    failNotEquals(message, new Double(expected), new Double(actual));
+\}
+assertEquals#?,String,float,float,float#6:if (!(Math.abs(expected - actual) <= delta)) \{
+    failNotEquals(message, new Float(expected), new Float(actual));
+\}" shape=ellipse]
+5 [label="assertEquals#?,String,double,double,double#3:Double.compare(expected, actual) == 0
+assertEquals#?,String,float,float,float#3:Float.compare(expected, actual) == 0" shape=ellipse]
+6 [label="assertEquals#?,String,double,double,double#3:boolean
+assertEquals#?,String,float,float,float#3:boolean" shape=ellipse]
+7 [label="assertEquals#?,String,double,double,double#3:Double.compare(expected, actual)
+assertEquals#?,String,float,float,float#3:Float.compare(expected, actual)" shape=ellipse]
+8 [label="assertEquals#?,String,double,double,double#3:0
+assertEquals#?,String,float,float,float#3:0" shape=ellipse]
+9 [label="assertEquals#?,String,double,double,double#3:\{
+    return;
+\}
+assertEquals#?,String,float,float,float#3:\{
+    return;
+\}" shape=ellipse]
+10 [label="assertEquals#?,String,double,double,double#4:return
+assertEquals#?,String,float,float,float#4:return" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+5 -> 9 [label="Control Dep:2"];
+5 -> 10 [label="Control Dep:2"];
+9 -> 10 [label="AST:2"];
+}

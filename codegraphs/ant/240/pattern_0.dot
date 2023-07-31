@@ -1,0 +1,644 @@
+digraph "Pattern" {
+0 [label="testEmpty#?#3:UPDATE
+testNoSourcefilefound#?#3:UPDATE
+testCorrectTaskNameBadAttr#?#4:UPDATE
+test12#?#3:UPDATE
+testTooSlow#?#3:UPDATE
+testNoVersionInfoFail#?#5:UPDATE
+test11#?#4:UPDATE
+testCorrectTaskNameBadEl#?#4:UPDATE
+testNoProperty#?#3:UPDATE
+test3#?#4:UPDATE
+testTaskCase#?#3:UPDATE
+testTooFast#?#3:UPDATE
+test10#?#4:UPDATE
+testRunAdapterError#?#3:UPDATE
+testNoFile#?#3:UPDATE
+testMultipleTargetsOneDoesntExist_FOEtrue#?#5:UPDATE
+testNoJarNoClassname#?#4:UPDATE" shape=ellipse]
+1 [label="testEmpty#?#3:\"missing property\"
+test13#?#6:\"The attribute \\"Test\\" may not occur more than once in the same section\"
+testNoSourcefilefound#?#3:\"File not found\"
+testCorrectTaskNameBadAttr#?#4:\"attribute message\"
+test12#?#3:\"Section with no name\"
+testTooSlow#?#3:\"out of range\"
+testNoVersionInfoFail#?#5:\"Manifest Implemention information missing.\"
+testNoSource#?#4:\"testnosource\"
+testBackTrace#?#4:\"Checking if a back trace is created\"
+testEmptySource#?#4:\"srcdir attribute must be non-empty\"
+test11#?#4:\"Attribute has no value\"
+testFail#?#3:\"must fail\"
+testCorrectTaskNameBadEl#?#4:\"element message\"
+testNoProperty#?#3:\"missing property\"
+test3#?#4:\"Manifest is invalid - no colon on header line\"
+testTooFast#?#3:\"out of range\"
+test10#?#4:\"Attribute has no name\"
+testNoFile#?#3:\"missing file\"
+testMultipleTargetsOneDoesntExist_FOEtrue#?#5:\"Calling not existent target\"
+testNoJarNoClassname#?#4:\"parameter validation\"
+testEmpty#?#3:\"testEmpty\"" shape=ellipse]
+2 [label="testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\")
+test13#?#3:expectBuildExceptionContaining(\"test13\", \"Duplicate Attribute\", \"The attribute \\"Test\\" may not occur more than once in the same section\")
+testNoSourcefilefound#?#3:expectBuildExceptionContaining(\"testNoSourcefilefound\", \"File not found\", \" doesn't exist\")
+testCorrectTaskNameBadAttr#?#3:expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\")
+test12#?#3:expectBuildExceptionContaining(\"test12\", \"Section with no name\", \"Sections must have a name\")
+testTooSlow#?#3:expectBuildExceptionContaining(\"too_slow\", \"out of range\", \"out of the range 1-10\")
+testNoVersionInfoFail#?#3:expectBuildExceptionContaining(\"testNoVersionInfoFail\", \"Manifest Implemention information missing.\", \"No Implementation-Title set.\")
+testNoSource#?#3:expectBuildExceptionContaining(\"testnosource\", \"No source specified\", \"srcdir attribute must be set\")
+testBackTrace#?#3:expectBuildExceptionContaining(\"backtraceon\", \"Checking if a back trace is created\", \"following error occurred\")
+testEmptySource#?#3:expectBuildExceptionContaining(\"testemptysource\", \"No source specified\", \"srcdir attribute must be non-empty\")
+test11#?#3:expectBuildExceptionContaining(\"test11\", \"Attribute has no value\", \"Attributes must have name and value\")
+testFail#?#3:expectBuildExceptionContaining(\"testFail\", \"must fail\", \"$\{foo\}=bar\")
+testCorrectTaskNameBadEl#?#3:expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\")
+testNoProperty#?#3:expectBuildExceptionContaining(\"testNoProperty\", \"missing property\", \"property\")
+test3#?#3:expectBuildExceptionContaining(\"test3\", \"Manifest is invalid - no colon on header line\", \"Invalid Manifest\")
+testTaskCase#?#11:ex.getMessage()
+testTooFast#?#3:expectBuildExceptionContaining(\"too_fast\", \"out of range\", \"out of the range 1-10\")
+test10#?#3:expectBuildExceptionContaining(\"test10\", \"Attribute has no name\", \"Attributes must have name and value\")
+testRunAdapterError#?#8:ex.getMessage()
+testNoFile#?#3:expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\")
+testMultipleTargetsOneDoesntExist_FOEtrue#?#3:expectBuildExceptionContaining(\"multipleTargetsOneDoesntExist_FOEtrue\", \"Calling not existent target\", \"Target \\"three\\" does not exist in the project \\"subant\\"\")
+testNoJarNoClassname#?#3:expectBuildExceptionContaining(\"testNoJarNoClassname\", \"parameter validation\", \"Classname must not be null.\")
+testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"must fail\", \"No nested XML specified\")" shape=ellipse]
+3 [label="testEmpty#?#2:\{
+    expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\");
+\}
+test13#?#2:\{
+    expectBuildExceptionContaining(\"test13\", \"Duplicate Attribute\", \"The attribute \\"Test\\" may not occur more than once in the same section\");
+\}
+testNoSourcefilefound#?#2:\{
+    expectBuildExceptionContaining(\"testNoSourcefilefound\", \"File not found\", \" doesn't exist\");
+\}
+testCorrectTaskNameBadAttr#?#2:\{
+    expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\");
+\}
+test12#?#2:\{
+    expectBuildExceptionContaining(\"test12\", \"Section with no name\", \"Sections must have a name\");
+\}
+testTooSlow#?#2:\{
+    expectBuildExceptionContaining(\"too_slow\", \"out of range\", \"out of the range 1-10\");
+\}
+testNoVersionInfoFail#?#2:\{
+    expectBuildExceptionContaining(\"testNoVersionInfoFail\", \"Manifest Implemention information missing.\", \"No Implementation-Title set.\");
+\}
+testNoSource#?#2:\{
+    expectBuildExceptionContaining(\"testnosource\", \"No source specified\", \"srcdir attribute must be set\");
+\}
+testBackTrace#?#2:\{
+    expectBuildExceptionContaining(\"backtraceon\", \"Checking if a back trace is created\", \"following error occurred\");
+\}
+testEmptySource#?#2:\{
+    expectBuildExceptionContaining(\"testemptysource\", \"No source specified\", \"srcdir attribute must be non-empty\");
+\}
+test11#?#2:\{
+    expectBuildExceptionContaining(\"test11\", \"Attribute has no value\", \"Attributes must have name and value\");
+\}
+testFail#?#2:\{
+    expectBuildExceptionContaining(\"testFail\", \"must fail\", \"$\{foo\}=bar\");
+\}
+testCorrectTaskNameBadEl#?#2:\{
+    expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\");
+\}
+testNoProperty#?#2:\{
+    expectBuildExceptionContaining(\"testNoProperty\", \"missing property\", \"property\");
+\}
+test3#?#2:\{
+    expectBuildExceptionContaining(\"test3\", \"Manifest is invalid - no colon on header line\", \"Invalid Manifest\");
+\}
+testTooFast#?#2:\{
+    expectBuildExceptionContaining(\"too_fast\", \"out of range\", \"out of the range 1-10\");
+\}
+test10#?#2:\{
+    expectBuildExceptionContaining(\"test10\", \"Attribute has no name\", \"Attributes must have name and value\");
+\}
+testNoFile#?#2:\{
+    expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\");
+\}
+testMultipleTargetsOneDoesntExist_FOEtrue#?#2:\{
+    expectBuildExceptionContaining(\"multipleTargetsOneDoesntExist_FOEtrue\", \"Calling not existent target\", \"Target \\"three\\" does not exist in the project \\"subant\\"\");
+\}
+testNoJarNoClassname#?#2:\{
+    expectBuildExceptionContaining(\"testNoJarNoClassname\", \"parameter validation\", \"Classname must not be null.\");
+\}
+testEmpty#?#2:\{
+    expectBuildExceptionContaining(\"testEmpty\", \"must fail\", \"No nested XML specified\");
+\}" shape=ellipse]
+4 [label="testEmpty#?#3:expectBuildExceptionContaining
+test13#?#3:expectBuildExceptionContaining
+testNoSourcefilefound#?#3:expectBuildExceptionContaining
+testCorrectTaskNameBadAttr#?#3:expectBuildExceptionContaining
+test12#?#3:expectBuildExceptionContaining
+testTooSlow#?#3:expectBuildExceptionContaining
+testNoVersionInfoFail#?#3:expectBuildExceptionContaining
+testNoSource#?#3:expectBuildExceptionContaining
+testBackTrace#?#3:expectBuildExceptionContaining
+testEmptySource#?#3:expectBuildExceptionContaining
+test11#?#3:expectBuildExceptionContaining
+testFail#?#3:expectBuildExceptionContaining
+testCorrectTaskNameBadEl#?#3:expectBuildExceptionContaining
+testNoProperty#?#3:expectBuildExceptionContaining
+test3#?#3:expectBuildExceptionContaining
+testTooFast#?#3:expectBuildExceptionContaining
+test10#?#3:expectBuildExceptionContaining
+testNoFile#?#3:expectBuildExceptionContaining
+testMultipleTargetsOneDoesntExist_FOEtrue#?#3:expectBuildExceptionContaining
+testNoJarNoClassname#?#3:expectBuildExceptionContaining
+testEmpty#?#3:expectBuildExceptionContaining" shape=ellipse]
+5 [label="testEmpty#?#-1:
+test13#?#-1:
+testNoSourcefilefound#?#-1:
+testCorrectTaskNameBadAttr#?#-1:
+test12#?#-1:
+testTooSlow#?#-1:
+testNoVersionInfoFail#?#-1:
+testNoSource#?#-1:
+testBackTrace#?#-1:
+testEmptySource#?#-1:
+test11#?#-1:
+testFail#?#-1:
+testCorrectTaskNameBadEl#?#-1:
+testNoProperty#?#-1:
+test3#?#-1:
+testTaskCase#?#11:ex
+testTooFast#?#-1:
+test10#?#-1:
+testRunAdapterError#?#8:ex
+testNoFile#?#-1:
+testMultipleTargetsOneDoesntExist_FOEtrue#?#-1:
+testNoJarNoClassname#?#-1:
+testEmpty#?#-1:" shape=ellipse]
+6 [label="testEmpty#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test13#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoSourcefilefound#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testCorrectTaskNameBadAttr#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test12#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testTooSlow#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoVersionInfoFail#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoSource#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testBackTrace#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testEmptySource#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test11#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testFail#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testCorrectTaskNameBadEl#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoProperty#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test3#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testTaskCase#?#11:getMessage()
+testTooFast#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+test10#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testRunAdapterError#?#8:getMessage()
+testNoFile#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testMultipleTargetsOneDoesntExist_FOEtrue#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testNoJarNoClassname#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)
+testEmpty#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testEmpty#?#3:\"testEmpty\"
+test13#?#4:\"test13\"
+testNoSourcefilefound#?#3:\" doesn't exist\"
+testCorrectTaskNameBadAttr#?#4:\"correct_taskname_badattr\"
+test12#?#3:\"test12\"
+testTooSlow#?#3:\"too_slow\"
+testNoVersionInfoFail#?#6:\"No Implementation-Title set.\"
+testNoSource#?#4:\"srcdir attribute must be set\"
+testBackTrace#?#4:\"backtraceon\"
+testEmptySource#?#4:\"testemptysource\"
+test11#?#4:\"test11\"
+testFail#?#3:\"testFail\"
+testCorrectTaskNameBadEl#?#4:\"correct_taskname_badel\"
+testNoProperty#?#3:\"testNoProperty\"
+test3#?#4:\"test3\"
+testTooFast#?#3:\"too_fast\"
+test10#?#4:\"test10\"
+testNoFile#?#3:\"testNoFile\"
+testMultipleTargetsOneDoesntExist_FOEtrue#?#4:\"multipleTargetsOneDoesntExist_FOEtrue\"
+testNoJarNoClassname#?#4:\"testNoJarNoClassname\"
+testEmpty#?#3:\"must fail\"" shape=ellipse]
+8 [label="testEmpty#?#3:\"property\"
+test13#?#5:\"Duplicate Attribute\"
+testNoSourcefilefound#?#3:\"testNoSourcefilefound\"
+testCorrectTaskNameBadAttr#?#4:\"javac doesn't support the\"
+test12#?#3:\"Sections must have a name\"
+testTooSlow#?#3:\"out of the range 1-10\"
+testNoVersionInfoFail#?#4:\"testNoVersionInfoFail\"
+testNoSource#?#4:\"No source specified\"
+testBackTrace#?#4:\"following error occurred\"
+testEmptySource#?#4:\"No source specified\"
+test11#?#4:\"Attributes must have name and value\"
+testFail#?#3:\"$\{foo\}=bar\"
+testCorrectTaskNameBadEl#?#4:\"javac doesn't support the\"
+testNoProperty#?#3:\"property\"
+test3#?#4:\"Invalid Manifest\"
+testTooFast#?#3:\"out of the range 1-10\"
+test10#?#4:\"Attributes must have name and value\"
+testNoFile#?#3:\"file\"
+testMultipleTargetsOneDoesntExist_FOEtrue#?#6:\"Target \\"three\\" does not exist in the project \\"subant\\"\"
+testNoJarNoClassname#?#4:\"Classname must not be null.\"
+testEmpty#?#3:\"No nested XML specified\"" shape=ellipse]
+9 [label="testEmpty#?#3:DELETE
+test13#?#3:DELETE
+testNoSourcefilefound#?#3:DELETE
+testCorrectTaskNameBadAttr#?#3:DELETE
+test12#?#3:DELETE
+testTooSlow#?#3:DELETE
+testNoVersionInfoFail#?#3:DELETE
+testNoSource#?#3:DELETE
+testBackTrace#?#3:DELETE
+testEmptySource#?#3:DELETE
+test11#?#3:DELETE
+testFail#?#3:DELETE
+testCorrectTaskNameBadEl#?#3:DELETE
+testNoProperty#?#3:DELETE
+test3#?#3:DELETE
+testTooFast#?#3:DELETE
+test10#?#3:DELETE
+testNoFile#?#3:DELETE
+testMultipleTargetsOneDoesntExist_FOEtrue#?#3:DELETE
+testNoJarNoClassname#?#3:DELETE
+testEmpty#?#3:DELETE" shape=ellipse]
+10 [label="testEmpty#?#-1:String
+test13#?#-1:String
+testNoSourcefilefound#?#-1:String
+testCorrectTaskNameBadAttr#?#-1:String
+test12#?#-1:String
+testTooSlow#?#-1:String
+testNoVersionInfoFail#?#-1:String
+testEmptySource#?#-1:String
+test11#?#-1:String
+testCorrectTaskNameBadEl#?#-1:String
+testNoProperty#?#-1:String
+test3#?#-1:String
+testTaskCase#?#-1:String
+testTooFast#?#-1:String
+test10#?#-1:String
+testRunAdapterError#?#-1:String
+testNoFile#?#-1:String
+testMultipleTargetsOneDoesntExist_FOEtrue#?#-1:String
+testNoJarNoClassname#?#-1:String" shape=ellipse]
+11 [label="testEmpty#?#3:MOVE
+test13#?#6:MOVE
+testNoSourcefilefound#?#3:MOVE
+testCorrectTaskNameBadAttr#?#4:MOVE
+test12#?#3:MOVE
+testTooSlow#?#3:MOVE
+testNoVersionInfoFail#?#5:MOVE
+testEmptySource#?#4:MOVE
+test11#?#4:MOVE
+testCorrectTaskNameBadEl#?#4:MOVE
+testNoProperty#?#3:MOVE
+test3#?#4:MOVE
+testTaskCase#?#3:MOVE
+testTooFast#?#3:MOVE
+test10#?#4:MOVE
+testRunAdapterError#?#3:MOVE
+testNoFile#?#3:MOVE
+testMultipleTargetsOneDoesntExist_FOEtrue#?#5:MOVE
+testNoJarNoClassname#?#4:MOVE" shape=ellipse]
+12 [label="testEmpty#?#6:fail(\"BuildException expected: missing property\")
+test13#?#8:assertContains(\"The attribute \\"Test\\" may not occur more than once in the same section\", ex.getMessage())
+testNoSourcefilefound#?#6:fail(\"BuildException expected: File not found\")
+testCorrectTaskNameBadAttr#?#6:fail(\"BuildException expected: attribute message\")
+test12#?#6:fail(\"BuildException expected: Section with no name\")
+testTooSlow#?#6:fail(\"BuildException expected: out of range\")
+testNoVersionInfoFail#?#6:fail(\"BuildException expected: Manifest Implemention information missing.\")
+testNoSource#?#8:assertContains(\"srcdir attribute must be set\", ex.getMessage())
+testBackTrace#?#8:assertContains(\"following error occurred\", ex.getMessage())
+testEmptySource#?#8:assertContains(\"srcdir attribute must be non-empty\", ex.getMessage())
+test11#?#6:fail(\"BuildException expected: Attribute has no value\")
+testFail#?#8:assertContains(\"$\{foo\}=bar\", ex.getMessage())
+testCorrectTaskNameBadEl#?#6:fail(\"BuildException expected: element message\")
+testNoProperty#?#6:fail(\"BuildException expected: missing property\")
+test3#?#6:fail(\"BuildException expected: Manifest is invalid - no colon on header line\")
+testTooFast#?#6:fail(\"BuildException expected: out of range\")
+test10#?#6:fail(\"BuildException expected: Attribute has no name\")
+testNoFile#?#6:fail(\"BuildException expected: missing file\")
+testMultipleTargetsOneDoesntExist_FOEtrue#?#6:fail(\"BuildException expected: Calling not existent target\")
+testNoJarNoClassname#?#6:fail(\"Build exception should have been thrown - parameter validation\")
+testEmpty#?#8:assertContains(\"No nested XML specified\", ex.getMessage())" shape=ellipse]
+13 [label="testEmpty#?#6:\"BuildException expected: missing property\"
+testNoSourcefilefound#?#6:\"BuildException expected: File not found\"
+testCorrectTaskNameBadAttr#?#6:\"BuildException expected: attribute message\"
+test12#?#6:\"BuildException expected: Section with no name\"
+testTooSlow#?#6:\"BuildException expected: out of range\"
+testNoVersionInfoFail#?#6:\"BuildException expected: Manifest Implemention information missing.\"
+test11#?#6:\"BuildException expected: Attribute has no value\"
+testCorrectTaskNameBadEl#?#6:\"BuildException expected: element message\"
+testNoProperty#?#6:\"BuildException expected: missing property\"
+test3#?#6:\"BuildException expected: Manifest is invalid - no colon on header line\"
+testTooFast#?#6:\"BuildException expected: out of range\"
+test10#?#6:\"BuildException expected: Attribute has no name\"
+testNoFile#?#6:\"BuildException expected: missing file\"
+testMultipleTargetsOneDoesntExist_FOEtrue#?#6:\"BuildException expected: Calling not existent target\"
+testNoJarNoClassname#?#6:\"Build exception should have been thrown - parameter validation\"" shape=ellipse]
+14 [label="test13#?#7:BuildException ex" shape=ellipse]
+15 [label="test13#?#10:ex.getMessage()" shape=ellipse]
+16 [label="test13#?#8:assertContains(java.lang.String,<unknown>)
+testNoSource#?#8:getMessage()
+testBackTrace#?#8:getMessage()
+testEmptySource#?#8:getMessage()
+testFail#?#8:getMessage()
+testTaskCase#?#8:assertContains(java.lang.String,java.lang.String,<unknown>)
+testRunAdapterError#?#8:assertContains(java.lang.String,<unknown>)
+testEmpty#?#8:getMessage()" shape=ellipse]
+17 [label="test13#?#7:\{
+    assertContains(\"The attribute \\"Test\\" may not occur more than once in the same section\", ex.getMessage());
+\}
+testTaskCase#?#7:\{
+    assertContains(\"Task names should be case sensitive\", \"Problem: failed to create task or type ecHO\", ex.getMessage());
+\}
+testRunAdapterError#?#7:\{
+    assertContains(\"No public run() method in\", ex.getMessage());
+\}" shape=ellipse]
+18 [label="test13#?#-1:
+testNoSource#?#8:ex
+testBackTrace#?#8:ex
+testEmptySource#?#8:ex
+testFail#?#8:ex
+testTaskCase#?#-1:
+testRunAdapterError#?#-1:
+testEmpty#?#8:ex" shape=ellipse]
+19 [label="test13#?#-1:PlaceHold
+testTaskCase#?#-1:PlaceHold
+testRunAdapterError#?#-1:PlaceHold" shape=ellipse]
+20 [label="test13#?#10:ex
+testTaskCase#?#-1:
+testRunAdapterError#?#-1:" shape=ellipse]
+21 [label="test13#?#10:getMessage()
+testTaskCase#?#-1:String
+testRunAdapterError#?#-1:String" shape=ellipse]
+22 [label="testNoSource#?#-1:String
+testTaskCase#?#-1:String
+testRunAdapterError#?#-1:String" shape=ellipse]
+23 [label="testNoSource#?#7:BuildException ex" shape=ellipse]
+24 [label="testNoSource#?#8:assertContains(java.lang.String,<unknown>)
+testTaskCase#?#-1:String
+testRunAdapterError#?#-1:String" shape=ellipse]
+25 [label="testNoSource#?#4:MOVE" shape=ellipse]
+26 [label="testNoSource#?#8:ex.getMessage()" shape=ellipse]
+27 [label="testNoSource#?#-1:" shape=ellipse]
+28 [label="testNoSource#?#7:\{
+    assertContains(\"srcdir attribute must be set\", ex.getMessage());
+\}
+testTaskCase#?#2:\{
+    expectBuildExceptionContaining(\"taskcase\", \"Task names are case sensitive\", \"Problem: failed to create task or type ecHO\");
+\}
+testRunAdapterError#?#2:\{
+    expectBuildExceptionContaining(\"runadaptererror\", \"xx\", \"No public run() method in\");
+\}" shape=ellipse]
+29 [label="testNoSource#?#-1:PlaceHold
+testBackTrace#?#-1:PlaceHold
+testEmptySource#?#-1:PlaceHold
+testFail#?#-1:PlaceHold
+testEmpty#?#-1:PlaceHold" shape=ellipse]
+30 [label="testBackTrace#?#7:\{
+    assertContains(\"following error occurred\", ex.getMessage());
+\}" shape=ellipse]
+31 [label="testBackTrace#?#7:BuildException ex" shape=ellipse]
+32 [label="testBackTrace#?#8:assertContains(java.lang.String,<unknown>)
+testTaskCase#?#-1:String
+testRunAdapterError#?#-1:String" shape=ellipse]
+33 [label="testBackTrace#?#-1:String
+testTaskCase#?#-1:String
+testRunAdapterError#?#-1:String" shape=ellipse]
+34 [label="testBackTrace#?#8:ex.getMessage()" shape=ellipse]
+35 [label="testBackTrace#?#-1:" shape=ellipse]
+36 [label="testBackTrace#?#4:MOVE" shape=ellipse]
+37 [label="testEmptySource#?#7:BuildException ex" shape=ellipse]
+38 [label="testEmptySource#?#-1:" shape=ellipse]
+39 [label="testEmptySource#?#8:ex.getMessage()" shape=ellipse]
+40 [label="testEmptySource#?#8:assertContains(java.lang.String,<unknown>)" shape=ellipse]
+41 [label="testEmptySource#?#7:\{
+    assertContains(\"srcdir attribute must be non-empty\", ex.getMessage());
+\}" shape=ellipse]
+42 [label="testFail#?#8:assertContains(java.lang.String,<unknown>)" shape=ellipse]
+43 [label="testFail#?#8:ex.getMessage()" shape=ellipse]
+44 [label="testFail#?#3:MOVE" shape=ellipse]
+45 [label="testFail#?#-1:" shape=ellipse]
+46 [label="testFail#?#-1:String" shape=ellipse]
+47 [label="testFail#?#7:BuildException ex" shape=ellipse]
+48 [label="testFail#?#7:\{
+    assertContains(\"$\{foo\}=bar\", ex.getMessage());
+\}" shape=ellipse]
+49 [label="testTaskCase#?#3:expectBuildExceptionContaining(\"taskcase\", \"Task names are case sensitive\", \"Problem: failed to create task or type ecHO\")" shape=ellipse]
+50 [label="testTaskCase#?#3:expectBuildExceptionContaining
+testRunAdapterError#?#3:expectBuildExceptionContaining" shape=ellipse]
+51 [label="testTaskCase#?#4:\"Problem: failed to create task or type ecHO\"" shape=ellipse]
+52 [label="testTaskCase#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+53 [label="testTaskCase#?#4:UPDATE" shape=ellipse]
+54 [label="testTaskCase#?#9:\"Task names should be case sensitive\"" shape=ellipse]
+55 [label="testTaskCase#?#2:public void testTaskCase() \{
+    expectBuildExceptionContaining(\"taskcase\", \"Task names are case sensitive\", \"Problem: failed to create task or type ecHO\");
+\}" shape=ellipse]
+56 [label="testTaskCase#?#7:BuildException ex" shape=ellipse]
+57 [label="testTaskCase#?#4:\"Task names are case sensitive\"" shape=ellipse]
+58 [label="testTaskCase#?#8:assertContains(\"Task names should be case sensitive\", \"Problem: failed to create task or type ecHO\", ex.getMessage())" shape=ellipse]
+59 [label="testTaskCase#?#4:\"taskcase\"" shape=ellipse]
+60 [label="testTaskCase#?#7: catch (BuildException ex) \{
+    assertContains(\"Task names should be case sensitive\", \"Problem: failed to create task or type ecHO\", ex.getMessage());
+\}" shape=ellipse]
+61 [label="testTaskCase#?#-1:PlaceHold" shape=ellipse]
+62 [label="testRunAdapterError#?#7: catch (BuildException ex) \{
+    assertContains(\"No public run() method in\", ex.getMessage());
+\}" shape=ellipse]
+63 [label="testRunAdapterError#?#3:\"No public run() method in\"" shape=ellipse]
+64 [label="testRunAdapterError#?#-1:PlaceHold" shape=ellipse]
+65 [label="testRunAdapterError#?#3:\"xx\"" shape=ellipse]
+66 [label="testRunAdapterError#?#7:BuildException ex" shape=ellipse]
+67 [label="testRunAdapterError#?#3:expectBuildExceptionContaining(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+68 [label="testRunAdapterError#?#3:\"runadaptererror\"" shape=ellipse]
+69 [label="testRunAdapterError#?#8:assertContains(\"No public run() method in\", ex.getMessage())" shape=ellipse]
+70 [label="testRunAdapterError#?#3:expectBuildExceptionContaining(\"runadaptererror\", \"xx\", \"No public run() method in\")" shape=ellipse]
+71 [label="testRunAdapterError#?#2:public void testRunAdapterError() \{
+    expectBuildExceptionContaining(\"runadaptererror\", \"xx\", \"No public run() method in\");
+\}" shape=ellipse]
+72 [label="testEmpty#?#-1:" shape=ellipse]
+73 [label="testEmpty#?#7:BuildException ex" shape=ellipse]
+74 [label="testEmpty#?#8:assertContains(java.lang.String,<unknown>)" shape=ellipse]
+75 [label="testEmpty#?#3:MOVE" shape=ellipse]
+76 [label="testEmpty#?#7:\{
+    assertContains(\"No nested XML specified\", ex.getMessage());
+\}" shape=ellipse]
+77 [label="testEmpty#?#-1:String" shape=ellipse]
+78 [label="testEmpty#?#8:ex.getMessage()" shape=ellipse]
+0 -> 13 [label="Action:15"];
+0 -> 58 [label="Action:1"];
+0 -> 69 [label="Action:1"];
+1 -> 0 [label="Action:15"];
+1 -> 10 [label="AST:17"];
+1 -> 11 [label="Action:17"];
+2 -> 1 [label="AST:21"];
+2 -> 4 [label="AST:21"];
+2 -> 5 [label="AST:23"];
+2 -> 6 [label="AST:23"];
+2 -> 7 [label="AST:21"];
+2 -> 8 [label="AST:21"];
+2 -> 9 [label="Action:21"];
+3 -> 2 [label="AST:21"];
+7 -> 22 [label="AST:1"];
+7 -> 25 [label="Action:1"];
+8 -> 33 [label="AST:1"];
+8 -> 36 [label="Action:1"];
+8 -> 44 [label="Action:1"];
+8 -> 46 [label="AST:1"];
+8 -> 75 [label="Action:1"];
+8 -> 77 [label="AST:1"];
+11 -> 12 [label="Action:17"];
+11 -> 60 [label="Action:1"];
+11 -> 62 [label="Action:1"];
+12 -> 13 [label="AST:15"];
+12 -> 15 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+12 -> 18 [label="AST:1"];
+12 -> 24 [label="AST:1"];
+12 -> 26 [label="AST:1"];
+12 -> 27 [label="AST:1"];
+12 -> 32 [label="AST:1"];
+12 -> 34 [label="AST:1"];
+12 -> 35 [label="AST:1"];
+12 -> 38 [label="AST:1"];
+12 -> 39 [label="AST:1"];
+12 -> 40 [label="AST:1"];
+12 -> 42 [label="AST:1"];
+12 -> 43 [label="AST:1"];
+12 -> 45 [label="AST:1"];
+12 -> 72 [label="AST:1"];
+12 -> 74 [label="AST:1"];
+12 -> 78 [label="AST:1"];
+14 -> 17 [label="Control Dep:1"];
+14 -> 12 [label="Control Dep:1"];
+14 -> 16 [label="Control Dep:1"];
+14 -> 18 [label="Control Dep:1"];
+14 -> 19 [label="Control Dep:1"];
+14 -> 15 [label="Control Dep:1"];
+14 -> 21 [label="Control Dep:1"];
+14 -> 20 [label="Control Dep:1"];
+15 -> 20 [label="AST:1"];
+15 -> 21 [label="AST:1"];
+17 -> 12 [label="AST:1"];
+17 -> 58 [label="AST:1"];
+17 -> 69 [label="AST:1"];
+18 -> 19 [label="AST:3"];
+18 -> 61 [label="AST:1"];
+18 -> 64 [label="AST:1"];
+23 -> 28 [label="Control Dep:1"];
+23 -> 12 [label="Control Dep:1"];
+23 -> 24 [label="Control Dep:1"];
+23 -> 27 [label="Control Dep:1"];
+23 -> 29 [label="Control Dep:1"];
+23 -> 26 [label="Control Dep:1"];
+23 -> 16 [label="Control Dep:1"];
+23 -> 18 [label="Control Dep:1"];
+25 -> 12 [label="Action:1"];
+26 -> 18 [label="AST:1"];
+26 -> 16 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+28 -> 12 [label="AST:1"];
+28 -> 49 [label="AST:1"];
+28 -> 70 [label="AST:1"];
+30 -> 12 [label="AST:1"];
+31 -> 30 [label="Control Dep:1"];
+31 -> 12 [label="Control Dep:1"];
+31 -> 32 [label="Control Dep:1"];
+31 -> 35 [label="Control Dep:1"];
+31 -> 29 [label="Control Dep:1"];
+31 -> 34 [label="Control Dep:1"];
+31 -> 16 [label="Control Dep:1"];
+31 -> 18 [label="Control Dep:1"];
+34 -> 18 [label="AST:1"];
+34 -> 16 [label="AST:1"];
+35 -> 29 [label="AST:1"];
+36 -> 12 [label="Action:1"];
+37 -> 41 [label="Control Dep:1"];
+37 -> 12 [label="Control Dep:1"];
+37 -> 40 [label="Control Dep:1"];
+37 -> 38 [label="Control Dep:1"];
+37 -> 29 [label="Control Dep:1"];
+37 -> 39 [label="Control Dep:1"];
+37 -> 16 [label="Control Dep:1"];
+37 -> 18 [label="Control Dep:1"];
+38 -> 29 [label="AST:1"];
+39 -> 18 [label="AST:1"];
+39 -> 16 [label="AST:1"];
+41 -> 12 [label="AST:1"];
+43 -> 18 [label="AST:1"];
+43 -> 16 [label="AST:1"];
+44 -> 12 [label="Action:1"];
+45 -> 29 [label="AST:1"];
+47 -> 42 [label="Control Dep:1"];
+47 -> 43 [label="Control Dep:1"];
+47 -> 45 [label="Control Dep:1"];
+47 -> 48 [label="Control Dep:1"];
+47 -> 12 [label="Control Dep:1"];
+47 -> 29 [label="Control Dep:1"];
+47 -> 16 [label="Control Dep:1"];
+47 -> 18 [label="Control Dep:1"];
+48 -> 12 [label="AST:1"];
+49 -> 50 [label="AST:1"];
+49 -> 18 [label="AST:1"];
+49 -> 52 [label="AST:1"];
+49 -> 59 [label="AST:1"];
+49 -> 57 [label="AST:1"];
+49 -> 51 [label="AST:1"];
+49 -> 0 [label="Action:1"];
+49 -> 11 [label="Action:1"];
+51 -> 33 [label="AST:1"];
+52 -> 10 [label="AST:1"];
+52 -> 21 [label="AST:1"];
+52 -> 22 [label="AST:1"];
+53 -> 54 [label="Action:1"];
+55 -> 28 [label="AST:1"];
+56 -> 54 [label="Control Dep:1"];
+56 -> 17 [label="Control Dep:1"];
+56 -> 58 [label="Control Dep:1"];
+56 -> 16 [label="Control Dep:1"];
+56 -> 20 [label="Control Dep:1"];
+56 -> 2 [label="Control Dep:1"];
+56 -> 6 [label="Control Dep:1"];
+56 -> 5 [label="Control Dep:1"];
+57 -> 53 [label="Action:1"];
+57 -> 32 [label="AST:1"];
+58 -> 54 [label="AST:1"];
+58 -> 20 [label="AST:1"];
+58 -> 16 [label="AST:1"];
+58 -> 2 [label="AST:1"];
+59 -> 24 [label="AST:1"];
+60 -> 56 [label="AST:1"];
+60 -> 17 [label="AST:1"];
+62 -> 66 [label="AST:1"];
+62 -> 17 [label="AST:1"];
+63 -> 33 [label="AST:1"];
+65 -> 32 [label="AST:1"];
+66 -> 17 [label="Control Dep:1"];
+66 -> 69 [label="Control Dep:1"];
+66 -> 16 [label="Control Dep:1"];
+66 -> 20 [label="Control Dep:1"];
+66 -> 2 [label="Control Dep:1"];
+66 -> 6 [label="Control Dep:1"];
+66 -> 5 [label="Control Dep:1"];
+67 -> 10 [label="AST:1"];
+67 -> 21 [label="AST:1"];
+67 -> 22 [label="AST:1"];
+68 -> 24 [label="AST:1"];
+69 -> 20 [label="AST:1"];
+69 -> 16 [label="AST:1"];
+69 -> 2 [label="AST:1"];
+70 -> 63 [label="AST:1"];
+70 -> 65 [label="AST:1"];
+70 -> 67 [label="AST:1"];
+70 -> 68 [label="AST:1"];
+70 -> 50 [label="AST:1"];
+70 -> 18 [label="AST:1"];
+70 -> 0 [label="Action:1"];
+70 -> 11 [label="Action:1"];
+71 -> 28 [label="AST:1"];
+72 -> 29 [label="AST:1"];
+73 -> 72 [label="Control Dep:1"];
+73 -> 76 [label="Control Dep:1"];
+73 -> 12 [label="Control Dep:1"];
+73 -> 74 [label="Control Dep:1"];
+73 -> 29 [label="Control Dep:1"];
+73 -> 78 [label="Control Dep:1"];
+73 -> 16 [label="Control Dep:1"];
+73 -> 18 [label="Control Dep:1"];
+75 -> 12 [label="Action:1"];
+76 -> 12 [label="AST:1"];
+78 -> 18 [label="AST:1"];
+78 -> 16 [label="AST:1"];
+}

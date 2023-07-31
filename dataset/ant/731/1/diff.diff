@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/731/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/731/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,1 @@
+-    executeTarget("testPatternSetSlashOnly");
++    buildRule.executeTarget("testPatternSetSlashOnly");
+@@ -5,1 +6,2 @@
+-        "1/foo is not included", getProject().getProperty("output") + "/unziptestout/1/foo");
++        "1/foo is not included",
++        buildRule.getProject().getProperty("output") + "/unziptestout/1/foo");
+@@ -7,1 +9,2 @@
+-        "\"2/bar is included", getProject().getProperty("output") + "/unziptestout/2/bar");
++        "\"2/bar is included",
++        buildRule.getProject().getProperty("output") + "/unziptestout/2/bar");

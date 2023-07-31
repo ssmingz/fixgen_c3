@@ -1,0 +1,59 @@
+digraph "Pattern" {
+0 [label="testNoPassword#?#5:INSERT
+testNoCVSRoot#?#5:INSERT" shape=ellipse]
+1 [label="testNoPassword#?#4:executeTarget(\"test2\")
+testNoCVSRoot#?#4:executeTarget(\"test1\")" shape=ellipse]
+2 [label="testNoPassword#?#3:\{
+    executeTarget(\"test2\");
+    fail(\"BuildException not thrown\");
+\}
+testNoCVSRoot#?#3:\{
+    executeTarget(\"test1\");
+    fail(\"BuildException not thrown\");
+\}" shape=ellipse]
+3 [label="testNoPassword#?#3:try \{
+    executeTarget(\"test2\");
+    fail(\"BuildException not thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"password is required\", e.getMessage());
+\}
+testNoCVSRoot#?#3:try \{
+    executeTarget(\"test1\");
+    fail(\"BuildException not thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"cvsroot is required\", e.getMessage());
+\}" shape=ellipse]
+4 [label="testNoPassword#?#5:fail(\"BuildException not thrown\")
+testNoCVSRoot#?#5:fail(\"BuildException not thrown\")" shape=ellipse]
+5 [label="testNoPassword#?#4:executeTarget
+testNoCVSRoot#?#4:executeTarget" shape=ellipse]
+6 [label="testNoPassword#?#-1:
+testNoCVSRoot#?#-1:" shape=ellipse]
+7 [label="testNoPassword#?#-1:PlaceHold
+testNoCVSRoot#?#-1:PlaceHold" shape=ellipse]
+8 [label="testNoPassword#?#-1:PlaceHold
+testNoCVSRoot#?#-1:PlaceHold" shape=ellipse]
+9 [label="testNoPassword#?#4:executeTarget(java.lang.String)
+testNoCVSRoot#?#4:executeTarget(java.lang.String)" shape=ellipse]
+10 [label="testNoPassword#?#-1:String
+testNoCVSRoot#?#-1:String" shape=ellipse]
+11 [label="testNoPassword#?#4:\"test2\"
+testNoCVSRoot#?#4:\"test1\"" shape=ellipse]
+12 [label="testNoPassword#?#-1:String
+testNoCVSRoot#?#-1:String" shape=ellipse]
+13 [label="testNoPassword#?#5:buildRule
+testNoCVSRoot#?#5:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

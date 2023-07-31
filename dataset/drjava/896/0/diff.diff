@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/896/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/896/0/after.java
+@@ -2,4 +2,6 @@
+-  public synchronized boolean isGroupSelected() {
+-    TreePath p = getSelectionPath();
+-    TreeNode n = ((TreeNode) (p.getLastPathComponent()));
+-    return n instanceof InnerNode;
++  public boolean isGroupSelected() {
++    synchronized (_model) {
++      TreePath p = getSelectionPath();
++      TreeNode n = ((TreeNode) (p.getLastPathComponent()));
++      return n instanceof InnerNode;
++    }

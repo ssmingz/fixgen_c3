@@ -1,0 +1,96 @@
+digraph "Pattern" {
+0 [label="execute#?#19:INSERT
+read#?,byte[],int,int#8:INSERT" shape=ellipse]
+1 [label="execute#?#19:maxwait
+read#?,byte[],int,int#8:this.entrySize - this.entryOffset" shape=ellipse]
+2 [label="execute#?#19:session.setTimeout(maxwait)" shape=ellipse]
+3 [label="execute#?#17:\{
+    Session session = openSession();
+    session.setTimeout(maxwait);
+    final ChannelExec channel = ((ChannelExec) (session.openChannel(\"exec\")));
+    channel.setCommand(command);
+    channel.setOutputStream(tee);
+    channel.connect();
+    thread = new Thread() \{
+        public void run() \{
+            while (!channel.isEOF()) \{
+                if (thread == null) \{
+                    return;
+                \}
+                try \{
+                    sleep(500);
+                \} catch (Exception e) \{
+                \}
+            \} 
+        \}
+    \};
+    thread.start();
+    thread.join(maxwait);
+    if (thread.isAlive()) \{
+        thread = null;
+        log(\"Timeout period exceeded, connection dropped.\");
+    \} else \{
+        if (output_property != null) \{
+            getProject().setProperty(output_property, out.toString());
+        \}
+        if (output_file != null) \{
+            writeToFile(out.toString(), append, output_file);
+        \}
+    \}
+\}
+read#?,byte[],int,int#7:\{
+    numToRead = this.entrySize - this.entryOffset;
+\}" shape=ellipse]
+4 [label="execute#?#19:setTimeout" shape=ellipse]
+5 [label="execute#?#19:session
+read#?,byte[],int,int#7:this.entrySize" shape=ellipse]
+6 [label="execute#?#19:setTimeout()" shape=ellipse]
+7 [label="execute#?#-1:maxwait
+read#?,byte[],int,int#8:this.entrySize" shape=ellipse]
+8 [label="execute#?#19:int
+read#?,byte[],int,int#8:int" shape=ellipse]
+9 [label="read#?,byte[],int,int#7:(numToRead + this.entryOffset) > this.entrySize" shape=ellipse]
+10 [label="read#?,byte[],int,int#7:if ((numToRead + this.entryOffset) > this.entrySize) \{
+    numToRead = this.entrySize - this.entryOffset;
+\}" shape=ellipse]
+11 [label="read#?,byte[],int,int#-1:PlaceHold" shape=ellipse]
+12 [label="read#?,byte[],int,int#7:(numToRead + this.entryOffset)" shape=ellipse]
+13 [label="read#?,byte[],int,int#8:numToRead = this.entrySize - this.entryOffset" shape=ellipse]
+14 [label="read#?,byte[],int,int#8:this" shape=ellipse]
+15 [label="read#?,byte[],int,int#8:this" shape=ellipse]
+16 [label="read#?,byte[],int,int#-1:PlaceHold" shape=ellipse]
+17 [label="read#?,byte[],int,int#8:numToRead" shape=ellipse]
+18 [label="read#?,byte[],int,int#8:this.entryOffset" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 18 [label="AST:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 13 [label="AST:1"];
+7 -> 14 [label="AST:1"];
+7 -> 17 [label="Data Dep:1"];
+9 -> 12 [label="AST:1"];
+9 -> 5 [label="AST:1"];
+9 -> 3 [label="Control Dep:1"];
+9 -> 13 [label="Control Dep:1"];
+9 -> 17 [label="Control Dep:1"];
+9 -> 1 [label="Control Dep:1"];
+9 -> 7 [label="Control Dep:1"];
+9 -> 14 [label="Control Dep:1"];
+9 -> 11 [label="Control Dep:1"];
+9 -> 18 [label="Control Dep:1"];
+9 -> 15 [label="Control Dep:1"];
+9 -> 16 [label="Control Dep:1"];
+10 -> 9 [label="AST:1"];
+10 -> 3 [label="AST:1"];
+13 -> 17 [label="AST:1"];
+13 -> 1 [label="AST:1"];
+14 -> 11 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+18 -> 15 [label="AST:1"];
+18 -> 17 [label="Data Dep:1"];
+}

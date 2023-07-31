@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="execute#?#14:DELETE
+execute#?#13:DELETE" shape=ellipse]
+1 [label="execute#?#14:execManager
+execute#?#13:execManager" shape=ellipse]
+2 [label="execute#?#13:execManager
+execute#?#12:execManager" shape=ellipse]
+3 [label="execute#?#13:final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)))
+execute#?#12:final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)))" shape=ellipse]
+4 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+5 [label="execute#?#13:ExecManager.class
+execute#?#12:ExecManager.class" shape=ellipse]
+6 [label="execute#?#14:new Execute(execManager)
+execute#?#13:new Execute(execManager)" shape=ellipse]
+7 [label="execute#?#14:final Execute exe = new Execute(execManager)
+execute#?#13:final Execute exe = new Execute(execManager)" shape=ellipse]
+8 [label="execute#?#-1:Execute()
+execute#?#-1:Execute()" shape=ellipse]
+9 [label="execute#?#-1:execManager
+execute#?#-1:execManager" shape=ellipse]
+10 [label="execute#?#14:exe
+execute#?#13:exe" shape=ellipse]
+11 [label="execute#?#16:exe
+execute#?#15:exe" shape=ellipse]
+12 [label="execute#?#17:exe
+execute#?#16:exe" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="Data Dep:2"];
+2 -> 1 [label="Define Use:2"];
+3 -> 2 [label="AST:2"];
+4 -> 2 [label="Data Dep:2"];
+5 -> 2 [label="Data Dep:2"];
+6 -> 1 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+7 -> 6 [label="AST:2"];
+7 -> 10 [label="AST:2"];
+10 -> 11 [label="Define Use:2"];
+10 -> 12 [label="Define Use:2"];
+}

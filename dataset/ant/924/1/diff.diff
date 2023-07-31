@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/924/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/924/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "test11", "Attribute has no value", "Attributes must have name and value");
++    try {
++      buildRule.executeTarget("test11");
++      fail("BuildException expected: Attribute has no value");
++    } catch (BuildException ex) {
++      assertContains("Attributes must have name and value", ex.getMessage());
++    }

@@ -1,0 +1,41 @@
+digraph "setDir#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setDir" shape=ellipse]
+2 [label="2:CtParameterImpl@String d" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.dir" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+7 [label="3:CtVirtualElement@resolveFile" shape=ellipse]
+8 [label="3:CtFieldReadImpl@project" shape=ellipse]
+9 [label="3:CtVariableReadImpl@d" shape=ellipse]
+10 [label="3:CtInvocationImpl@project.resolveFile(d)" shape=ellipse]
+11 [label="3:CtAssignmentImpl@this.dir = project.resolveFile(d)" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    this.dir = project.resolveFile(d);
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@public void setDir(String d) \{
+    this.dir = project.resolveFile(d);
+\}" shape=ellipse]
+14 [label="3:Delete@DELETE" shape=ellipse]
+15 [label="3:Insert@INSERT" shape=ellipse]
+16 [label="3:CtInvocationImpl@getProject()" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+8 -> 4 [label="Data Dep"];
+8 -> 14 [label="Action"];
+9 -> 4 [label="Data Dep"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 15 [label="Action"];
+11 -> 4 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 1 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 2 [label="AST"];
+13 -> 12 [label="AST"];
+15 -> 16 [label="Action"];
+}

@@ -1,0 +1,18 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/281/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/281/1/after.java
+@@ -6,3 +6,8 @@
+-      boolean result = test1(urls[i]);
+-      if (verbose) {
+-        System.out.print(result ? "." : "E");
++      if (!isMozilla) {
++        boolean result = test1(urls[i]);
++        if (verbose) {
++          System.out.print(result ? "." : "E");
++        }
++        if (!result) {
++          fail++;
++        }
+@@ -10,3 +15,0 @@
+-      if (!result) {
+-        fail++;
+-      }

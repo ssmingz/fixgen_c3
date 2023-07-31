@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1783/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1783/0/after.java
+@@ -4,1 +4,5 @@
+-    return hour;
++    if ((style & SWT.CALENDAR) != 0) {
++      return hour;
++    } else {
++      return calendar.get(Calendar.HOUR_OF_DAY);
++    }

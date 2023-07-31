@@ -1,0 +1,276 @@
+digraph "removeFiles#?,File,String[]" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@removeFiles" shape=ellipse]
+2 [label="2:CtParameterImpl@File d" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtParameterImpl@String[] files" shape=ellipse]
+5 [label="2:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+6 [label="3:CtVariableReadImpl@files" shape=ellipse]
+7 [label="3:CtParameterReferenceImpl@files" shape=ellipse]
+8 [label="3:CtFieldReadImpl@files.length" shape=ellipse]
+9 [label="3:CtLiteralImpl@0" shape=ellipse]
+10 [label="3:CtBinaryOperatorImpl@files.length > 0" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@log(<unknown>)" shape=ellipse]
+12 [label="4:CtVirtualElement@log" shape=ellipse]
+13 [label="4:CtLiteralImpl@\"Deleting \"" shape=ellipse]
+14 [label="4:CtVariableReadImpl@files" shape=ellipse]
+15 [label="4:CtParameterReferenceImpl@files" shape=ellipse]
+16 [label="4:CtFieldReadImpl@files.length" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@(\"Deleting \" + files.length)" shape=ellipse]
+18 [label="4:CtLiteralImpl@\" files from \"" shape=ellipse]
+19 [label="4:CtBinaryOperatorImpl@((\"Deleting \" + files.length) + \" files from \")" shape=ellipse]
+20 [label="4:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+21 [label="4:CtVirtualElement@getAbsolutePath" shape=ellipse]
+22 [label="4:CtVariableReadImpl@d" shape=ellipse]
+23 [label="4:CtInvocationImpl@d.getAbsolutePath()" shape=ellipse]
+24 [label="4:CtBinaryOperatorImpl@((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath()" shape=ellipse]
+25 [label="4:CtInvocationImpl@log(((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath())" shape=ellipse]
+26 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+27 [label="5:CtLiteralImpl@0" shape=ellipse]
+28 [label="5:CtVirtualElement@j" shape=ellipse]
+29 [label="5:CtLocalVariableImpl@int j = 0" shape=ellipse]
+30 [label="5:CtVariableReadImpl@j" shape=ellipse]
+31 [label="5:CtVariableReadImpl@files" shape=ellipse]
+32 [label="5:CtParameterReferenceImpl@files" shape=ellipse]
+33 [label="5:CtFieldReadImpl@files.length" shape=ellipse]
+34 [label="5:CtBinaryOperatorImpl@j < files.length" shape=ellipse]
+35 [label="5:CtVariableWriteImpl@j" shape=ellipse]
+36 [label="5:CtUnaryOperatorImpl@j++" shape=ellipse]
+37 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+38 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+39 [label="6:CtVariableReadImpl@d" shape=ellipse]
+40 [label="6:CtVariableReadImpl@files" shape=ellipse]
+41 [label="6:CtVariableReadImpl@j" shape=ellipse]
+42 [label="6:CtArrayReadImpl@files[j]" shape=ellipse]
+43 [label="6:CtConstructorCallImpl@new File(d, files[j])" shape=ellipse]
+44 [label="6:CtVirtualElement@f" shape=ellipse]
+45 [label="6:CtLocalVariableImpl@File f = new File(d, files[j])" shape=ellipse]
+46 [label="7:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+47 [label="7:CtVirtualElement@log" shape=ellipse]
+48 [label="7:CtLiteralImpl@\"Deleting \"" shape=ellipse]
+49 [label="7:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+50 [label="7:CtVirtualElement@getAbsolutePath" shape=ellipse]
+51 [label="7:CtVariableReadImpl@f" shape=ellipse]
+52 [label="7:CtInvocationImpl@f.getAbsolutePath()" shape=ellipse]
+53 [label="7:CtBinaryOperatorImpl@\"Deleting \" + f.getAbsolutePath()" shape=ellipse]
+54 [label="7:CtFieldReadImpl@verbosity" shape=ellipse]
+55 [label="7:CtInvocationImpl@log(\"Deleting \" + f.getAbsolutePath(), verbosity)" shape=ellipse]
+56 [label="8:CtExecutableReferenceImpl@delete()" shape=ellipse]
+57 [label="8:CtVirtualElement@delete" shape=ellipse]
+58 [label="8:CtVariableReadImpl@f" shape=ellipse]
+59 [label="8:CtInvocationImpl@f.delete()" shape=ellipse]
+60 [label="8:CtUnaryOperatorImpl@!f.delete()" shape=ellipse]
+61 [label="9:CtTypeReferenceImpl@BuildException" shape=ellipse]
+62 [label="9:CtLiteralImpl@\"Unable to delete file \"" shape=ellipse]
+63 [label="9:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+64 [label="9:CtVirtualElement@getAbsolutePath" shape=ellipse]
+65 [label="9:CtVariableReadImpl@f" shape=ellipse]
+66 [label="9:CtInvocationImpl@f.getAbsolutePath()" shape=ellipse]
+67 [label="9:CtBinaryOperatorImpl@\"Unable to delete file \" + f.getAbsolutePath()" shape=ellipse]
+68 [label="9:CtConstructorCallImpl@new BuildException(\"Unable to delete file \" + f.getAbsolutePath())" shape=ellipse]
+69 [label="9:CtThrowImpl@throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath())" shape=ellipse]
+70 [label="8:CtBlockImpl@\{
+    throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+\}" shape=ellipse]
+71 [label="8:CtIfImpl@if (!f.delete()) \{
+    throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+\}" shape=ellipse]
+72 [label="5:CtBlockImpl@\{
+    File f = new File(d, files[j]);
+    log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+    if (!f.delete()) \{
+        throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+    \}
+\}" shape=ellipse]
+73 [label="5:CtForImpl@for (int j = 0; j < files.length; j++) \{
+    File f = new File(d, files[j]);
+    log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+    if (!f.delete()) \{
+        throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+    \}
+\}" shape=ellipse]
+74 [label="3:CtBlockImpl@\{
+    log(((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath());
+    for (int j = 0; j < files.length; j++) \{
+        File f = new File(d, files[j]);
+        log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+        if (!f.delete()) \{
+            throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+        \}
+    \}
+\}" shape=ellipse]
+75 [label="3:CtIfImpl@if (files.length > 0) \{
+    log(((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath());
+    for (int j = 0; j < files.length; j++) \{
+        File f = new File(d, files[j]);
+        log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+        if (!f.delete()) \{
+            throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+        \}
+    \}
+\}" shape=ellipse]
+76 [label="2:CtBlockImpl@\{
+    if (files.length > 0) \{
+        log(((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath());
+        for (int j = 0; j < files.length; j++) \{
+            File f = new File(d, files[j]);
+            log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+            if (!f.delete()) \{
+                throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+77 [label="2:CtMethodImpl@protected void removeFiles(File d, String[] files) \{
+    if (files.length > 0) \{
+        log(((\"Deleting \" + files.length) + \" files from \") + d.getAbsolutePath());
+        for (int j = 0; j < files.length; j++) \{
+            File f = new File(d, files[j]);
+            log(\"Deleting \" + f.getAbsolutePath(), verbosity);
+            if (!f.delete()) \{
+                throw new BuildException(\"Unable to delete file \" + f.getAbsolutePath());
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+78 [label="8:Insert@INSERT" shape=ellipse]
+79 [label="8:CtBinaryOperatorImpl@(!quiet) && (!f.delete())" shape=ellipse]
+80 [label="8:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 6 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 74 [label="Control Dep"];
+10 -> 25 [label="Control Dep"];
+10 -> 11 [label="Control Dep"];
+10 -> 24 [label="Control Dep"];
+10 -> 19 [label="Control Dep"];
+10 -> 17 [label="Control Dep"];
+10 -> 13 [label="Control Dep"];
+10 -> 16 [label="Control Dep"];
+10 -> 14 [label="Control Dep"];
+10 -> 18 [label="Control Dep"];
+10 -> 23 [label="Control Dep"];
+10 -> 20 [label="Control Dep"];
+10 -> 22 [label="Control Dep"];
+10 -> 73 [label="Control Dep"];
+10 -> 29 [label="Control Dep"];
+10 -> 27 [label="Control Dep"];
+10 -> 34 [label="Control Dep"];
+10 -> 30 [label="Control Dep"];
+10 -> 33 [label="Control Dep"];
+10 -> 31 [label="Control Dep"];
+10 -> 36 [label="Control Dep"];
+10 -> 35 [label="Control Dep"];
+14 -> 15 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 20 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 12 [label="AST"];
+25 -> 11 [label="AST"];
+25 -> 24 [label="AST"];
+28 -> 30 [label="Define-Use"];
+28 -> 41 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 26 [label="AST"];
+29 -> 27 [label="AST"];
+31 -> 32 [label="AST"];
+33 -> 31 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 72 [label="Control Dep"];
+34 -> 45 [label="Control Dep"];
+34 -> 43 [label="Control Dep"];
+34 -> 39 [label="Control Dep"];
+34 -> 42 [label="Control Dep"];
+34 -> 40 [label="Control Dep"];
+34 -> 41 [label="Control Dep"];
+34 -> 55 [label="Control Dep"];
+34 -> 46 [label="Control Dep"];
+34 -> 53 [label="Control Dep"];
+34 -> 48 [label="Control Dep"];
+34 -> 52 [label="Control Dep"];
+34 -> 49 [label="Control Dep"];
+34 -> 51 [label="Control Dep"];
+34 -> 54 [label="Control Dep"];
+34 -> 71 [label="Control Dep"];
+34 -> 60 [label="Control Dep"];
+34 -> 59 [label="Control Dep"];
+34 -> 56 [label="Control Dep"];
+34 -> 58 [label="Control Dep"];
+35 -> 41 [label="Define-Use"];
+36 -> 35 [label="AST"];
+39 -> 44 [label="Data Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 44 [label="Data Dep"];
+43 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 51 [label="Define-Use"];
+44 -> 58 [label="Define-Use"];
+44 -> 65 [label="Define-Use"];
+45 -> 44 [label="AST"];
+45 -> 37 [label="AST"];
+45 -> 43 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 49 [label="AST"];
+53 -> 48 [label="AST"];
+53 -> 52 [label="AST"];
+55 -> 47 [label="AST"];
+55 -> 46 [label="AST"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+59 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+59 -> 56 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 70 [label="Control Dep"];
+60 -> 69 [label="Control Dep"];
+60 -> 68 [label="Control Dep"];
+60 -> 67 [label="Control Dep"];
+60 -> 62 [label="Control Dep"];
+60 -> 66 [label="Control Dep"];
+60 -> 63 [label="Control Dep"];
+60 -> 65 [label="Control Dep"];
+60 -> 80 [label="Action"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 63 [label="AST"];
+67 -> 62 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 60 [label="AST"];
+71 -> 70 [label="AST"];
+71 -> 78 [label="Action"];
+72 -> 45 [label="AST"];
+72 -> 55 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 29 [label="AST"];
+73 -> 34 [label="AST"];
+73 -> 36 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 25 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 10 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 1 [label="AST"];
+77 -> 0 [label="AST"];
+77 -> 2 [label="AST"];
+77 -> 4 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 79 [label="Action"];
+80 -> 79 [label="Action"];
+}

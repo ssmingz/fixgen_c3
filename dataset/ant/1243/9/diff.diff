@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1243/9/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1243/9/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,2 @@
+-    expectLogContaining("delay", "MyTask called");
++    buildRule.executeTarget("delay");
++    assertContains("MyTask called", buildRule.getLog());

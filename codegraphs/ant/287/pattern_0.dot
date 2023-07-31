@@ -1,0 +1,63 @@
+digraph "Pattern" {
+0 [label="testTimeout#?#3:UPDATE
+testNoTimeout#?#3:UPDATE" shape=ellipse]
+1 [label="testTimeout#?#3:expectPropertySet(\"timeout\", \"timeout\")
+testNoTimeout#?#3:expectPropertyUnset(\"notimeout\", \"timeout\")" shape=ellipse]
+2 [label="testTimeout#?#2:\{
+    expectPropertySet(\"timeout\", \"timeout\");
+\}
+testNoTimeout#?#2:\{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}" shape=ellipse]
+3 [label="testTimeout#?#2:public void testTimeout() \{
+    expectPropertySet(\"timeout\", \"timeout\");
+\}
+testNoTimeout#?#2:public void testNoTimeout() \{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}" shape=ellipse]
+4 [label="testTimeout#?#3:expectPropertySet
+testNoTimeout#?#3:expectPropertyUnset" shape=ellipse]
+5 [label="testTimeout#?#-1:
+testNoTimeout#?#-1:" shape=ellipse]
+6 [label="testTimeout#?#-1:PlaceHold
+testNoTimeout#?#-1:PlaceHold" shape=ellipse]
+7 [label="testTimeout#?#-1:PlaceHold
+testNoTimeout#?#-1:PlaceHold" shape=ellipse]
+8 [label="testTimeout#?#3:expectPropertySet(java.lang.String,java.lang.String)
+testNoTimeout#?#3:expectPropertyUnset(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testTimeout#?#-1:String
+testNoTimeout#?#-1:String" shape=ellipse]
+10 [label="testTimeout#?#-1:String
+testNoTimeout#?#-1:String" shape=ellipse]
+11 [label="testTimeout#?#3:\"timeout\"
+testNoTimeout#?#3:\"timeout\"" shape=ellipse]
+12 [label="testTimeout#?#-1:String
+testNoTimeout#?#-1:String" shape=ellipse]
+13 [label="testTimeout#?#3:UPDATE" shape=ellipse]
+14 [label="testTimeout#?#3:\"timeout\"
+testNoTimeout#?#3:\"notimeout\"" shape=ellipse]
+15 [label="testTimeout#?#-1:String
+testNoTimeout#?#-1:String" shape=ellipse]
+16 [label="testTimeout#?#3:MOVE" shape=ellipse]
+17 [label="testTimeout#?#5:assertEquals(\"true\", buildRule.getProject().getProperty(\"timeout\"))
+testNoTimeout#?#5:assertNull(buildRule.getProject().getProperty(\"timeout\"))" shape=ellipse]
+18 [label="testNoTimeout#?#3:MOVE" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="Action:1"];
+11 -> 18 [label="Action:1"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="Action:1"];
+}

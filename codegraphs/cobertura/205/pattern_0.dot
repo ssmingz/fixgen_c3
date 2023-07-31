@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="execute#?#15:UPDATE
+execute#?#27:UPDATE" shape=ellipse]
+1 [label="execute#?#15:new BuildException()
+execute#?#27:new BuildException()" shape=ellipse]
+2 [label="execute#?#14:getJava().executeJava() != 0
+execute#?#26:getJava().executeJava() != 0" shape=ellipse]
+3 [label="execute#?#14:if (getJava().executeJava() != 0) \{
+    throw new BuildException();
+\}
+execute#?#26:if (getJava().executeJava() != 0) \{
+    throw new BuildException();
+\}" shape=ellipse]
+4 [label="execute#?#14:getJava().executeJava()
+execute#?#26:getJava().executeJava()" shape=ellipse]
+5 [label="execute#?#14:0
+execute#?#26:0" shape=ellipse]
+6 [label="execute#?#14:\{
+    throw new BuildException();
+\}
+execute#?#26:\{
+    throw new BuildException();
+\}" shape=ellipse]
+7 [label="execute#?#15:throw new BuildException()
+execute#?#27:throw new BuildException()" shape=ellipse]
+8 [label="execute#?#15:BuildException()
+execute#?#27:BuildException()" shape=ellipse]
+9 [label="execute#?#15:\"Error generating report. See messages above.\"
+execute#?#27:\"Error instrumenting classes. See messages above.\"" shape=ellipse]
+10 [label="execute#?#15:String
+execute#?#27:String" shape=ellipse]
+11 [label="execute#?#15:java.lang
+execute#?#27:java.lang" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 1 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+}

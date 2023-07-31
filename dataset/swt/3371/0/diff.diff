@@ -1,0 +1,41 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3371/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3371/0/after.java
+@@ -3,2 +3,2 @@
+-    if ((object == null) || (!(object instanceof MyType[]))) {
+-      return;
++    if ((!checkMyType(object)) || (!isSupportedType(transferData))) {
++      DND.error(ERROR_INVALID_DATA);
+@@ -6,17 +6,11 @@
+-    if (isSupportedType(transferData)) {
+-      MyType[] myTypes = ((MyType[]) (object));
+-      try {
+-        ByteArrayOutputStream out = new ByteArrayOutputStream();
+-        DataOutputStream writeOut = new DataOutputStream(out);
+-        for (int i = 0, length = myTypes.length; i < length; i++) {
+-          byte[] buffer = myTypes[i].firstName.getBytes();
+-          writeOut.writeInt(buffer.length);
+-          writeOut.write(buffer);
+-          buffer = myTypes[i].firstName.getBytes();
+-          writeOut.writeInt(buffer.length);
+-          writeOut.write(buffer);
+-        }
+-        byte[] buffer = out.toByteArray();
+-        writeOut.close();
+-        super.javaToNative(buffer, transferData);
+-      } catch (IOException e) {
++    MyType[] myTypes = ((MyType[]) (object));
++    try {
++      ByteArrayOutputStream out = new ByteArrayOutputStream();
++      DataOutputStream writeOut = new DataOutputStream(out);
++      for (int i = 0, length = myTypes.length; i < length; i++) {
++        byte[] buffer = myTypes[i].firstName.getBytes();
++        writeOut.writeInt(buffer.length);
++        writeOut.write(buffer);
++        buffer = myTypes[i].firstName.getBytes();
++        writeOut.writeInt(buffer.length);
++        writeOut.write(buffer);
+@@ -24,0 +18,4 @@
++      byte[] buffer = out.toByteArray();
++      writeOut.close();
++      super.javaToNative(buffer, transferData);
++    } catch (IOException e) {

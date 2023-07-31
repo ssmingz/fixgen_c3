@@ -1,0 +1,95 @@
+digraph "Pattern" {
+0 [label="testPassFileDuplicateEntry#?#4:INSERT
+testPassFile#?#4:INSERT
+testPassFileMultipleEntry#?#4:INSERT" shape=ellipse]
+1 [label="testPassFileDuplicateEntry#?#3:executeTarget(\"test4\")
+testPassFile#?#3:executeTarget(\"test3\")
+testPassFileMultipleEntry#?#3:executeTarget(\"test5\")" shape=ellipse]
+2 [label="testPassFileDuplicateEntry#?#2:\{
+    executeTarget(\"test4\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(((JAKARTA_URL + EOL) + TIGRIS_URL) + EOL, readFile(f));
+\}
+testPassFile#?#2:\{
+    executeTarget(\"test3\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(JAKARTA_URL + EOL, readFile(f));
+\}
+testPassFileMultipleEntry#?#2:\{
+    executeTarget(\"test5\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(((((JAKARTA_URL + EOL) + XML_URL) + EOL) + TIGRIS_URL) + EOL, readFile(f));
+\}" shape=ellipse]
+3 [label="testPassFileDuplicateEntry#?#2:public void testPassFileDuplicateEntry() throws Exception \{
+    executeTarget(\"test4\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(((JAKARTA_URL + EOL) + TIGRIS_URL) + EOL, readFile(f));
+\}
+testPassFile#?#2:public void testPassFile() throws Exception \{
+    executeTarget(\"test3\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(JAKARTA_URL + EOL, readFile(f));
+\}
+testPassFileMultipleEntry#?#2:public void testPassFileMultipleEntry() throws Exception \{
+    executeTarget(\"test5\");
+    File f = new File(getProjectDir(), \"testpassfile.tmp\");
+    assertTrue((\"Passfile \" + f) + \" not created\", f.exists());
+    assertEquals(((((JAKARTA_URL + EOL) + XML_URL) + EOL) + TIGRIS_URL) + EOL, readFile(f));
+\}" shape=ellipse]
+4 [label="testPassFileDuplicateEntry#?#4:File f = new File(getProjectDir(), \"testpassfile.tmp\")
+testPassFile#?#4:File f = new File(getProjectDir(), \"testpassfile.tmp\")
+testPassFileMultipleEntry#?#4:File f = new File(getProjectDir(), \"testpassfile.tmp\")" shape=ellipse]
+5 [label="testPassFileDuplicateEntry#?#5:assertTrue((\"Passfile \" + f) + \" not created\", f.exists())
+testPassFile#?#5:assertTrue((\"Passfile \" + f) + \" not created\", f.exists())
+testPassFileMultipleEntry#?#5:assertTrue((\"Passfile \" + f) + \" not created\", f.exists())" shape=ellipse]
+6 [label="testPassFileDuplicateEntry#?#6:assertEquals(((JAKARTA_URL + EOL) + TIGRIS_URL) + EOL, readFile(f))
+testPassFile#?#6:assertEquals(JAKARTA_URL + EOL, readFile(f))
+testPassFileMultipleEntry#?#6:assertEquals(((((JAKARTA_URL + EOL) + XML_URL) + EOL) + TIGRIS_URL) + EOL, readFile(f))" shape=ellipse]
+7 [label="testPassFileDuplicateEntry#?#3:executeTarget
+testPassFile#?#3:executeTarget
+testPassFileMultipleEntry#?#3:executeTarget" shape=ellipse]
+8 [label="testPassFileDuplicateEntry#?#-1:
+testPassFile#?#-1:
+testPassFileMultipleEntry#?#-1:" shape=ellipse]
+9 [label="testPassFileDuplicateEntry#?#-1:PlaceHold
+testPassFile#?#-1:PlaceHold
+testPassFileMultipleEntry#?#-1:PlaceHold" shape=ellipse]
+10 [label="testPassFileDuplicateEntry#?#-1:PlaceHold
+testPassFile#?#-1:PlaceHold
+testPassFileMultipleEntry#?#-1:PlaceHold" shape=ellipse]
+11 [label="testPassFileDuplicateEntry#?#3:executeTarget(java.lang.String)
+testPassFile#?#3:executeTarget(java.lang.String)
+testPassFileMultipleEntry#?#3:executeTarget(java.lang.String)" shape=ellipse]
+12 [label="testPassFileDuplicateEntry#?#-1:String
+testPassFile#?#-1:String
+testPassFileMultipleEntry#?#-1:String" shape=ellipse]
+13 [label="testPassFileDuplicateEntry#?#3:\"test4\"
+testPassFile#?#3:\"test3\"
+testPassFileMultipleEntry#?#3:\"test5\"" shape=ellipse]
+14 [label="testPassFileDuplicateEntry#?#-1:String
+testPassFile#?#-1:String
+testPassFileMultipleEntry#?#-1:String" shape=ellipse]
+15 [label="testPassFileDuplicateEntry#?#4:buildRule
+testPassFile#?#4:buildRule
+testPassFileMultipleEntry#?#4:buildRule" shape=ellipse]
+0 -> 15 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 13 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+}

@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/790/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/790/2/after.java
+@@ -2,2 +2,8 @@
+-  public void testPropertyNoValue() throws Exception {
+-    expectBuildExceptionContaining("testPropertyNoValue", ERROR_NO_VALUE, ERROR_NO_VALUE);
++  @Test
++  public void testPropertyNoValue() {
++    try {
++      buildRule.executeTarget("testPropertyNoValue");
++      fail("Build exception expected: " + ParserSupports.ERROR_NO_VALUE);
++    } catch (BuildException ex) {
++      assertEquals(ERROR_NO_VALUE, ex.getMessage());
++    }

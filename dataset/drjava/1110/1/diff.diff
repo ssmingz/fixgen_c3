@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1110/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1110/1/after.java
+@@ -4,2 +4,1 @@
+-      _document.insertBeforeLastPrompt("Resetting Interactions..." + _newLine, ERROR_STYLE);
+-      _document.setInProgress(true);
++      _document.acquireWriteLock();
+@@ -7,0 +6,6 @@
++        _document.insertBeforeLastPrompt("Resetting Interactions..." + _newLine, ERROR_STYLE);
++        _document.setInProgress(true);
++      } finally {
++        _document.releaseWriteLock();
++      }
++      try {

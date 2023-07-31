@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/579/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/579/1/after.java
+@@ -8,6 +8,7 @@
+-        throw new TaskException(
+-            ((((("Error disposing task " + taskModel.getName()) + " at ") + taskModel.getLocation())
+-                        + "(Reason: ")
+-                    + throwable.getMessage())
+-                + ")",
+-            throwable);
++        final String message =
++            REZ.getString(
++                "dispose.error",
++                taskModel.getName(),
++                taskModel.getLocation(),
++                throwable.getMessage());
++        throw new TaskException(message, throwable);

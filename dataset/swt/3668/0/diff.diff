@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3668/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3668/0/after.java
+@@ -6,3 +6,13 @@
+-    int polyRgn = polyRgn(pointArray, count);
+-    OS.UnionRgn(handle, polyRgn, handle);
+-    OS.DisposeRgn(polyRgn);
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      int polyRgn = polyRgn(pointArray, count);
++      OS.UnionRgn(handle, polyRgn, handle);
++      OS.DisposeRgn(polyRgn);
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

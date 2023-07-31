@@ -1,0 +1,265 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@debug" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+6 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+7 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+8 [label="3:CtLiteralImpl@\"Using modern compiler\"" shape=ellipse]
+9 [label="3:CtInvocationImpl@getLogger().debug(\"Using modern compiler\")" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@setupModernJavacCommand()" shape=ellipse]
+12 [label="4:CtVirtualElement@setupModernJavacCommand" shape=ellipse]
+13 [label="4:CtInvocationImpl@setupModernJavacCommand()" shape=ellipse]
+14 [label="4:CtVirtualElement@cmd" shape=ellipse]
+15 [label="4:CtLocalVariableImpl@Commandline cmd = setupModernJavacCommand()" shape=ellipse]
+16 [label="6:CtTypeReferenceImpl@Class" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@forName(java.lang.String)" shape=ellipse]
+18 [label="6:CtVirtualElement@forName" shape=ellipse]
+19 [label="6:CtTypeAccessImpl@Class" shape=ellipse]
+20 [label="6:CtLiteralImpl@\"com.sun.tools.javac.Main\"" shape=ellipse]
+21 [label="6:CtInvocationImpl@Class.forName(\"com.sun.tools.javac.Main\")" shape=ellipse]
+22 [label="6:CtVirtualElement@c" shape=ellipse]
+23 [label="6:CtLocalVariableImpl@Class c = Class.forName(\"com.sun.tools.javac.Main\")" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@Object" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@newInstance()" shape=ellipse]
+26 [label="7:CtVirtualElement@newInstance" shape=ellipse]
+27 [label="7:CtVariableReadImpl@c" shape=ellipse]
+28 [label="7:CtInvocationImpl@c.newInstance()" shape=ellipse]
+29 [label="7:CtVirtualElement@compiler" shape=ellipse]
+30 [label="7:CtLocalVariableImpl@Object compiler = c.newInstance()" shape=ellipse]
+31 [label="8:CtTypeReferenceImpl@Method" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@getMethod(java.lang.String,java.lang.Class[])" shape=ellipse]
+33 [label="8:CtVirtualElement@getMethod" shape=ellipse]
+34 [label="8:CtVariableReadImpl@c" shape=ellipse]
+35 [label="8:CtLiteralImpl@\"compile\"" shape=ellipse]
+36 [label="8:CtNewArrayImpl@new Class[]\{ new String[]\{  \}.getClass() \}" shape=ellipse]
+37 [label="8:CtInvocationImpl@new String[]\{  \}.getClass()" shape=ellipse]
+38 [label="8:CtInvocationImpl@c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \})" shape=ellipse]
+39 [label="8:CtVirtualElement@compile" shape=ellipse]
+40 [label="8:CtLocalVariableImpl@Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \})" shape=ellipse]
+41 [label="9:CtTypeReferenceImpl@int" shape=ellipse]
+42 [label="10:CtExecutableReferenceImpl@intValue()" shape=ellipse]
+43 [label="10:CtVirtualElement@intValue" shape=ellipse]
+44 [label="10:CtExecutableReferenceImpl@invoke(java.lang.Object,java.lang.Object[])" shape=ellipse]
+45 [label="10:CtVirtualElement@invoke" shape=ellipse]
+46 [label="10:CtVariableReadImpl@compile" shape=ellipse]
+47 [label="10:CtVariableReadImpl@compiler" shape=ellipse]
+48 [label="10:CtNewArrayImpl@new Object[]\{ cmd.getArguments() \}" shape=ellipse]
+49 [label="10:CtInvocationImpl@cmd.getArguments()" shape=ellipse]
+50 [label="10:CtInvocationImpl@((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \})))" shape=ellipse]
+51 [label="10:CtTypeReferenceImpl@Integer" shape=ellipse]
+52 [label="10:CtInvocationImpl@((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue()" shape=ellipse]
+53 [label="9:CtVirtualElement@result" shape=ellipse]
+54 [label="9:CtLocalVariableImpl@int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue()" shape=ellipse]
+55 [label="11:CtVariableReadImpl@result" shape=ellipse]
+56 [label="11:CtFieldReadImpl@MODERN_COMPILER_SUCCESS" shape=ellipse]
+57 [label="11:CtBinaryOperatorImpl@result == MODERN_COMPILER_SUCCESS" shape=ellipse]
+58 [label="11:CtReturnImpl@return result == MODERN_COMPILER_SUCCESS" shape=ellipse]
+59 [label="5:CtBlockImpl@\{
+    Class c = Class.forName(\"com.sun.tools.javac.Main\");
+    Object compiler = c.newInstance();
+    Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+    int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+    return result == MODERN_COMPILER_SUCCESS;
+\}" shape=ellipse]
+60 [label="12:CtVirtualElement@ex" shape=ellipse]
+61 [label="12:CtTypeReferenceImpl@Exception" shape=ellipse]
+62 [label="12:CtCatchVariableImpl@Exception ex" shape=ellipse]
+63 [label="13:CtVariableReadImpl@ex" shape=ellipse]
+64 [label="13:CtTypeAccessImpl@TaskException" shape=ellipse]
+65 [label="13:CtTypeReferenceImpl@TaskException" shape=ellipse]
+66 [label="13:CtBinaryOperatorImpl@ex instanceof TaskException" shape=ellipse]
+67 [label="14:CtVariableReadImpl@((TaskException) (ex))" shape=ellipse]
+68 [label="14:CtTypeReferenceImpl@TaskException" shape=ellipse]
+69 [label="14:CtThrowImpl@throw ((TaskException) (ex))" shape=ellipse]
+70 [label="13:CtBlockImpl@\{
+    throw ((TaskException) (ex));
+\}" shape=ellipse]
+71 [label="16:CtTypeReferenceImpl@TaskException" shape=ellipse]
+72 [label="16:CtLiteralImpl@\"Error starting modern compiler\"" shape=ellipse]
+73 [label="16:CtVariableReadImpl@ex" shape=ellipse]
+74 [label="16:CtConstructorCallImpl@new TaskException(\"Error starting modern compiler\", ex)" shape=ellipse]
+75 [label="16:CtThrowImpl@throw new TaskException(\"Error starting modern compiler\", ex)" shape=ellipse]
+76 [label="15:CtBlockImpl@\{
+    throw new TaskException(\"Error starting modern compiler\", ex);
+\}" shape=ellipse]
+77 [label="13:CtIfImpl@if (ex instanceof TaskException) \{
+    throw ((TaskException) (ex));
+\} else \{
+    throw new TaskException(\"Error starting modern compiler\", ex);
+\}" shape=ellipse]
+78 [label="12:CtBlockImpl@\{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting modern compiler\", ex);
+    \}
+\}" shape=ellipse]
+79 [label="12:CtCatchImpl@ catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting modern compiler\", ex);
+    \}
+\}" shape=ellipse]
+80 [label="5:CtTryImpl@try \{
+    Class c = Class.forName(\"com.sun.tools.javac.Main\");
+    Object compiler = c.newInstance();
+    Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+    int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+    return result == MODERN_COMPILER_SUCCESS;
+\} catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting modern compiler\", ex);
+    \}
+\}" shape=ellipse]
+81 [label="2:CtBlockImpl@\{
+    getLogger().debug(\"Using modern compiler\");
+    Commandline cmd = setupModernJavacCommand();
+    try \{
+        Class c = Class.forName(\"com.sun.tools.javac.Main\");
+        Object compiler = c.newInstance();
+        Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+        int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+        return result == MODERN_COMPILER_SUCCESS;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting modern compiler\", ex);
+        \}
+    \}
+\}" shape=ellipse]
+82 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    getLogger().debug(\"Using modern compiler\");
+    Commandline cmd = setupModernJavacCommand();
+    try \{
+        Class c = Class.forName(\"com.sun.tools.javac.Main\");
+        Object compiler = c.newInstance();
+        Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+        int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+        return result == MODERN_COMPILER_SUCCESS;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting modern compiler\", ex);
+        \}
+    \}
+\}" shape=ellipse]
+83 [label="3:Update@UPDATE" shape=ellipse]
+84 [label="3:CtInvocationImpl@getTaskContext()" shape=ellipse]
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 83 [label="Action"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 3 [label="AST"];
+9 -> 8 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 27 [label="Define-Use"];
+22 -> 34 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 21 [label="AST"];
+27 -> 29 [label="Data Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+29 -> 47 [label="Define-Use"];
+30 -> 29 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 28 [label="AST"];
+34 -> 39 [label="Data Dep"];
+36 -> 37 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 34 [label="AST"];
+38 -> 32 [label="AST"];
+38 -> 35 [label="AST"];
+38 -> 36 [label="AST"];
+39 -> 46 [label="Define-Use"];
+40 -> 39 [label="AST"];
+40 -> 31 [label="AST"];
+40 -> 38 [label="AST"];
+46 -> 53 [label="Data Dep"];
+47 -> 53 [label="Data Dep"];
+48 -> 49 [label="AST"];
+50 -> 45 [label="AST"];
+50 -> 51 [label="AST"];
+50 -> 46 [label="AST"];
+50 -> 44 [label="AST"];
+50 -> 47 [label="AST"];
+50 -> 48 [label="AST"];
+52 -> 43 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 42 [label="AST"];
+53 -> 55 [label="Define-Use"];
+54 -> 53 [label="AST"];
+54 -> 41 [label="AST"];
+54 -> 52 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 23 [label="AST"];
+59 -> 30 [label="AST"];
+59 -> 40 [label="AST"];
+59 -> 54 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 63 [label="Define-Use"];
+60 -> 67 [label="Define-Use"];
+60 -> 73 [label="Define-Use"];
+62 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+62 -> 78 [label="Control Dep"];
+62 -> 77 [label="Control Dep"];
+62 -> 66 [label="Control Dep"];
+62 -> 63 [label="Control Dep"];
+62 -> 64 [label="Control Dep"];
+64 -> 65 [label="AST"];
+66 -> 63 [label="AST"];
+66 -> 64 [label="AST"];
+66 -> 70 [label="Control Dep"];
+66 -> 69 [label="Control Dep"];
+66 -> 67 [label="Control Dep"];
+66 -> 76 [label="Control Dep"];
+66 -> 75 [label="Control Dep"];
+66 -> 74 [label="Control Dep"];
+66 -> 72 [label="Control Dep"];
+66 -> 73 [label="Control Dep"];
+67 -> 68 [label="AST"];
+69 -> 67 [label="AST"];
+70 -> 69 [label="AST"];
+74 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 66 [label="AST"];
+77 -> 70 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 62 [label="AST"];
+79 -> 78 [label="AST"];
+80 -> 59 [label="AST"];
+80 -> 79 [label="AST"];
+81 -> 9 [label="AST"];
+81 -> 15 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 1 [label="AST"];
+82 -> 0 [label="AST"];
+82 -> 2 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 84 [label="Action"];
+}

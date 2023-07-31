@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2508/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2508/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,6 +4,8 @@
+-    executeTarget("testHeadLines");
+-    File expected =
+-        FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/head-tail.headLines.test");
+-    File result = new File(getProject().getProperty("output") + "/head-tail.headLines.test");
+-    assertTrue(
+-        "testHeadLines: Result not like expected", FILE_UTILS.contentEquals(expected, result));
++    buildRule.executeTarget("testHeadLines");
++    File expected = buildRule.getProject().resolveFile("expected/head-tail.headLines.test");
++    File result =
++        new File(buildRule.getProject().getProperty("output") + "/head-tail.headLines.test");
++    assertEquals(
++        "testHeadLines: Result not like expected",
++        FileUtilities.getFileContents(expected),
++        FileUtilities.getFileContents(result));

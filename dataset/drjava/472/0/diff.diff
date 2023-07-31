@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/472/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/472/0/after.java
+@@ -2,3 +2,4 @@
+-  public synchronized ReducedModelState getStateAtCurrent() {
+-    throwErrorHuh();
+-    return _reduced.getStateAtCurrent();
++  public ReducedModelState getStateAtCurrent() {
++    synchronized (_reduced) {
++      return _reduced.getStateAtCurrent();
++    }

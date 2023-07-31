@@ -1,0 +1,67 @@
+digraph "Pattern" {
+0 [label="getInvalidTags#?#3:INSERT
+getValidTags#?#3:INSERT" shape=ellipse]
+1 [label="getInvalidTags#?#3:return invalidTags
+getValidTags#?#3:return validTags" shape=ellipse]
+2 [label="getInvalidTags#?#2:\{
+    return invalidTags;
+\}
+getValidTags#?#2:\{
+    return validTags;
+\}" shape=ellipse]
+3 [label="getInvalidTags#?#2:public List<InvalidJavadocTag> getInvalidTags() \{
+    return invalidTags;
+\}
+getValidTags#?#2:public List<JavadocTag> getValidTags() \{
+    return validTags;
+\}" shape=ellipse]
+4 [label="getInvalidTags#?#3:invalidTags
+getValidTags#?#3:validTags" shape=ellipse]
+5 [label="getInvalidTags#?#3:invalidTags
+getValidTags#?#3:validTags" shape=ellipse]
+6 [label="getInvalidTags#?#3:MOVE
+getValidTags#?#3:MOVE" shape=ellipse]
+7 [label="getInvalidTags#?#3:Collections.unmodifiableList()
+getValidTags#?#3:Collections.unmodifiableList()" shape=ellipse]
+8 [label="getInvalidTags#?#3:unmodifiableList
+getValidTags#?#3:unmodifiableList" shape=ellipse]
+9 [label="getInvalidTags#?#3:Collections
+getValidTags#?#3:Collections" shape=ellipse]
+10 [label="getInvalidTags#?#3:Collections
+getValidTags#?#3:Collections" shape=ellipse]
+11 [label="getInvalidTags#?#3:
+getValidTags#?#3:" shape=ellipse]
+12 [label="getInvalidTags#?#3:unmodifiableList()
+getValidTags#?#3:unmodifiableList()" shape=ellipse]
+13 [label="getInvalidTags#?#3:Collections
+getValidTags#?#3:Collections" shape=ellipse]
+14 [label="getInvalidTags#?#3:
+getValidTags#?#3:" shape=ellipse]
+15 [label="getInvalidTags#?#3:List<InvalidJavadocTag>
+getValidTags#?#3:List<JavadocTag>" shape=ellipse]
+16 [label="getInvalidTags#?#3:
+getValidTags#?#3:" shape=ellipse]
+17 [label="getInvalidTags#?#3:InvalidJavadocTag
+getValidTags#?#3:JavadocTag" shape=ellipse]
+18 [label="getInvalidTags#?#3:
+getValidTags#?#3:" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="Action:2"];
+6 -> 7 [label="Action:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+15 -> 17 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1016/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1016/0/after.java
+@@ -2,2 +2,4 @@
+-  public synchronized void setAppendProperties(boolean appendProperties) {
+-    this.appendProperties = appendProperties;
++  public void setAppendProperties(boolean appendProperties) {
++    synchronized (outMutex) {
++      this.appendProperties = appendProperties;
++    }

@@ -1,0 +1,41 @@
+--- D:\expdata\c3\dataset\cobertura\142\0/before.java
++++ D:\expdata\c3\dataset\cobertura\142\0/after.java
+@@ -11,1 +11,1 @@
+-    pw = IOUtil.getPrintWriter(file);
++    setPrintWriter(IOUtil.getPrintWriter(file));
+@@ -13,30 +13,2 @@
+-      println("<?xml version=\"1.0\"?>");
+-      println(
+-          ("<!DOCTYPE coverage SYSTEM \"http://cobertura.sourceforge.net/xml/" + coverageDTD)
+-              + "\">");
+-      println("");
+-      double ccn = complexity.getCCNForProject(projectData);
+-      int numLinesCovered = projectData.getNumberOfCoveredLines();
+-      int numLinesValid = projectData.getNumberOfValidLines();
+-      int numBranchesCovered = projectData.getNumberOfCoveredBranches();
+-      int numBranchesValid = projectData.getNumberOfValidBranches();
+-      println(
+-          ((((((((((((((((("<coverage line-rate=\"" + projectData.getLineCoverageRate())
+-                                                                              + "\" branch-rate=\"")
+-                                                                          + projectData
+-                                                                              .getBranchCoverageRate())
+-                                                                      + "\" lines-covered=\"")
+-                                                                  + numLinesCovered)
+-                                                              + "\" lines-valid=\"")
+-                                                          + numLinesValid)
+-                                                      + "\" branches-covered=\"")
+-                                                  + numBranchesCovered)
+-                                              + "\" branches-valid=\"")
+-                                          + numBranchesValid)
+-                                      + "\" complexity=\"")
+-                                  + ccn)
+-                              + "\" version=\"")
+-                          + Header.version())
+-                      + "\" timestamp=\"")
+-                  + new Date().getTime())
+-              + "\">");
++      printHeader();
++      printCoverageElement(projectData, complexity);
+@@ -49,1 +21,1 @@
+-      pw.close();
++      close();

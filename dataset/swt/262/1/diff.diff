@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/262/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/262/1/after.java
+@@ -221,0 +221,10 @@
++    AtkTextIface iface = getTextIface(atkObject);
++    if ((iface != null) && (iface.get_text_after_offset != 0)) {
++      return ATK.call(
++          iface.get_text_after_offset,
++          atkObject,
++          offset_value,
++          boundary_type,
++          start_offset,
++          end_offset);
++    }

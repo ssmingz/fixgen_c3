@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="test2#?#4:INSERT
+test5#?#4:INSERT" shape=ellipse]
+1 [label="test2#?#3:configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\")
+test5#?#3:configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\")" shape=ellipse]
+2 [label="test2#?#2:\{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}
+test5#?#2:\{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}" shape=ellipse]
+3 [label="test2#?#2:public void test2() \{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/include.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}
+test5#?#2:public void test5() \{
+    configureProject(\"src/etc/testcases/core/include/frag#ment/relative.xml\");
+    expectLog(\"test1\", \"from included entity\");
+\}" shape=ellipse]
+4 [label="test2#?#4:expectLog(\"test1\", \"from included entity\")
+test5#?#4:expectLog(\"test1\", \"from included entity\")" shape=ellipse]
+5 [label="test2#?#3:configureProject
+test5#?#3:configureProject" shape=ellipse]
+6 [label="test2#?#-1:
+test5#?#-1:" shape=ellipse]
+7 [label="test2#?#-1:PlaceHold
+test5#?#-1:PlaceHold" shape=ellipse]
+8 [label="test2#?#-1:PlaceHold
+test5#?#-1:PlaceHold" shape=ellipse]
+9 [label="test2#?#3:configureProject(java.lang.String)
+test5#?#3:configureProject(java.lang.String)" shape=ellipse]
+10 [label="test2#?#-1:String
+test5#?#-1:String" shape=ellipse]
+11 [label="test2#?#3:\"src/etc/testcases/core/include/frag#ment/include.xml\"
+test5#?#3:\"src/etc/testcases/core/include/frag#ment/relative.xml\"" shape=ellipse]
+12 [label="test2#?#-1:String
+test5#?#-1:String" shape=ellipse]
+13 [label="test2#?#4:buildRule
+test5#?#4:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

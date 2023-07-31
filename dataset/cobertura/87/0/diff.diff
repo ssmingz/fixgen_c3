@@ -1,0 +1,21 @@
+--- D:\expdata\c3\dataset\cobertura\87\0/before.java
++++ D:\expdata\c3\dataset\cobertura\87\0/after.java
+@@ -10,1 +10,1 @@
+-    _sClass += new String(getToken(2).image);
++    _sClass += getToken(2).image;
+@@ -50,5 +50,5 @@
+-      Vector vMetrics = new Vector();
+-      vMetrics.addElement(new String(_sPackage + _sClass));
+-      vMetrics.addElement(new Integer(_ncss - oldNcss));
+-      vMetrics.addElement(new Integer(_functions - oldFunctions));
+-      vMetrics.addElement(new Integer(_classes - oldClasses));
++      ObjectMetric metric = new ObjectMetric();
++      metric.name = _sPackage + _sClass;
++      metric.ncss = _ncss - oldNcss;
++      metric.functions = _functions - oldFunctions;
++      metric.classes = _classes - oldClasses;
+@@ -56,3 +56,1 @@
+-      vMetrics.addElement(new Integer(lastToken.endLine));
+-      vMetrics.addElement(new Integer(lastToken.endColumn));
+-      _vClasses.addElement(vMetrics);
++      _vClasses.add(metric);

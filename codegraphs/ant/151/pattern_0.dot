@@ -1,0 +1,102 @@
+digraph "Pattern" {
+0 [label="setSkipEmptyFilesets#?,boolean#4:DELETE
+setExecutable#?,String#3:DELETE
+setCommand#?,Commandline#3:DELETE
+runExecute#?,Execute#11:DELETE" shape=ellipse]
+1 [label="setSkipEmptyFilesets#?,boolean#4:taskType
+setExecutable#?,String#3:taskType
+setCommand#?,Commandline#3:taskType
+runExecute#?,Execute#11:taskType" shape=ellipse]
+2 [label="setSkipEmptyFilesets#?,boolean#4:taskType + \" doesn\'t support the skipemptyfileset attribute\"
+setExecutable#?,String#3:taskType + \" doesn\'t support the executable attribute\"
+setCommand#?,Commandline#3:taskType + \" doesn\'t support the command attribute\"
+runExecute#?,Execute#11:(taskType + \" returned: \")" shape=ellipse]
+3 [label="setSkipEmptyFilesets#?,boolean#3:new BuildException(taskType + \" doesn\'t support the skipemptyfileset attribute\", location)
+setExecutable#?,String#3:new BuildException(taskType + \" doesn\'t support the executable attribute\", location)
+setCommand#?,Commandline#3:new BuildException(taskType + \" doesn\'t support the command attribute\", location)" shape=ellipse]
+4 [label="setSkipEmptyFilesets#?,boolean#4:\" doesn\'t support the skipemptyfileset attribute\"
+setExecutable#?,String#3:\" doesn\'t support the executable attribute\"
+setCommand#?,Commandline#3:\" doesn\'t support the command attribute\"
+runExecute#?,Execute#11:\" returned: \"" shape=ellipse]
+5 [label="setSkipEmptyFilesets#?,boolean#4:INSERT
+setExecutable#?,String#4:INSERT
+setCommand#?,Commandline#4:INSERT" shape=ellipse]
+6 [label="setSkipEmptyFilesets#?,boolean#-1:taskType
+setExecutable#?,String#-1:taskType
+setCommand#?,Commandline#-1:taskType
+runExecute#?,Execute#-1:taskType" shape=ellipse]
+7 [label="runExecute#?,Execute#-1:" shape=ellipse]
+8 [label="runExecute#?,Execute#13:MSG_ERR" shape=ellipse]
+9 [label="runExecute#?,Execute#13:\"Result: \" + err" shape=ellipse]
+10 [label="runExecute#?,Execute#13:log(java.lang.String,<unknown>)" shape=ellipse]
+11 [label="runExecute#?,Execute#9:err != 0" shape=ellipse]
+12 [label="runExecute#?,Execute#13:err" shape=ellipse]
+13 [label="runExecute#?,Execute#-1:BuildException()" shape=ellipse]
+14 [label="runExecute#?,Execute#11:new BuildException((taskType + \" returned: \") + err, location)" shape=ellipse]
+15 [label="runExecute#?,Execute#13:\"Result: \"" shape=ellipse]
+16 [label="runExecute#?,Execute#10:failOnError" shape=ellipse]
+17 [label="runExecute#?,Execute#11:err" shape=ellipse]
+18 [label="runExecute#?,Execute#11:(taskType + \" returned: \") + err" shape=ellipse]
+19 [label="runExecute#?,Execute#13:log(\"Result: \" + err, MSG_ERR)" shape=ellipse]
+20 [label="runExecute#?,Execute#12:\{
+    log(\"Result: \" + err, MSG_ERR);
+\}" shape=ellipse]
+21 [label="runExecute#?,Execute#10:if (failOnError) \{
+    throw new BuildException((taskType + \" returned: \") + err, location);
+\} else \{
+    log(\"Result: \" + err, MSG_ERR);
+\}" shape=ellipse]
+22 [label="runExecute#?,Execute#-1:PlaceHold" shape=ellipse]
+23 [label="runExecute#?,Execute#-1:failOnError" shape=ellipse]
+24 [label="runExecute#?,Execute#11:throw new BuildException((taskType + \" returned: \") + err, location)" shape=ellipse]
+25 [label="runExecute#?,Execute#11:location" shape=ellipse]
+26 [label="runExecute#?,Execute#10:\{
+    throw new BuildException((taskType + \" returned: \") + err, location);
+\}" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+7 -> 22 [label="AST:1"];
+9 -> 15 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+11 -> 21 [label="Control Dep:1"];
+11 -> 16 [label="Control Dep:1"];
+14 -> 13 [label="AST:1"];
+14 -> 18 [label="AST:1"];
+14 -> 25 [label="AST:1"];
+16 -> 7 [label="Control Dep:1"];
+16 -> 8 [label="Control Dep:1"];
+16 -> 9 [label="Control Dep:1"];
+16 -> 10 [label="Control Dep:1"];
+16 -> 12 [label="Control Dep:1"];
+16 -> 13 [label="Control Dep:1"];
+16 -> 14 [label="Control Dep:1"];
+16 -> 15 [label="Control Dep:1"];
+16 -> 23 [label="AST:1"];
+16 -> 26 [label="Control Dep:1"];
+16 -> 24 [label="Control Dep:1"];
+16 -> 18 [label="Control Dep:1"];
+16 -> 2 [label="Control Dep:1"];
+16 -> 1 [label="Control Dep:1"];
+16 -> 4 [label="Control Dep:1"];
+16 -> 17 [label="Control Dep:1"];
+16 -> 25 [label="Control Dep:1"];
+16 -> 20 [label="Control Dep:1"];
+16 -> 19 [label="Control Dep:1"];
+16 -> 22 [label="Control Dep:1"];
+18 -> 17 [label="AST:1"];
+18 -> 2 [label="AST:1"];
+19 -> 7 [label="AST:1"];
+19 -> 8 [label="AST:1"];
+19 -> 9 [label="AST:1"];
+19 -> 10 [label="AST:1"];
+20 -> 19 [label="AST:1"];
+21 -> 16 [label="AST:1"];
+21 -> 20 [label="AST:1"];
+21 -> 26 [label="AST:1"];
+24 -> 14 [label="AST:1"];
+26 -> 24 [label="AST:1"];
+}

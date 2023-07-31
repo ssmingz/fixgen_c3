@@ -1,0 +1,11 @@
+--- D:\expdata\c3\dataset\cobertura\4\1/before.java
++++ D:\expdata\c3\dataset\cobertura\4\1/after.java
+@@ -10,1 +10,7 @@
+-    return super.equals(obj) && this.name.equals(packageData.name);
++    getBothLocks(packageData);
++    try {
++      return super.equals(obj) && this.name.equals(packageData.name);
++    } finally {
++      lock.unlock();
++      packageData.lock.unlock();
++    }

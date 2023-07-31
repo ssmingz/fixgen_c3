@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1787/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1787/1/after.java
+@@ -4,1 +4,1 @@
+-      return ((Union) (getCheckedRef())).list();
++      return getCheckedRef(Union.class, getDataTypeName()).list();
+@@ -6,2 +6,2 @@
+-    Collection result = getCollection(true);
+-    return ((String[]) (result.toArray(new String[result.size()])));
++    final Collection<String> result = getAllToStrings();
++    return result.toArray(new String[result.size()]);

@@ -1,0 +1,123 @@
+digraph "Pattern" {
+0 [label="test3#?#9:DELETE
+test2#?#9:DELETE
+test6#?#9:DELETE
+test1#?#9:DELETE" shape=ellipse]
+1 [label="test3#?#9:assert timer.time() >= (2000 - ERROR_RANGE)
+test2#?#9:assert timer.time() >= 0
+test6#?#9:assert timer.time() < 2000
+test1#?#9:assert timer.time() >= 0" shape=ellipse]
+2 [label="test3#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= (2000 - ERROR_RANGE);
+\}
+test2#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}
+test6#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test6\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test6 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() < 2000;
+\}
+test1#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test1\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test1 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}" shape=ellipse]
+3 [label="test3#?#2:public void test3() \{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= (2000 - ERROR_RANGE);
+\}
+test2#?#2:public void test2() \{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}
+test6#?#2:public void test6() \{
+    Timer timer = new Timer();
+    executeTarget(\"test6\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test6 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() < 2000;
+\}
+test1#?#2:public void test1() \{
+    Timer timer = new Timer();
+    executeTarget(\"test1\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test1 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}" shape=ellipse]
+4 [label="test3#?#3:Timer timer = new Timer()
+test2#?#3:Timer timer = new Timer()
+test6#?#3:Timer timer = new Timer()
+test1#?#3:Timer timer = new Timer()" shape=ellipse]
+5 [label="test3#?#4:executeTarget(\"test3\")
+test2#?#4:executeTarget(\"test2\")
+test6#?#4:executeTarget(\"test6\")
+test1#?#4:executeTarget(\"test1\")" shape=ellipse]
+6 [label="test3#?#5:timer.stop()
+test2#?#5:timer.stop()
+test6#?#5:timer.stop()
+test1#?#5:timer.stop()" shape=ellipse]
+7 [label="test3#?#6:if (TRACE) \{
+    System.out.println(\" test3 elapsed time=\" + timer.time());
+\}
+test2#?#6:if (TRACE) \{
+    System.out.println(\" test2 elapsed time=\" + timer.time());
+\}
+test6#?#6:if (TRACE) \{
+    System.out.println(\" test6 elapsed time=\" + timer.time());
+\}
+test1#?#6:if (TRACE) \{
+    System.out.println(\" test1 elapsed time=\" + timer.time());
+\}" shape=ellipse]
+8 [label="test3#?#9:timer.time() >= (2000 - ERROR_RANGE)
+test2#?#9:timer.time() >= 0
+test6#?#9:timer.time() < 2000
+test1#?#9:timer.time() >= 0" shape=ellipse]
+9 [label="test3#?#9:MOVE
+test2#?#9:MOVE
+test6#?#9:MOVE
+test1#?#9:MOVE" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 8 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+8 -> 9 [label="Action:4"];
+}

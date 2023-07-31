@@ -1,0 +1,66 @@
+digraph "Pattern" {
+0 [label="testWorks#?#2:INSERT
+testTestZipTask#?#2:INSERT
+testDirset#?#2:INSERT" shape=ellipse]
+1 [label="testWorks#?#2:public void testWorks() \{
+    executeTarget(\"testWorks\");
+    assertPropertyContains(\"testWorks\", \"file:\");
+    assertPropertyContains(\"testWorks\", \"/foo\");
+\}
+testTestZipTask#?#2:public void testTestZipTask() throws IOException \{
+    executeTarget(\"testZipTask\");
+    assertLogoUncorrupted();
+\}
+testDirset#?#2:public void testDirset() \{
+    executeTarget(\"testDirset\");
+\}" shape=ellipse]
+2 [label="testWorks#?#2:testWorks
+testTestZipTask#?#2:VE: ThrownTypes_testTestZipTask
+testDirset#?#2:testDirset" shape=ellipse]
+3 [label="testWorks#?#2:void
+testTestZipTask#?#2:void
+testDirset#?#2:void" shape=ellipse]
+4 [label="testWorks#?#2:\{
+    executeTarget(\"testWorks\");
+    assertPropertyContains(\"testWorks\", \"file:\");
+    assertPropertyContains(\"testWorks\", \"/foo\");
+\}
+testTestZipTask#?#2:\{
+    executeTarget(\"testZipTask\");
+    assertLogoUncorrupted();
+\}
+testDirset#?#2:\{
+    executeTarget(\"testDirset\");
+\}" shape=ellipse]
+5 [label="testWorks#?#3:executeTarget(\"testWorks\")
+testTestZipTask#?#3:executeTarget(\"testZipTask\")
+testDirset#?#3:executeTarget(\"testDirset\")" shape=ellipse]
+6 [label="testWorks#?#4:assertPropertyContains(\"testWorks\", \"file:\")
+testTestZipTask#?#4:assertLogoUncorrupted()" shape=ellipse]
+7 [label="testWorks#?#5:assertPropertyContains(\"testWorks\", \"/foo\")" shape=ellipse]
+8 [label="testWorks#?#2:VE: Modifiers_Method
+testTestZipTask#?#2:VE: Modifiers_Method
+testDirset#?#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="testWorks#?#2:public
+testTestZipTask#?#2:public
+testDirset#?#2:public" shape=ellipse]
+10 [label="testWorks#?#2:@Test
+testTestZipTask#?#2:@Test
+testDirset#?#2:@Test" shape=ellipse]
+11 [label="testTestZipTask#?#-1:" shape=ellipse]
+12 [label="testTestZipTask#?#2:IOException" shape=ellipse]
+13 [label="testTestZipTask#?#2:testTestZipTask" shape=ellipse]
+0 -> 10 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 9 [label="AST:3"];
+1 -> 12 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+4 -> 5 [label="AST:3"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:1"];
+12 -> 11 [label="AST:1"];
+}

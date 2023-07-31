@@ -1,0 +1,51 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Move
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:MOVE
+value2:" shape=ellipse]
+1 [label="locationInParent:RIGHT_OPERAND
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:actual" shape=ellipse]
+2 [label="locationInParent:ARGUMENT
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:expected - actual" shape=ellipse]
+3 [label="locationInParent:LEFT_OPERAND
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:Math.abs(expected - actual)" shape=ellipse]
+4 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl" shape=ellipse]
+5 [label="locationInParent:LEFT_OPERAND
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:expected" shape=ellipse]
+6 [label="locationInParent:VARIABLE
+nodeType:CtParameterReferenceImpl
+nodeType2:CtVariableReferenceImpl
+nodeType3:CtVariableReferenceImpl
+value:actual" shape=ellipse]
+7 [label="locationInParent:TARGET
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:Math
+value2:java.lang.Math" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 7 [label="AST:2"];
+}

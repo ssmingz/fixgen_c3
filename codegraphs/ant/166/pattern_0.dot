@@ -1,0 +1,85 @@
+digraph "Pattern" {
+0 [label="setInput#?,File[]#7:INSERT
+setOutput#?,File[]#7:INSERT" shape=ellipse]
+1 [label="setInput#?,File[]#7:input.clone()
+setOutput#?,File[]#7:out.clone()" shape=ellipse]
+2 [label="setInput#?,File[]#4:input == null
+setOutput#?,File[]#4:out == null" shape=ellipse]
+3 [label="setInput#?,File[]#3:inMutex
+setOutput#?,File[]#3:outMutex" shape=ellipse]
+4 [label="setInput#?,File[]#4:if (input == null) \{
+    this.input = null;
+\} else \{
+    this.input = input.clone();
+\}
+setOutput#?,File[]#4:if (out == null) \{
+    this.out = null;
+\} else \{
+    this.out = out.clone();
+\}" shape=ellipse]
+5 [label="setInput#?,File[]#4:input
+setOutput#?,File[]#4:out" shape=ellipse]
+6 [label="setInput#?,File[]#4:null
+setOutput#?,File[]#4:null" shape=ellipse]
+7 [label="setInput#?,File[]#4:\{
+    this.input = null;
+\}
+setOutput#?,File[]#4:\{
+    this.out = null;
+\}" shape=ellipse]
+8 [label="setInput#?,File[]#5:this.input = null
+setOutput#?,File[]#5:this.out = null" shape=ellipse]
+9 [label="setInput#?,File[]#5:this.input
+setOutput#?,File[]#5:this.out" shape=ellipse]
+10 [label="setInput#?,File[]#5:null
+setOutput#?,File[]#5:null" shape=ellipse]
+11 [label="setInput#?,File[]#6:\{
+    this.input = input.clone();
+\}
+setOutput#?,File[]#6:\{
+    this.out = out.clone();
+\}" shape=ellipse]
+12 [label="setInput#?,File[]#7:this.input = input.clone()
+setOutput#?,File[]#7:this.out = out.clone()" shape=ellipse]
+13 [label="setInput#?,File[]#7:this.input
+setOutput#?,File[]#7:this.out" shape=ellipse]
+14 [label="setInput#?,File[]#7:clone()
+setOutput#?,File[]#7:clone()" shape=ellipse]
+15 [label="setInput#?,File[]#7:input
+setOutput#?,File[]#7:out" shape=ellipse]
+16 [label="setInput#?,File[]#7:clone
+setOutput#?,File[]#7:clone" shape=ellipse]
+17 [label="setInput#?,File[]#7:File[]
+setOutput#?,File[]#7:File[]" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 16 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 5 [label="Control Dep:2"];
+3 -> 6 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 11 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+12 -> 1 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+15 -> 13 [label="Data Dep:2"];
+}

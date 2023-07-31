@@ -1,0 +1,51 @@
+digraph "getPropertyName#?,String,String" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getPropertyName" shape=ellipse]
+2 [label="2:CtParameterImpl@String methodName" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@String prefix" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@toLowerCase(java.util.Locale)" shape=ellipse]
+7 [label="3:CtVirtualElement@toLowerCase" shape=ellipse]
+8 [label="3:CtExecutableReferenceImpl@substring(int)" shape=ellipse]
+9 [label="3:CtVirtualElement@substring" shape=ellipse]
+10 [label="3:CtVariableReadImpl@methodName" shape=ellipse]
+11 [label="3:CtExecutableReferenceImpl@length()" shape=ellipse]
+12 [label="3:CtVirtualElement@length" shape=ellipse]
+13 [label="3:CtVariableReadImpl@prefix" shape=ellipse]
+14 [label="3:CtInvocationImpl@prefix.length()" shape=ellipse]
+15 [label="3:CtInvocationImpl@methodName.substring(prefix.length())" shape=ellipse]
+16 [label="3:CtTypeAccessImpl@US" shape=ellipse]
+17 [label="3:CtInvocationImpl@methodName.substring(prefix.length()).toLowerCase(US)" shape=ellipse]
+18 [label="3:CtReturnImpl@return methodName.substring(prefix.length()).toLowerCase(US)" shape=ellipse]
+19 [label="2:CtBlockImpl@\{
+    return methodName.substring(prefix.length()).toLowerCase(US);
+\}" shape=ellipse]
+20 [label="2:CtMethodImpl@private static String getPropertyName(String methodName, String prefix) \{
+    return methodName.substring(prefix.length()).toLowerCase(US);
+\}" shape=ellipse]
+21 [label="3:Update@UPDATE" shape=ellipse]
+22 [label="3:CtTypeAccessImpl@ENGLISH" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 11 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 21 [label="Action"];
+17 -> 7 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 6 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 1 [label="AST"];
+20 -> 0 [label="AST"];
+20 -> 2 [label="AST"];
+20 -> 4 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 22 [label="Action"];
+}

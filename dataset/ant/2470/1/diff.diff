@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2470/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2470/1/after.java
+@@ -3,1 +3,4 @@
+-    return exists;
++    if (isReference()) {
++      return ((Resource) (getCheckedRef())).isExists();
++    }
++    return (exists == null) || exists.booleanValue();

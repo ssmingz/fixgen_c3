@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testTopLevelTarget#?#2:INSERT
+testCanLoad#?#2:INSERT" shape=ellipse]
+1 [label="testTopLevelTarget#?#2:public void testTopLevelTarget() \{
+    expectLog(\"topleveltarget\", \"Hello world\");
+\}
+testCanLoad#?#2:public void testCanLoad() \{
+    expectLog(\"useBeanshell\", \"I'm here\");
+\}" shape=ellipse]
+2 [label="testTopLevelTarget#?#2:testTopLevelTarget
+testCanLoad#?#2:testCanLoad" shape=ellipse]
+3 [label="testTopLevelTarget#?#2:void
+testCanLoad#?#2:void" shape=ellipse]
+4 [label="testTopLevelTarget#?#2:\{
+    expectLog(\"topleveltarget\", \"Hello world\");
+\}
+testCanLoad#?#2:\{
+    expectLog(\"useBeanshell\", \"I'm here\");
+\}" shape=ellipse]
+5 [label="testTopLevelTarget#?#3:expectLog(\"topleveltarget\", \"Hello world\")
+testCanLoad#?#3:expectLog(\"useBeanshell\", \"I'm here\")" shape=ellipse]
+6 [label="testTopLevelTarget#?#2:VE: Modifiers_Method
+testCanLoad#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testTopLevelTarget#?#2:public
+testCanLoad#?#2:public" shape=ellipse]
+8 [label="testTopLevelTarget#?#4:INSERT
+testCanLoad#?#4:INSERT" shape=ellipse]
+9 [label="testTopLevelTarget#?#4:buildRule.executeTarget(\"topleveltarget\")
+testCanLoad#?#4:buildRule.executeTarget(\"useBeanshell\")" shape=ellipse]
+10 [label="testTopLevelTarget#?#2:@Test
+testCanLoad#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

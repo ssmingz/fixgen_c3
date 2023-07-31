@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/812/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/812/0/after.java
+@@ -68,1 +68,4 @@
+-      exe.execute();
++      int retCode = exe.execute();
++      if (failOnError && (retCode != 0)) {
++        throw new BuildException("cvs exited with error code " + retCode);
++      }

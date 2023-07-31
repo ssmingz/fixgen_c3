@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="testTail#?#-1:DELETE
+testTailSkip#?#-1:DELETE
+testTailLines#?#-1:DELETE
+testTailLinesSkip#?#-1:DELETE
+testHead#?#-1:DELETE
+testHeadSkip#?#-1:DELETE" shape=ellipse]
+1 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+2 [label="testTail#?#-1:
+testTailSkip#?#-1:
+testTailLines#?#-1:
+testTailLinesSkip#?#-1:
+testHead#?#-1:
+testHeadSkip#?#-1:" shape=ellipse]
+3 [label="testTail#?#6:getProject()
+testTailSkip#?#6:getProject()
+testTailLines#?#6:getProject()
+testTailLinesSkip#?#6:getProject()
+testHead#?#6:getProject()
+testHeadSkip#?#6:getProject()" shape=ellipse]
+4 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+5 [label="testTail#?#6:result
+testTailSkip#?#6:result
+testTailLines#?#6:result
+testTailLinesSkip#?#6:result
+testHead#?#6:result
+testHeadSkip#?#6:result" shape=ellipse]
+6 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:6"];
+1 -> 6 [label="AST:6"];
+2 -> 1 [label="AST:6"];
+2 -> 4 [label="AST:6"];
+2 -> 5 [label="Data Dep:6"];
+3 -> 2 [label="AST:6"];
+}

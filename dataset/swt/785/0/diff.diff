@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/785/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/785/0/after.java
+@@ -8,1 +8,6 @@
+-    sendMouseEvent(MouseDoubleClick, 1, handle, WM_LBUTTONDBLCLK, wParam, lParam);
++    if (!sendMouseEvent(MouseDoubleClick, 1, handle, WM_LBUTTONDBLCLK, wParam, lParam)) {
++      if (OS.GetCapture() != handle) {
++        OS.SetCapture(handle);
++      }
++      return LRESULT.ZERO;
++    }

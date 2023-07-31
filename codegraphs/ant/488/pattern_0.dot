@@ -1,0 +1,34 @@
+digraph "Pattern" {
+0 [label="setUseTimestamp#?,boolean#3:DELETE
+execute#?#3:DELETE
+touchFile#?,File,long#3:DELETE" shape=ellipse]
+1 [label="setUseTimestamp#?,boolean#3:project
+execute#?#3:project
+touchFile#?,File,long#3:project" shape=ellipse]
+2 [label="setUseTimestamp#?,boolean#3:project.getJavaVersion()
+execute#?#3:project.getJavaVersion()
+touchFile#?,File,long#3:project.getJavaVersion()" shape=ellipse]
+3 [label="setUseTimestamp#?,boolean#3:project.getJavaVersion() != Project.JAVA_1_1
+touchFile#?,File,long#3:project.getJavaVersion() != Project.JAVA_1_1" shape=ellipse]
+4 [label="setUseTimestamp#?,boolean#3:getJavaVersion
+execute#?#3:getJavaVersion
+touchFile#?,File,long#3:getJavaVersion" shape=ellipse]
+5 [label="setUseTimestamp#?,boolean#3:getJavaVersion()
+execute#?#3:getJavaVersion()
+touchFile#?,File,long#3:getJavaVersion()" shape=ellipse]
+6 [label="setUseTimestamp#?,boolean#3:INSERT
+execute#?#3:INSERT
+touchFile#?,File,long#3:INSERT" shape=ellipse]
+7 [label="setUseTimestamp#?,boolean#-1:project
+execute#?#-1:project
+touchFile#?,File,long#-1:project" shape=ellipse]
+8 [label="execute#?#3:project.getJavaVersion().equals(JAVA_1_1)" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Action:3"];
+3 -> 2 [label="AST:2"];
+8 -> 2 [label="AST:1"];
+}

@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1634/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1634/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,7 @@
+-    expectBuildExceptionContaining(
+-        "test-bad-no-classpath", "no-classpath", "Missing nested <classpath>!");
+-    assertPropertyUnset("jar.classpath");
++    try {
++      buildRule.executeTarget("test-bad-no-classpath");
++      fail("Build exception should have been thrown on no classpath");
++    } catch (BuildException ex) {
++      assertContains("Missing nested <classpath>!", ex.getMessage());
++    }
++    assertNull(buildRule.getProject().getProperty("jar.classpath"));

@@ -1,0 +1,61 @@
+digraph "Pattern" {
+0 [label="testSame#?#10:INSERT
+testAlone#?#6:INSERT" shape=ellipse]
+1 [label="testSame#?#6:new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \}
+testAlone#?#5:new String[]\{  \}" shape=ellipse]
+2 [label="testSame#?#5:final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \}
+testAlone#?#5:final String[] expected = new String[]\{  \}" shape=ellipse]
+3 [label="testSame#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", SAME.toString());
+    final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}
+testAlone#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", ALONE.toString());
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}" shape=ellipse]
+4 [label="testSame#?#5:expected
+testAlone#?#5:expected" shape=ellipse]
+5 [label="testSame#?#5:String[]
+testAlone#?#5:String[]" shape=ellipse]
+6 [label="testSame#?#6:String[]
+testAlone#?#5:String[]" shape=ellipse]
+7 [label="testSame#?#7:\"25:17: '\}' should be on the same line.\"" shape=ellipse]
+8 [label="testSame#?#8:\"28:17: '\}' should be on the same line.\"" shape=ellipse]
+9 [label="testSame#?#9:\"40:13: '\}' should be on the same line.\"" shape=ellipse]
+10 [label="testSame#?#10:\"44:13: '\}' should be on the same line.\"" shape=ellipse]
+11 [label="testSame#?#11:INSERT
+testAlone#?#6:INSERT" shape=ellipse]
+12 [label="testSame#?#11:\"93:27: '\}' should be on a new line.\"
+testAlone#?#6:\"93:27: '\}' should be on a new line.\"" shape=ellipse]
+13 [label="testSame#?#11:String
+testAlone#?#6:String" shape=ellipse]
+14 [label="testSame#?#11:java.lang
+testAlone#?#6:java.lang" shape=ellipse]
+15 [label="testSame#?#10:\"93:27: '\}' should be alone on a line.\"
+testAlone#?#6:\"93:27: '\}' should be alone on a line.\"" shape=ellipse]
+16 [label="testSame#?#10:String
+testAlone#?#6:String" shape=ellipse]
+17 [label="testSame#?#10:java.lang
+testAlone#?#6:java.lang" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:1"];
+1 -> 8 [label="AST:1"];
+1 -> 9 [label="AST:1"];
+1 -> 10 [label="AST:1"];
+1 -> 11 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="Action:2"];
+12 -> 13 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+}

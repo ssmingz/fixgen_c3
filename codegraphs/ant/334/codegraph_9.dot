@@ -1,0 +1,184 @@
+digraph "createStreamHandler#?" {
+0 [label="2:CtTypeReferenceImpl@ExecuteStreamHandler" shape=ellipse]
+1 [label="2:CtVirtualElement@createStreamHandler" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@ExecuteStreamHandler" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtVirtualElement@handler" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@ExecuteStreamHandler handler = null" shape=ellipse]
+7 [label="4:CtFieldReadImpl@outFile" shape=ellipse]
+8 [label="4:CtLiteralImpl@null" shape=ellipse]
+9 [label="4:CtBinaryOperatorImpl@outFile == null" shape=ellipse]
+10 [label="5:CtVariableWriteImpl@handler" shape=ellipse]
+11 [label="5:CtTypeReferenceImpl@LogStreamHandler" shape=ellipse]
+12 [label="5:CtThisAccessImpl@this" shape=ellipse]
+13 [label="5:CtFieldReadImpl@Project.MSG_INFO" shape=ellipse]
+14 [label="5:CtFieldReadImpl@Project.MSG_INFO" shape=ellipse]
+15 [label="5:CtConstructorCallImpl@new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO)" shape=ellipse]
+16 [label="5:CtAssignmentImpl@handler = new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO)" shape=ellipse]
+17 [label="4:CtBlockImpl@\{
+    handler = new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO);
+\}" shape=ellipse]
+18 [label="8:CtTypeReferenceImpl@OutputStream" shape=ellipse]
+19 [label="8:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+20 [label="8:CtFieldReadImpl@outFile" shape=ellipse]
+21 [label="8:CtConstructorCallImpl@new FileOutputStream(outFile)" shape=ellipse]
+22 [label="8:CtVirtualElement@out" shape=ellipse]
+23 [label="8:CtLocalVariableImpl@OutputStream out = new FileOutputStream(outFile)" shape=ellipse]
+24 [label="9:CtVariableWriteImpl@handler" shape=ellipse]
+25 [label="9:CtTypeReferenceImpl@MAuditStreamHandler" shape=ellipse]
+26 [label="9:CtThisAccessImpl@this" shape=ellipse]
+27 [label="9:CtVariableReadImpl@out" shape=ellipse]
+28 [label="9:CtConstructorCallImpl@new MAuditStreamHandler(this, out)" shape=ellipse]
+29 [label="9:CtAssignmentImpl@handler = new MAuditStreamHandler(this, out)" shape=ellipse]
+30 [label="7:CtBlockImpl@\{
+    OutputStream out = new FileOutputStream(outFile);
+    handler = new MAuditStreamHandler(this, out);
+\}" shape=ellipse]
+31 [label="10:CtVirtualElement@e" shape=ellipse]
+32 [label="10:CtTypeReferenceImpl@IOException" shape=ellipse]
+33 [label="10:CtCatchVariableImpl@IOException e" shape=ellipse]
+34 [label="11:CtTypeReferenceImpl@BuildException" shape=ellipse]
+35 [label="11:CtVariableReadImpl@e" shape=ellipse]
+36 [label="11:CtConstructorCallImpl@new BuildException(e)" shape=ellipse]
+37 [label="11:CtThrowImpl@throw new BuildException(e)" shape=ellipse]
+38 [label="10:CtBlockImpl@\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+39 [label="10:CtCatchImpl@ catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+40 [label="7:CtTryImpl@try \{
+    OutputStream out = new FileOutputStream(outFile);
+    handler = new MAuditStreamHandler(this, out);
+\} catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+41 [label="6:CtBlockImpl@\{
+    try \{
+        OutputStream out = new FileOutputStream(outFile);
+        handler = new MAuditStreamHandler(this, out);
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+42 [label="4:CtIfImpl@if (outFile == null) \{
+    handler = new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO);
+\} else \{
+    try \{
+        OutputStream out = new FileOutputStream(outFile);
+        handler = new MAuditStreamHandler(this, out);
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+43 [label="14:CtVariableReadImpl@handler" shape=ellipse]
+44 [label="14:CtReturnImpl@return handler" shape=ellipse]
+45 [label="2:CtBlockImpl@\{
+    ExecuteStreamHandler handler = null;
+    if (outFile == null) \{
+        handler = new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO);
+    \} else \{
+        try \{
+            OutputStream out = new FileOutputStream(outFile);
+            handler = new MAuditStreamHandler(this, out);
+        \} catch (IOException e) \{
+            throw new BuildException(e);
+        \}
+    \}
+    return handler;
+\}" shape=ellipse]
+46 [label="2:CtMethodImpl@protected ExecuteStreamHandler createStreamHandler() throws BuildException \{
+    ExecuteStreamHandler handler = null;
+    if (outFile == null) \{
+        handler = new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO);
+    \} else \{
+        try \{
+            OutputStream out = new FileOutputStream(outFile);
+            handler = new MAuditStreamHandler(this, out);
+        \} catch (IOException e) \{
+            throw new BuildException(e);
+        \}
+    \}
+    return handler;
+\}" shape=ellipse]
+47 [label="11:Insert@INSERT" shape=ellipse]
+48 [label="11:CtLiteralImpl@\"Error\"" shape=ellipse]
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 17 [label="Control Dep"];
+9 -> 16 [label="Control Dep"];
+9 -> 10 [label="Control Dep"];
+9 -> 15 [label="Control Dep"];
+9 -> 12 [label="Control Dep"];
+9 -> 13 [label="Control Dep"];
+9 -> 14 [label="Control Dep"];
+9 -> 41 [label="Control Dep"];
+9 -> 40 [label="Control Dep"];
+9 -> 30 [label="Control Dep"];
+9 -> 23 [label="Control Dep"];
+9 -> 21 [label="Control Dep"];
+9 -> 20 [label="Control Dep"];
+9 -> 29 [label="Control Dep"];
+9 -> 24 [label="Control Dep"];
+9 -> 28 [label="Control Dep"];
+9 -> 26 [label="Control Dep"];
+9 -> 27 [label="Control Dep"];
+9 -> 39 [label="Control Dep"];
+9 -> 33 [label="Control Dep"];
+12 -> 10 [label="Data Dep"];
+13 -> 10 [label="Data Dep"];
+14 -> 10 [label="Data Dep"];
+15 -> 12 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 10 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+20 -> 22 [label="Data Dep"];
+21 -> 20 [label="AST"];
+22 -> 27 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 18 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 43 [label="Define-Use"];
+26 -> 24 [label="Data Dep"];
+27 -> 24 [label="Data Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 24 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 23 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 35 [label="Define-Use"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 38 [label="Control Dep"];
+33 -> 37 [label="Control Dep"];
+33 -> 36 [label="Control Dep"];
+33 -> 35 [label="Control Dep"];
+36 -> 35 [label="AST"];
+36 -> 47 [label="Action"];
+37 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 33 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 30 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 9 [label="AST"];
+42 -> 17 [label="AST"];
+42 -> 41 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 6 [label="AST"];
+45 -> 42 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 1 [label="AST"];
+46 -> 0 [label="AST"];
+46 -> 2 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 48 [label="Action"];
+}

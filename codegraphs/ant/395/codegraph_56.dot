@@ -1,0 +1,53 @@
+digraph "setSrc#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setSrc" shape=ellipse]
+2 [label="2:CtParameterImpl@String src" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@log(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@log" shape=ellipse]
+6 [label="4:CtLiteralImpl@\"DEPRECATED - The setSrc(String) method has been deprecated.\"" shape=ellipse]
+7 [label="5:CtLiteralImpl@\" Use setSrc(File) instead.\"" shape=ellipse]
+8 [label="4:CtBinaryOperatorImpl@\"DEPRECATED - The setSrc(String) method has been deprecated.\" + \" Use setSrc(File) instead.\"" shape=ellipse]
+9 [label="3:CtInvocationImpl@log(\"DEPRECATED - The setSrc(String) method has been deprecated.\" + \" Use setSrc(File) instead.\")" shape=ellipse]
+10 [label="6:CtExecutableReferenceImpl@setSrc(java.lang.String)" shape=ellipse]
+11 [label="6:CtVirtualElement@setSrc" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+13 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+14 [label="6:CtFieldReadImpl@project" shape=ellipse]
+15 [label="6:CtVariableReadImpl@src" shape=ellipse]
+16 [label="6:CtInvocationImpl@project.resolveFile(src)" shape=ellipse]
+17 [label="6:CtInvocationImpl@setSrc(project.resolveFile(src))" shape=ellipse]
+18 [label="2:CtBlockImpl@\{
+    log(\"DEPRECATED - The setSrc(String) method has been deprecated.\" + \" Use setSrc(File) instead.\");
+    setSrc(project.resolveFile(src));
+\}" shape=ellipse]
+19 [label="2:CtMethodImpl@public void setSrc(String src) \{
+    log(\"DEPRECATED - The setSrc(String) method has been deprecated.\" + \" Use setSrc(File) instead.\");
+    setSrc(project.resolveFile(src));
+\}" shape=ellipse]
+20 [label="6:Delete@DELETE" shape=ellipse]
+21 [label="6:Insert@INSERT" shape=ellipse]
+22 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+14 -> 20 [label="Action"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 21 [label="Action"];
+17 -> 11 [label="AST"];
+17 -> 10 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 9 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 1 [label="AST"];
+19 -> 0 [label="AST"];
+19 -> 2 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 22 [label="Action"];
+}

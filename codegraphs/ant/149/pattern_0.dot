@@ -1,0 +1,197 @@
+digraph "Pattern" {
+0 [label="run#?,CommandlineJava#9:INSERT
+execute#?#95:INSERT" shape=ellipse]
+1 [label="run#?,CommandlineJava#9:new FileOutputStream(out)
+execute#?#93:new FileOutputStream(output)" shape=ellipse]
+2 [label="run#?,CommandlineJava#7:out != null
+execute#?#91:output != null" shape=ellipse]
+3 [label="run#?,CommandlineJava#7:if (out != null) \{
+    try \{
+        outStream = new PrintStream(new FileOutputStream(out));
+        exe.execute(project);
+    \} catch (IOException io) \{
+        throw new BuildException(io, location);
+    \} finally \{
+        if (outStream != null) \{
+            outStream.close();
+        \}
+    \}
+\} else \{
+    exe.execute(project);
+\}
+execute#?#91:if (output != null) \{
+    log(\"Opening PrintStream to output file \" + output, MSG_VERBOSE);
+    out = new PrintStream(new BufferedOutputStream(new FileOutputStream(output)));
+\}" shape=ellipse]
+4 [label="run#?,CommandlineJava#7:out
+execute#?#91:output" shape=ellipse]
+5 [label="run#?,CommandlineJava#7:null
+execute#?#91:null" shape=ellipse]
+6 [label="run#?,CommandlineJava#7:\{
+    try \{
+        outStream = new PrintStream(new FileOutputStream(out));
+        exe.execute(project);
+    \} catch (IOException io) \{
+        throw new BuildException(io, location);
+    \} finally \{
+        if (outStream != null) \{
+            outStream.close();
+        \}
+    \}
+\}
+execute#?#91:\{
+    log(\"Opening PrintStream to output file \" + output, MSG_VERBOSE);
+    out = new PrintStream(new BufferedOutputStream(new FileOutputStream(output)));
+\}" shape=ellipse]
+7 [label="run#?,CommandlineJava#8:try \{
+    outStream = new PrintStream(new FileOutputStream(out));
+    exe.execute(project);
+\} catch (IOException io) \{
+    throw new BuildException(io, location);
+\} finally \{
+    if (outStream != null) \{
+        outStream.close();
+    \}
+\}
+execute#?#93:out = new PrintStream(new BufferedOutputStream(new FileOutputStream(output)))" shape=ellipse]
+8 [label="run#?,CommandlineJava#8:\{
+    outStream = new PrintStream(new FileOutputStream(out));
+    exe.execute(project);
+\}" shape=ellipse]
+9 [label="run#?,CommandlineJava#9:outStream = new PrintStream(new FileOutputStream(out))" shape=ellipse]
+10 [label="run#?,CommandlineJava#9:outStream" shape=ellipse]
+11 [label="run#?,CommandlineJava#9:new PrintStream(new FileOutputStream(out))
+execute#?#93:new BufferedOutputStream(new FileOutputStream(output))" shape=ellipse]
+12 [label="run#?,CommandlineJava#-1:PrintStream(FileOutputStream)
+execute#?#-1:BufferedOutputStream(FileOutputStream)" shape=ellipse]
+13 [label="run#?,CommandlineJava#-1:FileOutputStream()
+execute#?#-1:FileOutputStream()" shape=ellipse]
+14 [label="run#?,CommandlineJava#9:out
+execute#?#93:output" shape=ellipse]
+15 [label="run#?,CommandlineJava#10:exe.execute(project)" shape=ellipse]
+16 [label="run#?,CommandlineJava#10:execute()
+execute#?#-1:PrintStream()" shape=ellipse]
+17 [label="run#?,CommandlineJava#10:exe
+execute#?#-1:" shape=ellipse]
+18 [label="run#?,CommandlineJava#10:project
+execute#?#92:output" shape=ellipse]
+19 [label="run#?,CommandlineJava#11: catch (IOException io) \{
+    throw new BuildException(io, location);
+\}" shape=ellipse]
+20 [label="run#?,CommandlineJava#11:IOException io" shape=ellipse]
+21 [label="run#?,CommandlineJava#13:\{
+    if (outStream != null) \{
+        outStream.close();
+    \}
+\}" shape=ellipse]
+22 [label="run#?,CommandlineJava#14:if (outStream != null) \{
+    outStream.close();
+\}" shape=ellipse]
+23 [label="run#?,CommandlineJava#14:outStream != null" shape=ellipse]
+24 [label="run#?,CommandlineJava#14:outStream
+execute#?#92:\"Opening PrintStream to output file \"" shape=ellipse]
+25 [label="run#?,CommandlineJava#14:null" shape=ellipse]
+26 [label="run#?,CommandlineJava#18:\{
+    exe.execute(project);
+\}" shape=ellipse]
+27 [label="run#?,CommandlineJava#19:exe.execute(project)" shape=ellipse]
+28 [label="run#?,CommandlineJava#19:execute()
+execute#?#92:log(<unknown>,<unknown>)" shape=ellipse]
+29 [label="run#?,CommandlineJava#19:exe" shape=ellipse]
+30 [label="run#?,CommandlineJava#19:project
+execute#?#92:MSG_VERBOSE" shape=ellipse]
+31 [label="run#?,CommandlineJava#9:INSERT
+execute#?#95:INSERT" shape=ellipse]
+32 [label="run#?,CommandlineJava#9:append
+execute#?#95:append" shape=ellipse]
+33 [label="run#?,CommandlineJava#9:out.getAbsolutePath()
+execute#?#95:output.getAbsolutePath()" shape=ellipse]
+34 [label="run#?,CommandlineJava#9:MOVE
+execute#?#93:MOVE" shape=ellipse]
+35 [label="execute#?#92:log(\"Opening PrintStream to output file \" + output, MSG_VERBOSE)" shape=ellipse]
+36 [label="execute#?#93:out" shape=ellipse]
+37 [label="execute#?#92:\"Opening PrintStream to output file \" + output" shape=ellipse]
+38 [label="execute#?#-1:PlaceHold" shape=ellipse]
+39 [label="execute#?#93:new PrintStream(new BufferedOutputStream(new FileOutputStream(output)))" shape=ellipse]
+0 -> 33 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 13 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 31 [label="Action:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:2"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:2"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:2"];
+2 -> 35 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:1"];
+2 -> 38 [label="Control Dep:1"];
+2 -> 39 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+3 -> 26 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+6 -> 35 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 19 [label="AST:1"];
+7 -> 21 [label="AST:1"];
+7 -> 36 [label="AST:1"];
+7 -> 39 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+8 -> 15 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+10 -> 24 [label="Define Use:1"];
+11 -> 1 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+14 -> 10 [label="Data Dep:1"];
+14 -> 34 [label="Action:2"];
+14 -> 36 [label="Data Dep:1"];
+15 -> 17 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 18 [label="AST:1"];
+17 -> 38 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 25 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+27 -> 30 [label="AST:1"];
+31 -> 32 [label="Action:2"];
+34 -> 33 [label="Action:2"];
+35 -> 17 [label="AST:1"];
+35 -> 28 [label="AST:1"];
+35 -> 37 [label="AST:1"];
+35 -> 30 [label="AST:1"];
+37 -> 24 [label="AST:1"];
+37 -> 18 [label="AST:1"];
+39 -> 16 [label="AST:1"];
+39 -> 11 [label="AST:1"];
+}

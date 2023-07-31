@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2640/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2640/1/after.java
+@@ -4,2 +4,6 @@
+-    NSRect rect = ((NSTableView) (view)).rectOfRow(index);
+-    ((NSTableView) (view)).scrollRectToVisible(rect);
++    NSTableView widget = ((NSTableView) (view));
++    int row = Math.max(0, Math.min(index, itemCount));
++    NSPoint pt = new NSPoint();
++    pt.x = scrollView.contentView().bounds().x;
++    pt.y = widget.frameOfCellAtColumn(0, row).y;
++    view.scrollPoint(pt);

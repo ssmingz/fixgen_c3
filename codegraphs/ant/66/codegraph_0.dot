@@ -1,0 +1,311 @@
+digraph "buildFinished#?,BuildEvent" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@buildFinished" shape=ellipse]
+2 [label="2:CtParameterImpl@BuildEvent event" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@BuildEvent" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@long" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@currentTimeMillis()" shape=ellipse]
+6 [label="3:CtVirtualElement@currentTimeMillis" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@System" shape=ellipse]
+8 [label="3:CtInvocationImpl@System.currentTimeMillis()" shape=ellipse]
+9 [label="3:CtFieldReadImpl@buildStartTime" shape=ellipse]
+10 [label="3:CtBinaryOperatorImpl@System.currentTimeMillis() - buildStartTime" shape=ellipse]
+11 [label="3:CtVirtualElement@totalTime" shape=ellipse]
+12 [label="3:CtLocalVariableImpl@long totalTime = System.currentTimeMillis() - buildStartTime" shape=ellipse]
+13 [label="4:CtExecutableReferenceImpl@setAttribute()" shape=ellipse]
+14 [label="4:CtVirtualElement@setAttribute" shape=ellipse]
+15 [label="4:CtFieldReadImpl@buildElement" shape=ellipse]
+16 [label="4:CtTypeAccessImpl@TIME_ATTR" shape=ellipse]
+17 [label="4:CtExecutableReferenceImpl@formatTime(long)" shape=ellipse]
+18 [label="4:CtVirtualElement@formatTime" shape=ellipse]
+19 [label="4:CtVariableReadImpl@totalTime" shape=ellipse]
+20 [label="4:CtInvocationImpl@formatTime(totalTime)" shape=ellipse]
+21 [label="4:CtInvocationImpl@buildElement.setAttribute(TIME_ATTR, formatTime(totalTime))" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@getException()" shape=ellipse]
+23 [label="5:CtVirtualElement@getException" shape=ellipse]
+24 [label="5:CtVariableReadImpl@event" shape=ellipse]
+25 [label="5:CtInvocationImpl@event.getException()" shape=ellipse]
+26 [label="5:CtLiteralImpl@null" shape=ellipse]
+27 [label="5:CtBinaryOperatorImpl@event.getException() != null" shape=ellipse]
+28 [label="6:CtExecutableReferenceImpl@setAttribute()" shape=ellipse]
+29 [label="6:CtVirtualElement@setAttribute" shape=ellipse]
+30 [label="6:CtFieldReadImpl@buildElement" shape=ellipse]
+31 [label="6:CtTypeAccessImpl@ERROR_ATTR" shape=ellipse]
+32 [label="6:CtExecutableReferenceImpl@toString()" shape=ellipse]
+33 [label="6:CtVirtualElement@toString" shape=ellipse]
+34 [label="6:CtExecutableReferenceImpl@getException()" shape=ellipse]
+35 [label="6:CtVirtualElement@getException" shape=ellipse]
+36 [label="6:CtVariableReadImpl@event" shape=ellipse]
+37 [label="6:CtInvocationImpl@event.getException()" shape=ellipse]
+38 [label="6:CtInvocationImpl@event.getException().toString()" shape=ellipse]
+39 [label="6:CtInvocationImpl@buildElement.setAttribute(ERROR_ATTR, event.getException().toString())" shape=ellipse]
+40 [label="5:CtBlockImpl@\{
+    buildElement.setAttribute(ERROR_ATTR, event.getException().toString());
+\}" shape=ellipse]
+41 [label="5:CtIfImpl@if (event.getException() != null) \{
+    buildElement.setAttribute(ERROR_ATTR, event.getException().toString());
+\}" shape=ellipse]
+42 [label="9:CtTypeReferenceImpl@String" shape=ellipse]
+43 [label="9:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+44 [label="9:CtVirtualElement@getProperty" shape=ellipse]
+45 [label="9:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+46 [label="9:CtVirtualElement@getProject" shape=ellipse]
+47 [label="9:CtVariableReadImpl@event" shape=ellipse]
+48 [label="9:CtInvocationImpl@event.getProject()" shape=ellipse]
+49 [label="9:CtLiteralImpl@\"XmlLogger.file\"" shape=ellipse]
+50 [label="9:CtInvocationImpl@event.getProject().getProperty(\"XmlLogger.file\")" shape=ellipse]
+51 [label="9:CtVirtualElement@outFilename" shape=ellipse]
+52 [label="9:CtLocalVariableImpl@String outFilename = event.getProject().getProperty(\"XmlLogger.file\")" shape=ellipse]
+53 [label="10:CtVariableReadImpl@outFilename" shape=ellipse]
+54 [label="10:CtLiteralImpl@null" shape=ellipse]
+55 [label="10:CtBinaryOperatorImpl@outFilename == null" shape=ellipse]
+56 [label="11:CtVariableWriteImpl@outFilename" shape=ellipse]
+57 [label="11:CtLiteralImpl@\"log.xml\"" shape=ellipse]
+58 [label="11:CtAssignmentImpl@outFilename = \"log.xml\"" shape=ellipse]
+59 [label="10:CtBlockImpl@\{
+    outFilename = \"log.xml\";
+\}" shape=ellipse]
+60 [label="10:CtIfImpl@if (outFilename == null) \{
+    outFilename = \"log.xml\";
+\}" shape=ellipse]
+61 [label="13:CtTypeReferenceImpl@Writer" shape=ellipse]
+62 [label="13:CtTypeReferenceImpl@FileWriter" shape=ellipse]
+63 [label="13:CtVariableReadImpl@outFilename" shape=ellipse]
+64 [label="13:CtConstructorCallImpl@new FileWriter(outFilename)" shape=ellipse]
+65 [label="13:CtVirtualElement@out" shape=ellipse]
+66 [label="13:CtLocalVariableImpl@Writer out = new FileWriter(outFilename)" shape=ellipse]
+67 [label="14:CtExecutableReferenceImpl@write(java.lang.String)" shape=ellipse]
+68 [label="14:CtVirtualElement@write" shape=ellipse]
+69 [label="14:CtVariableReadImpl@out" shape=ellipse]
+70 [label="14:CtLiteralImpl@\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\"" shape=ellipse]
+71 [label="14:CtInvocationImpl@out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\")" shape=ellipse]
+72 [label="15:CtExecutableReferenceImpl@write(<unknown>,<unknown>,int)" shape=ellipse]
+73 [label="15:CtVirtualElement@write" shape=ellipse]
+74 [label="15:CtFieldReadImpl@buildElement" shape=ellipse]
+75 [label="15:CtVariableReadImpl@out" shape=ellipse]
+76 [label="15:CtLiteralImpl@0" shape=ellipse]
+77 [label="15:CtInvocationImpl@write(buildElement, out, 0)" shape=ellipse]
+78 [label="16:CtExecutableReferenceImpl@flush()" shape=ellipse]
+79 [label="16:CtVirtualElement@flush" shape=ellipse]
+80 [label="16:CtVariableReadImpl@out" shape=ellipse]
+81 [label="16:CtInvocationImpl@out.flush()" shape=ellipse]
+82 [label="17:CtExecutableReferenceImpl@close()" shape=ellipse]
+83 [label="17:CtVirtualElement@close" shape=ellipse]
+84 [label="17:CtVariableReadImpl@out" shape=ellipse]
+85 [label="17:CtInvocationImpl@out.close()" shape=ellipse]
+86 [label="8:CtBlockImpl@\{
+    String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+    if (outFilename == null) \{
+        outFilename = \"log.xml\";
+    \}
+    Writer out = new FileWriter(outFilename);
+    out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+    write(buildElement, out, 0);
+    out.flush();
+    out.close();
+\}" shape=ellipse]
+87 [label="18:CtVirtualElement@exc" shape=ellipse]
+88 [label="18:CtTypeReferenceImpl@IOException" shape=ellipse]
+89 [label="18:CtCatchVariableImpl@IOException exc" shape=ellipse]
+90 [label="19:CtTypeReferenceImpl@BuildException" shape=ellipse]
+91 [label="19:CtLiteralImpl@\"Unable to close log file\"" shape=ellipse]
+92 [label="19:CtVariableReadImpl@exc" shape=ellipse]
+93 [label="19:CtConstructorCallImpl@new BuildException(\"Unable to close log file\", exc)" shape=ellipse]
+94 [label="19:CtThrowImpl@throw new BuildException(\"Unable to close log file\", exc)" shape=ellipse]
+95 [label="18:CtBlockImpl@\{
+    throw new BuildException(\"Unable to close log file\", exc);
+\}" shape=ellipse]
+96 [label="18:CtCatchImpl@ catch (IOException exc) \{
+    throw new BuildException(\"Unable to close log file\", exc);
+\}" shape=ellipse]
+97 [label="8:CtTryImpl@try \{
+    String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+    if (outFilename == null) \{
+        outFilename = \"log.xml\";
+    \}
+    Writer out = new FileWriter(outFilename);
+    out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+    write(buildElement, out, 0);
+    out.flush();
+    out.close();
+\} catch (IOException exc) \{
+    throw new BuildException(\"Unable to close log file\", exc);
+\}" shape=ellipse]
+98 [label="21:CtFieldWriteImpl@buildElement" shape=ellipse]
+99 [label="21:CtLiteralImpl@null" shape=ellipse]
+100 [label="21:CtAssignmentImpl@buildElement = null" shape=ellipse]
+101 [label="2:CtBlockImpl@\{
+    long totalTime = System.currentTimeMillis() - buildStartTime;
+    buildElement.setAttribute(TIME_ATTR, formatTime(totalTime));
+    if (event.getException() != null) \{
+        buildElement.setAttribute(ERROR_ATTR, event.getException().toString());
+    \}
+    try \{
+        String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+        if (outFilename == null) \{
+            outFilename = \"log.xml\";
+        \}
+        Writer out = new FileWriter(outFilename);
+        out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+        write(buildElement, out, 0);
+        out.flush();
+        out.close();
+    \} catch (IOException exc) \{
+        throw new BuildException(\"Unable to close log file\", exc);
+    \}
+    buildElement = null;
+\}" shape=ellipse]
+102 [label="2:CtMethodImpl@public void buildFinished(BuildEvent event) \{
+    long totalTime = System.currentTimeMillis() - buildStartTime;
+    buildElement.setAttribute(TIME_ATTR, formatTime(totalTime));
+    if (event.getException() != null) \{
+        buildElement.setAttribute(ERROR_ATTR, event.getException().toString());
+    \}
+    try \{
+        String outFilename = event.getProject().getProperty(\"XmlLogger.file\");
+        if (outFilename == null) \{
+            outFilename = \"log.xml\";
+        \}
+        Writer out = new FileWriter(outFilename);
+        out.write(\"<?xml:stylesheet type=\\"text/xsl\\" href=\\"log.xsl\\"?>\n\n\");
+        write(buildElement, out, 0);
+        out.flush();
+        out.close();
+    \} catch (IOException exc) \{
+        throw new BuildException(\"Unable to close log file\", exc);
+    \}
+    buildElement = null;
+\}" shape=ellipse]
+103 [label="4:CtTypeAccessImpl@DefaultLogger" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 5 [label="AST"];
+9 -> 11 [label="Data Dep"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 19 [label="Define-Use"];
+12 -> 11 [label="AST"];
+12 -> 4 [label="AST"];
+12 -> 10 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 14 [label="AST"];
+21 -> 15 [label="AST"];
+21 -> 13 [label="AST"];
+21 -> 16 [label="AST"];
+21 -> 20 [label="AST"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 40 [label="Control Dep"];
+27 -> 39 [label="Control Dep"];
+27 -> 28 [label="Control Dep"];
+27 -> 30 [label="Control Dep"];
+27 -> 31 [label="Control Dep"];
+27 -> 38 [label="Control Dep"];
+27 -> 32 [label="Control Dep"];
+27 -> 37 [label="Control Dep"];
+27 -> 34 [label="Control Dep"];
+27 -> 36 [label="Control Dep"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 32 [label="AST"];
+39 -> 29 [label="AST"];
+39 -> 30 [label="AST"];
+39 -> 28 [label="AST"];
+39 -> 31 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 27 [label="AST"];
+41 -> 40 [label="AST"];
+47 -> 51 [label="Data Dep"];
+48 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+48 -> 45 [label="AST"];
+50 -> 44 [label="AST"];
+50 -> 48 [label="AST"];
+50 -> 43 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 53 [label="Define-Use"];
+51 -> 63 [label="Define-Use"];
+52 -> 51 [label="AST"];
+52 -> 42 [label="AST"];
+52 -> 50 [label="AST"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 59 [label="Control Dep"];
+55 -> 58 [label="Control Dep"];
+55 -> 56 [label="Control Dep"];
+55 -> 57 [label="Control Dep"];
+56 -> 63 [label="Define-Use"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 55 [label="AST"];
+60 -> 59 [label="AST"];
+63 -> 65 [label="Data Dep"];
+64 -> 63 [label="AST"];
+65 -> 69 [label="Define-Use"];
+65 -> 75 [label="Define-Use"];
+65 -> 80 [label="Define-Use"];
+65 -> 84 [label="Define-Use"];
+66 -> 65 [label="AST"];
+66 -> 61 [label="AST"];
+66 -> 64 [label="AST"];
+71 -> 68 [label="AST"];
+71 -> 69 [label="AST"];
+71 -> 67 [label="AST"];
+71 -> 70 [label="AST"];
+77 -> 73 [label="AST"];
+77 -> 72 [label="AST"];
+77 -> 74 [label="AST"];
+77 -> 75 [label="AST"];
+77 -> 76 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+81 -> 78 [label="AST"];
+85 -> 83 [label="AST"];
+85 -> 84 [label="AST"];
+85 -> 82 [label="AST"];
+86 -> 52 [label="AST"];
+86 -> 60 [label="AST"];
+86 -> 66 [label="AST"];
+86 -> 71 [label="AST"];
+86 -> 77 [label="AST"];
+86 -> 81 [label="AST"];
+86 -> 85 [label="AST"];
+87 -> 92 [label="Define-Use"];
+89 -> 87 [label="AST"];
+89 -> 88 [label="AST"];
+89 -> 95 [label="Control Dep"];
+89 -> 94 [label="Control Dep"];
+89 -> 93 [label="Control Dep"];
+89 -> 91 [label="Control Dep"];
+89 -> 92 [label="Control Dep"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+94 -> 93 [label="AST"];
+95 -> 94 [label="AST"];
+96 -> 89 [label="AST"];
+96 -> 95 [label="AST"];
+97 -> 86 [label="AST"];
+97 -> 96 [label="AST"];
+100 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+101 -> 12 [label="AST"];
+101 -> 21 [label="AST"];
+101 -> 41 [label="AST"];
+101 -> 97 [label="AST"];
+101 -> 100 [label="AST"];
+102 -> 1 [label="AST"];
+102 -> 0 [label="AST"];
+102 -> 2 [label="AST"];
+102 -> 101 [label="AST"];
+}

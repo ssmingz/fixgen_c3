@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/733/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/733/0/after.java
+@@ -26,1 +26,2 @@
+-        int renderer = OS.g_list_nth_data(list, length - 1);
++        int textRenderer = OS.g_list_nth_data(list, length - 1);
++        int pixbufRenderer = OS.g_list_nth_data(list, length - 2);
+@@ -29,1 +30,3 @@
+-            column, renderer, cellDataProc, parent.handle, 0);
++            column, textRenderer, textCellDataProc, parent.handle, 0);
++        OS.gtk_tree_view_column_set_cell_data_func(
++            column, pixbufRenderer, pixbufCellDataProc, parent.handle, 0);

@@ -1,0 +1,804 @@
+digraph "Pattern" {
+0 [label="execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#4:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#4:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE
+execute#?#3:UPDATE" shape=ellipse]
+1 [label="execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#4:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#4:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()" shape=ellipse]
+2 [label="execute#?#3:getLogger().debug(\"Using jasper compiler\")
+execute#?#3:getLogger().debug(\"Using symantec java compiler\")
+execute#?#3:getLogger().debug(\"Using symantec java compiler\")
+execute#?#3:getLogger().debug(\"Using SUN rmic compiler\")
+execute#?#3:getLogger().debug(\"Using SUN rmic compiler\")
+execute#?#3:getLogger().debug(\"Using modern compiler\")
+execute#?#3:getLogger().debug(\"Using WebLogic rmic\")
+execute#?#3:getLogger().debug(\"Using Kaffe rmic\")
+execute#?#3:getLogger().debug(\"Using jikes compiler\")
+execute#?#4:getLogger().debug(\"Using gcj compiler\")
+execute#?#3:getLogger().debug(\"Using jasper compiler\")
+execute#?#3:getLogger().debug(\"Using modern compiler\")
+execute#?#3:getLogger().debug(\"Using external javac compiler\")
+execute#?#3:getLogger().debug(\"Using jvc compiler\")
+execute#?#4:getLogger().debug(\"Using gcj compiler\")
+execute#?#3:getLogger().debug(\"Using kjc compiler\")
+execute#?#3:getLogger().debug(\"Using classic compiler\")
+execute#?#3:getLogger().debug(\"Using jvc compiler\")
+execute#?#3:getLogger().debug(\"Using Kaffe rmic\")
+execute#?#3:getLogger().debug(\"Using classic compiler\")
+execute#?#3:getLogger().debug(\"Using kjc compiler\")
+execute#?#3:getLogger().debug(\"Using jikes compiler\")
+execute#?#3:getLogger().debug(\"Using WebLogic rmic\")
+execute#?#3:getLogger().debug(\"Using external javac compiler\")" shape=ellipse]
+3 [label="execute#?#2:\{
+    getLogger().debug(\"Using jasper compiler\");
+    Commandline cmd = setupJasperCommand();
+    try \{
+        Java java = null;
+        if (getJspc().getClasspath() != null) \{
+            java.addClasspath(getJspc().getClasspath());
+        \}
+        java.setClassname(\"org.apache.jasper.JspC\");
+        String args[] = cmd.getArguments();
+        for (int i = 0; i < args.length; i++) \{
+            java.addArg(new Argument(args[i]));
+        \}
+        java.execute();
+        return true;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error running jsp compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using symantec java compiler\");
+    Commandline cmd = setupJavacCommand();
+    cmd.setExecutable(\"sj\");
+    int firstFileName = cmd.size() - m_compileList.length;
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using symantec java compiler\");
+    Commandline cmd = setupJavacCommand();
+    cmd.setExecutable(\"sj\");
+    int firstFileName = cmd.size() - m_compileList.length;
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using SUN rmic compiler\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"sun.rmi.rmic.Main\");
+        Constructor cons = c.getConstructor(new Class[]\{ OutputStream.class, String.class \});
+        Object rmic = cons.newInstance(new Object[]\{ System.out, \"rmic\" \});
+        Method doRmic = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use SUN rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting SUN rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using SUN rmic compiler\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"sun.rmi.rmic.Main\");
+        Constructor cons = c.getConstructor(new Class[]\{ OutputStream.class, String.class \});
+        Object rmic = cons.newInstance(new Object[]\{ System.out, \"rmic\" \});
+        Method doRmic = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use SUN rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting SUN rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using modern compiler\");
+    Commandline cmd = setupModernJavacCommand();
+    try \{
+        Class c = Class.forName(\"com.sun.tools.javac.Main\");
+        Object compiler = c.newInstance();
+        Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+        int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+        return result == MODERN_COMPILER_SUCCESS;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting modern compiler\", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using WebLogic rmic\");
+    Commandline cmd = setupRmicCommand(new String[]\{ \"-noexit\" \});
+    try \{
+        Class c = Class.forName(\"weblogic.rmic\");
+        Method doRmic = c.getMethod(\"main\", new Class[]\{ String[].class \});
+        doRmic.invoke(null, new Object[]\{ cmd.getArguments() \});
+        return true;
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use WebLogic rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting WebLogic rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using Kaffe rmic\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+        Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+        Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+        Method doRmic = c.getMethod(\"run\", null);
+        String str[] = cmd.getArguments();
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using jikes compiler\");
+    Path classpath = new Path();
+    if (m_bootclasspath != null) \{
+        classpath.append(m_bootclasspath);
+    \}
+    addExtdirs(classpath);
+    if ((m_bootclasspath == null) || (m_bootclasspath.size() == 0)) \{
+        m_includeJavaRuntime = true;
+    \} else \{
+    \}
+    classpath.append(getCompileClasspath());
+    classpath.append(src);
+    String jikesPath = System.getProperty(\"jikes.class.path\");
+    if (jikesPath != null) \{
+        classpath.append(new Path(jikesPath));
+    \}
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(\"jikes\");
+    if (m_deprecation == true) \{
+        cmd.addArgument(\"-deprecation\");
+    \}
+    if (m_destDir != null) \{
+        cmd.addArgument(\"-d\");
+        cmd.addArgument(m_destDir);
+    \}
+    cmd.addArgument(\"-classpath\");
+    cmd.addArguments(FileUtils.translateCommandline(classpath));
+    if (m_encoding != null) \{
+        cmd.addArgument(\"-encoding\");
+        cmd.addArgument(m_encoding);
+    \}
+    if (m_debug) \{
+        cmd.addArgument(\"-g\");
+    \}
+    if (m_optimize) \{
+        cmd.addArgument(\"-O\");
+    \}
+    if (m_verbose) \{
+        cmd.addArgument(\"-verbose\");
+    \}
+    if (m_depend) \{
+        cmd.addArgument(\"-depend\");
+    \}
+    if (m_attributes.getNowarn()) \{
+        cmd.addArgument(\"-nowarn\");
+    \}
+    addCurrentCompilerArgs(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    Commandline cmd;
+    getLogger().debug(\"Using gcj compiler\");
+    cmd = setupGCJCommand();
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using jasper compiler\");
+    Commandline cmd = setupJasperCommand();
+    try \{
+        Java java = null;
+        if (getJspc().getClasspath() != null) \{
+            java.addClasspath(getJspc().getClasspath());
+        \}
+        java.setClassname(\"org.apache.jasper.JspC\");
+        String args[] = cmd.getArguments();
+        for (int i = 0; i < args.length; i++) \{
+            java.addArg(new Argument(args[i]));
+        \}
+        java.execute();
+        return true;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error running jsp compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using modern compiler\");
+    Commandline cmd = setupModernJavacCommand();
+    try \{
+        Class c = Class.forName(\"com.sun.tools.javac.Main\");
+        Object compiler = c.newInstance();
+        Method compile = c.getMethod(\"compile\", new Class[]\{ new String[]\{  \}.getClass() \});
+        int result = ((Integer) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \}))).intValue();
+        return result == MODERN_COMPILER_SUCCESS;
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting modern compiler\", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using external javac compiler\");
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(getJavac().getJavacExecutable());
+    setupModernJavacCommandlineSwitches(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using jvc compiler\");
+    Path classpath = new Path();
+    if (m_bootclasspath != null) \{
+        classpath.append(m_bootclasspath);
+    \}
+    addExtdirs(classpath);
+    if ((m_bootclasspath == null) || (m_bootclasspath.size() == 0)) \{
+        m_includeJavaRuntime = true;
+    \} else \{
+    \}
+    classpath.append(getCompileClasspath());
+    classpath.append(src);
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(\"jvc\");
+    if (m_destDir != null) \{
+        cmd.addArgument(\"/d\");
+        cmd.addArgument(m_destDir);
+    \}
+    cmd.addArgument(\"/cp:p\");
+    cmd.addArguments(FileUtils.translateCommandline(classpath));
+    cmd.addArgument(\"/x-\");
+    cmd.addArgument(\"/nomessage\");
+    cmd.addArgument(\"/nologo\");
+    if (m_debug) \{
+        cmd.addArgument(\"/g\");
+    \}
+    if (m_optimize) \{
+        cmd.addArgument(\"/O\");
+    \}
+    if (m_verbose) \{
+        cmd.addArgument(\"/verbose\");
+    \}
+    addCurrentCompilerArgs(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    Commandline cmd;
+    getLogger().debug(\"Using gcj compiler\");
+    cmd = setupGCJCommand();
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using kjc compiler\");
+    Commandline cmd = setupKjcCommand();
+    try \{
+        Class c = Class.forName(\"at.dms.kjc.Main\");
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting kjc compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using classic compiler\");
+    Commandline cmd = setupJavacCommand(true);
+    try \{
+        Class c = Class.forName(\"sun.tools.javac.Main\");
+        Constructor cons = c.getConstructor(new Class[]\{ OutputStream.class, String.class \});
+        Object compiler = cons.newInstance(new Object[]\{ System.out, \"javac\" \});
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use classic compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME to your jdk directory.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting classic compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using jvc compiler\");
+    Path classpath = new Path();
+    if (m_bootclasspath != null) \{
+        classpath.append(m_bootclasspath);
+    \}
+    addExtdirs(classpath);
+    if ((m_bootclasspath == null) || (m_bootclasspath.size() == 0)) \{
+        m_includeJavaRuntime = true;
+    \} else \{
+    \}
+    classpath.append(getCompileClasspath());
+    classpath.append(src);
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(\"jvc\");
+    if (m_destDir != null) \{
+        cmd.addArgument(\"/d\");
+        cmd.addArgument(m_destDir);
+    \}
+    cmd.addArgument(\"/cp:p\");
+    cmd.addArguments(FileUtils.translateCommandline(classpath));
+    cmd.addArgument(\"/x-\");
+    cmd.addArgument(\"/nomessage\");
+    cmd.addArgument(\"/nologo\");
+    if (m_debug) \{
+        cmd.addArgument(\"/g\");
+    \}
+    if (m_optimize) \{
+        cmd.addArgument(\"/O\");
+    \}
+    if (m_verbose) \{
+        cmd.addArgument(\"/verbose\");
+    \}
+    addCurrentCompilerArgs(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using Kaffe rmic\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+        Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+        Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+        Method doRmic = c.getMethod(\"run\", null);
+        String str[] = cmd.getArguments();
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using classic compiler\");
+    Commandline cmd = setupJavacCommand(true);
+    try \{
+        Class c = Class.forName(\"sun.tools.javac.Main\");
+        Constructor cons = c.getConstructor(new Class[]\{ OutputStream.class, String.class \});
+        Object compiler = cons.newInstance(new Object[]\{ System.out, \"javac\" \});
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(compiler, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use classic compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME to your jdk directory.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting classic compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using kjc compiler\");
+    Commandline cmd = setupKjcCommand();
+    try \{
+        Class c = Class.forName(\"at.dms.kjc.Main\");
+        Method compile = c.getMethod(\"compile\", new Class[]\{ String[].class \});
+        Boolean ok = ((Boolean) (compile.invoke(null, new Object[]\{ cmd.getArguments() \})));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use kjc compiler, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH to your kjc archive (kjc.jar).\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting kjc compiler: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using jikes compiler\");
+    Path classpath = new Path();
+    if (m_bootclasspath != null) \{
+        classpath.append(m_bootclasspath);
+    \}
+    addExtdirs(classpath);
+    if ((m_bootclasspath == null) || (m_bootclasspath.size() == 0)) \{
+        m_includeJavaRuntime = true;
+    \} else \{
+    \}
+    classpath.append(getCompileClasspath());
+    classpath.append(src);
+    String jikesPath = System.getProperty(\"jikes.class.path\");
+    if (jikesPath != null) \{
+        classpath.append(new Path(jikesPath));
+    \}
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(\"jikes\");
+    if (m_deprecation == true) \{
+        cmd.addArgument(\"-deprecation\");
+    \}
+    if (m_destDir != null) \{
+        cmd.addArgument(\"-d\");
+        cmd.addArgument(m_destDir);
+    \}
+    cmd.addArgument(\"-classpath\");
+    cmd.addArguments(FileUtils.translateCommandline(classpath));
+    if (m_encoding != null) \{
+        cmd.addArgument(\"-encoding\");
+        cmd.addArgument(m_encoding);
+    \}
+    if (m_debug) \{
+        cmd.addArgument(\"-g\");
+    \}
+    if (m_optimize) \{
+        cmd.addArgument(\"-O\");
+    \}
+    if (m_verbose) \{
+        cmd.addArgument(\"-verbose\");
+    \}
+    if (m_depend) \{
+        cmd.addArgument(\"-depend\");
+    \}
+    if (m_attributes.getNowarn()) \{
+        cmd.addArgument(\"-nowarn\");
+    \}
+    addCurrentCompilerArgs(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using WebLogic rmic\");
+    Commandline cmd = setupRmicCommand(new String[]\{ \"-noexit\" \});
+    try \{
+        Class c = Class.forName(\"weblogic.rmic\");
+        Method doRmic = c.getMethod(\"main\", new Class[]\{ String[].class \});
+        doRmic.invoke(null, new Object[]\{ cmd.getArguments() \});
+        return true;
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use WebLogic rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting WebLogic rmic: \", ex);
+        \}
+    \}
+\}
+execute#?#2:\{
+    getLogger().debug(\"Using external javac compiler\");
+    Commandline cmd = new Commandline();
+    cmd.setExecutable(getJavac().getJavacExecutable());
+    setupModernJavacCommandlineSwitches(cmd);
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+4 [label="execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#4:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#4:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug
+execute#?#3:debug" shape=ellipse]
+5 [label="execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#4:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#4:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)
+execute#?#3:debug(java.lang.String)" shape=ellipse]
+6 [label="execute#?#3:\"Using jasper compiler\"
+execute#?#3:\"Using symantec java compiler\"
+execute#?#3:\"Using symantec java compiler\"
+execute#?#3:\"Using SUN rmic compiler\"
+execute#?#3:\"Using SUN rmic compiler\"
+execute#?#3:\"Using modern compiler\"
+execute#?#3:\"Using WebLogic rmic\"
+execute#?#3:\"Using Kaffe rmic\"
+execute#?#3:\"Using jikes compiler\"
+execute#?#4:\"Using gcj compiler\"
+execute#?#3:\"Using jasper compiler\"
+execute#?#3:\"Using modern compiler\"
+execute#?#3:\"Using external javac compiler\"
+execute#?#3:\"Using jvc compiler\"
+execute#?#4:\"Using gcj compiler\"
+execute#?#3:\"Using kjc compiler\"
+execute#?#3:\"Using classic compiler\"
+execute#?#3:\"Using jvc compiler\"
+execute#?#3:\"Using Kaffe rmic\"
+execute#?#3:\"Using classic compiler\"
+execute#?#3:\"Using kjc compiler\"
+execute#?#3:\"Using jikes compiler\"
+execute#?#3:\"Using WebLogic rmic\"
+execute#?#3:\"Using external javac compiler\"" shape=ellipse]
+7 [label="execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#4:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#4:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger
+execute#?#3:getLogger" shape=ellipse]
+8 [label="execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:" shape=ellipse]
+9 [label="execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+10 [label="execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+11 [label="execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#4:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#4:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()
+execute#?#3:getLogger()" shape=ellipse]
+12 [label="execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#4:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#4:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()
+execute#?#3:getTaskContext()" shape=ellipse]
+0 -> 12 [label="Action:24"];
+1 -> 0 [label="Action:24"];
+1 -> 7 [label="AST:24"];
+1 -> 8 [label="AST:24"];
+1 -> 11 [label="AST:24"];
+2 -> 1 [label="AST:24"];
+2 -> 4 [label="AST:24"];
+2 -> 5 [label="AST:24"];
+2 -> 6 [label="AST:24"];
+3 -> 2 [label="AST:24"];
+8 -> 9 [label="AST:24"];
+8 -> 10 [label="AST:24"];
+}

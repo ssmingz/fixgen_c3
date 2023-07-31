@@ -1,0 +1,121 @@
+digraph "withBeforeClasses#?,Statement" {
+0 [label="2:CtTypeReferenceImpl@Statement" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@" shape=ellipse]
+2 [label="2:CtVirtualElement@withBeforeClasses" shape=ellipse]
+3 [label="2:CtParameterImpl@Statement statement" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@Statement" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@List<FrameworkMethod>" shape=ellipse]
+6 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@FrameworkMethod" shape=ellipse]
+8 [label="3:CtExecutableReferenceImpl@getAnnotatedMethods(java.lang.Class)" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@fTestClass" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@List<FrameworkMethod>" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@Class<BeforeClass>" shape=ellipse]
+12 [label="3:CtVirtualElement@getAnnotatedMethods" shape=ellipse]
+13 [label="3:CtFieldReferenceImpl@fTestClass" shape=ellipse]
+14 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+15 [label="3:CtFieldReadImpl@fTestClass" shape=ellipse]
+16 [label="3:CtFieldReferenceImpl@BeforeClass.class" shape=ellipse]
+17 [label="3:CtTypeReferenceImpl@BeforeClass" shape=ellipse]
+18 [label="3:CtTypeReferenceImpl@Class" shape=ellipse]
+19 [label="3:CtFieldReadImpl@BeforeClass.class" shape=ellipse]
+20 [label="3:CtTypeAccessImpl@BeforeClass" shape=ellipse]
+21 [label="3:CtInvocationImpl@fTestClass.getAnnotatedMethods(BeforeClass.class)" shape=ellipse]
+22 [label="3:CtVirtualElement@befores" shape=ellipse]
+23 [label="3:CtLocalVariableImpl@List<FrameworkMethod> befores = fTestClass.getAnnotatedMethods(BeforeClass.class)" shape=ellipse]
+24 [label="4:CtExecutableReferenceImpl@isEmpty()" shape=ellipse]
+25 [label="4:CtTypeReferenceImpl@List<FrameworkMethod>" shape=ellipse]
+26 [label="4:CtTypeReferenceImpl@boolean" shape=ellipse]
+27 [label="4:CtVirtualElement@isEmpty" shape=ellipse]
+28 [label="4:CtVariableReadImpl@befores" shape=ellipse]
+29 [label="4:CtLocalVariableReferenceImpl@befores" shape=ellipse]
+30 [label="4:CtInvocationImpl@befores.isEmpty()" shape=ellipse]
+31 [label="4:CtVariableReadImpl@statement" shape=ellipse]
+32 [label="4:CtParameterReferenceImpl@statement" shape=ellipse]
+33 [label="4:CtExecutableReferenceImpl@RunBefores()" shape=ellipse]
+34 [label="4:CtTypeReferenceImpl@RunBefores" shape=ellipse]
+35 [label="4:CtTypeReferenceImpl@RunBefores" shape=ellipse]
+36 [label="4:CtVariableReadImpl@statement" shape=ellipse]
+37 [label="4:CtParameterReferenceImpl@statement" shape=ellipse]
+38 [label="4:CtVariableReadImpl@befores" shape=ellipse]
+39 [label="4:CtLocalVariableReferenceImpl@befores" shape=ellipse]
+40 [label="4:CtLiteralImpl@null" shape=ellipse]
+41 [label="4:CtTypeReferenceImpl@<nulltype>" shape=ellipse]
+42 [label="4:CtConstructorCallImpl@new RunBefores(statement, befores, null)" shape=ellipse]
+43 [label="4:CtConditionalImpl@befores.isEmpty() ? statement : new RunBefores(statement, befores, null)" shape=ellipse]
+44 [label="4:CtReturnImpl@return befores.isEmpty() ? statement : new RunBefores(statement, befores, null)" shape=ellipse]
+45 [label="2:CtBlockImpl@\{
+    List<FrameworkMethod> befores = fTestClass.getAnnotatedMethods(BeforeClass.class);
+    return befores.isEmpty() ? statement : new RunBefores(statement, befores, null);
+\}" shape=ellipse]
+46 [label="2:CtMethodImpl@protected Statement withBeforeClasses(Statement statement) \{
+    List<FrameworkMethod> befores = fTestClass.getAnnotatedMethods(BeforeClass.class);
+    return befores.isEmpty() ? statement : new RunBefores(statement, befores, null);
+\}" shape=ellipse]
+47 [label="3:Update@UPDATE" shape=ellipse]
+48 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+49 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+50 [label="3:CtFieldReferenceImpl@testClass" shape=ellipse]
+51 [label="3:CtFieldReadImpl@testClass" shape=ellipse]
+0 -> 1 [label="AST"];
+3 -> 4 [label="AST"];
+5 -> 6 [label="AST"];
+5 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+8 -> 10 [label="AST"];
+8 -> 11 [label="AST"];
+13 -> 14 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 22 [label="Data Dep"];
+15 -> 47 [label="Action"];
+16 -> 17 [label="AST"];
+16 -> 18 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 16 [label="AST"];
+19 -> 22 [label="Data Dep"];
+21 -> 12 [label="AST"];
+21 -> 15 [label="AST"];
+21 -> 8 [label="AST"];
+21 -> 19 [label="AST"];
+22 -> 28 [label="Define-Use"];
+22 -> 38 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 5 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 25 [label="AST"];
+24 -> 26 [label="AST"];
+28 -> 29 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 31 [label="Control Dep"];
+30 -> 42 [label="Control Dep"];
+30 -> 33 [label="Control Dep"];
+30 -> 36 [label="Control Dep"];
+30 -> 38 [label="Control Dep"];
+30 -> 40 [label="Control Dep"];
+31 -> 32 [label="AST"];
+33 -> 34 [label="AST"];
+33 -> 35 [label="AST"];
+36 -> 37 [label="AST"];
+38 -> 39 [label="AST"];
+40 -> 41 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 36 [label="AST"];
+42 -> 38 [label="AST"];
+42 -> 40 [label="AST"];
+43 -> 30 [label="AST"];
+43 -> 31 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 23 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 2 [label="AST"];
+46 -> 0 [label="AST"];
+46 -> 3 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 51 [label="Action"];
+49 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+}

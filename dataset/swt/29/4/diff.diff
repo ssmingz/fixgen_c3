@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/29/4/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/29/4/after.java
+@@ -3,7 +3,1 @@
+-    if (device == null) {
+-      device = Device.getDevice();
+-    }
+-    if (device == null) {
+-      SWT.error(ERROR_NULL_ARGUMENT);
+-    }
+-    this.device = device;
++    super(device);
+@@ -22,1 +16,1 @@
+-    OS.pango_layout_set_tabs(layout, device.emptyTab);
++    OS.pango_layout_set_tabs(layout, this.device.emptyTab);
+@@ -31,3 +25,1 @@
+-    if (device.tracking) {
+-      device.new_Object(this);
+-    }
++    init();

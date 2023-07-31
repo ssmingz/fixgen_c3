@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2039/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2039/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,5 +4,6 @@
+-    executeTarget("testPathElementMove");
+-    assertTrue(new File(getOutputDir(), "E").exists());
+-    assertTrue(new File(getOutputDir(), "E/1").exists());
+-    assertTrue(!new File(getOutputDir(), "A/1").exists());
+-    assertTrue(new File(getOutputDir(), "A").exists());
++    buildRule.executeTarget("testPathElementMove");
++    String output = buildRule.getProject().getProperty("output");
++    assertTrue(new File(output, "E").exists());
++    assertTrue(new File(output, "E/1").exists());
++    assertTrue(!new File(output, "A/1").exists());
++    assertTrue(new File(output, "A").exists());

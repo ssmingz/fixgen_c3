@@ -1,0 +1,51 @@
+digraph "Pattern" {
+0 [label="getName#?#3:INSERT
+getJavaVersion#?#3:INSERT" shape=ellipse]
+1 [label="getName#?#2:public String getName() \{
+    return ((String) (get(NAME)));
+\}
+getJavaVersion#?#2:public JavaVersion getJavaVersion() \{
+    return ((JavaVersion) (get(JAVA_VERSION)));
+\}" shape=ellipse]
+2 [label="getName#?#2:getName
+getJavaVersion#?#2:getJavaVersion" shape=ellipse]
+3 [label="getName#?#2:String
+getJavaVersion#?#2:JavaVersion" shape=ellipse]
+4 [label="getName#?#-1:java.lang
+getJavaVersion#?#-1:" shape=ellipse]
+5 [label="getName#?#2:\{
+    return ((String) (get(NAME)));
+\}
+getJavaVersion#?#2:\{
+    return ((JavaVersion) (get(JAVA_VERSION)));
+\}" shape=ellipse]
+6 [label="getName#?#3:return ((String) (get(NAME)))
+getJavaVersion#?#3:return ((JavaVersion) (get(JAVA_VERSION)))" shape=ellipse]
+7 [label="getName#?#2:public
+getJavaVersion#?#2:public" shape=ellipse]
+8 [label="getName#?#2:VE: Modifiers_Method
+getJavaVersion#?#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="getName#?#3:try \{
+    return ((String) (get(NAME)));
+\} catch (final ContextException ce) \{
+    throw new IllegalStateException(\"No Name in Context\");
+\}
+getJavaVersion#?#3:try \{
+    return ((JavaVersion) (get(JAVA_VERSION)));
+\} catch (final ContextException ce) \{
+    throw new IllegalStateException(\"No JavaVersion in Context\");
+\}" shape=ellipse]
+10 [label="getName#?#3:MOVE
+getJavaVersion#?#3:MOVE" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+6 -> 10 [label="Action:2"];
+10 -> 9 [label="Action:2"];
+}

@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1167/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1167/2/after.java
+@@ -32,6 +32,8 @@
+-    redraw(
+-        getTextX(columnIndex),
+-        parent.getItemY(this),
+-        Math.max(oldWidth, textWidths[columnIndex]) + (2 * MARGIN_TEXT),
+-        parent.itemHeight,
+-        columnIndex);
++    if (isInViewport()) {
++      redraw(
++          getTextX(columnIndex),
++          parent.getItemY(this),
++          Math.max(oldWidth, textWidths[columnIndex]) + (2 * MARGIN_TEXT),
++          parent.itemHeight,
++          columnIndex);
++    }

@@ -1,0 +1,203 @@
+digraph "Pattern" {
+0 [label="createUI#?,String#115:UPDATE
+createUI#?,String#41:UPDATE" shape=ellipse]
+1 [label="createUI#?,String#115:HORIZONTAL
+createUI#?,String#41:HORIZONTAL" shape=ellipse]
+2 [label="createUI#?,String#109:addGrid(panel, fUseLoadingRunner, 0, 2, 2, HORIZONTAL, 1.0, WEST)
+createUI#?,String#35:addGrid(panel, fUseLoadingRunner, 0, 2, 3, HORIZONTAL, 1.0, WEST)" shape=ellipse]
+3 [label="createUI#?,String#2:\{
+    Frame frame = new Frame(\"JUnit\");
+    Image icon = loadFrameIcon();
+    if (icon != null) \{
+        frame.setIconImage(icon);
+    \}
+    frame.setLayout(new BorderLayout(0, 0));
+    frame.setBackground(control);
+    final Frame finalFrame = frame;
+    frame.addWindowListener(new WindowAdapter() \{
+        public void windowClosing(WindowEvent e) \{
+            finalFrame.dispose();
+            System.exit(0);
+        \}
+    \});
+    MenuBar mb = new MenuBar();
+    createMenus(mb);
+    frame.setMenuBar(mb);
+    Label suiteLabel = new Label(\"Test class name:\");
+    fSuiteField = new TextField(suiteName != null ? suiteName : \"\");
+    fSuiteField.selectAll();
+    fSuiteField.requestFocus();
+    fSuiteField.setFont(PLAIN_FONT);
+    fSuiteField.setColumns(40);
+    fSuiteField.addActionListener(new ActionListener() \{
+        public void actionPerformed(ActionEvent e) \{
+            runSuite();
+        \}
+    \});
+    fSuiteField.addTextListener(new TextListener() \{
+        public void textValueChanged(TextEvent e) \{
+            fRun.setEnabled(fSuiteField.getText().length() > 0);
+            fStatusLine.setText(\"\");
+        \}
+    \});
+    fRun = new Button(\"Run\");
+    fRun.setEnabled(false);
+    fRun.addActionListener(new ActionListener() \{
+        public void actionPerformed(ActionEvent e) \{
+            runSuite();
+        \}
+    \});
+    boolean useLoader = useReloadingTestSuiteLoader();
+    fUseLoadingRunner = new Checkbox(\"Reload classes every run\", useLoader);
+    if (inVAJava()) \{
+        fUseLoadingRunner.setVisible(false);
+    \}
+    fProgressIndicator = new ProgressBar();
+    fNumberOfErrors = new Label(\"0000\", Label.RIGHT);
+    fNumberOfErrors.setText(\"0\");
+    fNumberOfErrors.setFont(PLAIN_FONT);
+    fNumberOfFailures = new Label(\"0000\", Label.RIGHT);
+    fNumberOfFailures.setText(\"0\");
+    fNumberOfFailures.setFont(PLAIN_FONT);
+    fNumberOfRuns = new Label(\"0000\", Label.RIGHT);
+    fNumberOfRuns.setText(\"0\");
+    fNumberOfRuns.setFont(PLAIN_FONT);
+    Panel numbersPanel = new Panel(new FlowLayout());
+    numbersPanel.add(new Label(\"Runs:\"));
+    numbersPanel.add(fNumberOfRuns);
+    numbersPanel.add(new Label(\"   Errors:\"));
+    numbersPanel.add(fNumberOfErrors);
+    numbersPanel.add(new Label(\"   Failures:\"));
+    numbersPanel.add(fNumberOfFailures);
+    Label failureLabel = new Label(\"Errors and Failures:\");
+    fFailureList = new List(5);
+    fFailureList.addItemListener(new ItemListener() \{
+        public void itemStateChanged(ItemEvent e) \{
+            failureSelected();
+        \}
+    \});
+    fRerunButton = new Button(\"Run\");
+    fRerunButton.setEnabled(false);
+    fRerunButton.addActionListener(new ActionListener() \{
+        public void actionPerformed(ActionEvent e) \{
+            rerun();
+        \}
+    \});
+    Panel failedPanel = new Panel(new GridLayout(0, 1, 0, 2));
+    failedPanel.add(fRerunButton);
+    fTraceArea = new TextArea();
+    fTraceArea.setRows(5);
+    fTraceArea.setColumns(60);
+    fStatusLine = new TextField();
+    fStatusLine.setFont(PLAIN_FONT);
+    fStatusLine.setEditable(false);
+    fStatusLine.setForeground(red);
+    fQuitButton = new Button(\"Exit\");
+    fQuitButton.addActionListener(new ActionListener() \{
+        public void actionPerformed(ActionEvent e) \{
+            System.exit(0);
+        \}
+    \});
+    fLogo = new Logo();
+    Panel panel = new Panel(new GridBagLayout());
+    addGrid(panel, suiteLabel, 0, 0, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fSuiteField, 0, 1, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fRun, 2, 1, 1, HORIZONTAL, 0.0, CENTER);
+    addGrid(panel, fUseLoadingRunner, 0, 2, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fProgressIndicator, 0, 3, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fLogo, 2, 3, 1, NONE, 0.0, NORTH);
+    addGrid(panel, numbersPanel, 0, 4, 2, NONE, 0.0, CENTER);
+    addGrid(panel, failureLabel, 0, 5, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fFailureList, 0, 6, 2, BOTH, 1.0, WEST);
+    addGrid(panel, failedPanel, 2, 6, 1, HORIZONTAL, 0.0, CENTER);
+    addGrid(panel, fTraceArea, 0, 7, 2, BOTH, 1.0, WEST);
+    addGrid(panel, fStatusLine, 0, 8, 2, HORIZONTAL, 1.0, CENTER);
+    addGrid(panel, fQuitButton, 2, 8, 1, HORIZONTAL, 0.0, CENTER);
+    frame.add(panel, BorderLayout.CENTER);
+    frame.pack();
+    return frame;
+\}
+createUI#?,String#2:\{
+    JFrame frame = createFrame(\"JUnit\");
+    JMenuBar mb = new JMenuBar();
+    createMenus(mb);
+    frame.setJMenuBar(mb);
+    JLabel suiteLabel = new JLabel(\"Test class name:\");
+    fSuiteCombo = createSuiteCombo();
+    fRun = createRunButton();
+    frame.getRootPane().setDefaultButton(fRun);
+    Component browseButton = createBrowseButton();
+    fUseLoadingRunner = createUseLoaderCheckBox();
+    fProgressIndicator = new ProgressBar();
+    fCounterPanel = createCounterPanel();
+    JLabel failureLabel = new JLabel(\"Errors and Failures:\");
+    fFailures = new DefaultListModel();
+    fTestViewTab = createTestRunViews();
+    JPanel failedPanel = createFailedPanel();
+    fFailureView = createFailureDetailView();
+    JScrollPane tracePane = new JScrollPane(fFailureView.getComponent(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    fStatusLine = createStatusLine();
+    fQuitButton = createQuitButton();
+    fLogo = createLogo();
+    JPanel panel = new JPanel(new GridBagLayout());
+    addGrid(panel, suiteLabel, 0, 0, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fSuiteCombo, 0, 1, 1, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, browseButton, 1, 1, 1, NONE, 0.0, WEST);
+    addGrid(panel, fRun, 2, 1, 1, HORIZONTAL, 0.0, CENTER);
+    addGrid(panel, fUseLoadingRunner, 0, 2, 3, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, new JSeparator(), 0, 3, 3, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fProgressIndicator, 0, 4, 2, HORIZONTAL, 1.0, WEST);
+    addGrid(panel, fLogo, 2, 4, 1, NONE, 0.0, NORTH);
+    addGrid(panel, fCounterPanel, 0, 5, 2, NONE, 0.0, CENTER);
+    JSplitPane splitter = new JSplitPane(JSplitPane.VERTICAL_SPLIT, fTestViewTab, tracePane);
+    addGrid(panel, splitter, 0, 6, 2, BOTH, 1.0, WEST);
+    addGrid(panel, failedPanel, 2, 6, 1, HORIZONTAL, 0.0, NORTH);
+    addGrid(panel, fStatusLine, 0, 8, 2, HORIZONTAL, 1.0, CENTER);
+    addGrid(panel, fQuitButton, 2, 8, 1, HORIZONTAL, 0.0, CENTER);
+    frame.setContentPane(panel);
+    frame.pack();
+    frame.setLocation(200, 200);
+    return frame;
+\}" shape=ellipse]
+4 [label="createUI#?,String#109:addGrid
+createUI#?,String#35:addGrid" shape=ellipse]
+5 [label="createUI#?,String#109:
+createUI#?,String#35:" shape=ellipse]
+6 [label="createUI#?,String#109:addGrid(<unknown>,<unknown>,int,int,int,<unknown>,double,<unknown>)
+createUI#?,String#35:addGrid(<unknown>,<unknown>,int,int,int,<unknown>,double,<unknown>)" shape=ellipse]
+7 [label="createUI#?,String#110:panel
+createUI#?,String#36:panel" shape=ellipse]
+8 [label="createUI#?,String#111:fUseLoadingRunner
+createUI#?,String#37:fUseLoadingRunner" shape=ellipse]
+9 [label="createUI#?,String#112:0
+createUI#?,String#38:0" shape=ellipse]
+10 [label="createUI#?,String#113:2
+createUI#?,String#39:2" shape=ellipse]
+11 [label="createUI#?,String#114:2
+createUI#?,String#40:3" shape=ellipse]
+12 [label="createUI#?,String#116:1.0
+createUI#?,String#42:1.0" shape=ellipse]
+13 [label="createUI#?,String#117:WEST
+createUI#?,String#43:WEST" shape=ellipse]
+14 [label="createUI#?,String#115:HORIZONTAL
+createUI#?,String#41:HORIZONTAL" shape=ellipse]
+15 [label="createUI#?,String#110:NONE
+createUI#?,String#36:NONE" shape=ellipse]
+16 [label="createUI#?,String#110:GridBagConstraints
+createUI#?,String#36:GridBagConstraints" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 11 [label="AST:2"];
+2 -> 12 [label="AST:2"];
+2 -> 13 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+}

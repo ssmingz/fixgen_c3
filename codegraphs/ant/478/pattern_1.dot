@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testBadPattern#?#2:INSERT
+testNolanguage#?#2:INSERT" shape=ellipse]
+1 [label="testBadPattern#?#2:public void testBadPattern() \{
+    expectBuildExceptionContaining(\"testBadPattern\", \"No parsing exception thrown\", \"Unparseable\");
+\}
+testNolanguage#?#2:public void testNolanguage() \{
+    expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\");
+\}" shape=ellipse]
+2 [label="testBadPattern#?#2:testBadPattern
+testNolanguage#?#2:testNolanguage" shape=ellipse]
+3 [label="testBadPattern#?#2:void
+testNolanguage#?#2:void" shape=ellipse]
+4 [label="testBadPattern#?#2:\{
+    expectBuildExceptionContaining(\"testBadPattern\", \"No parsing exception thrown\", \"Unparseable\");
+\}
+testNolanguage#?#2:\{
+    expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\");
+\}" shape=ellipse]
+5 [label="testBadPattern#?#3:expectBuildExceptionContaining(\"testBadPattern\", \"No parsing exception thrown\", \"Unparseable\")
+testNolanguage#?#3:expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\")" shape=ellipse]
+6 [label="testBadPattern#?#2:public
+testNolanguage#?#2:public" shape=ellipse]
+7 [label="testBadPattern#?#2:VE: Modifiers_Method
+testNolanguage#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testBadPattern#?#4:INSERT
+testNolanguage#?#4:INSERT" shape=ellipse]
+9 [label="testBadPattern#?#4:try \{
+    buildRule.executeTarget(\"testBadPattern\");
+    fail(\"No parsing exception thrown\");
+\} catch (BuildException ex) \{
+    assertContains(\"Unparseable\", ex.getMessage());
+\}
+testNolanguage#?#4:try \{
+    buildRule.executeTarget(\"testNolanguage\");
+    fail(\"Absence of language attribute not detected\");
+\} catch (BuildException ex) \{
+    assertContains(\"script language must be specified\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testBadPattern#?#2:@Test
+testNolanguage#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

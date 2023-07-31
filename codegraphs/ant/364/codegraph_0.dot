@@ -1,0 +1,133 @@
+digraph "loadClass#?,String" {
+0 [label="2:CtTypeReferenceImpl@Class" shape=ellipse]
+1 [label="2:CtVirtualElement@loadClass" shape=ellipse]
+2 [label="2:CtParameterImpl@String classname" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@Exception" shape=ellipse]
+5 [label="3:CtFieldReadImpl@m_classpath" shape=ellipse]
+6 [label="3:CtLiteralImpl@null" shape=ellipse]
+7 [label="3:CtBinaryOperatorImpl@m_classpath == null" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@forName(java.lang.String)" shape=ellipse]
+9 [label="4:CtVirtualElement@forName" shape=ellipse]
+10 [label="4:CtTypeAccessImpl@Class" shape=ellipse]
+11 [label="4:CtVariableReadImpl@classname" shape=ellipse]
+12 [label="4:CtInvocationImpl@Class.forName(classname)" shape=ellipse]
+13 [label="4:CtReturnImpl@return Class.forName(classname)" shape=ellipse]
+14 [label="3:CtBlockImpl@\{
+    return Class.forName(classname);
+\}" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@ClassLoader" shape=ellipse]
+16 [label="6:CtTypeReferenceImpl@URLClassLoader" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@toURLs()" shape=ellipse]
+18 [label="6:CtVirtualElement@toURLs" shape=ellipse]
+19 [label="6:CtFieldReadImpl@m_classpath" shape=ellipse]
+20 [label="6:CtInvocationImpl@m_classpath.toURLs()" shape=ellipse]
+21 [label="6:CtConstructorCallImpl@new URLClassLoader(m_classpath.toURLs())" shape=ellipse]
+22 [label="6:CtVirtualElement@classLoader" shape=ellipse]
+23 [label="6:CtLocalVariableImpl@final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs())" shape=ellipse]
+24 [label="7:CtExecutableReferenceImpl@loadClass(java.lang.String)" shape=ellipse]
+25 [label="7:CtVirtualElement@loadClass" shape=ellipse]
+26 [label="7:CtVariableReadImpl@classLoader" shape=ellipse]
+27 [label="7:CtVariableReadImpl@classname" shape=ellipse]
+28 [label="7:CtInvocationImpl@classLoader.loadClass(classname)" shape=ellipse]
+29 [label="7:CtReturnImpl@return classLoader.loadClass(classname)" shape=ellipse]
+30 [label="5:CtBlockImpl@\{
+    final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+    return classLoader.loadClass(classname);
+\}" shape=ellipse]
+31 [label="3:CtIfImpl@if (m_classpath == null) \{
+    return Class.forName(classname);
+\} else \{
+    final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+    return classLoader.loadClass(classname);
+\}" shape=ellipse]
+32 [label="2:CtBlockImpl@\{
+    if (m_classpath == null) \{
+        return Class.forName(classname);
+    \} else \{
+        final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+        return classLoader.loadClass(classname);
+    \}
+\}" shape=ellipse]
+33 [label="2:CtMethodImpl@private Class loadClass(String classname) throws Exception \{
+    if (m_classpath == null) \{
+        return Class.forName(classname);
+    \} else \{
+        final ClassLoader classLoader = new URLClassLoader(m_classpath.toURLs());
+        return classLoader.loadClass(classname);
+    \}
+\}" shape=ellipse]
+34 [label="6:Update@UPDATE" shape=ellipse]
+35 [label="6:CtLocalVariableImpl@final URL[] urls = PathUtil.toURLs(m_classpath)" shape=ellipse]
+36 [label="6:Update@UPDATE" shape=ellipse]
+37 [label="6:CtArrayTypeReferenceImpl@URL[]" shape=ellipse]
+38 [label="7:Insert@INSERT" shape=ellipse]
+39 [label="7:CtLocalVariableImpl@final ClassLoader classLoader = new URLClassLoader(urls)" shape=ellipse]
+40 [label="6:Insert@INSERT" shape=ellipse]
+41 [label="6:CtTypeAccessImpl@PathUtil" shape=ellipse]
+42 [label="6:Move@MOVE" shape=ellipse]
+43 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 14 [label="Control Dep"];
+7 -> 13 [label="Control Dep"];
+7 -> 12 [label="Control Dep"];
+7 -> 8 [label="Control Dep"];
+7 -> 10 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 30 [label="Control Dep"];
+7 -> 23 [label="Control Dep"];
+7 -> 21 [label="Control Dep"];
+7 -> 20 [label="Control Dep"];
+7 -> 17 [label="Control Dep"];
+7 -> 19 [label="Control Dep"];
+7 -> 29 [label="Control Dep"];
+7 -> 28 [label="Control Dep"];
+7 -> 24 [label="Control Dep"];
+7 -> 26 [label="Control Dep"];
+7 -> 27 [label="Control Dep"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 36 [label="Action"];
+19 -> 22 [label="Data Dep"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 40 [label="Action"];
+20 -> 42 [label="Action"];
+21 -> 20 [label="AST"];
+22 -> 26 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 15 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 34 [label="Action"];
+28 -> 25 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 24 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 23 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 38 [label="Action"];
+31 -> 7 [label="AST"];
+31 -> 14 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 1 [label="AST"];
+33 -> 0 [label="AST"];
+33 -> 2 [label="AST"];
+33 -> 4 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 35 [label="Action"];
+35 -> 37 [label="AST"];
+36 -> 37 [label="Action"];
+38 -> 39 [label="Action"];
+40 -> 41 [label="Action"];
+42 -> 23 [label="Action"];
+43 -> 39 [label="Action"];
+}

@@ -1,0 +1,112 @@
+digraph "Pattern" {
+0 [label="iterator#?#3:INSERT
+getFilterHash#?#3:INSERT" shape=ellipse]
+1 [label="iterator#?#2:public Iterator iterator() \{
+    final Enumeration e = getProperties().propertyNames();
+    return new Iterator() \{
+        public boolean hasNext() \{
+            return e.hasMoreElements();
+        \}
+
+        public Object next() \{
+            return new PropertyResource(getProject(), ((String) (e.nextElement())));
+        \}
+
+        public void remove() \{
+            throw new UnsupportedOperationException();
+        \}
+    \};
+\}
+getFilterHash#?#2:public synchronized Hashtable getFilterHash() \{
+    if (filterHash == null) \{
+        filterHash = new Hashtable(getFilters().size());
+        for (Enumeration e = getFilters().elements(); e.hasMoreElements();) \{
+            Filter filter = ((Filter) (e.nextElement()));
+            filterHash.put(filter.getToken(), filter.getValue());
+        \}
+    \}
+    return filterHash;
+\}" shape=ellipse]
+2 [label="iterator#?#2:iterator
+getFilterHash#?#2:getFilterHash" shape=ellipse]
+3 [label="iterator#?#2:Iterator
+getFilterHash#?#2:Hashtable" shape=ellipse]
+4 [label="iterator#?#-1:
+getFilterHash#?#-1:" shape=ellipse]
+5 [label="iterator#?#2:\{
+    final Enumeration e = getProperties().propertyNames();
+    return new Iterator() \{
+        public boolean hasNext() \{
+            return e.hasMoreElements();
+        \}
+
+        public Object next() \{
+            return new PropertyResource(getProject(), ((String) (e.nextElement())));
+        \}
+
+        public void remove() \{
+            throw new UnsupportedOperationException();
+        \}
+    \};
+\}
+getFilterHash#?#2:\{
+    if (filterHash == null) \{
+        filterHash = new Hashtable(getFilters().size());
+        for (Enumeration e = getFilters().elements(); e.hasMoreElements();) \{
+            Filter filter = ((Filter) (e.nextElement()));
+            filterHash.put(filter.getToken(), filter.getValue());
+        \}
+    \}
+    return filterHash;
+\}" shape=ellipse]
+6 [label="iterator#?#3:final Enumeration e = getProperties().propertyNames()
+getFilterHash#?#3:if (filterHash == null) \{
+    filterHash = new Hashtable(getFilters().size());
+    for (Enumeration e = getFilters().elements(); e.hasMoreElements();) \{
+        Filter filter = ((Filter) (e.nextElement()));
+        filterHash.put(filter.getToken(), filter.getValue());
+    \}
+\}" shape=ellipse]
+7 [label="iterator#?#4:return new Iterator() \{
+    public boolean hasNext() \{
+        return e.hasMoreElements();
+    \}
+
+    public Object next() \{
+        return new PropertyResource(getProject(), ((String) (e.nextElement())));
+    \}
+
+    public void remove() \{
+        throw new UnsupportedOperationException();
+    \}
+\}
+getFilterHash#?#10:return filterHash" shape=ellipse]
+8 [label="iterator#?#2:public
+getFilterHash#?#2:public" shape=ellipse]
+9 [label="iterator#?#2:VE: Modifiers_Method
+getFilterHash#?#2:VE: Modifiers_Method" shape=ellipse]
+10 [label="iterator#?#6:INSERT
+getFilterHash#?#6:INSERT" shape=ellipse]
+11 [label="iterator#?#6:dieOnCircularReference()
+getFilterHash#?#6:dieOnCircularReference()" shape=ellipse]
+12 [label="iterator#?#3:if (isReference()) \{
+    return getRef().iterator();
+\}
+getFilterHash#?#3:if (isReference()) \{
+    return getRef().getFilterHash();
+\}" shape=ellipse]
+13 [label="getFilterHash#?#2:synchronized" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 10 [label="Action:2"];
+1 -> 13 [label="AST:1"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+10 -> 11 [label="Action:2"];
+}

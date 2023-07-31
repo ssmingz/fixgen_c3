@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="testContainsIncomplete2#?#5:UPDATE
+testContainsIncomplete1#?#5:UPDATE" shape=ellipse]
+1 [label="testContainsIncomplete2#?#5:\"Missing contains attribute\"
+testContainsIncomplete1#?#5:\"Missing contains attribute\"" shape=ellipse]
+2 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\")
+testContainsIncomplete1#?#3:expectSpecificBuildException(\"contains-incomplete1\", \"Missing contains attribute\", \"both string and substring are required in contains\")" shape=ellipse]
+3 [label="testContainsIncomplete2#?#2:\{
+    expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\");
+\}
+testContainsIncomplete1#?#2:\{
+    expectSpecificBuildException(\"contains-incomplete1\", \"Missing contains attribute\", \"both string and substring are required in contains\");
+\}" shape=ellipse]
+4 [label="testContainsIncomplete2#?#3:expectSpecificBuildException
+testContainsIncomplete1#?#3:expectSpecificBuildException" shape=ellipse]
+5 [label="testContainsIncomplete2#?#-1:
+testContainsIncomplete1#?#-1:" shape=ellipse]
+6 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(java.lang.String,java.lang.String,java.lang.String)
+testContainsIncomplete1#?#3:expectSpecificBuildException(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testContainsIncomplete2#?#4:\"contains-incomplete2\"
+testContainsIncomplete1#?#4:\"contains-incomplete1\"" shape=ellipse]
+8 [label="testContainsIncomplete2#?#6:\"both string and substring are required in contains\"
+testContainsIncomplete1#?#6:\"both string and substring are required in contains\"" shape=ellipse]
+9 [label="testContainsIncomplete2#?#3:DELETE
+testContainsIncomplete1#?#3:DELETE" shape=ellipse]
+10 [label="testContainsIncomplete2#?#-1:String
+testContainsIncomplete1#?#-1:String" shape=ellipse]
+11 [label="testContainsIncomplete2#?#5:MOVE
+testContainsIncomplete1#?#5:MOVE" shape=ellipse]
+12 [label="testContainsIncomplete2#?#6:fail(\"BuildException should have been thrown - Missing contains attribute\")
+testContainsIncomplete1#?#6:fail(\"BuildException should have been thrown - Missing contains attribute\")" shape=ellipse]
+13 [label="testContainsIncomplete2#?#6:\"BuildException should have been thrown - Missing contains attribute\"
+testContainsIncomplete1#?#6:\"BuildException should have been thrown - Missing contains attribute\"" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="Action:2"];
+12 -> 13 [label="AST:2"];
+}

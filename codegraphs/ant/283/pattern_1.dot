@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="testNoCrash#?#2:INSERT
+testNoTimeout#?#2:INSERT
+testFilesetOutOfDate#?#2:INSERT
+testRCOutOfDate#?#2:INSERT" shape=ellipse]
+1 [label="testNoCrash#?#2:public void testNoCrash() \{
+    expectPropertyUnset(\"nocrash\", \"crashed\");
+\}
+testNoTimeout#?#2:public void testNoTimeout() \{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}
+testFilesetOutOfDate#?#2:public void testFilesetOutOfDate() \{
+    expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\");
+\}
+testRCOutOfDate#?#2:public void testRCOutOfDate() \{
+    expectPropertyUnset(\"testRCOutOfDate\", \"foo\");
+\}" shape=ellipse]
+2 [label="testNoCrash#?#2:testNoCrash
+testNoTimeout#?#2:testNoTimeout
+testFilesetOutOfDate#?#2:VE: Modifiers_Method
+testRCOutOfDate#?#2:testRCOutOfDate" shape=ellipse]
+3 [label="testNoCrash#?#2:void
+testNoTimeout#?#2:void
+testFilesetOutOfDate#?#2:void
+testRCOutOfDate#?#2:void" shape=ellipse]
+4 [label="testNoCrash#?#2:\{
+    expectPropertyUnset(\"nocrash\", \"crashed\");
+\}
+testNoTimeout#?#2:\{
+    expectPropertyUnset(\"notimeout\", \"timeout\");
+\}
+testFilesetOutOfDate#?#2:\{
+    expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\");
+\}
+testRCOutOfDate#?#2:\{
+    expectPropertyUnset(\"testRCOutOfDate\", \"foo\");
+\}" shape=ellipse]
+5 [label="testNoCrash#?#3:expectPropertyUnset(\"nocrash\", \"crashed\")
+testNoTimeout#?#3:expectPropertyUnset(\"notimeout\", \"timeout\")
+testFilesetOutOfDate#?#3:expectPropertyUnset(\"testFilesetOutOfDate\", \"foo\")
+testRCOutOfDate#?#3:expectPropertyUnset(\"testRCOutOfDate\", \"foo\")" shape=ellipse]
+6 [label="testNoCrash#?#2:VE: Modifiers_Method
+testNoTimeout#?#2:VE: Modifiers_Method
+testFilesetOutOfDate#?#2:testFilesetOutOfDate
+testRCOutOfDate#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testNoCrash#?#2:public
+testNoTimeout#?#2:public
+testFilesetOutOfDate#?#2:public
+testRCOutOfDate#?#2:public" shape=ellipse]
+8 [label="testNoCrash#?#4:INSERT
+testNoTimeout#?#4:INSERT
+testFilesetOutOfDate#?#4:INSERT
+testRCOutOfDate#?#4:INSERT" shape=ellipse]
+9 [label="testNoCrash#?#4:buildRule.executeTarget(\"nocrash\")
+testNoTimeout#?#4:buildRule.executeTarget(\"notimeout\")
+testFilesetOutOfDate#?#4:buildRule.executeTarget(\"testFilesetOutOfDate\")
+testRCOutOfDate#?#4:buildRule.executeTarget(\"testRCOutOfDate\")" shape=ellipse]
+10 [label="testNoCrash#?#2:@Test
+testNoTimeout#?#2:@Test
+testFilesetOutOfDate#?#2:@Test
+testRCOutOfDate#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 2 [label="AST:4"];
+1 -> 3 [label="AST:4"];
+1 -> 4 [label="AST:4"];
+1 -> 6 [label="AST:4"];
+1 -> 7 [label="AST:4"];
+1 -> 8 [label="Action:4"];
+4 -> 5 [label="AST:4"];
+8 -> 9 [label="Action:4"];
+}

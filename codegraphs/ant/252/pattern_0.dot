@@ -1,0 +1,32 @@
+digraph "Pattern" {
+0 [label="getVerboseParameter#?#3:UPDATE
+setVerbose#?,boolean#3:UPDATE" shape=ellipse]
+1 [label="getVerboseParameter#?#3:_verbose
+setVerbose#?,boolean#3:_verbose" shape=ellipse]
+2 [label="getVerboseParameter#?#3:_verbose ? null : \"/quiet\"" shape=ellipse]
+3 [label="getVerboseParameter#?#3:return _verbose ? null : \"/quiet\"" shape=ellipse]
+4 [label="getVerboseParameter#?#3:null" shape=ellipse]
+5 [label="getVerboseParameter#?#3:\"/quiet\"" shape=ellipse]
+6 [label="getVerboseParameter#?#-1:_verbose
+setVerbose#?,boolean#-1:_verbose" shape=ellipse]
+7 [label="getVerboseParameter#?#3:verbose
+setVerbose#?,boolean#3:verbose" shape=ellipse]
+8 [label="setVerbose#?,boolean#3:b" shape=ellipse]
+9 [label="setVerbose#?,boolean#3:_verbose = b" shape=ellipse]
+10 [label="setVerbose#?,boolean#-1:b" shape=ellipse]
+11 [label="setVerbose#?,boolean#-1:PlaceHold" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 4 [label="Control Dep:1"];
+1 -> 5 [label="Control Dep:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+6 -> 11 [label="AST:1"];
+8 -> 10 [label="AST:1"];
+8 -> 1 [label="Data Dep:1"];
+9 -> 8 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+}

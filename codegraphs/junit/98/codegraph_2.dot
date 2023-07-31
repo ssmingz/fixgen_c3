@@ -1,0 +1,35 @@
+digraph "getFailures#?" {
+0 [label="2:CtTypeReferenceImpl@List<Failure>" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@Failure" shape=ellipse]
+3 [label="2:CtVirtualElement@getFailures" shape=ellipse]
+4 [label="3:CtFieldReferenceImpl@fFailures" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+6 [label="3:CtFieldReadImpl@fFailures" shape=ellipse]
+7 [label="3:CtReturnImpl@return fFailures" shape=ellipse]
+8 [label="2:CtBlockImpl@\{
+    return fFailures;
+\}" shape=ellipse]
+9 [label="2:CtMethodImpl@public List<Failure> getFailures() \{
+    return fFailures;
+\}" shape=ellipse]
+10 [label="3:Update@UPDATE" shape=ellipse]
+11 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+12 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+13 [label="3:CtFieldReferenceImpl@failures" shape=ellipse]
+14 [label="3:CtFieldReadImpl@failures" shape=ellipse]
+0 -> 1 [label="AST"];
+0 -> 2 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 10 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 3 [label="AST"];
+9 -> 0 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 14 [label="Action"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+}

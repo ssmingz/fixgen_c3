@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/782/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/782/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test1", "Required argument repository not specified");
++    try {
++      buildRule.executeTarget("test1");
++      fail("Required argument repository not specified");
++    } catch (BuildException ex) {
++    }

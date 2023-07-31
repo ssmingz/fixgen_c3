@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2784/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2784/1/after.java
+@@ -5,3 +5,5 @@
+-      int tipWindow = OS.GTK_TOOLTIPS_TIP_WINDOW(handle);
+-      if (tipWindow != 0) {
+-        display.addWidget(tipWindow, this);
++      if (OS.GTK_VERSION < OS.VERSION(2, 12, 0)) {
++        int tipWindow = OS.GTK_TOOLTIPS_TIP_WINDOW(handle);
++        if (tipWindow != 0) {
++          display.addWidget(tipWindow, this);
++        }

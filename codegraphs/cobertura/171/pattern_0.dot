@@ -1,0 +1,110 @@
+digraph "Pattern" {
+0 [label="isValidSourceLineNumber#?,int#3:UPDATE
+getLineData#?,int#3:UPDATE
+addLine#?,int,String,String#6:UPDATE
+getLineCoverageRate#?,String#5:UPDATE" shape=ellipse]
+1 [label="isValidSourceLineNumber#?,int#3:lines
+getLineData#?,int#3:lines
+addLine#?,int,String,String#6:lines
+getLineCoverageRate#?,String#5:lines" shape=ellipse]
+2 [label="isValidSourceLineNumber#?,int#3:lines.containsKey(new Integer(lineNumber))
+getLineData#?,int#3:((LineData) (lines.get(new Integer(lineNumber))))
+addLine#?,int,String,String#6:lines.put(new Integer(lineNumber), lineData)
+getLineCoverageRate#?,String#5:lines.values()" shape=ellipse]
+3 [label="isValidSourceLineNumber#?,int#3:return lines.containsKey(new Integer(lineNumber))
+getLineData#?,int#3:return ((LineData) (lines.get(new Integer(lineNumber))))" shape=ellipse]
+4 [label="isValidSourceLineNumber#?,int#3:containsKey
+getLineData#?,int#3:get
+getLineCoverageRate#?,String#5:values" shape=ellipse]
+5 [label="isValidSourceLineNumber#?,int#3:containsKey(java.lang.Integer)
+getLineData#?,int#3:get(java.lang.Integer)
+addLine#?,int,String,String#6:put(java.lang.Integer,LineData)
+getLineCoverageRate#?,String#5:values()" shape=ellipse]
+6 [label="isValidSourceLineNumber#?,int#3:new Integer(lineNumber)
+getLineData#?,int#3:new Integer(lineNumber)
+addLine#?,int,String,String#6:new Integer(lineNumber)" shape=ellipse]
+7 [label="isValidSourceLineNumber#?,int#3:lines
+getLineData#?,int#3:lines
+addLine#?,int,String,String#6:lines
+getLineCoverageRate#?,String#5:lines" shape=ellipse]
+8 [label="isValidSourceLineNumber#?,int#3:PlaceHold
+getLineData#?,int#3:PlaceHold
+addLine#?,int,String,String#6:PlaceHold
+getLineCoverageRate#?,String#5:PlaceHold" shape=ellipse]
+9 [label="isValidSourceLineNumber#?,int#3:children
+getLineData#?,int#3:children
+addLine#?,int,String,String#6:children
+getLineCoverageRate#?,String#5:children" shape=ellipse]
+10 [label="getLineData#?,int#3:LineData
+addLine#?,int,String,String#5:LineData(int)" shape=ellipse]
+11 [label="addLine#?,int,String,String#4:lineData
+getLineCoverageRate#?,String#6:iter" shape=ellipse]
+12 [label="addLine#?,int,String,String#4:lineData == null" shape=ellipse]
+13 [label="addLine#?,int,String,String#4:if (lineData == null) \{
+    lineData = new LineData(lineNumber);
+    lines.put(new Integer(lineNumber), lineData);
+\}
+getLineCoverageRate#?,String#5:Iterator iter = lines.values().iterator()" shape=ellipse]
+14 [label="addLine#?,int,String,String#4:null" shape=ellipse]
+15 [label="addLine#?,int,String,String#4:\{
+    lineData = new LineData(lineNumber);
+    lines.put(new Integer(lineNumber), lineData);
+\}" shape=ellipse]
+16 [label="addLine#?,int,String,String#5:lineData = new LineData(lineNumber)" shape=ellipse]
+17 [label="addLine#?,int,String,String#5:lineData" shape=ellipse]
+18 [label="addLine#?,int,String,String#5:new LineData(lineNumber)" shape=ellipse]
+19 [label="addLine#?,int,String,String#5:lineNumber" shape=ellipse]
+20 [label="addLine#?,int,String,String#6:lineNumber" shape=ellipse]
+21 [label="addLine#?,int,String,String#6:lineData" shape=ellipse]
+22 [label="addLine#?,int,String,String#6:" shape=ellipse]
+23 [label="addLine#?,int,String,String#6:java.lang.Integer(int)" shape=ellipse]
+24 [label="addLine#?,int,String,String#6:PlaceHold" shape=ellipse]
+25 [label="getLineCoverageRate#?,String#5:lines.values().iterator()" shape=ellipse]
+26 [label="getLineCoverageRate#?,String#7:iter" shape=ellipse]
+27 [label="getLineCoverageRate#?,String#5:iter" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 7 [label="AST:4"];
+1 -> 27 [label="Data Dep:1"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:3"];
+2 -> 10 [label="AST:1"];
+2 -> 21 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+6 -> 20 [label="AST:1"];
+6 -> 23 [label="AST:1"];
+7 -> 8 [label="AST:4"];
+9 -> 24 [label="AST:1"];
+12 -> 11 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 15 [label="Control Dep:1"];
+12 -> 16 [label="Control Dep:1"];
+12 -> 17 [label="Control Dep:1"];
+12 -> 18 [label="Control Dep:1"];
+12 -> 10 [label="Control Dep:1"];
+12 -> 19 [label="Control Dep:1"];
+12 -> 2 [label="Control Dep:1"];
+12 -> 5 [label="Control Dep:1"];
+12 -> 1 [label="Control Dep:1"];
+12 -> 6 [label="Control Dep:1"];
+12 -> 23 [label="Control Dep:1"];
+12 -> 20 [label="Control Dep:1"];
+12 -> 21 [label="Control Dep:1"];
+13 -> 12 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+13 -> 25 [label="AST:1"];
+13 -> 27 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 2 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+16 -> 18 [label="AST:1"];
+17 -> 21 [label="Define Use:1"];
+18 -> 10 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+19 -> 17 [label="Data Dep:1"];
+24 -> 22 [label="AST:1"];
+25 -> 2 [label="AST:1"];
+27 -> 26 [label="Define Use:1"];
+27 -> 11 [label="Define Use:1"];
+}

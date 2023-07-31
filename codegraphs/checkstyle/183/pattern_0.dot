@@ -1,0 +1,59 @@
+digraph "Pattern" {
+0 [label="process#?,List#10:UPDATE
+logIOException#?,IOException,File#11:UPDATE" shape=ellipse]
+1 [label="process#?,List#10:TreeSet<LocalizedMessage>
+logIOException#?,IOException,File#11:TreeSet<LocalizedMessage>" shape=ellipse]
+2 [label="process#?,List#10:final TreeSet<LocalizedMessage> fileMessages = Sets.newTreeSet()
+logIOException#?,IOException,File#11:final TreeSet<LocalizedMessage> messages = Sets.newTreeSet()" shape=ellipse]
+3 [label="process#?,List#7:aFiles" shape=ellipse]
+4 [label="process#?,List#7:\{
+    final String fileName = f.getAbsolutePath();
+    fireFileStarted(fileName);
+    final TreeSet<LocalizedMessage> fileMessages = Sets.newTreeSet();
+    try \{
+        final FileText theText = new FileText(f.getAbsoluteFile(), mCharset);
+        for (final FileSetCheck fsc : mFileSetChecks) \{
+            fileMessages.addAll(fsc.process(f, theText));
+        \}
+    \} catch (final FileNotFoundException fnfe) \{
+        Utils.getExceptionLogger().debug(\"FileNotFoundException occured.\", fnfe);
+        fileMessages.add(new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, \"general.fileNotFound\", null, null, this.getClass(), null));
+    \} catch (final IOException ioe) \{
+        Utils.getExceptionLogger().debug(\"IOException occured.\", ioe);
+        fileMessages.add(new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, \"general.exception\", new String[]\{ ioe.getMessage() \}, null, this.getClass(), null));
+    \}
+    fireErrors(fileName, fileMessages);
+    fireFileFinished(fileName);
+\}
+logIOException#?,IOException,File#2:\{
+    String[] args = null;
+    String key = \"general.fileNotFound\";
+    if (!(ex instanceof FileNotFoundException)) \{
+        args = new String[]\{ ex.getMessage() \};
+        key = \"general.exception\";
+    \}
+    final LocalizedMessage message = new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, key, args, getId(), this.getClass(), null);
+    final TreeSet<LocalizedMessage> messages = Sets.newTreeSet();
+    messages.add(message);
+    getMessageDispatcher().fireErrors(file.getPath(), messages);
+    Utils.getExceptionLogger().debug(\"IOException occured.\", ex);
+\}" shape=ellipse]
+5 [label="process#?,List#10:fileMessages
+logIOException#?,IOException,File#11:messages" shape=ellipse]
+6 [label="process#?,List#10:Sets.newTreeSet()
+logIOException#?,IOException,File#11:Sets.newTreeSet()" shape=ellipse]
+7 [label="process#?,List#10:
+logIOException#?,IOException,File#11:" shape=ellipse]
+8 [label="process#?,List#10:LocalizedMessage
+logIOException#?,IOException,File#11:LocalizedMessage" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 6 [label="Control Dep:1"];
+4 -> 2 [label="AST:2"];
+}

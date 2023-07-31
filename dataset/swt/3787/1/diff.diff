@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3787/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3787/1/after.java
+@@ -3,2 +3,5 @@
+-    if (isDisposed()) {
+-      error(ERROR_DEVICE_DISPOSED);
++    synchronized (Device.class) {
++      if (isDisposed()) {
++        error(ERROR_DEVICE_DISPOSED);
++      }
++      return synchronizer.syncThread;
+@@ -6,1 +9,0 @@
+-    return synchronizer.syncThread;

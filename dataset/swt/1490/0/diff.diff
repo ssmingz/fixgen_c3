@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1490/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1490/0/after.java
+@@ -9,2 +9,9 @@
+-      if ((item != null) && item.cached) {
+-        width = Math.max(width, item.calculateWidth(index, gc, true));
++      if (((item != null) && (!item.isDisposed())) && item.cached) {
++        width = Math.max(width, item.calculateWidth(index, gc, true, true));
++        if (isDisposed()) {
++          gc.dispose();
++          return;
++        }
++        if (gc.isDisposed()) {
++          gc = new GC(parent);
++        }

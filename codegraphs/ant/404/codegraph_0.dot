@@ -1,0 +1,66 @@
+digraph "getIncludedFiles#?" {
+0 [label="2:CtVirtualElement@String[]" shape=ellipse]
+1 [label="2:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+2 [label="2:CtVirtualElement@getIncludedFiles" shape=ellipse]
+3 [label="3:CtVirtualElement@String[]" shape=ellipse]
+4 [label="3:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+5 [label="3:CtNewArrayImpl@new String[filesIncluded.size()]" shape=ellipse]
+6 [label="3:CtInvocationImpl@filesIncluded.size()" shape=ellipse]
+7 [label="3:CtVirtualElement@files" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@String[] files = new String[filesIncluded.size()]" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@copyInto(java.lang.String[])" shape=ellipse]
+10 [label="4:CtVirtualElement@copyInto" shape=ellipse]
+11 [label="4:CtFieldReadImpl@filesIncluded" shape=ellipse]
+12 [label="4:CtVariableReadImpl@files" shape=ellipse]
+13 [label="4:CtInvocationImpl@filesIncluded.copyInto(files)" shape=ellipse]
+14 [label="5:CtExecutableReferenceImpl@sort(java.lang.String[])" shape=ellipse]
+15 [label="5:CtVirtualElement@sort" shape=ellipse]
+16 [label="5:CtTypeAccessImpl@Arrays" shape=ellipse]
+17 [label="5:CtVariableReadImpl@files" shape=ellipse]
+18 [label="5:CtInvocationImpl@Arrays.sort(files)" shape=ellipse]
+19 [label="6:CtVariableReadImpl@files" shape=ellipse]
+20 [label="6:CtReturnImpl@return files" shape=ellipse]
+21 [label="2:CtBlockImpl@\{
+    String[] files = new String[filesIncluded.size()];
+    filesIncluded.copyInto(files);
+    Arrays.sort(files);
+    return files;
+\}" shape=ellipse]
+22 [label="2:CtMethodImpl@public String[] getIncludedFiles() \{
+    String[] files = new String[filesIncluded.size()];
+    filesIncluded.copyInto(files);
+    Arrays.sort(files);
+    return files;
+\}" shape=ellipse]
+23 [label="3:Insert@INSERT" shape=ellipse]
+24 [label="3:CtIfImpl@if (filesIncluded == null) \{
+    throw new IllegalStateException();
+\}" shape=ellipse]
+1 -> 0 [label="AST"];
+4 -> 3 [label="AST"];
+5 -> 6 [label="AST"];
+7 -> 12 [label="Define-Use"];
+7 -> 17 [label="Define-Use"];
+7 -> 19 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 5 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 17 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 8 [label="AST"];
+21 -> 13 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 2 [label="AST"];
+22 -> 1 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 23 [label="Action"];
+23 -> 24 [label="Action"];
+}

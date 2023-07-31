@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/735/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/735/0/after.java
+@@ -3,1 +3,2 @@
+-    SizedIterable<T> vals = EmptyIterable.make();
++    @SuppressWarnings("unchecked")
++    SizedIterable<T> vals = ((EmptyIterable<T>) (EmptyIterable.INSTANCE));
+@@ -5,1 +6,1 @@
+-      vals = ComposedIterable.make(vals, e);
++      vals = new ComposedIterable<T>(vals, e);

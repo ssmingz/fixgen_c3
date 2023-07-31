@@ -1,0 +1,79 @@
+digraph "Pattern" {
+0 [label="createClasspath#?#3:DELETE
+setClasspathRef#?,Reference#3:DELETE
+setClasspath#?,Path#3:DELETE
+getClasspath#?#3:DELETE
+setLoaderRef#?,Reference#3:DELETE" shape=ellipse]
+1 [label="createClasspath#?#3:this.cpDelegate
+setClasspathRef#?,Reference#3:this.cpDelegate
+setClasspath#?,Path#3:this.cpDelegate
+getClasspath#?#3:cpDelegate
+setLoaderRef#?,Reference#3:this.cpDelegate" shape=ellipse]
+2 [label="createClasspath#?#3:this.cpDelegate.createClasspath()
+setClasspathRef#?,Reference#3:this.cpDelegate.setClasspathref(r)
+setClasspath#?,Path#3:this.cpDelegate.setClasspath(classpath)
+getClasspath#?#3:cpDelegate.getClasspath()
+setLoaderRef#?,Reference#3:this.cpDelegate.setLoaderRef(r)" shape=ellipse]
+3 [label="createClasspath#?#3:return this.cpDelegate.createClasspath()
+getClasspath#?#3:return cpDelegate.getClasspath()" shape=ellipse]
+4 [label="createClasspath#?#3:createClasspath
+setClasspathRef#?,Reference#3:setClasspathref
+setClasspath#?,Path#3:setClasspath
+getClasspath#?#3:getClasspath
+setLoaderRef#?,Reference#3:setLoaderRef" shape=ellipse]
+5 [label="createClasspath#?#3:createClasspath()
+setClasspathRef#?,Reference#3:setClasspathref(Reference)
+setClasspath#?,Path#3:setClasspath(Path)
+getClasspath#?#3:getClasspath()
+setLoaderRef#?,Reference#3:setLoaderRef(Reference)" shape=ellipse]
+6 [label="createClasspath#?#3:INSERT
+setClasspathRef#?,Reference#3:INSERT
+setClasspath#?,Path#3:INSERT
+getClasspath#?#3:INSERT
+setLoaderRef#?,Reference#3:INSERT" shape=ellipse]
+7 [label="createClasspath#?#3:this
+setClasspathRef#?,Reference#3:this
+setClasspath#?,Path#3:this
+getClasspath#?#-1:cpDelegate
+setLoaderRef#?,Reference#3:this" shape=ellipse]
+8 [label="createClasspath#?#-1:PlaceHold
+setClasspathRef#?,Reference#-1:PlaceHold
+setClasspath#?,Path#-1:PlaceHold
+setLoaderRef#?,Reference#-1:PlaceHold" shape=ellipse]
+9 [label="createClasspath#?#-1:PlaceHold
+setClasspathRef#?,Reference#-1:PlaceHold
+setClasspath#?,Path#-1:PlaceHold
+setLoaderRef#?,Reference#-1:PlaceHold" shape=ellipse]
+10 [label="createClasspath#?#-1:cpDelegate
+setClasspathRef#?,Reference#-1:cpDelegate
+setClasspath#?,Path#-1:cpDelegate
+setLoaderRef#?,Reference#-1:cpDelegate" shape=ellipse]
+11 [label="setClasspathRef#?,Reference#3:r" shape=ellipse]
+12 [label="setClasspathRef#?,Reference#2:\{
+    this.cpDelegate.setClasspathref(r);
+\}" shape=ellipse]
+13 [label="setClasspath#?,Path#2:\{
+    this.cpDelegate.setClasspath(classpath);
+\}" shape=ellipse]
+14 [label="setClasspath#?,Path#3:classpath" shape=ellipse]
+15 [label="setLoaderRef#?,Reference#2:\{
+    this.cpDelegate.setLoaderRef(r);
+\}" shape=ellipse]
+16 [label="setLoaderRef#?,Reference#3:r" shape=ellipse]
+1 -> 0 [label="Action:5"];
+1 -> 7 [label="AST:5"];
+1 -> 10 [label="AST:4"];
+2 -> 1 [label="AST:5"];
+2 -> 4 [label="AST:5"];
+2 -> 5 [label="AST:5"];
+2 -> 6 [label="Action:5"];
+2 -> 11 [label="AST:1"];
+2 -> 14 [label="AST:1"];
+2 -> 16 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:4"];
+7 -> 9 [label="AST:4"];
+12 -> 2 [label="AST:1"];
+13 -> 2 [label="AST:1"];
+15 -> 2 [label="AST:1"];
+}

@@ -1,0 +1,69 @@
+digraph "Pattern" {
+0 [label="testDoubleDef#?#4:INSERT
+testGZip#?#4:INSERT" shape=ellipse]
+1 [label="testDoubleDef#?#3:executeTarget(\"doubledef\")
+testGZip#?#3:executeTarget(\"realTest\")" shape=ellipse]
+2 [label="testDoubleDef#?#2:\{
+    executeTarget(\"doubledef\");
+    String log = getLog();
+    assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1));
+    assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1));
+\}
+testGZip#?#2:\{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}" shape=ellipse]
+3 [label="testDoubleDef#?#2:public void testDoubleDef() \{
+    executeTarget(\"doubledef\");
+    String log = getLog();
+    assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1));
+    assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1));
+\}
+testGZip#?#2:public void testGZip() \{
+    executeTarget(\"realTest\");
+    String log = getLog();
+    assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"));
+    assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"));
+\}" shape=ellipse]
+4 [label="testDoubleDef#?#4:String log = getLog()
+testGZip#?#4:String log = getLog()" shape=ellipse]
+5 [label="testDoubleDef#?#5:assertTrue(\"Task1 did not execute\", log.indexOf(\"Task1\") != (-1))
+testGZip#?#8:assertTrue((\"Expecting message ending with 'asf-logo.gif.gz' but got '\" + log) + \"'\", log.endsWith(\"asf-logo.gif.gz\"))" shape=ellipse]
+6 [label="testDoubleDef#?#6:assertTrue(\"Task2 did not execute\", log.indexOf(\"Task2\") != (-1))
+testGZip#?#5:assertTrue((\"Expecting message starting with 'Building:' but got '\" + log) + \"'\", log.startsWith(\"Building:\"))" shape=ellipse]
+7 [label="testDoubleDef#?#3:executeTarget
+testGZip#?#3:executeTarget" shape=ellipse]
+8 [label="testDoubleDef#?#-1:
+testGZip#?#-1:" shape=ellipse]
+9 [label="testDoubleDef#?#-1:PlaceHold
+testGZip#?#-1:PlaceHold" shape=ellipse]
+10 [label="testDoubleDef#?#-1:PlaceHold
+testGZip#?#-1:PlaceHold" shape=ellipse]
+11 [label="testDoubleDef#?#3:executeTarget(java.lang.String)
+testGZip#?#3:executeTarget(java.lang.String)" shape=ellipse]
+12 [label="testDoubleDef#?#-1:String
+testGZip#?#-1:String" shape=ellipse]
+13 [label="testDoubleDef#?#3:\"doubledef\"
+testGZip#?#3:\"realTest\"" shape=ellipse]
+14 [label="testDoubleDef#?#-1:String
+testGZip#?#-1:String" shape=ellipse]
+15 [label="testDoubleDef#?#4:buildRule
+testGZip#?#4:buildRule" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="testResultPropertyZero#?#4:INSERT
+testResultPropertyNonZero#?#4:INSERT" shape=ellipse]
+1 [label="testResultPropertyZero#?#3:executeTarget(\"testResultPropertyZero\")
+testResultPropertyNonZero#?#3:executeTarget(\"testResultPropertyNonZero\")" shape=ellipse]
+2 [label="testResultPropertyZero#?#2:\{
+    executeTarget(\"testResultPropertyZero\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZero#?#2:\{
+    executeTarget(\"testResultPropertyNonZero\");
+    assertEquals(\"2\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+3 [label="testResultPropertyZero#?#2:public void testResultPropertyZero() \{
+    executeTarget(\"testResultPropertyZero\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZero#?#2:public void testResultPropertyNonZero() \{
+    executeTarget(\"testResultPropertyNonZero\");
+    assertEquals(\"2\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+4 [label="testResultPropertyZero#?#4:assertEquals(\"0\", project.getProperty(\"exitcode\"))
+testResultPropertyNonZero#?#4:assertEquals(\"2\", project.getProperty(\"exitcode\"))" shape=ellipse]
+5 [label="testResultPropertyZero#?#3:executeTarget
+testResultPropertyNonZero#?#3:executeTarget" shape=ellipse]
+6 [label="testResultPropertyZero#?#-1:
+testResultPropertyNonZero#?#-1:" shape=ellipse]
+7 [label="testResultPropertyZero#?#-1:PlaceHold
+testResultPropertyNonZero#?#-1:PlaceHold" shape=ellipse]
+8 [label="testResultPropertyZero#?#-1:PlaceHold
+testResultPropertyNonZero#?#-1:PlaceHold" shape=ellipse]
+9 [label="testResultPropertyZero#?#3:executeTarget(java.lang.String)
+testResultPropertyNonZero#?#3:executeTarget(java.lang.String)" shape=ellipse]
+10 [label="testResultPropertyZero#?#-1:String
+testResultPropertyNonZero#?#-1:String" shape=ellipse]
+11 [label="testResultPropertyZero#?#3:\"testResultPropertyZero\"
+testResultPropertyNonZero#?#3:\"testResultPropertyNonZero\"" shape=ellipse]
+12 [label="testResultPropertyZero#?#-1:String
+testResultPropertyNonZero#?#-1:String" shape=ellipse]
+13 [label="testResultPropertyZero#?#4:buildRule
+testResultPropertyNonZero#?#4:buildRule" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

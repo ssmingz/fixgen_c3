@@ -1,0 +1,97 @@
+digraph "Pattern" {
+0 [label="testBlankTarget#?#3:UPDATE
+test1#?#3:UPDATE
+test2#?#3:UPDATE" shape=ellipse]
+1 [label="testBlankTarget#?#3:expectBuildException(\"blank-target\", \"target name must not be empty\")
+test1#?#3:expectBuildException(\"test1\", \"recursive call\")
+test2#?#3:expectBuildException(\"test2\", \"required argument not specified\")" shape=ellipse]
+2 [label="testBlankTarget#?#2:\{
+    expectBuildException(\"blank-target\", \"target name must not be empty\");
+\}
+test1#?#2:\{
+    expectBuildException(\"test1\", \"recursive call\");
+\}
+test2#?#2:\{
+    expectBuildException(\"test2\", \"required argument not specified\");
+\}" shape=ellipse]
+3 [label="testBlankTarget#?#2:public void testBlankTarget() \{
+    expectBuildException(\"blank-target\", \"target name must not be empty\");
+\}
+test1#?#2:public void test1() \{
+    expectBuildException(\"test1\", \"recursive call\");
+\}
+test2#?#2:public void test2() \{
+    expectBuildException(\"test2\", \"required argument not specified\");
+\}" shape=ellipse]
+4 [label="testBlankTarget#?#3:expectBuildException
+test1#?#3:expectBuildException
+test2#?#3:expectBuildException" shape=ellipse]
+5 [label="testBlankTarget#?#-1:
+test1#?#-1:
+test2#?#-1:" shape=ellipse]
+6 [label="testBlankTarget#?#-1:PlaceHold
+test1#?#-1:PlaceHold
+test2#?#-1:PlaceHold" shape=ellipse]
+7 [label="testBlankTarget#?#-1:PlaceHold
+test1#?#-1:PlaceHold
+test2#?#-1:PlaceHold" shape=ellipse]
+8 [label="testBlankTarget#?#3:expectBuildException(java.lang.String,java.lang.String)
+test1#?#3:expectBuildException(java.lang.String,java.lang.String)
+test2#?#3:expectBuildException(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testBlankTarget#?#-1:String
+test1#?#-1:String
+test2#?#-1:String" shape=ellipse]
+10 [label="testBlankTarget#?#-1:String
+test1#?#-1:String
+test2#?#-1:String" shape=ellipse]
+11 [label="testBlankTarget#?#3:\"blank-target\"
+test1#?#3:\"recursive call\"
+test2#?#3:\"required argument not specified\"" shape=ellipse]
+12 [label="testBlankTarget#?#-1:String
+test1#?#-1:String
+test2#?#-1:String" shape=ellipse]
+13 [label="testBlankTarget#?#3:\"target name must not be empty\"
+test1#?#3:\"test1\"
+test2#?#3:\"test2\"" shape=ellipse]
+14 [label="testBlankTarget#?#-1:String
+test1#?#-1:String
+test2#?#-1:String" shape=ellipse]
+15 [label="testBlankTarget#?#3:MOVE
+test1#?#3:MOVE
+test2#?#3:MOVE" shape=ellipse]
+16 [label="testBlankTarget#?#4:try \{
+    buildRule.executeTarget(\"blank-target\");
+    fail(\"target name must not be empty\");
+\} catch (BuildException ex) \{
+\}
+test1#?#4:try \{
+    buildRule.executeTarget(\"test1\");
+    fail(\"recursive call\");
+\} catch (BuildException ex) \{
+\}
+test2#?#4:try \{
+    buildRule.executeTarget(\"test2\");
+    fail(\"required argument not specified\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+17 [label="testBlankTarget#?#6:fail(\"target name must not be empty\")
+test1#?#6:fail(\"recursive call\")
+test2#?#6:fail(\"required argument not specified\")" shape=ellipse]
+0 -> 17 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 13 [label="AST:3"];
+1 -> 15 [label="Action:3"];
+2 -> 1 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+15 -> 16 [label="Action:3"];
+}

@@ -1,0 +1,292 @@
+digraph "Pattern" {
+0 [label="copy#?,UnknownElement#29:INSERT
+macroSubs#?,String,Map#35:INSERT" shape=ellipse]
+1 [label="copy#?,UnknownElement#29:String tag = unknownElement.getTaskType()
+macroSubs#?,String,Map#35:String name = macroName.toString()" shape=ellipse]
+2 [label="copy#?,UnknownElement#26:e.hasMoreElements()" shape=ellipse]
+3 [label="copy#?,UnknownElement#26:while (e.hasMoreElements()) \{
+    RuntimeConfigurable r = ((RuntimeConfigurable) (e.nextElement()));
+    UnknownElement unknownElement = ((UnknownElement) (r.getProxy()));
+    String tag = unknownElement.getTaskType();
+    MacroDef.TemplateElement templateElement = ((MacroDef.TemplateElement) (getNsElements().get(tag)));
+    if (templateElement == null) \{
+        UnknownElement child = copy(unknownElement);
+        rc.addChild(child.getWrapper());
+        ret.addChild(child);
+    \} else \{
+        Element element = ((Element) (presentElements.get(tag)));
+        if (element == null) \{
+            if (!templateElement.isOptional()) \{
+                throw new BuildException((\"Required nested element \" + templateElement.getName()) + \" missing\");
+            \}
+            continue;
+        \}
+        for (Iterator i = element.getUnknownElements().iterator(); i.hasNext();) \{
+            UnknownElement child = ((UnknownElement) (i.next()));
+            rc.addChild(child.getWrapper());
+            ret.addChild(child);
+        \}
+    \}
+\} " shape=ellipse]
+4 [label="copy#?,UnknownElement#26:hasMoreElements" shape=ellipse]
+5 [label="copy#?,UnknownElement#26:e
+macroSubs#?,String,Map#12:state" shape=ellipse]
+6 [label="copy#?,UnknownElement#26:hasMoreElements()
+macroSubs#?,String,Map#44:append(char)" shape=ellipse]
+7 [label="copy#?,UnknownElement#26:\{
+    RuntimeConfigurable r = ((RuntimeConfigurable) (e.nextElement()));
+    UnknownElement unknownElement = ((UnknownElement) (r.getProxy()));
+    String tag = unknownElement.getTaskType();
+    MacroDef.TemplateElement templateElement = ((MacroDef.TemplateElement) (getNsElements().get(tag)));
+    if (templateElement == null) \{
+        UnknownElement child = copy(unknownElement);
+        rc.addChild(child.getWrapper());
+        ret.addChild(child);
+    \} else \{
+        Element element = ((Element) (presentElements.get(tag)));
+        if (element == null) \{
+            if (!templateElement.isOptional()) \{
+                throw new BuildException((\"Required nested element \" + templateElement.getName()) + \" missing\");
+            \}
+            continue;
+        \}
+        for (Iterator i = element.getUnknownElements().iterator(); i.hasNext();) \{
+            UnknownElement child = ((UnknownElement) (i.next()));
+            rc.addChild(child.getWrapper());
+            ret.addChild(child);
+        \}
+    \}
+\}
+macroSubs#?,String,Map#33:\{
+    state = STATE_NORMAL;
+    String name = macroName.toString();
+    String value = ((String) (macroMapping.get(name)));
+    if (value == null) \{
+        ret.append((\"@\{\" + name) + \"\}\");
+    \} else \{
+        ret.append(value);
+    \}
+    macroName = null;
+\}" shape=ellipse]
+8 [label="copy#?,UnknownElement#27:RuntimeConfigurable r = ((RuntimeConfigurable) (e.nextElement()))
+macroSubs#?,String,Map#36:String value = ((String) (macroMapping.get(name)))" shape=ellipse]
+9 [label="copy#?,UnknownElement#27:((RuntimeConfigurable) (e.nextElement()))
+macroSubs#?,String,Map#36:((String) (macroMapping.get(name)))" shape=ellipse]
+10 [label="copy#?,UnknownElement#27:nextElement()
+macroSubs#?,String,Map#36:get(java.lang.String)" shape=ellipse]
+11 [label="copy#?,UnknownElement#27:e
+macroSubs#?,String,Map#36:macroMapping" shape=ellipse]
+12 [label="copy#?,UnknownElement#28:UnknownElement unknownElement = ((UnknownElement) (r.getProxy()))
+macroSubs#?,String,Map#42:macroName = null" shape=ellipse]
+13 [label="copy#?,UnknownElement#28:((UnknownElement) (r.getProxy()))" shape=ellipse]
+14 [label="copy#?,UnknownElement#28:getProxy()
+macroSubs#?,String,Map#35:toString()" shape=ellipse]
+15 [label="copy#?,UnknownElement#28:r
+macroSubs#?,String,Map#37:value" shape=ellipse]
+16 [label="copy#?,UnknownElement#29:unknownElement.getTaskType()" shape=ellipse]
+17 [label="copy#?,UnknownElement#29:getTaskType()
+macroSubs#?,String,Map#-1:boolean" shape=ellipse]
+18 [label="copy#?,UnknownElement#29:unknownElement" shape=ellipse]
+19 [label="copy#?,UnknownElement#30:MacroDef.TemplateElement templateElement = ((MacroDef.TemplateElement) (getNsElements().get(tag)))
+macroSubs#?,String,Map#37:if (value == null) \{
+    ret.append((\"@\{\" + name) + \"\}\");
+\} else \{
+    ret.append(value);
+\}" shape=ellipse]
+20 [label="copy#?,UnknownElement#31:((MacroDef.TemplateElement) (getNsElements().get(tag)))" shape=ellipse]
+21 [label="copy#?,UnknownElement#31:get(java.lang.String)
+macroSubs#?,String,Map#-1:java.lang" shape=ellipse]
+22 [label="copy#?,UnknownElement#31:getNsElements()" shape=ellipse]
+23 [label="copy#?,UnknownElement#31:getNsElements()" shape=ellipse]
+24 [label="copy#?,UnknownElement#-1:
+macroSubs#?,String,Map#34:state" shape=ellipse]
+25 [label="copy#?,UnknownElement#-1:PlaceHold" shape=ellipse]
+26 [label="copy#?,UnknownElement#31:tag
+macroSubs#?,String,Map#38:name" shape=ellipse]
+27 [label="copy#?,UnknownElement#32:if (templateElement == null) \{
+    UnknownElement child = copy(unknownElement);
+    rc.addChild(child.getWrapper());
+    ret.addChild(child);
+\} else \{
+    Element element = ((Element) (presentElements.get(tag)));
+    if (element == null) \{
+        if (!templateElement.isOptional()) \{
+            throw new BuildException((\"Required nested element \" + templateElement.getName()) + \" missing\");
+        \}
+        continue;
+    \}
+    for (Iterator i = element.getUnknownElements().iterator(); i.hasNext();) \{
+        UnknownElement child = ((UnknownElement) (i.next()));
+        rc.addChild(child.getWrapper());
+        ret.addChild(child);
+    \}
+\}" shape=ellipse]
+28 [label="copy#?,UnknownElement#32:templateElement == null" shape=ellipse]
+29 [label="copy#?,UnknownElement#32:templateElement" shape=ellipse]
+30 [label="copy#?,UnknownElement#32:null
+macroSubs#?,String,Map#37:null" shape=ellipse]
+31 [label="copy#?,UnknownElement#29:tag
+macroSubs#?,String,Map#35:name" shape=ellipse]
+32 [label="copy#?,UnknownElement#37:tag" shape=ellipse]
+33 [label="copy#?,UnknownElement#29:String" shape=ellipse]
+34 [label="copy#?,UnknownElement#-1:java.lang" shape=ellipse]
+35 [label="copy#?,UnknownElement#29:unknownElement.getTaskType().toLowerCase(US)
+macroSubs#?,String,Map#35:macroName.toString().toLowerCase(US)" shape=ellipse]
+36 [label="copy#?,UnknownElement#29:MOVE
+macroSubs#?,String,Map#35:MOVE" shape=ellipse]
+37 [label="macroSubs#?,String,Map#36:name" shape=ellipse]
+38 [label="macroSubs#?,String,Map#34:STATE_NORMAL" shape=ellipse]
+39 [label="macroSubs#?,String,Map#42:macroName" shape=ellipse]
+40 [label="macroSubs#?,String,Map#44:macroName.append(ch)" shape=ellipse]
+41 [label="macroSubs#?,String,Map#35:String" shape=ellipse]
+42 [label="macroSubs#?,String,Map#35:macroName.toString()" shape=ellipse]
+43 [label="macroSubs#?,String,Map#34:state = STATE_NORMAL" shape=ellipse]
+44 [label="macroSubs#?,String,Map#44:macroName" shape=ellipse]
+45 [label="macroSubs#?,String,Map#33:ch == '\}'" shape=ellipse]
+46 [label="macroSubs#?,String,Map#33:'\}'" shape=ellipse]
+47 [label="macroSubs#?,String,Map#44:ch" shape=ellipse]
+48 [label="macroSubs#?,String,Map#33:ch" shape=ellipse]
+49 [label="macroSubs#?,String,Map#33:if (ch == '\}') \{
+    state = STATE_NORMAL;
+    String name = macroName.toString();
+    String value = ((String) (macroMapping.get(name)));
+    if (value == null) \{
+        ret.append((\"@\{\" + name) + \"\}\");
+    \} else \{
+        ret.append(value);
+    \}
+    macroName = null;
+\} else \{
+    macroName.append(ch);
+\}" shape=ellipse]
+50 [label="macroSubs#?,String,Map#37:value == null" shape=ellipse]
+51 [label="macroSubs#?,String,Map#35:macroName" shape=ellipse]
+52 [label="macroSubs#?,String,Map#43:\{
+    macroName.append(ch);
+\}" shape=ellipse]
+53 [label="macroSubs#?,String,Map#42:null" shape=ellipse]
+0 -> 35 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 31 [label="AST:2"];
+1 -> 33 [label="AST:1"];
+1 -> 16 [label="AST:1"];
+1 -> 41 [label="AST:1"];
+1 -> 42 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+2 -> 30 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+5 -> 45 [label="Control Dep:1"];
+5 -> 46 [label="Control Dep:1"];
+5 -> 48 [label="Control Dep:1"];
+5 -> 49 [label="Control Dep:1"];
+7 -> 1 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 12 [label="AST:2"];
+7 -> 19 [label="AST:2"];
+7 -> 27 [label="AST:1"];
+7 -> 43 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 37 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 39 [label="AST:1"];
+12 -> 53 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+16 -> 18 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+16 -> 36 [label="Action:1"];
+18 -> 31 [label="Data Dep:1"];
+19 -> 20 [label="AST:1"];
+19 -> 50 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+20 -> 26 [label="AST:1"];
+22 -> 24 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+28 -> 30 [label="AST:1"];
+28 -> 32 [label="Control Dep:1"];
+31 -> 26 [label="Define Use:2"];
+31 -> 32 [label="Define Use:1"];
+31 -> 37 [label="Define Use:1"];
+33 -> 34 [label="AST:1"];
+36 -> 35 [label="Action:2"];
+38 -> 24 [label="Data Dep:1"];
+39 -> 44 [label="Define Use:1"];
+40 -> 44 [label="AST:1"];
+40 -> 6 [label="AST:1"];
+40 -> 47 [label="AST:1"];
+41 -> 21 [label="AST:1"];
+42 -> 51 [label="AST:1"];
+42 -> 14 [label="AST:1"];
+42 -> 36 [label="Action:1"];
+43 -> 38 [label="AST:1"];
+43 -> 24 [label="AST:1"];
+45 -> 37 [label="Control Dep:1"];
+45 -> 38 [label="Control Dep:1"];
+45 -> 39 [label="Control Dep:1"];
+45 -> 40 [label="Control Dep:1"];
+45 -> 42 [label="Control Dep:1"];
+45 -> 43 [label="Control Dep:1"];
+45 -> 44 [label="Control Dep:1"];
+45 -> 17 [label="AST:1"];
+45 -> 48 [label="AST:1"];
+45 -> 46 [label="AST:1"];
+45 -> 7 [label="Control Dep:1"];
+45 -> 24 [label="Control Dep:1"];
+45 -> 1 [label="Control Dep:1"];
+45 -> 14 [label="Control Dep:1"];
+45 -> 51 [label="Control Dep:1"];
+45 -> 8 [label="Control Dep:1"];
+45 -> 9 [label="Control Dep:1"];
+45 -> 10 [label="Control Dep:1"];
+45 -> 11 [label="Control Dep:1"];
+45 -> 19 [label="Control Dep:1"];
+45 -> 50 [label="Control Dep:1"];
+45 -> 15 [label="Control Dep:1"];
+45 -> 30 [label="Control Dep:1"];
+45 -> 12 [label="Control Dep:1"];
+45 -> 53 [label="Control Dep:1"];
+45 -> 52 [label="Control Dep:1"];
+45 -> 6 [label="Control Dep:1"];
+45 -> 47 [label="Control Dep:1"];
+49 -> 45 [label="AST:1"];
+49 -> 7 [label="AST:1"];
+49 -> 52 [label="AST:1"];
+50 -> 15 [label="AST:1"];
+50 -> 30 [label="AST:1"];
+50 -> 26 [label="Control Dep:1"];
+51 -> 31 [label="Data Dep:1"];
+52 -> 40 [label="AST:1"];
+}

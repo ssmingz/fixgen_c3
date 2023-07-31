@@ -1,0 +1,140 @@
+digraph "buildFilterSet#?" {
+0 [label="2:CtTypeReferenceImpl@FilterSetCollection" shape=ellipse]
+1 [label="2:CtVirtualElement@buildFilterSet" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@FilterSetCollection" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@FilterSetCollection" shape=ellipse]
+4 [label="3:CtConstructorCallImpl@new FilterSetCollection()" shape=ellipse]
+5 [label="3:CtVirtualElement@executionFilters" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@final FilterSetCollection executionFilters = new FilterSetCollection()" shape=ellipse]
+7 [label="4:CtFieldReadImpl@m_filtering" shape=ellipse]
+8 [label="5:CtExecutableReferenceImpl@addFilterSet()" shape=ellipse]
+9 [label="5:CtVirtualElement@addFilterSet" shape=ellipse]
+10 [label="5:CtVariableReadImpl@executionFilters" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@getGlobalFilterSet()" shape=ellipse]
+12 [label="5:CtVirtualElement@getGlobalFilterSet" shape=ellipse]
+13 [label="5:CtFieldReadImpl@project" shape=ellipse]
+14 [label="5:CtInvocationImpl@project.getGlobalFilterSet()" shape=ellipse]
+15 [label="5:CtInvocationImpl@executionFilters.addFilterSet(project.getGlobalFilterSet())" shape=ellipse]
+16 [label="4:CtBlockImpl@\{
+    executionFilters.addFilterSet(project.getGlobalFilterSet());
+\}" shape=ellipse]
+17 [label="4:CtIfImpl@if (m_filtering) \{
+    executionFilters.addFilterSet(project.getGlobalFilterSet());
+\}" shape=ellipse]
+18 [label="7:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+19 [label="7:CtExecutableReferenceImpl@elements()" shape=ellipse]
+20 [label="7:CtVirtualElement@elements" shape=ellipse]
+21 [label="7:CtFieldReadImpl@m_filterSets" shape=ellipse]
+22 [label="7:CtInvocationImpl@m_filterSets.elements()" shape=ellipse]
+23 [label="7:CtVirtualElement@filterEnum" shape=ellipse]
+24 [label="7:CtLocalVariableImpl@final Enumeration filterEnum = m_filterSets.elements()" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+26 [label="7:CtVirtualElement@hasMoreElements" shape=ellipse]
+27 [label="7:CtVariableReadImpl@filterEnum" shape=ellipse]
+28 [label="7:CtInvocationImpl@filterEnum.hasMoreElements()" shape=ellipse]
+29 [label="8:CtExecutableReferenceImpl@addFilterSet(FilterSet)" shape=ellipse]
+30 [label="8:CtVirtualElement@addFilterSet" shape=ellipse]
+31 [label="8:CtVariableReadImpl@executionFilters" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+33 [label="8:CtVirtualElement@nextElement" shape=ellipse]
+34 [label="8:CtVariableReadImpl@filterEnum" shape=ellipse]
+35 [label="8:CtInvocationImpl@((FilterSet) (filterEnum.nextElement()))" shape=ellipse]
+36 [label="8:CtTypeReferenceImpl@FilterSet" shape=ellipse]
+37 [label="8:CtInvocationImpl@executionFilters.addFilterSet(((FilterSet) (filterEnum.nextElement())))" shape=ellipse]
+38 [label="7:CtBlockImpl@\{
+    executionFilters.addFilterSet(((FilterSet) (filterEnum.nextElement())));
+\}" shape=ellipse]
+39 [label="7:CtForImpl@for (final Enumeration filterEnum = m_filterSets.elements(); filterEnum.hasMoreElements();) \{
+    executionFilters.addFilterSet(((FilterSet) (filterEnum.nextElement())));
+\}" shape=ellipse]
+40 [label="10:CtVariableReadImpl@executionFilters" shape=ellipse]
+41 [label="10:CtReturnImpl@return executionFilters" shape=ellipse]
+42 [label="2:CtBlockImpl@\{
+    final FilterSetCollection executionFilters = new FilterSetCollection();
+    if (m_filtering) \{
+        executionFilters.addFilterSet(project.getGlobalFilterSet());
+    \}
+    for (final Enumeration filterEnum = m_filterSets.elements(); filterEnum.hasMoreElements();) \{
+        executionFilters.addFilterSet(((FilterSet) (filterEnum.nextElement())));
+    \}
+    return executionFilters;
+\}" shape=ellipse]
+43 [label="2:CtMethodImpl@private FilterSetCollection buildFilterSet() \{
+    final FilterSetCollection executionFilters = new FilterSetCollection();
+    if (m_filtering) \{
+        executionFilters.addFilterSet(project.getGlobalFilterSet());
+    \}
+    for (final Enumeration filterEnum = m_filterSets.elements(); filterEnum.hasMoreElements();) \{
+        executionFilters.addFilterSet(((FilterSet) (filterEnum.nextElement())));
+    \}
+    return executionFilters;
+\}" shape=ellipse]
+44 [label="5:Delete@DELETE" shape=ellipse]
+45 [label="5:Insert@INSERT" shape=ellipse]
+46 [label="5:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 10 [label="Define-Use"];
+5 -> 31 [label="Define-Use"];
+5 -> 40 [label="Define-Use"];
+6 -> 5 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+7 -> 16 [label="Control Dep"];
+7 -> 15 [label="Control Dep"];
+7 -> 8 [label="Control Dep"];
+7 -> 10 [label="Control Dep"];
+7 -> 14 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 13 [label="Control Dep"];
+13 -> 44 [label="Action"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 45 [label="Action"];
+15 -> 9 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 7 [label="AST"];
+17 -> 16 [label="AST"];
+21 -> 23 [label="Data Dep"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+23 -> 27 [label="Define-Use"];
+23 -> 34 [label="Define-Use"];
+24 -> 23 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 22 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 38 [label="Control Dep"];
+28 -> 37 [label="Control Dep"];
+28 -> 29 [label="Control Dep"];
+28 -> 31 [label="Control Dep"];
+28 -> 35 [label="Control Dep"];
+28 -> 32 [label="Control Dep"];
+28 -> 34 [label="Control Dep"];
+35 -> 33 [label="AST"];
+35 -> 36 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 32 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 31 [label="AST"];
+37 -> 29 [label="AST"];
+37 -> 35 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 24 [label="AST"];
+39 -> 28 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 6 [label="AST"];
+42 -> 17 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 1 [label="AST"];
+43 -> 0 [label="AST"];
+43 -> 42 [label="AST"];
+45 -> 46 [label="Action"];
+}

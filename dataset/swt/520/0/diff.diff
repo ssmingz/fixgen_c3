@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/520/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/520/0/after.java
+@@ -14,6 +14,11 @@
+-    focus(true);
+-    if ((data.background & 0xff000000) == 0) {
+-      OS.RGBForeColor(data.background);
+-      fRect.set(x, y, width, height);
+-      OS.PaintOval(fRect.getData());
+-    } else {
++    try {
++      if (focus(true, null)) {
++        if ((data.background & 0xff000000) == 0) {
++          OS.RGBForeColor(data.background);
++          fRect.set(x, y, width, height);
++          OS.PaintOval(fRect.getData());
++        } else {
++        }
++      }
++    } finally {
++      unfocus(true);
+@@ -21,1 +26,0 @@
+-    unfocus(true);

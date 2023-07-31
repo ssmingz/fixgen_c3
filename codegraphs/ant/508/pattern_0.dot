@@ -1,0 +1,130 @@
+digraph "Pattern" {
+0 [label="execute#?#10:UPDATE" shape=ellipse]
+1 [label="execute#?#10:new BuildException(e)
+loadFile#?,File#20:new BuildException(ex)
+loadResource#?,String#25:new BuildException(ex)" shape=ellipse]
+2 [label="execute#?#9:failOnError" shape=ellipse]
+3 [label="execute#?#8:Exception e
+loadFile#?,File#19: catch (IOException ex) \{
+    throw new BuildException(ex);
+\}
+loadResource#?,String#24: catch (IOException ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+4 [label="execute#?#9:if (failOnError) \{
+    throw new BuildException(e);
+\} else \{
+    String text = e.toString();
+    log(text, MSG_ERR);
+\}" shape=ellipse]
+5 [label="execute#?#-1:failOnError
+loadFile#?,File#19:ex
+loadResource#?,String#24:ex" shape=ellipse]
+6 [label="execute#?#9:\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+7 [label="execute#?#10:throw new BuildException(e)
+loadFile#?,File#20:throw new BuildException(ex)
+loadResource#?,String#25:throw new BuildException(ex)" shape=ellipse]
+8 [label="execute#?#-1:BuildException(java.lang.Exception)
+loadFile#?,File#-1:BuildException()
+loadResource#?,String#-1:BuildException()" shape=ellipse]
+9 [label="execute#?#10:e" shape=ellipse]
+10 [label="execute#?#11:\{
+    String text = e.toString();
+    log(text, MSG_ERR);
+\}" shape=ellipse]
+11 [label="execute#?#12:String text = e.toString()" shape=ellipse]
+12 [label="execute#?#12:e.toString()" shape=ellipse]
+13 [label="execute#?#12:toString()
+loadFile#?,File#19:IOException
+loadResource#?,String#24:IOException" shape=ellipse]
+14 [label="execute#?#12:e" shape=ellipse]
+15 [label="execute#?#13:log(text, MSG_ERR)" shape=ellipse]
+16 [label="execute#?#13:log(java.lang.String,<unknown>)" shape=ellipse]
+17 [label="execute#?#-1:" shape=ellipse]
+18 [label="execute#?#-1:PlaceHold" shape=ellipse]
+19 [label="execute#?#13:text" shape=ellipse]
+20 [label="execute#?#13:MSG_ERR" shape=ellipse]
+21 [label="execute#?#10:new BuildException(\"Error\", e)" shape=ellipse]
+22 [label="loadFile#?,File#19:\{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+23 [label="loadFile#?,File#20:\"Error\"
+loadResource#?,String#25:\"Error\"" shape=ellipse]
+24 [label="loadFile#?,File#20:INSERT" shape=ellipse]
+25 [label="loadFile#?,File#20:ex" shape=ellipse]
+26 [label="loadFile#?,File#19:IOException ex" shape=ellipse]
+27 [label="loadResource#?,String#24:\{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+28 [label="loadResource#?,String#25:ex" shape=ellipse]
+29 [label="loadResource#?,String#24:IOException ex" shape=ellipse]
+30 [label="loadResource#?,String#25:INSERT" shape=ellipse]
+0 -> 21 [label="Action:1"];
+1 -> 0 [label="Action:1"];
+1 -> 8 [label="AST:3"];
+1 -> 9 [label="AST:1"];
+1 -> 24 [label="Action:1"];
+1 -> 25 [label="AST:1"];
+1 -> 28 [label="AST:1"];
+1 -> 30 [label="Action:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 22 [label="AST:1"];
+3 -> 26 [label="AST:1"];
+3 -> 27 [label="AST:1"];
+3 -> 29 [label="AST:1"];
+4 -> 2 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+4 -> 10 [label="AST:1"];
+5 -> 25 [label="Define Use:1"];
+5 -> 28 [label="Define Use:1"];
+6 -> 7 [label="AST:1"];
+7 -> 1 [label="AST:3"];
+10 -> 11 [label="AST:1"];
+10 -> 15 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 19 [label="AST:1"];
+15 -> 20 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+22 -> 7 [label="AST:1"];
+24 -> 23 [label="Action:1"];
+26 -> 22 [label="Control Dep:1"];
+26 -> 25 [label="Control Dep:1"];
+26 -> 5 [label="AST:1"];
+26 -> 13 [label="AST:1"];
+26 -> 7 [label="Control Dep:1"];
+26 -> 1 [label="Control Dep:1"];
+26 -> 8 [label="Control Dep:1"];
+27 -> 7 [label="AST:1"];
+29 -> 27 [label="Control Dep:1"];
+29 -> 28 [label="Control Dep:1"];
+29 -> 5 [label="AST:1"];
+29 -> 13 [label="AST:1"];
+29 -> 7 [label="Control Dep:1"];
+29 -> 1 [label="Control Dep:1"];
+29 -> 8 [label="Control Dep:1"];
+30 -> 23 [label="Action:1"];
+}

@@ -1,0 +1,104 @@
+digraph "isIncluded#?,String" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@isIncluded" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+5 [label="3:CtLiteralImpl@0" shape=ellipse]
+6 [label="3:CtVirtualElement@i" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@int i = 0" shape=ellipse]
+8 [label="3:CtVariableReadImpl@i" shape=ellipse]
+9 [label="3:CtFieldReadImpl@includes.length" shape=ellipse]
+10 [label="3:CtBinaryOperatorImpl@i < includes.length" shape=ellipse]
+11 [label="3:CtVariableWriteImpl@i" shape=ellipse]
+12 [label="3:CtUnaryOperatorImpl@i++" shape=ellipse]
+13 [label="4:CtExecutableReferenceImpl@matchPath(<unknown>,java.lang.String)" shape=ellipse]
+14 [label="4:CtVirtualElement@matchPath" shape=ellipse]
+15 [label="4:CtFieldReadImpl@includes" shape=ellipse]
+16 [label="4:CtVariableReadImpl@i" shape=ellipse]
+17 [label="4:CtArrayReadImpl@includes[i]" shape=ellipse]
+18 [label="4:CtVariableReadImpl@name" shape=ellipse]
+19 [label="4:CtInvocationImpl@matchPath(includes[i], name)" shape=ellipse]
+20 [label="5:CtLiteralImpl@true" shape=ellipse]
+21 [label="5:CtReturnImpl@return true" shape=ellipse]
+22 [label="4:CtBlockImpl@\{
+    return true;
+\}" shape=ellipse]
+23 [label="4:CtIfImpl@if (matchPath(includes[i], name)) \{
+    return true;
+\}" shape=ellipse]
+24 [label="3:CtBlockImpl@\{
+    if (matchPath(includes[i], name)) \{
+        return true;
+    \}
+\}" shape=ellipse]
+25 [label="3:CtForImpl@for (int i = 0; i < includes.length; i++) \{
+    if (matchPath(includes[i], name)) \{
+        return true;
+    \}
+\}" shape=ellipse]
+26 [label="8:CtLiteralImpl@false" shape=ellipse]
+27 [label="8:CtReturnImpl@return false" shape=ellipse]
+28 [label="2:CtBlockImpl@\{
+    for (int i = 0; i < includes.length; i++) \{
+        if (matchPath(includes[i], name)) \{
+            return true;
+        \}
+    \}
+    return false;
+\}" shape=ellipse]
+29 [label="2:CtMethodImpl@protected boolean isIncluded(String name) \{
+    for (int i = 0; i < includes.length; i++) \{
+        if (matchPath(includes[i], name)) \{
+            return true;
+        \}
+    \}
+    return false;
+\}" shape=ellipse]
+30 [label="4:Insert@INSERT" shape=ellipse]
+31 [label="4:CtFieldReadImpl@isCaseSensitive" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 8 [label="Define-Use"];
+7 -> 6 [label="AST"];
+7 -> 4 [label="AST"];
+7 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 24 [label="Control Dep"];
+10 -> 23 [label="Control Dep"];
+10 -> 19 [label="Control Dep"];
+10 -> 13 [label="Control Dep"];
+10 -> 17 [label="Control Dep"];
+10 -> 15 [label="Control Dep"];
+10 -> 16 [label="Control Dep"];
+10 -> 18 [label="Control Dep"];
+11 -> 16 [label="Define-Use"];
+12 -> 11 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 13 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 22 [label="Control Dep"];
+19 -> 21 [label="Control Dep"];
+19 -> 20 [label="Control Dep"];
+19 -> 30 [label="Action"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 7 [label="AST"];
+25 -> 10 [label="AST"];
+25 -> 12 [label="AST"];
+25 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 1 [label="AST"];
+29 -> 0 [label="AST"];
+29 -> 2 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 31 [label="Action"];
+}

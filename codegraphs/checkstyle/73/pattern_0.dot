@@ -1,0 +1,89 @@
+digraph "Pattern" {
+0 [label="createChecker#?#20:INSERT
+getListeners#?#19:INSERT" shape=ellipse]
+1 [label="createChecker#?#19:String.format(\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\", configLocation, classpath)
+getListeners#?#18:String.format(\"Unable to create listeners: \" + \"formatters \{%s\}.\", formatters)" shape=ellipse]
+2 [label="createChecker#?#17:final CheckstyleException e
+getListeners#?#16:IOException e" shape=ellipse]
+3 [label="createChecker#?#17: catch (final CheckstyleException e) \{
+    throw new BuildException(String.format(\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\", configLocation, classpath), e);
+\}
+getListeners#?#16: catch (IOException e) \{
+    throw new BuildException(String.format(\"Unable to create listeners: \" + \"formatters \{%s\}.\", formatters), e);
+\}" shape=ellipse]
+4 [label="createChecker#?#17:e
+getListeners#?#16:e" shape=ellipse]
+5 [label="createChecker#?#17:CheckstyleException
+getListeners#?#16:IOException" shape=ellipse]
+6 [label="createChecker#?#17:\{
+    throw new BuildException(String.format(\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\", configLocation, classpath), e);
+\}
+getListeners#?#16:\{
+    throw new BuildException(String.format(\"Unable to create listeners: \" + \"formatters \{%s\}.\", formatters), e);
+\}" shape=ellipse]
+7 [label="createChecker#?#18:throw new BuildException(String.format(\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\", configLocation, classpath), e)
+getListeners#?#17:throw new BuildException(String.format(\"Unable to create listeners: \" + \"formatters \{%s\}.\", formatters), e)" shape=ellipse]
+8 [label="createChecker#?#18:new BuildException(String.format(\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\", configLocation, classpath), e)
+getListeners#?#17:new BuildException(String.format(\"Unable to create listeners: \" + \"formatters \{%s\}.\", formatters), e)" shape=ellipse]
+9 [label="createChecker#?#18:BuildException()
+getListeners#?#17:BuildException()" shape=ellipse]
+10 [label="createChecker#?#19:format(java.lang.String,java.lang.Object[])
+getListeners#?#18:format(java.lang.String,java.lang.Object[])" shape=ellipse]
+11 [label="createChecker#?#19:String
+getListeners#?#18:String" shape=ellipse]
+12 [label="createChecker#?#20:\"Unable to create a Checker: \" + \"configLocation \{%s\}, classpath \{%s\}.\"
+getListeners#?#18:\"Unable to create listeners: \" + \"formatters \{%s\}.\"" shape=ellipse]
+13 [label="createChecker#?#20:\"Unable to create a Checker: \"
+getListeners#?#18:\"Unable to create listeners: \"" shape=ellipse]
+14 [label="createChecker#?#20:\"configLocation \{%s\}, classpath \{%s\}.\"
+getListeners#?#18:\"formatters \{%s\}.\"" shape=ellipse]
+15 [label="createChecker#?#21:configLocation
+getListeners#?#18:formatters" shape=ellipse]
+16 [label="createChecker#?#21:classpath" shape=ellipse]
+17 [label="createChecker#?#22:e
+getListeners#?#18:e" shape=ellipse]
+18 [label="createChecker#?#20:Locale.ROOT
+getListeners#?#19:Locale.ROOT" shape=ellipse]
+19 [label="createChecker#?#20:ROOT
+getListeners#?#19:ROOT" shape=ellipse]
+20 [label="createChecker#?#20:Locale
+getListeners#?#19:Locale" shape=ellipse]
+21 [label="createChecker#?#19:format
+getListeners#?#18:format" shape=ellipse]
+0 -> 18 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 21 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:1"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+4 -> 17 [label="Define Use:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 1 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 17 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+}

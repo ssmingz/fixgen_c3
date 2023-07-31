@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2418/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2418/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectSpecificBuildException(
+-        "condition-incomplete",
+-        "property attribute has been omitted",
+-        "The property attribute is required.");
++    try {
++      buildRule.executeTarget("condition-incomplete");
++      fail("BuildException should have been thrown - property attribute has been omitted");
++    } catch (BuildException ex) {
++      assertEquals("The property attribute is required.", ex.getMessage());
++    }

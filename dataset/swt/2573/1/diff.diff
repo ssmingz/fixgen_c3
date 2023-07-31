@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2573/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2573/1/after.java
+@@ -54,1 +54,6 @@
+-          OS.g_main_context_iteration(0, false);
++          try {
++            OS.gdk_threads_leave();
++            OS.g_main_context_iteration(0, false);
++          } finally {
++            OS.gdk_threads_enter();
++          }

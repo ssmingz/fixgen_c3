@@ -1,0 +1,60 @@
+digraph "Pattern" {
+0 [label="TokenizedPath#?,String#3:INSERT
+TokenizedPattern#?,String#3:INSERT" shape=ellipse]
+1 [label="TokenizedPath#?,String#2:public  TokenizedPath(String path) \{
+    this.path = path;
+    this.tokenizedPath = SelectorUtils.tokenizePathAsArray(path);
+\}
+TokenizedPattern#?,String#2:public  TokenizedPattern(String pattern) \{
+    this.pattern = pattern;
+    this.tokenizedPattern = SelectorUtils.tokenizePathAsArray(pattern);
+\}" shape=ellipse]
+2 [label="TokenizedPath#?,String#2:TokenizedPath
+TokenizedPattern#?,String#2:TokenizedPattern" shape=ellipse]
+3 [label="TokenizedPath#?,String#2:String path
+TokenizedPattern#?,String#2:String pattern" shape=ellipse]
+4 [label="TokenizedPath#?,String#2:String
+TokenizedPattern#?,String#2:String" shape=ellipse]
+5 [label="TokenizedPath#?,String#2:\{
+    this.path = path;
+    this.tokenizedPath = SelectorUtils.tokenizePathAsArray(path);
+\}
+TokenizedPattern#?,String#2:\{
+    this.pattern = pattern;
+    this.tokenizedPattern = SelectorUtils.tokenizePathAsArray(pattern);
+\}" shape=ellipse]
+6 [label="TokenizedPath#?,String#3:this.path = path
+TokenizedPattern#?,String#3:this.pattern = pattern" shape=ellipse]
+7 [label="TokenizedPath#?,String#4:this.tokenizedPath = SelectorUtils.tokenizePathAsArray(path)
+TokenizedPattern#?,String#4:this.tokenizedPattern = SelectorUtils.tokenizePathAsArray(pattern)" shape=ellipse]
+8 [label="TokenizedPath#?,String#2:VE: Modifiers_Method
+TokenizedPattern#?,String#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="TokenizedPath#?,String#2:public
+TokenizedPattern#?,String#2:public" shape=ellipse]
+10 [label="TokenizedPath#?,String#3:(path, SelectorUtils.tokenizePathAsArray(path))
+TokenizedPattern#?,String#3:(pattern, SelectorUtils.tokenizePathAsArray(pattern))" shape=ellipse]
+11 [label="TokenizedPath#?,String#3:MOVE
+TokenizedPattern#?,String#3:MOVE" shape=ellipse]
+12 [label="TokenizedPath#?,String#3:path
+TokenizedPattern#?,String#3:pattern" shape=ellipse]
+13 [label="TokenizedPath#?,String#4:MOVE
+TokenizedPattern#?,String#4:MOVE" shape=ellipse]
+14 [label="TokenizedPath#?,String#4:SelectorUtils.tokenizePathAsArray(path)
+TokenizedPattern#?,String#4:SelectorUtils.tokenizePathAsArray(pattern)" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+6 -> 12 [label="AST:2"];
+7 -> 14 [label="AST:2"];
+11 -> 10 [label="Action:2"];
+12 -> 11 [label="Action:2"];
+13 -> 10 [label="Action:2"];
+14 -> 13 [label="Action:2"];
+}

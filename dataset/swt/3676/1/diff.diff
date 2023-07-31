@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3676/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3676/1/after.java
+@@ -10,2 +10,12 @@
+-    freeRuns();
+-    this.indent = indent;
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      freeRuns();
++      this.indent = indent;
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

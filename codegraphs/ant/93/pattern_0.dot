@@ -1,0 +1,67 @@
+digraph "Pattern" {
+0 [label="isFilesystemOnly#?#3:INSERT
+getSrc#?#3:INSERT" shape=ellipse]
+1 [label="isFilesystemOnly#?#2:public boolean isFilesystemOnly() \{
+    return src == null;
+\}
+getSrc#?#2:public File getSrc() \{
+    if (src != null) \{
+        FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+        if (fp != null) \{
+            return fp.getFile();
+        \}
+    \}
+    return null;
+\}" shape=ellipse]
+2 [label="isFilesystemOnly#?#2:isFilesystemOnly
+getSrc#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="isFilesystemOnly#?#2:boolean
+getSrc#?#2:File" shape=ellipse]
+4 [label="isFilesystemOnly#?#2:\{
+    return src == null;
+\}
+getSrc#?#2:\{
+    if (src != null) \{
+        FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+        if (fp != null) \{
+            return fp.getFile();
+        \}
+    \}
+    return null;
+\}" shape=ellipse]
+5 [label="isFilesystemOnly#?#3:return src == null
+getSrc#?#9:return null" shape=ellipse]
+6 [label="isFilesystemOnly#?#2:public
+getSrc#?#2:public" shape=ellipse]
+7 [label="isFilesystemOnly#?#2:VE: Modifiers_Method
+getSrc#?#2:getSrc" shape=ellipse]
+8 [label="isFilesystemOnly#?#6:INSERT
+getSrc#?#6:INSERT" shape=ellipse]
+9 [label="isFilesystemOnly#?#6:dieOnCircularReference()
+getSrc#?#6:dieOnCircularReference()" shape=ellipse]
+10 [label="isFilesystemOnly#?#3:if (isReference()) \{
+    return ((ArchiveFileSet) (getCheckedRef())).isFilesystemOnly();
+\}
+getSrc#?#3:if (isReference()) \{
+    return ((ArchiveFileSet) (getCheckedRef())).getSrc();
+\}" shape=ellipse]
+11 [label="getSrc#?#-1:" shape=ellipse]
+12 [label="getSrc#?#3:if (src != null) \{
+    FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+    if (fp != null) \{
+        return fp.getFile();
+    \}
+\}" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+3 -> 11 [label="AST:1"];
+4 -> 5 [label="AST:2"];
+4 -> 12 [label="AST:1"];
+8 -> 9 [label="Action:2"];
+}

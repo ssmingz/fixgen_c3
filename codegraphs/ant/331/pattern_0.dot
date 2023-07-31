@@ -1,0 +1,70 @@
+digraph "Pattern" {
+0 [label="NewProjectEvent#?,AppContext,ACSProjectElement#4:INSERT
+InputRequest#?,String#3:INSERT
+MultipleChoiceInputRequest#?,String,Vector#4:INSERT" shape=ellipse]
+1 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:public  NewProjectEvent(AppContext context, ACSProjectElement project) \{
+    (context, project);
+\}
+InputRequest#?,String#2:public  InputRequest(String prompt) \{
+    this.prompt = prompt;
+\}
+MultipleChoiceInputRequest#?,String,Vector#2:public  MultipleChoiceInputRequest(String prompt, Vector choices) \{
+    (prompt);
+    this.choices = choices;
+\}" shape=ellipse]
+2 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:NewProjectEvent
+InputRequest#?,String#2:VE: Modifiers_Method
+MultipleChoiceInputRequest#?,String,Vector#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:AppContext context
+InputRequest#?,String#2:String prompt
+MultipleChoiceInputRequest#?,String,Vector#2:String prompt" shape=ellipse]
+4 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:AppContext
+InputRequest#?,String#2:String
+MultipleChoiceInputRequest#?,String,Vector#2:String" shape=ellipse]
+5 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:ACSProjectElement project
+MultipleChoiceInputRequest#?,String,Vector#2:Vector choices" shape=ellipse]
+6 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:ACSProjectElement
+MultipleChoiceInputRequest#?,String,Vector#2:Vector" shape=ellipse]
+7 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:\{
+    (context, project);
+\}
+InputRequest#?,String#2:\{
+    this.prompt = prompt;
+\}
+MultipleChoiceInputRequest#?,String,Vector#2:\{
+    (prompt);
+    this.choices = choices;
+\}" shape=ellipse]
+8 [label="NewProjectEvent#?,AppContext,ACSProjectElement#3:(context, project)
+MultipleChoiceInputRequest#?,String,Vector#3:(prompt)" shape=ellipse]
+9 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:VE: Modifiers_Method
+InputRequest#?,String#2:InputRequest
+MultipleChoiceInputRequest#?,String,Vector#2:MultipleChoiceInputRequest" shape=ellipse]
+10 [label="NewProjectEvent#?,AppContext,ACSProjectElement#2:public
+InputRequest#?,String#2:public
+MultipleChoiceInputRequest#?,String,Vector#2:public" shape=ellipse]
+11 [label="NewProjectEvent#?,AppContext,ACSProjectElement#4:if (project == null) \{
+    throw new IllegalArgumentException(\"A new project can't be null.\");
+\}
+InputRequest#?,String#3:if (prompt == null) \{
+    throw new IllegalArgumentException(\"prompt must not be null\");
+\}
+MultipleChoiceInputRequest#?,String,Vector#4:if (choices == null) \{
+    throw new IllegalArgumentException(\"choices must not be null\");
+\}" shape=ellipse]
+12 [label="InputRequest#?,String#3:this.prompt = prompt" shape=ellipse]
+13 [label="MultipleChoiceInputRequest#?,String,Vector#4:this.choices = choices" shape=ellipse]
+0 -> 11 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:3"];
+1 -> 9 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+3 -> 4 [label="AST:3"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 12 [label="AST:1"];
+7 -> 13 [label="AST:1"];
+}

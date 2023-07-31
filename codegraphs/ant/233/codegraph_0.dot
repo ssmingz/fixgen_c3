@@ -1,0 +1,356 @@
+digraph "createLogger#?" {
+0 [label="2:CtTypeReferenceImpl@BuildLogger" shape=ellipse]
+1 [label="2:CtVirtualElement@createLogger" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@BuildLogger" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtVirtualElement@logger" shape=ellipse]
+5 [label="3:CtLocalVariableImpl@BuildLogger logger = null" shape=ellipse]
+6 [label="4:CtFieldReadImpl@silent" shape=ellipse]
+7 [label="5:CtVariableWriteImpl@logger" shape=ellipse]
+8 [label="5:CtTypeReferenceImpl@SilentLogger" shape=ellipse]
+9 [label="5:CtConstructorCallImpl@new SilentLogger()" shape=ellipse]
+10 [label="5:CtAssignmentImpl@logger = new SilentLogger()" shape=ellipse]
+11 [label="6:CtFieldWriteImpl@msgOutputLevel" shape=ellipse]
+12 [label="6:CtFieldReadImpl@Project.MSG_WARN" shape=ellipse]
+13 [label="6:CtAssignmentImpl@msgOutputLevel = Project.MSG_WARN" shape=ellipse]
+14 [label="7:CtFieldWriteImpl@emacsMode" shape=ellipse]
+15 [label="7:CtLiteralImpl@true" shape=ellipse]
+16 [label="7:CtAssignmentImpl@emacsMode = true" shape=ellipse]
+17 [label="4:CtBlockImpl@\{
+    logger = new SilentLogger();
+    msgOutputLevel = Project.MSG_WARN;
+    emacsMode = true;
+\}" shape=ellipse]
+18 [label="8:CtFieldReadImpl@loggerClassname" shape=ellipse]
+19 [label="8:CtLiteralImpl@null" shape=ellipse]
+20 [label="8:CtBinaryOperatorImpl@loggerClassname != null" shape=ellipse]
+21 [label="10:CtVariableWriteImpl@logger" shape=ellipse]
+22 [label="12:CtExecutableReferenceImpl@newInstance(java.lang.ClassLoader,java.lang.Class)" shape=ellipse]
+23 [label="12:CtVirtualElement@newInstance" shape=ellipse]
+24 [label="12:CtTypeAccessImpl@ClasspathUtils" shape=ellipse]
+25 [label="13:CtFieldReadImpl@loggerClassname" shape=ellipse]
+26 [label="13:CtExecutableReferenceImpl@getClassLoader()" shape=ellipse]
+27 [label="13:CtVirtualElement@getClassLoader" shape=ellipse]
+28 [label="13:CtFieldReadImpl@Main.class" shape=ellipse]
+29 [label="13:CtInvocationImpl@Main.class.getClassLoader()" shape=ellipse]
+30 [label="13:CtFieldReadImpl@BuildLogger.class" shape=ellipse]
+31 [label="12:CtInvocationImpl@((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)))" shape=ellipse]
+32 [label="11:CtTypeReferenceImpl@BuildLogger" shape=ellipse]
+33 [label="10:CtAssignmentImpl@logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)))" shape=ellipse]
+34 [label="9:CtBlockImpl@\{
+    logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+\}" shape=ellipse]
+35 [label="14:CtVirtualElement@e" shape=ellipse]
+36 [label="14:CtTypeReferenceImpl@BuildException" shape=ellipse]
+37 [label="14:CtCatchVariableImpl@BuildException e" shape=ellipse]
+38 [label="15:CtExecutableReferenceImpl@println(char[])" shape=ellipse]
+39 [label="15:CtVirtualElement@println" shape=ellipse]
+40 [label="15:CtTypeAccessImpl@System" shape=ellipse]
+41 [label="15:CtFieldReadImpl@System.err" shape=ellipse]
+42 [label="15:CtFieldReferenceImpl@java.lang.System.err" shape=ellipse]
+43 [label="16:CtLiteralImpl@\"The specified logger class \"" shape=ellipse]
+44 [label="16:CtFieldReadImpl@loggerClassname" shape=ellipse]
+45 [label="16:CtBinaryOperatorImpl@(\"The specified logger class \" + loggerClassname)" shape=ellipse]
+46 [label="16:CtLiteralImpl@\" could not be used because \"" shape=ellipse]
+47 [label="16:CtBinaryOperatorImpl@((\"The specified logger class \" + loggerClassname) + \" could not be used because \")" shape=ellipse]
+48 [label="17:CtExecutableReferenceImpl@getMessage()" shape=ellipse]
+49 [label="17:CtVirtualElement@getMessage" shape=ellipse]
+50 [label="17:CtVariableReadImpl@e" shape=ellipse]
+51 [label="17:CtInvocationImpl@e.getMessage()" shape=ellipse]
+52 [label="16:CtBinaryOperatorImpl@((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage()" shape=ellipse]
+53 [label="15:CtInvocationImpl@System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage())" shape=ellipse]
+54 [label="18:CtTypeReferenceImpl@RuntimeException" shape=ellipse]
+55 [label="18:CtConstructorCallImpl@new RuntimeException()" shape=ellipse]
+56 [label="18:CtThrowImpl@throw new RuntimeException()" shape=ellipse]
+57 [label="14:CtBlockImpl@\{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}" shape=ellipse]
+58 [label="14:CtCatchImpl@ catch (BuildException e) \{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}" shape=ellipse]
+59 [label="9:CtTryImpl@try \{
+    logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+\} catch (BuildException e) \{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}" shape=ellipse]
+60 [label="8:CtBlockImpl@\{
+    try \{
+        logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+    \} catch (BuildException e) \{
+        System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+        throw new RuntimeException();
+    \}
+\}" shape=ellipse]
+61 [label="21:CtVariableWriteImpl@logger" shape=ellipse]
+62 [label="21:CtTypeReferenceImpl@DefaultLogger" shape=ellipse]
+63 [label="21:CtConstructorCallImpl@new DefaultLogger()" shape=ellipse]
+64 [label="21:CtAssignmentImpl@logger = new DefaultLogger()" shape=ellipse]
+65 [label="20:CtBlockImpl@\{
+    logger = new DefaultLogger();
+\}" shape=ellipse]
+66 [label="8:CtIfImpl@if (loggerClassname != null) \{
+    try \{
+        logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+    \} catch (BuildException e) \{
+        System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+        throw new RuntimeException();
+    \}
+\} else \{
+    logger = new DefaultLogger();
+\}" shape=ellipse]
+67 [label="8:CtBlockImpl@
+    if (loggerClassname != null) \{
+        try \{
+            logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+        \} catch (BuildException e) \{
+            System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+            throw new RuntimeException();
+        \}
+    \} else \{
+        logger = new DefaultLogger();
+    \}
+" shape=ellipse]
+68 [label="4:CtIfImpl@if (silent) \{
+    logger = new SilentLogger();
+    msgOutputLevel = Project.MSG_WARN;
+    emacsMode = true;
+\} else if (loggerClassname != null) \{
+    try \{
+        logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+    \} catch (BuildException e) \{
+        System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+        throw new RuntimeException();
+    \}
+\} else \{
+    logger = new DefaultLogger();
+\}" shape=ellipse]
+69 [label="23:CtExecutableReferenceImpl@setMessageOutputLevel()" shape=ellipse]
+70 [label="23:CtVirtualElement@setMessageOutputLevel" shape=ellipse]
+71 [label="23:CtVariableReadImpl@logger" shape=ellipse]
+72 [label="23:CtFieldReadImpl@msgOutputLevel" shape=ellipse]
+73 [label="23:CtInvocationImpl@logger.setMessageOutputLevel(msgOutputLevel)" shape=ellipse]
+74 [label="24:CtExecutableReferenceImpl@setOutputPrintStream()" shape=ellipse]
+75 [label="24:CtVirtualElement@setOutputPrintStream" shape=ellipse]
+76 [label="24:CtVariableReadImpl@logger" shape=ellipse]
+77 [label="24:CtFieldReadImpl@out" shape=ellipse]
+78 [label="24:CtInvocationImpl@logger.setOutputPrintStream(out)" shape=ellipse]
+79 [label="25:CtExecutableReferenceImpl@setErrorPrintStream()" shape=ellipse]
+80 [label="25:CtVirtualElement@setErrorPrintStream" shape=ellipse]
+81 [label="25:CtVariableReadImpl@logger" shape=ellipse]
+82 [label="25:CtFieldReadImpl@err" shape=ellipse]
+83 [label="25:CtInvocationImpl@logger.setErrorPrintStream(err)" shape=ellipse]
+84 [label="26:CtExecutableReferenceImpl@setEmacsMode()" shape=ellipse]
+85 [label="26:CtVirtualElement@setEmacsMode" shape=ellipse]
+86 [label="26:CtVariableReadImpl@logger" shape=ellipse]
+87 [label="26:CtFieldReadImpl@emacsMode" shape=ellipse]
+88 [label="26:CtInvocationImpl@logger.setEmacsMode(emacsMode)" shape=ellipse]
+89 [label="27:CtVariableReadImpl@logger" shape=ellipse]
+90 [label="27:CtReturnImpl@return logger" shape=ellipse]
+91 [label="2:CtBlockImpl@\{
+    BuildLogger logger = null;
+    if (silent) \{
+        logger = new SilentLogger();
+        msgOutputLevel = Project.MSG_WARN;
+        emacsMode = true;
+    \} else if (loggerClassname != null) \{
+        try \{
+            logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+        \} catch (BuildException e) \{
+            System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+            throw new RuntimeException();
+        \}
+    \} else \{
+        logger = new DefaultLogger();
+    \}
+    logger.setMessageOutputLevel(msgOutputLevel);
+    logger.setOutputPrintStream(out);
+    logger.setErrorPrintStream(err);
+    logger.setEmacsMode(emacsMode);
+    return logger;
+\}" shape=ellipse]
+92 [label="2:CtMethodImpl@private BuildLogger createLogger() \{
+    BuildLogger logger = null;
+    if (silent) \{
+        logger = new SilentLogger();
+        msgOutputLevel = Project.MSG_WARN;
+        emacsMode = true;
+    \} else if (loggerClassname != null) \{
+        try \{
+            logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+        \} catch (BuildException e) \{
+            System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+            throw new RuntimeException();
+        \}
+    \} else \{
+        logger = new DefaultLogger();
+    \}
+    logger.setMessageOutputLevel(msgOutputLevel);
+    logger.setOutputPrintStream(out);
+    logger.setErrorPrintStream(err);
+    logger.setEmacsMode(emacsMode);
+    return logger;
+\}" shape=ellipse]
+93 [label="14:Insert@INSERT" shape=ellipse]
+94 [label="14:CtVirtualElement@" shape=ellipse]
+5 -> 4 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 3 [label="AST"];
+6 -> 17 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 7 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+6 -> 13 [label="Control Dep"];
+6 -> 11 [label="Control Dep"];
+6 -> 12 [label="Control Dep"];
+6 -> 16 [label="Control Dep"];
+6 -> 14 [label="Control Dep"];
+6 -> 15 [label="Control Dep"];
+6 -> 67 [label="Control Dep"];
+6 -> 66 [label="Control Dep"];
+6 -> 20 [label="Control Dep"];
+6 -> 18 [label="Control Dep"];
+6 -> 19 [label="Control Dep"];
+10 -> 7 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 72 [label="Define-Use"];
+12 -> 11 [label="Data Dep"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 87 [label="Define-Use"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 10 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 60 [label="Control Dep"];
+20 -> 59 [label="Control Dep"];
+20 -> 34 [label="Control Dep"];
+20 -> 33 [label="Control Dep"];
+20 -> 21 [label="Control Dep"];
+20 -> 31 [label="Control Dep"];
+20 -> 22 [label="Control Dep"];
+20 -> 24 [label="Control Dep"];
+20 -> 25 [label="Control Dep"];
+20 -> 29 [label="Control Dep"];
+20 -> 26 [label="Control Dep"];
+20 -> 28 [label="Control Dep"];
+20 -> 30 [label="Control Dep"];
+20 -> 58 [label="Control Dep"];
+20 -> 37 [label="Control Dep"];
+20 -> 65 [label="Control Dep"];
+20 -> 64 [label="Control Dep"];
+20 -> 61 [label="Control Dep"];
+20 -> 63 [label="Control Dep"];
+21 -> 71 [label="Define-Use"];
+21 -> 76 [label="Define-Use"];
+21 -> 81 [label="Define-Use"];
+21 -> 86 [label="Define-Use"];
+21 -> 89 [label="Define-Use"];
+25 -> 21 [label="Data Dep"];
+28 -> 21 [label="Data Dep"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 26 [label="AST"];
+30 -> 21 [label="Data Dep"];
+31 -> 23 [label="AST"];
+31 -> 32 [label="AST"];
+31 -> 24 [label="AST"];
+31 -> 22 [label="AST"];
+31 -> 25 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+33 -> 21 [label="AST"];
+33 -> 31 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 50 [label="Define-Use"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 57 [label="Control Dep"];
+37 -> 53 [label="Control Dep"];
+37 -> 38 [label="Control Dep"];
+37 -> 41 [label="Control Dep"];
+37 -> 40 [label="Control Dep"];
+37 -> 52 [label="Control Dep"];
+37 -> 47 [label="Control Dep"];
+37 -> 45 [label="Control Dep"];
+37 -> 43 [label="Control Dep"];
+37 -> 44 [label="Control Dep"];
+37 -> 46 [label="Control Dep"];
+37 -> 51 [label="Control Dep"];
+37 -> 48 [label="Control Dep"];
+37 -> 50 [label="Control Dep"];
+37 -> 56 [label="Control Dep"];
+37 -> 55 [label="Control Dep"];
+37 -> 93 [label="Action"];
+41 -> 40 [label="AST"];
+41 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 48 [label="AST"];
+52 -> 47 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 39 [label="AST"];
+53 -> 41 [label="AST"];
+53 -> 38 [label="AST"];
+53 -> 52 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 53 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 37 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 34 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 71 [label="Define-Use"];
+61 -> 76 [label="Define-Use"];
+61 -> 81 [label="Define-Use"];
+61 -> 86 [label="Define-Use"];
+61 -> 89 [label="Define-Use"];
+64 -> 61 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 20 [label="AST"];
+66 -> 60 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 6 [label="AST"];
+68 -> 17 [label="AST"];
+68 -> 67 [label="AST"];
+73 -> 70 [label="AST"];
+73 -> 71 [label="AST"];
+73 -> 69 [label="AST"];
+73 -> 72 [label="AST"];
+78 -> 75 [label="AST"];
+78 -> 76 [label="AST"];
+78 -> 74 [label="AST"];
+78 -> 77 [label="AST"];
+83 -> 80 [label="AST"];
+83 -> 81 [label="AST"];
+83 -> 79 [label="AST"];
+83 -> 82 [label="AST"];
+88 -> 85 [label="AST"];
+88 -> 86 [label="AST"];
+88 -> 84 [label="AST"];
+88 -> 87 [label="AST"];
+90 -> 89 [label="AST"];
+91 -> 5 [label="AST"];
+91 -> 68 [label="AST"];
+91 -> 73 [label="AST"];
+91 -> 78 [label="AST"];
+91 -> 83 [label="AST"];
+91 -> 88 [label="AST"];
+91 -> 90 [label="AST"];
+92 -> 1 [label="AST"];
+92 -> 0 [label="AST"];
+92 -> 91 [label="AST"];
+93 -> 94 [label="Action"];
+}

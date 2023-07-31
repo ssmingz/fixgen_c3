@@ -1,0 +1,65 @@
+digraph "Pattern" {
+0 [label="testRedirect3#?#4:INSERT
+testRedirect2#?#4:INSERT
+testRedirect1#?#4:INSERT" shape=ellipse]
+1 [label="testRedirect3#?#3:executeTarget(\"redirect3\")
+testRedirect2#?#3:executeTarget(\"redirect2\")
+testRedirect1#?#3:executeTarget(\"redirect1\")" shape=ellipse]
+2 [label="testRedirect3#?#2:\{
+    executeTarget(\"redirect3\");
+\}
+testRedirect2#?#2:\{
+    executeTarget(\"redirect2\");
+\}
+testRedirect1#?#2:\{
+    executeTarget(\"redirect1\");
+\}" shape=ellipse]
+3 [label="testRedirect3#?#2:public void testRedirect3() \{
+    executeTarget(\"redirect3\");
+\}
+testRedirect2#?#2:public void testRedirect2() \{
+    executeTarget(\"redirect2\");
+\}
+testRedirect1#?#2:public void testRedirect1() \{
+    executeTarget(\"redirect1\");
+\}" shape=ellipse]
+4 [label="testRedirect3#?#3:executeTarget
+testRedirect2#?#3:executeTarget
+testRedirect1#?#3:executeTarget" shape=ellipse]
+5 [label="testRedirect3#?#-1:
+testRedirect2#?#-1:
+testRedirect1#?#-1:" shape=ellipse]
+6 [label="testRedirect3#?#-1:PlaceHold
+testRedirect2#?#-1:PlaceHold
+testRedirect1#?#-1:PlaceHold" shape=ellipse]
+7 [label="testRedirect3#?#-1:PlaceHold
+testRedirect2#?#-1:PlaceHold
+testRedirect1#?#-1:PlaceHold" shape=ellipse]
+8 [label="testRedirect3#?#3:executeTarget(java.lang.String)
+testRedirect2#?#3:executeTarget(java.lang.String)
+testRedirect1#?#3:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testRedirect3#?#-1:String
+testRedirect2#?#-1:String
+testRedirect1#?#-1:String" shape=ellipse]
+10 [label="testRedirect3#?#3:\"redirect3\"
+testRedirect2#?#3:\"redirect2\"
+testRedirect1#?#3:\"redirect1\"" shape=ellipse]
+11 [label="testRedirect3#?#-1:String
+testRedirect2#?#-1:String
+testRedirect1#?#-1:String" shape=ellipse]
+12 [label="testRedirect3#?#4:buildRule
+testRedirect2#?#4:buildRule
+testRedirect1#?#4:buildRule" shape=ellipse]
+0 -> 12 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 5 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+}

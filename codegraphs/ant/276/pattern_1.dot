@@ -1,0 +1,124 @@
+digraph "Pattern" {
+0 [label="configureType#?,String,BuildElement#16:INSERT
+configureTask#?,BuildElement#17:INSERT" shape=ellipse]
+1 [label="configureType#?,String,BuildElement#15:createTypeInstance(typeClass, libFactory, model)
+configureTask#?,BuildElement#16:libFactory.createTaskInstance(elementClass)" shape=ellipse]
+2 [label="configureType#?,String,BuildElement#15:Object typeInstance = createTypeInstance(typeClass, libFactory, model)
+configureTask#?,BuildElement#16:Object element = libFactory.createTaskInstance(elementClass)" shape=ellipse]
+3 [label="configureType#?,String,BuildElement#10:\{
+    ClassLoader typeClassLoader = componentLibrary.getClassLoader();
+    Class typeClass = Class.forName(className, true, typeClassLoader);
+    ClassLoader currentLoader = setContextLoader(typeClassLoader);
+    AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+    Object typeInstance = createTypeInstance(typeClass, libFactory, model);
+    setContextLoader(currentLoader);
+    return typeInstance;
+\}
+configureTask#?,BuildElement#12:\{
+    ClassLoader taskClassLoader = componentLibrary.getClassLoader();
+    Class elementClass = Class.forName(className, true, taskClassLoader);
+    AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+    Object element = libFactory.createTaskInstance(elementClass);
+    Task task = null;
+    if (element instanceof Task) \{
+        task = ((Task) (element));
+    \} else \{
+        task = new TaskAdapter(taskType, element);
+    \}
+    ClassLoader currentLoader = setContextLoader(taskClassLoader);
+    TaskContext taskContext = new TaskContext(this);
+    taskContext.init(taskClassLoader, task, model);
+    configureElement(libFactory, element, model);
+    task.validateComponent();
+    setContextLoader(currentLoader);
+    return taskContext;
+\}" shape=ellipse]
+4 [label="configureType#?,String,BuildElement#15:typeInstance
+configureTask#?,BuildElement#16:element" shape=ellipse]
+5 [label="configureType#?,String,BuildElement#15:Object
+configureTask#?,BuildElement#16:Object" shape=ellipse]
+6 [label="configureType#?,String,BuildElement#15:createTypeInstance
+configureTask#?,BuildElement#16:createTaskInstance" shape=ellipse]
+7 [label="configureType#?,String,BuildElement#-1:
+configureTask#?,BuildElement#16:libFactory" shape=ellipse]
+8 [label="configureType#?,String,BuildElement#-1:PlaceHold" shape=ellipse]
+9 [label="configureType#?,String,BuildElement#-1:PlaceHold" shape=ellipse]
+10 [label="configureType#?,String,BuildElement#15:createTypeInstance(java.lang.Class,<unknown>,<unknown>)
+configureTask#?,BuildElement#16:createTaskInstance(java.lang.Class)" shape=ellipse]
+11 [label="configureType#?,String,BuildElement#-1:Object
+configureTask#?,BuildElement#-1:Object" shape=ellipse]
+12 [label="configureType#?,String,BuildElement#-1:Class
+configureTask#?,BuildElement#-1:Class" shape=ellipse]
+13 [label="configureType#?,String,BuildElement#-1:null
+configureTask#?,BuildElement#-1:AntLibFactory" shape=ellipse]
+14 [label="configureType#?,String,BuildElement#-1:null" shape=ellipse]
+15 [label="configureType#?,String,BuildElement#15:typeClass
+configureTask#?,BuildElement#16:elementClass" shape=ellipse]
+16 [label="configureType#?,String,BuildElement#12:typeClass
+configureTask#?,BuildElement#14:elementClass" shape=ellipse]
+17 [label="configureType#?,String,BuildElement#-1:typeClass
+configureTask#?,BuildElement#-1:elementClass" shape=ellipse]
+18 [label="configureType#?,String,BuildElement#15:libFactory" shape=ellipse]
+19 [label="configureType#?,String,BuildElement#14:libFactory
+configureTask#?,BuildElement#12:localName" shape=ellipse]
+20 [label="configureType#?,String,BuildElement#-1:libFactory
+configureTask#?,BuildElement#19:element" shape=ellipse]
+21 [label="configureType#?,String,BuildElement#15:model" shape=ellipse]
+22 [label="configureType#?,String,BuildElement#-1:model
+configureTask#?,BuildElement#22:element" shape=ellipse]
+23 [label="configureType#?,String,BuildElement#16:localName" shape=ellipse]
+24 [label="configureType#?,String,BuildElement#10:localName
+configureTask#?,BuildElement#27:element" shape=ellipse]
+25 [label="configureType#?,String,BuildElement#10:typeDefInfo" shape=ellipse]
+26 [label="configureType#?,String,BuildElement#16:typeInstance" shape=ellipse]
+27 [label="configureType#?,String,BuildElement#-1:
+configureTask#?,BuildElement#20:((Task) (element))" shape=ellipse]
+28 [label="configureType#?,String,BuildElement#18:typeInstance" shape=ellipse]
+29 [label="configureTask#?,BuildElement#12:taskDefInfo" shape=ellipse]
+30 [label="configureTask#?,BuildElement#17:element" shape=ellipse]
+31 [label="configureTask#?,BuildElement#-1:libFactory" shape=ellipse]
+32 [label="configureTask#?,BuildElement#17:localName" shape=ellipse]
+33 [label="configureTask#?,BuildElement#15:libFactory" shape=ellipse]
+0 -> 23 [label="Action:1"];
+0 -> 32 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 18 [label="AST:1"];
+1 -> 21 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 4 [label="Data Dep:2"];
+7 -> 8 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 31 [label="AST:1"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+10 -> 13 [label="AST:2"];
+10 -> 14 [label="AST:1"];
+15 -> 4 [label="Data Dep:2"];
+15 -> 17 [label="AST:2"];
+16 -> 15 [label="Define Use:2"];
+18 -> 4 [label="Data Dep:1"];
+18 -> 20 [label="AST:1"];
+19 -> 18 [label="Define Use:1"];
+19 -> 32 [label="Define Use:1"];
+21 -> 4 [label="Data Dep:1"];
+21 -> 22 [label="AST:1"];
+23 -> 26 [label="Data Dep:1"];
+24 -> 23 [label="Define Use:1"];
+25 -> 24 [label="Data Dep:1"];
+26 -> 28 [label="Define Use:1"];
+27 -> 26 [label="Data Dep:1"];
+29 -> 19 [label="Data Dep:1"];
+30 -> 20 [label="Define Use:1"];
+30 -> 27 [label="Define Use:1"];
+30 -> 22 [label="Define Use:1"];
+30 -> 24 [label="Define Use:1"];
+32 -> 30 [label="Data Dep:1"];
+33 -> 7 [label="Define Use:1"];
+}

@@ -1,0 +1,256 @@
+digraph "configureLiaison#?,File" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@configureLiaison" shape=ellipse]
+2 [label="2:CtParameterImpl@File stylesheet" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+5 [label="3:CtFieldReadImpl@stylesheetLoaded" shape=ellipse]
+6 [label="4:CtReturnImpl@return" shape=ellipse]
+7 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+8 [label="3:CtIfImpl@if (stylesheetLoaded) \{
+    return;
+\}" shape=ellipse]
+9 [label="6:CtFieldWriteImpl@stylesheetLoaded" shape=ellipse]
+10 [label="6:CtLiteralImpl@true" shape=ellipse]
+11 [label="6:CtAssignmentImpl@stylesheetLoaded = true" shape=ellipse]
+12 [label="8:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+13 [label="8:CtVirtualElement@log" shape=ellipse]
+14 [label="8:CtLiteralImpl@\"Loading stylesheet \"" shape=ellipse]
+15 [label="8:CtVariableReadImpl@stylesheet" shape=ellipse]
+16 [label="8:CtBinaryOperatorImpl@\"Loading stylesheet \" + stylesheet" shape=ellipse]
+17 [label="8:CtTypeAccessImpl@MSG_INFO" shape=ellipse]
+18 [label="8:CtInvocationImpl@log(\"Loading stylesheet \" + stylesheet, MSG_INFO)" shape=ellipse]
+19 [label="9:CtExecutableReferenceImpl@setStylesheet(File)" shape=ellipse]
+20 [label="9:CtVirtualElement@setStylesheet" shape=ellipse]
+21 [label="9:CtFieldReadImpl@liaison" shape=ellipse]
+22 [label="9:CtVariableReadImpl@stylesheet" shape=ellipse]
+23 [label="9:CtInvocationImpl@liaison.setStylesheet(stylesheet)" shape=ellipse]
+24 [label="10:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+25 [label="10:CtExecutableReferenceImpl@elements()" shape=ellipse]
+26 [label="10:CtVirtualElement@elements" shape=ellipse]
+27 [label="10:CtFieldReadImpl@params" shape=ellipse]
+28 [label="10:CtInvocationImpl@params.elements()" shape=ellipse]
+29 [label="10:CtVirtualElement@e" shape=ellipse]
+30 [label="10:CtLocalVariableImpl@Enumeration e = params.elements()" shape=ellipse]
+31 [label="10:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+32 [label="10:CtVirtualElement@hasMoreElements" shape=ellipse]
+33 [label="10:CtVariableReadImpl@e" shape=ellipse]
+34 [label="10:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+35 [label="11:CtTypeReferenceImpl@Param" shape=ellipse]
+36 [label="11:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+37 [label="11:CtVirtualElement@nextElement" shape=ellipse]
+38 [label="11:CtVariableReadImpl@e" shape=ellipse]
+39 [label="11:CtInvocationImpl@((Param) (e.nextElement()))" shape=ellipse]
+40 [label="11:CtTypeReferenceImpl@Param" shape=ellipse]
+41 [label="11:CtVirtualElement@p" shape=ellipse]
+42 [label="11:CtLocalVariableImpl@Param p = ((Param) (e.nextElement()))" shape=ellipse]
+43 [label="12:CtExecutableReferenceImpl@addParam()" shape=ellipse]
+44 [label="12:CtVirtualElement@addParam" shape=ellipse]
+45 [label="12:CtFieldReadImpl@liaison" shape=ellipse]
+46 [label="12:CtExecutableReferenceImpl@getName()" shape=ellipse]
+47 [label="12:CtVirtualElement@getName" shape=ellipse]
+48 [label="12:CtVariableReadImpl@p" shape=ellipse]
+49 [label="12:CtInvocationImpl@p.getName()" shape=ellipse]
+50 [label="12:CtExecutableReferenceImpl@getExpression()" shape=ellipse]
+51 [label="12:CtVirtualElement@getExpression" shape=ellipse]
+52 [label="12:CtVariableReadImpl@p" shape=ellipse]
+53 [label="12:CtInvocationImpl@p.getExpression()" shape=ellipse]
+54 [label="12:CtInvocationImpl@liaison.addParam(p.getName(), p.getExpression())" shape=ellipse]
+55 [label="10:CtBlockImpl@\{
+    Param p = ((Param) (e.nextElement()));
+    liaison.addParam(p.getName(), p.getExpression());
+\}" shape=ellipse]
+56 [label="10:CtForImpl@for (Enumeration e = params.elements(); e.hasMoreElements();) \{
+    Param p = ((Param) (e.nextElement()));
+    liaison.addParam(p.getName(), p.getExpression());
+\}" shape=ellipse]
+57 [label="7:CtBlockImpl@\{
+    log(\"Loading stylesheet \" + stylesheet, MSG_INFO);
+    liaison.setStylesheet(stylesheet);
+    for (Enumeration e = params.elements(); e.hasMoreElements();) \{
+        Param p = ((Param) (e.nextElement()));
+        liaison.addParam(p.getName(), p.getExpression());
+    \}
+\}" shape=ellipse]
+58 [label="14:CtVirtualElement@ex" shape=ellipse]
+59 [label="14:CtTypeReferenceImpl@Exception" shape=ellipse]
+60 [label="14:CtCatchVariableImpl@Exception ex" shape=ellipse]
+61 [label="15:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+62 [label="15:CtVirtualElement@log" shape=ellipse]
+63 [label="15:CtLiteralImpl@\"Failed to read stylesheet \"" shape=ellipse]
+64 [label="15:CtVariableReadImpl@stylesheet" shape=ellipse]
+65 [label="15:CtBinaryOperatorImpl@\"Failed to read stylesheet \" + stylesheet" shape=ellipse]
+66 [label="15:CtTypeAccessImpl@MSG_INFO" shape=ellipse]
+67 [label="15:CtInvocationImpl@log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO)" shape=ellipse]
+68 [label="16:CtTypeReferenceImpl@BuildException" shape=ellipse]
+69 [label="16:CtVariableReadImpl@ex" shape=ellipse]
+70 [label="16:CtConstructorCallImpl@new BuildException(ex)" shape=ellipse]
+71 [label="16:CtThrowImpl@throw new BuildException(ex)" shape=ellipse]
+72 [label="14:CtBlockImpl@\{
+    log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+73 [label="14:CtCatchImpl@ catch (Exception ex) \{
+    log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+74 [label="7:CtTryImpl@try \{
+    log(\"Loading stylesheet \" + stylesheet, MSG_INFO);
+    liaison.setStylesheet(stylesheet);
+    for (Enumeration e = params.elements(); e.hasMoreElements();) \{
+        Param p = ((Param) (e.nextElement()));
+        liaison.addParam(p.getName(), p.getExpression());
+    \}
+\} catch (Exception ex) \{
+    log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+75 [label="2:CtBlockImpl@\{
+    if (stylesheetLoaded) \{
+        return;
+    \}
+    stylesheetLoaded = true;
+    try \{
+        log(\"Loading stylesheet \" + stylesheet, MSG_INFO);
+        liaison.setStylesheet(stylesheet);
+        for (Enumeration e = params.elements(); e.hasMoreElements();) \{
+            Param p = ((Param) (e.nextElement()));
+            liaison.addParam(p.getName(), p.getExpression());
+        \}
+    \} catch (Exception ex) \{
+        log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO);
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+76 [label="2:CtMethodImpl@protected void configureLiaison(File stylesheet) throws BuildException \{
+    if (stylesheetLoaded) \{
+        return;
+    \}
+    stylesheetLoaded = true;
+    try \{
+        log(\"Loading stylesheet \" + stylesheet, MSG_INFO);
+        liaison.setStylesheet(stylesheet);
+        for (Enumeration e = params.elements(); e.hasMoreElements();) \{
+            Param p = ((Param) (e.nextElement()));
+            liaison.addParam(p.getName(), p.getExpression());
+        \}
+    \} catch (Exception ex) \{
+        log(\"Failed to read stylesheet \" + stylesheet, MSG_INFO);
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+77 [label="16:Update@UPDATE" shape=ellipse]
+78 [label="16:CtConstructorCallImpl@new BuildException(\"Error\", ex)" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 7 [label="Control Dep"];
+5 -> 6 [label="Control Dep"];
+7 -> 6 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+27 -> 29 [label="Data Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+29 -> 33 [label="Define-Use"];
+29 -> 38 [label="Define-Use"];
+30 -> 29 [label="AST"];
+30 -> 24 [label="AST"];
+30 -> 28 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 55 [label="Control Dep"];
+34 -> 42 [label="Control Dep"];
+34 -> 39 [label="Control Dep"];
+34 -> 36 [label="Control Dep"];
+34 -> 38 [label="Control Dep"];
+34 -> 54 [label="Control Dep"];
+34 -> 43 [label="Control Dep"];
+34 -> 45 [label="Control Dep"];
+34 -> 49 [label="Control Dep"];
+34 -> 46 [label="Control Dep"];
+34 -> 48 [label="Control Dep"];
+34 -> 53 [label="Control Dep"];
+34 -> 50 [label="Control Dep"];
+34 -> 52 [label="Control Dep"];
+38 -> 41 [label="Data Dep"];
+39 -> 37 [label="AST"];
+39 -> 40 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 36 [label="AST"];
+41 -> 48 [label="Define-Use"];
+41 -> 52 [label="Define-Use"];
+42 -> 41 [label="AST"];
+42 -> 35 [label="AST"];
+42 -> 39 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+49 -> 46 [label="AST"];
+53 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+53 -> 50 [label="AST"];
+54 -> 44 [label="AST"];
+54 -> 45 [label="AST"];
+54 -> 43 [label="AST"];
+54 -> 49 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 42 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 30 [label="AST"];
+56 -> 34 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 18 [label="AST"];
+57 -> 23 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 69 [label="Define-Use"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+60 -> 72 [label="Control Dep"];
+60 -> 67 [label="Control Dep"];
+60 -> 61 [label="Control Dep"];
+60 -> 65 [label="Control Dep"];
+60 -> 63 [label="Control Dep"];
+60 -> 64 [label="Control Dep"];
+60 -> 66 [label="Control Dep"];
+60 -> 71 [label="Control Dep"];
+60 -> 70 [label="Control Dep"];
+60 -> 69 [label="Control Dep"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+67 -> 62 [label="AST"];
+67 -> 61 [label="AST"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+70 -> 69 [label="AST"];
+70 -> 77 [label="Action"];
+71 -> 70 [label="AST"];
+72 -> 67 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 60 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 57 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 8 [label="AST"];
+75 -> 11 [label="AST"];
+75 -> 74 [label="AST"];
+76 -> 1 [label="AST"];
+76 -> 0 [label="AST"];
+76 -> 2 [label="AST"];
+76 -> 4 [label="AST"];
+76 -> 75 [label="AST"];
+77 -> 78 [label="Action"];
+}

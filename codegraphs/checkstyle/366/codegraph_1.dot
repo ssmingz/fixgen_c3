@@ -1,0 +1,49 @@
+digraph "getBasicOffset#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getBasicOffset" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@getBasicOffset()" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+4 [label="3:CtVirtualElement@getBasicOffset" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getIndentCheck()" shape=ellipse]
+6 [label="3:CtVirtualElement@getIndentCheck" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+9 [label="3:CtThisAccessImpl@" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+11 [label="3:CtInvocationImpl@getIndentCheck()" shape=ellipse]
+12 [label="3:CtInvocationImpl@getIndentCheck().getBasicOffset()" shape=ellipse]
+13 [label="3:CtReturnImpl@return getIndentCheck().getBasicOffset()" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    return getIndentCheck().getBasicOffset();
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@protected final int getBasicOffset() \{
+    return getIndentCheck().getBasicOffset();
+\}" shape=ellipse]
+16 [label="3:Delete@DELETE" shape=ellipse]
+17 [label="3:Insert@INSERT" shape=ellipse]
+18 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+19 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+20 [label="3:CtFieldReferenceImpl@indentCheck" shape=ellipse]
+21 [label="3:CtFieldReadImpl@indentCheck" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 10 [label="AST"];
+9 -> 7 [label="AST"];
+11 -> 6 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 16 [label="Action"];
+12 -> 4 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 17 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 14 [label="AST"];
+17 -> 21 [label="Action"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3406/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3406/0/after.java
+@@ -4,1 +4,5 @@
+-    return ((int) (OS.SendMessage(handle, EM_GETLIMITTEXT, 0, 0))) & 0x7fffffff;
++    int limit = ((int) (OS.SendMessage(handle, EM_GETLIMITTEXT, 0, 0))) & 0x7fffffff;
++    if ((segments != null) && (limit < LIMIT)) {
++      limit = Math.max(1, limit - segments.length);
++    }
++    return limit;

@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1446/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1446/2/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,6 @@
+-    expectBuildExceptionContaining("testBoth", "error on two targets", ERROR_BOTH_TARGETS);
++    try {
++      buildRule.executeTarget("testBoth");
++      fail("Build exception expected: error on two targets");
++    } catch (BuildException ex) {
++      assertEquals(ERROR_BOTH_TARGETS, ex.getMessage());
++    }

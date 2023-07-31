@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testAntlib_uri#?#2:INSERT
+testRunFail#?#2:INSERT
+testAntlib_uri_auto2#?#2:INSERT
+testAntlib_uri_auto#?#2:INSERT" shape=ellipse]
+1 [label="testAntlib_uri#?#2:public void testAntlib_uri() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri\");
+    \}
+\}
+testRunFail#?#2:public void testRunFail() \{
+    if (runFatalTests) \{
+        executeTarget(\"testRunFail\");
+    \}
+\}
+testAntlib_uri_auto2#?#2:public void testAntlib_uri_auto2() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto2\");
+    \}
+\}
+testAntlib_uri_auto#?#2:public void testAntlib_uri_auto() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto\");
+    \}
+\}" shape=ellipse]
+2 [label="testAntlib_uri#?#4:MOVE
+testRunFail#?#4:MOVE
+testAntlib_uri_auto2#?#4:MOVE
+testAntlib_uri_auto#?#4:MOVE" shape=ellipse]
+3 [label="testAntlib_uri#?#4:executeTarget(\"antlib_uri\")
+testRunFail#?#4:executeTarget(\"testRunFail\")
+testAntlib_uri_auto2#?#4:executeTarget(\"antlib_uri_auto2\")
+testAntlib_uri_auto#?#4:executeTarget(\"antlib_uri_auto\")" shape=ellipse]
+4 [label="testAntlib_uri#?#4:INSERT
+testRunFail#?#4:INSERT
+testAntlib_uri_auto2#?#4:INSERT
+testAntlib_uri_auto#?#4:INSERT" shape=ellipse]
+5 [label="testAntlib_uri#?#4:Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())
+testRunFail#?#4:Assume.assumeTrue(\"Fatal tests have not been set to run\", runFatalTests)
+testAntlib_uri_auto2#?#4:Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())
+testAntlib_uri_auto#?#4:Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())" shape=ellipse]
+6 [label="testAntlib_uri#?#2:@Test
+testRunFail#?#2:@Test
+testAntlib_uri_auto2#?#2:@Test
+testAntlib_uri_auto#?#2:@Test" shape=ellipse]
+0 -> 6 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 4 [label="Action:4"];
+2 -> 1 [label="Action:4"];
+3 -> 2 [label="Action:4"];
+4 -> 5 [label="Action:4"];
+}

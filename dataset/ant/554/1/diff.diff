@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/554/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/554/1/after.java
+@@ -3,10 +3,2 @@
+-    try {
+-      final int err = exe.execute();
+-      if (0 != err) {
+-        final String message = REZ.getString("exec.bad-resultcode.error", new Integer(err));
+-        throw new TaskException(message);
+-      }
+-    } catch (final IOException ioe) {
+-      final String message = REZ.getString("exec.failed.error", ioe);
+-      throw new TaskException(message, ioe);
+-    }
++    exe.setReturnCode(0);
++    exe.execute();

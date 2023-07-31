@@ -1,0 +1,27 @@
+digraph "getEofStr#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getEofStr" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@toString()" shape=ellipse]
+3 [label="3:CtVirtualElement@toString" shape=ellipse]
+4 [label="3:CtFieldReadImpl@eofStr" shape=ellipse]
+5 [label="3:CtInvocationImpl@eofStr.toString()" shape=ellipse]
+6 [label="3:CtReturnImpl@return eofStr.toString()" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    return eofStr.toString();
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public String getEofStr() \{
+    return eofStr.toString();
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtInvocationImpl@eofStr.substring(0)" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 9 [label="Action"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 10 [label="Action"];
+}

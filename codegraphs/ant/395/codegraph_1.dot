@@ -1,0 +1,35 @@
+digraph "createExec#?" {
+0 [label="2:CtTypeReferenceImpl@ExecTask" shape=ellipse]
+1 [label="2:CtVirtualElement@createExec" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@createTask(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@createTask" shape=ellipse]
+5 [label="3:CtFieldReadImpl@project" shape=ellipse]
+6 [label="3:CtLiteralImpl@\"exec\"" shape=ellipse]
+7 [label="3:CtInvocationImpl@((ExecTask) (project.createTask(\"exec\")))" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@ExecTask" shape=ellipse]
+9 [label="3:CtReturnImpl@return ((ExecTask) (project.createTask(\"exec\")))" shape=ellipse]
+10 [label="2:CtBlockImpl@\{
+    return ((ExecTask) (project.createTask(\"exec\")));
+\}" shape=ellipse]
+11 [label="2:CtMethodImpl@protected ExecTask createExec() throws TaskException \{
+    return ((ExecTask) (project.createTask(\"exec\")));
+\}" shape=ellipse]
+12 [label="3:Delete@DELETE" shape=ellipse]
+13 [label="3:Insert@INSERT" shape=ellipse]
+14 [label="3:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 12 [label="Action"];
+7 -> 4 [label="AST"];
+7 -> 8 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 13 [label="Action"];
+9 -> 7 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 1 [label="AST"];
+11 -> 0 [label="AST"];
+11 -> 2 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 14 [label="Action"];
+}

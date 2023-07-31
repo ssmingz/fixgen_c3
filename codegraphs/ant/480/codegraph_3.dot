@@ -1,0 +1,41 @@
+digraph "getSystemId#?,File" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getSystemId" shape=ellipse]
+2 [label="2:CtParameterImpl@File file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@toURI()" shape=ellipse]
+5 [label="3:CtVirtualElement@toURI" shape=ellipse]
+6 [label="3:CtFieldReadImpl@fu" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+8 [label="3:CtVirtualElement@getAbsolutePath" shape=ellipse]
+9 [label="3:CtVariableReadImpl@file" shape=ellipse]
+10 [label="3:CtInvocationImpl@file.getAbsolutePath()" shape=ellipse]
+11 [label="3:CtInvocationImpl@fu.toURI(file.getAbsolutePath())" shape=ellipse]
+12 [label="3:CtReturnImpl@return fu.toURI(file.getAbsolutePath())" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    return fu.toURI(file.getAbsolutePath());
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public static String getSystemId(File file) \{
+    return fu.toURI(file.getAbsolutePath());
+\}" shape=ellipse]
+15 [label="3:Delete@DELETE" shape=ellipse]
+16 [label="3:Insert@INSERT" shape=ellipse]
+17 [label="3:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 15 [label="Action"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 6 [label="AST"];
+11 -> 4 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 16 [label="Action"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 17 [label="Action"];
+}

@@ -1,0 +1,171 @@
+digraph "Pattern" {
+0 [label="execute#?#28:INSERT
+execute#?#3:INSERT" shape=ellipse]
+1 [label="execute#?#26:if (srcFiles != null) \{
+    catFiles(fileSetBase, srcFiles);
+\}" shape=ellipse]
+2 [label="execute#?#12:e.hasMoreElements()
+execute#?#9:log(checkedOut + \" files checked out.\")" shape=ellipse]
+3 [label="execute#?#12:for (Enumeration e = fileSets.elements(); e.hasMoreElements();) \{
+    File fileSetBase = null;
+    String[] srcFiles = null;
+    Object next = e.nextElement();
+    if (next instanceof FileSet) \{
+        FileSet fileSet = ((FileSet) (next));
+        DirectoryScanner scanner = fileSet.getDirectoryScanner(getProject());
+        fileSetBase = fileSet.getDir(getProject());
+        srcFiles = scanner.getIncludedFiles();
+    \} else if (next instanceof FileList) \{
+        FileList fileList = ((FileList) (next));
+        fileSetBase = fileList.getDir(getProject());
+        srcFiles = fileList.getFiles(getProject());
+    \}
+    if (srcFiles != null) \{
+        catFiles(fileSetBase, srcFiles);
+    \}
+\}" shape=ellipse]
+4 [label="execute#?#12:hasMoreElements" shape=ellipse]
+5 [label="execute#?#12:e" shape=ellipse]
+6 [label="execute#?#12:hasMoreElements()" shape=ellipse]
+7 [label="execute#?#12:\{
+    File fileSetBase = null;
+    String[] srcFiles = null;
+    Object next = e.nextElement();
+    if (next instanceof FileSet) \{
+        FileSet fileSet = ((FileSet) (next));
+        DirectoryScanner scanner = fileSet.getDirectoryScanner(getProject());
+        fileSetBase = fileSet.getDir(getProject());
+        srcFiles = scanner.getIncludedFiles();
+    \} else if (next instanceof FileList) \{
+        FileList fileList = ((FileList) (next));
+        fileSetBase = fileList.getDir(getProject());
+        srcFiles = fileList.getFiles(getProject());
+    \}
+    if (srcFiles != null) \{
+        catFiles(fileSetBase, srcFiles);
+    \}
+\}" shape=ellipse]
+8 [label="execute#?#13:File fileSetBase = null" shape=ellipse]
+9 [label="execute#?#13:null" shape=ellipse]
+10 [label="execute#?#14:String[] srcFiles = null" shape=ellipse]
+11 [label="execute#?#14:String[]" shape=ellipse]
+12 [label="execute#?#14:null" shape=ellipse]
+13 [label="execute#?#15:Object next = e.nextElement()" shape=ellipse]
+14 [label="execute#?#15:e.nextElement()" shape=ellipse]
+15 [label="execute#?#15:nextElement()" shape=ellipse]
+16 [label="execute#?#15:e" shape=ellipse]
+17 [label="execute#?#16:if (next instanceof FileSet) \{
+    FileSet fileSet = ((FileSet) (next));
+    DirectoryScanner scanner = fileSet.getDirectoryScanner(getProject());
+    fileSetBase = fileSet.getDir(getProject());
+    srcFiles = scanner.getIncludedFiles();
+\} else if (next instanceof FileList) \{
+    FileList fileList = ((FileList) (next));
+    fileSetBase = fileList.getDir(getProject());
+    srcFiles = fileList.getFiles(getProject());
+\}" shape=ellipse]
+18 [label="execute#?#16:next instanceof FileSet" shape=ellipse]
+19 [label="execute#?#16:next" shape=ellipse]
+20 [label="execute#?#16:FileSet" shape=ellipse]
+21 [label="execute#?#26:srcFiles != null" shape=ellipse]
+22 [label="execute#?#26:srcFiles" shape=ellipse]
+23 [label="execute#?#26:null" shape=ellipse]
+24 [label="execute#?#26:\{
+    catFiles(fileSetBase, srcFiles);
+\}" shape=ellipse]
+25 [label="execute#?#27:catFiles(fileSetBase, srcFiles)" shape=ellipse]
+26 [label="execute#?#28:\{
+    log(\"Warning: Concat received empty fileset.\", MSG_WARN);
+\}" shape=ellipse]
+27 [label="execute#?#2:public void execute() throws BuildException \{
+    Server s = getServer();
+    try \{
+        runServer(s);
+    \} finally \{
+        s.disconnect();
+    \}
+    log(checkedOut + \" files checked out.\");
+\}" shape=ellipse]
+28 [label="execute#?#-1:" shape=ellipse]
+29 [label="execute#?#2:execute" shape=ellipse]
+30 [label="execute#?#2:VE: Modifiers_Method" shape=ellipse]
+31 [label="execute#?#2:void" shape=ellipse]
+32 [label="execute#?#2:BuildException" shape=ellipse]
+33 [label="execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+34 [label="execute#?#3:Server s = getServer()" shape=ellipse]
+35 [label="execute#?#2:public" shape=ellipse]
+36 [label="execute#?#3:log(\"DEPRECATED - The starteam task is deprecated.  Use stcheckout instead.\", MSG_WARN)" shape=ellipse]
+37 [label="execute#?#4:try \{
+    runServer(s);
+\} finally \{
+    s.disconnect();
+\}" shape=ellipse]
+38 [label="execute#?#2:\{
+    Server s = getServer();
+    try \{
+        runServer(s);
+    \} finally \{
+        s.disconnect();
+    \}
+    log(checkedOut + \" files checked out.\");
+\}" shape=ellipse]
+0 -> 26 [label="Action:1"];
+0 -> 36 [label="Action:1"];
+1 -> 0 [label="Action:1"];
+1 -> 21 [label="AST:1"];
+1 -> 24 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 7 [label="AST:1"];
+7 -> 1 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 10 [label="AST:1"];
+7 -> 13 [label="AST:1"];
+7 -> 17 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+21 -> 24 [label="Control Dep:1"];
+21 -> 25 [label="Control Dep:1"];
+24 -> 25 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 31 [label="AST:1"];
+27 -> 32 [label="AST:1"];
+27 -> 38 [label="AST:1"];
+27 -> 30 [label="AST:1"];
+27 -> 35 [label="AST:1"];
+27 -> 33 [label="AST:1"];
+27 -> 0 [label="Action:1"];
+32 -> 28 [label="AST:1"];
+38 -> 34 [label="AST:1"];
+38 -> 37 [label="AST:1"];
+38 -> 2 [label="AST:1"];
+}

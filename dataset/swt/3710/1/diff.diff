@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3710/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3710/1/after.java
+@@ -40,1 +40,1 @@
+-      dropEffect = new TableDropTargetEffect();
++      dropEffect = new TableDropTargetEffect(((Table) (control)));
+@@ -42,1 +42,1 @@
+-      dropEffect = new TreeDropTargetEffect();
++      dropEffect = new TreeDropTargetEffect(((Tree) (control)));
+@@ -70,1 +70,3 @@
+-              event.item = getItem(getControl(), dragOverEvent.x, dragOverEvent.y);
++              if (dropEffect != null) {
++                event.item = dropEffect.getItem(dragOverEvent.x, dragOverEvent.y);
++              }

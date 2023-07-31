@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/159/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/159/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectSpecificBuildException(
+-        "istrue-incomplete", "Missing attribute", "Nothing to test for truth");
++    try {
++      buildRule.executeTarget("istrue-incomplete");
++      fail("BuildException should have been thrown - Missing attribute");
++    } catch (BuildException ex) {
++      assertEquals("Nothing to test for truth", ex.getMessage());
++    }

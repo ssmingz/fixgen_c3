@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="testIgnoreCase#?#3:UPDATE
+testIgnoreElementCase#?#3:UPDATE" shape=ellipse]
+1 [label="testIgnoreCase#?#3:expectLog(\"ignorecase\", \"a is ab is b\")
+testIgnoreElementCase#?#3:expectLog(\"ignore-element-case\", \"nested elementnested element\")" shape=ellipse]
+2 [label="testIgnoreCase#?#2:\{
+    expectLog(\"ignorecase\", \"a is ab is b\");
+\}
+testIgnoreElementCase#?#2:\{
+    expectLog(\"ignore-element-case\", \"nested elementnested element\");
+\}" shape=ellipse]
+3 [label="testIgnoreCase#?#2:public void testIgnoreCase() \{
+    expectLog(\"ignorecase\", \"a is ab is b\");
+\}
+testIgnoreElementCase#?#2:public void testIgnoreElementCase() \{
+    expectLog(\"ignore-element-case\", \"nested elementnested element\");
+\}" shape=ellipse]
+4 [label="testIgnoreCase#?#3:expectLog
+testIgnoreElementCase#?#3:expectLog" shape=ellipse]
+5 [label="testIgnoreCase#?#-1:
+testIgnoreElementCase#?#-1:" shape=ellipse]
+6 [label="testIgnoreCase#?#-1:PlaceHold
+testIgnoreElementCase#?#-1:PlaceHold" shape=ellipse]
+7 [label="testIgnoreCase#?#-1:PlaceHold
+testIgnoreElementCase#?#-1:PlaceHold" shape=ellipse]
+8 [label="testIgnoreCase#?#3:expectLog(java.lang.String,java.lang.String)
+testIgnoreElementCase#?#3:expectLog(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testIgnoreCase#?#-1:String
+testIgnoreElementCase#?#-1:String" shape=ellipse]
+10 [label="testIgnoreCase#?#-1:String
+testIgnoreElementCase#?#-1:String" shape=ellipse]
+11 [label="testIgnoreCase#?#3:\"ignorecase\"
+testIgnoreElementCase#?#3:\"ignore-element-case\"" shape=ellipse]
+12 [label="testIgnoreCase#?#-1:String
+testIgnoreElementCase#?#-1:String" shape=ellipse]
+13 [label="testIgnoreCase#?#3:\"a is ab is b\"
+testIgnoreElementCase#?#3:\"nested elementnested element\"" shape=ellipse]
+14 [label="testIgnoreCase#?#-1:String
+testIgnoreElementCase#?#-1:String" shape=ellipse]
+15 [label="testIgnoreCase#?#5:assertEquals(\"a is ab is b\", buildRule.getLog())
+testIgnoreElementCase#?#5:assertEquals(\"nested elementnested element\", buildRule.getLog())" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

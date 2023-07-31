@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/305/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/305/0/after.java
+@@ -11,8 +11,3 @@
+-    if (printMessages) {
+-      System.out.println("before compile");
+-    }
+-    doc.startCompile();
+-    if (printMessages) {
+-      System.out.println("after compile");
+-    }
+-    _runJUnit(doc);
++    listener.compile(doc);
++    listener.checkCompileOccurred();
++    listener.runJUnit(doc);
+@@ -23,0 +18,1 @@
++    _log.log("testElspethOneJUnitError completed");

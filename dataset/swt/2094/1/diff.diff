@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2094/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2094/1/after.java
+@@ -41,1 +41,4 @@
+-      postEvent(DragDetect);
++      Event event = new Event();
++      event.x = ((short) (lParam & 0xffff));
++      event.y = ((short) (lParam >> 16));
++      postEvent(DragDetect, event);

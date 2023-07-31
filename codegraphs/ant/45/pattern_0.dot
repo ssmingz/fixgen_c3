@@ -1,0 +1,243 @@
+digraph "Pattern" {
+0 [label="formatError#?,String,Test,Throwable#9:UPDATE
+formatError#?,String,Test,Throwable#11:UPDATE" shape=ellipse]
+1 [label="formatError#?,String,Test,Throwable#9:resultWriter.write(error.getMessage())
+formatError#?,String,Test,Throwable#11:wri.write(t.getMessage())" shape=ellipse]
+2 [label="formatError#?,String,Test,Throwable#6:\{
+    resultWriter.write(formatTest(test) + type);
+    resultWriter.newLine();
+    resultWriter.write(error.getMessage());
+    resultWriter.newLine();
+    String strace = JUnitTestRunner.getFilteredTrace(error);
+    resultWriter.write(strace);
+    resultWriter.newLine();
+    resultWriter.newLine();
+\}
+formatError#?,String,Test,Throwable#8:\{
+    wri.write(type);
+    wri.newLine();
+    wri.write(t.getMessage());
+    wri.newLine();
+    String strace = JUnitTestRunner.getFilteredTrace(t);
+    wri.write(strace);
+    wri.newLine();
+\}" shape=ellipse]
+3 [label="formatError#?,String,Test,Throwable#6:try \{
+    resultWriter.write(formatTest(test) + type);
+    resultWriter.newLine();
+    resultWriter.write(error.getMessage());
+    resultWriter.newLine();
+    String strace = JUnitTestRunner.getFilteredTrace(error);
+    resultWriter.write(strace);
+    resultWriter.newLine();
+    resultWriter.newLine();
+\} catch (IOException ex) \{
+    throw new BuildException(ex);
+\}
+formatError#?,String,Test,Throwable#8:try \{
+    wri.write(type);
+    wri.newLine();
+    wri.write(t.getMessage());
+    wri.newLine();
+    String strace = JUnitTestRunner.getFilteredTrace(t);
+    wri.write(strace);
+    wri.newLine();
+\} catch (IOException ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+4 [label="formatError#?,String,Test,Throwable#7:resultWriter.write(formatTest(test) + type)
+formatError#?,String,Test,Throwable#9:wri.write(type)" shape=ellipse]
+5 [label="formatError#?,String,Test,Throwable#8:resultWriter.newLine()
+formatError#?,String,Test,Throwable#10:wri.newLine()" shape=ellipse]
+6 [label="formatError#?,String,Test,Throwable#10:resultWriter.newLine()
+formatError#?,String,Test,Throwable#12:wri.newLine()" shape=ellipse]
+7 [label="formatError#?,String,Test,Throwable#11:String strace = JUnitTestRunner.getFilteredTrace(error)
+formatError#?,String,Test,Throwable#13:String strace = JUnitTestRunner.getFilteredTrace(t)" shape=ellipse]
+8 [label="formatError#?,String,Test,Throwable#12:resultWriter.write(strace)
+formatError#?,String,Test,Throwable#14:wri.write(strace)" shape=ellipse]
+9 [label="formatError#?,String,Test,Throwable#13:resultWriter.newLine()
+formatError#?,String,Test,Throwable#15:wri.newLine()" shape=ellipse]
+10 [label="formatError#?,String,Test,Throwable#14:resultWriter.newLine()" shape=ellipse]
+11 [label="formatError#?,String,Test,Throwable#9:write
+formatError#?,String,Test,Throwable#11:write" shape=ellipse]
+12 [label="formatError#?,String,Test,Throwable#9:resultWriter
+formatError#?,String,Test,Throwable#11:wri" shape=ellipse]
+13 [label="formatError#?,String,Test,Throwable#-1:resultWriter" shape=ellipse]
+14 [label="formatError#?,String,Test,Throwable#9:MOVE" shape=ellipse]
+15 [label="formatError#?,String,Test,Throwable#9:write(java.lang.String)" shape=ellipse]
+16 [label="formatError#?,String,Test,Throwable#-1:resultWriter" shape=ellipse]
+17 [label="formatError#?,String,Test,Throwable#-1:String" shape=ellipse]
+18 [label="formatError#?,String,Test,Throwable#9:error.getMessage()" shape=ellipse]
+19 [label="formatError#?,String,Test,Throwable#9:getMessage" shape=ellipse]
+20 [label="formatError#?,String,Test,Throwable#9:error
+formatError#?,String,Test,Throwable#-1:wri" shape=ellipse]
+21 [label="formatError#?,String,Test,Throwable#9:getMessage()" shape=ellipse]
+22 [label="formatError#?,String,Test,Throwable#9:MOVE
+formatError#?,String,Test,Throwable#11:MOVE" shape=ellipse]
+23 [label="formatError#?,String,Test,Throwable#9:resultWriter.write(String.valueOf(error.getMessage()))" shape=ellipse]
+24 [label="formatError#?,String,Test,Throwable#9:String.valueOf(error.getMessage())" shape=ellipse]
+25 [label="formatError#?,String,Test,Throwable#14:strace" shape=ellipse]
+26 [label="formatError#?,String,Test,Throwable#10:wri" shape=ellipse]
+27 [label="formatError#?,String,Test,Throwable#3:synchronized(wri) \{
+    if (test != null) \{
+        endTest(test);
+        failed.put(test, Boolean.TRUE);
+    \}
+    try \{
+        wri.write(type);
+        wri.newLine();
+        wri.write(t.getMessage());
+        wri.newLine();
+        String strace = JUnitTestRunner.getFilteredTrace(t);
+        wri.write(strace);
+        wri.newLine();
+    \} catch (IOException ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+28 [label="formatError#?,String,Test,Throwable#16:IOException ex" shape=ellipse]
+29 [label="formatError#?,String,Test,Throwable#11:wri.write(String.valueOf(t.getMessage()))" shape=ellipse]
+30 [label="formatError#?,String,Test,Throwable#11:getMessage()" shape=ellipse]
+31 [label="formatError#?,String,Test,Throwable#9:write(java.lang.String)" shape=ellipse]
+32 [label="formatError#?,String,Test,Throwable#11:write(java.lang.String)" shape=ellipse]
+33 [label="formatError#?,String,Test,Throwable#3:\{
+    if (test != null) \{
+        endTest(test);
+        failed.put(test, Boolean.TRUE);
+    \}
+    try \{
+        wri.write(type);
+        wri.newLine();
+        wri.write(t.getMessage());
+        wri.newLine();
+        String strace = JUnitTestRunner.getFilteredTrace(t);
+        wri.write(strace);
+        wri.newLine();
+    \} catch (IOException ex) \{
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+34 [label="formatError#?,String,Test,Throwable#3:wri" shape=ellipse]
+35 [label="formatError#?,String,Test,Throwable#15:newLine()" shape=ellipse]
+36 [label="formatError#?,String,Test,Throwable#11:String.valueOf(t.getMessage())" shape=ellipse]
+37 [label="formatError#?,String,Test,Throwable#13:getFilteredTrace(java.lang.Throwable)" shape=ellipse]
+38 [label="formatError#?,String,Test,Throwable#15:wri" shape=ellipse]
+39 [label="formatError#?,String,Test,Throwable#11:t.getMessage()" shape=ellipse]
+40 [label="formatError#?,String,Test,Throwable#4:if (test != null) \{
+    endTest(test);
+    failed.put(test, Boolean.TRUE);
+\}" shape=ellipse]
+41 [label="formatError#?,String,Test,Throwable#12:newLine()" shape=ellipse]
+42 [label="formatError#?,String,Test,Throwable#11:t" shape=ellipse]
+43 [label="formatError#?,String,Test,Throwable#13:JUnitTestRunner" shape=ellipse]
+44 [label="formatError#?,String,Test,Throwable#14:write(java.lang.String)" shape=ellipse]
+45 [label="formatError#?,String,Test,Throwable#4:null" shape=ellipse]
+46 [label="formatError#?,String,Test,Throwable#16: catch (IOException ex) \{
+    throw new BuildException(ex);
+\}" shape=ellipse]
+47 [label="formatError#?,String,Test,Throwable#4:test" shape=ellipse]
+48 [label="formatError#?,String,Test,Throwable#10:newLine()" shape=ellipse]
+49 [label="formatError#?,String,Test,Throwable#13:t" shape=ellipse]
+50 [label="formatError#?,String,Test,Throwable#12:wri" shape=ellipse]
+51 [label="formatError#?,String,Test,Throwable#13:JUnitTestRunner.getFilteredTrace(t)" shape=ellipse]
+52 [label="formatError#?,String,Test,Throwable#9:type" shape=ellipse]
+53 [label="formatError#?,String,Test,Throwable#4:test != null" shape=ellipse]
+54 [label="formatError#?,String,Test,Throwable#9:wri" shape=ellipse]
+55 [label="formatError#?,String,Test,Throwable#14:wri" shape=ellipse]
+0 -> 24 [label="Action:1"];
+0 -> 36 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 15 [label="AST:1"];
+1 -> 18 [label="AST:1"];
+1 -> 22 [label="Action:2"];
+1 -> 32 [label="AST:1"];
+1 -> 39 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 46 [label="AST:1"];
+4 -> 31 [label="AST:1"];
+4 -> 52 [label="AST:1"];
+4 -> 54 [label="AST:1"];
+5 -> 26 [label="AST:1"];
+5 -> 48 [label="AST:1"];
+6 -> 41 [label="AST:1"];
+6 -> 50 [label="AST:1"];
+7 -> 51 [label="AST:1"];
+8 -> 25 [label="AST:1"];
+8 -> 44 [label="AST:1"];
+8 -> 55 [label="AST:1"];
+9 -> 35 [label="AST:1"];
+9 -> 38 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 14 [label="Action:1"];
+14 -> 23 [label="Action:1"];
+15 -> 16 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+18 -> 21 [label="AST:1"];
+22 -> 23 [label="Action:1"];
+22 -> 29 [label="Action:1"];
+23 -> 24 [label="AST:1"];
+27 -> 34 [label="AST:1"];
+27 -> 33 [label="AST:1"];
+29 -> 36 [label="AST:1"];
+33 -> 40 [label="AST:1"];
+33 -> 3 [label="AST:1"];
+34 -> 25 [label="Control Dep:1"];
+34 -> 26 [label="Control Dep:1"];
+34 -> 28 [label="Control Dep:1"];
+34 -> 30 [label="Control Dep:1"];
+34 -> 31 [label="Control Dep:1"];
+34 -> 32 [label="Control Dep:1"];
+34 -> 33 [label="Control Dep:1"];
+34 -> 20 [label="AST:1"];
+34 -> 40 [label="Control Dep:1"];
+34 -> 53 [label="Control Dep:1"];
+34 -> 47 [label="Control Dep:1"];
+34 -> 45 [label="Control Dep:1"];
+34 -> 3 [label="Control Dep:1"];
+34 -> 2 [label="Control Dep:1"];
+34 -> 4 [label="Control Dep:1"];
+34 -> 54 [label="Control Dep:1"];
+34 -> 52 [label="Control Dep:1"];
+34 -> 5 [label="Control Dep:1"];
+34 -> 48 [label="Control Dep:1"];
+34 -> 1 [label="Control Dep:1"];
+34 -> 12 [label="Control Dep:1"];
+34 -> 39 [label="Control Dep:1"];
+34 -> 42 [label="Control Dep:1"];
+34 -> 6 [label="Control Dep:1"];
+34 -> 41 [label="Control Dep:1"];
+34 -> 50 [label="Control Dep:1"];
+34 -> 7 [label="Control Dep:1"];
+34 -> 51 [label="Control Dep:1"];
+34 -> 37 [label="Control Dep:1"];
+34 -> 43 [label="Control Dep:1"];
+34 -> 49 [label="Control Dep:1"];
+34 -> 8 [label="Control Dep:1"];
+34 -> 44 [label="Control Dep:1"];
+34 -> 55 [label="Control Dep:1"];
+34 -> 9 [label="Control Dep:1"];
+34 -> 35 [label="Control Dep:1"];
+34 -> 38 [label="Control Dep:1"];
+34 -> 46 [label="Control Dep:1"];
+39 -> 30 [label="AST:1"];
+39 -> 42 [label="AST:1"];
+40 -> 53 [label="AST:1"];
+46 -> 28 [label="AST:1"];
+51 -> 37 [label="AST:1"];
+51 -> 43 [label="AST:1"];
+51 -> 49 [label="AST:1"];
+53 -> 45 [label="AST:1"];
+53 -> 47 [label="AST:1"];
+}

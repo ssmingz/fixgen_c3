@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2414/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2414/0/after.java
+@@ -3,3 +3,9 @@
+-    Widget widget = getWidget(handle);
+-    if (widget == null) {
+-      return 0;
++    try {
++      OS.gdk_threads_enter();
++      Widget widget = getWidget(handle);
++      if (widget == null) {
++        return 0;
++      }
++      return widget.hoverProc(handle);
++    } finally {
++      OS.gdk_threads_leave();
+@@ -7,1 +13,0 @@
+-    return widget.hoverProc(handle);

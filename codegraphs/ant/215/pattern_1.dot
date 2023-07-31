@@ -1,0 +1,144 @@
+digraph "Pattern" {
+0 [label="testFullPathMatchesCaseInsensitive#?#3:DELETE
+test2bisButCaseInsensitive#?#3:DELETE" shape=ellipse]
+1 [label="testFullPathMatchesCaseInsensitive#?#3:if (loginSuceeded) \{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setCaseSensitive(false);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+        ds.scan();
+        compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+    \}
+\}
+test2bisButCaseInsensitive#?#3:if (loginSuceeded) \{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+        ds.setCaseSensitive(false);
+        ds.scan();
+        compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+    \}
+\}" shape=ellipse]
+2 [label="testFullPathMatchesCaseInsensitive#?#2:\{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setCaseSensitive(false);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+        \}
+    \}
+\}
+test2bisButCaseInsensitive#?#2:\{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+            ds.setCaseSensitive(false);
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+        \}
+    \}
+\}" shape=ellipse]
+3 [label="testFullPathMatchesCaseInsensitive#?#2:public void testFullPathMatchesCaseInsensitive() \{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setCaseSensitive(false);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+        \}
+    \}
+\}
+test2bisButCaseInsensitive#?#2:public void test2bisButCaseInsensitive() \{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+            ds.setCaseSensitive(false);
+            ds.scan();
+            compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="testFullPathMatchesCaseInsensitive#?#3:loginSuceeded
+test2bisButCaseInsensitive#?#3:loginSuceeded" shape=ellipse]
+5 [label="testFullPathMatchesCaseInsensitive#?#-1:loginSuceeded
+test2bisButCaseInsensitive#?#-1:loginSuceeded" shape=ellipse]
+6 [label="testFullPathMatchesCaseInsensitive#?#3:\{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setCaseSensitive(false);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+        ds.scan();
+        compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+    \}
+\}
+test2bisButCaseInsensitive#?#3:\{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+        ds.setCaseSensitive(false);
+        ds.scan();
+        compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+    \}
+\}" shape=ellipse]
+7 [label="testFullPathMatchesCaseInsensitive#?#4:if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setCaseSensitive(false);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/beta/gamma/GAMMA.XML\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{  \});
+\}
+test2bisButCaseInsensitive#?#4:if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha/BETA/gamma/\" \});
+    ds.setCaseSensitive(false);
+    ds.scan();
+    compareFiles(ds, new String[]\{ \"alpha/beta/gamma/gamma.xml\" \}, new String[]\{ \"alpha/beta/gamma\" \});
+\}" shape=ellipse]
+8 [label="testFullPathMatchesCaseInsensitive#?#4:changeRemoteDir(remoteTmpDir)
+test2bisButCaseInsensitive#?#4:changeRemoteDir(remoteTmpDir)" shape=ellipse]
+9 [label="testFullPathMatchesCaseInsensitive#?#4:changeRemoteDir(<unknown>)
+test2bisButCaseInsensitive#?#4:changeRemoteDir(<unknown>)" shape=ellipse]
+10 [label="testFullPathMatchesCaseInsensitive#?#-1:
+test2bisButCaseInsensitive#?#-1:" shape=ellipse]
+11 [label="testFullPathMatchesCaseInsensitive#?#-1:PlaceHold
+test2bisButCaseInsensitive#?#-1:PlaceHold" shape=ellipse]
+12 [label="testFullPathMatchesCaseInsensitive#?#4:remoteTmpDir
+test2bisButCaseInsensitive#?#4:remoteTmpDir" shape=ellipse]
+13 [label="testFullPathMatchesCaseInsensitive#?#3:MOVE
+test2bisButCaseInsensitive#?#3:MOVE" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="Control Dep:2"];
+4 -> 7 [label="Control Dep:2"];
+4 -> 8 [label="Control Dep:2"];
+4 -> 9 [label="Control Dep:2"];
+4 -> 10 [label="Control Dep:2"];
+4 -> 11 [label="Control Dep:2"];
+4 -> 12 [label="Control Dep:2"];
+4 -> 13 [label="Action:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 12 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+}

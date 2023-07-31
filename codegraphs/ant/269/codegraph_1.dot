@@ -1,0 +1,84 @@
+digraph "toExtensions#?,Project" {
+0 [label="2:CtVirtualElement@Extension[]" shape=ellipse]
+1 [label="2:CtArrayTypeReferenceImpl@Extension[]" shape=ellipse]
+2 [label="2:CtVirtualElement@toExtensions" shape=ellipse]
+3 [label="2:CtParameterImpl@final Project proj" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@Project" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@ArrayList" shape=ellipse]
+7 [label="3:CtExecutableReferenceImpl@toExtensions()" shape=ellipse]
+8 [label="3:CtVirtualElement@toExtensions" shape=ellipse]
+9 [label="3:CtTypeAccessImpl@ExtensionUtil" shape=ellipse]
+10 [label="3:CtFieldReadImpl@extensions" shape=ellipse]
+11 [label="3:CtInvocationImpl@ExtensionUtil.toExtensions(extensions)" shape=ellipse]
+12 [label="3:CtVirtualElement@extensionsList" shape=ellipse]
+13 [label="3:CtLocalVariableImpl@final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions)" shape=ellipse]
+14 [label="4:CtExecutableReferenceImpl@extractExtensions(Project,ArrayList)" shape=ellipse]
+15 [label="4:CtVirtualElement@extractExtensions" shape=ellipse]
+16 [label="4:CtTypeAccessImpl@ExtensionUtil" shape=ellipse]
+17 [label="4:CtVariableReadImpl@proj" shape=ellipse]
+18 [label="4:CtVariableReadImpl@extensionsList" shape=ellipse]
+19 [label="4:CtFieldReadImpl@extensionsFilesets" shape=ellipse]
+20 [label="4:CtInvocationImpl@ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets)" shape=ellipse]
+21 [label="5:CtExecutableReferenceImpl@toArray(Extension[])" shape=ellipse]
+22 [label="5:CtVirtualElement@toArray" shape=ellipse]
+23 [label="5:CtVariableReadImpl@extensionsList" shape=ellipse]
+24 [label="5:CtNewArrayImpl@new Extension[extensionsList.size()]" shape=ellipse]
+25 [label="5:CtInvocationImpl@extensionsList.size()" shape=ellipse]
+26 [label="5:CtInvocationImpl@((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])))" shape=ellipse]
+27 [label="5:CtArrayTypeReferenceImpl@Extension[]" shape=ellipse]
+28 [label="5:CtReturnImpl@return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])))" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions);
+    ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets);
+    return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])));
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public Extension[] toExtensions(final Project proj) throws BuildException \{
+    final ArrayList extensionsList = ExtensionUtil.toExtensions(extensions);
+    ExtensionUtil.extractExtensions(proj, extensionsList, extensionsFilesets);
+    return ((Extension[]) (extensionsList.toArray(new Extension[extensionsList.size()])));
+\}" shape=ellipse]
+31 [label="3:Insert@INSERT" shape=ellipse]
+32 [label="3:CtIfImpl@if (isReference()) \{
+    return ((ExtensionSet) (getCheckedRef())).toExtensions(proj);
+\}" shape=ellipse]
+33 [label="6:Insert@INSERT" shape=ellipse]
+34 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+1 -> 0 [label="AST"];
+3 -> 4 [label="AST"];
+10 -> 12 [label="Data Dep"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 18 [label="Define-Use"];
+12 -> 23 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 6 [label="AST"];
+13 -> 11 [label="AST"];
+20 -> 15 [label="AST"];
+20 -> 16 [label="AST"];
+20 -> 14 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+24 -> 25 [label="AST"];
+26 -> 22 [label="AST"];
+26 -> 27 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 21 [label="AST"];
+26 -> 24 [label="AST"];
+28 -> 26 [label="AST"];
+29 -> 13 [label="AST"];
+29 -> 20 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 3 [label="AST"];
+30 -> 5 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 31 [label="Action"];
+30 -> 33 [label="Action"];
+31 -> 32 [label="Action"];
+33 -> 34 [label="Action"];
+}

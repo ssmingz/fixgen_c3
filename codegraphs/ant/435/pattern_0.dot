@@ -1,0 +1,45 @@
+digraph "Pattern" {
+0 [label="setExecutable#?,String#4:DELETE
+setExecutable#?,String#4:DELETE
+setCommand#?,String#3:DELETE
+setExecutable#?,String#4:DELETE
+setCommand#?,Commandline#3:DELETE" shape=ellipse]
+1 [label="setExecutable#?,String#4:taskType
+setExecutable#?,String#4:taskType
+setCommand#?,String#3:taskType
+setExecutable#?,String#4:taskType
+setCommand#?,Commandline#3:taskType" shape=ellipse]
+2 [label="setExecutable#?,String#4:taskType + \" doesn\'t support the executable attribute\"
+setExecutable#?,String#4:(taskType + \" doesn\'t support the executable\")
+setCommand#?,String#3:taskType + \" doesn\'t support the command attribute\"
+setExecutable#?,String#4:(taskType + \" doesn\'t support the executable\")
+setCommand#?,Commandline#3:taskType + \" doesn\'t support the command attribute\"" shape=ellipse]
+3 [label="setExecutable#?,String#3:new BuildException(taskType + \" doesn\'t support the executable attribute\", getLocation())
+setCommand#?,String#3:new BuildException(taskType + \" doesn\'t support the command attribute\", getLocation())
+setCommand#?,Commandline#3:new BuildException(taskType + \" doesn\'t support the command attribute\", getLocation())" shape=ellipse]
+4 [label="setExecutable#?,String#4:\" doesn\'t support the executable attribute\"
+setExecutable#?,String#4:\" doesn\'t support the executable\"
+setCommand#?,String#3:\" doesn\'t support the command attribute\"
+setExecutable#?,String#4:\" doesn\'t support the executable\"
+setCommand#?,Commandline#3:\" doesn\'t support the command attribute\"" shape=ellipse]
+5 [label="setExecutable#?,String#4:INSERT
+setExecutable#?,String#4:INSERT
+setCommand#?,String#4:INSERT
+setExecutable#?,String#4:INSERT
+setCommand#?,Commandline#4:INSERT" shape=ellipse]
+6 [label="setExecutable#?,String#-1:taskType
+setExecutable#?,String#-1:taskType
+setCommand#?,String#-1:taskType
+setExecutable#?,String#-1:taskType
+setCommand#?,Commandline#-1:taskType" shape=ellipse]
+7 [label="setExecutable#?,String#4:(taskType + \" doesn\'t support the executable\") + \" attribute\"" shape=ellipse]
+8 [label="setExecutable#?,String#4:(taskType + \" doesn\'t support the executable\") + \" attribute\"" shape=ellipse]
+1 -> 0 [label="Action:5"];
+1 -> 6 [label="AST:5"];
+2 -> 1 [label="AST:5"];
+2 -> 4 [label="AST:5"];
+2 -> 5 [label="Action:5"];
+3 -> 2 [label="AST:3"];
+7 -> 2 [label="AST:1"];
+8 -> 2 [label="AST:1"];
+}

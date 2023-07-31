@@ -1,0 +1,206 @@
+digraph "Pattern" {
+0 [label="testDecideByLine#?#3:UPDATE
+testDecideLocalizedMessage#?#3:UPDATE
+testDecideByColumn#?#3:UPDATE" shape=ellipse]
+1 [label="testDecideByLine#?#3:new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass())
+testDecideLocalizedMessage#?#3:new LocalizedMessage(0, 0, \"\", \"\", null, this.getClass())
+testDecideByColumn#?#3:new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass())" shape=ellipse]
+2 [label="testDecideByLine#?#3:LocalizedMessage message = new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass())
+testDecideLocalizedMessage#?#3:LocalizedMessage message = new LocalizedMessage(0, 0, \"\", \"\", null, this.getClass())
+testDecideByColumn#?#3:LocalizedMessage message = new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass())" shape=ellipse]
+3 [label="testDecideByLine#?#2:\{
+    LocalizedMessage message = new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass());
+    final AuditEvent ev = new AuditEvent(this, \"ATest.java\", message);
+    filter.setLines(\"1-10\");
+    assertFalse(\"In range 1-10\", filter.accept(ev));
+    filter.setLines(\"1-9, 11\");
+    assertTrue(\"Not in 1-9, 11\", filter.accept(ev));
+\}
+testDecideLocalizedMessage#?#2:\{
+    LocalizedMessage message = new LocalizedMessage(0, 0, \"\", \"\", null, this.getClass());
+    final AuditEvent ev = new AuditEvent(this, \"ATest.java\", message);
+    assertFalse(\"Names match\", filter.accept(ev));
+\}
+testDecideByColumn#?#2:\{
+    LocalizedMessage message = new LocalizedMessage(10, 10, \"\", \"\", null, this.getClass());
+    final AuditEvent ev = new AuditEvent(this, \"ATest.java\", message);
+    filter.setColumns(\"1-10\");
+    assertFalse(\"In range 1-10\", filter.accept(ev));
+    filter.setColumns(\"1-9, 11\");
+    assertTrue(\"Not in 1-9, 1)\", filter.accept(ev));
+\}" shape=ellipse]
+4 [label="testDecideByLine#?#3:message
+testDecideLocalizedMessage#?#3:message
+testDecideByColumn#?#3:message" shape=ellipse]
+5 [label="testDecideByLine#?#3:LocalizedMessage
+testDecideLocalizedMessage#?#3:LocalizedMessage
+testDecideByColumn#?#3:LocalizedMessage" shape=ellipse]
+6 [label="testDecideByLine#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,java.lang.Class)
+testDecideLocalizedMessage#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,java.lang.Class)
+testDecideByColumn#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,java.lang.Class)" shape=ellipse]
+7 [label="testDecideByLine#?#3:LocalizedMessage
+testDecideLocalizedMessage#?#3:LocalizedMessage
+testDecideByColumn#?#3:LocalizedMessage" shape=ellipse]
+8 [label="testDecideByLine#?#3:LocalizedMessage
+testDecideLocalizedMessage#?#3:LocalizedMessage
+testDecideByColumn#?#3:LocalizedMessage" shape=ellipse]
+9 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+10 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+11 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+12 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+13 [label="testDecideByLine#?#3:null
+testDecideLocalizedMessage#?#3:null
+testDecideByColumn#?#3:null" shape=ellipse]
+14 [label="testDecideByLine#?#3:Class<? extends PlaceHold>
+testDecideLocalizedMessage#?#3:Class<? extends PlaceHold>
+testDecideByColumn#?#3:Class<? extends PlaceHold>" shape=ellipse]
+15 [label="testDecideByLine#?#3:10
+testDecideLocalizedMessage#?#3:0
+testDecideByColumn#?#3:10" shape=ellipse]
+16 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+17 [label="testDecideByLine#?#3:10
+testDecideLocalizedMessage#?#3:0
+testDecideByColumn#?#3:10" shape=ellipse]
+18 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+19 [label="testDecideByLine#?#3:\"\"
+testDecideLocalizedMessage#?#3:\"\"
+testDecideByColumn#?#3:\"\"" shape=ellipse]
+20 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+21 [label="testDecideByLine#?#3:\"\"
+testDecideLocalizedMessage#?#3:\"\"
+testDecideByColumn#?#3:\"\"" shape=ellipse]
+22 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+23 [label="testDecideByLine#?#3:null
+testDecideLocalizedMessage#?#3:null
+testDecideByColumn#?#3:null" shape=ellipse]
+24 [label="testDecideByLine#?#3:<nulltype>
+testDecideLocalizedMessage#?#3:<nulltype>
+testDecideByColumn#?#3:<nulltype>" shape=ellipse]
+25 [label="testDecideByLine#?#3:this.getClass()
+testDecideLocalizedMessage#?#3:this.getClass()
+testDecideByColumn#?#3:this.getClass()" shape=ellipse]
+26 [label="testDecideByLine#?#3:getClass
+testDecideLocalizedMessage#?#3:getClass
+testDecideByColumn#?#3:getClass" shape=ellipse]
+27 [label="testDecideByLine#?#3:this
+testDecideLocalizedMessage#?#3:this
+testDecideByColumn#?#3:this" shape=ellipse]
+28 [label="testDecideByLine#?#3:getClass()
+testDecideLocalizedMessage#?#3:getClass()
+testDecideByColumn#?#3:getClass()" shape=ellipse]
+29 [label="testDecideByLine#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,<unknown>,java.lang.Class)
+testDecideLocalizedMessage#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,<unknown>,java.lang.Class)
+testDecideByColumn#?#3:LocalizedMessage(int,int,java.lang.String,java.lang.String,<unknown>,<unknown>,java.lang.Class)" shape=ellipse]
+30 [label="testDecideByLine#?#3:LocalizedMessage
+testDecideLocalizedMessage#?#3:LocalizedMessage
+testDecideByColumn#?#3:LocalizedMessage" shape=ellipse]
+31 [label="testDecideByLine#?#3:
+testDecideLocalizedMessage#?#3:
+testDecideByColumn#?#3:" shape=ellipse]
+32 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+33 [label="testDecideByLine#?#3:int
+testDecideLocalizedMessage#?#3:int
+testDecideByColumn#?#3:int" shape=ellipse]
+34 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+35 [label="testDecideByLine#?#3:java.lang
+testDecideLocalizedMessage#?#3:java.lang
+testDecideByColumn#?#3:java.lang" shape=ellipse]
+36 [label="testDecideByLine#?#3:String
+testDecideLocalizedMessage#?#3:String
+testDecideByColumn#?#3:String" shape=ellipse]
+37 [label="testDecideByLine#?#3:java.lang
+testDecideLocalizedMessage#?#3:java.lang
+testDecideByColumn#?#3:java.lang" shape=ellipse]
+38 [label="testDecideByLine#?#3:null
+testDecideLocalizedMessage#?#3:null
+testDecideByColumn#?#3:null" shape=ellipse]
+39 [label="testDecideByLine#?#3:null
+testDecideLocalizedMessage#?#3:null
+testDecideByColumn#?#3:null" shape=ellipse]
+40 [label="testDecideByLine#?#3:Class<? extends PlaceHold>
+testDecideLocalizedMessage#?#3:Class<? extends PlaceHold>
+testDecideByColumn#?#3:Class<? extends PlaceHold>" shape=ellipse]
+41 [label="testDecideByLine#?#3:java.lang
+testDecideLocalizedMessage#?#3:java.lang
+testDecideByColumn#?#3:java.lang" shape=ellipse]
+42 [label="testDecideByLine#?#3:? extends PlaceHold
+testDecideLocalizedMessage#?#3:? extends PlaceHold
+testDecideByColumn#?#3:? extends PlaceHold" shape=ellipse]
+43 [label="testDecideByLine#?#3:PlaceHold
+testDecideLocalizedMessage#?#3:PlaceHold
+testDecideByColumn#?#3:PlaceHold" shape=ellipse]
+44 [label="testDecideByLine#?#3:
+testDecideLocalizedMessage#?#3:
+testDecideByColumn#?#3:" shape=ellipse]
+45 [label="testDecideByLine#?#3:null
+testDecideLocalizedMessage#?#3:null
+testDecideByColumn#?#3:null" shape=ellipse]
+46 [label="testDecideByLine#?#3:<nulltype>
+testDecideLocalizedMessage#?#3:<nulltype>
+testDecideByColumn#?#3:<nulltype>" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+1 -> 15 [label="AST:3"];
+1 -> 17 [label="AST:3"];
+1 -> 19 [label="AST:3"];
+1 -> 21 [label="AST:3"];
+1 -> 23 [label="AST:3"];
+1 -> 25 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+6 -> 7 [label="AST:3"];
+6 -> 8 [label="AST:3"];
+6 -> 9 [label="AST:3"];
+6 -> 10 [label="AST:3"];
+6 -> 11 [label="AST:3"];
+6 -> 12 [label="AST:3"];
+6 -> 13 [label="AST:3"];
+6 -> 14 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+17 -> 18 [label="AST:3"];
+19 -> 20 [label="AST:3"];
+21 -> 22 [label="AST:3"];
+23 -> 24 [label="AST:3"];
+25 -> 26 [label="AST:3"];
+25 -> 27 [label="AST:3"];
+25 -> 28 [label="AST:3"];
+27 -> 4 [label="Data Dep:3"];
+29 -> 30 [label="AST:3"];
+29 -> 32 [label="AST:3"];
+29 -> 33 [label="AST:3"];
+29 -> 34 [label="AST:3"];
+29 -> 36 [label="AST:3"];
+29 -> 38 [label="AST:3"];
+29 -> 39 [label="AST:3"];
+29 -> 40 [label="AST:3"];
+30 -> 31 [label="AST:3"];
+34 -> 35 [label="AST:3"];
+36 -> 37 [label="AST:3"];
+40 -> 41 [label="AST:3"];
+40 -> 42 [label="AST:3"];
+42 -> 43 [label="AST:3"];
+43 -> 44 [label="AST:3"];
+45 -> 46 [label="AST:3"];
+}

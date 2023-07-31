@@ -1,0 +1,241 @@
+digraph "Pattern" {
+0 [label="testRemoveLine#?#18:INSERT
+testBranch#?#13:INSERT" shape=ellipse]
+1 [label="testRemoveLine#?#18:c.addLineSwitch(3, 0, 1, 2)
+testBranch#?#13:b.addLineSwitch(4, 0, 1, 9)" shape=ellipse]
+2 [label="testRemoveLine#?#2:\{
+    assertEquals(0, a.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(0, a.getNumberOfValidLines());
+    a.removeLine(3);
+    assertEquals(0, a.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(0, a.getNumberOfValidLines());
+    assertEquals(0, b.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(5, b.getNumberOfValidLines());
+    b.removeLine(3);
+    assertEquals(0, b.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(4, b.getNumberOfValidLines());
+    c.addLineJump(2, 0);
+    c.addLineSwitch(3, 0, 1, 2);
+    c.addLineJump(3, 0);
+    c.addLineJump(4, 0);
+    assertEquals(9, c.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(5, c.getNumberOfValidLines());
+    c.removeLine(3);
+    assertEquals(4, c.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(4, c.getNumberOfValidLines());
+\}
+testBranch#?#2:\{
+    assertFalse(a.hasBranch(2));
+    a.addLineJump(2, 0);
+    assertFalse(a.hasBranch(2));
+    assertFalse(b.hasBranch(2));
+    b.addLineJump(2, 0);
+    assertTrue(b.hasBranch(2));
+    assertTrue(b.hasBranch(2));
+    b.addLineJump(2, 1);
+    assertTrue(b.hasBranch(2));
+    assertFalse(b.hasBranch(4));
+    b.addLineSwitch(4, 0, 1, 9);
+    assertTrue(b.hasBranch(4));
+    Collection branches = b.getBranches();
+    assertEquals(2, branches.size());
+    assertEquals(14, b.getNumberOfValidBranches());
+    assertTrue(branches.contains(new Integer(2)));
+    assertTrue(branches.contains(new Integer(4)));
+\}" shape=ellipse]
+3 [label="testRemoveLine#?#2:public void testRemoveLine() \{
+    assertEquals(0, a.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(0, a.getNumberOfValidLines());
+    a.removeLine(3);
+    assertEquals(0, a.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(0, a.getNumberOfValidLines());
+    assertEquals(0, b.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(5, b.getNumberOfValidLines());
+    b.removeLine(3);
+    assertEquals(0, b.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(4, b.getNumberOfValidLines());
+    c.addLineJump(2, 0);
+    c.addLineSwitch(3, 0, 1, 2);
+    c.addLineJump(3, 0);
+    c.addLineJump(4, 0);
+    assertEquals(9, c.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(5, c.getNumberOfValidLines());
+    c.removeLine(3);
+    assertEquals(4, c.getNumberOfValidBranches());
+    assertEquals(0, a.getNumberOfCoveredBranches());
+    assertEquals(4, c.getNumberOfValidLines());
+\}
+testBranch#?#2:public void testBranch() \{
+    assertFalse(a.hasBranch(2));
+    a.addLineJump(2, 0);
+    assertFalse(a.hasBranch(2));
+    assertFalse(b.hasBranch(2));
+    b.addLineJump(2, 0);
+    assertTrue(b.hasBranch(2));
+    assertTrue(b.hasBranch(2));
+    b.addLineJump(2, 1);
+    assertTrue(b.hasBranch(2));
+    assertFalse(b.hasBranch(4));
+    b.addLineSwitch(4, 0, 1, 9);
+    assertTrue(b.hasBranch(4));
+    Collection branches = b.getBranches();
+    assertEquals(2, branches.size());
+    assertEquals(14, b.getNumberOfValidBranches());
+    assertTrue(branches.contains(new Integer(2)));
+    assertTrue(branches.contains(new Integer(4)));
+\}" shape=ellipse]
+4 [label="testRemoveLine#?#3:assertEquals(0, a.getNumberOfValidBranches())
+testBranch#?#17:assertEquals(14, b.getNumberOfValidBranches())" shape=ellipse]
+5 [label="testRemoveLine#?#4:assertEquals(0, a.getNumberOfCoveredBranches())
+testBranch#?#16:assertEquals(2, branches.size())" shape=ellipse]
+6 [label="testRemoveLine#?#5:assertEquals(0, a.getNumberOfValidLines())
+testBranch#?#7:b.addLineJump(2, 0)" shape=ellipse]
+7 [label="testRemoveLine#?#6:a.removeLine(3)
+testBranch#?#4:a.addLineJump(2, 0)" shape=ellipse]
+8 [label="testRemoveLine#?#7:assertEquals(0, a.getNumberOfValidBranches())
+testBranch#?#6:assertFalse(b.hasBranch(2))" shape=ellipse]
+9 [label="testRemoveLine#?#8:assertEquals(0, a.getNumberOfCoveredBranches())
+testBranch#?#8:assertTrue(b.hasBranch(2))" shape=ellipse]
+10 [label="testRemoveLine#?#9:assertEquals(0, a.getNumberOfValidLines())
+testBranch#?#10:b.addLineJump(2, 1)" shape=ellipse]
+11 [label="testRemoveLine#?#10:assertEquals(0, b.getNumberOfValidBranches())
+testBranch#?#9:assertTrue(b.hasBranch(2))" shape=ellipse]
+12 [label="testRemoveLine#?#11:assertEquals(0, a.getNumberOfCoveredBranches())
+testBranch#?#11:assertTrue(b.hasBranch(2))" shape=ellipse]
+13 [label="testRemoveLine#?#12:assertEquals(5, b.getNumberOfValidLines())
+testBranch#?#18:assertTrue(branches.contains(new Integer(2)))" shape=ellipse]
+14 [label="testRemoveLine#?#13:b.removeLine(3)
+testBranch#?#19:assertTrue(branches.contains(new Integer(4)))" shape=ellipse]
+15 [label="testRemoveLine#?#14:assertEquals(0, b.getNumberOfValidBranches())
+testBranch#?#12:assertFalse(b.hasBranch(4))" shape=ellipse]
+16 [label="testRemoveLine#?#15:assertEquals(0, a.getNumberOfCoveredBranches())
+testBranch#?#14:assertTrue(b.hasBranch(4))" shape=ellipse]
+17 [label="testRemoveLine#?#16:assertEquals(4, b.getNumberOfValidLines())
+testBranch#?#3:assertFalse(a.hasBranch(2))" shape=ellipse]
+18 [label="testRemoveLine#?#17:c.addLineJump(2, 0)
+testBranch#?#5:assertFalse(a.hasBranch(2))" shape=ellipse]
+19 [label="testRemoveLine#?#19:c.addLineJump(3, 0)" shape=ellipse]
+20 [label="testRemoveLine#?#20:c.addLineJump(4, 0)" shape=ellipse]
+21 [label="testRemoveLine#?#21:assertEquals(9, c.getNumberOfValidBranches())" shape=ellipse]
+22 [label="testRemoveLine#?#22:assertEquals(0, a.getNumberOfCoveredBranches())" shape=ellipse]
+23 [label="testRemoveLine#?#23:assertEquals(5, c.getNumberOfValidLines())" shape=ellipse]
+24 [label="testRemoveLine#?#24:c.removeLine(3)" shape=ellipse]
+25 [label="testRemoveLine#?#25:assertEquals(4, c.getNumberOfValidBranches())" shape=ellipse]
+26 [label="testRemoveLine#?#26:assertEquals(0, a.getNumberOfCoveredBranches())" shape=ellipse]
+27 [label="testRemoveLine#?#27:assertEquals(4, c.getNumberOfValidLines())" shape=ellipse]
+28 [label="testRemoveLine#?#18:addLineSwitch
+testBranch#?#13:addLineSwitch" shape=ellipse]
+29 [label="testRemoveLine#?#18:c
+testBranch#?#13:b" shape=ellipse]
+30 [label="testRemoveLine#?#18:c
+testBranch#?#13:b" shape=ellipse]
+31 [label="testRemoveLine#?#18:addLineSwitch(int,int,int,int)
+testBranch#?#13:addLineSwitch(int,int,int,int)" shape=ellipse]
+32 [label="testRemoveLine#?#18:c
+testBranch#?#13:b" shape=ellipse]
+33 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+34 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+35 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+36 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+37 [label="testRemoveLine#?#18:3
+testBranch#?#13:4" shape=ellipse]
+38 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+39 [label="testRemoveLine#?#18:0
+testBranch#?#13:0" shape=ellipse]
+40 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+41 [label="testRemoveLine#?#18:1
+testBranch#?#13:1" shape=ellipse]
+42 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+43 [label="testRemoveLine#?#18:2
+testBranch#?#13:9" shape=ellipse]
+44 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+45 [label="testRemoveLine#?#18:java.lang.Integer.MAX_VALUE
+testBranch#?#13:java.lang.Integer.MAX_VALUE" shape=ellipse]
+46 [label="testRemoveLine#?#18:Integer
+testBranch#?#13:Integer" shape=ellipse]
+47 [label="testRemoveLine#?#18:Integer
+testBranch#?#13:Integer" shape=ellipse]
+48 [label="testRemoveLine#?#18:java.lang
+testBranch#?#13:java.lang" shape=ellipse]
+49 [label="testRemoveLine#?#18:Integer.MAX_VALUE
+testBranch#?#13:Integer.MAX_VALUE" shape=ellipse]
+50 [label="testRemoveLine#?#18:Integer
+testBranch#?#13:Integer" shape=ellipse]
+51 [label="testRemoveLine#?#18:java.lang
+testBranch#?#13:java.lang" shape=ellipse]
+52 [label="testRemoveLine#?#18:int
+testBranch#?#13:int" shape=ellipse]
+53 [label="testBranch#?#15:Collection branches = b.getBranches()" shape=ellipse]
+0 -> 45 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 28 [label="AST:2"];
+1 -> 29 [label="AST:2"];
+1 -> 31 [label="AST:2"];
+1 -> 37 [label="AST:2"];
+1 -> 39 [label="AST:2"];
+1 -> 41 [label="AST:2"];
+1 -> 43 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 11 [label="AST:2"];
+2 -> 12 [label="AST:2"];
+2 -> 13 [label="AST:2"];
+2 -> 14 [label="AST:2"];
+2 -> 15 [label="AST:2"];
+2 -> 16 [label="AST:2"];
+2 -> 17 [label="AST:2"];
+2 -> 18 [label="AST:2"];
+2 -> 19 [label="AST:1"];
+2 -> 20 [label="AST:1"];
+2 -> 21 [label="AST:1"];
+2 -> 22 [label="AST:1"];
+2 -> 23 [label="AST:1"];
+2 -> 24 [label="AST:1"];
+2 -> 25 [label="AST:1"];
+2 -> 26 [label="AST:1"];
+2 -> 27 [label="AST:1"];
+2 -> 53 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+29 -> 30 [label="AST:2"];
+31 -> 32 [label="AST:2"];
+31 -> 33 [label="AST:2"];
+31 -> 34 [label="AST:2"];
+31 -> 35 [label="AST:2"];
+31 -> 36 [label="AST:2"];
+37 -> 38 [label="AST:2"];
+39 -> 40 [label="AST:2"];
+41 -> 42 [label="AST:2"];
+43 -> 44 [label="AST:2"];
+45 -> 46 [label="AST:2"];
+45 -> 49 [label="AST:2"];
+46 -> 47 [label="AST:2"];
+47 -> 48 [label="AST:2"];
+49 -> 50 [label="AST:2"];
+49 -> 52 [label="AST:2"];
+50 -> 51 [label="AST:2"];
+}

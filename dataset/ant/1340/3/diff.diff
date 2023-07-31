@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1340/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1340/3/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testExceptingFoe", "passes exception through", "Exception raised inside called program");
++    try {
++      buildRule.executeTarget("testExceptingFoe");
++      fail("Build exception should have been thrown - " + "passes exception through");
++    } catch (BuildException ex) {
++      assertContains("Exception raised inside called program", ex.getMessage());
++    }

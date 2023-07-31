@@ -1,0 +1,172 @@
+digraph "Pattern" {
+0 [label="checkTaskClass#?,Class,Project#17:INSERT
+checkTaskClass#?,Class#20:INSERT" shape=ellipse]
+1 [label="checkTaskClass#?,Class,Project#3:try \{
+    final Method executeM = taskClass.getMethod(\"execute\", null);
+    if (!Void.TYPE.equals(executeM.getReturnType())) \{
+        final String message = (((\"return type of execute() should be \" + \"void but was \\"\") + executeM.getReturnType()) + \"\\" in \") + taskClass;
+        project.log(message, MSG_WARN);
+    \}
+\} catch (NoSuchMethodException e) \{
+    final String message = \"No public execute() in \" + taskClass;
+    project.log(message, MSG_ERR);
+    throw new BuildException(message);
+\}
+checkTaskClass#?,Class#14:try \{
+    taskClass.getConstructor(null);
+\} catch (NoSuchMethodException e) \{
+    final String message = \"No public no-arg constructor in \" + taskClass;
+    log(message, MSG_ERR);
+    throw new BuildException(message);
+\}" shape=ellipse]
+2 [label="checkTaskClass#?,Class,Project#2:\{
+    try \{
+        final Method executeM = taskClass.getMethod(\"execute\", null);
+        if (!Void.TYPE.equals(executeM.getReturnType())) \{
+            final String message = (((\"return type of execute() should be \" + \"void but was \\"\") + executeM.getReturnType()) + \"\\" in \") + taskClass;
+            project.log(message, MSG_WARN);
+        \}
+    \} catch (NoSuchMethodException e) \{
+        final String message = \"No public execute() in \" + taskClass;
+        project.log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+\}
+checkTaskClass#?,Class#2:\{
+    ComponentHelper.getComponentHelper(this).checkTaskClass(taskClass);
+    if (!Modifier.isPublic(taskClass.getModifiers())) \{
+        final String message = taskClass + \" is not public\";
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    if (Modifier.isAbstract(taskClass.getModifiers())) \{
+        final String message = taskClass + \" is abstract\";
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    try \{
+        taskClass.getConstructor(null);
+    \} catch (NoSuchMethodException e) \{
+        final String message = \"No public no-arg constructor in \" + taskClass;
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    if (!Task.class.isAssignableFrom(taskClass)) \{
+        TaskAdapter.checkTaskClass(taskClass, this);
+    \}
+\}" shape=ellipse]
+3 [label="checkTaskClass#?,Class,Project#2:public static void checkTaskClass(final Class taskClass, final Project project) \{
+    try \{
+        final Method executeM = taskClass.getMethod(\"execute\", null);
+        if (!Void.TYPE.equals(executeM.getReturnType())) \{
+            final String message = (((\"return type of execute() should be \" + \"void but was \\"\") + executeM.getReturnType()) + \"\\" in \") + taskClass;
+            project.log(message, MSG_WARN);
+        \}
+    \} catch (NoSuchMethodException e) \{
+        final String message = \"No public execute() in \" + taskClass;
+        project.log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+\}
+checkTaskClass#?,Class#2:public void checkTaskClass(final Class taskClass) throws BuildException \{
+    ComponentHelper.getComponentHelper(this).checkTaskClass(taskClass);
+    if (!Modifier.isPublic(taskClass.getModifiers())) \{
+        final String message = taskClass + \" is not public\";
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    if (Modifier.isAbstract(taskClass.getModifiers())) \{
+        final String message = taskClass + \" is abstract\";
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    try \{
+        taskClass.getConstructor(null);
+    \} catch (NoSuchMethodException e) \{
+        final String message = \"No public no-arg constructor in \" + taskClass;
+        log(message, MSG_ERR);
+        throw new BuildException(message);
+    \}
+    if (!Task.class.isAssignableFrom(taskClass)) \{
+        TaskAdapter.checkTaskClass(taskClass, this);
+    \}
+\}" shape=ellipse]
+4 [label="checkTaskClass#?,Class,Project#3:\{
+    final Method executeM = taskClass.getMethod(\"execute\", null);
+    if (!Void.TYPE.equals(executeM.getReturnType())) \{
+        final String message = (((\"return type of execute() should be \" + \"void but was \\"\") + executeM.getReturnType()) + \"\\" in \") + taskClass;
+        project.log(message, MSG_WARN);
+    \}
+\}
+checkTaskClass#?,Class#14:\{
+    taskClass.getConstructor(null);
+\}" shape=ellipse]
+5 [label="checkTaskClass#?,Class,Project#4:final Method executeM = taskClass.getMethod(\"execute\", null)" shape=ellipse]
+6 [label="checkTaskClass#?,Class,Project#5:if (!Void.TYPE.equals(executeM.getReturnType())) \{
+    final String message = (((\"return type of execute() should be \" + \"void but was \\"\") + executeM.getReturnType()) + \"\\" in \") + taskClass;
+    project.log(message, MSG_WARN);
+\}" shape=ellipse]
+7 [label="checkTaskClass#?,Class,Project#13: catch (NoSuchMethodException e) \{
+    final String message = \"No public execute() in \" + taskClass;
+    project.log(message, MSG_ERR);
+    throw new BuildException(message);
+\}
+checkTaskClass#?,Class#16: catch (NoSuchMethodException e) \{
+    final String message = \"No public no-arg constructor in \" + taskClass;
+    log(message, MSG_ERR);
+    throw new BuildException(message);
+\}" shape=ellipse]
+8 [label="checkTaskClass#?,Class,Project#13:NoSuchMethodException e
+checkTaskClass#?,Class#16:NoSuchMethodException e" shape=ellipse]
+9 [label="checkTaskClass#?,Class,Project#13:\{
+    final String message = \"No public execute() in \" + taskClass;
+    project.log(message, MSG_ERR);
+    throw new BuildException(message);
+\}
+checkTaskClass#?,Class#16:\{
+    final String message = \"No public no-arg constructor in \" + taskClass;
+    log(message, MSG_ERR);
+    throw new BuildException(message);
+\}" shape=ellipse]
+10 [label="checkTaskClass#?,Class,Project#17: catch (LinkageError e) \{
+    String message = ((\"Could not load \" + taskClass) + \": \") + e;
+    project.log(message, MSG_ERR);
+    throw new BuildException(message, e);
+\}
+checkTaskClass#?,Class#20: catch (LinkageError e) \{
+    String message = ((\"Could not load \" + taskClass) + \": \") + e;
+    log(message, MSG_ERR);
+    throw new BuildException(message, e);
+\}" shape=ellipse]
+11 [label="checkTaskClass#?,Class#21:if (!Task.class.isAssignableFrom(taskClass)) \{
+    TaskAdapter.checkTaskClass(taskClass, this);
+\}" shape=ellipse]
+12 [label="checkTaskClass#?,Class#4:if (!Modifier.isPublic(taskClass.getModifiers())) \{
+    final String message = taskClass + \" is not public\";
+    log(message, MSG_ERR);
+    throw new BuildException(message);
+\}" shape=ellipse]
+13 [label="checkTaskClass#?,Class#9:if (Modifier.isAbstract(taskClass.getModifiers())) \{
+    final String message = taskClass + \" is abstract\";
+    log(message, MSG_ERR);
+    throw new BuildException(message);
+\}" shape=ellipse]
+14 [label="checkTaskClass#?,Class#3:ComponentHelper.getComponentHelper(this).checkTaskClass(taskClass)" shape=ellipse]
+15 [label="checkTaskClass#?,Class#15:taskClass.getConstructor(null)" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 11 [label="AST:1"];
+2 -> 12 [label="AST:1"];
+2 -> 13 [label="AST:1"];
+2 -> 14 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+4 -> 5 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+4 -> 15 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+8 -> 9 [label="Control Dep:2"];
+}

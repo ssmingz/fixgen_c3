@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1606/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1606/1/after.java
+@@ -7,1 +7,5 @@
+-    OS.gtk_list_store_set(parent.modelHandle, handle, GRAYED_COLUMN, grayed, -1);
++    this.grayed = grayed;
++    int[] ptr = new int[1];
++    OS.gtk_tree_model_get(parent.modelHandle, handle, CHECKED_COLUMN, ptr, -1);
++    OS.gtk_list_store_set(
++        parent.modelHandle, handle, GRAYED_COLUMN, ptr[0] == 0 ? false : grayed, -1);

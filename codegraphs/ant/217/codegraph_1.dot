@@ -1,0 +1,178 @@
+digraph "testForBugzilla34764#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testForBugzilla34764" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@executeTarget" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"testForBugzilla34764\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@executeTarget(\"testForBugzilla34764\")" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+8 [label="4:CtLiteralImpl@null" shape=ellipse]
+9 [label="4:CtVirtualElement@zf" shape=ellipse]
+10 [label="4:CtLocalVariableImpl@ZipFile zf = null" shape=ellipse]
+11 [label="6:CtVariableWriteImpl@zf" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+13 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+14 [label="6:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+15 [label="6:CtVirtualElement@getProperty" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+17 [label="6:CtVirtualElement@getProject" shape=ellipse]
+18 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+19 [label="6:CtLiteralImpl@\"output\"" shape=ellipse]
+20 [label="6:CtInvocationImpl@getProject().getProperty(\"output\")" shape=ellipse]
+21 [label="6:CtLiteralImpl@\"test3.zip\"" shape=ellipse]
+22 [label="6:CtConstructorCallImpl@new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+23 [label="6:CtConstructorCallImpl@new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"))" shape=ellipse]
+24 [label="6:CtAssignmentImpl@zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"))" shape=ellipse]
+25 [label="7:CtTypeReferenceImpl@ZipEntry" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@getEntry(java.lang.String)" shape=ellipse]
+27 [label="7:CtVirtualElement@getEntry" shape=ellipse]
+28 [label="7:CtVariableReadImpl@zf" shape=ellipse]
+29 [label="7:CtLiteralImpl@\"file1\"" shape=ellipse]
+30 [label="7:CtInvocationImpl@zf.getEntry(\"file1\")" shape=ellipse]
+31 [label="7:CtVirtualElement@ze" shape=ellipse]
+32 [label="7:CtLocalVariableImpl@ZipEntry ze = zf.getEntry(\"file1\")" shape=ellipse]
+33 [label="8:CtExecutableReferenceImpl@assertEquals(<unknown>,<unknown>)" shape=ellipse]
+34 [label="8:CtVirtualElement@assertEquals" shape=ellipse]
+35 [label="8:CtFieldReadImpl@UnixStat.FILE_FLAG" shape=ellipse]
+36 [label="8:CtLiteralImpl@0644" shape=ellipse]
+37 [label="8:CtBinaryOperatorImpl@UnixStat.FILE_FLAG | 0644" shape=ellipse]
+38 [label="8:CtExecutableReferenceImpl@getUnixMode()" shape=ellipse]
+39 [label="8:CtVirtualElement@getUnixMode" shape=ellipse]
+40 [label="8:CtVariableReadImpl@ze" shape=ellipse]
+41 [label="8:CtInvocationImpl@ze.getUnixMode()" shape=ellipse]
+42 [label="8:CtInvocationImpl@assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode())" shape=ellipse]
+43 [label="5:CtBlockImpl@\{
+    zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    ZipEntry ze = zf.getEntry(\"file1\");
+    assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+\}" shape=ellipse]
+44 [label="10:CtVariableReadImpl@zf" shape=ellipse]
+45 [label="10:CtLiteralImpl@null" shape=ellipse]
+46 [label="10:CtBinaryOperatorImpl@zf != null" shape=ellipse]
+47 [label="11:CtExecutableReferenceImpl@close()" shape=ellipse]
+48 [label="11:CtVirtualElement@close" shape=ellipse]
+49 [label="11:CtVariableReadImpl@zf" shape=ellipse]
+50 [label="11:CtInvocationImpl@zf.close()" shape=ellipse]
+51 [label="10:CtBlockImpl@\{
+    zf.close();
+\}" shape=ellipse]
+52 [label="10:CtIfImpl@if (zf != null) \{
+    zf.close();
+\}" shape=ellipse]
+53 [label="9:CtBlockImpl@\{
+    if (zf != null) \{
+        zf.close();
+    \}
+\}" shape=ellipse]
+54 [label="5:CtTryImpl@try \{
+    zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    ZipEntry ze = zf.getEntry(\"file1\");
+    assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+\} finally \{
+    if (zf != null) \{
+        zf.close();
+    \}
+\}" shape=ellipse]
+55 [label="2:CtBlockImpl@\{
+    executeTarget(\"testForBugzilla34764\");
+    ZipFile zf = null;
+    try \{
+        zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        ZipEntry ze = zf.getEntry(\"file1\");
+        assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+    \} finally \{
+        if (zf != null) \{
+            zf.close();
+        \}
+    \}
+\}" shape=ellipse]
+56 [label="2:CtMethodImpl@public void testForBugzilla34764() throws IOException \{
+    executeTarget(\"testForBugzilla34764\");
+    ZipFile zf = null;
+    try \{
+        zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        ZipEntry ze = zf.getEntry(\"file1\");
+        assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+    \} finally \{
+        if (zf != null) \{
+            zf.close();
+        \}
+    \}
+\}" shape=ellipse]
+57 [label="2:Insert@INSERT" shape=ellipse]
+58 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+59 [label="4:Insert@INSERT" shape=ellipse]
+60 [label="4:CtFieldReadImpl@buildRule" shape=ellipse]
+61 [label="7:Insert@INSERT" shape=ellipse]
+62 [label="7:CtFieldReadImpl@buildRule" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 59 [label="Action"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 28 [label="Define-Use"];
+11 -> 44 [label="Define-Use"];
+11 -> 49 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 61 [label="Action"];
+20 -> 15 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 14 [label="AST"];
+20 -> 19 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 11 [label="AST"];
+24 -> 23 [label="AST"];
+28 -> 31 [label="Data Dep"];
+30 -> 27 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 26 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 40 [label="Define-Use"];
+32 -> 31 [label="AST"];
+32 -> 25 [label="AST"];
+32 -> 30 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+41 -> 38 [label="AST"];
+42 -> 34 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 37 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 24 [label="AST"];
+43 -> 32 [label="AST"];
+43 -> 42 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+46 -> 51 [label="Control Dep"];
+46 -> 50 [label="Control Dep"];
+46 -> 47 [label="Control Dep"];
+46 -> 49 [label="Control Dep"];
+50 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+50 -> 47 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 46 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 43 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 6 [label="AST"];
+55 -> 10 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 1 [label="AST"];
+56 -> 0 [label="AST"];
+56 -> 2 [label="AST"];
+56 -> 55 [label="AST"];
+56 -> 57 [label="Action"];
+57 -> 58 [label="Action"];
+59 -> 60 [label="Action"];
+61 -> 62 [label="Action"];
+}

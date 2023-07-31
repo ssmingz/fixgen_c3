@@ -1,0 +1,929 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@manifestFile" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@manifestFile == null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"the file attribute is required\"" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new BuildException(\"the file attribute is required\")" shape=ellipse]
+9 [label="4:CtThrowImpl@throw new BuildException(\"the file attribute is required\")" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"the file attribute is required\");
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (manifestFile == null) \{
+    throw new BuildException(\"the file attribute is required\");
+\}" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@Manifest" shape=ellipse]
+13 [label="6:CtExecutableReferenceImpl@getDefaultManifest()" shape=ellipse]
+14 [label="6:CtVirtualElement@getDefaultManifest" shape=ellipse]
+15 [label="6:CtTypeAccessImpl@Manifest" shape=ellipse]
+16 [label="6:CtInvocationImpl@Manifest.getDefaultManifest()" shape=ellipse]
+17 [label="6:CtVirtualElement@toWrite" shape=ellipse]
+18 [label="6:CtLocalVariableImpl@Manifest toWrite = Manifest.getDefaultManifest()" shape=ellipse]
+19 [label="7:CtTypeReferenceImpl@Manifest" shape=ellipse]
+20 [label="7:CtLiteralImpl@null" shape=ellipse]
+21 [label="7:CtVirtualElement@current" shape=ellipse]
+22 [label="7:CtLocalVariableImpl@Manifest current = null" shape=ellipse]
+23 [label="8:CtTypeReferenceImpl@BuildException" shape=ellipse]
+24 [label="8:CtLiteralImpl@null" shape=ellipse]
+25 [label="8:CtVirtualElement@error" shape=ellipse]
+26 [label="8:CtLocalVariableImpl@BuildException error = null" shape=ellipse]
+27 [label="9:CtExecutableReferenceImpl@exists()" shape=ellipse]
+28 [label="9:CtVirtualElement@exists" shape=ellipse]
+29 [label="9:CtFieldReadImpl@manifestFile" shape=ellipse]
+30 [label="9:CtInvocationImpl@manifestFile.exists()" shape=ellipse]
+31 [label="10:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+32 [label="10:CtLiteralImpl@null" shape=ellipse]
+33 [label="10:CtVirtualElement@fis" shape=ellipse]
+34 [label="10:CtLocalVariableImpl@FileInputStream fis = null" shape=ellipse]
+35 [label="11:CtTypeReferenceImpl@InputStreamReader" shape=ellipse]
+36 [label="11:CtLiteralImpl@null" shape=ellipse]
+37 [label="11:CtVirtualElement@isr" shape=ellipse]
+38 [label="11:CtLocalVariableImpl@InputStreamReader isr = null" shape=ellipse]
+39 [label="13:CtVariableWriteImpl@fis" shape=ellipse]
+40 [label="13:CtTypeReferenceImpl@FileInputStream" shape=ellipse]
+41 [label="13:CtFieldReadImpl@manifestFile" shape=ellipse]
+42 [label="13:CtConstructorCallImpl@new FileInputStream(manifestFile)" shape=ellipse]
+43 [label="13:CtAssignmentImpl@fis = new FileInputStream(manifestFile)" shape=ellipse]
+44 [label="14:CtFieldReadImpl@encoding" shape=ellipse]
+45 [label="14:CtLiteralImpl@null" shape=ellipse]
+46 [label="14:CtBinaryOperatorImpl@encoding == null" shape=ellipse]
+47 [label="15:CtVariableWriteImpl@isr" shape=ellipse]
+48 [label="15:CtTypeReferenceImpl@InputStreamReader" shape=ellipse]
+49 [label="15:CtVariableReadImpl@fis" shape=ellipse]
+50 [label="15:CtLiteralImpl@\"UTF-8\"" shape=ellipse]
+51 [label="15:CtConstructorCallImpl@new InputStreamReader(fis, \"UTF-8\")" shape=ellipse]
+52 [label="15:CtAssignmentImpl@isr = new InputStreamReader(fis, \"UTF-8\")" shape=ellipse]
+53 [label="14:CtBlockImpl@\{
+    isr = new InputStreamReader(fis, \"UTF-8\");
+\}" shape=ellipse]
+54 [label="17:CtVariableWriteImpl@isr" shape=ellipse]
+55 [label="17:CtTypeReferenceImpl@InputStreamReader" shape=ellipse]
+56 [label="17:CtVariableReadImpl@fis" shape=ellipse]
+57 [label="17:CtFieldReadImpl@encoding" shape=ellipse]
+58 [label="17:CtConstructorCallImpl@new InputStreamReader(fis, encoding)" shape=ellipse]
+59 [label="17:CtAssignmentImpl@isr = new InputStreamReader(fis, encoding)" shape=ellipse]
+60 [label="16:CtBlockImpl@\{
+    isr = new InputStreamReader(fis, encoding);
+\}" shape=ellipse]
+61 [label="14:CtIfImpl@if (encoding == null) \{
+    isr = new InputStreamReader(fis, \"UTF-8\");
+\} else \{
+    isr = new InputStreamReader(fis, encoding);
+\}" shape=ellipse]
+62 [label="19:CtVariableWriteImpl@current" shape=ellipse]
+63 [label="19:CtTypeReferenceImpl@Manifest" shape=ellipse]
+64 [label="19:CtVariableReadImpl@isr" shape=ellipse]
+65 [label="19:CtConstructorCallImpl@new Manifest(isr)" shape=ellipse]
+66 [label="19:CtAssignmentImpl@current = new Manifest(isr)" shape=ellipse]
+67 [label="12:CtBlockImpl@\{
+    fis = new FileInputStream(manifestFile);
+    if (encoding == null) \{
+        isr = new InputStreamReader(fis, \"UTF-8\");
+    \} else \{
+        isr = new InputStreamReader(fis, encoding);
+    \}
+    current = new Manifest(isr);
+\}" shape=ellipse]
+68 [label="20:CtVirtualElement@m" shape=ellipse]
+69 [label="20:CtTypeReferenceImpl@ManifestException" shape=ellipse]
+70 [label="20:CtCatchVariableImpl@ManifestException m" shape=ellipse]
+71 [label="21:CtVariableWriteImpl@error" shape=ellipse]
+72 [label="22:CtTypeReferenceImpl@BuildException" shape=ellipse]
+73 [label="23:CtLiteralImpl@\"Existing manifest \"" shape=ellipse]
+74 [label="23:CtFieldReadImpl@manifestFile" shape=ellipse]
+75 [label="23:CtBinaryOperatorImpl@(\"Existing manifest \" + manifestFile)" shape=ellipse]
+76 [label="23:CtLiteralImpl@\" is invalid\"" shape=ellipse]
+77 [label="23:CtBinaryOperatorImpl@(\"Existing manifest \" + manifestFile) + \" is invalid\"" shape=ellipse]
+78 [label="23:CtVariableReadImpl@m" shape=ellipse]
+79 [label="23:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+80 [label="23:CtVirtualElement@getLocation" shape=ellipse]
+81 [label="23:CtInvocationImpl@getLocation()" shape=ellipse]
+82 [label="22:CtConstructorCallImpl@new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation())" shape=ellipse]
+83 [label="21:CtAssignmentImpl@error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation())" shape=ellipse]
+84 [label="20:CtBlockImpl@\{
+    error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+\}" shape=ellipse]
+85 [label="20:CtCatchImpl@ catch (ManifestException m) \{
+    error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+\}" shape=ellipse]
+86 [label="24:CtVirtualElement@e" shape=ellipse]
+87 [label="24:CtTypeReferenceImpl@IOException" shape=ellipse]
+88 [label="24:CtCatchVariableImpl@IOException e" shape=ellipse]
+89 [label="25:CtVariableWriteImpl@error" shape=ellipse]
+90 [label="25:CtTypeReferenceImpl@BuildException" shape=ellipse]
+91 [label="25:CtLiteralImpl@\"Failed to read \"" shape=ellipse]
+92 [label="25:CtFieldReadImpl@manifestFile" shape=ellipse]
+93 [label="25:CtBinaryOperatorImpl@\"Failed to read \" + manifestFile" shape=ellipse]
+94 [label="25:CtVariableReadImpl@e" shape=ellipse]
+95 [label="25:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+96 [label="25:CtVirtualElement@getLocation" shape=ellipse]
+97 [label="25:CtInvocationImpl@getLocation()" shape=ellipse]
+98 [label="25:CtConstructorCallImpl@new BuildException(\"Failed to read \" + manifestFile, e, getLocation())" shape=ellipse]
+99 [label="25:CtAssignmentImpl@error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation())" shape=ellipse]
+100 [label="24:CtBlockImpl@\{
+    error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+101 [label="24:CtCatchImpl@ catch (IOException e) \{
+    error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+102 [label="27:CtExecutableReferenceImpl@close(InputStreamReader)" shape=ellipse]
+103 [label="27:CtVirtualElement@close" shape=ellipse]
+104 [label="27:CtTypeAccessImpl@FileUtils" shape=ellipse]
+105 [label="27:CtVariableReadImpl@isr" shape=ellipse]
+106 [label="27:CtInvocationImpl@FileUtils.close(isr)" shape=ellipse]
+107 [label="26:CtBlockImpl@\{
+    FileUtils.close(isr);
+\}" shape=ellipse]
+108 [label="12:CtTryImpl@try \{
+    fis = new FileInputStream(manifestFile);
+    if (encoding == null) \{
+        isr = new InputStreamReader(fis, \"UTF-8\");
+    \} else \{
+        isr = new InputStreamReader(fis, encoding);
+    \}
+    current = new Manifest(isr);
+\} catch (ManifestException m) \{
+    error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+\} catch (IOException e) \{
+    error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+\} finally \{
+    FileUtils.close(isr);
+\}" shape=ellipse]
+109 [label="9:CtBlockImpl@\{
+    FileInputStream fis = null;
+    InputStreamReader isr = null;
+    try \{
+        fis = new FileInputStream(manifestFile);
+        if (encoding == null) \{
+            isr = new InputStreamReader(fis, \"UTF-8\");
+        \} else \{
+            isr = new InputStreamReader(fis, encoding);
+        \}
+        current = new Manifest(isr);
+    \} catch (ManifestException m) \{
+        error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+    \} catch (IOException e) \{
+        error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(isr);
+    \}
+\}" shape=ellipse]
+110 [label="9:CtIfImpl@if (manifestFile.exists()) \{
+    FileInputStream fis = null;
+    InputStreamReader isr = null;
+    try \{
+        fis = new FileInputStream(manifestFile);
+        if (encoding == null) \{
+            isr = new InputStreamReader(fis, \"UTF-8\");
+        \} else \{
+            isr = new InputStreamReader(fis, encoding);
+        \}
+        current = new Manifest(isr);
+    \} catch (ManifestException m) \{
+        error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+    \} catch (IOException e) \{
+        error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(isr);
+    \}
+\}" shape=ellipse]
+111 [label="30:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+112 [label="30:CtExecutableReferenceImpl@getWarnings()" shape=ellipse]
+113 [label="30:CtVirtualElement@getWarnings" shape=ellipse]
+114 [label="30:CtFieldReadImpl@nestedManifest" shape=ellipse]
+115 [label="30:CtInvocationImpl@nestedManifest.getWarnings()" shape=ellipse]
+116 [label="30:CtVirtualElement@e" shape=ellipse]
+117 [label="30:CtLocalVariableImpl@Enumeration e = nestedManifest.getWarnings()" shape=ellipse]
+118 [label="30:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+119 [label="30:CtVirtualElement@hasMoreElements" shape=ellipse]
+120 [label="30:CtVariableReadImpl@e" shape=ellipse]
+121 [label="30:CtInvocationImpl@e.hasMoreElements()" shape=ellipse]
+122 [label="31:CtExecutableReferenceImpl@log(java.lang.String,<unknown>)" shape=ellipse]
+123 [label="31:CtVirtualElement@log" shape=ellipse]
+124 [label="31:CtLiteralImpl@\"Manifest warning: \"" shape=ellipse]
+125 [label="31:CtExecutableReferenceImpl@nextElement()" shape=ellipse]
+126 [label="31:CtVirtualElement@nextElement" shape=ellipse]
+127 [label="31:CtVariableReadImpl@e" shape=ellipse]
+128 [label="31:CtInvocationImpl@((String) (e.nextElement()))" shape=ellipse]
+129 [label="31:CtTypeReferenceImpl@String" shape=ellipse]
+130 [label="31:CtBinaryOperatorImpl@\"Manifest warning: \" + ((String) (e.nextElement()))" shape=ellipse]
+131 [label="31:CtTypeAccessImpl@MSG_WARN" shape=ellipse]
+132 [label="31:CtInvocationImpl@log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN)" shape=ellipse]
+133 [label="30:CtBlockImpl@\{
+    log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+\}" shape=ellipse]
+134 [label="30:CtForImpl@for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+    log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+\}" shape=ellipse]
+135 [label="34:CtExecutableReferenceImpl@equals(java.lang.String)" shape=ellipse]
+136 [label="34:CtVirtualElement@equals" shape=ellipse]
+137 [label="34:CtExecutableReferenceImpl@getValue()" shape=ellipse]
+138 [label="34:CtVirtualElement@getValue" shape=ellipse]
+139 [label="34:CtFieldReadImpl@mode" shape=ellipse]
+140 [label="34:CtInvocationImpl@mode.getValue()" shape=ellipse]
+141 [label="34:CtLiteralImpl@\"update\"" shape=ellipse]
+142 [label="34:CtInvocationImpl@mode.getValue().equals(\"update\")" shape=ellipse]
+143 [label="34:CtExecutableReferenceImpl@exists()" shape=ellipse]
+144 [label="34:CtVirtualElement@exists" shape=ellipse]
+145 [label="34:CtFieldReadImpl@manifestFile" shape=ellipse]
+146 [label="34:CtInvocationImpl@manifestFile.exists()" shape=ellipse]
+147 [label="34:CtBinaryOperatorImpl@mode.getValue().equals(\"update\") && manifestFile.exists()" shape=ellipse]
+148 [label="35:CtVariableReadImpl@current" shape=ellipse]
+149 [label="35:CtLiteralImpl@null" shape=ellipse]
+150 [label="35:CtBinaryOperatorImpl@current != null" shape=ellipse]
+151 [label="36:CtExecutableReferenceImpl@merge(Manifest)" shape=ellipse]
+152 [label="36:CtVirtualElement@merge" shape=ellipse]
+153 [label="36:CtVariableReadImpl@toWrite" shape=ellipse]
+154 [label="36:CtVariableReadImpl@current" shape=ellipse]
+155 [label="36:CtInvocationImpl@toWrite.merge(current)" shape=ellipse]
+156 [label="35:CtBlockImpl@\{
+    toWrite.merge(current);
+\}" shape=ellipse]
+157 [label="37:CtVariableReadImpl@error" shape=ellipse]
+158 [label="37:CtLiteralImpl@null" shape=ellipse]
+159 [label="37:CtBinaryOperatorImpl@error != null" shape=ellipse]
+160 [label="38:CtVariableReadImpl@error" shape=ellipse]
+161 [label="38:CtThrowImpl@throw error" shape=ellipse]
+162 [label="37:CtBlockImpl@\{
+    throw error;
+\}" shape=ellipse]
+163 [label="37:CtIfImpl@if (error != null) \{
+    throw error;
+\}" shape=ellipse]
+164 [label="37:CtBlockImpl@
+    if (error != null) \{
+        throw error;
+    \}
+" shape=ellipse]
+165 [label="35:CtIfImpl@if (current != null) \{
+    toWrite.merge(current);
+\} else if (error != null) \{
+    throw error;
+\}" shape=ellipse]
+166 [label="34:CtBlockImpl@\{
+    if (current != null) \{
+        toWrite.merge(current);
+    \} else if (error != null) \{
+        throw error;
+    \}
+\}" shape=ellipse]
+167 [label="34:CtIfImpl@if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+    if (current != null) \{
+        toWrite.merge(current);
+    \} else if (error != null) \{
+        throw error;
+    \}
+\}" shape=ellipse]
+168 [label="41:CtExecutableReferenceImpl@merge()" shape=ellipse]
+169 [label="41:CtVirtualElement@merge" shape=ellipse]
+170 [label="41:CtVariableReadImpl@toWrite" shape=ellipse]
+171 [label="41:CtFieldReadImpl@nestedManifest" shape=ellipse]
+172 [label="41:CtInvocationImpl@toWrite.merge(nestedManifest)" shape=ellipse]
+173 [label="33:CtBlockImpl@\{
+    if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+        if (current != null) \{
+            toWrite.merge(current);
+        \} else if (error != null) \{
+            throw error;
+        \}
+    \}
+    toWrite.merge(nestedManifest);
+\}" shape=ellipse]
+174 [label="42:CtVirtualElement@m" shape=ellipse]
+175 [label="42:CtTypeReferenceImpl@ManifestException" shape=ellipse]
+176 [label="42:CtCatchVariableImpl@ManifestException m" shape=ellipse]
+177 [label="43:CtTypeReferenceImpl@BuildException" shape=ellipse]
+178 [label="43:CtLiteralImpl@\"Manifest is invalid\"" shape=ellipse]
+179 [label="43:CtVariableReadImpl@m" shape=ellipse]
+180 [label="43:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+181 [label="43:CtVirtualElement@getLocation" shape=ellipse]
+182 [label="43:CtInvocationImpl@getLocation()" shape=ellipse]
+183 [label="43:CtConstructorCallImpl@new BuildException(\"Manifest is invalid\", m, getLocation())" shape=ellipse]
+184 [label="43:CtThrowImpl@throw new BuildException(\"Manifest is invalid\", m, getLocation())" shape=ellipse]
+185 [label="42:CtBlockImpl@\{
+    throw new BuildException(\"Manifest is invalid\", m, getLocation());
+\}" shape=ellipse]
+186 [label="42:CtCatchImpl@ catch (ManifestException m) \{
+    throw new BuildException(\"Manifest is invalid\", m, getLocation());
+\}" shape=ellipse]
+187 [label="33:CtTryImpl@try \{
+    if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+        if (current != null) \{
+            toWrite.merge(current);
+        \} else if (error != null) \{
+            throw error;
+        \}
+    \}
+    toWrite.merge(nestedManifest);
+\} catch (ManifestException m) \{
+    throw new BuildException(\"Manifest is invalid\", m, getLocation());
+\}" shape=ellipse]
+188 [label="45:CtExecutableReferenceImpl@equals(Manifest)" shape=ellipse]
+189 [label="45:CtVirtualElement@equals" shape=ellipse]
+190 [label="45:CtVariableReadImpl@toWrite" shape=ellipse]
+191 [label="45:CtVariableReadImpl@current" shape=ellipse]
+192 [label="45:CtInvocationImpl@toWrite.equals(current)" shape=ellipse]
+193 [label="46:CtExecutableReferenceImpl@log(java.lang.String,<unknown>)" shape=ellipse]
+194 [label="46:CtVirtualElement@log" shape=ellipse]
+195 [label="46:CtLiteralImpl@\"Manifest has not changed, do not recreate\"" shape=ellipse]
+196 [label="46:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+197 [label="46:CtInvocationImpl@log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE)" shape=ellipse]
+198 [label="47:CtReturnImpl@return" shape=ellipse]
+199 [label="45:CtBlockImpl@\{
+    log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+    return;
+\}" shape=ellipse]
+200 [label="45:CtIfImpl@if (toWrite.equals(current)) \{
+    log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+    return;
+\}" shape=ellipse]
+201 [label="49:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+202 [label="49:CtLiteralImpl@null" shape=ellipse]
+203 [label="49:CtVirtualElement@w" shape=ellipse]
+204 [label="49:CtLocalVariableImpl@PrintWriter w = null" shape=ellipse]
+205 [label="51:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+206 [label="51:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+207 [label="51:CtFieldReadImpl@manifestFile" shape=ellipse]
+208 [label="51:CtConstructorCallImpl@new FileOutputStream(manifestFile)" shape=ellipse]
+209 [label="51:CtVirtualElement@fos" shape=ellipse]
+210 [label="51:CtLocalVariableImpl@FileOutputStream fos = new FileOutputStream(manifestFile)" shape=ellipse]
+211 [label="52:CtTypeReferenceImpl@OutputStreamWriter" shape=ellipse]
+212 [label="52:CtTypeReferenceImpl@OutputStreamWriter" shape=ellipse]
+213 [label="52:CtVariableReadImpl@fos" shape=ellipse]
+214 [label="52:CtFieldReadImpl@Manifest.JAR_ENCODING" shape=ellipse]
+215 [label="52:CtConstructorCallImpl@new OutputStreamWriter(fos, Manifest.JAR_ENCODING)" shape=ellipse]
+216 [label="52:CtVirtualElement@osw" shape=ellipse]
+217 [label="52:CtLocalVariableImpl@OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING)" shape=ellipse]
+218 [label="53:CtVariableWriteImpl@w" shape=ellipse]
+219 [label="53:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+220 [label="53:CtVariableReadImpl@osw" shape=ellipse]
+221 [label="53:CtConstructorCallImpl@new PrintWriter(osw)" shape=ellipse]
+222 [label="53:CtAssignmentImpl@w = new PrintWriter(osw)" shape=ellipse]
+223 [label="54:CtExecutableReferenceImpl@write(PrintWriter)" shape=ellipse]
+224 [label="54:CtVirtualElement@write" shape=ellipse]
+225 [label="54:CtVariableReadImpl@toWrite" shape=ellipse]
+226 [label="54:CtVariableReadImpl@w" shape=ellipse]
+227 [label="54:CtInvocationImpl@toWrite.write(w)" shape=ellipse]
+228 [label="50:CtBlockImpl@\{
+    FileOutputStream fos = new FileOutputStream(manifestFile);
+    OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+    w = new PrintWriter(osw);
+    toWrite.write(w);
+\}" shape=ellipse]
+229 [label="55:CtVirtualElement@e" shape=ellipse]
+230 [label="55:CtTypeReferenceImpl@IOException" shape=ellipse]
+231 [label="55:CtCatchVariableImpl@IOException e" shape=ellipse]
+232 [label="56:CtTypeReferenceImpl@BuildException" shape=ellipse]
+233 [label="56:CtLiteralImpl@\"Failed to write \"" shape=ellipse]
+234 [label="56:CtFieldReadImpl@manifestFile" shape=ellipse]
+235 [label="56:CtBinaryOperatorImpl@\"Failed to write \" + manifestFile" shape=ellipse]
+236 [label="56:CtVariableReadImpl@e" shape=ellipse]
+237 [label="56:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+238 [label="56:CtVirtualElement@getLocation" shape=ellipse]
+239 [label="56:CtInvocationImpl@getLocation()" shape=ellipse]
+240 [label="56:CtConstructorCallImpl@new BuildException(\"Failed to write \" + manifestFile, e, getLocation())" shape=ellipse]
+241 [label="56:CtThrowImpl@throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation())" shape=ellipse]
+242 [label="55:CtBlockImpl@\{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+243 [label="55:CtCatchImpl@ catch (IOException e) \{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\}" shape=ellipse]
+244 [label="58:CtExecutableReferenceImpl@close(PrintWriter)" shape=ellipse]
+245 [label="58:CtVirtualElement@close" shape=ellipse]
+246 [label="58:CtTypeAccessImpl@FileUtils" shape=ellipse]
+247 [label="58:CtVariableReadImpl@w" shape=ellipse]
+248 [label="58:CtInvocationImpl@FileUtils.close(w)" shape=ellipse]
+249 [label="57:CtBlockImpl@\{
+    FileUtils.close(w);
+\}" shape=ellipse]
+250 [label="50:CtTryImpl@try \{
+    FileOutputStream fos = new FileOutputStream(manifestFile);
+    OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+    w = new PrintWriter(osw);
+    toWrite.write(w);
+\} catch (IOException e) \{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\} finally \{
+    FileUtils.close(w);
+\}" shape=ellipse]
+251 [label="2:CtBlockImpl@\{
+    if (manifestFile == null) \{
+        throw new BuildException(\"the file attribute is required\");
+    \}
+    Manifest toWrite = Manifest.getDefaultManifest();
+    Manifest current = null;
+    BuildException error = null;
+    if (manifestFile.exists()) \{
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        try \{
+            fis = new FileInputStream(manifestFile);
+            if (encoding == null) \{
+                isr = new InputStreamReader(fis, \"UTF-8\");
+            \} else \{
+                isr = new InputStreamReader(fis, encoding);
+            \}
+            current = new Manifest(isr);
+        \} catch (ManifestException m) \{
+            error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+        \} catch (IOException e) \{
+            error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+        \} finally \{
+            FileUtils.close(isr);
+        \}
+    \}
+    for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+        log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+    \}
+    try \{
+        if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+            if (current != null) \{
+                toWrite.merge(current);
+            \} else if (error != null) \{
+                throw error;
+            \}
+        \}
+        toWrite.merge(nestedManifest);
+    \} catch (ManifestException m) \{
+        throw new BuildException(\"Manifest is invalid\", m, getLocation());
+    \}
+    if (toWrite.equals(current)) \{
+        log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+        return;
+    \}
+    PrintWriter w = null;
+    try \{
+        FileOutputStream fos = new FileOutputStream(manifestFile);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+        w = new PrintWriter(osw);
+        toWrite.write(w);
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(w);
+    \}
+\}" shape=ellipse]
+252 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    if (manifestFile == null) \{
+        throw new BuildException(\"the file attribute is required\");
+    \}
+    Manifest toWrite = Manifest.getDefaultManifest();
+    Manifest current = null;
+    BuildException error = null;
+    if (manifestFile.exists()) \{
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        try \{
+            fis = new FileInputStream(manifestFile);
+            if (encoding == null) \{
+                isr = new InputStreamReader(fis, \"UTF-8\");
+            \} else \{
+                isr = new InputStreamReader(fis, encoding);
+            \}
+            current = new Manifest(isr);
+        \} catch (ManifestException m) \{
+            error = new BuildException((\"Existing manifest \" + manifestFile) + \" is invalid\", m, getLocation());
+        \} catch (IOException e) \{
+            error = new BuildException(\"Failed to read \" + manifestFile, e, getLocation());
+        \} finally \{
+            FileUtils.close(isr);
+        \}
+    \}
+    for (Enumeration e = nestedManifest.getWarnings(); e.hasMoreElements();) \{
+        log(\"Manifest warning: \" + ((String) (e.nextElement())), MSG_WARN);
+    \}
+    try \{
+        if (mode.getValue().equals(\"update\") && manifestFile.exists()) \{
+            if (current != null) \{
+                toWrite.merge(current);
+            \} else if (error != null) \{
+                throw error;
+            \}
+        \}
+        toWrite.merge(nestedManifest);
+    \} catch (ManifestException m) \{
+        throw new BuildException(\"Manifest is invalid\", m, getLocation());
+    \}
+    if (toWrite.equals(current)) \{
+        log(\"Manifest has not changed, do not recreate\", MSG_VERBOSE);
+        return;
+    \}
+    PrintWriter w = null;
+    try \{
+        FileOutputStream fos = new FileOutputStream(manifestFile);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+        w = new PrintWriter(osw);
+        toWrite.write(w);
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+    \} finally \{
+        FileUtils.close(w);
+    \}
+\}" shape=ellipse]
+253 [label="55:Insert@INSERT" shape=ellipse]
+254 [label="55:CtIfImpl@if (w.checkError()) \{
+    throw new IOException(\"Encountered an error writing manifest\");
+\}" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 10 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+17 -> 153 [label="Define-Use"];
+17 -> 170 [label="Define-Use"];
+17 -> 190 [label="Define-Use"];
+17 -> 225 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 16 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 20 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 24 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 109 [label="Control Dep"];
+30 -> 34 [label="Control Dep"];
+30 -> 32 [label="Control Dep"];
+30 -> 38 [label="Control Dep"];
+30 -> 36 [label="Control Dep"];
+30 -> 108 [label="Control Dep"];
+30 -> 67 [label="Control Dep"];
+30 -> 43 [label="Control Dep"];
+30 -> 39 [label="Control Dep"];
+30 -> 42 [label="Control Dep"];
+30 -> 41 [label="Control Dep"];
+30 -> 61 [label="Control Dep"];
+30 -> 46 [label="Control Dep"];
+30 -> 44 [label="Control Dep"];
+30 -> 45 [label="Control Dep"];
+30 -> 66 [label="Control Dep"];
+30 -> 62 [label="Control Dep"];
+30 -> 65 [label="Control Dep"];
+30 -> 64 [label="Control Dep"];
+30 -> 85 [label="Control Dep"];
+30 -> 70 [label="Control Dep"];
+30 -> 101 [label="Control Dep"];
+30 -> 88 [label="Control Dep"];
+30 -> 107 [label="Control Dep"];
+30 -> 106 [label="Control Dep"];
+30 -> 102 [label="Control Dep"];
+30 -> 104 [label="Control Dep"];
+30 -> 105 [label="Control Dep"];
+34 -> 33 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 32 [label="AST"];
+37 -> 64 [label="Define-Use"];
+37 -> 105 [label="Define-Use"];
+38 -> 37 [label="AST"];
+38 -> 35 [label="AST"];
+38 -> 36 [label="AST"];
+39 -> 49 [label="Define-Use"];
+39 -> 56 [label="Define-Use"];
+41 -> 39 [label="Data Dep"];
+42 -> 41 [label="AST"];
+43 -> 39 [label="AST"];
+43 -> 42 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+46 -> 53 [label="Control Dep"];
+46 -> 52 [label="Control Dep"];
+46 -> 47 [label="Control Dep"];
+46 -> 51 [label="Control Dep"];
+46 -> 49 [label="Control Dep"];
+46 -> 50 [label="Control Dep"];
+46 -> 60 [label="Control Dep"];
+46 -> 59 [label="Control Dep"];
+46 -> 54 [label="Control Dep"];
+46 -> 58 [label="Control Dep"];
+46 -> 56 [label="Control Dep"];
+46 -> 57 [label="Control Dep"];
+47 -> 64 [label="Define-Use"];
+47 -> 105 [label="Define-Use"];
+49 -> 47 [label="Data Dep"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 47 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 64 [label="Define-Use"];
+54 -> 105 [label="Define-Use"];
+56 -> 54 [label="Data Dep"];
+57 -> 54 [label="Data Dep"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 54 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 46 [label="AST"];
+61 -> 53 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 148 [label="Define-Use"];
+62 -> 154 [label="Define-Use"];
+62 -> 191 [label="Define-Use"];
+64 -> 62 [label="Data Dep"];
+65 -> 64 [label="AST"];
+66 -> 62 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 43 [label="AST"];
+67 -> 61 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 78 [label="Define-Use"];
+70 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+70 -> 84 [label="Control Dep"];
+70 -> 83 [label="Control Dep"];
+70 -> 71 [label="Control Dep"];
+70 -> 82 [label="Control Dep"];
+70 -> 77 [label="Control Dep"];
+70 -> 75 [label="Control Dep"];
+70 -> 73 [label="Control Dep"];
+70 -> 74 [label="Control Dep"];
+70 -> 76 [label="Control Dep"];
+70 -> 78 [label="Control Dep"];
+70 -> 81 [label="Control Dep"];
+70 -> 79 [label="Control Dep"];
+74 -> 71 [label="Data Dep"];
+75 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+77 -> 75 [label="AST"];
+77 -> 76 [label="AST"];
+78 -> 71 [label="Data Dep"];
+81 -> 80 [label="AST"];
+81 -> 79 [label="AST"];
+82 -> 77 [label="AST"];
+82 -> 78 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 71 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 70 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 94 [label="Define-Use"];
+88 -> 86 [label="AST"];
+88 -> 87 [label="AST"];
+88 -> 100 [label="Control Dep"];
+88 -> 99 [label="Control Dep"];
+88 -> 89 [label="Control Dep"];
+88 -> 98 [label="Control Dep"];
+88 -> 93 [label="Control Dep"];
+88 -> 91 [label="Control Dep"];
+88 -> 92 [label="Control Dep"];
+88 -> 94 [label="Control Dep"];
+88 -> 97 [label="Control Dep"];
+88 -> 95 [label="Control Dep"];
+89 -> 157 [label="Define-Use"];
+89 -> 160 [label="Define-Use"];
+92 -> 89 [label="Data Dep"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+94 -> 89 [label="Data Dep"];
+97 -> 96 [label="AST"];
+97 -> 95 [label="AST"];
+98 -> 93 [label="AST"];
+98 -> 94 [label="AST"];
+98 -> 97 [label="AST"];
+99 -> 89 [label="AST"];
+99 -> 98 [label="AST"];
+100 -> 99 [label="AST"];
+101 -> 88 [label="AST"];
+101 -> 100 [label="AST"];
+106 -> 103 [label="AST"];
+106 -> 104 [label="AST"];
+106 -> 102 [label="AST"];
+106 -> 105 [label="AST"];
+107 -> 106 [label="AST"];
+108 -> 67 [label="AST"];
+108 -> 85 [label="AST"];
+108 -> 101 [label="AST"];
+108 -> 107 [label="AST"];
+109 -> 34 [label="AST"];
+109 -> 38 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 30 [label="AST"];
+110 -> 109 [label="AST"];
+114 -> 116 [label="Data Dep"];
+115 -> 113 [label="AST"];
+115 -> 114 [label="AST"];
+115 -> 112 [label="AST"];
+116 -> 120 [label="Define-Use"];
+116 -> 127 [label="Define-Use"];
+117 -> 116 [label="AST"];
+117 -> 111 [label="AST"];
+117 -> 115 [label="AST"];
+121 -> 119 [label="AST"];
+121 -> 120 [label="AST"];
+121 -> 118 [label="AST"];
+121 -> 133 [label="Control Dep"];
+121 -> 132 [label="Control Dep"];
+121 -> 122 [label="Control Dep"];
+121 -> 130 [label="Control Dep"];
+121 -> 124 [label="Control Dep"];
+121 -> 128 [label="Control Dep"];
+121 -> 125 [label="Control Dep"];
+121 -> 127 [label="Control Dep"];
+121 -> 131 [label="Control Dep"];
+128 -> 126 [label="AST"];
+128 -> 129 [label="AST"];
+128 -> 127 [label="AST"];
+128 -> 125 [label="AST"];
+130 -> 124 [label="AST"];
+130 -> 128 [label="AST"];
+132 -> 123 [label="AST"];
+132 -> 122 [label="AST"];
+132 -> 130 [label="AST"];
+132 -> 131 [label="AST"];
+133 -> 132 [label="AST"];
+134 -> 117 [label="AST"];
+134 -> 121 [label="AST"];
+134 -> 133 [label="AST"];
+140 -> 138 [label="AST"];
+140 -> 139 [label="AST"];
+140 -> 137 [label="AST"];
+142 -> 136 [label="AST"];
+142 -> 140 [label="AST"];
+142 -> 135 [label="AST"];
+142 -> 141 [label="AST"];
+146 -> 144 [label="AST"];
+146 -> 145 [label="AST"];
+146 -> 143 [label="AST"];
+147 -> 142 [label="AST"];
+147 -> 146 [label="AST"];
+147 -> 166 [label="Control Dep"];
+147 -> 165 [label="Control Dep"];
+147 -> 150 [label="Control Dep"];
+147 -> 148 [label="Control Dep"];
+147 -> 149 [label="Control Dep"];
+150 -> 148 [label="AST"];
+150 -> 149 [label="AST"];
+150 -> 156 [label="Control Dep"];
+150 -> 155 [label="Control Dep"];
+150 -> 151 [label="Control Dep"];
+150 -> 153 [label="Control Dep"];
+150 -> 154 [label="Control Dep"];
+150 -> 164 [label="Control Dep"];
+150 -> 163 [label="Control Dep"];
+150 -> 159 [label="Control Dep"];
+150 -> 157 [label="Control Dep"];
+150 -> 158 [label="Control Dep"];
+155 -> 152 [label="AST"];
+155 -> 153 [label="AST"];
+155 -> 151 [label="AST"];
+155 -> 154 [label="AST"];
+156 -> 155 [label="AST"];
+159 -> 157 [label="AST"];
+159 -> 158 [label="AST"];
+159 -> 162 [label="Control Dep"];
+159 -> 161 [label="Control Dep"];
+159 -> 160 [label="Control Dep"];
+161 -> 160 [label="AST"];
+162 -> 161 [label="AST"];
+163 -> 159 [label="AST"];
+163 -> 162 [label="AST"];
+164 -> 163 [label="AST"];
+165 -> 150 [label="AST"];
+165 -> 156 [label="AST"];
+165 -> 164 [label="AST"];
+166 -> 165 [label="AST"];
+167 -> 147 [label="AST"];
+167 -> 166 [label="AST"];
+172 -> 169 [label="AST"];
+172 -> 170 [label="AST"];
+172 -> 168 [label="AST"];
+172 -> 171 [label="AST"];
+173 -> 167 [label="AST"];
+173 -> 172 [label="AST"];
+174 -> 179 [label="Define-Use"];
+176 -> 174 [label="AST"];
+176 -> 175 [label="AST"];
+176 -> 185 [label="Control Dep"];
+176 -> 184 [label="Control Dep"];
+176 -> 183 [label="Control Dep"];
+176 -> 178 [label="Control Dep"];
+176 -> 179 [label="Control Dep"];
+176 -> 182 [label="Control Dep"];
+176 -> 180 [label="Control Dep"];
+182 -> 181 [label="AST"];
+182 -> 180 [label="AST"];
+183 -> 178 [label="AST"];
+183 -> 179 [label="AST"];
+183 -> 182 [label="AST"];
+184 -> 183 [label="AST"];
+185 -> 184 [label="AST"];
+186 -> 176 [label="AST"];
+186 -> 185 [label="AST"];
+187 -> 173 [label="AST"];
+187 -> 186 [label="AST"];
+192 -> 189 [label="AST"];
+192 -> 190 [label="AST"];
+192 -> 188 [label="AST"];
+192 -> 191 [label="AST"];
+192 -> 199 [label="Control Dep"];
+192 -> 197 [label="Control Dep"];
+192 -> 193 [label="Control Dep"];
+192 -> 195 [label="Control Dep"];
+192 -> 196 [label="Control Dep"];
+192 -> 198 [label="Control Dep"];
+197 -> 194 [label="AST"];
+197 -> 193 [label="AST"];
+197 -> 195 [label="AST"];
+197 -> 196 [label="AST"];
+199 -> 197 [label="AST"];
+199 -> 198 [label="AST"];
+200 -> 192 [label="AST"];
+200 -> 199 [label="AST"];
+204 -> 203 [label="AST"];
+204 -> 201 [label="AST"];
+204 -> 202 [label="AST"];
+207 -> 209 [label="Data Dep"];
+208 -> 207 [label="AST"];
+209 -> 213 [label="Define-Use"];
+210 -> 209 [label="AST"];
+210 -> 205 [label="AST"];
+210 -> 208 [label="AST"];
+213 -> 216 [label="Data Dep"];
+214 -> 216 [label="Data Dep"];
+215 -> 213 [label="AST"];
+215 -> 214 [label="AST"];
+216 -> 220 [label="Define-Use"];
+217 -> 216 [label="AST"];
+217 -> 211 [label="AST"];
+217 -> 215 [label="AST"];
+218 -> 226 [label="Define-Use"];
+218 -> 247 [label="Define-Use"];
+220 -> 218 [label="Data Dep"];
+221 -> 220 [label="AST"];
+222 -> 218 [label="AST"];
+222 -> 221 [label="AST"];
+227 -> 224 [label="AST"];
+227 -> 225 [label="AST"];
+227 -> 223 [label="AST"];
+227 -> 226 [label="AST"];
+228 -> 210 [label="AST"];
+228 -> 217 [label="AST"];
+228 -> 222 [label="AST"];
+228 -> 227 [label="AST"];
+229 -> 236 [label="Define-Use"];
+231 -> 229 [label="AST"];
+231 -> 230 [label="AST"];
+231 -> 242 [label="Control Dep"];
+231 -> 241 [label="Control Dep"];
+231 -> 240 [label="Control Dep"];
+231 -> 235 [label="Control Dep"];
+231 -> 233 [label="Control Dep"];
+231 -> 234 [label="Control Dep"];
+231 -> 236 [label="Control Dep"];
+231 -> 239 [label="Control Dep"];
+231 -> 237 [label="Control Dep"];
+235 -> 233 [label="AST"];
+235 -> 234 [label="AST"];
+239 -> 238 [label="AST"];
+239 -> 237 [label="AST"];
+240 -> 235 [label="AST"];
+240 -> 236 [label="AST"];
+240 -> 239 [label="AST"];
+241 -> 240 [label="AST"];
+242 -> 241 [label="AST"];
+243 -> 231 [label="AST"];
+243 -> 242 [label="AST"];
+248 -> 245 [label="AST"];
+248 -> 246 [label="AST"];
+248 -> 244 [label="AST"];
+248 -> 247 [label="AST"];
+249 -> 248 [label="AST"];
+250 -> 228 [label="AST"];
+250 -> 243 [label="AST"];
+250 -> 249 [label="AST"];
+250 -> 253 [label="Action"];
+251 -> 11 [label="AST"];
+251 -> 18 [label="AST"];
+251 -> 22 [label="AST"];
+251 -> 26 [label="AST"];
+251 -> 110 [label="AST"];
+251 -> 134 [label="AST"];
+251 -> 187 [label="AST"];
+251 -> 200 [label="AST"];
+251 -> 204 [label="AST"];
+251 -> 250 [label="AST"];
+252 -> 1 [label="AST"];
+252 -> 0 [label="AST"];
+252 -> 2 [label="AST"];
+252 -> 251 [label="AST"];
+253 -> 254 [label="Action"];
+}

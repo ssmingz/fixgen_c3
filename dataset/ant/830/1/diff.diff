@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/830/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/830/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("testTwoMappers", ERROR_MULTIPLE_MAPPERS);
++    try {
++      buildRule.executeTarget("testTwoMappers");
++      fail("BuildException expected: " + Expand.ERROR_MULTIPLE_MAPPERS);
++    } catch (BuildException ex) {
++    }

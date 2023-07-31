@@ -1,0 +1,47 @@
+digraph "Pattern" {
+0 [label="ensureDirectoryFor#?,File#3:UPDATE
+getFile#?,FTPClient,String,String#13:UPDATE" shape=ellipse]
+1 [label="ensureDirectoryFor#?,File#3:targetFile.getParent()
+getFile#?,FTPClient,String,String#13:file.getParent()" shape=ellipse]
+2 [label="ensureDirectoryFor#?,File#3:new File(targetFile.getParent())
+getFile#?,FTPClient,String,String#13:new File(file.getParent())" shape=ellipse]
+3 [label="ensureDirectoryFor#?,File#3:File directory = new File(targetFile.getParent())
+getFile#?,FTPClient,String,String#13:File pdir = new File(file.getParent())" shape=ellipse]
+4 [label="ensureDirectoryFor#?,File#-1:File()
+getFile#?,FTPClient,String,String#-1:File()" shape=ellipse]
+5 [label="ensureDirectoryFor#?,File#3:DELETE
+getFile#?,FTPClient,String,String#13:DELETE" shape=ellipse]
+6 [label="ensureDirectoryFor#?,File#3:getParent
+getFile#?,FTPClient,String,String#13:getParent" shape=ellipse]
+7 [label="ensureDirectoryFor#?,File#3:targetFile
+getFile#?,FTPClient,String,String#13:file" shape=ellipse]
+8 [label="ensureDirectoryFor#?,File#-1:targetFile
+getFile#?,FTPClient,String,String#-1:file" shape=ellipse]
+9 [label="ensureDirectoryFor#?,File#3:directory
+getFile#?,FTPClient,String,String#13:pdir" shape=ellipse]
+10 [label="ensureDirectoryFor#?,File#3:getParent()
+getFile#?,FTPClient,String,String#13:getParent()" shape=ellipse]
+11 [label="ensureDirectoryFor#?,File#-1:File
+getFile#?,FTPClient,String,String#-1:File" shape=ellipse]
+12 [label="ensureDirectoryFor#?,File#3:MOVE
+getFile#?,FTPClient,String,String#13:MOVE" shape=ellipse]
+13 [label="ensureDirectoryFor#?,File#3:fileUtils.getParentFile(targetFile)
+getFile#?,FTPClient,String,String#13:fileUtils.getParentFile(file)" shape=ellipse]
+14 [label="getFile#?,FTPClient,String,String#6:file" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 12 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+3 -> 9 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="Data Dep:2"];
+10 -> 11 [label="AST:2"];
+12 -> 3 [label="Action:2"];
+14 -> 7 [label="Define Use:1"];
+}

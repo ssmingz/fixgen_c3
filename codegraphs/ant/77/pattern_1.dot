@@ -1,0 +1,149 @@
+digraph "Pattern" {
+0 [label="test3#?#9:INSERT
+test2#?#9:INSERT
+test6#?#9:INSERT
+test1#?#9:INSERT" shape=ellipse]
+1 [label="test3#?#2:public void test3() \{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= (2000 - ERROR_RANGE);
+\}
+test2#?#2:public void test2() \{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}
+test6#?#2:public void test6() \{
+    Timer timer = new Timer();
+    executeTarget(\"test6\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test6 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() < 2000;
+\}
+test1#?#2:public void test1() \{
+    Timer timer = new Timer();
+    executeTarget(\"test1\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test1 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}" shape=ellipse]
+2 [label="test3#?#2:test3
+test2#?#2:test2
+test6#?#2:test6
+test1#?#2:test1" shape=ellipse]
+3 [label="test3#?#2:void
+test2#?#2:void
+test6#?#2:void
+test1#?#2:void" shape=ellipse]
+4 [label="test3#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= (2000 - ERROR_RANGE);
+\}
+test2#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}
+test6#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test6\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test6 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() < 2000;
+\}
+test1#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test1\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test1 elapsed time=\" + timer.time());
+    \}
+    assert timer.time() >= 0;
+\}" shape=ellipse]
+5 [label="test3#?#3:Timer timer = new Timer()
+test2#?#3:Timer timer = new Timer()
+test6#?#3:Timer timer = new Timer()
+test1#?#3:Timer timer = new Timer()" shape=ellipse]
+6 [label="test3#?#4:executeTarget(\"test3\")
+test2#?#4:executeTarget(\"test2\")
+test6#?#4:executeTarget(\"test6\")
+test1#?#4:executeTarget(\"test1\")" shape=ellipse]
+7 [label="test3#?#5:timer.stop()
+test2#?#5:timer.stop()
+test6#?#5:timer.stop()
+test1#?#5:timer.stop()" shape=ellipse]
+8 [label="test3#?#6:if (TRACE) \{
+    System.out.println(\" test3 elapsed time=\" + timer.time());
+\}
+test2#?#6:if (TRACE) \{
+    System.out.println(\" test2 elapsed time=\" + timer.time());
+\}
+test6#?#6:if (TRACE) \{
+    System.out.println(\" test6 elapsed time=\" + timer.time());
+\}
+test1#?#6:if (TRACE) \{
+    System.out.println(\" test1 elapsed time=\" + timer.time());
+\}" shape=ellipse]
+9 [label="test3#?#9:assert timer.time() >= (2000 - ERROR_RANGE)
+test2#?#9:assert timer.time() >= 0
+test6#?#9:assert timer.time() < 2000
+test1#?#9:assert timer.time() >= 0" shape=ellipse]
+10 [label="test3#?#2:public
+test2#?#2:public
+test6#?#2:public
+test1#?#2:public" shape=ellipse]
+11 [label="test3#?#2:VE: Modifiers_Method
+test2#?#2:VE: Modifiers_Method
+test6#?#2:VE: Modifiers_Method
+test1#?#2:VE: Modifiers_Method" shape=ellipse]
+12 [label="test3#?#9:assertTrue(timer.time() >= (2000 - ERROR_RANGE))
+test2#?#9:assertTrue(timer.time() >= 0)
+test6#?#9:assertTrue(timer.time() < 2000)
+test1#?#9:assertTrue(timer.time() >= 0)" shape=ellipse]
+13 [label="test3#?#9:MOVE
+test2#?#9:MOVE
+test6#?#9:MOVE
+test1#?#9:MOVE" shape=ellipse]
+14 [label="test3#?#9:timer.time() >= (2000 - ERROR_RANGE)
+test2#?#9:timer.time() >= 0
+test6#?#9:timer.time() < 2000
+test1#?#9:timer.time() >= 0" shape=ellipse]
+0 -> 12 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 2 [label="AST:4"];
+1 -> 3 [label="AST:4"];
+1 -> 4 [label="AST:4"];
+1 -> 10 [label="AST:4"];
+1 -> 11 [label="AST:4"];
+4 -> 5 [label="AST:4"];
+4 -> 6 [label="AST:4"];
+4 -> 7 [label="AST:4"];
+4 -> 8 [label="AST:4"];
+4 -> 9 [label="AST:4"];
+9 -> 14 [label="AST:4"];
+13 -> 12 [label="Action:4"];
+14 -> 13 [label="Action:4"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2695/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2695/0/after.java
+@@ -6,1 +6,5 @@
+-    return new Point(width + trimWidth(), height + trimHeight());
++    int border = 0;
++    if ((style & ((SWT.NO_TRIM | SWT.BORDER) | SWT.SHELL_TRIM)) == 0) {
++      border = OS.gtk_container_get_border_width(shellHandle);
++    }
++    return new Point((width + trimWidth()) + (2 * border), (height + trimHeight()) + (2 * border));

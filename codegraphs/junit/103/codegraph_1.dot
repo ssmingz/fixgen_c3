@@ -1,0 +1,38 @@
+digraph "IgnoredClassRunner#?,Class" {
+0 [label="2:CtVirtualElement@IgnoredClassRunner" shape=ellipse]
+1 [label="2:CtParameterImpl@Class<?> testClass" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@Class<?>" shape=ellipse]
+3 [label="3:CtFieldReferenceImpl@fTestClass" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+5 [label="3:CtFieldWriteImpl@fTestClass" shape=ellipse]
+6 [label="3:CtVariableReadImpl@testClass" shape=ellipse]
+7 [label="3:CtParameterReferenceImpl@testClass" shape=ellipse]
+8 [label="3:CtAssignmentImpl@fTestClass = testClass" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    fTestClass = testClass;
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public  IgnoredClassRunner(Class<?> testClass) \{
+    fTestClass = testClass;
+\}" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+13 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+14 [label="3:CtFieldReferenceImpl@clazz" shape=ellipse]
+15 [label="3:CtFieldWriteImpl@clazz" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 11 [label="Action"];
+6 -> 7 [label="AST"];
+6 -> 5 [label="Data Dep"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 15 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+}

@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2497/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2497/0/after.java
+@@ -9,1 +9,6 @@
+-    File tfile = FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit);
++    File tfile;
++    if (createFile) {
++      tfile = FILE_UTILS.createTempFile(prefix, suffix, destDir, deleteOnExit);
++    } else {
++      tfile = FILE_UTILS.createTempFileName(prefix, suffix, destDir, deleteOnExit);
++    }

@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2533/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2533/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectSpecificBuildException(
+-        "testNested6", "it is required to fail :-)", "testNested6\ntestNested6\ntestNested6");
++    try {
++      buildRule.executeTarget("testNested6");
++      fail("it is required to fail :-)");
++    } catch (BuildException ex) {
++      assertEquals("testNested6\ntestNested6\ntestNested6", ex.getMessage());
++    }

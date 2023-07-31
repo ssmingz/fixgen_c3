@@ -1,0 +1,102 @@
+digraph "createClasspath#?" {
+0 [label="2:CtTypeReferenceImpl@Path" shape=ellipse]
+1 [label="2:CtVirtualElement@createClasspath" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isReference()" shape=ellipse]
+3 [label="3:CtVirtualElement@isReference" shape=ellipse]
+4 [label="3:CtInvocationImpl@isReference()" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@noChildrenAllowed()" shape=ellipse]
+6 [label="4:CtVirtualElement@noChildrenAllowed" shape=ellipse]
+7 [label="4:CtInvocationImpl@noChildrenAllowed()" shape=ellipse]
+8 [label="4:CtThrowImpl@throw noChildrenAllowed()" shape=ellipse]
+9 [label="3:CtBlockImpl@\{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+10 [label="3:CtIfImpl@if (isReference()) \{
+    throw noChildrenAllowed();
+\}" shape=ellipse]
+11 [label="6:CtThisAccessImpl@this" shape=ellipse]
+12 [label="6:CtFieldReadImpl@this.classpath" shape=ellipse]
+13 [label="6:CtLiteralImpl@null" shape=ellipse]
+14 [label="6:CtBinaryOperatorImpl@this.classpath == null" shape=ellipse]
+15 [label="7:CtFieldWriteImpl@this.classpath" shape=ellipse]
+16 [label="7:CtThisAccessImpl@this" shape=ellipse]
+17 [label="7:CtTypeReferenceImpl@Path" shape=ellipse]
+18 [label="7:CtFieldReadImpl@p" shape=ellipse]
+19 [label="7:CtConstructorCallImpl@new Path(p)" shape=ellipse]
+20 [label="7:CtAssignmentImpl@this.classpath = new Path(p)" shape=ellipse]
+21 [label="6:CtBlockImpl@\{
+    this.classpath = new Path(p);
+\}" shape=ellipse]
+22 [label="6:CtIfImpl@if (this.classpath == null) \{
+    this.classpath = new Path(p);
+\}" shape=ellipse]
+23 [label="9:CtExecutableReferenceImpl@createPath()" shape=ellipse]
+24 [label="9:CtVirtualElement@createPath" shape=ellipse]
+25 [label="9:CtThisAccessImpl@this" shape=ellipse]
+26 [label="9:CtFieldReadImpl@this.classpath" shape=ellipse]
+27 [label="9:CtInvocationImpl@this.classpath.createPath()" shape=ellipse]
+28 [label="9:CtReturnImpl@return this.classpath.createPath()" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    if (this.classpath == null) \{
+        this.classpath = new Path(p);
+    \}
+    return this.classpath.createPath();
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public Path createClasspath() \{
+    if (isReference()) \{
+        throw noChildrenAllowed();
+    \}
+    if (this.classpath == null) \{
+        this.classpath = new Path(p);
+    \}
+    return this.classpath.createPath();
+\}" shape=ellipse]
+31 [label="7:Delete@DELETE" shape=ellipse]
+32 [label="7:Insert@INSERT" shape=ellipse]
+33 [label="7:CtInvocationImpl@getProject()" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 9 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 21 [label="Control Dep"];
+14 -> 20 [label="Control Dep"];
+14 -> 15 [label="Control Dep"];
+14 -> 19 [label="Control Dep"];
+14 -> 18 [label="Control Dep"];
+15 -> 16 [label="AST"];
+18 -> 15 [label="Data Dep"];
+18 -> 31 [label="Action"];
+19 -> 18 [label="AST"];
+19 -> 32 [label="Action"];
+20 -> 15 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 14 [label="AST"];
+22 -> 21 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+27 -> 23 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 10 [label="AST"];
+29 -> 22 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 29 [label="AST"];
+32 -> 33 [label="Action"];
+}

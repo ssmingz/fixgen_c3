@@ -1,0 +1,269 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@InputRequest" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtVirtualElement@request" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@InputRequest request = null" shape=ellipse]
+7 [label="4:CtFieldReadImpl@validargs" shape=ellipse]
+8 [label="4:CtLiteralImpl@null" shape=ellipse]
+9 [label="4:CtBinaryOperatorImpl@validargs != null" shape=ellipse]
+10 [label="5:CtTypeReferenceImpl@Vector" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@split(char)" shape=ellipse]
+12 [label="5:CtVirtualElement@split" shape=ellipse]
+13 [label="5:CtTypeAccessImpl@StringUtils" shape=ellipse]
+14 [label="5:CtFieldReadImpl@validargs" shape=ellipse]
+15 [label="5:CtLiteralImpl@','" shape=ellipse]
+16 [label="5:CtInvocationImpl@StringUtils.split(validargs, ',')" shape=ellipse]
+17 [label="5:CtVirtualElement@accept" shape=ellipse]
+18 [label="5:CtLocalVariableImpl@Vector accept = StringUtils.split(validargs, ',')" shape=ellipse]
+19 [label="6:CtVariableWriteImpl@request" shape=ellipse]
+20 [label="6:CtTypeReferenceImpl@MultipleChoiceInputRequest" shape=ellipse]
+21 [label="6:CtFieldReadImpl@message" shape=ellipse]
+22 [label="6:CtVariableReadImpl@accept" shape=ellipse]
+23 [label="6:CtConstructorCallImpl@new MultipleChoiceInputRequest(message, accept)" shape=ellipse]
+24 [label="6:CtAssignmentImpl@request = new MultipleChoiceInputRequest(message, accept)" shape=ellipse]
+25 [label="4:CtBlockImpl@\{
+    Vector accept = StringUtils.split(validargs, ',');
+    request = new MultipleChoiceInputRequest(message, accept);
+\}" shape=ellipse]
+26 [label="8:CtVariableWriteImpl@request" shape=ellipse]
+27 [label="8:CtTypeReferenceImpl@InputRequest" shape=ellipse]
+28 [label="8:CtFieldReadImpl@message" shape=ellipse]
+29 [label="8:CtConstructorCallImpl@new InputRequest(message)" shape=ellipse]
+30 [label="8:CtAssignmentImpl@request = new InputRequest(message)" shape=ellipse]
+31 [label="7:CtBlockImpl@\{
+    request = new InputRequest(message);
+\}" shape=ellipse]
+32 [label="4:CtIfImpl@if (validargs != null) \{
+    Vector accept = StringUtils.split(validargs, ',');
+    request = new MultipleChoiceInputRequest(message, accept);
+\} else \{
+    request = new InputRequest(message);
+\}" shape=ellipse]
+33 [label="10:CtExecutableReferenceImpl@handleInput(InputRequest)" shape=ellipse]
+34 [label="10:CtVirtualElement@handleInput" shape=ellipse]
+35 [label="10:CtExecutableReferenceImpl@getInputHandler()" shape=ellipse]
+36 [label="10:CtVirtualElement@getInputHandler" shape=ellipse]
+37 [label="10:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+38 [label="10:CtVirtualElement@getProject" shape=ellipse]
+39 [label="10:CtInvocationImpl@getProject()" shape=ellipse]
+40 [label="10:CtInvocationImpl@getProject().getInputHandler()" shape=ellipse]
+41 [label="10:CtVariableReadImpl@request" shape=ellipse]
+42 [label="10:CtInvocationImpl@getProject().getInputHandler().handleInput(request)" shape=ellipse]
+43 [label="11:CtTypeReferenceImpl@String" shape=ellipse]
+44 [label="11:CtExecutableReferenceImpl@getInput()" shape=ellipse]
+45 [label="11:CtVirtualElement@getInput" shape=ellipse]
+46 [label="11:CtVariableReadImpl@request" shape=ellipse]
+47 [label="11:CtInvocationImpl@request.getInput()" shape=ellipse]
+48 [label="11:CtVirtualElement@value" shape=ellipse]
+49 [label="11:CtLocalVariableImpl@String value = request.getInput()" shape=ellipse]
+50 [label="12:CtVariableReadImpl@value" shape=ellipse]
+51 [label="12:CtLiteralImpl@null" shape=ellipse]
+52 [label="12:CtBinaryOperatorImpl@(value == null)" shape=ellipse]
+53 [label="12:CtExecutableReferenceImpl@length()" shape=ellipse]
+54 [label="12:CtVirtualElement@length" shape=ellipse]
+55 [label="12:CtExecutableReferenceImpl@trim()" shape=ellipse]
+56 [label="12:CtVirtualElement@trim" shape=ellipse]
+57 [label="12:CtVariableReadImpl@value" shape=ellipse]
+58 [label="12:CtInvocationImpl@value.trim()" shape=ellipse]
+59 [label="12:CtInvocationImpl@value.trim().length()" shape=ellipse]
+60 [label="12:CtLiteralImpl@0" shape=ellipse]
+61 [label="12:CtBinaryOperatorImpl@(value.trim().length() == 0)" shape=ellipse]
+62 [label="12:CtBinaryOperatorImpl@((value == null) || (value.trim().length() == 0))" shape=ellipse]
+63 [label="12:CtFieldReadImpl@defaultvalue" shape=ellipse]
+64 [label="12:CtLiteralImpl@null" shape=ellipse]
+65 [label="12:CtBinaryOperatorImpl@(defaultvalue != null)" shape=ellipse]
+66 [label="12:CtBinaryOperatorImpl@((value == null) || (value.trim().length() == 0)) && (defaultvalue != null)" shape=ellipse]
+67 [label="13:CtVariableWriteImpl@value" shape=ellipse]
+68 [label="13:CtFieldReadImpl@defaultvalue" shape=ellipse]
+69 [label="13:CtAssignmentImpl@value = defaultvalue" shape=ellipse]
+70 [label="12:CtBlockImpl@\{
+    value = defaultvalue;
+\}" shape=ellipse]
+71 [label="12:CtIfImpl@if (((value == null) || (value.trim().length() == 0)) && (defaultvalue != null)) \{
+    value = defaultvalue;
+\}" shape=ellipse]
+72 [label="15:CtFieldReadImpl@addproperty" shape=ellipse]
+73 [label="15:CtLiteralImpl@null" shape=ellipse]
+74 [label="15:CtBinaryOperatorImpl@addproperty != null" shape=ellipse]
+75 [label="16:CtExecutableReferenceImpl@setNewProperty(java.lang.String)" shape=ellipse]
+76 [label="16:CtVirtualElement@setNewProperty" shape=ellipse]
+77 [label="16:CtFieldReadImpl@project" shape=ellipse]
+78 [label="16:CtFieldReadImpl@addproperty" shape=ellipse]
+79 [label="16:CtVariableReadImpl@value" shape=ellipse]
+80 [label="16:CtInvocationImpl@project.setNewProperty(addproperty, value)" shape=ellipse]
+81 [label="15:CtBlockImpl@\{
+    project.setNewProperty(addproperty, value);
+\}" shape=ellipse]
+82 [label="15:CtIfImpl@if (addproperty != null) \{
+    project.setNewProperty(addproperty, value);
+\}" shape=ellipse]
+83 [label="2:CtBlockImpl@\{
+    InputRequest request = null;
+    if (validargs != null) \{
+        Vector accept = StringUtils.split(validargs, ',');
+        request = new MultipleChoiceInputRequest(message, accept);
+    \} else \{
+        request = new InputRequest(message);
+    \}
+    getProject().getInputHandler().handleInput(request);
+    String value = request.getInput();
+    if (((value == null) || (value.trim().length() == 0)) && (defaultvalue != null)) \{
+        value = defaultvalue;
+    \}
+    if (addproperty != null) \{
+        project.setNewProperty(addproperty, value);
+    \}
+\}" shape=ellipse]
+84 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    InputRequest request = null;
+    if (validargs != null) \{
+        Vector accept = StringUtils.split(validargs, ',');
+        request = new MultipleChoiceInputRequest(message, accept);
+    \} else \{
+        request = new InputRequest(message);
+    \}
+    getProject().getInputHandler().handleInput(request);
+    String value = request.getInput();
+    if (((value == null) || (value.trim().length() == 0)) && (defaultvalue != null)) \{
+        value = defaultvalue;
+    \}
+    if (addproperty != null) \{
+        project.setNewProperty(addproperty, value);
+    \}
+\}" shape=ellipse]
+85 [label="16:Delete@DELETE" shape=ellipse]
+86 [label="16:Insert@INSERT" shape=ellipse]
+87 [label="16:CtInvocationImpl@getProject()" shape=ellipse]
+5 -> 41 [label="Define-Use"];
+5 -> 46 [label="Define-Use"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 25 [label="Control Dep"];
+9 -> 18 [label="Control Dep"];
+9 -> 16 [label="Control Dep"];
+9 -> 11 [label="Control Dep"];
+9 -> 13 [label="Control Dep"];
+9 -> 14 [label="Control Dep"];
+9 -> 15 [label="Control Dep"];
+9 -> 24 [label="Control Dep"];
+9 -> 19 [label="Control Dep"];
+9 -> 23 [label="Control Dep"];
+9 -> 21 [label="Control Dep"];
+9 -> 22 [label="Control Dep"];
+9 -> 31 [label="Control Dep"];
+9 -> 30 [label="Control Dep"];
+9 -> 26 [label="Control Dep"];
+9 -> 29 [label="Control Dep"];
+9 -> 28 [label="Control Dep"];
+14 -> 17 [label="Data Dep"];
+16 -> 12 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 11 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 22 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 10 [label="AST"];
+18 -> 16 [label="AST"];
+19 -> 41 [label="Define-Use"];
+19 -> 46 [label="Define-Use"];
+21 -> 19 [label="Data Dep"];
+22 -> 19 [label="Data Dep"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 18 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 41 [label="Define-Use"];
+26 -> 46 [label="Define-Use"];
+28 -> 26 [label="Data Dep"];
+29 -> 28 [label="AST"];
+30 -> 26 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 9 [label="AST"];
+32 -> 25 [label="AST"];
+32 -> 31 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 37 [label="AST"];
+40 -> 36 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 35 [label="AST"];
+42 -> 34 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 41 [label="AST"];
+46 -> 48 [label="Data Dep"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 50 [label="Define-Use"];
+48 -> 57 [label="Define-Use"];
+48 -> 79 [label="Define-Use"];
+49 -> 48 [label="AST"];
+49 -> 43 [label="AST"];
+49 -> 47 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+58 -> 55 [label="AST"];
+59 -> 54 [label="AST"];
+59 -> 58 [label="AST"];
+59 -> 53 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 52 [label="AST"];
+62 -> 61 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 62 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 70 [label="Control Dep"];
+66 -> 69 [label="Control Dep"];
+66 -> 67 [label="Control Dep"];
+66 -> 68 [label="Control Dep"];
+67 -> 79 [label="Define-Use"];
+68 -> 67 [label="Data Dep"];
+69 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 66 [label="AST"];
+71 -> 70 [label="AST"];
+74 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+74 -> 81 [label="Control Dep"];
+74 -> 80 [label="Control Dep"];
+74 -> 75 [label="Control Dep"];
+74 -> 77 [label="Control Dep"];
+74 -> 78 [label="Control Dep"];
+74 -> 79 [label="Control Dep"];
+77 -> 85 [label="Action"];
+80 -> 76 [label="AST"];
+80 -> 77 [label="AST"];
+80 -> 75 [label="AST"];
+80 -> 78 [label="AST"];
+80 -> 79 [label="AST"];
+80 -> 86 [label="Action"];
+81 -> 80 [label="AST"];
+82 -> 74 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 6 [label="AST"];
+83 -> 32 [label="AST"];
+83 -> 42 [label="AST"];
+83 -> 49 [label="AST"];
+83 -> 71 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 1 [label="AST"];
+84 -> 0 [label="AST"];
+84 -> 2 [label="AST"];
+84 -> 83 [label="AST"];
+86 -> 87 [label="Action"];
+}

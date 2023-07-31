@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2477/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2477/1/after.java
+@@ -3,9 +3,5 @@
+-    if ((id == view.id)
+-        || (((view instanceof NSControl) && (((NSControl) (view)).cell() != null))
+-            && (((NSControl) (view)).cell().id == id))) {
+-      if (accessible != null) {
+-        NSArray returnValue =
+-            accessible.internal_accessibilityParameterizedAttributeNames(CHILDID_SELF);
+-        if (returnValue != null) {
+-          return returnValue.id;
+-        }
++    if ((id == accessibleHandle()) && (accessible != null)) {
++      NSArray returnValue =
++          accessible.internal_accessibilityParameterizedAttributeNames(CHILDID_SELF);
++      if (returnValue != null) {
++        return returnValue.id;

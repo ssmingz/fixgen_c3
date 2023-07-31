@@ -1,0 +1,117 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@AntException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@setProperty(<unknown>,<unknown>)" shape=ellipse]
+4 [label="3:CtVirtualElement@setProperty" shape=ellipse]
+5 [label="3:CtTypeAccessImpl@BASEDIR" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+7 [label="3:CtVirtualElement@getAbsolutePath" shape=ellipse]
+8 [label="3:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+9 [label="3:CtVirtualElement@getBaseDir" shape=ellipse]
+10 [label="3:CtExecutableReferenceImpl@getExecService()" shape=ellipse]
+11 [label="3:CtVirtualElement@getExecService" shape=ellipse]
+12 [label="3:CtInvocationImpl@getExecService()" shape=ellipse]
+13 [label="3:CtInvocationImpl@getExecService().getBaseDir()" shape=ellipse]
+14 [label="3:CtInvocationImpl@getExecService().getBaseDir().getAbsolutePath()" shape=ellipse]
+15 [label="3:CtInvocationImpl@setProperty(BASEDIR, getExecService().getBaseDir().getAbsolutePath())" shape=ellipse]
+16 [label="4:CtTypeReferenceImpl@Object" shape=ellipse]
+17 [label="4:CtExecutableReferenceImpl@setupBuild(boolean)" shape=ellipse]
+18 [label="4:CtVirtualElement@setupBuild" shape=ellipse]
+19 [label="4:CtExecutableReferenceImpl@getExecService()" shape=ellipse]
+20 [label="4:CtVirtualElement@getExecService" shape=ellipse]
+21 [label="4:CtInvocationImpl@getExecService()" shape=ellipse]
+22 [label="4:CtExecutableReferenceImpl@getProperties()" shape=ellipse]
+23 [label="4:CtVirtualElement@getProperties" shape=ellipse]
+24 [label="4:CtInvocationImpl@getProperties()" shape=ellipse]
+25 [label="4:CtLiteralImpl@true" shape=ellipse]
+26 [label="4:CtInvocationImpl@getExecService().setupBuild(getProperties(), true)" shape=ellipse]
+27 [label="4:CtVirtualElement@key" shape=ellipse]
+28 [label="4:CtLocalVariableImpl@Object key = getExecService().setupBuild(getProperties(), true)" shape=ellipse]
+29 [label="5:CtExecutableReferenceImpl@setSubBuildKey(java.lang.Object)" shape=ellipse]
+30 [label="5:CtVirtualElement@setSubBuildKey" shape=ellipse]
+31 [label="5:CtVariableReadImpl@key" shape=ellipse]
+32 [label="5:CtInvocationImpl@setSubBuildKey(key)" shape=ellipse]
+33 [label="6:CtExecutableReferenceImpl@runBuild(java.lang.Object)" shape=ellipse]
+34 [label="6:CtVirtualElement@runBuild" shape=ellipse]
+35 [label="6:CtExecutableReferenceImpl@getExecService()" shape=ellipse]
+36 [label="6:CtVirtualElement@getExecService" shape=ellipse]
+37 [label="6:CtInvocationImpl@getExecService()" shape=ellipse]
+38 [label="6:CtVariableReadImpl@key" shape=ellipse]
+39 [label="6:CtExecutableReferenceImpl@getTargets()" shape=ellipse]
+40 [label="6:CtVirtualElement@getTargets" shape=ellipse]
+41 [label="6:CtInvocationImpl@getTargets()" shape=ellipse]
+42 [label="6:CtInvocationImpl@getExecService().runBuild(key, getTargets())" shape=ellipse]
+43 [label="7:CtExecutableReferenceImpl@setSubBuildKey(<unknown>)" shape=ellipse]
+44 [label="7:CtVirtualElement@setSubBuildKey" shape=ellipse]
+45 [label="7:CtLiteralImpl@null" shape=ellipse]
+46 [label="7:CtInvocationImpl@setSubBuildKey(null)" shape=ellipse]
+47 [label="2:CtBlockImpl@\{
+    setProperty(BASEDIR, getExecService().getBaseDir().getAbsolutePath());
+    Object key = getExecService().setupBuild(getProperties(), true);
+    setSubBuildKey(key);
+    getExecService().runBuild(key, getTargets());
+    setSubBuildKey(null);
+\}" shape=ellipse]
+48 [label="2:CtMethodImpl@public void execute() throws AntException \{
+    setProperty(BASEDIR, getExecService().getBaseDir().getAbsolutePath());
+    Object key = getExecService().setupBuild(getProperties(), true);
+    setSubBuildKey(key);
+    getExecService().runBuild(key, getTargets());
+    setSubBuildKey(null);
+\}" shape=ellipse]
+49 [label="4:Update@UPDATE" shape=ellipse]
+50 [label="4:CtInvocationImpl@getDataValues()" shape=ellipse]
+12 -> 11 [label="AST"];
+12 -> 10 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 8 [label="AST"];
+14 -> 7 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 6 [label="AST"];
+15 -> 4 [label="AST"];
+15 -> 3 [label="AST"];
+15 -> 5 [label="AST"];
+15 -> 14 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 19 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 49 [label="Action"];
+26 -> 18 [label="AST"];
+26 -> 21 [label="AST"];
+26 -> 17 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 31 [label="Define-Use"];
+27 -> 38 [label="Define-Use"];
+28 -> 27 [label="AST"];
+28 -> 16 [label="AST"];
+28 -> 26 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 29 [label="AST"];
+32 -> 31 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 35 [label="AST"];
+41 -> 40 [label="AST"];
+41 -> 39 [label="AST"];
+42 -> 34 [label="AST"];
+42 -> 37 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 38 [label="AST"];
+42 -> 41 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 43 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 15 [label="AST"];
+47 -> 28 [label="AST"];
+47 -> 32 [label="AST"];
+47 -> 42 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 1 [label="AST"];
+48 -> 0 [label="AST"];
+48 -> 2 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 50 [label="Action"];
+}

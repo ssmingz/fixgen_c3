@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/329/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/329/1/after.java
+@@ -3,5 +3,9 @@
+-    switch (((int) (user_data))) {
+-      case DIRECTION_CHANGED:
+-        {
+-          if (segments != null) {
+-            clearSegments(true);
++    if (hooks(GetSegments) || filters(GetSegments)) {
++      switch (((int) (user_data))) {
++        case DIRECTION_CHANGED:
++          {
++            if (segments != null) {
++              clearSegments(true);
++            }
++            applySegments();
++            return 0;
+@@ -9,3 +13,1 @@
+-          applySegments();
+-          return 0;
+-        }
++      }

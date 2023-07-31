@@ -1,0 +1,23 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1765/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1765/0/after.java
+@@ -7,10 +7,0 @@
+-    Color color = foregroundColor;
+-    if (color == null) {
+-      color = controls[0].getForeground();
+-    }
+-    Image image = foregroundButton.getImage();
+-    drawImage(image, color);
+-    foregroundButton.setImage(image);
+-    if (foregroundColor == null) {
+-      return;
+-    }
+@@ -21,0 +11,9 @@
++    Color color = foregroundColor;
++    if (controls.length == 0) {
++      return;
++    }
++    if (color == null) {
++      color = controls[0].getForeground();
++    }
++    drawImage(foregroundImage, color);
++    foregroundButton.setImage(foregroundImage);

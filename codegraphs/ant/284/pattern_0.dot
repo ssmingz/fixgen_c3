@@ -1,0 +1,134 @@
+digraph "Pattern" {
+0 [label="execute#?#16:INSERT
+getInputStream#?#13:INSERT" shape=ellipse]
+1 [label="execute#?#16:classpath.concatSystemClasspath()
+getInputStream#?#13:getClasspath().concatSystemClasspath()" shape=ellipse]
+2 [label="execute#?#13:classpath == null
+getInputStream#?#12:getClasspath() != null" shape=ellipse]
+3 [label="execute#?#13:if (classpath == null) \{
+    classpath = Path.systemClasspath;
+\} else \{
+    classpath = classpath.concatSystemClasspath();
+\}
+getInputStream#?#12:if (getClasspath() != null) \{
+    Path p = getClasspath().concatSystemClasspath();
+    if (parentFirst) \{
+        cl = getProject().createClassLoader(p);
+    \} else \{
+        cl = AntClassLoader.newAntClassLoader(getProject().getCoreLoader(), getProject(), p, false);
+    \}
+\} else \{
+    cl = JavaResource.class.getClassLoader();
+\}" shape=ellipse]
+4 [label="execute#?#13:classpath
+getInputStream#?#12:null" shape=ellipse]
+5 [label="execute#?#13:null" shape=ellipse]
+6 [label="execute#?#13:\{
+    classpath = Path.systemClasspath;
+\}
+getInputStream#?#12:\{
+    Path p = getClasspath().concatSystemClasspath();
+    if (parentFirst) \{
+        cl = getProject().createClassLoader(p);
+    \} else \{
+        cl = AntClassLoader.newAntClassLoader(getProject().getCoreLoader(), getProject(), p, false);
+    \}
+\}" shape=ellipse]
+7 [label="execute#?#14:classpath = Path.systemClasspath
+getInputStream#?#14:if (parentFirst) \{
+    cl = getProject().createClassLoader(p);
+\} else \{
+    cl = AntClassLoader.newAntClassLoader(getProject().getCoreLoader(), getProject(), p, false);
+\}" shape=ellipse]
+8 [label="execute#?#14:classpath
+getInputStream#?#14:parentFirst" shape=ellipse]
+9 [label="execute#?#14:Path.systemClasspath" shape=ellipse]
+10 [label="execute#?#-1:Path
+getInputStream#?#-1:PlaceHold" shape=ellipse]
+11 [label="execute#?#15:\{
+    classpath = classpath.concatSystemClasspath();
+\}
+getInputStream#?#21:\{
+    cl = JavaResource.class.getClassLoader();
+\}" shape=ellipse]
+12 [label="execute#?#16:classpath = classpath.concatSystemClasspath()" shape=ellipse]
+13 [label="execute#?#16:classpath" shape=ellipse]
+14 [label="execute#?#16:concatSystemClasspath()
+getInputStream#?#13:concatSystemClasspath()" shape=ellipse]
+15 [label="execute#?#16:classpath" shape=ellipse]
+16 [label="execute#?#16:concatSystemClasspath
+getInputStream#?#13:concatSystemClasspath" shape=ellipse]
+17 [label="execute#?#16:\"ignore\"
+getInputStream#?#13:\"ignore\"" shape=ellipse]
+18 [label="getInputStream#?#22:getClassLoader()" shape=ellipse]
+19 [label="getInputStream#?#13:Path p = getClasspath().concatSystemClasspath()" shape=ellipse]
+20 [label="getInputStream#?#-1:JavaResource" shape=ellipse]
+21 [label="getInputStream#?#12:getClasspath()" shape=ellipse]
+22 [label="getInputStream#?#22:cl" shape=ellipse]
+23 [label="getInputStream#?#11:cl == null" shape=ellipse]
+24 [label="getInputStream#?#13:getClasspath()" shape=ellipse]
+25 [label="getInputStream#?#13:getClasspath()" shape=ellipse]
+26 [label="getInputStream#?#-1:" shape=ellipse]
+27 [label="getInputStream#?#22:JavaResource.class" shape=ellipse]
+28 [label="getInputStream#?#22:cl = JavaResource.class.getClassLoader()" shape=ellipse]
+29 [label="getInputStream#?#22:JavaResource.class.getClassLoader()" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 16 [label="AST:2"];
+1 -> 15 [label="AST:1"];
+1 -> 14 [label="AST:2"];
+1 -> 24 [label="AST:1"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="AST:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+3 -> 11 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 19 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:1"];
+8 -> 15 [label="Define Use:1"];
+9 -> 8 [label="Data Dep:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+11 -> 28 [label="AST:1"];
+12 -> 1 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+15 -> 13 [label="Data Dep:1"];
+19 -> 1 [label="AST:1"];
+23 -> 21 [label="Control Dep:1"];
+23 -> 3 [label="Control Dep:1"];
+23 -> 2 [label="Control Dep:1"];
+23 -> 4 [label="Control Dep:1"];
+24 -> 26 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+26 -> 10 [label="AST:1"];
+27 -> 20 [label="AST:1"];
+27 -> 22 [label="Data Dep:1"];
+28 -> 22 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+29 -> 18 [label="AST:1"];
+29 -> 27 [label="AST:1"];
+}

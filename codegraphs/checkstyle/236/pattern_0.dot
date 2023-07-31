@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testSame#?#3:DELETE
+testAlone#?#3:DELETE" shape=ellipse]
+1 [label="testSame#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)
+testAlone#?#3:final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class)" shape=ellipse]
+2 [label="testSame#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", SAME.toString());
+    final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}
+testAlone#?#2:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", ALONE.toString());
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}" shape=ellipse]
+3 [label="testSame#?#2:public void testSame() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", SAME.toString());
+    final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}
+testAlone#?#2:public void testAlone() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(RightCurlyCheck.class);
+    checkConfig.addAttribute(\"option\", ALONE.toString());
+    final String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected);
+\}" shape=ellipse]
+4 [label="testSame#?#4:checkConfig.addAttribute(\"option\", SAME.toString())
+testAlone#?#4:checkConfig.addAttribute(\"option\", ALONE.toString())" shape=ellipse]
+5 [label="testSame#?#5:final String[] expected = new String[]\{ \"25:17: '\}' should be on the same line.\", \"28:17: '\}' should be on the same line.\", \"40:13: '\}' should be on the same line.\", \"44:13: '\}' should be on the same line.\" \}
+testAlone#?#5:final String[] expected = new String[]\{  \}" shape=ellipse]
+6 [label="testSame#?#12:verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected)
+testAlone#?#6:verify(checkConfig, getPath(\"InputLeftCurlyOther.java\"), expected)" shape=ellipse]
+7 [label="testSame#?#3:checkConfig
+testAlone#?#3:checkConfig" shape=ellipse]
+8 [label="testSame#?#3:
+testAlone#?#3:" shape=ellipse]
+9 [label="testSame#?#3:RightCurlyCheck.class
+testAlone#?#3:RightCurlyCheck.class" shape=ellipse]
+10 [label="testSame#?#4:checkConfig
+testAlone#?#4:checkConfig" shape=ellipse]
+11 [label="testSame#?#12:checkConfig
+testAlone#?#6:checkConfig" shape=ellipse]
+12 [label="testSame#?#3:DefaultConfiguration
+testAlone#?#3:DefaultConfiguration" shape=ellipse]
+13 [label="testSame#?#3:
+testAlone#?#3:" shape=ellipse]
+14 [label="testSame#?#3:createCheckConfig(RightCurlyCheck.class)
+testAlone#?#3:createCheckConfig(RightCurlyCheck.class)" shape=ellipse]
+15 [label="testSame#?#3:createCheckConfig
+testAlone#?#3:createCheckConfig" shape=ellipse]
+16 [label="testSame#?#3:createCheckConfig(java.lang.Class)
+testAlone#?#3:createCheckConfig(java.lang.Class)" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 10 [label="AST:2"];
+6 -> 11 [label="AST:2"];
+7 -> 10 [label="Define Use:2"];
+7 -> 11 [label="Define Use:2"];
+8 -> 7 [label="Data Dep:2"];
+9 -> 7 [label="Data Dep:2"];
+12 -> 13 [label="AST:2"];
+14 -> 8 [label="AST:2"];
+14 -> 9 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+}

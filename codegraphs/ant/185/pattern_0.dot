@@ -1,0 +1,60 @@
+digraph "Pattern" {
+0 [label="testNegationFalse#?#3:UPDATE
+testAndFails#?#3:UPDATE" shape=ellipse]
+1 [label="testNegationFalse#?#3:expectPropertyUnset(\"negationfalse\", \"negationfalse\")
+testAndFails#?#3:expectPropertyUnset(\"andfails\", \"andfails\")" shape=ellipse]
+2 [label="testNegationFalse#?#2:\{
+    expectPropertyUnset(\"negationfalse\", \"negationfalse\");
+\}
+testAndFails#?#2:\{
+    expectPropertyUnset(\"andfails\", \"andfails\");
+\}" shape=ellipse]
+3 [label="testNegationFalse#?#2:public void testNegationFalse() \{
+    expectPropertyUnset(\"negationfalse\", \"negationfalse\");
+\}
+testAndFails#?#2:public void testAndFails() \{
+    expectPropertyUnset(\"andfails\", \"andfails\");
+\}" shape=ellipse]
+4 [label="testNegationFalse#?#3:expectPropertyUnset
+testAndFails#?#3:expectPropertyUnset" shape=ellipse]
+5 [label="testNegationFalse#?#-1:
+testAndFails#?#-1:" shape=ellipse]
+6 [label="testNegationFalse#?#-1:PlaceHold
+testAndFails#?#-1:PlaceHold" shape=ellipse]
+7 [label="testNegationFalse#?#-1:PlaceHold
+testAndFails#?#-1:PlaceHold" shape=ellipse]
+8 [label="testNegationFalse#?#3:expectPropertyUnset(java.lang.String,java.lang.String)
+testAndFails#?#3:expectPropertyUnset(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testNegationFalse#?#-1:String
+testAndFails#?#-1:String" shape=ellipse]
+10 [label="testNegationFalse#?#-1:String
+testAndFails#?#-1:String" shape=ellipse]
+11 [label="testNegationFalse#?#3:\"negationfalse\"
+testAndFails#?#3:\"andfails\"" shape=ellipse]
+12 [label="testNegationFalse#?#-1:String
+testAndFails#?#-1:String" shape=ellipse]
+13 [label="testNegationFalse#?#3:MOVE
+testAndFails#?#3:MOVE" shape=ellipse]
+14 [label="testNegationFalse#?#3:\"negationfalse\"
+testAndFails#?#3:\"andfails\"" shape=ellipse]
+15 [label="testNegationFalse#?#-1:String
+testAndFails#?#-1:String" shape=ellipse]
+16 [label="testNegationFalse#?#5:assertNull(buildRule.getProject().getProperty(\"negationfalse\"))
+testAndFails#?#5:assertNull(buildRule.getProject().getProperty(\"andfails\"))" shape=ellipse]
+0 -> 16 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="Action:2"];
+14 -> 15 [label="AST:2"];
+}

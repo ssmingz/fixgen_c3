@@ -1,0 +1,154 @@
+digraph "testRunAndTearDownFails#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testRunAndTearDownFails" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@TornDown" shape=ellipse]
+3 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+4 [label="4:CtExecutableReferenceImpl@TornDown(java.lang.String)" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@TornDown" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@TornDown" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+8 [label="4:CtLiteralImpl@\"fails\"" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+10 [label="4:CtNewClassImpl@new TornDown(\"fails\") \{
+    protected void tearDown() \{
+        super.tearDown();
+        throw new Error();
+    \}
+
+    protected void runTest() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+11 [label="4:CtClassImpl@ \{
+    protected void tearDown() \{
+        super.tearDown();
+        throw new Error();
+    \}
+
+    protected void runTest() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+12 [label="3:CtVirtualElement@fails" shape=ellipse]
+13 [label="3:CtLocalVariableImpl@TornDown fails = new TornDown(\"fails\") \{
+    protected void tearDown() \{
+        super.tearDown();
+        throw new Error();
+    \}
+
+    protected void runTest() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+14 [label="14:CtExecutableReferenceImpl@verifyError(<unknown>)" shape=ellipse]
+15 [label="14:CtTypeReferenceImpl@null" shape=ellipse]
+16 [label="14:CtVirtualElement@verifyError" shape=ellipse]
+17 [label="14:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+18 [label="14:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+19 [label="14:CtThisAccessImpl@" shape=ellipse]
+20 [label="14:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+21 [label="14:CtVariableReadImpl@fails" shape=ellipse]
+22 [label="14:CtLocalVariableReferenceImpl@fails" shape=ellipse]
+23 [label="14:CtInvocationImpl@verifyError(fails)" shape=ellipse]
+24 [label="15:CtFieldReferenceImpl@fTornDown" shape=ellipse]
+25 [label="15:CtFieldReadImpl@fails.fTornDown" shape=ellipse]
+26 [label="15:CtVariableReadImpl@fails" shape=ellipse]
+27 [label="15:CtAssertImpl@assert fails.fTornDown" shape=ellipse]
+28 [label="2:CtBlockImpl@\{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void tearDown() \{
+            super.tearDown();
+            throw new Error();
+        \}
+
+        protected void runTest() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert fails.fTornDown;
+\}" shape=ellipse]
+29 [label="2:CtMethodImpl@public void testRunAndTearDownFails() \{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void tearDown() \{
+            super.tearDown();
+            throw new Error();
+        \}
+
+        protected void runTest() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert fails.fTornDown;
+\}" shape=ellipse]
+30 [label="15:Delete@DELETE" shape=ellipse]
+31 [label="15:Insert@INSERT" shape=ellipse]
+32 [label="15:CtPackageReferenceImpl@" shape=ellipse]
+33 [label="15:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+34 [label="15:CtPackageReferenceImpl@" shape=ellipse]
+35 [label="15:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+36 [label="15:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+37 [label="15:CtThisAccessImpl@" shape=ellipse]
+38 [label="15:CtTypeReferenceImpl@null" shape=ellipse]
+39 [label="15:CtExecutableReferenceImpl@assertTrue(<unknown>)" shape=ellipse]
+40 [label="15:CtPackageReferenceImpl@" shape=ellipse]
+41 [label="15:CtTypeReferenceImpl@TornDown" shape=ellipse]
+42 [label="15:CtLocalVariableReferenceImpl@fails" shape=ellipse]
+43 [label="15:CtVariableReadImpl@fails" shape=ellipse]
+44 [label="15:CtFieldReferenceImpl@fTornDown" shape=ellipse]
+45 [label="15:CtFieldReadImpl@fails.fTornDown" shape=ellipse]
+46 [label="15:CtInvocationImpl@assertTrue()" shape=ellipse]
+47 [label="15:CtVirtualElement@assertTrue" shape=ellipse]
+48 [label="15:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 6 [label="AST"];
+4 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 11 [label="AST"];
+12 -> 21 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 2 [label="AST"];
+13 -> 10 [label="AST"];
+14 -> 15 [label="AST"];
+17 -> 18 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 17 [label="AST"];
+21 -> 22 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 14 [label="AST"];
+23 -> 21 [label="AST"];
+25 -> 26 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 48 [label="Action"];
+27 -> 25 [label="AST"];
+27 -> 30 [label="Action"];
+28 -> 13 [label="AST"];
+28 -> 23 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 31 [label="Action"];
+29 -> 1 [label="AST"];
+29 -> 0 [label="AST"];
+29 -> 28 [label="AST"];
+31 -> 46 [label="Action"];
+33 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 33 [label="AST"];
+37 -> 36 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 47 [label="AST"];
+46 -> 37 [label="AST"];
+46 -> 39 [label="AST"];
+46 -> 45 [label="AST"];
+48 -> 46 [label="Action"];
+}

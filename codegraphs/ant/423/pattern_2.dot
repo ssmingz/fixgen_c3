@@ -1,0 +1,19 @@
+digraph "Pattern" {
+0 [label="testReplaceTokens#?#-1:DELETE
+testLineContains#?#-1:DELETE" shape=ellipse]
+1 [label="testReplaceTokens#?#-1:PlaceHold
+testLineContains#?#-1:PlaceHold" shape=ellipse]
+2 [label="testReplaceTokens#?#-1:
+testLineContains#?#-1:" shape=ellipse]
+3 [label="testReplaceTokens#?#3:executeTarget(\"testReplaceTokens\")
+testLineContains#?#3:executeTarget(\"testLineContains\")" shape=ellipse]
+4 [label="testReplaceTokens#?#-1:PlaceHold
+testLineContains#?#-1:PlaceHold" shape=ellipse]
+5 [label="testReplaceTokens#?#-1:PlaceHold
+testLineContains#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

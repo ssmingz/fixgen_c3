@@ -1,0 +1,27 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/624/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/624/1/after.java
+@@ -2,1 +2,2 @@
+-  public void testNestedCatalog() {
++  @Test
++  public void testNestedCatalog() throws IOException, SAXException, TransformerException {
+@@ -19,14 +20,6 @@
+-    try {
+-      InputSource result = catalog1.resolveEntity(publicId, "nap:chemical+brothers");
+-      assertNotNull(result);
+-      assertEquals(toURLString(dtdFile), result.getSystemId());
+-    } catch (Exception e) {
+-      fail("resolveEntity() failed!" + e.toString());
+-    }
+-    try {
+-      Source result = catalog.resolve(uri, null);
+-      assertNotNull(result);
+-      assertEquals(toURLString(xmlFile), result.getSystemId());
+-    } catch (Exception e) {
+-      fail("resolve() failed!" + e.toString());
+-    }
++    InputSource isResult = catalog1.resolveEntity(publicId, "nap:chemical+brothers");
++    assertNotNull(isResult);
++    assertEquals(toURLString(dtdFile), isResult.getSystemId());
++    Source result = catalog.resolve(uri, null);
++    assertNotNull(result);
++    assertEquals(toURLString(xmlFile), result.getSystemId());

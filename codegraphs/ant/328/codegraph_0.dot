@@ -1,0 +1,115 @@
+digraph "launch#?,Project,String[],String[],File,boolean" {
+0 [label="2:CtTypeReferenceImpl@Process" shape=ellipse]
+1 [label="2:CtVirtualElement@launch" shape=ellipse]
+2 [label="3:CtParameterImpl@Project project" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Project" shape=ellipse]
+4 [label="3:CtParameterImpl@String[] command" shape=ellipse]
+5 [label="3:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+6 [label="3:CtParameterImpl@String[] env" shape=ellipse]
+7 [label="3:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+8 [label="3:CtParameterImpl@File dir" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@File" shape=ellipse]
+10 [label="3:CtParameterImpl@boolean useVM" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+12 [label="3:CtTypeReferenceImpl@IOException" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@CommandLauncher" shape=ellipse]
+14 [label="4:CtFieldReadImpl@vmLauncher" shape=ellipse]
+15 [label="4:CtLiteralImpl@null" shape=ellipse]
+16 [label="4:CtBinaryOperatorImpl@vmLauncher != null" shape=ellipse]
+17 [label="4:CtFieldReadImpl@vmLauncher" shape=ellipse]
+18 [label="4:CtFieldReadImpl@shellLauncher" shape=ellipse]
+19 [label="4:CtConditionalImpl@(vmLauncher != null) ? vmLauncher : shellLauncher" shape=ellipse]
+20 [label="4:CtVirtualElement@launcher" shape=ellipse]
+21 [label="4:CtLocalVariableImpl@CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher" shape=ellipse]
+22 [label="5:CtVariableReadImpl@useVM" shape=ellipse]
+23 [label="5:CtUnaryOperatorImpl@!useVM" shape=ellipse]
+24 [label="6:CtVariableWriteImpl@launcher" shape=ellipse]
+25 [label="6:CtFieldReadImpl@shellLauncher" shape=ellipse]
+26 [label="6:CtAssignmentImpl@launcher = shellLauncher" shape=ellipse]
+27 [label="5:CtBlockImpl@\{
+    launcher = shellLauncher;
+\}" shape=ellipse]
+28 [label="5:CtIfImpl@if (!useVM) \{
+    launcher = shellLauncher;
+\}" shape=ellipse]
+29 [label="8:CtExecutableReferenceImpl@exec(Project,java.lang.String[],java.lang.String[],File)" shape=ellipse]
+30 [label="8:CtVirtualElement@exec" shape=ellipse]
+31 [label="8:CtVariableReadImpl@launcher" shape=ellipse]
+32 [label="8:CtVariableReadImpl@project" shape=ellipse]
+33 [label="8:CtVariableReadImpl@command" shape=ellipse]
+34 [label="8:CtVariableReadImpl@env" shape=ellipse]
+35 [label="8:CtVariableReadImpl@dir" shape=ellipse]
+36 [label="8:CtInvocationImpl@launcher.exec(project, command, env, dir)" shape=ellipse]
+37 [label="8:CtReturnImpl@return launcher.exec(project, command, env, dir)" shape=ellipse]
+38 [label="3:CtBlockImpl@\{
+    CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher;
+    if (!useVM) \{
+        launcher = shellLauncher;
+    \}
+    return launcher.exec(project, command, env, dir);
+\}" shape=ellipse]
+39 [label="2:CtMethodImpl@public static Process launch(Project project, String[] command, String[] env, File dir, boolean useVM) throws IOException \{
+    CommandLauncher launcher = (vmLauncher != null) ? vmLauncher : shellLauncher;
+    if (!useVM) \{
+        launcher = shellLauncher;
+    \}
+    return launcher.exec(project, command, env, dir);
+\}" shape=ellipse]
+40 [label="8:Insert@INSERT" shape=ellipse]
+41 [label="8:CtIfImpl@if ((dir != null) && (!dir.exists())) \{
+    throw new BuildException(dir + \" doesn't exists.\");
+\}" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 11 [label="AST"];
+14 -> 20 [label="Data Dep"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 17 [label="Control Dep"];
+16 -> 18 [label="Control Dep"];
+17 -> 20 [label="Data Dep"];
+18 -> 20 [label="Data Dep"];
+19 -> 16 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 31 [label="Define-Use"];
+21 -> 20 [label="AST"];
+21 -> 13 [label="AST"];
+21 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 27 [label="Control Dep"];
+23 -> 26 [label="Control Dep"];
+23 -> 24 [label="Control Dep"];
+23 -> 25 [label="Control Dep"];
+24 -> 31 [label="Define-Use"];
+25 -> 24 [label="Data Dep"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 23 [label="AST"];
+28 -> 27 [label="AST"];
+36 -> 30 [label="AST"];
+36 -> 31 [label="AST"];
+36 -> 29 [label="AST"];
+36 -> 32 [label="AST"];
+36 -> 33 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 21 [label="AST"];
+38 -> 28 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 1 [label="AST"];
+39 -> 0 [label="AST"];
+39 -> 2 [label="AST"];
+39 -> 4 [label="AST"];
+39 -> 6 [label="AST"];
+39 -> 8 [label="AST"];
+39 -> 10 [label="AST"];
+39 -> 12 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 40 [label="Action"];
+40 -> 41 [label="Action"];
+}

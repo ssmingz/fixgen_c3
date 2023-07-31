@@ -1,0 +1,187 @@
+digraph "Pattern" {
+0 [label="closeSocket#?,ServerSocket#4:UPDATE
+trySocket#?,InetSocketAddress#13:UPDATE" shape=ellipse]
+1 [label="closeSocket#?,ServerSocket#4:(socket != null) || socket.isClosed()
+trySocket#?,InetSocketAddress#13:(socket != null) || (!socket.isClosed())" shape=ellipse]
+2 [label="closeSocket#?,ServerSocket#4:if ((socket != null) || socket.isClosed()) \{
+    socket.close();
+\}
+trySocket#?,InetSocketAddress#13:if ((socket != null) || (!socket.isClosed())) \{
+    try \{
+        socket.close();
+    \} catch (IOException e) \{
+        e.printStackTrace();
+    \}
+\}" shape=ellipse]
+3 [label="closeSocket#?,ServerSocket#3:\{
+    if ((socket != null) || socket.isClosed()) \{
+        socket.close();
+    \}
+\}
+trySocket#?,InetSocketAddress#12:\{
+    if ((socket != null) || (!socket.isClosed())) \{
+        try \{
+            socket.close();
+        \} catch (IOException e) \{
+            e.printStackTrace();
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="closeSocket#?,ServerSocket#4:\{
+    socket.close();
+\}
+trySocket#?,InetSocketAddress#13:\{
+    try \{
+        socket.close();
+    \} catch (IOException e) \{
+        e.printStackTrace();
+    \}
+\}" shape=ellipse]
+5 [label="closeSocket#?,ServerSocket#4:(socket != null)
+trySocket#?,InetSocketAddress#13:(socket != null)" shape=ellipse]
+6 [label="closeSocket#?,ServerSocket#4:socket" shape=ellipse]
+7 [label="closeSocket#?,ServerSocket#4:socket
+trySocket#?,InetSocketAddress#13:socket" shape=ellipse]
+8 [label="closeSocket#?,ServerSocket#4:ServerSocket
+trySocket#?,InetSocketAddress#13:Socket" shape=ellipse]
+9 [label="closeSocket#?,ServerSocket#4:
+trySocket#?,InetSocketAddress#13:" shape=ellipse]
+10 [label="closeSocket#?,ServerSocket#4:null
+trySocket#?,InetSocketAddress#13:null" shape=ellipse]
+11 [label="closeSocket#?,ServerSocket#4:<nulltype>
+trySocket#?,InetSocketAddress#13:<nulltype>" shape=ellipse]
+12 [label="closeSocket#?,ServerSocket#4:socket.isClosed()
+trySocket#?,InetSocketAddress#13:socket.isClosed()" shape=ellipse]
+13 [label="closeSocket#?,ServerSocket#4:isClosed
+trySocket#?,InetSocketAddress#13:isClosed" shape=ellipse]
+14 [label="closeSocket#?,ServerSocket#4:socket" shape=ellipse]
+15 [label="closeSocket#?,ServerSocket#4:socket
+trySocket#?,InetSocketAddress#13:socket" shape=ellipse]
+16 [label="closeSocket#?,ServerSocket#4:ServerSocket
+trySocket#?,InetSocketAddress#13:Socket" shape=ellipse]
+17 [label="closeSocket#?,ServerSocket#4:
+trySocket#?,InetSocketAddress#13:" shape=ellipse]
+18 [label="closeSocket#?,ServerSocket#4:isClosed()
+trySocket#?,InetSocketAddress#13:isClosed()" shape=ellipse]
+19 [label="closeSocket#?,ServerSocket#4:ServerSocket
+trySocket#?,InetSocketAddress#13:Socket" shape=ellipse]
+20 [label="closeSocket#?,ServerSocket#4:
+trySocket#?,InetSocketAddress#13:" shape=ellipse]
+21 [label="closeSocket#?,ServerSocket#5:socket.close()" shape=ellipse]
+22 [label="closeSocket#?,ServerSocket#5:socket
+trySocket#?,InetSocketAddress#15:socket" shape=ellipse]
+23 [label="closeSocket#?,ServerSocket#5:socket
+trySocket#?,InetSocketAddress#15:socket" shape=ellipse]
+24 [label="closeSocket#?,ServerSocket#5:close()
+trySocket#?,InetSocketAddress#15:close()" shape=ellipse]
+25 [label="closeSocket#?,ServerSocket#5:close
+trySocket#?,InetSocketAddress#15:close" shape=ellipse]
+26 [label="closeSocket#?,ServerSocket#5:ServerSocket
+trySocket#?,InetSocketAddress#15:Socket" shape=ellipse]
+27 [label="closeSocket#?,ServerSocket#4:(socket != null)
+trySocket#?,InetSocketAddress#13:(socket != null)" shape=ellipse]
+28 [label="closeSocket#?,ServerSocket#4:socket
+trySocket#?,InetSocketAddress#13:socket" shape=ellipse]
+29 [label="closeSocket#?,ServerSocket#4:null
+trySocket#?,InetSocketAddress#13:null" shape=ellipse]
+30 [label="closeSocket#?,ServerSocket#4:socket.isClosed()" shape=ellipse]
+31 [label="closeSocket#?,ServerSocket#4:isClosed
+trySocket#?,InetSocketAddress#17:printStackTrace" shape=ellipse]
+32 [label="closeSocket#?,ServerSocket#4:socket
+trySocket#?,InetSocketAddress#13:socket" shape=ellipse]
+33 [label="closeSocket#?,ServerSocket#4:isClosed()
+trySocket#?,InetSocketAddress#17:printStackTrace()" shape=ellipse]
+34 [label="trySocket#?,InetSocketAddress#16: catch (IOException e) \{
+    e.printStackTrace();
+\}" shape=ellipse]
+35 [label="trySocket#?,InetSocketAddress#13:(!socket.isClosed())" shape=ellipse]
+36 [label="trySocket#?,InetSocketAddress#14:try \{
+    socket.close();
+\} catch (IOException e) \{
+    e.printStackTrace();
+\}" shape=ellipse]
+37 [label="trySocket#?,InetSocketAddress#14:\{
+    socket.close();
+\}" shape=ellipse]
+38 [label="trySocket#?,InetSocketAddress#15:socket.close()" shape=ellipse]
+39 [label="trySocket#?,InetSocketAddress#17:e" shape=ellipse]
+40 [label="trySocket#?,InetSocketAddress#16:" shape=ellipse]
+41 [label="trySocket#?,InetSocketAddress#16:\{
+    e.printStackTrace();
+\}" shape=ellipse]
+42 [label="trySocket#?,InetSocketAddress#17:e.printStackTrace()" shape=ellipse]
+43 [label="trySocket#?,InetSocketAddress#13:(!socket.isClosed())" shape=ellipse]
+44 [label="trySocket#?,InetSocketAddress#13:socket.isClosed()" shape=ellipse]
+45 [label="trySocket#?,InetSocketAddress#16:IOException e" shape=ellipse]
+46 [label="trySocket#?,InetSocketAddress#17:e" shape=ellipse]
+47 [label="trySocket#?,InetSocketAddress#16:e" shape=ellipse]
+48 [label="trySocket#?,InetSocketAddress#16:IOException" shape=ellipse]
+49 [label="trySocket#?,InetSocketAddress#17:IOException" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 27 [label="AST:2"];
+1 -> 30 [label="AST:1"];
+1 -> 4 [label="Control Dep:2"];
+1 -> 21 [label="Control Dep:1"];
+1 -> 24 [label="Control Dep:2"];
+1 -> 22 [label="Control Dep:2"];
+1 -> 34 [label="Control Dep:1"];
+1 -> 36 [label="Control Dep:1"];
+1 -> 37 [label="Control Dep:1"];
+1 -> 38 [label="Control Dep:1"];
+1 -> 43 [label="AST:1"];
+1 -> 45 [label="Control Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 21 [label="AST:1"];
+4 -> 36 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+5 -> 10 [label="AST:2"];
+6 -> 7 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:1"];
+12 -> 18 [label="AST:2"];
+14 -> 15 [label="AST:1"];
+15 -> 16 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+21 -> 25 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 24 [label="AST:1"];
+22 -> 23 [label="AST:2"];
+24 -> 26 [label="AST:2"];
+27 -> 28 [label="AST:2"];
+27 -> 29 [label="AST:2"];
+30 -> 31 [label="AST:1"];
+30 -> 32 [label="AST:1"];
+30 -> 33 [label="AST:1"];
+33 -> 49 [label="AST:1"];
+34 -> 45 [label="AST:1"];
+34 -> 41 [label="AST:1"];
+35 -> 12 [label="AST:1"];
+36 -> 34 [label="AST:1"];
+36 -> 37 [label="AST:1"];
+37 -> 38 [label="AST:1"];
+38 -> 25 [label="AST:1"];
+38 -> 22 [label="AST:1"];
+38 -> 24 [label="AST:1"];
+39 -> 46 [label="AST:1"];
+41 -> 42 [label="AST:1"];
+42 -> 39 [label="AST:1"];
+42 -> 31 [label="AST:1"];
+42 -> 33 [label="AST:1"];
+43 -> 44 [label="AST:1"];
+44 -> 32 [label="AST:1"];
+45 -> 39 [label="Control Dep:1"];
+45 -> 41 [label="Control Dep:1"];
+45 -> 42 [label="Control Dep:1"];
+45 -> 47 [label="AST:1"];
+45 -> 48 [label="AST:1"];
+45 -> 33 [label="Control Dep:1"];
+47 -> 39 [label="Define Use:1"];
+48 -> 40 [label="AST:1"];
+}

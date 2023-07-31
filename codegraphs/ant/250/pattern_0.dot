@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="setFailOnError#?,boolean#3:UPDATE
+getFailFailOnError#?#3:UPDATE
+setFailOnError#?,boolean#3:UPDATE
+setFailOnError#?,boolean#3:UPDATE
+getFailFailOnError#?#3:UPDATE" shape=ellipse]
+1 [label="setFailOnError#?,boolean#3:_failOnError
+getFailFailOnError#?#3:_failOnError
+setFailOnError#?,boolean#3:_failOnError
+setFailOnError#?,boolean#3:_failOnError
+getFailFailOnError#?#3:_failOnError" shape=ellipse]
+2 [label="setFailOnError#?,boolean#3:b
+setFailOnError#?,boolean#3:b
+setFailOnError#?,boolean#3:b" shape=ellipse]
+3 [label="setFailOnError#?,boolean#3:_failOnError = b
+getFailFailOnError#?#3:return _failOnError
+setFailOnError#?,boolean#3:_failOnError = b
+setFailOnError#?,boolean#3:_failOnError = b
+getFailFailOnError#?#3:return _failOnError" shape=ellipse]
+4 [label="setFailOnError#?,boolean#-1:b
+setFailOnError#?,boolean#-1:b
+setFailOnError#?,boolean#-1:b" shape=ellipse]
+5 [label="setFailOnError#?,boolean#-1:_failOnError
+getFailFailOnError#?#-1:_failOnError
+setFailOnError#?,boolean#-1:_failOnError
+setFailOnError#?,boolean#-1:_failOnError
+getFailFailOnError#?#-1:_failOnError" shape=ellipse]
+6 [label="setFailOnError#?,boolean#-1:PlaceHold
+setFailOnError#?,boolean#-1:PlaceHold
+setFailOnError#?,boolean#-1:PlaceHold" shape=ellipse]
+7 [label="setFailOnError#?,boolean#3:failOnError
+getFailFailOnError#?#3:failOnError
+setFailOnError#?,boolean#3:failOnError
+setFailOnError#?,boolean#3:failOnError
+getFailFailOnError#?#3:failOnError" shape=ellipse]
+8 [label="getFailFailOnError#?#2:\{
+    return _failOnError;
+\}" shape=ellipse]
+9 [label="getFailFailOnError#?#2:\{
+    return _failOnError;
+\}" shape=ellipse]
+0 -> 7 [label="Action:5"];
+1 -> 0 [label="Action:5"];
+1 -> 5 [label="AST:5"];
+2 -> 1 [label="Data Dep:3"];
+2 -> 4 [label="AST:3"];
+3 -> 1 [label="AST:5"];
+3 -> 2 [label="AST:3"];
+5 -> 6 [label="AST:3"];
+8 -> 3 [label="AST:1"];
+9 -> 3 [label="AST:1"];
+}

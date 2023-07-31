@@ -1,0 +1,121 @@
+digraph "targetStarted#?,BuildEvent" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@targetStarted" shape=ellipse]
+2 [label="2:CtParameterImpl@BuildEvent event" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@BuildEvent" shape=ellipse]
+4 [label="3:CtFieldReadImpl@initialized" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@Log" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@getLog(java.lang.String,<unknown>)" shape=ellipse]
+7 [label="4:CtVirtualElement@getLog" shape=ellipse]
+8 [label="4:CtLiteralImpl@\"org.apache.tools.ant.Target\"" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@getName()" shape=ellipse]
+10 [label="4:CtVirtualElement@getName" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@getTarget()" shape=ellipse]
+12 [label="4:CtVirtualElement@getTarget" shape=ellipse]
+13 [label="4:CtVariableReadImpl@event" shape=ellipse]
+14 [label="4:CtInvocationImpl@event.getTarget()" shape=ellipse]
+15 [label="4:CtInvocationImpl@event.getTarget().getName()" shape=ellipse]
+16 [label="4:CtInvocationImpl@getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName())" shape=ellipse]
+17 [label="4:CtVirtualElement@log" shape=ellipse]
+18 [label="4:CtLocalVariableImpl@Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName())" shape=ellipse]
+19 [label="5:CtExecutableReferenceImpl@realLog(<unknown>,<unknown>,<unknown>,<unknown>)" shape=ellipse]
+20 [label="5:CtVirtualElement@realLog" shape=ellipse]
+21 [label="5:CtVariableReadImpl@log" shape=ellipse]
+22 [label="5:CtLiteralImpl@\"Start: \"" shape=ellipse]
+23 [label="5:CtExecutableReferenceImpl@getName()" shape=ellipse]
+24 [label="5:CtVirtualElement@getName" shape=ellipse]
+25 [label="5:CtExecutableReferenceImpl@getTarget()" shape=ellipse]
+26 [label="5:CtVirtualElement@getTarget" shape=ellipse]
+27 [label="5:CtVariableReadImpl@event" shape=ellipse]
+28 [label="5:CtInvocationImpl@event.getTarget()" shape=ellipse]
+29 [label="5:CtInvocationImpl@event.getTarget().getName()" shape=ellipse]
+30 [label="5:CtBinaryOperatorImpl@\"Start: \" + event.getTarget().getName()" shape=ellipse]
+31 [label="5:CtTypeAccessImpl@MSG_DEBUG" shape=ellipse]
+32 [label="5:CtLiteralImpl@null" shape=ellipse]
+33 [label="5:CtInvocationImpl@realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null)" shape=ellipse]
+34 [label="3:CtBlockImpl@\{
+    Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+    realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+\}" shape=ellipse]
+35 [label="3:CtIfImpl@if (initialized) \{
+    Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+    realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+\}" shape=ellipse]
+36 [label="2:CtBlockImpl@\{
+    if (initialized) \{
+        Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+        realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+    \}
+\}" shape=ellipse]
+37 [label="2:CtMethodImpl@public void targetStarted(BuildEvent event) \{
+    if (initialized) \{
+        Log log = getLog(\"org.apache.tools.ant.Target\", event.getTarget().getName());
+        realLog(log, \"Start: \" + event.getTarget().getName(), MSG_DEBUG, null);
+    \}
+\}" shape=ellipse]
+38 [label="5:Update@UPDATE" shape=ellipse]
+39 [label="5:CtTypeAccessImpl@MSG_VERBOSE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 34 [label="Control Dep"];
+4 -> 18 [label="Control Dep"];
+4 -> 16 [label="Control Dep"];
+4 -> 6 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 15 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 14 [label="Control Dep"];
+4 -> 11 [label="Control Dep"];
+4 -> 13 [label="Control Dep"];
+4 -> 33 [label="Control Dep"];
+4 -> 19 [label="Control Dep"];
+4 -> 21 [label="Control Dep"];
+4 -> 30 [label="Control Dep"];
+4 -> 22 [label="Control Dep"];
+4 -> 29 [label="Control Dep"];
+4 -> 23 [label="Control Dep"];
+4 -> 28 [label="Control Dep"];
+4 -> 25 [label="Control Dep"];
+4 -> 27 [label="Control Dep"];
+4 -> 31 [label="Control Dep"];
+4 -> 32 [label="Control Dep"];
+13 -> 17 [label="Data Dep"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 11 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 9 [label="AST"];
+16 -> 7 [label="AST"];
+16 -> 6 [label="AST"];
+16 -> 8 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 21 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 5 [label="AST"];
+18 -> 16 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 25 [label="AST"];
+29 -> 24 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 23 [label="AST"];
+30 -> 22 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 38 [label="Action"];
+33 -> 20 [label="AST"];
+33 -> 19 [label="AST"];
+33 -> 21 [label="AST"];
+33 -> 30 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 18 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 4 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 1 [label="AST"];
+37 -> 0 [label="AST"];
+37 -> 2 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 39 [label="Action"];
+}

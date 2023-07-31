@@ -1,0 +1,383 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Process" shape=ellipse]
+4 [label="4:CtExecutableReferenceImpl@launch(<unknown>,<unknown>,<unknown>,<unknown>,<unknown>)" shape=ellipse]
+5 [label="4:CtVirtualElement@launch" shape=ellipse]
+6 [label="4:CtFieldReadImpl@project" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+8 [label="4:CtVirtualElement@getCommandline" shape=ellipse]
+9 [label="4:CtInvocationImpl@getCommandline()" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@getEnvironment()" shape=ellipse]
+11 [label="4:CtVirtualElement@getEnvironment" shape=ellipse]
+12 [label="4:CtInvocationImpl@getEnvironment()" shape=ellipse]
+13 [label="4:CtFieldReadImpl@workingDirectory" shape=ellipse]
+14 [label="4:CtFieldReadImpl@useVMLauncher" shape=ellipse]
+15 [label="4:CtInvocationImpl@launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher)" shape=ellipse]
+16 [label="3:CtVirtualElement@process" shape=ellipse]
+17 [label="3:CtLocalVariableImpl@final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher)" shape=ellipse]
+18 [label="6:CtExecutableReferenceImpl@setProcessInputStream(java.io.OutputStream)" shape=ellipse]
+19 [label="6:CtVirtualElement@setProcessInputStream" shape=ellipse]
+20 [label="6:CtFieldReadImpl@streamHandler" shape=ellipse]
+21 [label="6:CtExecutableReferenceImpl@getOutputStream()" shape=ellipse]
+22 [label="6:CtVirtualElement@getOutputStream" shape=ellipse]
+23 [label="6:CtVariableReadImpl@process" shape=ellipse]
+24 [label="6:CtInvocationImpl@process.getOutputStream()" shape=ellipse]
+25 [label="6:CtInvocationImpl@streamHandler.setProcessInputStream(process.getOutputStream())" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@setProcessOutputStream(java.io.InputStream)" shape=ellipse]
+27 [label="7:CtVirtualElement@setProcessOutputStream" shape=ellipse]
+28 [label="7:CtFieldReadImpl@streamHandler" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@getInputStream()" shape=ellipse]
+30 [label="7:CtVirtualElement@getInputStream" shape=ellipse]
+31 [label="7:CtVariableReadImpl@process" shape=ellipse]
+32 [label="7:CtInvocationImpl@process.getInputStream()" shape=ellipse]
+33 [label="7:CtInvocationImpl@streamHandler.setProcessOutputStream(process.getInputStream())" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@setProcessErrorStream(java.io.InputStream)" shape=ellipse]
+35 [label="8:CtVirtualElement@setProcessErrorStream" shape=ellipse]
+36 [label="8:CtFieldReadImpl@streamHandler" shape=ellipse]
+37 [label="8:CtExecutableReferenceImpl@getErrorStream()" shape=ellipse]
+38 [label="8:CtVirtualElement@getErrorStream" shape=ellipse]
+39 [label="8:CtVariableReadImpl@process" shape=ellipse]
+40 [label="8:CtInvocationImpl@process.getErrorStream()" shape=ellipse]
+41 [label="8:CtInvocationImpl@streamHandler.setProcessErrorStream(process.getErrorStream())" shape=ellipse]
+42 [label="5:CtBlockImpl@\{
+    streamHandler.setProcessInputStream(process.getOutputStream());
+    streamHandler.setProcessOutputStream(process.getInputStream());
+    streamHandler.setProcessErrorStream(process.getErrorStream());
+\}" shape=ellipse]
+43 [label="9:CtVirtualElement@e" shape=ellipse]
+44 [label="9:CtTypeReferenceImpl@IOException" shape=ellipse]
+45 [label="9:CtCatchVariableImpl@IOException e" shape=ellipse]
+46 [label="10:CtExecutableReferenceImpl@destroy()" shape=ellipse]
+47 [label="10:CtVirtualElement@destroy" shape=ellipse]
+48 [label="10:CtVariableReadImpl@process" shape=ellipse]
+49 [label="10:CtInvocationImpl@process.destroy()" shape=ellipse]
+50 [label="11:CtVariableReadImpl@e" shape=ellipse]
+51 [label="11:CtThrowImpl@throw e" shape=ellipse]
+52 [label="9:CtBlockImpl@\{
+    process.destroy();
+    throw e;
+\}" shape=ellipse]
+53 [label="9:CtCatchImpl@ catch (IOException e) \{
+    process.destroy();
+    throw e;
+\}" shape=ellipse]
+54 [label="5:CtTryImpl@try \{
+    streamHandler.setProcessInputStream(process.getOutputStream());
+    streamHandler.setProcessOutputStream(process.getInputStream());
+    streamHandler.setProcessErrorStream(process.getErrorStream());
+\} catch (IOException e) \{
+    process.destroy();
+    throw e;
+\}" shape=ellipse]
+55 [label="13:CtExecutableReferenceImpl@start()" shape=ellipse]
+56 [label="13:CtVirtualElement@start" shape=ellipse]
+57 [label="13:CtFieldReadImpl@streamHandler" shape=ellipse]
+58 [label="13:CtInvocationImpl@streamHandler.start()" shape=ellipse]
+59 [label="15:CtExecutableReferenceImpl@add(java.lang.Process)" shape=ellipse]
+60 [label="15:CtVirtualElement@add" shape=ellipse]
+61 [label="15:CtFieldReadImpl@processDestroyer" shape=ellipse]
+62 [label="15:CtVariableReadImpl@process" shape=ellipse]
+63 [label="15:CtInvocationImpl@processDestroyer.add(process)" shape=ellipse]
+64 [label="16:CtFieldReadImpl@watchdog" shape=ellipse]
+65 [label="16:CtLiteralImpl@null" shape=ellipse]
+66 [label="16:CtBinaryOperatorImpl@watchdog != null" shape=ellipse]
+67 [label="17:CtExecutableReferenceImpl@start(java.lang.Process)" shape=ellipse]
+68 [label="17:CtVirtualElement@start" shape=ellipse]
+69 [label="17:CtFieldReadImpl@watchdog" shape=ellipse]
+70 [label="17:CtVariableReadImpl@process" shape=ellipse]
+71 [label="17:CtInvocationImpl@watchdog.start(process)" shape=ellipse]
+72 [label="16:CtBlockImpl@\{
+    watchdog.start(process);
+\}" shape=ellipse]
+73 [label="16:CtIfImpl@if (watchdog != null) \{
+    watchdog.start(process);
+\}" shape=ellipse]
+74 [label="19:CtExecutableReferenceImpl@waitFor(java.lang.Process)" shape=ellipse]
+75 [label="19:CtVirtualElement@waitFor" shape=ellipse]
+76 [label="19:CtVariableReadImpl@process" shape=ellipse]
+77 [label="19:CtInvocationImpl@waitFor(process)" shape=ellipse]
+78 [label="20:CtFieldReadImpl@watchdog" shape=ellipse]
+79 [label="20:CtLiteralImpl@null" shape=ellipse]
+80 [label="20:CtBinaryOperatorImpl@watchdog != null" shape=ellipse]
+81 [label="21:CtExecutableReferenceImpl@stop()" shape=ellipse]
+82 [label="21:CtVirtualElement@stop" shape=ellipse]
+83 [label="21:CtFieldReadImpl@watchdog" shape=ellipse]
+84 [label="21:CtInvocationImpl@watchdog.stop()" shape=ellipse]
+85 [label="20:CtBlockImpl@\{
+    watchdog.stop();
+\}" shape=ellipse]
+86 [label="20:CtIfImpl@if (watchdog != null) \{
+    watchdog.stop();
+\}" shape=ellipse]
+87 [label="23:CtExecutableReferenceImpl@stop()" shape=ellipse]
+88 [label="23:CtVirtualElement@stop" shape=ellipse]
+89 [label="23:CtFieldReadImpl@streamHandler" shape=ellipse]
+90 [label="23:CtInvocationImpl@streamHandler.stop()" shape=ellipse]
+91 [label="24:CtFieldReadImpl@watchdog" shape=ellipse]
+92 [label="24:CtLiteralImpl@null" shape=ellipse]
+93 [label="24:CtBinaryOperatorImpl@watchdog != null" shape=ellipse]
+94 [label="25:CtExecutableReferenceImpl@checkException()" shape=ellipse]
+95 [label="25:CtVirtualElement@checkException" shape=ellipse]
+96 [label="25:CtFieldReadImpl@watchdog" shape=ellipse]
+97 [label="25:CtInvocationImpl@watchdog.checkException()" shape=ellipse]
+98 [label="24:CtBlockImpl@\{
+    watchdog.checkException();
+\}" shape=ellipse]
+99 [label="24:CtIfImpl@if (watchdog != null) \{
+    watchdog.checkException();
+\}" shape=ellipse]
+100 [label="27:CtExecutableReferenceImpl@getExitValue()" shape=ellipse]
+101 [label="27:CtVirtualElement@getExitValue" shape=ellipse]
+102 [label="27:CtInvocationImpl@getExitValue()" shape=ellipse]
+103 [label="27:CtReturnImpl@return getExitValue()" shape=ellipse]
+104 [label="14:CtBlockImpl@\{
+    processDestroyer.add(process);
+    if (watchdog != null) \{
+        watchdog.start(process);
+    \}
+    waitFor(process);
+    if (watchdog != null) \{
+        watchdog.stop();
+    \}
+    streamHandler.stop();
+    if (watchdog != null) \{
+        watchdog.checkException();
+    \}
+    return getExitValue();
+\}" shape=ellipse]
+105 [label="29:CtExecutableReferenceImpl@remove(java.lang.Process)" shape=ellipse]
+106 [label="29:CtVirtualElement@remove" shape=ellipse]
+107 [label="29:CtFieldReadImpl@processDestroyer" shape=ellipse]
+108 [label="29:CtVariableReadImpl@process" shape=ellipse]
+109 [label="29:CtInvocationImpl@processDestroyer.remove(process)" shape=ellipse]
+110 [label="28:CtBlockImpl@\{
+    processDestroyer.remove(process);
+\}" shape=ellipse]
+111 [label="14:CtTryImpl@try \{
+    processDestroyer.add(process);
+    if (watchdog != null) \{
+        watchdog.start(process);
+    \}
+    waitFor(process);
+    if (watchdog != null) \{
+        watchdog.stop();
+    \}
+    streamHandler.stop();
+    if (watchdog != null) \{
+        watchdog.checkException();
+    \}
+    return getExitValue();
+\} finally \{
+    processDestroyer.remove(process);
+\}" shape=ellipse]
+112 [label="2:CtBlockImpl@\{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    try \{
+        streamHandler.setProcessInputStream(process.getOutputStream());
+        streamHandler.setProcessOutputStream(process.getInputStream());
+        streamHandler.setProcessErrorStream(process.getErrorStream());
+    \} catch (IOException e) \{
+        process.destroy();
+        throw e;
+    \}
+    streamHandler.start();
+    try \{
+        processDestroyer.add(process);
+        if (watchdog != null) \{
+            watchdog.start(process);
+        \}
+        waitFor(process);
+        if (watchdog != null) \{
+            watchdog.stop();
+        \}
+        streamHandler.stop();
+        if (watchdog != null) \{
+            watchdog.checkException();
+        \}
+        return getExitValue();
+    \} finally \{
+        processDestroyer.remove(process);
+    \}
+\}" shape=ellipse]
+113 [label="2:CtMethodImpl@public int execute() throws IOException \{
+    final Process process = launch(project, getCommandline(), getEnvironment(), workingDirectory, useVMLauncher);
+    try \{
+        streamHandler.setProcessInputStream(process.getOutputStream());
+        streamHandler.setProcessOutputStream(process.getInputStream());
+        streamHandler.setProcessErrorStream(process.getErrorStream());
+    \} catch (IOException e) \{
+        process.destroy();
+        throw e;
+    \}
+    streamHandler.start();
+    try \{
+        processDestroyer.add(process);
+        if (watchdog != null) \{
+            watchdog.start(process);
+        \}
+        waitFor(process);
+        if (watchdog != null) \{
+            watchdog.stop();
+        \}
+        streamHandler.stop();
+        if (watchdog != null) \{
+            watchdog.checkException();
+        \}
+        return getExitValue();
+    \} finally \{
+        processDestroyer.remove(process);
+    \}
+\}" shape=ellipse]
+114 [label="3:Insert@INSERT" shape=ellipse]
+115 [label="3:CtIfImpl@if ((workingDirectory != null) && (!workingDirectory.exists())) \{
+    throw new BuildException(workingDirectory + \" doesn't exists.\");
+\}" shape=ellipse]
+6 -> 16 [label="Data Dep"];
+9 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 10 [label="AST"];
+13 -> 16 [label="Data Dep"];
+14 -> 16 [label="Data Dep"];
+15 -> 5 [label="AST"];
+15 -> 4 [label="AST"];
+15 -> 6 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 23 [label="Define-Use"];
+16 -> 31 [label="Define-Use"];
+16 -> 39 [label="Define-Use"];
+16 -> 48 [label="Define-Use"];
+16 -> 62 [label="Define-Use"];
+16 -> 70 [label="Define-Use"];
+16 -> 76 [label="Define-Use"];
+16 -> 108 [label="Define-Use"];
+17 -> 16 [label="AST"];
+17 -> 3 [label="AST"];
+17 -> 15 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 21 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 18 [label="AST"];
+25 -> 24 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 29 [label="AST"];
+33 -> 27 [label="AST"];
+33 -> 28 [label="AST"];
+33 -> 26 [label="AST"];
+33 -> 32 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 37 [label="AST"];
+41 -> 35 [label="AST"];
+41 -> 36 [label="AST"];
+41 -> 34 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 25 [label="AST"];
+42 -> 33 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 50 [label="Define-Use"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+45 -> 52 [label="Control Dep"];
+45 -> 49 [label="Control Dep"];
+45 -> 46 [label="Control Dep"];
+45 -> 48 [label="Control Dep"];
+45 -> 51 [label="Control Dep"];
+45 -> 50 [label="Control Dep"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+49 -> 46 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 49 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 45 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 42 [label="AST"];
+54 -> 53 [label="AST"];
+58 -> 56 [label="AST"];
+58 -> 57 [label="AST"];
+58 -> 55 [label="AST"];
+63 -> 60 [label="AST"];
+63 -> 61 [label="AST"];
+63 -> 59 [label="AST"];
+63 -> 62 [label="AST"];
+66 -> 64 [label="AST"];
+66 -> 65 [label="AST"];
+66 -> 72 [label="Control Dep"];
+66 -> 71 [label="Control Dep"];
+66 -> 67 [label="Control Dep"];
+66 -> 69 [label="Control Dep"];
+66 -> 70 [label="Control Dep"];
+71 -> 68 [label="AST"];
+71 -> 69 [label="AST"];
+71 -> 67 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 66 [label="AST"];
+73 -> 72 [label="AST"];
+77 -> 75 [label="AST"];
+77 -> 74 [label="AST"];
+77 -> 76 [label="AST"];
+80 -> 78 [label="AST"];
+80 -> 79 [label="AST"];
+80 -> 85 [label="Control Dep"];
+80 -> 84 [label="Control Dep"];
+80 -> 81 [label="Control Dep"];
+80 -> 83 [label="Control Dep"];
+84 -> 82 [label="AST"];
+84 -> 83 [label="AST"];
+84 -> 81 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 80 [label="AST"];
+86 -> 85 [label="AST"];
+90 -> 88 [label="AST"];
+90 -> 89 [label="AST"];
+90 -> 87 [label="AST"];
+93 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+93 -> 98 [label="Control Dep"];
+93 -> 97 [label="Control Dep"];
+93 -> 94 [label="Control Dep"];
+93 -> 96 [label="Control Dep"];
+97 -> 95 [label="AST"];
+97 -> 96 [label="AST"];
+97 -> 94 [label="AST"];
+98 -> 97 [label="AST"];
+99 -> 93 [label="AST"];
+99 -> 98 [label="AST"];
+102 -> 101 [label="AST"];
+102 -> 100 [label="AST"];
+103 -> 102 [label="AST"];
+104 -> 63 [label="AST"];
+104 -> 73 [label="AST"];
+104 -> 77 [label="AST"];
+104 -> 86 [label="AST"];
+104 -> 90 [label="AST"];
+104 -> 99 [label="AST"];
+104 -> 103 [label="AST"];
+109 -> 106 [label="AST"];
+109 -> 107 [label="AST"];
+109 -> 105 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 104 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 17 [label="AST"];
+112 -> 54 [label="AST"];
+112 -> 58 [label="AST"];
+112 -> 111 [label="AST"];
+113 -> 1 [label="AST"];
+113 -> 0 [label="AST"];
+113 -> 2 [label="AST"];
+113 -> 112 [label="AST"];
+113 -> 114 [label="Action"];
+114 -> 115 [label="Action"];
+}

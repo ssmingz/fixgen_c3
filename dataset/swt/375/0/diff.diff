@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/375/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/375/0/after.java
+@@ -4,2 +4,12 @@
+-    init(new ImageData(stream));
+-    init();
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      init(new ImageData(stream));
++      init();
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

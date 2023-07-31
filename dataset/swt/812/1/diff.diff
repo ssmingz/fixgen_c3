@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/812/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/812/1/after.java
+@@ -7,2 +7,4 @@
+-    OS.TXNFocus(txnObject, hasFocus());
+-    OS.TXNActivate(txnObject, txnFrameID, kScrollBarsSyncAlwaysActive);
++    if (!OS.HIVIEW) {
++      OS.TXNFocus(txnObject, hasFocus());
++      OS.TXNActivate(txnObject, txnFrameID, kScrollBarsSyncAlwaysActive);
++    }

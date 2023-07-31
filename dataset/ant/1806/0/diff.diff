@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1806/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1806/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,10 +4,4 @@
+-    if (!supportsSymlinks) {
+-      return;
+-    }
+-    if (!loginSuceeded) {
+-      return;
+-    }
+-    if (!changeRemoteDir(remoteTmpDir)) {
+-      return;
+-    }
+-    getProject().executeTarget("symlink-setup");
++    Assume.assumeTrue("System does not support Symlinks", supportsSymlinks);
++    Assume.assumeTrue(loginFailureMessage, loginSuceeded);
++    Assume.assumeTrue("Could not change remote directory", changeRemoteDir(remoteTmpDir));
++    buildRule.getProject().executeTarget("symlink-setup");
+@@ -14,1 +9,1 @@
+-    ds.setBasedir(new File(getProject().getBaseDir(), "tmp"));
++    ds.setBasedir(new File(buildRule.getProject().getBaseDir(), "tmp"));

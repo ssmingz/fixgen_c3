@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3745/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3745/0/after.java
+@@ -7,1 +7,6 @@
+-    this.second = second;
++    if ((style & SWT.CALENDAR) != 0) {
++      this.second = second;
++    } else {
++      calendar.set(Calendar.SECOND, second);
++      updateControl();
++    }

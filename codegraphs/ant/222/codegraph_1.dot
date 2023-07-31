@@ -1,0 +1,251 @@
+digraph "registerTestCase#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@registerTestCase" shape=ellipse]
+2 [label="2:CtParameterImpl@String testCase" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtFieldReadImpl@crashFile" shape=ellipse]
+5 [label="3:CtLiteralImpl@null" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@crashFile != null" shape=ellipse]
+7 [label="5:CtTypeReferenceImpl@FileWriter" shape=ellipse]
+8 [label="5:CtLiteralImpl@null" shape=ellipse]
+9 [label="5:CtVirtualElement@out" shape=ellipse]
+10 [label="5:CtLocalVariableImpl@FileWriter out = null" shape=ellipse]
+11 [label="7:CtVariableWriteImpl@out" shape=ellipse]
+12 [label="7:CtTypeReferenceImpl@FileWriter" shape=ellipse]
+13 [label="7:CtFieldReadImpl@crashFile" shape=ellipse]
+14 [label="7:CtConstructorCallImpl@new FileWriter(crashFile)" shape=ellipse]
+15 [label="7:CtAssignmentImpl@out = new FileWriter(crashFile)" shape=ellipse]
+16 [label="8:CtExecutableReferenceImpl@write(java.lang.String)" shape=ellipse]
+17 [label="8:CtVirtualElement@write" shape=ellipse]
+18 [label="8:CtVariableReadImpl@out" shape=ellipse]
+19 [label="8:CtVariableReadImpl@testCase" shape=ellipse]
+20 [label="8:CtLiteralImpl@\"\n\"" shape=ellipse]
+21 [label="8:CtBinaryOperatorImpl@testCase + \"\n\"" shape=ellipse]
+22 [label="8:CtInvocationImpl@out.write(testCase + \"\n\")" shape=ellipse]
+23 [label="9:CtExecutableReferenceImpl@flush()" shape=ellipse]
+24 [label="9:CtVirtualElement@flush" shape=ellipse]
+25 [label="9:CtVariableReadImpl@out" shape=ellipse]
+26 [label="9:CtInvocationImpl@out.flush()" shape=ellipse]
+27 [label="6:CtBlockImpl@\{
+    out = new FileWriter(crashFile);
+    out.write(testCase + \"\n\");
+    out.flush();
+\}" shape=ellipse]
+28 [label="11:CtVariableReadImpl@out" shape=ellipse]
+29 [label="11:CtLiteralImpl@null" shape=ellipse]
+30 [label="11:CtBinaryOperatorImpl@out != null" shape=ellipse]
+31 [label="12:CtExecutableReferenceImpl@close()" shape=ellipse]
+32 [label="12:CtVirtualElement@close" shape=ellipse]
+33 [label="12:CtVariableReadImpl@out" shape=ellipse]
+34 [label="12:CtInvocationImpl@out.close()" shape=ellipse]
+35 [label="11:CtBlockImpl@\{
+    out.close();
+\}" shape=ellipse]
+36 [label="11:CtIfImpl@if (out != null) \{
+    out.close();
+\}" shape=ellipse]
+37 [label="10:CtBlockImpl@\{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+38 [label="6:CtTryImpl@try \{
+    out = new FileWriter(crashFile);
+    out.write(testCase + \"\n\");
+    out.flush();
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+39 [label="4:CtBlockImpl@\{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(testCase + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\}" shape=ellipse]
+40 [label="15:CtVirtualElement@e" shape=ellipse]
+41 [label="15:CtTypeReferenceImpl@IOException" shape=ellipse]
+42 [label="15:CtCatchVariableImpl@IOException e" shape=ellipse]
+43 [label="15:CtBlockImpl@\{
+\}" shape=ellipse]
+44 [label="15:CtCatchImpl@ catch (IOException e) \{
+\}" shape=ellipse]
+45 [label="4:CtTryImpl@try \{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(testCase + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\} catch (IOException e) \{
+\}" shape=ellipse]
+46 [label="3:CtBlockImpl@\{
+    try \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(crashFile);
+            out.write(testCase + \"\n\");
+            out.flush();
+        \} finally \{
+            if (out != null) \{
+                out.close();
+            \}
+        \}
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+47 [label="3:CtIfImpl@if (crashFile != null) \{
+    try \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(crashFile);
+            out.write(testCase + \"\n\");
+            out.flush();
+        \} finally \{
+            if (out != null) \{
+                out.close();
+            \}
+        \}
+    \} catch (IOException e) \{
+    \}
+\}" shape=ellipse]
+48 [label="2:CtBlockImpl@\{
+    if (crashFile != null) \{
+        try \{
+            FileWriter out = null;
+            try \{
+                out = new FileWriter(crashFile);
+                out.write(testCase + \"\n\");
+                out.flush();
+            \} finally \{
+                if (out != null) \{
+                    out.close();
+                \}
+            \}
+        \} catch (IOException e) \{
+        \}
+    \}
+\}" shape=ellipse]
+49 [label="2:CtMethodImpl@private static void registerTestCase(String testCase) \{
+    if (crashFile != null) \{
+        try \{
+            FileWriter out = null;
+            try \{
+                out = new FileWriter(crashFile);
+                out.write(testCase + \"\n\");
+                out.flush();
+            \} finally \{
+                if (out != null) \{
+                    out.close();
+                \}
+            \}
+        \} catch (IOException e) \{
+        \}
+    \}
+\}" shape=ellipse]
+50 [label="11:Delete@DELETE" shape=ellipse]
+51 [label="11:Insert@INSERT" shape=ellipse]
+52 [label="11:CtTypeAccessImpl@FileUtils" shape=ellipse]
+53 [label="12:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 46 [label="Control Dep"];
+6 -> 45 [label="Control Dep"];
+6 -> 39 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 8 [label="Control Dep"];
+6 -> 38 [label="Control Dep"];
+6 -> 27 [label="Control Dep"];
+6 -> 15 [label="Control Dep"];
+6 -> 11 [label="Control Dep"];
+6 -> 14 [label="Control Dep"];
+6 -> 13 [label="Control Dep"];
+6 -> 22 [label="Control Dep"];
+6 -> 16 [label="Control Dep"];
+6 -> 18 [label="Control Dep"];
+6 -> 21 [label="Control Dep"];
+6 -> 19 [label="Control Dep"];
+6 -> 20 [label="Control Dep"];
+6 -> 26 [label="Control Dep"];
+6 -> 23 [label="Control Dep"];
+6 -> 25 [label="Control Dep"];
+6 -> 37 [label="Control Dep"];
+6 -> 36 [label="Control Dep"];
+6 -> 30 [label="Control Dep"];
+6 -> 28 [label="Control Dep"];
+6 -> 29 [label="Control Dep"];
+6 -> 44 [label="Control Dep"];
+6 -> 42 [label="Control Dep"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 18 [label="Define-Use"];
+11 -> 25 [label="Define-Use"];
+11 -> 28 [label="Define-Use"];
+11 -> 33 [label="Define-Use"];
+13 -> 11 [label="Data Dep"];
+14 -> 13 [label="AST"];
+15 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 18 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 21 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+27 -> 15 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 26 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 35 [label="Control Dep"];
+30 -> 34 [label="Control Dep"];
+30 -> 31 [label="Control Dep"];
+30 -> 33 [label="Control Dep"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 51 [label="Action"];
+34 -> 53 [label="Action"];
+35 -> 34 [label="AST"];
+36 -> 30 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 50 [label="Action"];
+37 -> 36 [label="AST"];
+38 -> 27 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 10 [label="AST"];
+39 -> 38 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 43 [label="Control Dep"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 39 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 6 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 1 [label="AST"];
+49 -> 0 [label="AST"];
+49 -> 2 [label="AST"];
+49 -> 48 [label="AST"];
+51 -> 52 [label="Action"];
+53 -> 38 [label="Action"];
+}

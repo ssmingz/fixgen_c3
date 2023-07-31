@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2577/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2577/0/after.java
+@@ -3,1 +3,1 @@
+-    if (ignoreSelect) {
++    if (didSelect) {
+@@ -6,12 +6,1 @@
+-    NSOutlineView widget = ((NSOutlineView) (view));
+-    int row = ((int) (widget.selectedRow()));
+-    if (row == (-1)) {
+-      sendSelectionEvent(Selection);
+-    } else {
+-      id _id = widget.itemAtRow(row);
+-      TreeItem item = ((TreeItem) (display.getWidget(_id.id)));
+-      Event event = new Event();
+-      event.item = item;
+-      event.index = row;
+-      sendSelectionEvent(Selection, event, false);
+-    }
++    sendSelection();

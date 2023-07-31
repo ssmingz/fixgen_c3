@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/240/17/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/240/17/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "backtraceon", "Checking if a back trace is created", "following error occurred");
++    try {
++      buildRule.executeTarget("backtraceon");
++      fail("BuildException expected: Checking if a back trace is created");
++    } catch (BuildException ex) {
++      assertContains("following error occurred", ex.getMessage());
++    }

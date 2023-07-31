@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2143/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2143/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "not.selector",
+-        "checking for use as a selector (not allowed)",
+-        "fileset doesn\'t support the nested \"isfile");
++    try {
++      buildRule.executeTarget("not.selector");
++      fail("Exception should have been thrown: checking for use as a selector (not allowed)");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("fileset doesn\'t support the nested \"isfile", ex.getMessage());
++    }

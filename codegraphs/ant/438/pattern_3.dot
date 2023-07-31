@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="testPropertyExpansion#?#2:INSERT
+testCaseInsensitive#?#2:INSERT" shape=ellipse]
+1 [label="testPropertyExpansion#?#2:public void testPropertyExpansion() \{
+    executeTarget(\"testPropertyExpansion\");
+    assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1));
+    assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1));
+\}
+testCaseInsensitive#?#2:public void testCaseInsensitive() \{
+    executeTarget(\"testCaseInsensitive\");
+    assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1));
+    assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1));
+\}" shape=ellipse]
+2 [label="testPropertyExpansion#?#2:testPropertyExpansion
+testCaseInsensitive#?#2:testCaseInsensitive" shape=ellipse]
+3 [label="testPropertyExpansion#?#2:void
+testCaseInsensitive#?#2:void" shape=ellipse]
+4 [label="testPropertyExpansion#?#2:\{
+    executeTarget(\"testPropertyExpansion\");
+    assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1));
+    assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1));
+\}
+testCaseInsensitive#?#2:\{
+    executeTarget(\"testCaseInsensitive\");
+    assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1));
+    assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1));
+\}" shape=ellipse]
+5 [label="testPropertyExpansion#?#3:executeTarget(\"testPropertyExpansion\")
+testCaseInsensitive#?#3:executeTarget(\"testCaseInsensitive\")" shape=ellipse]
+6 [label="testPropertyExpansion#?#4:assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1))
+testCaseInsensitive#?#5:assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1))" shape=ellipse]
+7 [label="testPropertyExpansion#?#5:assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1))
+testCaseInsensitive#?#4:assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1))" shape=ellipse]
+8 [label="testPropertyExpansion#?#2:public
+testCaseInsensitive#?#2:public" shape=ellipse]
+9 [label="testPropertyExpansion#?#2:VE: Modifiers_Method
+testCaseInsensitive#?#2:VE: Modifiers_Method" shape=ellipse]
+10 [label="testPropertyExpansion#?#2:@Test
+testCaseInsensitive#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+}

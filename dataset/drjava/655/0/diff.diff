@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/655/0/after.java
+@@ -2,3 +2,4 @@
+-  public void addExternalFilesClassPath(File f) {
+-    if (!_restart) {
+-      return;
++  public boolean addExternalFilesClassPath(File f) {
++    InterpreterJVMRemoteI remote = _accessInterpreterJVM();
++    if (remote == null) {
++      return false;
+@@ -6,1 +7,0 @@
+-    InterpreterJVMRemoteI slave = ensureInterpreterConnected();
+@@ -8,3 +8,5 @@
+-      slave.addExternalFilesClassPath(f);
+-    } catch (RemoteException re) {
+-      _threwException(re);
++      remote.addExternalFilesClassPath(f);
++      return true;
++    } catch (RemoteException e) {
++      _handleRemoteException(e);
++      return false;

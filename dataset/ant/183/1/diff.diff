@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/183/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/183/1/after.java
+@@ -3,5 +3,3 @@
+-    if (children != null) {
+-      return Collections.enumeration(children);
+-    } else {
+-      return new CollectionUtils.EmptyEnumeration();
+-    }
++    return children == null
++        ? new CollectionUtils.EmptyEnumeration()
++        : Collections.enumeration(children);

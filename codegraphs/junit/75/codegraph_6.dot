@@ -1,0 +1,43 @@
+digraph "getName#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@java.lang" shape=ellipse]
+2 [label="2:CtVirtualElement@getName" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@getName()" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@fTestClass" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtVirtualElement@getName" shape=ellipse]
+7 [label="3:CtFieldReferenceImpl@fTestClass" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+9 [label="3:CtFieldReadImpl@fTestClass" shape=ellipse]
+10 [label="3:CtInvocationImpl@fTestClass.getName()" shape=ellipse]
+11 [label="3:CtReturnImpl@return fTestClass.getName()" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    return fTestClass.getName();
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@protected String getName() \{
+    return fTestClass.getName();
+\}" shape=ellipse]
+14 [label="3:Update@UPDATE" shape=ellipse]
+15 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+16 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+17 [label="3:CtFieldReferenceImpl@testClass" shape=ellipse]
+18 [label="3:CtFieldReadImpl@testClass" shape=ellipse]
+0 -> 1 [label="AST"];
+3 -> 4 [label="AST"];
+3 -> 5 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 14 [label="Action"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 3 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 2 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 18 [label="Action"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+}

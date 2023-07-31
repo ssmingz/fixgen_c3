@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/659/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/659/1/after.java
+@@ -14,1 +14,6 @@
+-            int xWindow = OS.gdk_x11_drawable_get_xid(OS.GTK_WIDGET_WINDOW(shellHandle));
++            int xWindow;
++            if (OS.GTK_VERSION >= OS.VERSION(2, 14, 0)) {
++              xWindow = OS.gdk_x11_drawable_get_xid(OS.gtk_widget_get_window(shellHandle));
++            } else {
++              xWindow = OS.gdk_x11_drawable_get_xid(OS.GTK_WIDGET_WINDOW(shellHandle));
++            }

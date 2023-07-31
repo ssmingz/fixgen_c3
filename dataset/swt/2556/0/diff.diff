@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2556/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2556/0/after.java
+@@ -2,1 +2,2 @@
+-  int atkComponent_get_extents(int atkObject, int x, int y, int width, int height, int coord_type) {
++  static int atkComponent_get_extents(
++      int atkObject, int x, int y, int width, int height, int coord_type) {
+@@ -7,2 +8,2 @@
+-    if (object == null) {
+-      return 0;
++    if (object != null) {
++      return object.atkComponent_get_extents(x, y, width, height, coord_type);
+@@ -10,1 +11,1 @@
+-    return object.atkComponent_get_extents(x, y, width, height, coord_type);
++    return 0;

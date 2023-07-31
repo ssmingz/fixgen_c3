@@ -1,0 +1,24 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1639/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1639/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,10 +4,4 @@
+-    if (!supportsSymlinks) {
+-      return;
+-    }
+-    if (!loginSuceeded) {
+-      return;
+-    }
+-    if (!changeRemoteDir(remoteTmpDir)) {
+-      return;
+-    }
+-    getProject().executeTarget("ftp-get-directory-no-symbolic-link");
++    Assume.assumeTrue("System does not support Symlinks", supportsSymlinks);
++    Assume.assumeTrue(loginFailureMessage, loginSuceeded);
++    Assume.assumeTrue("Could not change remote directory", changeRemoteDir(remoteTmpDir));
++    buildRule.getProject().executeTarget("ftp-get-directory-no-symbolic-link");
+@@ -14,2 +9,2 @@
+-        ((FileSet) (getProject().getReference("fileset-destination-without-selector")));
+-    DirectoryScanner dsDestination = fsDestination.getDirectoryScanner(getProject());
++        ((FileSet) (buildRule.getProject().getReference("fileset-destination-without-selector")));
++    DirectoryScanner dsDestination = fsDestination.getDirectoryScanner(buildRule.getProject());

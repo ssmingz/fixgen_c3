@@ -1,0 +1,90 @@
+digraph "load#?,InputStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@load" shape=ellipse]
+2 [label="2:CtParameterImpl@InputStream inStream" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@InputStream" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@readLines(<unknown>)" shape=ellipse]
+7 [label="3:CtVirtualElement@readLines" shape=ellipse]
+8 [label="3:CtVariableReadImpl@inStream" shape=ellipse]
+9 [label="3:CtInvocationImpl@readLines(inStream)" shape=ellipse]
+10 [label="3:CtVirtualElement@s" shape=ellipse]
+11 [label="3:CtLocalVariableImpl@String s = readLines(inStream)" shape=ellipse]
+12 [label="4:CtVirtualElement@byte[]" shape=ellipse]
+13 [label="4:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+14 [label="4:CtExecutableReferenceImpl@getBytes(java.lang.String)" shape=ellipse]
+15 [label="4:CtVirtualElement@getBytes" shape=ellipse]
+16 [label="4:CtVariableReadImpl@s" shape=ellipse]
+17 [label="4:CtLiteralImpl@\"ISO-8859-1\"" shape=ellipse]
+18 [label="4:CtInvocationImpl@s.getBytes(\"ISO-8859-1\")" shape=ellipse]
+19 [label="4:CtVirtualElement@ba" shape=ellipse]
+20 [label="4:CtLocalVariableImpl@byte[] ba = s.getBytes(\"ISO-8859-1\")" shape=ellipse]
+21 [label="5:CtTypeReferenceImpl@ByteArrayInputStream" shape=ellipse]
+22 [label="5:CtTypeReferenceImpl@ByteArrayInputStream" shape=ellipse]
+23 [label="5:CtVariableReadImpl@ba" shape=ellipse]
+24 [label="5:CtConstructorCallImpl@new ByteArrayInputStream(ba)" shape=ellipse]
+25 [label="5:CtVirtualElement@bais" shape=ellipse]
+26 [label="5:CtLocalVariableImpl@ByteArrayInputStream bais = new ByteArrayInputStream(ba)" shape=ellipse]
+27 [label="6:CtExecutableReferenceImpl@load(ByteArrayInputStream)" shape=ellipse]
+28 [label="6:CtVirtualElement@load" shape=ellipse]
+29 [label="6:CtSuperAccessImpl@super" shape=ellipse]
+30 [label="6:CtVariableReadImpl@bais" shape=ellipse]
+31 [label="6:CtInvocationImpl@super.load(bais)" shape=ellipse]
+32 [label="2:CtBlockImpl@\{
+    String s = readLines(inStream);
+    byte[] ba = s.getBytes(\"ISO-8859-1\");
+    ByteArrayInputStream bais = new ByteArrayInputStream(ba);
+    super.load(bais);
+\}" shape=ellipse]
+33 [label="2:CtMethodImpl@public void load(InputStream inStream) throws IOException \{
+    String s = readLines(inStream);
+    byte[] ba = s.getBytes(\"ISO-8859-1\");
+    ByteArrayInputStream bais = new ByteArrayInputStream(ba);
+    super.load(bais);
+\}" shape=ellipse]
+34 [label="4:Delete@DELETE" shape=ellipse]
+35 [label="4:Insert@INSERT" shape=ellipse]
+36 [label="4:CtTypeAccessImpl@ISO_8859_1" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 10 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 16 [label="Define-Use"];
+11 -> 10 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+16 -> 19 [label="Data Dep"];
+17 -> 34 [label="Action"];
+18 -> 15 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 35 [label="Action"];
+19 -> 23 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 13 [label="AST"];
+20 -> 18 [label="AST"];
+23 -> 25 [label="Data Dep"];
+24 -> 23 [label="AST"];
+25 -> 30 [label="Define-Use"];
+26 -> 25 [label="AST"];
+26 -> 21 [label="AST"];
+26 -> 24 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 11 [label="AST"];
+32 -> 20 [label="AST"];
+32 -> 26 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 1 [label="AST"];
+33 -> 0 [label="AST"];
+33 -> 2 [label="AST"];
+33 -> 4 [label="AST"];
+33 -> 32 [label="AST"];
+35 -> 36 [label="Action"];
+}

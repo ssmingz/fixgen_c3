@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1221/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1221/0/after.java
+@@ -6,0 +6,9 @@
++    switch (msg) {
++      case OS.WM_LBUTTONDOWN:
++      case OS.WM_MBUTTONDOWN:
++      case OS.WM_RBUTTONDOWN:
++        display.ignoreMsgFilter = true;
++        int code = OS.CallWindowProc(TableProc, hwnd, msg, wParam, lParam);
++        display.ignoreMsgFilter = false;
++        return code;
++    }

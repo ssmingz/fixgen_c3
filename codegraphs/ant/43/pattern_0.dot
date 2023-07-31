@@ -1,0 +1,579 @@
+digraph "Pattern" {
+0 [label="execute#?,Project#60:INSERT
+getImplementation#?#15:INSERT
+execute#?#25:INSERT" shape=ellipse]
+1 [label="execute#?,Project#5:try \{
+    if (sysProperties != null) \{
+        sysProperties.setSystem();
+    \}
+    Class target = null;
+    if (classpath == null) \{
+        target = Class.forName(classname);
+    \} else \{
+        loader = project.createClassLoader(classpath);
+        loader.setParent(project.getCoreLoader());
+        loader.setParentFirst(false);
+        loader.addJavaLibraries();
+        loader.setIsolated(true);
+        loader.setThreadContextLoader();
+        loader.forceLoadClass(classname);
+        target = Class.forName(classname, true, loader);
+    \}
+    main = target.getMethod(\"main\", new Class[]\{ String[].class \});
+    if (main == null) \{
+        throw new BuildException(\"Could not find main() method in \" + classname);
+    \}
+    if ((main.getModifiers() & Modifier.STATIC) == 0) \{
+        throw new BuildException((\"main() method in \" + classname) + \" is not declared static\");
+    \}
+    if (timeout == null) \{
+        run();
+    \} else \{
+        thread = new Thread(this, \"ExecuteJava\");
+        Task currentThreadTask = project.getThreadTask(Thread.currentThread());
+        project.registerThreadTask(thread, currentThreadTask);
+        thread.setDaemon(true);
+        Watchdog w = new Watchdog(timeout.longValue());
+        w.addTimeoutObserver(this);
+        synchronized(this) \{
+            thread.start();
+            w.start();
+            try \{
+                wait();
+            \} catch (InterruptedException e) \{
+            \}
+            if (timedOut) \{
+                project.log(\"Timeout: sub-process interrupted\", MSG_WARN);
+            \} else \{
+                thread = null;
+                w.stop();
+            \}
+        \}
+    \}
+    if (caught != null) \{
+        throw caught;
+    \}
+\} catch (ClassNotFoundException e) \{
+    throw new BuildException((((\"Could not find \" + classname) + \".\") + \" Make sure you have it in your\") + \" classpath\");
+\} catch (SecurityException e) \{
+    throw e;
+\} catch (ThreadDeath e) \{
+    throw e;
+\} catch (Throwable e) \{
+    throw new BuildException(e);
+\} finally \{
+    if (loader != null) \{
+        loader.resetThreadContextLoader();
+        loader.cleanup();
+        loader = null;
+    \}
+    if (sysProperties != null) \{
+        sysProperties.restoreSystem();
+    \}
+\}
+getImplementation#?#9:try \{
+    Class c = Class.forName(type.getImplementation());
+    FileNameMapper m = ((FileNameMapper) (c.newInstance()));
+    m.setFrom(from);
+    m.setTo(to);
+    return m;
+\} catch (Throwable t) \{
+    throw new BuildException(t);
+\}
+execute#?#23:try \{
+    DispatchUtils.execute(proxy);
+\} catch (Exception ex) \{
+    log(\"Error in \" + proxy.getClass(), MSG_VERBOSE);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+2 [label="execute#?,Project#2:\{
+    final String classname = javaCommand.getExecutable();
+    AntClassLoader loader = null;
+    try \{
+        if (sysProperties != null) \{
+            sysProperties.setSystem();
+        \}
+        Class target = null;
+        if (classpath == null) \{
+            target = Class.forName(classname);
+        \} else \{
+            loader = project.createClassLoader(classpath);
+            loader.setParent(project.getCoreLoader());
+            loader.setParentFirst(false);
+            loader.addJavaLibraries();
+            loader.setIsolated(true);
+            loader.setThreadContextLoader();
+            loader.forceLoadClass(classname);
+            target = Class.forName(classname, true, loader);
+        \}
+        main = target.getMethod(\"main\", new Class[]\{ String[].class \});
+        if (main == null) \{
+            throw new BuildException(\"Could not find main() method in \" + classname);
+        \}
+        if ((main.getModifiers() & Modifier.STATIC) == 0) \{
+            throw new BuildException((\"main() method in \" + classname) + \" is not declared static\");
+        \}
+        if (timeout == null) \{
+            run();
+        \} else \{
+            thread = new Thread(this, \"ExecuteJava\");
+            Task currentThreadTask = project.getThreadTask(Thread.currentThread());
+            project.registerThreadTask(thread, currentThreadTask);
+            thread.setDaemon(true);
+            Watchdog w = new Watchdog(timeout.longValue());
+            w.addTimeoutObserver(this);
+            synchronized(this) \{
+                thread.start();
+                w.start();
+                try \{
+                    wait();
+                \} catch (InterruptedException e) \{
+                \}
+                if (timedOut) \{
+                    project.log(\"Timeout: sub-process interrupted\", MSG_WARN);
+                \} else \{
+                    thread = null;
+                    w.stop();
+                \}
+            \}
+        \}
+        if (caught != null) \{
+            throw caught;
+        \}
+    \} catch (ClassNotFoundException e) \{
+        throw new BuildException((((\"Could not find \" + classname) + \".\") + \" Make sure you have it in your\") + \" classpath\");
+    \} catch (SecurityException e) \{
+        throw e;
+    \} catch (ThreadDeath e) \{
+        throw e;
+    \} catch (Throwable e) \{
+        throw new BuildException(e);
+    \} finally \{
+        if (loader != null) \{
+            loader.resetThreadContextLoader();
+            loader.cleanup();
+            loader = null;
+        \}
+        if (sysProperties != null) \{
+            sysProperties.restoreSystem();
+        \}
+    \}
+\}
+getImplementation#?#2:\{
+    if (isReference()) \{
+        return getRef().getImplementation();
+    \}
+    if (type == null) \{
+        throw new BuildException(\"type attribute is required\");
+    \}
+    try \{
+        Class c = Class.forName(type.getImplementation());
+        FileNameMapper m = ((FileNameMapper) (c.newInstance()));
+        m.setFrom(from);
+        m.setTo(to);
+        return m;
+    \} catch (Throwable t) \{
+        throw new BuildException(t);
+    \}
+\}
+execute#?#2:\{
+    try \{
+        Method setLocationM = proxy.getClass().getMethod(\"setLocation\", new Class[]\{ Location.class \});
+        if (setLocationM != null) \{
+            setLocationM.invoke(proxy, new Object[]\{ getLocation() \});
+        \}
+    \} catch (NoSuchMethodException e) \{
+    \} catch (Exception ex) \{
+        log(\"Error setting location in \" + proxy.getClass(), MSG_ERR);
+        throw new BuildException(ex);
+    \}
+    try \{
+        Method setProjectM = proxy.getClass().getMethod(\"setProject\", new Class[]\{ Project.class \});
+        if (setProjectM != null) \{
+            setProjectM.invoke(proxy, new Object[]\{ getProject() \});
+        \}
+    \} catch (NoSuchMethodException e) \{
+    \} catch (Exception ex) \{
+        log(\"Error setting project in \" + proxy.getClass(), MSG_ERR);
+        throw new BuildException(ex);
+    \}
+    try \{
+        DispatchUtils.execute(proxy);
+    \} catch (Exception ex) \{
+        log(\"Error in \" + proxy.getClass(), MSG_VERBOSE);
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+3 [label="execute#?,Project#2:public void execute(Project project) throws BuildException \{
+    final String classname = javaCommand.getExecutable();
+    AntClassLoader loader = null;
+    try \{
+        if (sysProperties != null) \{
+            sysProperties.setSystem();
+        \}
+        Class target = null;
+        if (classpath == null) \{
+            target = Class.forName(classname);
+        \} else \{
+            loader = project.createClassLoader(classpath);
+            loader.setParent(project.getCoreLoader());
+            loader.setParentFirst(false);
+            loader.addJavaLibraries();
+            loader.setIsolated(true);
+            loader.setThreadContextLoader();
+            loader.forceLoadClass(classname);
+            target = Class.forName(classname, true, loader);
+        \}
+        main = target.getMethod(\"main\", new Class[]\{ String[].class \});
+        if (main == null) \{
+            throw new BuildException(\"Could not find main() method in \" + classname);
+        \}
+        if ((main.getModifiers() & Modifier.STATIC) == 0) \{
+            throw new BuildException((\"main() method in \" + classname) + \" is not declared static\");
+        \}
+        if (timeout == null) \{
+            run();
+        \} else \{
+            thread = new Thread(this, \"ExecuteJava\");
+            Task currentThreadTask = project.getThreadTask(Thread.currentThread());
+            project.registerThreadTask(thread, currentThreadTask);
+            thread.setDaemon(true);
+            Watchdog w = new Watchdog(timeout.longValue());
+            w.addTimeoutObserver(this);
+            synchronized(this) \{
+                thread.start();
+                w.start();
+                try \{
+                    wait();
+                \} catch (InterruptedException e) \{
+                \}
+                if (timedOut) \{
+                    project.log(\"Timeout: sub-process interrupted\", MSG_WARN);
+                \} else \{
+                    thread = null;
+                    w.stop();
+                \}
+            \}
+        \}
+        if (caught != null) \{
+            throw caught;
+        \}
+    \} catch (ClassNotFoundException e) \{
+        throw new BuildException((((\"Could not find \" + classname) + \".\") + \" Make sure you have it in your\") + \" classpath\");
+    \} catch (SecurityException e) \{
+        throw e;
+    \} catch (ThreadDeath e) \{
+        throw e;
+    \} catch (Throwable e) \{
+        throw new BuildException(e);
+    \} finally \{
+        if (loader != null) \{
+            loader.resetThreadContextLoader();
+            loader.cleanup();
+            loader = null;
+        \}
+        if (sysProperties != null) \{
+            sysProperties.restoreSystem();
+        \}
+    \}
+\}
+getImplementation#?#2:public FileNameMapper getImplementation() throws BuildException \{
+    if (isReference()) \{
+        return getRef().getImplementation();
+    \}
+    if (type == null) \{
+        throw new BuildException(\"type attribute is required\");
+    \}
+    try \{
+        Class c = Class.forName(type.getImplementation());
+        FileNameMapper m = ((FileNameMapper) (c.newInstance()));
+        m.setFrom(from);
+        m.setTo(to);
+        return m;
+    \} catch (Throwable t) \{
+        throw new BuildException(t);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    try \{
+        Method setLocationM = proxy.getClass().getMethod(\"setLocation\", new Class[]\{ Location.class \});
+        if (setLocationM != null) \{
+            setLocationM.invoke(proxy, new Object[]\{ getLocation() \});
+        \}
+    \} catch (NoSuchMethodException e) \{
+    \} catch (Exception ex) \{
+        log(\"Error setting location in \" + proxy.getClass(), MSG_ERR);
+        throw new BuildException(ex);
+    \}
+    try \{
+        Method setProjectM = proxy.getClass().getMethod(\"setProject\", new Class[]\{ Project.class \});
+        if (setProjectM != null) \{
+            setProjectM.invoke(proxy, new Object[]\{ getProject() \});
+        \}
+    \} catch (NoSuchMethodException e) \{
+    \} catch (Exception ex) \{
+        log(\"Error setting project in \" + proxy.getClass(), MSG_ERR);
+        throw new BuildException(ex);
+    \}
+    try \{
+        DispatchUtils.execute(proxy);
+    \} catch (Exception ex) \{
+        log(\"Error in \" + proxy.getClass(), MSG_VERBOSE);
+        throw new BuildException(ex);
+    \}
+\}" shape=ellipse]
+4 [label="execute#?,Project#3:final String classname = javaCommand.getExecutable()
+getImplementation#?#3:if (isReference()) \{
+    return getRef().getImplementation();
+\}
+execute#?#3:try \{
+    Method setLocationM = proxy.getClass().getMethod(\"setLocation\", new Class[]\{ Location.class \});
+    if (setLocationM != null) \{
+        setLocationM.invoke(proxy, new Object[]\{ getLocation() \});
+    \}
+\} catch (NoSuchMethodException e) \{
+\} catch (Exception ex) \{
+    log(\"Error setting location in \" + proxy.getClass(), MSG_ERR);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+5 [label="execute#?,Project#4:AntClassLoader loader = null
+getImplementation#?#6:if (type == null) \{
+    throw new BuildException(\"type attribute is required\");
+\}
+execute#?#13:try \{
+    Method setProjectM = proxy.getClass().getMethod(\"setProject\", new Class[]\{ Project.class \});
+    if (setProjectM != null) \{
+        setProjectM.invoke(proxy, new Object[]\{ getProject() \});
+    \}
+\} catch (NoSuchMethodException e) \{
+\} catch (Exception ex) \{
+    log(\"Error setting project in \" + proxy.getClass(), MSG_ERR);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+6 [label="execute#?,Project#5:\{
+    if (sysProperties != null) \{
+        sysProperties.setSystem();
+    \}
+    Class target = null;
+    if (classpath == null) \{
+        target = Class.forName(classname);
+    \} else \{
+        loader = project.createClassLoader(classpath);
+        loader.setParent(project.getCoreLoader());
+        loader.setParentFirst(false);
+        loader.addJavaLibraries();
+        loader.setIsolated(true);
+        loader.setThreadContextLoader();
+        loader.forceLoadClass(classname);
+        target = Class.forName(classname, true, loader);
+    \}
+    main = target.getMethod(\"main\", new Class[]\{ String[].class \});
+    if (main == null) \{
+        throw new BuildException(\"Could not find main() method in \" + classname);
+    \}
+    if ((main.getModifiers() & Modifier.STATIC) == 0) \{
+        throw new BuildException((\"main() method in \" + classname) + \" is not declared static\");
+    \}
+    if (timeout == null) \{
+        run();
+    \} else \{
+        thread = new Thread(this, \"ExecuteJava\");
+        Task currentThreadTask = project.getThreadTask(Thread.currentThread());
+        project.registerThreadTask(thread, currentThreadTask);
+        thread.setDaemon(true);
+        Watchdog w = new Watchdog(timeout.longValue());
+        w.addTimeoutObserver(this);
+        synchronized(this) \{
+            thread.start();
+            w.start();
+            try \{
+                wait();
+            \} catch (InterruptedException e) \{
+            \}
+            if (timedOut) \{
+                project.log(\"Timeout: sub-process interrupted\", MSG_WARN);
+            \} else \{
+                thread = null;
+                w.stop();
+            \}
+        \}
+    \}
+    if (caught != null) \{
+        throw caught;
+    \}
+\}
+getImplementation#?#9:\{
+    Class c = Class.forName(type.getImplementation());
+    FileNameMapper m = ((FileNameMapper) (c.newInstance()));
+    m.setFrom(from);
+    m.setTo(to);
+    return m;
+\}
+execute#?#23:\{
+    DispatchUtils.execute(proxy);
+\}" shape=ellipse]
+7 [label="execute#?,Project#6:if (sysProperties != null) \{
+    sysProperties.setSystem();
+\}
+getImplementation#?#10:Class c = Class.forName(type.getImplementation())" shape=ellipse]
+8 [label="execute#?,Project#9:Class target = null
+getImplementation#?#14:return m" shape=ellipse]
+9 [label="execute#?,Project#10:if (classpath == null) \{
+    target = Class.forName(classname);
+\} else \{
+    loader = project.createClassLoader(classpath);
+    loader.setParent(project.getCoreLoader());
+    loader.setParentFirst(false);
+    loader.addJavaLibraries();
+    loader.setIsolated(true);
+    loader.setThreadContextLoader();
+    loader.forceLoadClass(classname);
+    target = Class.forName(classname, true, loader);
+\}
+getImplementation#?#11:FileNameMapper m = ((FileNameMapper) (c.newInstance()))" shape=ellipse]
+10 [label="execute#?,Project#22:main = target.getMethod(\"main\", new Class[]\{ String[].class \})" shape=ellipse]
+11 [label="execute#?,Project#23:if (main == null) \{
+    throw new BuildException(\"Could not find main() method in \" + classname);
+\}" shape=ellipse]
+12 [label="execute#?,Project#26:if ((main.getModifiers() & Modifier.STATIC) == 0) \{
+    throw new BuildException((\"main() method in \" + classname) + \" is not declared static\");
+\}" shape=ellipse]
+13 [label="execute#?,Project#29:if (timeout == null) \{
+    run();
+\} else \{
+    thread = new Thread(this, \"ExecuteJava\");
+    Task currentThreadTask = project.getThreadTask(Thread.currentThread());
+    project.registerThreadTask(thread, currentThreadTask);
+    thread.setDaemon(true);
+    Watchdog w = new Watchdog(timeout.longValue());
+    w.addTimeoutObserver(this);
+    synchronized(this) \{
+        thread.start();
+        w.start();
+        try \{
+            wait();
+        \} catch (InterruptedException e) \{
+        \}
+        if (timedOut) \{
+            project.log(\"Timeout: sub-process interrupted\", MSG_WARN);
+        \} else \{
+            thread = null;
+            w.stop();
+        \}
+    \}
+\}" shape=ellipse]
+14 [label="execute#?,Project#53:if (caught != null) \{
+    throw caught;
+\}" shape=ellipse]
+15 [label="execute#?,Project#56: catch (ClassNotFoundException e) \{
+    throw new BuildException((((\"Could not find \" + classname) + \".\") + \" Make sure you have it in your\") + \" classpath\");
+\}
+getImplementation#?#15: catch (Throwable t) \{
+    throw new BuildException(t);
+\}
+execute#?#25: catch (Exception ex) \{
+    log(\"Error in \" + proxy.getClass(), MSG_VERBOSE);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+16 [label="execute#?,Project#56:ClassNotFoundException e
+getImplementation#?#15:Throwable t
+execute#?#25:Exception ex" shape=ellipse]
+17 [label="execute#?,Project#56:\{
+    throw new BuildException((((\"Could not find \" + classname) + \".\") + \" Make sure you have it in your\") + \" classpath\");
+\}
+getImplementation#?#15:\{
+    throw new BuildException(t);
+\}
+execute#?#25:\{
+    log(\"Error in \" + proxy.getClass(), MSG_VERBOSE);
+    throw new BuildException(ex);
+\}" shape=ellipse]
+18 [label="execute#?,Project#60: catch (SecurityException e) \{
+    throw e;
+\}" shape=ellipse]
+19 [label="execute#?,Project#60:SecurityException e" shape=ellipse]
+20 [label="execute#?,Project#60:\{
+    throw e;
+\}" shape=ellipse]
+21 [label="execute#?,Project#62: catch (ThreadDeath e) \{
+    throw e;
+\}" shape=ellipse]
+22 [label="execute#?,Project#62:ThreadDeath e" shape=ellipse]
+23 [label="execute#?,Project#62:\{
+    throw e;
+\}" shape=ellipse]
+24 [label="execute#?,Project#64: catch (Throwable e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+25 [label="execute#?,Project#64:Throwable e" shape=ellipse]
+26 [label="execute#?,Project#64:\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+27 [label="execute#?,Project#66:\{
+    if (loader != null) \{
+        loader.resetThreadContextLoader();
+        loader.cleanup();
+        loader = null;
+    \}
+    if (sysProperties != null) \{
+        sysProperties.restoreSystem();
+    \}
+\}" shape=ellipse]
+28 [label="execute#?,Project#67:if (loader != null) \{
+    loader.resetThreadContextLoader();
+    loader.cleanup();
+    loader = null;
+\}" shape=ellipse]
+29 [label="execute#?,Project#72:if (sysProperties != null) \{
+    sysProperties.restoreSystem();
+\}" shape=ellipse]
+30 [label="execute#?,Project#60: catch (BuildException e) \{
+    throw e;
+\}
+getImplementation#?#15: catch (BuildException be) \{
+    throw be;
+\}
+execute#?#25: catch (BuildException be) \{
+    throw be;
+\}" shape=ellipse]
+31 [label="getImplementation#?#12:m.setFrom(from)" shape=ellipse]
+32 [label="getImplementation#?#13:m.setTo(to)" shape=ellipse]
+33 [label="execute#?#24:DispatchUtils.execute(proxy)" shape=ellipse]
+0 -> 30 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+1 -> 15 [label="AST:3"];
+1 -> 18 [label="AST:1"];
+1 -> 21 [label="AST:1"];
+1 -> 24 [label="AST:1"];
+1 -> 27 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+6 -> 10 [label="AST:1"];
+6 -> 11 [label="AST:1"];
+6 -> 12 [label="AST:1"];
+6 -> 13 [label="AST:1"];
+6 -> 14 [label="AST:1"];
+6 -> 31 [label="AST:1"];
+6 -> 32 [label="AST:1"];
+6 -> 33 [label="AST:1"];
+15 -> 16 [label="AST:3"];
+15 -> 17 [label="AST:3"];
+16 -> 17 [label="Control Dep:3"];
+18 -> 19 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+19 -> 20 [label="Control Dep:1"];
+21 -> 22 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+22 -> 23 [label="Control Dep:1"];
+24 -> 25 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+25 -> 26 [label="Control Dep:1"];
+27 -> 28 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+}

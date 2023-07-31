@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/444/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/444/0/after.java
+@@ -46,0 +46,8 @@
++    if (!OS.IsWinCE) {
++      messageCallback = new Callback(this, "messageProc", 3);
++      messageProc = messageCallback.getAddress();
++      if (messageProc == 0) {
++        error(ERROR_NO_MORE_CALLBACKS);
++      }
++      hHook = OS.SetWindowsHookEx(WH_MSGFILTER, messageProc, 0, threadId);
++    }

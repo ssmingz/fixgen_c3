@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1303/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1303/1/after.java
+@@ -4,1 +4,13 @@
+-    redraw(true);
++    int oldImageHeight = imageHeight;
++    if (image != null) {
++      Rectangle bounds = image.getBounds();
++      imageHeight = bounds.height;
++      imageWidth = bounds.width;
++    } else {
++      imageHeight = imageWidth = 0;
++    }
++    if (oldImageHeight != imageHeight) {
++      parent.layoutItems(parent.indexOf(this), true);
++    } else {
++      redraw(true);
++    }

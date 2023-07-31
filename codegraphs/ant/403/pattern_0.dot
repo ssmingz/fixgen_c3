@@ -1,0 +1,49 @@
+digraph "Pattern" {
+0 [label="getAttributeValue#?,String#3:INSERT
+getAttribute#?,String#3:INSERT" shape=ellipse]
+1 [label="getAttributeValue#?,String#3:attributeName.toLowerCase()
+getAttribute#?,String#3:attributeName.toLowerCase()" shape=ellipse]
+2 [label="getAttributeValue#?,String#3:getAttribute(attributeName.toLowerCase())
+getAttribute#?,String#3:((Attribute) (attributes.get(attributeName.toLowerCase())))" shape=ellipse]
+3 [label="getAttributeValue#?,String#3:Attribute attribute = getAttribute(attributeName.toLowerCase())
+getAttribute#?,String#3:return ((Attribute) (attributes.get(attributeName.toLowerCase())))" shape=ellipse]
+4 [label="getAttributeValue#?,String#3:getAttribute
+getAttribute#?,String#3:get" shape=ellipse]
+5 [label="getAttributeValue#?,String#-1:
+getAttribute#?,String#3:attributes" shape=ellipse]
+6 [label="getAttributeValue#?,String#3:getAttribute(java.lang.String)
+getAttribute#?,String#3:get(java.lang.String)" shape=ellipse]
+7 [label="getAttributeValue#?,String#3:toLowerCase
+getAttribute#?,String#3:toLowerCase" shape=ellipse]
+8 [label="getAttributeValue#?,String#3:attributeName
+getAttribute#?,String#3:attributeName" shape=ellipse]
+9 [label="getAttributeValue#?,String#-1:attributeName
+getAttribute#?,String#-1:attributeName" shape=ellipse]
+10 [label="getAttributeValue#?,String#3:attribute" shape=ellipse]
+11 [label="getAttributeValue#?,String#3:toLowerCase()
+getAttribute#?,String#3:toLowerCase()" shape=ellipse]
+12 [label="getAttributeValue#?,String#-1:String
+getAttribute#?,String#-1:String" shape=ellipse]
+13 [label="getAttributeValue#?,String#-1:String
+getAttribute#?,String#-1:String" shape=ellipse]
+14 [label="getAttributeValue#?,String#3:ENGLISH
+getAttribute#?,String#3:ENGLISH" shape=ellipse]
+15 [label="getAttribute#?,String#3:Attribute" shape=ellipse]
+0 -> 14 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 15 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 10 [label="AST:1"];
+5 -> 10 [label="Data Dep:1"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="Data Dep:1"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+}

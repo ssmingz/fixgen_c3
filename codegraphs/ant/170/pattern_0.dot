@@ -1,0 +1,44 @@
+digraph "Pattern" {
+0 [label="setKeepCopy#?,boolean#3:UPDATE
+getKeepCopy#?#3:UPDATE
+setKeepCopy#?,boolean#3:UPDATE
+getKeepCopy#?#3:UPDATE" shape=ellipse]
+1 [label="setKeepCopy#?,boolean#3:m_Keep
+getKeepCopy#?#3:m_Keep
+setKeepCopy#?,boolean#3:m_Keep
+getKeepCopy#?#3:m_Keep" shape=ellipse]
+2 [label="setKeepCopy#?,boolean#3:keep
+setKeepCopy#?,boolean#3:keep" shape=ellipse]
+3 [label="setKeepCopy#?,boolean#3:m_Keep = keep
+getKeepCopy#?#3:return m_Keep
+setKeepCopy#?,boolean#3:m_Keep = keep
+getKeepCopy#?#3:return m_Keep" shape=ellipse]
+4 [label="setKeepCopy#?,boolean#-1:keep
+setKeepCopy#?,boolean#-1:keep" shape=ellipse]
+5 [label="setKeepCopy#?,boolean#-1:m_Keep
+getKeepCopy#?#-1:m_Keep
+setKeepCopy#?,boolean#-1:m_Keep
+getKeepCopy#?#-1:m_Keep" shape=ellipse]
+6 [label="setKeepCopy#?,boolean#-1:PlaceHold
+setKeepCopy#?,boolean#-1:PlaceHold" shape=ellipse]
+7 [label="setKeepCopy#?,boolean#3:mKeep
+getKeepCopy#?#3:mKeep
+setKeepCopy#?,boolean#3:mKeep
+getKeepCopy#?#3:mKeep" shape=ellipse]
+8 [label="getKeepCopy#?#2:\{
+    return m_Keep;
+\}" shape=ellipse]
+9 [label="getKeepCopy#?#2:\{
+    return m_Keep;
+\}" shape=ellipse]
+0 -> 7 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 5 [label="AST:4"];
+2 -> 1 [label="Data Dep:2"];
+2 -> 4 [label="AST:2"];
+3 -> 1 [label="AST:4"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+8 -> 3 [label="AST:1"];
+9 -> 3 [label="AST:1"];
+}

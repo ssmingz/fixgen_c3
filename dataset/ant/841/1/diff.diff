@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/841/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/841/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test2", "directory already exists as a file");
++    try {
++      buildRule.executeTarget("test2");
++      fail("BuildException expected: directory already exists as a file");
++    } catch (BuildException ex) {
++    }

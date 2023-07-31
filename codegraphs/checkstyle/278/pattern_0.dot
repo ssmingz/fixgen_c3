@@ -1,0 +1,68 @@
+digraph "Pattern" {
+0 [label="popValue#?#3:UPDATE
+pushValue#?#3:UPDATE" shape=ellipse]
+1 [label="popValue#?#3:mCurrentValue
+pushValue#?#3:mCurrentValue" shape=ellipse]
+2 [label="popValue#?#3:mValueStack" shape=ellipse]
+3 [label="popValue#?#3:mValueStack.pop()" shape=ellipse]
+4 [label="popValue#?#3:mValueStack
+pushValue#?#3:currentValue" shape=ellipse]
+5 [label="popValue#?#3:UPDATE" shape=ellipse]
+6 [label="popValue#?#3:valueStack" shape=ellipse]
+7 [label="popValue#?#3:PlaceHold
+pushValue#?#3:PlaceHold" shape=ellipse]
+8 [label="popValue#?#3:" shape=ellipse]
+9 [label="popValue#?#3:currentValue" shape=ellipse]
+10 [label="popValue#?#3:PlaceHold
+pushValue#?#3:push()" shape=ellipse]
+11 [label="popValue#?#3:" shape=ellipse]
+12 [label="popValue#?#4:mCurrentValue" shape=ellipse]
+13 [label="popValue#?#4:currentValue" shape=ellipse]
+14 [label="popValue#?#4:PlaceHold" shape=ellipse]
+15 [label="popValue#?#4:" shape=ellipse]
+16 [label="popValue#?#4:mCurrentValue" shape=ellipse]
+17 [label="popValue#?#4:PlaceHold" shape=ellipse]
+18 [label="popValue#?#4:UPDATE" shape=ellipse]
+19 [label="popValue#?#3:mCurrentValue = mValueStack.pop()" shape=ellipse]
+20 [label="popValue#?#2:\{
+    mCurrentValue = mValueStack.pop();
+    return mCurrentValue;
+\}
+pushValue#?#2:\{
+    mValueStack.push(mCurrentValue);
+    mCurrentValue = INITIAL_VALUE;
+\}" shape=ellipse]
+21 [label="popValue#?#3:mCurrentValue" shape=ellipse]
+22 [label="popValue#?#3:PlaceHold" shape=ellipse]
+23 [label="pushValue#?#3:mValueStack.push(mCurrentValue)" shape=ellipse]
+24 [label="pushValue#?#3:mValueStack" shape=ellipse]
+25 [label="pushValue#?#3:push" shape=ellipse]
+26 [label="pushValue#?#3:mCurrentValue" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 21 [label="AST:1"];
+1 -> 12 [label="Define Use:1"];
+1 -> 26 [label="AST:1"];
+2 -> 1 [label="Data Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="Action:1"];
+3 -> 2 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+12 -> 18 [label="Action:1"];
+13 -> 14 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+19 -> 1 [label="AST:1"];
+19 -> 3 [label="AST:1"];
+20 -> 19 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+23 -> 25 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 10 [label="AST:1"];
+23 -> 1 [label="AST:1"];
+26 -> 7 [label="AST:1"];
+}

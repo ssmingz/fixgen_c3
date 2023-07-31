@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="setFiltertrace#?,boolean#-1:MOVE
+setHaltonfailure#?,boolean#-1:MOVE
+setHaltonerror#?,boolean#-1:MOVE
+setFork#?,boolean#-1:MOVE" shape=ellipse]
+1 [label="setFiltertrace#?,boolean#-1:PlaceHold
+setHaltonfailure#?,boolean#-1:PlaceHold
+setHaltonerror#?,boolean#-1:PlaceHold
+setFork#?,boolean#-1:PlaceHold" shape=ellipse]
+2 [label="setFiltertrace#?,boolean#-1:
+setHaltonfailure#?,boolean#-1:
+setHaltonerror#?,boolean#-1:
+setFork#?,boolean#-1:" shape=ellipse]
+3 [label="setFiltertrace#?,boolean#3:allTests()
+setHaltonfailure#?,boolean#3:allTests()
+setHaltonerror#?,boolean#3:allTests()
+setFork#?,boolean#3:allTests()" shape=ellipse]
+4 [label="setFiltertrace#?,boolean#-1:PlaceHold
+setHaltonfailure#?,boolean#-1:PlaceHold
+setHaltonerror#?,boolean#-1:PlaceHold
+setFork#?,boolean#-1:PlaceHold" shape=ellipse]
+5 [label="setFiltertrace#?,boolean#3:e
+setHaltonfailure#?,boolean#3:e
+setHaltonerror#?,boolean#3:e
+setFork#?,boolean#3:e" shape=ellipse]
+6 [label="setFiltertrace#?,boolean#-1:PlaceHold
+setHaltonfailure#?,boolean#-1:PlaceHold
+setHaltonerror#?,boolean#-1:PlaceHold
+setFork#?,boolean#-1:PlaceHold" shape=ellipse]
+7 [label="setFiltertrace#?,boolean#3:this
+setHaltonfailure#?,boolean#3:this
+setHaltonerror#?,boolean#3:this
+setFork#?,boolean#3:this" shape=ellipse]
+0 -> 7 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="Data Dep:4"];
+3 -> 2 [label="AST:4"];
+}

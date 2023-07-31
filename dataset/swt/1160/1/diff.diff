@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1160/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1160/1/after.java
+@@ -20,2 +20,1 @@
+-    Rectangle paintBounds = new Rectangle(clipping.x, 0, clipping.width, header.getSize().y);
+-    headerPaintShadow(gc, paintBounds, true, false);
++    headerPaintShadow(gc, clipping.x, 0, clipping.width, header.getSize().y, true, false);
+@@ -29,4 +28,8 @@
+-      Rectangle bounds =
+-          new Rectangle(
+-              orderedColumns[i].getX(), 0, orderedColumns[i].width, getClientArea().height);
+-      headerPaintShadow(gc, bounds, false, true);
++      headerPaintShadow(
++          gc,
++          orderedColumns[i].getX(),
++          0,
++          orderedColumns[i].width,
++          getClientArea().height,
++          false,
++          true);

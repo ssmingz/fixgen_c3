@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2698/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2698/0/after.java
+@@ -6,2 +6,4 @@
+-        if (OS.SendMessage(handle, CB_GETDROPPEDSTATE, 0, 0) != 0) {
+-          return false;
++        if ((style & SWT.DROP_DOWN) != 0) {
++          if (OS.SendMessage(handle, CB_GETDROPPEDSTATE, 0, 0) != 0) {
++            return false;
++          }

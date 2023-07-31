@@ -1,0 +1,217 @@
+digraph "Pattern" {
+0 [label="execute#?#3:INSERT
+execute#?#3:INSERT" shape=ellipse]
+1 [label="execute#?#2:public void execute() throws BuildException \{
+    if (name != null) \{
+        if ((value == null) && (ref == null)) \{
+            throw new BuildException(\"You must specify value, location or \" + \"refid with the name attribute\", getLocation());
+        \}
+    \} else if (((file == null) && (resource == null)) && (env == null)) \{
+        throw new BuildException((\"You must specify file, resource or \" + \"environment when not using the \") + \"name attribute\", getLocation());
+    \}
+    if (((file == null) && (resource == null)) && (prefix != null)) \{
+        throw new BuildException(\"Prefix is only valid when loading from \" + \"a file or resource\", getLocation());
+    \}
+    if ((name != null) && (value != null)) \{
+        addProperty(name, value);
+    \}
+    if (file != null) \{
+        loadFile(file);
+    \}
+    if (resource != null) \{
+        loadResource(resource);
+    \}
+    if (env != null) \{
+        loadEnvironment(env);
+    \}
+    if ((name != null) && (ref != null)) \{
+        try \{
+            addProperty(name, ref.getReferencedObject(getProject()).toString());
+        \} catch (BuildException be) \{
+            if (fallback != null) \{
+                addProperty(name, ref.getReferencedObject(fallback).toString());
+            \} else \{
+                throw be;
+            \}
+        \}
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    if ((propertyHelper == null) && (delegates == null)) \{
+        throw new BuildException(\"Either a new PropertyHelper\" + \" or one or more PropertyHelper delegates are required\");
+    \}
+    PropertyHelper ph = propertyHelper;
+    if (ph == null) \{
+        ph = PropertyHelper.getPropertyHelper(getProject());
+    \} else \{
+        ph = propertyHelper;
+    \}
+    synchronized(ph) \{
+        if (delegates != null) \{
+            for (Iterator iter = delegates.iterator(); iter.hasNext();) \{
+                Object o = iter.next();
+                PropertyHelper.Delegate delegate = (o instanceof DelegateElement) ? ((DelegateElement) (o)).resolve() : ((PropertyHelper.Delegate) (o));
+                log(\"Adding PropertyHelper delegate \" + delegate, MSG_DEBUG);
+                ph.add(delegate);
+            \}
+        \}
+    \}
+    if (propertyHelper != null) \{
+        log(\"Installing PropertyHelper \" + propertyHelper, MSG_DEBUG);
+        getProject().addReference(REFID_PROPERTY_HELPER, propertyHelper);
+    \}
+\}" shape=ellipse]
+2 [label="execute#?#2:execute
+execute#?#2:execute" shape=ellipse]
+3 [label="execute#?#2:void
+execute#?#2:void" shape=ellipse]
+4 [label="execute#?#2:BuildException
+execute#?#2:BuildException" shape=ellipse]
+5 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+6 [label="execute#?#2:\{
+    if (name != null) \{
+        if ((value == null) && (ref == null)) \{
+            throw new BuildException(\"You must specify value, location or \" + \"refid with the name attribute\", getLocation());
+        \}
+    \} else if (((file == null) && (resource == null)) && (env == null)) \{
+        throw new BuildException((\"You must specify file, resource or \" + \"environment when not using the \") + \"name attribute\", getLocation());
+    \}
+    if (((file == null) && (resource == null)) && (prefix != null)) \{
+        throw new BuildException(\"Prefix is only valid when loading from \" + \"a file or resource\", getLocation());
+    \}
+    if ((name != null) && (value != null)) \{
+        addProperty(name, value);
+    \}
+    if (file != null) \{
+        loadFile(file);
+    \}
+    if (resource != null) \{
+        loadResource(resource);
+    \}
+    if (env != null) \{
+        loadEnvironment(env);
+    \}
+    if ((name != null) && (ref != null)) \{
+        try \{
+            addProperty(name, ref.getReferencedObject(getProject()).toString());
+        \} catch (BuildException be) \{
+            if (fallback != null) \{
+                addProperty(name, ref.getReferencedObject(fallback).toString());
+            \} else \{
+                throw be;
+            \}
+        \}
+    \}
+\}
+execute#?#2:\{
+    if ((propertyHelper == null) && (delegates == null)) \{
+        throw new BuildException(\"Either a new PropertyHelper\" + \" or one or more PropertyHelper delegates are required\");
+    \}
+    PropertyHelper ph = propertyHelper;
+    if (ph == null) \{
+        ph = PropertyHelper.getPropertyHelper(getProject());
+    \} else \{
+        ph = propertyHelper;
+    \}
+    synchronized(ph) \{
+        if (delegates != null) \{
+            for (Iterator iter = delegates.iterator(); iter.hasNext();) \{
+                Object o = iter.next();
+                PropertyHelper.Delegate delegate = (o instanceof DelegateElement) ? ((DelegateElement) (o)).resolve() : ((PropertyHelper.Delegate) (o));
+                log(\"Adding PropertyHelper delegate \" + delegate, MSG_DEBUG);
+                ph.add(delegate);
+            \}
+        \}
+    \}
+    if (propertyHelper != null) \{
+        log(\"Installing PropertyHelper \" + propertyHelper, MSG_DEBUG);
+        getProject().addReference(REFID_PROPERTY_HELPER, propertyHelper);
+    \}
+\}" shape=ellipse]
+7 [label="execute#?#3:if (name != null) \{
+    if ((value == null) && (ref == null)) \{
+        throw new BuildException(\"You must specify value, location or \" + \"refid with the name attribute\", getLocation());
+    \}
+\} else if (((file == null) && (resource == null)) && (env == null)) \{
+    throw new BuildException((\"You must specify file, resource or \" + \"environment when not using the \") + \"name attribute\", getLocation());
+\}
+execute#?#3:if ((propertyHelper == null) && (delegates == null)) \{
+    throw new BuildException(\"Either a new PropertyHelper\" + \" or one or more PropertyHelper delegates are required\");
+\}" shape=ellipse]
+8 [label="execute#?#15:if (((file == null) && (resource == null)) && (prefix != null)) \{
+    throw new BuildException(\"Prefix is only valid when loading from \" + \"a file or resource\", getLocation());
+\}
+execute#?#13:synchronized(ph) \{
+    if (delegates != null) \{
+        for (Iterator iter = delegates.iterator(); iter.hasNext();) \{
+            Object o = iter.next();
+            PropertyHelper.Delegate delegate = (o instanceof DelegateElement) ? ((DelegateElement) (o)).resolve() : ((PropertyHelper.Delegate) (o));
+            log(\"Adding PropertyHelper delegate \" + delegate, MSG_DEBUG);
+            ph.add(delegate);
+        \}
+    \}
+\}" shape=ellipse]
+9 [label="execute#?#19:if ((name != null) && (value != null)) \{
+    addProperty(name, value);
+\}
+execute#?#8:if (ph == null) \{
+    ph = PropertyHelper.getPropertyHelper(getProject());
+\} else \{
+    ph = propertyHelper;
+\}" shape=ellipse]
+10 [label="execute#?#22:if (file != null) \{
+    loadFile(file);
+\}
+execute#?#26:if (propertyHelper != null) \{
+    log(\"Installing PropertyHelper \" + propertyHelper, MSG_DEBUG);
+    getProject().addReference(REFID_PROPERTY_HELPER, propertyHelper);
+\}" shape=ellipse]
+11 [label="execute#?#25:if (resource != null) \{
+    loadResource(resource);
+\}
+execute#?#7:PropertyHelper ph = propertyHelper" shape=ellipse]
+12 [label="execute#?#28:if (env != null) \{
+    loadEnvironment(env);
+\}" shape=ellipse]
+13 [label="execute#?#31:if ((name != null) && (ref != null)) \{
+    try \{
+        addProperty(name, ref.getReferencedObject(getProject()).toString());
+    \} catch (BuildException be) \{
+        if (fallback != null) \{
+            addProperty(name, ref.getReferencedObject(fallback).toString());
+        \} else \{
+            throw be;
+        \}
+    \}
+\}" shape=ellipse]
+14 [label="execute#?#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+15 [label="execute#?#2:VE: ThrownTypes_execute
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+16 [label="execute#?#2:public
+execute#?#2:public" shape=ellipse]
+17 [label="execute#?#3:if (getProject() == null) \{
+    throw new IllegalStateException(\"project has not been set\");
+\}
+execute#?#3:if (getProject() == null) \{
+    throw new BuildException(\"Project instance not set\");
+\}" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+6 -> 10 [label="AST:2"];
+6 -> 11 [label="AST:2"];
+6 -> 12 [label="AST:1"];
+6 -> 13 [label="AST:1"];
+}

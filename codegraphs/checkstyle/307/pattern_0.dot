@@ -1,0 +1,37 @@
+digraph "Pattern" {
+0 [label="setVersionFormat#?,String#5:UPDATE
+setAuthorFormat#?,String#5:UPDATE" shape=ellipse]
+1 [label="setVersionFormat#?,String#5:mVersionFormatRE
+setAuthorFormat#?,String#5:mAuthorFormatRE" shape=ellipse]
+2 [label="setVersionFormat#?,String#5:aFormat
+setAuthorFormat#?,String#5:aFormat" shape=ellipse]
+3 [label="setVersionFormat#?,String#5:Utils.getRE(aFormat)
+setAuthorFormat#?,String#5:Utils.getRE(aFormat)" shape=ellipse]
+4 [label="setVersionFormat#?,String#5:aFormat
+setAuthorFormat#?,String#5:aFormat" shape=ellipse]
+5 [label="setVersionFormat#?,String#5:mVersionFormatRE = Utils.getRE(aFormat)
+setAuthorFormat#?,String#5:mAuthorFormatRE = Utils.getRE(aFormat)" shape=ellipse]
+6 [label="setVersionFormat#?,String#3:\{
+    mVersionFormat = aFormat;
+    mVersionFormatRE = Utils.getRE(aFormat);
+\}
+setAuthorFormat#?,String#3:\{
+    mAuthorFormat = aFormat;
+    mAuthorFormatRE = Utils.getRE(aFormat);
+\}" shape=ellipse]
+7 [label="setVersionFormat#?,String#5:mVersionFormatRE
+setAuthorFormat#?,String#5:mAuthorFormatRE" shape=ellipse]
+8 [label="setVersionFormat#?,String#5:PlaceHold
+setAuthorFormat#?,String#5:PlaceHold" shape=ellipse]
+9 [label="setVersionFormat#?,String#5:mVersionFormatPattern
+setAuthorFormat#?,String#5:mAuthorFormatPattern" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="Data Dep:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 1 [label="AST:2"];
+5 -> 3 [label="AST:2"];
+6 -> 5 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+}

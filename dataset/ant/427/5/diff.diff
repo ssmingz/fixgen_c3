@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/427/5/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/427/5/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectSpecificBuildException(
+-        "negationincomplete", "no conditions in <not>", "You must nest a condition into <not>");
++    try {
++      buildRule.executeTarget("negationincomplete");
++      fail("BuildException should have been thrown - no conditions in <not>");
++    } catch (BuildException ex) {
++      assertEquals("You must nest a condition into <not>", ex.getMessage());
++    }

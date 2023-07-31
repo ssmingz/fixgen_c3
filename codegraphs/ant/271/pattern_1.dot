@@ -1,0 +1,114 @@
+digraph "Pattern" {
+0 [label="testSpawn#?#4:DELETE
+normalizeSource#?,File#6:DELETE" shape=ellipse]
+1 [label="testSpawn#?#4:fileutils
+normalizeSource#?,File#6:fileUtils" shape=ellipse]
+2 [label="testSpawn#?#3:fileutils
+normalizeSource#?,File#4:fileUtils" shape=ellipse]
+3 [label="testSpawn#?#3:FileUtils fileutils = FileUtils.newFileUtils()
+normalizeSource#?,File#4:FileUtils fileUtils = FileUtils.newFileUtils()" shape=ellipse]
+4 [label="testSpawn#?#4:fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir())
+normalizeSource#?,File#6:fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+5 [label="testSpawn#?#4:File logFile = fileutils.createTempFile(\"spawn\", \"log\", project.getBaseDir())
+normalizeSource#?,File#6:source = fileUtils.normalize(source.getAbsolutePath())" shape=ellipse]
+6 [label="testSpawn#?#4:createTempFile" shape=ellipse]
+7 [label="testSpawn#?#4:createTempFile(java.lang.String,java.lang.String)
+normalizeSource#?,File#6:normalize()" shape=ellipse]
+8 [label="testSpawn#?#4:\"spawn\"" shape=ellipse]
+9 [label="testSpawn#?#4:\"log\"" shape=ellipse]
+10 [label="testSpawn#?#4:project.getBaseDir()
+normalizeSource#?,File#6:source.getAbsolutePath()" shape=ellipse]
+11 [label="testSpawn#?#3:INSERT" shape=ellipse]
+12 [label="testSpawn#?#-1:fileutils
+normalizeSource#?,File#-1:fileUtils" shape=ellipse]
+13 [label="testSpawn#?#4:logFile
+normalizeSource#?,File#6:source" shape=ellipse]
+14 [label="testSpawn#?#4:project
+normalizeSource#?,File#6:source" shape=ellipse]
+15 [label="testSpawn#?#5:logFile" shape=ellipse]
+16 [label="testSpawn#?#6:logFile" shape=ellipse]
+17 [label="testSpawn#?#14:logFile" shape=ellipse]
+18 [label="testSpawn#?#19:logFile" shape=ellipse]
+19 [label="normalizeSource#?,File#3:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+20 [label="normalizeSource#?,File#6:getAbsolutePath()" shape=ellipse]
+21 [label="normalizeSource#?,File#5:try \{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\} catch (BuildException e) \{
+\}" shape=ellipse]
+22 [label="normalizeSource#?,File#7:BuildException e" shape=ellipse]
+23 [label="normalizeSource#?,File#3:source != null" shape=ellipse]
+24 [label="normalizeSource#?,File#5:\{
+    source = fileUtils.normalize(source.getAbsolutePath());
+\}" shape=ellipse]
+25 [label="normalizeSource#?,File#4:FileUtils.newFileUtils()" shape=ellipse]
+26 [label="normalizeSource#?,File#3:source" shape=ellipse]
+27 [label="normalizeSource#?,File#4:newFileUtils()" shape=ellipse]
+28 [label="normalizeSource#?,File#7: catch (BuildException e) \{
+\}" shape=ellipse]
+29 [label="normalizeSource#?,File#3:if (source != null) \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    try \{
+        source = fileUtils.normalize(source.getAbsolutePath());
+    \} catch (BuildException e) \{
+    \}
+\}" shape=ellipse]
+30 [label="normalizeSource#?,File#3:null" shape=ellipse]
+31 [label="normalizeSource#?,File#4:FileUtils" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 12 [label="AST:2"];
+1 -> 13 [label="Data Dep:2"];
+2 -> 1 [label="Define Use:2"];
+3 -> 2 [label="AST:2"];
+3 -> 25 [label="AST:1"];
+4 -> 1 [label="AST:2"];
+4 -> 6 [label="AST:1"];
+4 -> 7 [label="AST:2"];
+4 -> 8 [label="AST:1"];
+4 -> 9 [label="AST:1"];
+4 -> 10 [label="AST:2"];
+4 -> 11 [label="Action:1"];
+5 -> 4 [label="AST:2"];
+5 -> 13 [label="AST:2"];
+10 -> 14 [label="AST:2"];
+10 -> 20 [label="AST:1"];
+13 -> 15 [label="Define Use:1"];
+13 -> 16 [label="Define Use:1"];
+13 -> 17 [label="Define Use:1"];
+13 -> 18 [label="Define Use:1"];
+14 -> 13 [label="Data Dep:2"];
+19 -> 3 [label="AST:1"];
+19 -> 21 [label="AST:1"];
+21 -> 24 [label="AST:1"];
+21 -> 28 [label="AST:1"];
+23 -> 19 [label="Control Dep:1"];
+23 -> 20 [label="Control Dep:1"];
+23 -> 21 [label="Control Dep:1"];
+23 -> 22 [label="Control Dep:1"];
+23 -> 26 [label="AST:1"];
+23 -> 30 [label="AST:1"];
+23 -> 3 [label="Control Dep:1"];
+23 -> 25 [label="Control Dep:1"];
+23 -> 27 [label="Control Dep:1"];
+23 -> 31 [label="Control Dep:1"];
+23 -> 24 [label="Control Dep:1"];
+23 -> 5 [label="Control Dep:1"];
+23 -> 13 [label="Control Dep:1"];
+23 -> 4 [label="Control Dep:1"];
+23 -> 7 [label="Control Dep:1"];
+23 -> 1 [label="Control Dep:1"];
+23 -> 10 [label="Control Dep:1"];
+23 -> 14 [label="Control Dep:1"];
+23 -> 28 [label="Control Dep:1"];
+24 -> 5 [label="AST:1"];
+25 -> 31 [label="AST:1"];
+25 -> 27 [label="AST:1"];
+28 -> 22 [label="AST:1"];
+29 -> 19 [label="AST:1"];
+29 -> 23 [label="AST:1"];
+}

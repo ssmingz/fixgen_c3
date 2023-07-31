@@ -1,0 +1,323 @@
+digraph "Pattern" {
+0 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:INSERT
+resolveType#?,SymTabAST,Scope,IClass,boolean#6:INSERT" shape=ellipse]
+1 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#3:\{
+    SymTabAST typeNode = ((SymTabAST) (node.getFirstChild()));
+    SymTabAST exprNode = ((SymTabAST) (typeNode.getNextSibling()));
+    if (exprNode.getType() == TokenTypes.RPAREN) \{
+        exprNode = ((SymTabAST) (exprNode.getNextSibling()));
+    \}
+    IClass type = null;
+    final SymTabAST child = ((SymTabAST) (typeNode.getFirstChild()));
+    if (child.getType() == TokenTypes.ARRAY_DECLARATOR) \{
+        type = new ArrayDef(resolveType(((SymTabAST) (typeNode.getFirstChild())), location, context, referencePhase));
+    \} else \{
+        type = resolveType(typeNode, location, context, referencePhase);
+    \}
+    resolveExpression(exprNode, location, context, referencePhase);
+    if (type != null) \{
+        ((SymTabAST) (typeNode.getFirstChild())).setDefinition(type, location, referencePhase);
+    \}
+    return type;
+\}
+resolveType#?,SymTabAST,Scope,IClass,boolean#3:\{
+    IClass result = null;
+    SymTabAST nameNode = ((SymTabAST) (expr.getFirstChild()));
+    if (nameNode.getType() == TokenTypes.DOT) \{
+        result = resolveDottedName(nameNode, location, context, referencePhase);
+    \} else \{
+        result = resolveClassIdent(nameNode, location, context, referencePhase);
+    \}
+    return result;
+\}" shape=ellipse]
+2 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#2:private IClass resolveTypecast(SymTabAST node, Scope location, IClass context, boolean referencePhase) \{
+    SymTabAST typeNode = ((SymTabAST) (node.getFirstChild()));
+    SymTabAST exprNode = ((SymTabAST) (typeNode.getNextSibling()));
+    if (exprNode.getType() == TokenTypes.RPAREN) \{
+        exprNode = ((SymTabAST) (exprNode.getNextSibling()));
+    \}
+    IClass type = null;
+    final SymTabAST child = ((SymTabAST) (typeNode.getFirstChild()));
+    if (child.getType() == TokenTypes.ARRAY_DECLARATOR) \{
+        type = new ArrayDef(resolveType(((SymTabAST) (typeNode.getFirstChild())), location, context, referencePhase));
+    \} else \{
+        type = resolveType(typeNode, location, context, referencePhase);
+    \}
+    resolveExpression(exprNode, location, context, referencePhase);
+    if (type != null) \{
+        ((SymTabAST) (typeNode.getFirstChild())).setDefinition(type, location, referencePhase);
+    \}
+    return type;
+\}
+resolveType#?,SymTabAST,Scope,IClass,boolean#2:public IClass resolveType(SymTabAST expr, Scope location, IClass context, boolean referencePhase) \{
+    IClass result = null;
+    SymTabAST nameNode = ((SymTabAST) (expr.getFirstChild()));
+    if (nameNode.getType() == TokenTypes.DOT) \{
+        result = resolveDottedName(nameNode, location, context, referencePhase);
+    \} else \{
+        result = resolveClassIdent(nameNode, location, context, referencePhase);
+    \}
+    return result;
+\}" shape=ellipse]
+3 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#2:resolveTypecast
+resolveType#?,SymTabAST,Scope,IClass,boolean#2:resolveType" shape=ellipse]
+4 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#2:IClass
+resolveType#?,SymTabAST,Scope,IClass,boolean#2:IClass" shape=ellipse]
+5 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#3:SymTabAST node
+resolveType#?,SymTabAST,Scope,IClass,boolean#3:SymTabAST expr" shape=ellipse]
+6 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#3:Scope location
+resolveType#?,SymTabAST,Scope,IClass,boolean#3:Scope location" shape=ellipse]
+7 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#3:IClass context
+resolveType#?,SymTabAST,Scope,IClass,boolean#3:IClass context" shape=ellipse]
+8 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#3:boolean referencePhase
+resolveType#?,SymTabAST,Scope,IClass,boolean#3:boolean referencePhase" shape=ellipse]
+9 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#4:SymTabAST typeNode = ((SymTabAST) (node.getFirstChild()))
+resolveType#?,SymTabAST,Scope,IClass,boolean#5:SymTabAST nameNode = ((SymTabAST) (expr.getFirstChild()))" shape=ellipse]
+10 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#4:typeNode
+resolveType#?,SymTabAST,Scope,IClass,boolean#5:nameNode" shape=ellipse]
+11 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#4:SymTabAST
+resolveType#?,SymTabAST,Scope,IClass,boolean#5:SymTabAST" shape=ellipse]
+12 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#4:((SymTabAST) (node.getFirstChild()))
+resolveType#?,SymTabAST,Scope,IClass,boolean#5:((SymTabAST) (expr.getFirstChild()))" shape=ellipse]
+13 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#5:SymTabAST exprNode = ((SymTabAST) (typeNode.getNextSibling()))
+resolveType#?,SymTabAST,Scope,IClass,boolean#6:if (nameNode.getType() == TokenTypes.DOT) \{
+    result = resolveDottedName(nameNode, location, context, referencePhase);
+\} else \{
+    result = resolveClassIdent(nameNode, location, context, referencePhase);
+\}" shape=ellipse]
+14 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#5:exprNode" shape=ellipse]
+15 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#5:SymTabAST" shape=ellipse]
+16 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#5:((SymTabAST) (typeNode.getNextSibling()))" shape=ellipse]
+17 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#6:if (exprNode.getType() == TokenTypes.RPAREN) \{
+    exprNode = ((SymTabAST) (exprNode.getNextSibling()));
+\}
+resolveType#?,SymTabAST,Scope,IClass,boolean#4:IClass result = null" shape=ellipse]
+18 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#6:exprNode.getType() == TokenTypes.RPAREN" shape=ellipse]
+19 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#6:\{
+    exprNode = ((SymTabAST) (exprNode.getNextSibling()));
+\}" shape=ellipse]
+20 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#9:IClass type = null
+resolveType#?,SymTabAST,Scope,IClass,boolean#11:return result" shape=ellipse]
+21 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#9:type" shape=ellipse]
+22 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#9:IClass" shape=ellipse]
+23 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#9:null" shape=ellipse]
+24 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#10:final SymTabAST child = ((SymTabAST) (typeNode.getFirstChild()))" shape=ellipse]
+25 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#10:child
+resolveType#?,SymTabAST,Scope,IClass,boolean#7:referencePhase" shape=ellipse]
+26 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#10:SymTabAST
+resolveType#?,SymTabAST,Scope,IClass,boolean#8:boolean" shape=ellipse]
+27 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#10:((SymTabAST) (typeNode.getFirstChild()))" shape=ellipse]
+28 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:if (child.getType() == TokenTypes.ARRAY_DECLARATOR) \{
+    type = new ArrayDef(resolveType(((SymTabAST) (typeNode.getFirstChild())), location, context, referencePhase));
+\} else \{
+    type = resolveType(typeNode, location, context, referencePhase);
+\}" shape=ellipse]
+29 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:child.getType() == TokenTypes.ARRAY_DECLARATOR" shape=ellipse]
+30 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#17:referencePhase
+resolveType#?,SymTabAST,Scope,IClass,boolean#9:referencePhase" shape=ellipse]
+31 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#18:createReference
+resolveType#?,SymTabAST,Scope,IClass,boolean#10:createReference" shape=ellipse]
+32 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#18:boolean
+resolveType#?,SymTabAST,Scope,IClass,boolean#10:boolean" shape=ellipse]
+33 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#17:type" shape=ellipse]
+34 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#17:type
+resolveType#?,SymTabAST,Scope,IClass,boolean#7:result" shape=ellipse]
+35 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#20:type" shape=ellipse]
+36 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#20:type
+resolveType#?,SymTabAST,Scope,IClass,boolean#11:result" shape=ellipse]
+37 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#21:type" shape=ellipse]
+38 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#21:type
+resolveType#?,SymTabAST,Scope,IClass,boolean#9:result" shape=ellipse]
+39 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#23:type" shape=ellipse]
+40 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#23:type" shape=ellipse]
+41 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#15:referencePhase" shape=ellipse]
+42 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#16:createReference" shape=ellipse]
+43 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#16:boolean
+resolveType#?,SymTabAST,Scope,IClass,boolean#6:boolean" shape=ellipse]
+44 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#12:type" shape=ellipse]
+45 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#12:type" shape=ellipse]
+46 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:\{
+    type = new ArrayDef(resolveType(((SymTabAST) (typeNode.getFirstChild())), location, context, referencePhase));
+\}" shape=ellipse]
+47 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#16:\{
+    type = resolveType(typeNode, location, context, referencePhase);
+\}" shape=ellipse]
+48 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:resolveExpression(exprNode, location, context, referencePhase)" shape=ellipse]
+49 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:resolveExpression" shape=ellipse]
+50 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:" shape=ellipse]
+51 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:resolveExpression(<unknown>,<unknown>,<unknown>,boolean)
+resolveType#?,SymTabAST,Scope,IClass,boolean#6:boolean" shape=ellipse]
+52 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:exprNode" shape=ellipse]
+53 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:location" shape=ellipse]
+54 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:context" shape=ellipse]
+55 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#19:referencePhase" shape=ellipse]
+56 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#20:if (type != null) \{
+    ((SymTabAST) (typeNode.getFirstChild())).setDefinition(type, location, referencePhase);
+\}" shape=ellipse]
+57 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#20:type != null" shape=ellipse]
+58 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#20:\{
+    ((SymTabAST) (typeNode.getFirstChild())).setDefinition(type, location, referencePhase);
+\}" shape=ellipse]
+59 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#23:return type" shape=ellipse]
+60 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:final boolean createReference = false" shape=ellipse]
+61 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:createReference" shape=ellipse]
+62 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#15:referencePhase" shape=ellipse]
+63 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#15:UPDATE" shape=ellipse]
+64 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#17:referencePhase
+resolveType#?,SymTabAST,Scope,IClass,boolean#9:referencePhase" shape=ellipse]
+65 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#17:UPDATE
+resolveType#?,SymTabAST,Scope,IClass,boolean#9:UPDATE" shape=ellipse]
+66 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:boolean" shape=ellipse]
+67 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:false" shape=ellipse]
+68 [label="resolveTypecast#?,SymTabAST,Scope,IClass,boolean#11:boolean" shape=ellipse]
+69 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#4:null" shape=ellipse]
+70 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#6:nameNode.getType() == TokenTypes.DOT" shape=ellipse]
+71 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#7:result" shape=ellipse]
+72 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#11:result" shape=ellipse]
+73 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#9:result" shape=ellipse]
+74 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#6:\{
+    result = resolveDottedName(nameNode, location, context, referencePhase);
+\}" shape=ellipse]
+75 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#8:\{
+    result = resolveClassIdent(nameNode, location, context, referencePhase);
+\}" shape=ellipse]
+76 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#7:UPDATE" shape=ellipse]
+77 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#6:false" shape=ellipse]
+78 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#4:IClass" shape=ellipse]
+79 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#4:result" shape=ellipse]
+80 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#7:referencePhase" shape=ellipse]
+81 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#6:createReference" shape=ellipse]
+82 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#8:createReference" shape=ellipse]
+83 [label="resolveType#?,SymTabAST,Scope,IClass,boolean#6:final boolean createReference = false" shape=ellipse]
+0 -> 60 [label="Action:1"];
+0 -> 83 [label="Action:1"];
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 20 [label="AST:2"];
+1 -> 24 [label="AST:1"];
+1 -> 28 [label="AST:1"];
+1 -> 48 [label="AST:1"];
+1 -> 56 [label="AST:1"];
+1 -> 59 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 3 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+13 -> 16 [label="AST:1"];
+13 -> 70 [label="AST:1"];
+13 -> 74 [label="AST:1"];
+13 -> 75 [label="AST:1"];
+14 -> 52 [label="Define Use:1"];
+17 -> 18 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+17 -> 69 [label="AST:1"];
+17 -> 78 [label="AST:1"];
+17 -> 79 [label="AST:1"];
+18 -> 19 [label="Control Dep:1"];
+20 -> 21 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 23 [label="AST:1"];
+20 -> 72 [label="AST:1"];
+21 -> 35 [label="Define Use:1"];
+21 -> 37 [label="Define Use:1"];
+21 -> 39 [label="Define Use:1"];
+24 -> 25 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+24 -> 27 [label="AST:1"];
+25 -> 71 [label="Data Dep:1"];
+25 -> 76 [label="Action:1"];
+25 -> 80 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+28 -> 46 [label="AST:1"];
+28 -> 47 [label="AST:1"];
+29 -> 46 [label="Control Dep:1"];
+29 -> 44 [label="Control Dep:1"];
+29 -> 41 [label="Control Dep:1"];
+29 -> 47 [label="Control Dep:1"];
+29 -> 33 [label="Control Dep:1"];
+29 -> 30 [label="Control Dep:1"];
+30 -> 64 [label="AST:2"];
+30 -> 33 [label="Data Dep:1"];
+30 -> 65 [label="Action:2"];
+30 -> 73 [label="Data Dep:1"];
+31 -> 32 [label="AST:2"];
+33 -> 34 [label="AST:1"];
+33 -> 35 [label="Define Use:1"];
+33 -> 37 [label="Define Use:1"];
+33 -> 39 [label="Define Use:1"];
+34 -> 35 [label="Define Use:1"];
+34 -> 37 [label="Define Use:1"];
+34 -> 39 [label="Define Use:1"];
+34 -> 72 [label="Define Use:1"];
+35 -> 36 [label="AST:1"];
+37 -> 38 [label="AST:1"];
+38 -> 72 [label="Define Use:1"];
+39 -> 40 [label="AST:1"];
+41 -> 62 [label="AST:1"];
+41 -> 44 [label="Data Dep:1"];
+41 -> 63 [label="Action:1"];
+42 -> 43 [label="AST:1"];
+44 -> 35 [label="Define Use:1"];
+44 -> 37 [label="Define Use:1"];
+44 -> 39 [label="Define Use:1"];
+44 -> 45 [label="AST:1"];
+45 -> 35 [label="Define Use:1"];
+45 -> 37 [label="Define Use:1"];
+45 -> 39 [label="Define Use:1"];
+48 -> 49 [label="AST:1"];
+48 -> 50 [label="AST:1"];
+48 -> 51 [label="AST:1"];
+48 -> 52 [label="AST:1"];
+48 -> 53 [label="AST:1"];
+48 -> 54 [label="AST:1"];
+48 -> 55 [label="AST:1"];
+56 -> 57 [label="AST:1"];
+56 -> 58 [label="AST:1"];
+57 -> 35 [label="AST:1"];
+57 -> 37 [label="Control Dep:1"];
+57 -> 58 [label="Control Dep:1"];
+59 -> 39 [label="AST:1"];
+60 -> 61 [label="AST:1"];
+60 -> 66 [label="AST:1"];
+60 -> 67 [label="AST:1"];
+61 -> 30 [label="Define Use:1"];
+61 -> 30 [label="Data Dep:1"];
+61 -> 30 [label="Control Dep:1"];
+61 -> 41 [label="Define Use:1"];
+61 -> 41 [label="Data Dep:1"];
+61 -> 41 [label="Control Dep:1"];
+67 -> 68 [label="AST:1"];
+70 -> 74 [label="Control Dep:1"];
+70 -> 71 [label="Control Dep:1"];
+70 -> 25 [label="Control Dep:1"];
+70 -> 75 [label="Control Dep:1"];
+70 -> 73 [label="Control Dep:1"];
+70 -> 30 [label="Control Dep:1"];
+71 -> 34 [label="AST:1"];
+71 -> 72 [label="Define Use:1"];
+72 -> 36 [label="AST:1"];
+73 -> 72 [label="Define Use:1"];
+73 -> 38 [label="AST:1"];
+77 -> 51 [label="AST:1"];
+79 -> 72 [label="Define Use:1"];
+81 -> 25 [label="Define Use:1"];
+81 -> 25 [label="Data Dep:1"];
+81 -> 25 [label="Control Dep:1"];
+81 -> 30 [label="Define Use:1"];
+81 -> 30 [label="Data Dep:1"];
+81 -> 30 [label="Control Dep:1"];
+82 -> 26 [label="AST:1"];
+83 -> 77 [label="AST:1"];
+83 -> 81 [label="AST:1"];
+83 -> 43 [label="AST:1"];
+}

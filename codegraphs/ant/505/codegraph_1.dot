@@ -1,0 +1,66 @@
+digraph "setEncoding#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setEncoding" shape=ellipse]
+2 [label="2:CtParameterImpl@final String encoding" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.encoding" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtVariableReadImpl@encoding" shape=ellipse]
+7 [label="3:CtAssignmentImpl@this.encoding = encoding" shape=ellipse]
+8 [label="4:CtFieldWriteImpl@this.zipEncoding" shape=ellipse]
+9 [label="4:CtThisAccessImpl@this" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@getZipEncoding(java.lang.String)" shape=ellipse]
+11 [label="4:CtVirtualElement@getZipEncoding" shape=ellipse]
+12 [label="4:CtTypeAccessImpl@ZipEncodingHelper" shape=ellipse]
+13 [label="4:CtVariableReadImpl@encoding" shape=ellipse]
+14 [label="4:CtInvocationImpl@ZipEncodingHelper.getZipEncoding(encoding)" shape=ellipse]
+15 [label="4:CtAssignmentImpl@this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding)" shape=ellipse]
+16 [label="5:CtFieldWriteImpl@useEFS" shape=ellipse]
+17 [label="5:CtExecutableReferenceImpl@isUTF8(java.lang.String)" shape=ellipse]
+18 [label="5:CtVirtualElement@isUTF8" shape=ellipse]
+19 [label="5:CtTypeAccessImpl@ZipEncodingHelper" shape=ellipse]
+20 [label="5:CtVariableReadImpl@encoding" shape=ellipse]
+21 [label="5:CtInvocationImpl@ZipEncodingHelper.isUTF8(encoding)" shape=ellipse]
+22 [label="5:CtOperatorAssignmentImpl@useEFS &= ZipEncodingHelper.isUTF8(encoding)" shape=ellipse]
+23 [label="2:CtBlockImpl@\{
+    this.encoding = encoding;
+    this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
+    useEFS &= ZipEncodingHelper.isUTF8(encoding);
+\}" shape=ellipse]
+24 [label="2:CtMethodImpl@public void setEncoding(final String encoding) \{
+    this.encoding = encoding;
+    this.zipEncoding = ZipEncodingHelper.getZipEncoding(encoding);
+    useEFS &= ZipEncodingHelper.isUTF8(encoding);
+\}" shape=ellipse]
+25 [label="5:Update@UPDATE" shape=ellipse]
+26 [label="5:CtFieldWriteImpl@useUTF8Flag" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="Data Dep"];
+7 -> 4 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 9 [label="AST"];
+13 -> 8 [label="Data Dep"];
+14 -> 11 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 25 [label="Action"];
+20 -> 16 [label="Data Dep"];
+21 -> 18 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 7 [label="AST"];
+23 -> 15 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 1 [label="AST"];
+24 -> 0 [label="AST"];
+24 -> 2 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 26 [label="Action"];
+}

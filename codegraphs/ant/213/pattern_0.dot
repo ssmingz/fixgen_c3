@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="setFloat#?,Float#3:UPDATE
+setFloat2#?,float#3:UPDATE" shape=ellipse]
+1 [label="setFloat#?,Float#3:getLogger().info((\"setFloat( \" + value) + \" );\")
+setFloat2#?,float#3:getLogger().info((\"setFloat2( \" + value) + \" );\")" shape=ellipse]
+2 [label="setFloat#?,Float#2:\{
+    getLogger().info((\"setFloat( \" + value) + \" );\");
+\}
+setFloat2#?,float#2:\{
+    getLogger().info((\"setFloat2( \" + value) + \" );\");
+\}" shape=ellipse]
+3 [label="setFloat#?,Float#2:public void setFloat(final Float value) \{
+    getLogger().info((\"setFloat( \" + value) + \" );\");
+\}
+setFloat2#?,float#2:public void setFloat2(final float value) \{
+    getLogger().info((\"setFloat2( \" + value) + \" );\");
+\}" shape=ellipse]
+4 [label="setFloat#?,Float#3:info
+setFloat2#?,float#3:info" shape=ellipse]
+5 [label="setFloat#?,Float#3:getLogger()
+setFloat2#?,float#3:getLogger()" shape=ellipse]
+6 [label="setFloat#?,Float#3:getLogger
+setFloat2#?,float#3:getLogger" shape=ellipse]
+7 [label="setFloat#?,Float#-1:
+setFloat2#?,float#-1:" shape=ellipse]
+8 [label="setFloat#?,Float#3:getLogger()
+setFloat2#?,float#3:getLogger()" shape=ellipse]
+9 [label="setFloat#?,Float#3:info(java.lang.String)
+setFloat2#?,float#3:info(java.lang.String)" shape=ellipse]
+10 [label="setFloat#?,Float#-1:String
+setFloat2#?,float#-1:String" shape=ellipse]
+11 [label="setFloat#?,Float#3:(\"setFloat( \" + value) + \" );\"
+setFloat2#?,float#3:(\"setFloat2( \" + value) + \" );\"" shape=ellipse]
+12 [label="setFloat#?,Float#-1:String
+setFloat2#?,float#-1:String" shape=ellipse]
+13 [label="setFloat#?,Float#3:(\"setFloat( \" + value)
+setFloat2#?,float#3:(\"setFloat2( \" + value)" shape=ellipse]
+14 [label="setFloat#?,Float#3:\" );\"
+setFloat2#?,float#3:\" );\"" shape=ellipse]
+15 [label="setFloat#?,Float#3:getLogger().warn((\"setFloat( \" + value) + \" );\")
+setFloat2#?,float#3:getLogger().warn((\"setFloat2( \" + value) + \" );\")" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+}

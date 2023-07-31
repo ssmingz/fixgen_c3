@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1879/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1879/1/after.java
+@@ -13,3 +13,1 @@
+-      final ExecManager execManager = ((ExecManager) (getService(ExecManager.class)));
+-      final Execute exe = new Execute(execManager);
+-      getContext().debug(cmdl.toString());
++      final Execute exe = new Execute();
+@@ -17,6 +15,2 @@
+-      int exitValue = exe.execute();
+-      if (exitValue != 0) {
+-        throw new TaskException(("JProbe Coverage failed (" + exitValue) + ")");
+-      }
+-    } catch (IOException e) {
+-      throw new TaskException("Failed to execute JProbe Coverage.", e);
++      exe.setReturnCode(0);
++      exe.execute(getContext());

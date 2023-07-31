@@ -1,0 +1,79 @@
+digraph "Pattern" {
+0 [label="execute#?#5:UPDATE
+execute#?#7:UPDATE
+execute#?#7:UPDATE
+execute#?#5:UPDATE" shape=ellipse]
+1 [label="execute#?#5:caller.document
+execute#?#7:caller.document
+execute#?#7:caller.document
+execute#?#5:caller.document" shape=ellipse]
+2 [label="execute#?#5:new XSLTInputSource(caller.document)
+execute#?#7:new DOMSource(caller.document)
+execute#?#7:new DOMSource(caller.document)
+execute#?#5:new XSLTInputSource(caller.document)" shape=ellipse]
+3 [label="execute#?#5:XSLTInputSource xml_src = new XSLTInputSource(caller.document)
+execute#?#7:Source xml_src = new DOMSource(caller.document)
+execute#?#7:Source xml_src = new DOMSource(caller.document)
+execute#?#5:XSLTInputSource xml_src = new XSLTInputSource(caller.document)" shape=ellipse]
+4 [label="execute#?#-1:XSLTInputSource()
+execute#?#-1:DOMSource()
+execute#?#-1:DOMSource()
+execute#?#-1:XSLTInputSource()" shape=ellipse]
+5 [label="execute#?#5:INSERT
+execute#?#7:INSERT
+execute#?#7:INSERT
+execute#?#5:INSERT" shape=ellipse]
+6 [label="execute#?#-1:caller
+execute#?#-1:caller
+execute#?#-1:caller
+execute#?#-1:caller" shape=ellipse]
+7 [label="execute#?#-1:caller
+execute#?#-1:caller
+execute#?#-1:caller
+execute#?#-1:caller" shape=ellipse]
+8 [label="execute#?#-1:caller.document
+execute#?#-1:caller.document
+execute#?#-1:caller.document
+execute#?#-1:caller.document" shape=ellipse]
+9 [label="execute#?#5:xml_src
+execute#?#7:xml_src
+execute#?#7:xml_src
+execute#?#5:xml_src" shape=ellipse]
+10 [label="execute#?#10:xml_src
+execute#?#11:xml_src
+execute#?#11:xml_src
+execute#?#10:xml_src" shape=ellipse]
+11 [label="execute#?#5:MOVE
+execute#?#7:MOVE
+execute#?#7:MOVE
+execute#?#5:MOVE" shape=ellipse]
+12 [label="execute#?#5:caller.getDocument()
+execute#?#7:caller.getDocument()
+execute#?#7:caller.getDocument()
+execute#?#5:caller.getDocument()" shape=ellipse]
+13 [label="execute#?#5:caller
+execute#?#7:caller
+execute#?#7:caller
+execute#?#5:caller" shape=ellipse]
+14 [label="execute#?#5:xml_src
+execute#?#7:xml_src
+execute#?#7:xml_src
+execute#?#5:xml_src" shape=ellipse]
+0 -> 13 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+1 -> 8 [label="AST:4"];
+1 -> 9 [label="Data Dep:4"];
+1 -> 11 [label="Action:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+3 -> 9 [label="AST:4"];
+5 -> 12 [label="Action:4"];
+6 -> 7 [label="AST:4"];
+9 -> 10 [label="Define Use:4"];
+11 -> 12 [label="Action:4"];
+12 -> 13 [label="AST:4"];
+13 -> 14 [label="Data Dep:4"];
+}

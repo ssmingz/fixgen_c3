@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/944/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/944/1/after.java
+@@ -6,2 +6,2 @@
+-    CompileShouldFailListener listener = new CompileShouldFailListener();
+-    _model.addListener(listener);
++    _compileDone = false;
++    _model.addListener(_failListener);
+@@ -9,0 +9,1 @@
++    _waitCompileDone();
+@@ -10,1 +11,1 @@
+-    listener.checkCompileOccurred();
++    _failListener.checkCompileOccurred();
+@@ -13,1 +14,1 @@
+-    _model.removeListener(listener);
++    _model.removeListener(_failListener);

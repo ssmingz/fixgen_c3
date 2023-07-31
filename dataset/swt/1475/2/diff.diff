@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1475/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1475/2/after.java
+@@ -2,1 +2,7 @@
+-  public void test_removeLocationListenerLorg_eclipse_swt_browser_LocationListener() {}
++  public void test_removeLocationListenerLorg_eclipse_swt_browser_LocationListener() {
++    try {
++      browser.removeLocationListener(null);
++      fail("No exception thrown for listener == null");
++    } catch (IllegalArgumentException e) {
++    }
++  }

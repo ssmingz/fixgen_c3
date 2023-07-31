@@ -1,0 +1,27 @@
+digraph "Pattern" {
+0 [label="toString#?#3:UPDATE
+getLocation#?#3:UPDATE" shape=ellipse]
+1 [label="toString#?#3:location
+getLocation#?#3:location" shape=ellipse]
+2 [label="toString#?#3:location.toString()" shape=ellipse]
+3 [label="toString#?#3:location.toString() + getMessage()" shape=ellipse]
+4 [label="toString#?#3:toString" shape=ellipse]
+5 [label="toString#?#3:toString()" shape=ellipse]
+6 [label="toString#?#-1:location
+getLocation#?#-1:location" shape=ellipse]
+7 [label="toString#?#3:m_location
+getLocation#?#3:m_location" shape=ellipse]
+8 [label="getLocation#?#2:\{
+    return location;
+\}" shape=ellipse]
+9 [label="getLocation#?#3:return location" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+}

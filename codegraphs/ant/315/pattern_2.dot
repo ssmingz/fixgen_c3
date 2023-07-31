@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="testContainsIncomplete2#?#-1:MOVE
+testContainsIncomplete1#?#-1:MOVE" shape=ellipse]
+1 [label="testContainsIncomplete2#?#-1:PlaceHold
+testContainsIncomplete1#?#-1:PlaceHold" shape=ellipse]
+2 [label="testContainsIncomplete2#?#-1:
+testContainsIncomplete1#?#-1:" shape=ellipse]
+3 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\")
+testContainsIncomplete1#?#3:expectSpecificBuildException(\"contains-incomplete1\", \"Missing contains attribute\", \"both string and substring are required in contains\")" shape=ellipse]
+4 [label="testContainsIncomplete2#?#-1:PlaceHold
+testContainsIncomplete1#?#-1:PlaceHold" shape=ellipse]
+5 [label="testContainsIncomplete2#?#-1:PlaceHold
+testContainsIncomplete1#?#-1:PlaceHold" shape=ellipse]
+6 [label="testContainsIncomplete2#?#6:fail(\"BuildException should have been thrown - Missing contains attribute\")
+testContainsIncomplete1#?#6:fail(\"BuildException should have been thrown - Missing contains attribute\")" shape=ellipse]
+7 [label="testContainsIncomplete2#?#5:MOVE
+testContainsIncomplete1#?#5:MOVE" shape=ellipse]
+8 [label="testContainsIncomplete2#?#5:\"Missing contains attribute\"
+testContainsIncomplete1#?#5:\"Missing contains attribute\"" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+7 -> 6 [label="Action:2"];
+8 -> 7 [label="Action:2"];
+}

@@ -1,0 +1,89 @@
+digraph "Pattern" {
+0 [label="processFile#?,File#50:INSERT
+processFile#?,File#30:INSERT" shape=ellipse]
+1 [label="processFile#?,File#49:\{
+    src.delete();
+    temp.renameTo(src);
+\}
+processFile#?,File#29:\{
+    FILE_UTILS.rename(temp, src);
+    temp = null;
+\}" shape=ellipse]
+2 [label="processFile#?,File#49:changes
+processFile#?,File#29:changes" shape=ellipse]
+3 [label="processFile#?,File#42:changes
+processFile#?,File#28:changes" shape=ellipse]
+4 [label="processFile#?,File#49:if (changes) \{
+    src.delete();
+    temp.renameTo(src);
+\} else \{
+    temp.delete();
+\}
+processFile#?,File#29:if (changes) \{
+    FILE_UTILS.rename(temp, src);
+    temp = null;
+\}" shape=ellipse]
+5 [label="processFile#?,File#-1:changes
+processFile#?,File#-1:changes" shape=ellipse]
+6 [label="processFile#?,File#50:src.delete()
+processFile#?,File#30:FILE_UTILS.rename(temp, src)" shape=ellipse]
+7 [label="processFile#?,File#50:delete()
+processFile#?,File#30:rename(File,File)" shape=ellipse]
+8 [label="processFile#?,File#50:src
+processFile#?,File#30:src" shape=ellipse]
+9 [label="processFile#?,File#51:temp.renameTo(src)" shape=ellipse]
+10 [label="processFile#?,File#51:renameTo(File)" shape=ellipse]
+11 [label="processFile#?,File#51:temp
+processFile#?,File#31:temp" shape=ellipse]
+12 [label="processFile#?,File#51:src" shape=ellipse]
+13 [label="processFile#?,File#52:\{
+    temp.delete();
+\}" shape=ellipse]
+14 [label="processFile#?,File#53:temp.delete()" shape=ellipse]
+15 [label="processFile#?,File#53:delete()" shape=ellipse]
+16 [label="processFile#?,File#53:temp" shape=ellipse]
+17 [label="processFile#?,File#50:++fileCount
+processFile#?,File#30:fileCount++" shape=ellipse]
+18 [label="processFile#?,File#30:temp" shape=ellipse]
+19 [label="processFile#?,File#31:null" shape=ellipse]
+20 [label="processFile#?,File#31:temp = null" shape=ellipse]
+21 [label="processFile#?,File#30:FILE_UTILS" shape=ellipse]
+0 -> 17 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 9 [label="AST:1"];
+1 -> 20 [label="AST:1"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+3 -> 2 [label="Define Use:2"];
+4 -> 1 [label="AST:2"];
+4 -> 2 [label="AST:2"];
+4 -> 13 [label="AST:1"];
+6 -> 8 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 18 [label="AST:1"];
+6 -> 21 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+20 -> 19 [label="AST:1"];
+20 -> 11 [label="AST:1"];
+}

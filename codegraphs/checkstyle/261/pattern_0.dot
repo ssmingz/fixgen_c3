@@ -1,0 +1,180 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#6:DELETE" shape=ellipse]
+1 [label="visitToken#?,DetailAST#6:getRegexp()
+visitToken#?,DetailAST#5:getRegexp().matcher(text)" shape=ellipse]
+2 [label="visitToken#?,DetailAST#4:mustCheckName(ast)
+visitToken#?,DetailAST#5:getRegexp().matcher(text).find()" shape=ellipse]
+3 [label="visitToken#?,DetailAST#4:if (mustCheckName(ast)) \{
+    final DetailAST nameAST = ast.findFirstToken(IDENT);
+    if (!getRegexp().matcher(nameAST.getText()).find()) \{
+        log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+    \}
+\}
+visitToken#?,DetailAST#5:if (getRegexp().matcher(text).find()) \{
+    String customMessage = message;
+    if (customMessage.isEmpty()) \{
+        customMessage = MSG_KEY;
+    \}
+    log(ast.getLineNo(), ast.getColumnNo(), customMessage, getFormat());
+\}" shape=ellipse]
+4 [label="visitToken#?,DetailAST#4:mustCheckName
+visitToken#?,DetailAST#5:find" shape=ellipse]
+5 [label="visitToken#?,DetailAST#4:" shape=ellipse]
+6 [label="visitToken#?,DetailAST#4:mustCheckName(<unknown>)
+visitToken#?,DetailAST#5:find()" shape=ellipse]
+7 [label="visitToken#?,DetailAST#4:ast" shape=ellipse]
+8 [label="visitToken#?,DetailAST#4:\{
+    final DetailAST nameAST = ast.findFirstToken(IDENT);
+    if (!getRegexp().matcher(nameAST.getText()).find()) \{
+        log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+    \}
+\}
+visitToken#?,DetailAST#5:\{
+    String customMessage = message;
+    if (customMessage.isEmpty()) \{
+        customMessage = MSG_KEY;
+    \}
+    log(ast.getLineNo(), ast.getColumnNo(), customMessage, getFormat());
+\}" shape=ellipse]
+9 [label="visitToken#?,DetailAST#5:final DetailAST nameAST = ast.findFirstToken(IDENT)
+visitToken#?,DetailAST#6:String customMessage = message" shape=ellipse]
+10 [label="visitToken#?,DetailAST#5:ast.findFirstToken(IDENT)" shape=ellipse]
+11 [label="visitToken#?,DetailAST#5:findFirstToken()
+visitToken#?,DetailAST#10:getLineNo()" shape=ellipse]
+12 [label="visitToken#?,DetailAST#5:ast
+visitToken#?,DetailAST#10:ast" shape=ellipse]
+13 [label="visitToken#?,DetailAST#5:IDENT
+visitToken#?,DetailAST#10:PlaceHold" shape=ellipse]
+14 [label="visitToken#?,DetailAST#6:if (!getRegexp().matcher(nameAST.getText()).find()) \{
+    log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+\}
+visitToken#?,DetailAST#7:if (customMessage.isEmpty()) \{
+    customMessage = MSG_KEY;
+\}" shape=ellipse]
+15 [label="visitToken#?,DetailAST#6:!getRegexp().matcher(nameAST.getText()).find()" shape=ellipse]
+16 [label="visitToken#?,DetailAST#12:format" shape=ellipse]
+17 [label="visitToken#?,DetailAST#12:format
+visitToken#?,DetailAST#10:format" shape=ellipse]
+18 [label="visitToken#?,DetailAST#12:PlaceHold
+visitToken#?,DetailAST#10:PlaceHold" shape=ellipse]
+19 [label="visitToken#?,DetailAST#12:
+visitToken#?,DetailAST#10:" shape=ellipse]
+20 [label="visitToken#?,DetailAST#6:getRegexp().matcher(nameAST.getText()).find()
+visitToken#?,DetailAST#10:getFormat()" shape=ellipse]
+21 [label="visitToken#?,DetailAST#6:find()
+visitToken#?,DetailAST#10:getFormat()" shape=ellipse]
+22 [label="visitToken#?,DetailAST#6:getRegexp().matcher(nameAST.getText())" shape=ellipse]
+23 [label="visitToken#?,DetailAST#6:matcher()
+visitToken#?,DetailAST#10:getColumnNo()" shape=ellipse]
+24 [label="visitToken#?,DetailAST#6:getRegexp()" shape=ellipse]
+25 [label="visitToken#?,DetailAST#6:" shape=ellipse]
+26 [label="visitToken#?,DetailAST#6:PlaceHold
+visitToken#?,DetailAST#10:PlaceHold" shape=ellipse]
+27 [label="visitToken#?,DetailAST#6:nameAST.getText()" shape=ellipse]
+28 [label="visitToken#?,DetailAST#6:getText()
+visitToken#?,DetailAST#7:isEmpty()" shape=ellipse]
+29 [label="visitToken#?,DetailAST#6:nameAST
+visitToken#?,DetailAST#7:customMessage" shape=ellipse]
+30 [label="visitToken#?,DetailAST#6:regexp" shape=ellipse]
+31 [label="visitToken#?,DetailAST#6:PlaceHold" shape=ellipse]
+32 [label="visitToken#?,DetailAST#6:" shape=ellipse]
+33 [label="visitToken#?,DetailAST#6:getRegexp" shape=ellipse]
+34 [label="visitToken#?,DetailAST#10:log(ast.getLineNo(), ast.getColumnNo(), customMessage, getFormat())" shape=ellipse]
+35 [label="visitToken#?,DetailAST#10:INSERT" shape=ellipse]
+36 [label="visitToken#?,DetailAST#6:message" shape=ellipse]
+37 [label="visitToken#?,DetailAST#7:customMessage.isEmpty()" shape=ellipse]
+38 [label="visitToken#?,DetailAST#10:" shape=ellipse]
+39 [label="visitToken#?,DetailAST#10:ast.getLineNo()" shape=ellipse]
+40 [label="visitToken#?,DetailAST#10:ast.getColumnNo()" shape=ellipse]
+41 [label="visitToken#?,DetailAST#10:ast" shape=ellipse]
+42 [label="visitToken#?,DetailAST#10:customMessage" shape=ellipse]
+43 [label="visitToken#?,DetailAST#10:" shape=ellipse]
+44 [label="visitToken#?,DetailAST#10:format" shape=ellipse]
+45 [label="visitToken#?,DetailAST#10:log" shape=ellipse]
+46 [label="visitToken#?,DetailAST#10:log(<unknown>,<unknown>,java.lang.String,<unknown>)" shape=ellipse]
+1 -> 0 [label="Action:1"];
+1 -> 33 [label="AST:1"];
+1 -> 25 [label="AST:1"];
+1 -> 24 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:2"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:2"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:2"];
+2 -> 29 [label="Control Dep:2"];
+2 -> 1 [label="AST:1"];
+2 -> 34 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:1"];
+2 -> 38 [label="Control Dep:1"];
+2 -> 39 [label="Control Dep:1"];
+2 -> 40 [label="Control Dep:1"];
+2 -> 41 [label="Control Dep:1"];
+2 -> 42 [label="Control Dep:1"];
+2 -> 43 [label="Control Dep:1"];
+2 -> 44 [label="Control Dep:1"];
+2 -> 46 [label="Control Dep:1"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 14 [label="AST:2"];
+8 -> 34 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 36 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 13 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+14 -> 37 [label="AST:1"];
+15 -> 20 [label="AST:1"];
+15 -> 16 [label="Control Dep:1"];
+16 -> 17 [label="AST:1"];
+17 -> 18 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+20 -> 22 [label="AST:1"];
+20 -> 21 [label="AST:2"];
+20 -> 43 [label="AST:1"];
+22 -> 1 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+22 -> 27 [label="AST:1"];
+25 -> 26 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+30 -> 31 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+34 -> 45 [label="AST:1"];
+34 -> 38 [label="AST:1"];
+34 -> 46 [label="AST:1"];
+34 -> 39 [label="AST:1"];
+34 -> 40 [label="AST:1"];
+34 -> 42 [label="AST:1"];
+34 -> 20 [label="AST:1"];
+34 -> 35 [label="Action:1"];
+35 -> 44 [label="Action:1"];
+37 -> 29 [label="AST:1"];
+37 -> 28 [label="AST:1"];
+38 -> 13 [label="AST:1"];
+39 -> 12 [label="AST:1"];
+39 -> 11 [label="AST:1"];
+40 -> 41 [label="AST:1"];
+40 -> 23 [label="AST:1"];
+43 -> 26 [label="AST:1"];
+44 -> 17 [label="AST:1"];
+}

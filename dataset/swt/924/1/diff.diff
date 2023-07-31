@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/924/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/924/1/after.java
+@@ -17,7 +17,3 @@
+-        OS.PenSize(((short) (data.lineWidth)), ((short) (data.lineWidth)));
+-        Rect rect = new Rect();
+-        rect.left = ((short) (x));
+-        rect.top = ((short) (y));
+-        rect.right = ((short) ((x + width) + 1));
+-        rect.bottom = ((short) ((y + height) + 1));
+-        OS.FrameOval(rect);
++        OS.PenSize(((short) (fLineWidth)), ((short) (fLineWidth)));
++        fRect.set(x, y, width + 1, height + 1);
++        OS.FrameOval(fRect.getData());

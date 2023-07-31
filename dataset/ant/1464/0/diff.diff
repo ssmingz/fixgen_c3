@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1464/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1464/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "condition.condition.task", "task masking condition", "doesn't support the nested");
++    try {
++      buildRule.executeTarget("condition.condition.task");
++      fail("Build exception expected: Task masking condition");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("doesn't support the nested", ex.getMessage());
++    }

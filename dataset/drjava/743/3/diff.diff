@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/3/after.java
+@@ -7,1 +7,6 @@
+-    _notifier.breakpointSet(breakpoint);
++    Utilities.invokeLater(
++        new Runnable() {
++          public void run() {
++            _notifier.breakpointSet(breakpoint);
++          }
++        });

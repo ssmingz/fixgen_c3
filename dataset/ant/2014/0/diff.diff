@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2014/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2014/0/after.java
+@@ -39,1 +39,5 @@
+-    super.zipFile(bais, zOut, INDEX_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
++    try {
++      super.zipFile(bais, zOut, INDEX_NAME, System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
++    } finally {
++      FileUtils.close(bais);
++    }

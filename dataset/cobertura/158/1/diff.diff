@@ -1,0 +1,18 @@
+--- D:\expdata\c3\dataset\cobertura\158\1/before.java
++++ D:\expdata\c3\dataset\cobertura\158\1/after.java
+@@ -4,5 +4,10 @@
+-    for (Iterator i = branches.values().iterator();
+-        i.hasNext();
+-        number += ((LineData) (i.next())).getNumberOfCoveredBranches())
+-      ;
+-    return number;
++    lock.lock();
++    try {
++      for (Iterator i = branches.values().iterator();
++          i.hasNext();
++          number += ((LineData) (i.next())).getNumberOfCoveredBranches())
++        ;
++      return number;
++    } finally {
++      lock.unlock();
++    }

@@ -1,0 +1,52 @@
+digraph "testTwoMappers#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testTwoMappers" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectBuildException(java.lang.String,<unknown>)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectBuildException" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"testTwoMappers\"" shape=ellipse]
+5 [label="3:CtTypeAccessImpl@ERROR_MULTIPLE_MAPPERS" shape=ellipse]
+6 [label="3:CtInvocationImpl@expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS)" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS);
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void testTwoMappers() \{
+    expectBuildException(\"testTwoMappers\", ERROR_MULTIPLE_MAPPERS);
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="6:CtInvocationImpl@fail(\"BuildException expected: \" + Expand.ERROR_MULTIPLE_MAPPERS)" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="6:CtLiteralImpl@\"BuildException expected: \"" shape=ellipse]
+13 [label="3:Update@UPDATE" shape=ellipse]
+14 [label="2:Insert@INSERT" shape=ellipse]
+15 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+16 [label="4:Insert@INSERT" shape=ellipse]
+17 [label="4:CtTryImpl@try \{
+    buildRule.executeTarget(\"testTwoMappers\");
+    fail(\"BuildException expected: \" + Expand.ERROR_MULTIPLE_MAPPERS);
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+18 [label="3:Move@MOVE" shape=ellipse]
+19 [label="3:Move@MOVE" shape=ellipse]
+20 [label="3:Move@MOVE" shape=ellipse]
+4 -> 11 [label="Action"];
+4 -> 19 [label="Action"];
+5 -> 13 [label="Action"];
+5 -> 20 [label="Action"];
+6 -> 3 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 9 [label="Action"];
+6 -> 18 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 14 [label="Action"];
+8 -> 16 [label="Action"];
+9 -> 10 [label="Action"];
+11 -> 12 [label="Action"];
+14 -> 15 [label="Action"];
+16 -> 17 [label="Action"];
+18 -> 17 [label="Action"];
+}

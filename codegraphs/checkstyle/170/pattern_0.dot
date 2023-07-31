@@ -1,0 +1,328 @@
+digraph "Pattern" {
+0 [label="checkIndentation#?#4:DELETE
+checkLParen#?#5:DELETE
+checkIndentation#?#7:DELETE
+checkRParen#?#5:DELETE" shape=ellipse]
+1 [label="checkIndentation#?#4:columnNo != getLevel()
+checkLParen#?#5:columnNo == getLevel()
+checkIndentation#?#7:lineStart != getLevel()
+checkRParen#?#5:columnNo == getLevel()" shape=ellipse]
+2 [label="checkIndentation#?#4:if (columnNo != getLevel()) \{
+    logError(getMainAst(), \"\", columnNo);
+\}
+checkLParen#?#5:if (columnNo == getLevel()) \{
+    return;
+\}
+checkIndentation#?#7:if (lineStart != getLevel()) \{
+    logError(ident, \"ident\", lineStart);
+\}
+checkRParen#?#5:if (columnNo == getLevel()) \{
+    return;
+\}" shape=ellipse]
+3 [label="checkIndentation#?#2:\{
+    int columnNo = expandedTabsColumnNo(getMainAst());
+    if (columnNo != getLevel()) \{
+        logError(getMainAst(), \"\", columnNo);
+    \}
+    checkLinesIndent(getMainAst().getLineNo(), getMainAst().findFirstToken(SEMI).getLineNo(), getLevel());
+\}
+checkLParen#?#2:\{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (columnNo == getLevel()) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}
+checkIndentation#?#2:\{
+    checkModifiers();
+    LineSet lines = new LineSet();
+    DetailAST ident = getMainAst().findFirstToken(IDENT);
+    int lineStart = getLineStart(ident);
+    if (lineStart != getLevel()) \{
+        logError(ident, \"ident\", lineStart);
+    \}
+    lines.addLineAndCol(new Integer(ident.getLineNo()), lineStart);
+    DetailAST impl = getMainAst().findFirstToken(IMPLEMENTS_CLAUSE);
+    if ((impl != null) && (impl.getFirstChild() != null)) \{
+        findSubtreeLines(lines, impl, false);
+    \}
+    DetailAST ext = getMainAst().findFirstToken(EXTENDS_CLAUSE);
+    if ((ext != null) && (ext.getFirstChild() != null)) \{
+        findSubtreeLines(lines, ext, false);
+    \}
+    checkLinesIndent(ident.getLineNo(), lines.lastLine(), getLevel());
+    super.checkIndentation();
+\}
+checkRParen#?#2:\{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (columnNo == getLevel()) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}" shape=ellipse]
+4 [label="checkIndentation#?#4:\{
+    logError(getMainAst(), \"\", columnNo);
+\}
+checkLParen#?#5:\{
+    return;
+\}
+checkIndentation#?#7:\{
+    logError(ident, \"ident\", lineStart);
+\}
+checkRParen#?#5:\{
+    return;
+\}" shape=ellipse]
+5 [label="checkIndentation#?#4:getLevel().accept(columnNo)
+checkLParen#?#5:getLevel()
+checkIndentation#?#7:getLevel().accept(lineStart)
+checkRParen#?#5:getLevel()" shape=ellipse]
+6 [label="checkIndentation#?#4:accept
+checkLParen#?#5:getLevel
+checkIndentation#?#7:accept
+checkRParen#?#5:getLevel" shape=ellipse]
+7 [label="checkIndentation#?#4:getLevel()
+checkIndentation#?#7:getLevel()" shape=ellipse]
+8 [label="checkIndentation#?#4:getLevel
+checkLParen#?#5:getLevel
+checkIndentation#?#7:getLevel
+checkRParen#?#5:getLevel" shape=ellipse]
+9 [label="checkIndentation#?#4:
+checkLParen#?#5:
+checkIndentation#?#7:
+checkRParen#?#5:" shape=ellipse]
+10 [label="checkIndentation#?#4:PlaceHold
+checkIndentation#?#7:PlaceHold" shape=ellipse]
+11 [label="checkIndentation#?#4:
+checkLParen#?#5:
+checkIndentation#?#7:
+checkRParen#?#5:" shape=ellipse]
+12 [label="checkIndentation#?#4:PlaceHold
+checkIndentation#?#7:PlaceHold" shape=ellipse]
+13 [label="checkIndentation#?#4:PlaceHold
+checkLParen#?#5:PlaceHold
+checkIndentation#?#7:PlaceHold
+checkRParen#?#5:PlaceHold" shape=ellipse]
+14 [label="checkIndentation#?#4:
+checkLParen#?#5:
+checkIndentation#?#7:
+checkRParen#?#5:" shape=ellipse]
+15 [label="checkIndentation#?#4:getLevel()
+checkLParen#?#5:getLevel()
+checkIndentation#?#7:getLevel()
+checkRParen#?#5:getLevel()" shape=ellipse]
+16 [label="checkIndentation#?#4:accept(int)
+checkLParen#?#5:getLevel()
+checkIndentation#?#7:accept(int)
+checkRParen#?#5:getLevel()" shape=ellipse]
+17 [label="checkIndentation#?#4:int
+checkIndentation#?#7:int" shape=ellipse]
+18 [label="checkIndentation#?#4:columnNo
+checkLParen#?#5:
+checkIndentation#?#7:lineStart
+checkRParen#?#5:" shape=ellipse]
+19 [label="checkIndentation#?#4:columnNo
+checkIndentation#?#7:lineStart" shape=ellipse]
+20 [label="checkIndentation#?#4:int
+checkLParen#?#5:int
+checkIndentation#?#7:int
+checkRParen#?#5:int" shape=ellipse]
+21 [label="checkIndentation#?#5:logError(getMainAst(), \"\", columnNo)
+checkIndentation#?#8:logError(ident, \"ident\", lineStart)" shape=ellipse]
+22 [label="checkIndentation#?#5:
+checkIndentation#?#8:" shape=ellipse]
+23 [label="checkIndentation#?#5:PlaceHold
+checkIndentation#?#8:PlaceHold" shape=ellipse]
+24 [label="checkIndentation#?#5:PlaceHold
+checkLParen#?#5:boolean
+checkIndentation#?#8:PlaceHold
+checkRParen#?#5:boolean" shape=ellipse]
+25 [label="checkIndentation#?#5:logError(<unknown>,java.lang.String,int)
+checkIndentation#?#8:logError(<unknown>,java.lang.String,int)" shape=ellipse]
+26 [label="checkIndentation#?#5:getMainAst()" shape=ellipse]
+27 [label="checkIndentation#?#5:" shape=ellipse]
+28 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+29 [label="checkIndentation#?#5:PlaceHold
+checkLParen#?#5:int
+checkIndentation#?#7:getLevel()
+checkRParen#?#5:int" shape=ellipse]
+30 [label="checkIndentation#?#5:getMainAst()" shape=ellipse]
+31 [label="checkIndentation#?#5:\"\"
+checkIndentation#?#8:\"ident\"" shape=ellipse]
+32 [label="checkIndentation#?#5:String
+checkIndentation#?#8:String" shape=ellipse]
+33 [label="checkIndentation#?#5:columnNo
+checkIndentation#?#8:lineStart" shape=ellipse]
+34 [label="checkIndentation#?#5:columnNo
+checkLParen#?#5:columnNo
+checkIndentation#?#8:lineStart
+checkRParen#?#5:columnNo" shape=ellipse]
+35 [label="checkIndentation#?#5:logError
+checkLParen#?#5:accept
+checkIndentation#?#8:logError
+checkRParen#?#5:accept" shape=ellipse]
+36 [label="checkIndentation#?#5:PlaceHold
+checkIndentation#?#8:PlaceHold" shape=ellipse]
+37 [label="checkIndentation#?#5:null
+checkIndentation#?#8:null" shape=ellipse]
+38 [label="checkIndentation#?#5:String
+checkIndentation#?#8:String" shape=ellipse]
+39 [label="checkIndentation#?#5:int
+checkIndentation#?#8:int" shape=ellipse]
+40 [label="checkIndentation#?#5:getMainAst
+checkIndentation#?#7:getLevel" shape=ellipse]
+41 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+42 [label="checkIndentation#?#4:INSERT
+checkLParen#?#5:INSERT
+checkIndentation#?#7:INSERT
+checkRParen#?#5:INSERT" shape=ellipse]
+43 [label="checkIndentation#?#4:columnNo
+checkIndentation#?#7:lineStart" shape=ellipse]
+44 [label="checkIndentation#?#3:columnNo
+checkIndentation#?#6:lineStart" shape=ellipse]
+45 [label="checkIndentation#?#4:columnNo
+checkIndentation#?#7:lineStart" shape=ellipse]
+46 [label="checkIndentation#?#4:getLevel()" shape=ellipse]
+47 [label="checkIndentation#?#4:getLevel" shape=ellipse]
+48 [label="checkIndentation#?#4:
+checkLParen#?#5:columnNo
+checkIndentation#?#7:
+checkRParen#?#5:columnNo" shape=ellipse]
+49 [label="checkIndentation#?#4:getLevel()" shape=ellipse]
+50 [label="checkIndentation#?#4:MOVE
+checkIndentation#?#7:MOVE" shape=ellipse]
+51 [label="checkLParen#?#5:PlaceHold" shape=ellipse]
+52 [label="checkLParen#?#6:return" shape=ellipse]
+53 [label="checkLParen#?#5:columnNo" shape=ellipse]
+54 [label="checkLParen#?#5:getLevel()" shape=ellipse]
+55 [label="checkLParen#?#5:MOVE
+checkRParen#?#5:MOVE" shape=ellipse]
+56 [label="checkLParen#?#5:PlaceHold" shape=ellipse]
+57 [label="checkLParen#?#5:accept(int)" shape=ellipse]
+58 [label="checkLParen#?#4:columnNo" shape=ellipse]
+59 [label="checkLParen#?#5:columnNo
+checkIndentation#?#8:ident" shape=ellipse]
+60 [label="checkIndentation#?#8:ident" shape=ellipse]
+61 [label="checkIndentation#?#7:getLevel()" shape=ellipse]
+62 [label="checkRParen#?#5:PlaceHold" shape=ellipse]
+63 [label="checkRParen#?#6:return" shape=ellipse]
+64 [label="checkRParen#?#5:columnNo" shape=ellipse]
+65 [label="checkRParen#?#5:getLevel()" shape=ellipse]
+66 [label="checkRParen#?#5:PlaceHold" shape=ellipse]
+67 [label="checkRParen#?#5:accept(int)" shape=ellipse]
+68 [label="checkRParen#?#4:columnNo" shape=ellipse]
+69 [label="checkRParen#?#5:columnNo" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 43 [label="AST:2"];
+1 -> 46 [label="AST:1"];
+1 -> 4 [label="Control Dep:4"];
+1 -> 21 [label="Control Dep:2"];
+1 -> 25 [label="Control Dep:2"];
+1 -> 22 [label="Control Dep:2"];
+1 -> 23 [label="Control Dep:2"];
+1 -> 26 [label="Control Dep:1"];
+1 -> 30 [label="Control Dep:1"];
+1 -> 27 [label="Control Dep:1"];
+1 -> 28 [label="Control Dep:1"];
+1 -> 31 [label="Control Dep:2"];
+1 -> 33 [label="Control Dep:2"];
+1 -> 52 [label="Control Dep:1"];
+1 -> 53 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+1 -> 60 [label="Control Dep:1"];
+1 -> 61 [label="AST:1"];
+1 -> 63 [label="Control Dep:1"];
+1 -> 64 [label="AST:1"];
+1 -> 65 [label="AST:1"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 42 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+4 -> 21 [label="AST:2"];
+4 -> 52 [label="AST:1"];
+4 -> 63 [label="AST:1"];
+5 -> 6 [label="AST:4"];
+5 -> 7 [label="AST:2"];
+5 -> 16 [label="AST:4"];
+5 -> 18 [label="AST:4"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 15 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+13 -> 14 [label="AST:4"];
+16 -> 17 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 51 [label="AST:1"];
+18 -> 56 [label="AST:1"];
+18 -> 62 [label="AST:1"];
+18 -> 66 [label="AST:1"];
+19 -> 20 [label="AST:2"];
+21 -> 35 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+21 -> 25 [label="AST:2"];
+21 -> 26 [label="AST:1"];
+21 -> 31 [label="AST:2"];
+21 -> 33 [label="AST:2"];
+21 -> 60 [label="AST:1"];
+22 -> 36 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+25 -> 37 [label="AST:2"];
+25 -> 38 [label="AST:2"];
+25 -> 39 [label="AST:2"];
+26 -> 40 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+26 -> 30 [label="AST:1"];
+27 -> 41 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+31 -> 32 [label="AST:2"];
+33 -> 34 [label="AST:2"];
+43 -> 45 [label="AST:2"];
+44 -> 33 [label="Define Use:2"];
+44 -> 43 [label="Define Use:2"];
+46 -> 47 [label="AST:1"];
+46 -> 48 [label="AST:1"];
+46 -> 49 [label="AST:1"];
+46 -> 50 [label="Action:1"];
+48 -> 59 [label="AST:1"];
+48 -> 69 [label="AST:1"];
+50 -> 5 [label="Action:2"];
+51 -> 13 [label="AST:1"];
+53 -> 34 [label="AST:1"];
+54 -> 8 [label="AST:1"];
+54 -> 9 [label="AST:1"];
+54 -> 15 [label="AST:1"];
+54 -> 55 [label="Action:1"];
+56 -> 11 [label="AST:1"];
+57 -> 24 [label="AST:1"];
+57 -> 20 [label="AST:1"];
+58 -> 53 [label="Define Use:1"];
+59 -> 29 [label="AST:1"];
+60 -> 59 [label="AST:1"];
+61 -> 40 [label="AST:1"];
+61 -> 48 [label="AST:1"];
+61 -> 29 [label="AST:1"];
+61 -> 50 [label="Action:1"];
+62 -> 13 [label="AST:1"];
+64 -> 34 [label="AST:1"];
+65 -> 8 [label="AST:1"];
+65 -> 9 [label="AST:1"];
+65 -> 15 [label="AST:1"];
+65 -> 55 [label="Action:1"];
+66 -> 11 [label="AST:1"];
+67 -> 24 [label="AST:1"];
+67 -> 20 [label="AST:1"];
+68 -> 64 [label="Define Use:1"];
+69 -> 29 [label="AST:1"];
+}

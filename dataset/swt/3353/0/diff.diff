@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3353/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3353/0/after.java
+@@ -23,2 +23,3 @@
+-      int redrawY = (firstLine * lineHeight) - verticalScrollOffset;
+-      int redrawStopY = ((lastLine + 1) * lineHeight) - verticalScrollOffset;
++      int redrawY = getLinePixel(firstLine);
++      int redrawStopY = getLinePixel(lastLine);
++      redrawStopY += lineCache.getLineHeight(lastLine);

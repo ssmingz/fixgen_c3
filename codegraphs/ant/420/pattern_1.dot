@@ -1,0 +1,151 @@
+digraph "Pattern" {
+0 [label="test3#?#6:DELETE
+test2#?#6:DELETE
+test4#?#6:DELETE" shape=ellipse]
+1 [label="test3#?#6:if (TRACE) \{
+    System.out.println(\" test3 elapsed time=\" + timer.time());
+\}
+test2#?#6:if (TRACE) \{
+    System.out.println(\" test2 elapsed time=\" + timer.time());
+\}
+test4#?#6:if (TRACE) \{
+    System.out.println(\" test4 elapsed time=\" + timer.time());
+\}" shape=ellipse]
+2 [label="test3#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assertTrue(timer.time() >= (2000 - ERROR_RANGE));
+\}
+test2#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assertTrue(timer.time() >= 0);
+\}
+test4#?#2:\{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test4 elapsed time=\" + timer.time());
+    \}
+    assertTrue((timer.time() >= (2000 - ERROR_RANGE)) && (timer.time() < 60000));
+\}" shape=ellipse]
+3 [label="test3#?#2:public void test3() \{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test3 elapsed time=\" + timer.time());
+    \}
+    assertTrue(timer.time() >= (2000 - ERROR_RANGE));
+\}
+test2#?#2:public void test2() \{
+    Timer timer = new Timer();
+    executeTarget(\"test2\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test2 elapsed time=\" + timer.time());
+    \}
+    assertTrue(timer.time() >= 0);
+\}
+test4#?#2:public void test4() \{
+    Timer timer = new Timer();
+    executeTarget(\"test3\");
+    timer.stop();
+    if (TRACE) \{
+        System.out.println(\" test4 elapsed time=\" + timer.time());
+    \}
+    assertTrue((timer.time() >= (2000 - ERROR_RANGE)) && (timer.time() < 60000));
+\}" shape=ellipse]
+4 [label="test3#?#3:Timer timer = new Timer()
+test2#?#3:Timer timer = new Timer()
+test4#?#3:Timer timer = new Timer()" shape=ellipse]
+5 [label="test3#?#4:executeTarget(\"test3\")
+test2#?#4:executeTarget(\"test2\")
+test4#?#4:executeTarget(\"test3\")" shape=ellipse]
+6 [label="test3#?#5:timer.stop()
+test2#?#5:timer.stop()
+test4#?#5:timer.stop()" shape=ellipse]
+7 [label="test3#?#9:assertTrue(timer.time() >= (2000 - ERROR_RANGE))
+test2#?#9:assertTrue(timer.time() >= 0)
+test4#?#9:assertTrue((timer.time() >= (2000 - ERROR_RANGE)) && (timer.time() < 60000))" shape=ellipse]
+8 [label="test3#?#6:TRACE
+test2#?#6:TRACE
+test4#?#6:TRACE" shape=ellipse]
+9 [label="test3#?#-1:TRACE
+test2#?#-1:TRACE
+test4#?#-1:TRACE" shape=ellipse]
+10 [label="test3#?#6:\{
+    System.out.println(\" test3 elapsed time=\" + timer.time());
+\}
+test2#?#6:\{
+    System.out.println(\" test2 elapsed time=\" + timer.time());
+\}
+test4#?#6:\{
+    System.out.println(\" test4 elapsed time=\" + timer.time());
+\}" shape=ellipse]
+11 [label="test3#?#7:System.out.println(\" test3 elapsed time=\" + timer.time())
+test2#?#7:System.out.println(\" test2 elapsed time=\" + timer.time())
+test4#?#7:System.out.println(\" test4 elapsed time=\" + timer.time())" shape=ellipse]
+12 [label="test3#?#7:println(char[])
+test2#?#7:println(char[])
+test4#?#7:println(char[])" shape=ellipse]
+13 [label="test3#?#7:System.out
+test2#?#7:System.out
+test4#?#7:System.out" shape=ellipse]
+14 [label="test3#?#7:System
+test2#?#7:System
+test4#?#7:System" shape=ellipse]
+15 [label="test3#?#7:\" test3 elapsed time=\" + timer.time()
+test2#?#7:\" test2 elapsed time=\" + timer.time()
+test4#?#7:\" test4 elapsed time=\" + timer.time()" shape=ellipse]
+16 [label="test3#?#7:\" test3 elapsed time=\"
+test2#?#7:\" test2 elapsed time=\"
+test4#?#7:\" test4 elapsed time=\"" shape=ellipse]
+17 [label="test3#?#7:timer.time()
+test2#?#7:timer.time()
+test4#?#7:timer.time()" shape=ellipse]
+18 [label="test3#?#7:time()
+test2#?#7:time()
+test4#?#7:time()" shape=ellipse]
+19 [label="test3#?#7:timer
+test2#?#7:timer
+test4#?#7:timer" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 8 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="Control Dep:3"];
+8 -> 11 [label="Control Dep:3"];
+8 -> 12 [label="Control Dep:3"];
+8 -> 13 [label="Control Dep:3"];
+8 -> 14 [label="Control Dep:3"];
+8 -> 15 [label="Control Dep:3"];
+8 -> 16 [label="Control Dep:3"];
+8 -> 17 [label="Control Dep:3"];
+8 -> 18 [label="Control Dep:3"];
+8 -> 19 [label="Control Dep:3"];
+10 -> 11 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 15 [label="AST:3"];
+13 -> 14 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+15 -> 17 [label="AST:3"];
+17 -> 19 [label="AST:3"];
+17 -> 18 [label="AST:3"];
+}

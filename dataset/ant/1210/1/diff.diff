@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1210/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1210/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,2 @@
+-    if (isSharedJVM()) {
+-      executeTarget("antlib_uri_auto2");
+-    }
++    Assume.assumeTrue("Test requires shared JVM", isSharedJVM());
++    buildRule.executeTarget("antlib_uri_auto2");

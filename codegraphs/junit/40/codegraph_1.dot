@@ -1,0 +1,77 @@
+digraph "fail#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@fail" shape=ellipse]
+2 [label="2:CtParameterImpl@String message" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@AssertionFailedError(java.lang.String)" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@AssertionFailedError" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@AssertionFailedError" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+8 [label="3:CtVariableReadImpl@message" shape=ellipse]
+9 [label="3:CtParameterReferenceImpl@message" shape=ellipse]
+10 [label="3:CtConstructorCallImpl@new AssertionFailedError(message)" shape=ellipse]
+11 [label="3:CtThrowImpl@throw new AssertionFailedError(message)" shape=ellipse]
+12 [label="2:CtBlockImpl@\{
+    throw new AssertionFailedError(message);
+\}" shape=ellipse]
+13 [label="2:CtMethodImpl@public static void fail(String message) \{
+    throw new AssertionFailedError(message);
+\}" shape=ellipse]
+14 [label="3:Insert@INSERT" shape=ellipse]
+15 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+16 [label="3:CtPackageReferenceImpl@java.lang" shape=ellipse]
+17 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+18 [label="3:CtParameterReferenceImpl@message" shape=ellipse]
+19 [label="3:CtVariableReadImpl@message" shape=ellipse]
+20 [label="3:CtTypeReferenceImpl@<nulltype>" shape=ellipse]
+21 [label="3:CtLiteralImpl@null" shape=ellipse]
+22 [label="3:CtBinaryOperatorImpl@message == null" shape=ellipse]
+23 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+24 [label="4:CtTypeReferenceImpl@AssertionFailedError" shape=ellipse]
+25 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+26 [label="4:CtTypeReferenceImpl@AssertionFailedError" shape=ellipse]
+27 [label="4:CtExecutableReferenceImpl@AssertionFailedError()" shape=ellipse]
+28 [label="4:CtConstructorCallImpl@new AssertionFailedError()" shape=ellipse]
+29 [label="4:CtThrowImpl@throw new AssertionFailedError()" shape=ellipse]
+30 [label="3:CtBlockImpl@\{
+    throw new AssertionFailedError();
+\}" shape=ellipse]
+31 [label="3:CtIfImpl@if (message == null) \{
+    throw new AssertionFailedError();
+\}" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 6 [label="AST"];
+4 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 14 [label="Action"];
+13 -> 1 [label="AST"];
+13 -> 0 [label="AST"];
+13 -> 2 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 31 [label="Action"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 15 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 30 [label="Control Dep"];
+22 -> 29 [label="Control Dep"];
+22 -> 28 [label="Control Dep"];
+22 -> 27 [label="Control Dep"];
+24 -> 23 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 22 [label="AST"];
+31 -> 30 [label="AST"];
+}

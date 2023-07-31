@@ -1,0 +1,62 @@
+digraph "Pattern" {
+0 [label="testPropertyExpansion#?#4:INSERT
+testCaseInsensitive#?#4:INSERT" shape=ellipse]
+1 [label="testPropertyExpansion#?#3:executeTarget(\"testPropertyExpansion\")
+testCaseInsensitive#?#3:executeTarget(\"testCaseInsensitive\")" shape=ellipse]
+2 [label="testPropertyExpansion#?#2:\{
+    executeTarget(\"testPropertyExpansion\");
+    assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1));
+    assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1));
+\}
+testCaseInsensitive#?#2:\{
+    executeTarget(\"testCaseInsensitive\");
+    assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1));
+    assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1));
+\}" shape=ellipse]
+3 [label="testPropertyExpansion#?#2:public void testPropertyExpansion() \{
+    executeTarget(\"testPropertyExpansion\");
+    assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1));
+    assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1));
+\}
+testCaseInsensitive#?#2:public void testCaseInsensitive() \{
+    executeTarget(\"testCaseInsensitive\");
+    assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1));
+    assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1));
+\}" shape=ellipse]
+4 [label="testPropertyExpansion#?#4:assertTrue(\"attribute worked\", getLog().indexOf(\"As attribute: it worked\") > (-1))
+testCaseInsensitive#?#5:assertTrue(\"works inside of container\", getLog().indexOf(\"world\") > (-1))" shape=ellipse]
+5 [label="testPropertyExpansion#?#5:assertTrue(\"nested text worked\", getLog().indexOf(\"As nested text: it worked\") > (-1))
+testCaseInsensitive#?#4:assertTrue(\"works outside of container\", getLog().indexOf(\"hello \") > (-1))" shape=ellipse]
+6 [label="testPropertyExpansion#?#3:executeTarget
+testCaseInsensitive#?#3:executeTarget" shape=ellipse]
+7 [label="testPropertyExpansion#?#-1:
+testCaseInsensitive#?#-1:" shape=ellipse]
+8 [label="testPropertyExpansion#?#-1:PlaceHold
+testCaseInsensitive#?#-1:PlaceHold" shape=ellipse]
+9 [label="testPropertyExpansion#?#-1:PlaceHold
+testCaseInsensitive#?#-1:PlaceHold" shape=ellipse]
+10 [label="testPropertyExpansion#?#3:executeTarget(java.lang.String)
+testCaseInsensitive#?#3:executeTarget(java.lang.String)" shape=ellipse]
+11 [label="testPropertyExpansion#?#-1:String
+testCaseInsensitive#?#-1:String" shape=ellipse]
+12 [label="testPropertyExpansion#?#3:\"testPropertyExpansion\"
+testCaseInsensitive#?#3:\"testCaseInsensitive\"" shape=ellipse]
+13 [label="testPropertyExpansion#?#-1:String
+testCaseInsensitive#?#-1:String" shape=ellipse]
+14 [label="testPropertyExpansion#?#4:buildRule
+testCaseInsensitive#?#4:buildRule" shape=ellipse]
+0 -> 14 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+}

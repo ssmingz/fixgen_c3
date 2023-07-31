@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/141/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/141/0/after.java
+@@ -3,1 +3,0 @@
+-    log("Adding failure for test: " + test);
+@@ -5,1 +4,5 @@
+-    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t));
++    TestRunEvent evt = new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t);
++    if (debug) {
++      debugFormatter.onTestFailure(evt);
++    }
++    fireEvent(evt);

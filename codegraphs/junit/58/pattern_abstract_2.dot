@@ -1,0 +1,84 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 [label="locationInParent:STATEMENT
+nodeType:CtReturnImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:return sb.toString()
+value2:return StringBuilder.toString()" shape=ellipse]
+2 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:exceed MAX_TOKEN_LENGTH:15 tokens" shape=ellipse]
+3 [label="locationInParent:TYPE_MEMBER
+nodeType:CtMethodImpl
+nodeType2:CtExecutableImpl
+nodeType3:CtExecutableImpl
+value:exceed MAX_TOKEN_LENGTH:18 tokens
+value2:exceed MAX_TOKEN_LENGTH:18 tokens" shape=ellipse]
+4 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:StringBuilder sb = new StringBuilder()
+value2:java.lang.StringBuilder sb = new java.lang.StringBuilder()" shape=ellipse]
+5 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+6 [label="locationInParent:ACTION
+nodeType:Insert
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:INSERT
+value2:" shape=ellipse]
+7 [label="locationInParent:STATEMENT
+nodeType:CtReturnImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+8 [label="locationInParent:EXPRESSION
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+9 [label="locationInParent:LEFT_OPERAND
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+10 [label="locationInParent:RIGHT_OPERAND
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:\": \"
+value2:String" shape=ellipse]
+11 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+12 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:java.lang
+value2:java.lang" shape=ellipse]
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+6 -> 7 [label="Action:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

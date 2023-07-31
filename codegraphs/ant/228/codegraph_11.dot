@@ -1,0 +1,31 @@
+digraph "addUptodate#?,UpToDate" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addUptodate" shape=ellipse]
+2 [label="2:CtParameterImpl@UpToDate u" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@UpToDate" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addElement(UpToDate)" shape=ellipse]
+5 [label="3:CtVirtualElement@addElement" shape=ellipse]
+6 [label="3:CtFieldReadImpl@conditions" shape=ellipse]
+7 [label="3:CtVariableReadImpl@u" shape=ellipse]
+8 [label="3:CtInvocationImpl@conditions.addElement(u)" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    conditions.addElement(u);
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public void addUptodate(UpToDate u) \{
+    conditions.addElement(u);
+\}" shape=ellipse]
+11 [label="3:Update@UPDATE" shape=ellipse]
+12 [label="3:CtInvocationImpl@conditions.add(u)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 11 [label="Action"];
+9 -> 8 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 2 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 12 [label="Action"];
+}

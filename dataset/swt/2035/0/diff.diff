@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2035/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2035/0/after.java
+@@ -4,1 +4,1 @@
+-    Rect bounds = new Rect();
++    MacRect bounds = new MacRect();
+@@ -6,4 +6,2 @@
+-    OS.GetAvailableWindowPositioningBounds(gdh, bounds);
+-    int width = bounds.right - bounds.left;
+-    int height = bounds.bottom - bounds.top;
+-    return new Rectangle(bounds.left, bounds.top, width, height);
++    OS.GetAvailableWindowPositioningBounds(gdh, bounds.getData());
++    return bounds.toRectangle();

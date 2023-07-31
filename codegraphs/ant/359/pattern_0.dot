@@ -1,0 +1,35 @@
+digraph "Pattern" {
+0 [label="testForkXml#?#3:UPDATE
+testXml#?#3:UPDATE" shape=ellipse]
+1 [label="testForkXml#?#3:\"<Package>java.lang</Package>\"
+testXml#?#3:\"<Package>java.lang</Package>\"" shape=ellipse]
+2 [label="testForkXml#?#3:expectLogContaining(\"fork-xml\", \"<Package>java.lang</Package>\")
+testXml#?#3:expectOutputContaining(\"xml\", \"<Package>java.lang</Package>\")" shape=ellipse]
+3 [label="testForkXml#?#2:\{
+    expectLogContaining(\"fork-xml\", \"<Package>java.lang</Package>\");
+\}
+testXml#?#2:\{
+    expectOutputContaining(\"xml\", \"<Package>java.lang</Package>\");
+\}" shape=ellipse]
+4 [label="testForkXml#?#3:expectLogContaining
+testXml#?#3:expectOutputContaining" shape=ellipse]
+5 [label="testForkXml#?#-1:
+testXml#?#-1:" shape=ellipse]
+6 [label="testForkXml#?#3:expectLogContaining(java.lang.String,java.lang.String)
+testXml#?#3:expectOutputContaining(java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testForkXml#?#3:\"fork-xml\"
+testXml#?#3:\"xml\"" shape=ellipse]
+8 [label="testForkXml#?#-1:String
+testXml#?#-1:String" shape=ellipse]
+9 [label="testForkXml#?#3:\"<DependsUpon>\"
+testXml#?#3:\"<DependsUpon>\"" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/1097/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/1097/0/after.java
+@@ -31,6 +31,2 @@
+-      setErrorStrings(node, ts.userRepresentation(t), node.getMethodName(), nodeTypesString(args));
+-      if (e.matches() > 1) {
+-        throw new ExecutionError("ambiguous.method", node);
+-      } else {
+-        throw new ExecutionError("no.such.method", node);
+-      }
++      throw unmatchedFunctionError(
++          "method", e, node, t, node.getMethodName(), targs, args, expected, false);

@@ -1,0 +1,95 @@
+digraph "Pattern" {
+0 [label="flush#?#3:UPDATE
+close#?#3:UPDATE" shape=ellipse]
+1 [label="flush#?#3:OutputStream out = this.out
+close#?#3:OutputStream out = this.out" shape=ellipse]
+2 [label="flush#?#2:\{
+    OutputStream out = this.out;
+    if (out != null) \{
+        out.flush();
+    \}
+\}
+close#?#2:\{
+    OutputStream out = this.out;
+    if (out != null) \{
+        try \{
+            if (this.runLength > 0) \{
+                writeRun();
+            \}
+            this.currentChar = -1;
+            endBlock();
+            endCompression();
+            out.close();
+        \} finally \{
+            this.out = null;
+            this.data = null;
+        \}
+    \}
+\}" shape=ellipse]
+3 [label="flush#?#2:public void flush() throws IOException \{
+    OutputStream out = this.out;
+    if (out != null) \{
+        out.flush();
+    \}
+\}
+close#?#2:public void close() throws IOException \{
+    OutputStream out = this.out;
+    if (out != null) \{
+        try \{
+            if (this.runLength > 0) \{
+                writeRun();
+            \}
+            this.currentChar = -1;
+            endBlock();
+            endCompression();
+            out.close();
+        \} finally \{
+            this.out = null;
+            this.data = null;
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="flush#?#4:if (out != null) \{
+    out.flush();
+\}
+close#?#4:if (out != null) \{
+    try \{
+        if (this.runLength > 0) \{
+            writeRun();
+        \}
+        this.currentChar = -1;
+        endBlock();
+        endCompression();
+        out.close();
+    \} finally \{
+        this.out = null;
+        this.data = null;
+    \}
+\}" shape=ellipse]
+5 [label="flush#?#3:out
+close#?#3:out" shape=ellipse]
+6 [label="flush#?#3:this.out
+close#?#3:this.out" shape=ellipse]
+7 [label="flush#?#4:out
+close#?#4:out" shape=ellipse]
+8 [label="flush#?#5:out
+close#?#12:out" shape=ellipse]
+9 [label="flush#?#3:OutputStream
+close#?#3:OutputStream" shape=ellipse]
+10 [label="flush#?#-1:
+close#?#-1:" shape=ellipse]
+11 [label="flush#?#3:OutputStream outShadow = this.out
+close#?#3:OutputStream outShadow = this.out" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 7 [label="Define Use:2"];
+5 -> 8 [label="Define Use:2"];
+6 -> 5 [label="Data Dep:2"];
+9 -> 10 [label="AST:2"];
+}

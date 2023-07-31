@@ -1,0 +1,22 @@
+digraph "Pattern" {
+0 [label="testNoAppend#?#6:UPDATE
+testAppend#?#6:UPDATE" shape=ellipse]
+1 [label="testNoAppend#?#6:REC_DIR
+testAppend#?#6:REC_DIR" shape=ellipse]
+2 [label="testNoAppend#?#6:REC_DIR + \"rectest1.result\"
+testAppend#?#6:REC_DIR + \"rectest2.result\"" shape=ellipse]
+3 [label="testNoAppend#?#6:project.resolveFile(REC_DIR + \"rectest1.result\")
+testAppend#?#6:project.resolveFile(REC_DIR + \"rectest2.result\")" shape=ellipse]
+4 [label="testNoAppend#?#6:\"rectest1.result\"
+testAppend#?#6:\"rectest2.result\"" shape=ellipse]
+5 [label="testNoAppend#?#-1:REC_DIR
+testAppend#?#-1:REC_DIR" shape=ellipse]
+6 [label="testNoAppend#?#6:REC_IN
+testAppend#?#6:REC_IN" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

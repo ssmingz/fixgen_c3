@@ -1,0 +1,33 @@
+digraph "getTestClass#?" {
+0 [label="2:CtTypeReferenceImpl@TestClass" shape=ellipse]
+1 [label="2:CtPackageReferenceImpl@" shape=ellipse]
+2 [label="2:CtVirtualElement@getTestClass" shape=ellipse]
+3 [label="3:CtFieldReferenceImpl@fTestClass" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+5 [label="3:CtFieldReadImpl@fTestClass" shape=ellipse]
+6 [label="3:CtReturnImpl@return fTestClass" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    return fTestClass;
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@private TestClass getTestClass() \{
+    return fTestClass;
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+12 [label="3:CtFieldReferenceImpl@testClass" shape=ellipse]
+13 [label="3:CtFieldReadImpl@testClass" shape=ellipse]
+0 -> 1 [label="AST"];
+3 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 9 [label="Action"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 13 [label="Action"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+}

@@ -1,0 +1,217 @@
+digraph "Pattern" {
+0 [label="getBranchCoverageRate#?#5:INSERT
+getCCN#?,File,boolean#3:INSERT" shape=ellipse]
+1 [label="getBranchCoverageRate#?#4:\{
+    return 1;
+\}
+getCCN#?,File,boolean#2:\{
+    int ccnAccumulator = 0;
+    Vector files = getListOfFiles(file, recursive);
+    if (files.isEmpty()) \{
+        logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+        return 0;
+    \}
+    Javancss javancss = new Javancss(files);
+    List functionMetrics = javancss.getFunctionMetrics();
+    if (functionMetrics.size() <= 0) \{
+        return 0;
+    \}
+    Iterator iter = functionMetrics.iterator();
+    while (iter.hasNext()) \{
+        Vector functionMetric = ((Vector) (iter.next()));
+        ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+    \} 
+    return ((double) (ccnAccumulator)) / functionMetrics.size();
+\}" shape=ellipse]
+2 [label="getBranchCoverageRate#?#4:numberOfBranches == 0" shape=ellipse]
+3 [label="getBranchCoverageRate#?#4:if (numberOfBranches == 0) \{
+    return 1;
+\}" shape=ellipse]
+4 [label="getBranchCoverageRate#?#4:boolean
+getCCN#?,File,boolean#2:double" shape=ellipse]
+5 [label="getBranchCoverageRate#?#4:numberOfBranches
+getCCN#?,File,boolean#12:functionMetrics" shape=ellipse]
+6 [label="getBranchCoverageRate#?#4:0
+getCCN#?,File,boolean#3:0" shape=ellipse]
+7 [label="getBranchCoverageRate#?#5:return 1
+getCCN#?,File,boolean#16:Iterator iter = functionMetrics.iterator()" shape=ellipse]
+8 [label="getBranchCoverageRate#?#5:1" shape=ellipse]
+9 [label="getBranchCoverageRate#?#5:PlaceHold" shape=ellipse]
+10 [label="getBranchCoverageRate#?#5:
+getCCN#?,File,boolean#3:ccnAccumulator" shape=ellipse]
+11 [label="getBranchCoverageRate#?#5:getNumberOfCoveredLines()
+getCCN#?,File,boolean#12:List" shape=ellipse]
+12 [label="getBranchCoverageRate#?#5:getNumberOfCoveredLines()" shape=ellipse]
+13 [label="getBranchCoverageRate#?#5:0
+getCCN#?,File,boolean#4:0" shape=ellipse]
+14 [label="getBranchCoverageRate#?#5:getNumberOfCoveredLines() == 0
+getCCN#?,File,boolean#3:file == null" shape=ellipse]
+15 [label="getBranchCoverageRate#?#5:if (getNumberOfCoveredLines() == 0) \{
+    return 0;
+\}
+getCCN#?,File,boolean#3:if (file == null) \{
+    return 0;
+\}" shape=ellipse]
+16 [label="getBranchCoverageRate#?#5:\{
+    return 0;
+\}
+getCCN#?,File,boolean#3:\{
+    return 0;
+\}" shape=ellipse]
+17 [label="getBranchCoverageRate#?#6:return 0" shape=ellipse]
+18 [label="getBranchCoverageRate#?#6:0" shape=ellipse]
+19 [label="getBranchCoverageRate#?#6:int
+getCCN#?,File,boolean#3:int" shape=ellipse]
+20 [label="getCCN#?,File,boolean#5:if (files.isEmpty()) \{
+    logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+    return 0;
+\}" shape=ellipse]
+21 [label="getCCN#?,File,boolean#4:getListOfFiles(file, recursive)" shape=ellipse]
+22 [label="getCCN#?,File,boolean#5:files.isEmpty()" shape=ellipse]
+23 [label="getCCN#?,File,boolean#17:while (iter.hasNext()) \{
+    Vector functionMetric = ((Vector) (iter.next()));
+    ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+\} " shape=ellipse]
+24 [label="getCCN#?,File,boolean#17:iter.hasNext()" shape=ellipse]
+25 [label="getCCN#?,File,boolean#5:\{
+    logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+    return 0;
+\}" shape=ellipse]
+26 [label="getCCN#?,File,boolean#11:new Javancss(files)" shape=ellipse]
+27 [label="getCCN#?,File,boolean#12:javancss.getFunctionMetrics()" shape=ellipse]
+28 [label="getCCN#?,File,boolean#3:null" shape=ellipse]
+29 [label="getCCN#?,File,boolean#16:functionMetrics.iterator()" shape=ellipse]
+30 [label="getCCN#?,File,boolean#4:return 0" shape=ellipse]
+31 [label="getCCN#?,File,boolean#13:if (functionMetrics.size() <= 0) \{
+    return 0;
+\}" shape=ellipse]
+32 [label="getCCN#?,File,boolean#13:functionMetrics.size() <= 0" shape=ellipse]
+33 [label="getCCN#?,File,boolean#21:return ((double) (ccnAccumulator)) / functionMetrics.size()" shape=ellipse]
+34 [label="getCCN#?,File,boolean#3:" shape=ellipse]
+35 [label="getCCN#?,File,boolean#21:((double) (ccnAccumulator)) / functionMetrics.size()" shape=ellipse]
+36 [label="getCCN#?,File,boolean#17:\{
+    Vector functionMetric = ((Vector) (iter.next()));
+    ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+\}" shape=ellipse]
+37 [label="getCCN#?,File,boolean#3:file" shape=ellipse]
+38 [label="getCCN#?,File,boolean#13:\{
+    return 0;
+\}" shape=ellipse]
+39 [label="getCCN#?,File,boolean#2:boolean recursive" shape=ellipse]
+40 [label="getCCN#?,File,boolean#2:public static double getCCN(File file, boolean recursive) \{
+    int ccnAccumulator = 0;
+    Vector files = getListOfFiles(file, recursive);
+    if (files.isEmpty()) \{
+        logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+        return 0;
+    \}
+    Javancss javancss = new Javancss(files);
+    List functionMetrics = javancss.getFunctionMetrics();
+    if (functionMetrics.size() <= 0) \{
+        return 0;
+    \}
+    Iterator iter = functionMetrics.iterator();
+    while (iter.hasNext()) \{
+        Vector functionMetric = ((Vector) (iter.next()));
+        ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+    \} 
+    return ((double) (ccnAccumulator)) / functionMetrics.size();
+\}" shape=ellipse]
+41 [label="getCCN#?,File,boolean#2:getCCN" shape=ellipse]
+42 [label="getCCN#?,File,boolean#2:File file" shape=ellipse]
+43 [label="getCCN#?,File,boolean#3:file" shape=ellipse]
+44 [label="getCCN#?,File,boolean#16:Iterator" shape=ellipse]
+45 [label="getCCN#?,File,boolean#4:Vector" shape=ellipse]
+46 [label="getCCN#?,File,boolean#11:Javancss" shape=ellipse]
+47 [label="getCCN#?,File,boolean#12:List functionMetrics = javancss.getFunctionMetrics()" shape=ellipse]
+48 [label="getCCN#?,File,boolean#11:javancss" shape=ellipse]
+49 [label="getCCN#?,File,boolean#11:Javancss javancss = new Javancss(files)" shape=ellipse]
+50 [label="getCCN#?,File,boolean#16:iter" shape=ellipse]
+51 [label="getCCN#?,File,boolean#3:<nulltype>" shape=ellipse]
+52 [label="getCCN#?,File,boolean#4:int" shape=ellipse]
+53 [label="getCCN#?,File,boolean#3:int ccnAccumulator = 0" shape=ellipse]
+54 [label="getCCN#?,File,boolean#4:Vector files = getListOfFiles(file, recursive)" shape=ellipse]
+55 [label="getCCN#?,File,boolean#4:files" shape=ellipse]
+56 [label="getCCN#?,File,boolean#3:File" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 20 [label="AST:1"];
+1 -> 23 [label="AST:1"];
+1 -> 31 [label="AST:1"];
+1 -> 33 [label="AST:1"];
+1 -> 47 [label="AST:1"];
+1 -> 49 [label="AST:1"];
+1 -> 53 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+3 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 29 [label="AST:1"];
+7 -> 44 [label="AST:1"];
+7 -> 50 [label="AST:1"];
+10 -> 9 [label="AST:1"];
+12 -> 10 [label="AST:1"];
+12 -> 11 [label="AST:1"];
+13 -> 52 [label="AST:1"];
+14 -> 12 [label="AST:1"];
+14 -> 13 [label="AST:1"];
+14 -> 16 [label="Control Dep:2"];
+14 -> 17 [label="Control Dep:1"];
+14 -> 18 [label="Control Dep:1"];
+14 -> 13 [label="Control Dep:1"];
+14 -> 28 [label="AST:1"];
+14 -> 30 [label="Control Dep:1"];
+14 -> 37 [label="AST:1"];
+15 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+16 -> 30 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+20 -> 22 [label="AST:1"];
+20 -> 25 [label="AST:1"];
+22 -> 25 [label="Control Dep:1"];
+23 -> 24 [label="AST:1"];
+23 -> 36 [label="AST:1"];
+24 -> 36 [label="Control Dep:1"];
+28 -> 51 [label="AST:1"];
+30 -> 13 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+31 -> 38 [label="AST:1"];
+32 -> 38 [label="Control Dep:1"];
+33 -> 35 [label="AST:1"];
+37 -> 43 [label="AST:1"];
+40 -> 39 [label="AST:1"];
+40 -> 41 [label="AST:1"];
+40 -> 4 [label="AST:1"];
+40 -> 42 [label="AST:1"];
+40 -> 1 [label="AST:1"];
+43 -> 56 [label="AST:1"];
+47 -> 27 [label="AST:1"];
+47 -> 5 [label="AST:1"];
+47 -> 11 [label="AST:1"];
+49 -> 26 [label="AST:1"];
+49 -> 46 [label="AST:1"];
+49 -> 48 [label="AST:1"];
+53 -> 10 [label="AST:1"];
+53 -> 19 [label="AST:1"];
+53 -> 6 [label="AST:1"];
+54 -> 21 [label="AST:1"];
+54 -> 45 [label="AST:1"];
+54 -> 55 [label="AST:1"];
+56 -> 34 [label="AST:1"];
+}

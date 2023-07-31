@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/64/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/64/2/after.java
+@@ -12,0 +12,3 @@
++    if (!getFailOnErr()) {
++        getProject().log("Ignoring any errors that occur for: " + getTypeSpecifier(), MSG_VERBOSE);
++    }
+@@ -13,1 +16,1 @@
+-    if (Execute.isFailure(result)) {
++    if (Execute.isFailure(result) && getFailOnErr()) {
+@@ -15,1 +18,1 @@
+-        throw new BuildException(msg, location);
++        throw new BuildException(msg, getLocation());

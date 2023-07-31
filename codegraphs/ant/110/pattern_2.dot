@@ -1,0 +1,220 @@
+digraph "Pattern" {
+0 [label="deployDataType#?,String,String,URL#4:DELETE
+deployConverter#?,String,String,URL#3:DELETE
+deployTask#?,String,String,URL#4:DELETE" shape=ellipse]
+1 [label="deployDataType#?,String,String,URL#4:checkDeployment(location, url)
+deployConverter#?,String,String,URL#3:checkDeployment(location, url)
+deployTask#?,String,String,URL#4:checkDeployment(location, url)" shape=ellipse]
+2 [label="deployDataType#?,String,String,URL#3:\{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration datatypedefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] datatypes = datatypedefs.getChildren(\"datatype\");
+        for (int i = 0; i < datatypes.length; i++) \{
+            if (datatypes[i].getAttribute(\"name\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleDataType(datatypes[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}
+deployConverter#?,String,String,URL#2:\{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] converters = taskdefs.getChildren(\"converter\");
+        for (int i = 0; i < converters.length; i++) \{
+            if (converters[i].getAttribute(\"classname\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleConverter(converters[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}
+deployTask#?,String,String,URL#3:\{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] tasks = taskdefs.getChildren(\"task\");
+        for (int i = 0; i < tasks.length; i++) \{
+            if (tasks[i].getAttribute(\"name\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleTask(tasks[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}" shape=ellipse]
+3 [label="deployDataType#?,String,String,URL#2:public void deployDataType(final String name, final String location, final URL url) throws DeploymentException \{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration datatypedefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] datatypes = datatypedefs.getChildren(\"datatype\");
+        for (int i = 0; i < datatypes.length; i++) \{
+            if (datatypes[i].getAttribute(\"name\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleDataType(datatypes[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}
+deployConverter#?,String,String,URL#2:public void deployConverter(String name, String location, URL url) throws DeploymentException \{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] converters = taskdefs.getChildren(\"converter\");
+        for (int i = 0; i < converters.length; i++) \{
+            if (converters[i].getAttribute(\"classname\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleConverter(converters[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}
+deployTask#?,String,String,URL#2:public void deployTask(final String name, final String location, final URL url) throws DeploymentException \{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] tasks = taskdefs.getChildren(\"task\");
+        for (int i = 0; i < tasks.length; i++) \{
+            if (tasks[i].getAttribute(\"name\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleTask(tasks[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}" shape=ellipse]
+4 [label="deployDataType#?,String,String,URL#5:final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url))
+deployConverter#?,String,String,URL#4:final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url))
+deployTask#?,String,String,URL#5:final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url))" shape=ellipse]
+5 [label="deployDataType#?,String,String,URL#6:final Configuration datatypedefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE)
+deployConverter#?,String,String,URL#5:final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE)
+deployTask#?,String,String,URL#6:final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE)" shape=ellipse]
+6 [label="deployDataType#?,String,String,URL#7:try \{
+    final Configuration[] datatypes = datatypedefs.getChildren(\"datatype\");
+    for (int i = 0; i < datatypes.length; i++) \{
+        if (datatypes[i].getAttribute(\"name\").equals(name)) \{
+            final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+            handleDataType(datatypes[i], url, factory);
+            break;
+        \}
+    \}
+\} catch (final ConfigurationException ce) \{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\} catch (final Exception e) \{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}
+deployConverter#?,String,String,URL#6:try \{
+    final Configuration[] converters = taskdefs.getChildren(\"converter\");
+    for (int i = 0; i < converters.length; i++) \{
+        if (converters[i].getAttribute(\"classname\").equals(name)) \{
+            final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+            handleConverter(converters[i], url, factory);
+            break;
+        \}
+    \}
+\} catch (final ConfigurationException ce) \{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\} catch (final Exception e) \{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}
+deployTask#?,String,String,URL#7:try \{
+    final Configuration[] tasks = taskdefs.getChildren(\"task\");
+    for (int i = 0; i < tasks.length; i++) \{
+        if (tasks[i].getAttribute(\"name\").equals(name)) \{
+            final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+            handleTask(tasks[i], url, factory);
+            break;
+        \}
+    \}
+\} catch (final ConfigurationException ce) \{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\} catch (final Exception e) \{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}" shape=ellipse]
+7 [label="deployDataType#?,String,String,URL#4:checkDeployment
+deployConverter#?,String,String,URL#3:checkDeployment
+deployTask#?,String,String,URL#4:checkDeployment" shape=ellipse]
+8 [label="deployDataType#?,String,String,URL#-1:
+deployConverter#?,String,String,URL#-1:
+deployTask#?,String,String,URL#-1:" shape=ellipse]
+9 [label="deployDataType#?,String,String,URL#-1:PlaceHold
+deployConverter#?,String,String,URL#-1:PlaceHold
+deployTask#?,String,String,URL#-1:PlaceHold" shape=ellipse]
+10 [label="deployDataType#?,String,String,URL#-1:PlaceHold
+deployConverter#?,String,String,URL#-1:PlaceHold
+deployTask#?,String,String,URL#-1:PlaceHold" shape=ellipse]
+11 [label="deployDataType#?,String,String,URL#4:checkDeployment(java.lang.String,<unknown>)
+deployConverter#?,String,String,URL#3:checkDeployment(java.lang.String,<unknown>)
+deployTask#?,String,String,URL#4:checkDeployment(java.lang.String,<unknown>)" shape=ellipse]
+12 [label="deployDataType#?,String,String,URL#-1:String
+deployConverter#?,String,String,URL#-1:String
+deployTask#?,String,String,URL#-1:String" shape=ellipse]
+13 [label="deployDataType#?,String,String,URL#-1:null
+deployConverter#?,String,String,URL#-1:null
+deployTask#?,String,String,URL#-1:null" shape=ellipse]
+14 [label="deployDataType#?,String,String,URL#4:location
+deployConverter#?,String,String,URL#3:location
+deployTask#?,String,String,URL#4:location" shape=ellipse]
+15 [label="deployDataType#?,String,String,URL#-1:location
+deployConverter#?,String,String,URL#-1:location
+deployTask#?,String,String,URL#-1:location" shape=ellipse]
+16 [label="deployDataType#?,String,String,URL#4:url
+deployConverter#?,String,String,URL#3:url
+deployTask#?,String,String,URL#4:url" shape=ellipse]
+17 [label="deployDataType#?,String,String,URL#-1:url
+deployConverter#?,String,String,URL#-1:url
+deployTask#?,String,String,URL#-1:url" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 14 [label="AST:3"];
+1 -> 16 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+14 -> 15 [label="AST:3"];
+16 -> 17 [label="AST:3"];
+}

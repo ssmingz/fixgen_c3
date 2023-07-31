@@ -1,0 +1,83 @@
+class PlaceHold {
+  void drawInteriorWithFrame_inView(int id, int sel, NSRect cellRect, int view) {
+    int columnIndex = parent.indexOf(nsColumn);
+    NSRect headerRect = parent.headerView.headerRectOfColumn(columnIndex);
+    if ((headerRect.x != cellRect.x) || (headerRect.width != cellRect.width)) {
+      return;
+    }
+    NSGraphicsContext context = NSGraphicsContext.currentContext();
+    context.saveGraphicsState();
+    int contentWidth = 0;
+    NSSize stringSize = null;
+    NSSize imageSize = null;
+    NSAttributedString attrString = null;
+    NSTableHeaderCell headerCell = nsColumn.headerCell();
+    if (displayText != null) {
+      Font font = Font.cocoa_new(display, headerCell.font());
+      attrString =
+          parent.createString(
+              displayText, font, null, LEFT, false, (parent.state & DISABLED) == 0, false);
+      stringSize = attrString.size();
+      contentWidth += Math.ceil(stringSize.width);
+      if (image != null) {
+        contentWidth += MARGIN;
+      }
+    }
+    if (image != null) {
+      imageSize = handle.size();
+      contentWidth += Math.ceil(imageSize.width);
+    }
+    if ((parent.sortColumn == this) && (parent.sortDirection != SWT.NONE)) {
+      boolean ascending = parent.sortDirection == SWT.UP;
+      headerCell.drawSortIndicatorWithFrame(cellRect, new NSView(view), ascending, 0);
+      NSRect sortRect = headerCell.sortIndicatorRectForBounds(cellRect);
+      cellRect.width = Math.max(0, sortRect.x - cellRect.x);
+    }
+    int drawX = 0;
+    if ((style & SWT.CENTER) != 0) {
+      drawX = ((int) (cellRect.x + Math.max(MARGIN, (cellRect.width - contentWidth) / 2)));
+    } else if ((style & SWT.RIGHT) != 0) {
+      drawX = ((int) (cellRect.x + Math.max(MARGIN, (cellRect.width - contentWidth) - MARGIN)));
+    } else {
+      drawX = ((int) (cellRect.x)) + MARGIN;
+    }
+    if (image != null) {
+      NSRect destRect = new NSRect();
+      destRect.x = drawX;
+      destRect.y = cellRect.y;
+      destRect.width = Math.min(imageSize.width, cellRect.width - (2 * MARGIN));
+      destRect.height = Math.min(imageSize.height, cellRect.height);
+      boolean isFlipped = new NSView(view).isFlipped();
+      if (isFlipped) {
+        context.saveGraphicsState();
+        NSAffineTransform transform = NSAffineTransform.transform();
+        transform.scaleXBy(1, -1);
+        transform.translateXBy(0, -(destRect.height + (2 * destRect.y)));
+        transform.concat();
+      }
+      NSRect sourceRect = new NSRect();
+      sourceRect.width = destRect.width;
+      sourceRect.height = destRect.height;
+      handle.drawInRect(destRect, sourceRect, NSCompositeSourceOver, 1.0F);
+      if (isFlipped) {
+        context.restoreGraphicsState();
+      }
+      drawX += destRect.width;
+    }
+    if ((displayText != null) && (displayText.length() > 0)) {
+      if (image != null) {
+        drawX += MARGIN;
+      }
+      NSRect destRect = new NSRect();
+      destRect.x = drawX;
+      destRect.y = cellRect.y;
+      destRect.width = Math.min(stringSize.width, ((cellRect.x + cellRect.width) - MARGIN) - drawX);
+      destRect.height = Math.min(stringSize.height, cellRect.height);
+      attrString.drawInRect(destRect);
+    }
+    if (attrString != null) {
+      attrString.release();
+    }
+    context.restoreGraphicsState();
+  }
+}

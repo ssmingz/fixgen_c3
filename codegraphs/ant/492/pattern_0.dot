@@ -1,0 +1,83 @@
+digraph "Pattern" {
+0 [label="configureServices#?#9:INSERT
+configureServices#?#13:INSERT" shape=ellipse]
+1 [label="configureServices#?#2:private void configureServices() \{
+    fileService = new ExecutionFileService(this);
+    componentManager = new ComponentManager(this, config.isRemoteLibAllowed());
+    dataService = new ExecutionDataService(this, config.isUnsetPropertiesAllowed());
+    services.put(FileService.class, fileService);
+    services.put(ComponentService.class, componentManager);
+    services.put(DataService.class, dataService);
+\}
+configureServices#?#2:private void configureServices() \{
+    fileService = new CoreFileService(this);
+    componentManager = new ComponentManager(this, config.isRemoteLibAllowed(), config.getLibraryPathsMap());
+    dataService = new CoreDataService(this, config.isUnsetPropertiesAllowed());
+    execService = new CoreExecService(this);
+    services.put(FileService.class, fileService);
+    services.put(ComponentService.class, componentManager);
+    services.put(DataService.class, dataService);
+    services.put(EventService.class, new CoreEventService(this));
+    services.put(ExecService.class, execService);
+\}" shape=ellipse]
+2 [label="configureServices#?#2:configureServices
+configureServices#?#2:configureServices" shape=ellipse]
+3 [label="configureServices#?#2:void
+configureServices#?#2:void" shape=ellipse]
+4 [label="configureServices#?#2:\{
+    fileService = new ExecutionFileService(this);
+    componentManager = new ComponentManager(this, config.isRemoteLibAllowed());
+    dataService = new ExecutionDataService(this, config.isUnsetPropertiesAllowed());
+    services.put(FileService.class, fileService);
+    services.put(ComponentService.class, componentManager);
+    services.put(DataService.class, dataService);
+\}
+configureServices#?#2:\{
+    fileService = new CoreFileService(this);
+    componentManager = new ComponentManager(this, config.isRemoteLibAllowed(), config.getLibraryPathsMap());
+    dataService = new CoreDataService(this, config.isUnsetPropertiesAllowed());
+    execService = new CoreExecService(this);
+    services.put(FileService.class, fileService);
+    services.put(ComponentService.class, componentManager);
+    services.put(DataService.class, dataService);
+    services.put(EventService.class, new CoreEventService(this));
+    services.put(ExecService.class, execService);
+\}" shape=ellipse]
+5 [label="configureServices#?#3:fileService = new ExecutionFileService(this)
+configureServices#?#3:fileService = new CoreFileService(this)" shape=ellipse]
+6 [label="configureServices#?#4:componentManager = new ComponentManager(this, config.isRemoteLibAllowed())
+configureServices#?#4:componentManager = new ComponentManager(this, config.isRemoteLibAllowed(), config.getLibraryPathsMap())" shape=ellipse]
+7 [label="configureServices#?#5:dataService = new ExecutionDataService(this, config.isUnsetPropertiesAllowed())
+configureServices#?#6:dataService = new CoreDataService(this, config.isUnsetPropertiesAllowed())" shape=ellipse]
+8 [label="configureServices#?#6:services.put(FileService.class, fileService)
+configureServices#?#8:services.put(FileService.class, fileService)" shape=ellipse]
+9 [label="configureServices#?#7:services.put(ComponentService.class, componentManager)
+configureServices#?#9:services.put(ComponentService.class, componentManager)" shape=ellipse]
+10 [label="configureServices#?#8:services.put(DataService.class, dataService)
+configureServices#?#10:services.put(DataService.class, dataService)" shape=ellipse]
+11 [label="configureServices#?#2:private
+configureServices#?#2:private" shape=ellipse]
+12 [label="configureServices#?#2:VE: Modifiers_Method
+configureServices#?#2:VE: Modifiers_Method" shape=ellipse]
+13 [label="configureServices#?#9:services.put(EventService.class, new CoreEventService(this))
+configureServices#?#13:services.put(InputService.class, new CoreInputService(this))" shape=ellipse]
+14 [label="configureServices#?#7:execService = new CoreExecService(this)" shape=ellipse]
+15 [label="configureServices#?#12:services.put(ExecService.class, execService)" shape=ellipse]
+16 [label="configureServices#?#11:services.put(EventService.class, new CoreEventService(this))" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 8 [label="AST:2"];
+4 -> 9 [label="AST:2"];
+4 -> 10 [label="AST:2"];
+4 -> 14 [label="AST:1"];
+4 -> 15 [label="AST:1"];
+4 -> 16 [label="AST:1"];
+}

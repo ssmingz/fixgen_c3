@@ -1,0 +1,188 @@
+digraph "Pattern" {
+0 [label="runFailed#?,String#3:UPDATE
+start#?,String[]#11:UPDATE
+main#?,String[]#11:UPDATE" shape=ellipse]
+1 [label="runFailed#?,String#3:System.out
+start#?,String[]#11:System.out
+main#?,String[]#11:System.out" shape=ellipse]
+2 [label="runFailed#?,String#3:System.out.println(message)
+start#?,String[]#11:System.out.println((\"JUnit \" + Version.id()) + \" by Kent Beck and Erich Gamma\")
+main#?,String[]#11:System.out.println(e.getMessage())" shape=ellipse]
+3 [label="runFailed#?,String#2:\{
+    System.out.println(message);
+    System.exit(-1);
+\}
+start#?,String[]#10:\{
+    System.out.println((\"JUnit \" + Version.id()) + \" by Kent Beck and Erich Gamma\");
+\}
+main#?,String[]#10:\{
+    System.out.println(e.getMessage());
+    System.exit(-2);
+\}" shape=ellipse]
+4 [label="runFailed#?,String#3:println" shape=ellipse]
+5 [label="runFailed#?,String#3:println(java.lang.String)
+start#?,String[]#11:println(char[])
+main#?,String[]#11:println(java.lang.String)" shape=ellipse]
+6 [label="runFailed#?,String#3:message" shape=ellipse]
+7 [label="runFailed#?,String#3:System
+start#?,String[]#11:System
+main#?,String[]#11:System" shape=ellipse]
+8 [label="runFailed#?,String#3:System.out
+start#?,String[]#11:System.out
+main#?,String[]#11:System.out" shape=ellipse]
+9 [label="runFailed#?,String#3:System
+start#?,String[]#11:System
+main#?,String[]#11:System" shape=ellipse]
+10 [label="runFailed#?,String#3:PrintStream
+start#?,String[]#11:PrintStream
+main#?,String[]#11:PrintStream" shape=ellipse]
+11 [label="runFailed#?,String#3:System.err
+start#?,String[]#11:System.err
+main#?,String[]#11:System.err" shape=ellipse]
+12 [label="runFailed#?,String#3:System
+start#?,String[]#11:System
+main#?,String[]#11:System" shape=ellipse]
+13 [label="runFailed#?,String#3:java.lang
+start#?,String[]#11:java.lang
+main#?,String[]#11:java.lang" shape=ellipse]
+14 [label="start#?,String[]#8:args[i].equals(\"-c\")" shape=ellipse]
+15 [label="start#?,String[]#10:args[i].equals(\"-v\")" shape=ellipse]
+16 [label="start#?,String[]#10:if (args[i].equals(\"-v\")) \{
+    System.out.println((\"JUnit \" + Version.id()) + \" by Kent Beck and Erich Gamma\");
+\} else \{
+    testCase = args[i];
+\}" shape=ellipse]
+17 [label="start#?,String[]#10:args[i]
+main#?,String[]#10:e" shape=ellipse]
+18 [label="start#?,String[]#10:\"-v\"
+main#?,String[]#12:2" shape=ellipse]
+19 [label="start#?,String[]#13:args" shape=ellipse]
+20 [label="start#?,String[]#12:\{
+    testCase = args[i];
+\}" shape=ellipse]
+21 [label="start#?,String[]#11:(\"JUnit \" + Version.id()) + \" by Kent Beck and Erich Gamma\"" shape=ellipse]
+22 [label="start#?,String[]#11:(\"JUnit \" + Version.id())" shape=ellipse]
+23 [label="start#?,String[]#11:\"JUnit \"" shape=ellipse]
+24 [label="start#?,String[]#11:Version.id()" shape=ellipse]
+25 [label="start#?,String[]#13:testCase = args[i]" shape=ellipse]
+26 [label="start#?,String[]#13:args[i]" shape=ellipse]
+27 [label="start#?,String[]#11:Version
+main#?,String[]#12:System" shape=ellipse]
+28 [label="start#?,String[]#11:System
+main#?,String[]#11:System" shape=ellipse]
+29 [label="start#?,String[]#13:testCase" shape=ellipse]
+30 [label="start#?,String[]#11:\" by Kent Beck and Erich Gamma\"" shape=ellipse]
+31 [label="start#?,String[]#13:i" shape=ellipse]
+32 [label="start#?,String[]#10:equals" shape=ellipse]
+33 [label="start#?,String[]#10:equals(java.lang.Object)
+main#?,String[]#11:java.lang" shape=ellipse]
+34 [label="start#?,String[]#11:System" shape=ellipse]
+35 [label="start#?,String[]#11:id()
+main#?,String[]#12:exit(int)" shape=ellipse]
+36 [label="start#?,String[]#11:PrintStream
+main#?,String[]#10:Exception" shape=ellipse]
+37 [label="start#?,String[]#11:java.lang
+main#?,String[]#11:java.io" shape=ellipse]
+38 [label="start#?,String[]#11:java.io" shape=ellipse]
+39 [label="main#?,String[]#10: catch (Exception e) \{
+    System.out.println(e.getMessage());
+    System.exit(-2);
+\}" shape=ellipse]
+40 [label="main#?,String[]#11:e.getMessage()" shape=ellipse]
+41 [label="main#?,String[]#11:e" shape=ellipse]
+42 [label="main#?,String[]#12:System.exit(-2)" shape=ellipse]
+43 [label="main#?,String[]#12:-2" shape=ellipse]
+44 [label="main#?,String[]#11:System" shape=ellipse]
+45 [label="main#?,String[]#11:PrintStream" shape=ellipse]
+46 [label="main#?,String[]#10:Exception e" shape=ellipse]
+47 [label="main#?,String[]#11:getMessage()" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:1"];
+2 -> 21 [label="AST:1"];
+2 -> 40 [label="AST:1"];
+3 -> 2 [label="AST:3"];
+3 -> 42 [label="AST:1"];
+8 -> 9 [label="AST:3"];
+8 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 36 [label="AST:1"];
+11 -> 45 [label="AST:1"];
+12 -> 13 [label="AST:3"];
+14 -> 16 [label="Control Dep:1"];
+14 -> 15 [label="Control Dep:1"];
+14 -> 33 [label="Control Dep:1"];
+14 -> 17 [label="Control Dep:1"];
+14 -> 18 [label="Control Dep:1"];
+15 -> 32 [label="AST:1"];
+15 -> 17 [label="AST:1"];
+15 -> 33 [label="AST:1"];
+15 -> 18 [label="AST:1"];
+15 -> 3 [label="Control Dep:1"];
+15 -> 2 [label="Control Dep:1"];
+15 -> 5 [label="Control Dep:1"];
+15 -> 1 [label="Control Dep:1"];
+15 -> 21 [label="Control Dep:1"];
+15 -> 22 [label="Control Dep:1"];
+15 -> 23 [label="Control Dep:1"];
+15 -> 24 [label="Control Dep:1"];
+15 -> 35 [label="Control Dep:1"];
+15 -> 27 [label="Control Dep:1"];
+15 -> 30 [label="Control Dep:1"];
+15 -> 20 [label="Control Dep:1"];
+15 -> 25 [label="Control Dep:1"];
+15 -> 29 [label="Control Dep:1"];
+15 -> 26 [label="Control Dep:1"];
+15 -> 19 [label="Control Dep:1"];
+15 -> 31 [label="Control Dep:1"];
+16 -> 15 [label="AST:1"];
+16 -> 3 [label="AST:1"];
+16 -> 20 [label="AST:1"];
+17 -> 41 [label="Define Use:1"];
+19 -> 29 [label="Data Dep:1"];
+20 -> 25 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 30 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+22 -> 24 [label="AST:1"];
+24 -> 27 [label="AST:1"];
+24 -> 35 [label="AST:1"];
+25 -> 29 [label="AST:1"];
+25 -> 26 [label="AST:1"];
+26 -> 19 [label="AST:1"];
+26 -> 31 [label="AST:1"];
+26 -> 29 [label="Data Dep:1"];
+28 -> 34 [label="AST:1"];
+28 -> 44 [label="AST:1"];
+31 -> 29 [label="Data Dep:1"];
+34 -> 37 [label="AST:1"];
+36 -> 38 [label="AST:1"];
+39 -> 46 [label="AST:1"];
+39 -> 3 [label="AST:1"];
+40 -> 41 [label="AST:1"];
+40 -> 47 [label="AST:1"];
+42 -> 27 [label="AST:1"];
+42 -> 35 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+43 -> 18 [label="AST:1"];
+44 -> 33 [label="AST:1"];
+45 -> 37 [label="AST:1"];
+46 -> 40 [label="Control Dep:1"];
+46 -> 41 [label="Control Dep:1"];
+46 -> 42 [label="Control Dep:1"];
+46 -> 43 [label="Control Dep:1"];
+46 -> 17 [label="AST:1"];
+46 -> 36 [label="AST:1"];
+46 -> 3 [label="Control Dep:1"];
+46 -> 2 [label="Control Dep:1"];
+46 -> 5 [label="Control Dep:1"];
+46 -> 1 [label="Control Dep:1"];
+46 -> 47 [label="Control Dep:1"];
+46 -> 35 [label="Control Dep:1"];
+46 -> 27 [label="Control Dep:1"];
+46 -> 18 [label="Control Dep:1"];
+}

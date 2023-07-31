@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testContainsIncomplete2#?#6:MOVE
+testIstrueIncomplete1#?#4:MOVE" shape=ellipse]
+1 [label="testContainsIncomplete2#?#6:\"both string and substring are required in contains\"
+testIstrueIncomplete1#?#4:\"Nothing to test for truth\"" shape=ellipse]
+2 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\")
+testIstrueIncomplete1#?#3:expectSpecificBuildException(\"istrue-incomplete\", \"Missing attribute\", \"Nothing to test for truth\")" shape=ellipse]
+3 [label="testContainsIncomplete2#?#2:\{
+    expectSpecificBuildException(\"contains-incomplete2\", \"Missing contains attribute\", \"both string and substring are required in contains\");
+\}
+testIstrueIncomplete1#?#2:\{
+    expectSpecificBuildException(\"istrue-incomplete\", \"Missing attribute\", \"Nothing to test for truth\");
+\}" shape=ellipse]
+4 [label="testContainsIncomplete2#?#3:expectSpecificBuildException
+testIstrueIncomplete1#?#3:expectSpecificBuildException" shape=ellipse]
+5 [label="testContainsIncomplete2#?#-1:
+testIstrueIncomplete1#?#-1:" shape=ellipse]
+6 [label="testContainsIncomplete2#?#3:expectSpecificBuildException(java.lang.String,java.lang.String,java.lang.String)
+testIstrueIncomplete1#?#3:expectSpecificBuildException(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="testContainsIncomplete2#?#4:\"contains-incomplete2\"
+testIstrueIncomplete1#?#4:\"istrue-incomplete\"" shape=ellipse]
+8 [label="testContainsIncomplete2#?#5:\"Missing contains attribute\"
+testIstrueIncomplete1#?#4:\"Missing attribute\"" shape=ellipse]
+9 [label="testContainsIncomplete2#?#3:DELETE
+testIstrueIncomplete1#?#3:DELETE" shape=ellipse]
+10 [label="testContainsIncomplete2#?#-1:String
+testIstrueIncomplete1#?#-1:String" shape=ellipse]
+11 [label="testContainsIncomplete2#?#8:assertEquals(\"both string and substring are required in contains\", ex.getMessage())
+testIstrueIncomplete1#?#8:assertEquals(\"Nothing to test for truth\", ex.getMessage())" shape=ellipse]
+12 [label="testContainsIncomplete2#?#7:BuildException ex
+testIstrueIncomplete1#?#7:BuildException ex" shape=ellipse]
+13 [label="testContainsIncomplete2#?#7:\{
+    assertEquals(\"both string and substring are required in contains\", ex.getMessage());
+\}
+testIstrueIncomplete1#?#7:\{
+    assertEquals(\"Nothing to test for truth\", ex.getMessage());
+\}" shape=ellipse]
+14 [label="testContainsIncomplete2#?#8:assertEquals(java.lang.String,<unknown>)
+testIstrueIncomplete1#?#8:assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+15 [label="testContainsIncomplete2#?#-1:
+testIstrueIncomplete1#?#-1:" shape=ellipse]
+16 [label="testContainsIncomplete2#?#-1:PlaceHold
+testIstrueIncomplete1#?#-1:PlaceHold" shape=ellipse]
+17 [label="testContainsIncomplete2#?#8:ex.getMessage()
+testIstrueIncomplete1#?#8:ex.getMessage()" shape=ellipse]
+18 [label="testContainsIncomplete2#?#8:getMessage()
+testIstrueIncomplete1#?#8:getMessage()" shape=ellipse]
+19 [label="testContainsIncomplete2#?#8:ex
+testIstrueIncomplete1#?#8:ex" shape=ellipse]
+0 -> 11 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="Action:2"];
+3 -> 2 [label="AST:2"];
+11 -> 15 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+11 -> 17 [label="AST:2"];
+12 -> 11 [label="Control Dep:2"];
+12 -> 13 [label="Control Dep:2"];
+12 -> 14 [label="Control Dep:2"];
+12 -> 15 [label="Control Dep:2"];
+12 -> 16 [label="Control Dep:2"];
+12 -> 17 [label="Control Dep:2"];
+12 -> 18 [label="Control Dep:2"];
+12 -> 19 [label="Control Dep:2"];
+13 -> 11 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+}

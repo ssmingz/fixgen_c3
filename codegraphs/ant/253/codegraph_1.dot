@@ -1,0 +1,134 @@
+digraph "testRelativeFactoryResource#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testRelativeFactoryResource" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+4 [label="3:CtFieldReadImpl@root" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"foo\"" shape=ellipse]
+6 [label="3:CtConstructorCallImpl@new FileResource(root, \"foo\")" shape=ellipse]
+7 [label="3:CtVirtualElement@f" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@FileResource f = new FileResource(root, \"foo\")" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@FileResource" shape=ellipse]
+10 [label="4:CtExecutableReferenceImpl@as(java.lang.Class)" shape=ellipse]
+11 [label="4:CtVirtualElement@as" shape=ellipse]
+12 [label="4:CtExecutableReferenceImpl@getResource(java.lang.String)" shape=ellipse]
+13 [label="4:CtVirtualElement@getResource" shape=ellipse]
+14 [label="4:CtVariableReadImpl@f" shape=ellipse]
+15 [label="4:CtLiteralImpl@\"bar\"" shape=ellipse]
+16 [label="4:CtInvocationImpl@f.getResource(\"bar\")" shape=ellipse]
+17 [label="4:CtFieldReadImpl@FileResource.class" shape=ellipse]
+18 [label="4:CtInvocationImpl@f.getResource(\"bar\").as(FileResource.class)" shape=ellipse]
+19 [label="4:CtVirtualElement@relative" shape=ellipse]
+20 [label="4:CtLocalVariableImpl@FileResource relative = f.getResource(\"bar\").as(FileResource.class)" shape=ellipse]
+21 [label="5:CtExecutableReferenceImpl@assertEquals(File,<unknown>)" shape=ellipse]
+22 [label="5:CtVirtualElement@assertEquals" shape=ellipse]
+23 [label="5:CtTypeReferenceImpl@File" shape=ellipse]
+24 [label="5:CtFieldReadImpl@root" shape=ellipse]
+25 [label="5:CtLiteralImpl@\"foo/bar\"" shape=ellipse]
+26 [label="5:CtConstructorCallImpl@new File(root, \"foo/bar\")" shape=ellipse]
+27 [label="5:CtExecutableReferenceImpl@getFile()" shape=ellipse]
+28 [label="5:CtVirtualElement@getFile" shape=ellipse]
+29 [label="5:CtVariableReadImpl@relative" shape=ellipse]
+30 [label="5:CtInvocationImpl@relative.getFile()" shape=ellipse]
+31 [label="5:CtInvocationImpl@assertEquals(new File(root, \"foo/bar\"), relative.getFile())" shape=ellipse]
+32 [label="6:CtExecutableReferenceImpl@assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+33 [label="6:CtVirtualElement@assertEquals" shape=ellipse]
+34 [label="6:CtLiteralImpl@\"foo/bar\"" shape=ellipse]
+35 [label="6:CtExecutableReferenceImpl@replace(char)" shape=ellipse]
+36 [label="6:CtVirtualElement@replace" shape=ellipse]
+37 [label="6:CtExecutableReferenceImpl@getName()" shape=ellipse]
+38 [label="6:CtVirtualElement@getName" shape=ellipse]
+39 [label="6:CtVariableReadImpl@relative" shape=ellipse]
+40 [label="6:CtInvocationImpl@relative.getName()" shape=ellipse]
+41 [label="6:CtLiteralImpl@'/'" shape=ellipse]
+42 [label="6:CtTypeAccessImpl@separatorChar" shape=ellipse]
+43 [label="6:CtInvocationImpl@relative.getName().replace('/', separatorChar)" shape=ellipse]
+44 [label="6:CtInvocationImpl@assertEquals(\"foo/bar\", relative.getName().replace('/', separatorChar))" shape=ellipse]
+45 [label="7:CtExecutableReferenceImpl@assertEquals(<unknown>,<unknown>)" shape=ellipse]
+46 [label="7:CtVirtualElement@assertEquals" shape=ellipse]
+47 [label="7:CtFieldReadImpl@root" shape=ellipse]
+48 [label="7:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+49 [label="7:CtVirtualElement@getBaseDir" shape=ellipse]
+50 [label="7:CtVariableReadImpl@relative" shape=ellipse]
+51 [label="7:CtInvocationImpl@relative.getBaseDir()" shape=ellipse]
+52 [label="7:CtInvocationImpl@assertEquals(root, relative.getBaseDir())" shape=ellipse]
+53 [label="2:CtBlockImpl@\{
+    FileResource f = new FileResource(root, \"foo\");
+    FileResource relative = f.getResource(\"bar\").as(FileResource.class);
+    assertEquals(new File(root, \"foo/bar\"), relative.getFile());
+    assertEquals(\"foo/bar\", relative.getName().replace('/', separatorChar));
+    assertEquals(root, relative.getBaseDir());
+\}" shape=ellipse]
+54 [label="2:CtMethodImpl@public void testRelativeFactoryResource() \{
+    FileResource f = new FileResource(root, \"foo\");
+    FileResource relative = f.getResource(\"bar\").as(FileResource.class);
+    assertEquals(new File(root, \"foo/bar\"), relative.getFile());
+    assertEquals(\"foo/bar\", relative.getName().replace('/', separatorChar));
+    assertEquals(root, relative.getBaseDir());
+\}" shape=ellipse]
+55 [label="6:Delete@DELETE" shape=ellipse]
+56 [label="6:Insert@INSERT" shape=ellipse]
+57 [label="6:CtTypeAccessImpl@separatorChar" shape=ellipse]
+4 -> 7 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 14 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 6 [label="AST"];
+14 -> 19 [label="Data Dep"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 19 [label="Data Dep"];
+18 -> 11 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 10 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 29 [label="Define-Use"];
+19 -> 39 [label="Define-Use"];
+19 -> 50 [label="Define-Use"];
+20 -> 19 [label="AST"];
+20 -> 9 [label="AST"];
+20 -> 18 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 27 [label="AST"];
+31 -> 22 [label="AST"];
+31 -> 21 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 30 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+40 -> 37 [label="AST"];
+42 -> 55 [label="Action"];
+43 -> 36 [label="AST"];
+43 -> 40 [label="AST"];
+43 -> 35 [label="AST"];
+43 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+43 -> 56 [label="Action"];
+44 -> 33 [label="AST"];
+44 -> 32 [label="AST"];
+44 -> 34 [label="AST"];
+44 -> 43 [label="AST"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 48 [label="AST"];
+52 -> 46 [label="AST"];
+52 -> 45 [label="AST"];
+52 -> 47 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 8 [label="AST"];
+53 -> 20 [label="AST"];
+53 -> 31 [label="AST"];
+53 -> 44 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 1 [label="AST"];
+54 -> 0 [label="AST"];
+54 -> 53 [label="AST"];
+56 -> 57 [label="Action"];
+}

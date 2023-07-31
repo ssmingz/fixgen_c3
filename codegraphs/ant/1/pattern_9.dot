@@ -1,0 +1,113 @@
+digraph "Pattern" {
+0 [label="testTail#?#6:INSERT
+testTailSkip#?#7:INSERT
+testTailLines#?#7:INSERT
+testTailLinesSkip#?#7:INSERT
+testHead#?#6:INSERT
+testHeadSkip#?#7:INSERT" shape=ellipse]
+1 [label="testTail#?#6:getProject()
+testTailSkip#?#6:getProject()
+testTailLines#?#6:getProject()
+testTailLinesSkip#?#6:getProject()
+testHead#?#6:getProject()
+testHeadSkip#?#6:getProject()" shape=ellipse]
+2 [label="testTail#?#6:getProject().getProperty(\"output\")
+testTailSkip#?#6:getProject().getProperty(\"output\")
+testTailLines#?#6:getProject().getProperty(\"output\")
+testTailLinesSkip#?#6:getProject().getProperty(\"output\")
+testHead#?#6:getProject().getProperty(\"output\")
+testHeadSkip#?#6:getProject().getProperty(\"output\")" shape=ellipse]
+3 [label="testTail#?#6:getProject().getProperty(\"output\") + \"/head-tail.tail.test\"
+testTailSkip#?#6:getProject().getProperty(\"output\") + \"/head-tail.tailSkip.test\"
+testTailLines#?#6:getProject().getProperty(\"output\") + \"/head-tail.tailLines.test\"
+testTailLinesSkip#?#6:getProject().getProperty(\"output\") + \"/head-tail.tailLinesSkip.test\"
+testHead#?#6:getProject().getProperty(\"output\") + \"/head-tail.head.test\"
+testHeadSkip#?#6:getProject().getProperty(\"output\") + \"/head-tail.headSkip.test\"" shape=ellipse]
+4 [label="testTail#?#6:getProperty
+testTailSkip#?#6:getProperty
+testTailLines#?#6:getProperty
+testTailLinesSkip#?#6:getProperty
+testHead#?#6:getProperty
+testHeadSkip#?#6:getProperty" shape=ellipse]
+5 [label="testTail#?#6:getProperty(java.lang.String)
+testTailSkip#?#6:getProperty(java.lang.String)
+testTailLines#?#6:getProperty(java.lang.String)
+testTailLinesSkip#?#6:getProperty(java.lang.String)
+testHead#?#6:getProperty(java.lang.String)
+testHeadSkip#?#6:getProperty(java.lang.String)" shape=ellipse]
+6 [label="testTail#?#6:\"output\"
+testTailSkip#?#6:\"output\"
+testTailLines#?#6:\"output\"
+testTailLinesSkip#?#6:\"output\"
+testHead#?#6:\"output\"
+testHeadSkip#?#6:\"output\"" shape=ellipse]
+7 [label="testTail#?#6:getProject
+testTailSkip#?#6:getProject
+testTailLines#?#6:getProject
+testTailLinesSkip#?#6:getProject
+testHead#?#6:getProject
+testHeadSkip#?#6:getProject" shape=ellipse]
+8 [label="testTail#?#-1:
+testTailSkip#?#-1:
+testTailLines#?#-1:
+testTailLinesSkip#?#-1:
+testHead#?#-1:
+testHeadSkip#?#-1:" shape=ellipse]
+9 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+10 [label="testTail#?#-1:PlaceHold
+testTailSkip#?#-1:PlaceHold
+testTailLines#?#-1:PlaceHold
+testTailLinesSkip#?#-1:PlaceHold
+testHead#?#-1:PlaceHold
+testHeadSkip#?#-1:PlaceHold" shape=ellipse]
+11 [label="testTail#?#6:result
+testTailSkip#?#6:result
+testTailLines#?#6:result
+testTailLinesSkip#?#6:result
+testHead#?#6:result
+testHeadSkip#?#6:result" shape=ellipse]
+12 [label="testTail#?#6:getProject()
+testTailSkip#?#6:getProject()
+testTailLines#?#6:getProject()
+testTailLinesSkip#?#6:getProject()
+testHead#?#6:getProject()
+testHeadSkip#?#6:getProject()" shape=ellipse]
+13 [label="testTail#?#6:buildRule
+testTailSkip#?#7:buildRule
+testTailLines#?#7:buildRule
+testTailLinesSkip#?#7:buildRule
+testHead#?#6:buildRule
+testHeadSkip#?#7:buildRule" shape=ellipse]
+14 [label="testTail#?#6:result
+testTailSkip#?#6:result
+testTailLines#?#6:result
+testTailLinesSkip#?#6:result
+testHead#?#6:result
+testHeadSkip#?#6:result" shape=ellipse]
+15 [label="testTail#?#10:result
+testTailSkip#?#11:result
+testTailLines#?#11:result
+testTailLinesSkip#?#11:result
+testHead#?#10:result
+testHeadSkip#?#11:result" shape=ellipse]
+0 -> 13 [label="Action:6"];
+1 -> 0 [label="Action:6"];
+1 -> 7 [label="AST:6"];
+1 -> 8 [label="AST:6"];
+1 -> 12 [label="AST:6"];
+2 -> 1 [label="AST:6"];
+2 -> 4 [label="AST:6"];
+2 -> 5 [label="AST:6"];
+2 -> 6 [label="AST:6"];
+3 -> 2 [label="AST:6"];
+8 -> 9 [label="AST:6"];
+8 -> 10 [label="AST:6"];
+8 -> 11 [label="Data Dep:6"];
+13 -> 14 [label="Data Dep:6"];
+14 -> 15 [label="Define Use:6"];
+}

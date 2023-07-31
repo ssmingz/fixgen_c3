@@ -1,0 +1,249 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Insert
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:INSERT
+value2:" shape=ellipse]
+1 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+2 [label="locationInParent:TYPE_MEMBER
+nodeType:CtMethodImpl
+nodeType2:CtExecutableImpl
+nodeType3:CtExecutableImpl" shape=ellipse]
+3 [label="locationInParent:METHOD_DEC_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object" shape=ellipse]
+4 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:void
+value2:void" shape=ellipse]
+5 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:ProjectData projectDataToSave = null
+value2:ProjectData projectDataToSave = null" shape=ellipse]
+6 [label="locationInParent:LOCAL_VAR_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:projectDataToSave
+value2:ProjectData projectDataToSave = null" shape=ellipse]
+7 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:ProjectData
+value2:ProjectData" shape=ellipse]
+8 [label="locationInParent:DEFAULT_EXPRESSION
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:null
+value2:null" shape=ellipse]
+9 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:globalProjectDataLock.lock()
+value2:PlaceHold.lock()" shape=ellipse]
+10 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:lock
+value2:PlaceHold.lock()" shape=ellipse]
+11 [label="locationInParent:TARGET
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value:globalProjectDataLock
+value2:PlaceHold" shape=ellipse]
+12 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:lock()
+value2:lock()" shape=ellipse]
+13 [label="locationInParent:STATEMENT
+nodeType:CtTryImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:try \{
+    projectDataToSave = globalProjectData;
+    globalProjectData = new ProjectData();
+\} finally \{
+    globalProjectDataLock.unlock();
+\}
+value2:try \{
+    ProjectData = PlaceHold;
+    PlaceHold = new ProjectData();
+\} finally \{
+    PlaceHold.unlock();
+\}" shape=ellipse]
+14 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:\{
+    projectDataToSave = globalProjectData;
+    globalProjectData = new ProjectData();
+\}
+value2:\{
+    ProjectData = PlaceHold;
+    PlaceHold = new ProjectData();
+\}" shape=ellipse]
+15 [label="locationInParent:FINALIZER
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:\{
+    globalProjectDataLock.unlock();
+\}
+value2:\{
+    PlaceHold.unlock();
+\}" shape=ellipse]
+16 [label="locationInParent:STATEMENT
+nodeType:CtTryImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:try \{
+    Thread.sleep(1000);
+\} catch (InterruptedException e) \{
+\}
+value2:try \{
+    java.lang.Thread.sleep(Integer);
+\} catch (java.lang.InterruptedException e) \{
+\}" shape=ellipse]
+17 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:\{
+    Thread.sleep(1000);
+\}
+value2:\{
+    java.lang.Thread.sleep(Integer);
+\}" shape=ellipse]
+18 [label="locationInParent:CATCH
+nodeType:CtCatchImpl
+nodeType2:CtCatchImpl
+nodeType3:CtCatchImpl
+value: catch (InterruptedException e) \{
+\}
+value2: catch (java.lang.InterruptedException e) \{
+\}" shape=ellipse]
+19 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:File dataFile = CoverageDataFileHandler.getDefaultDataFile()
+value2:File dataFile = CoverageDataFileHandler.getDefaultDataFile()" shape=ellipse]
+20 [label="locationInParent:LOCAL_VAR_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:dataFile
+value2:File dataFile = CoverageDataFileHandler.getDefaultDataFile()" shape=ellipse]
+21 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:File
+value2:File" shape=ellipse]
+22 [label="locationInParent:DEFAULT_EXPRESSION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:CoverageDataFileHandler.getDefaultDataFile()
+value2:CoverageDataFileHandler.getDefaultDataFile()" shape=ellipse]
+23 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value:FileLocker fileLocker = new FileLocker(dataFile)
+value2:FileLocker fileLocker = new FileLocker(File)" shape=ellipse]
+24 [label="locationInParent:LOCAL_VAR_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:fileLocker
+value2:FileLocker fileLocker = new FileLocker(File)" shape=ellipse]
+25 [label="locationInParent:TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:FileLocker
+value2:FileLocker" shape=ellipse]
+26 [label="locationInParent:DEFAULT_EXPRESSION
+nodeType:CtConstructorCallImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:new FileLocker(dataFile)
+value2:new FileLocker(File)" shape=ellipse]
+27 [label="locationInParent:STATEMENT
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+28 [label="nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+29 [label="locationInParent:ACTION
+nodeType:Move
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:MOVE
+value2:" shape=ellipse]
+30 [label="locationInParent:STATEMENT
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+31 [label="locationInParent:BODY
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+32 [label="locationInParent:TARGET
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:fileLocker
+value2:FileLocker" shape=ellipse]
+0 -> 30 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 23 [label="AST:2"];
+1 -> 27 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 3 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+19 -> 21 [label="AST:2"];
+19 -> 22 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+23 -> 25 [label="AST:2"];
+23 -> 26 [label="AST:2"];
+24 -> 32 [label="Define Use:2"];
+27 -> 28 [label="AST:2"];
+27 -> 29 [label="Action:2"];
+29 -> 30 [label="Action:2"];
+30 -> 31 [label="AST:2"];
+}

@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1739/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1739/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,8 @@
+-    expectBuildExceptionContaining(
+-        "test9",
+-        "Construction is invalid - Name attribute should not be used",
+-        "Specify the section name using the \"name\" attribute of the <section> element");
++    try {
++      buildRule.executeTarget("test9");
++      fail("BuildException expected: Construction is invalid - Name attribute should not be used");
++    } catch (BuildException ex) {
++      assertContains(
++          "Specify the section name using the \"name\" attribute of the <section> element",
++          ex.getMessage());
++    }

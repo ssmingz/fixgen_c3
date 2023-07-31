@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1604/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1604/1/after.java
+@@ -26,0 +26,16 @@
++    int cairo = data.cairo;
++    if (cairo != 0) {
++      float naw2 = naw / 2.0F;
++      float nah2 = nah / 2.0F;
++      float fw = nw / naw2;
++      float fh = nh / nah2;
++      Cairo.cairo_new_path(cairo);
++      Cairo.cairo_save(cairo);
++      Cairo.cairo_translate(cairo, nx, ny);
++      Cairo.cairo_scale(cairo, naw2, nah2);
++      Cairo.cairo_move_to(cairo, fw - 1, 0);
++      Cairo.cairo_close_path(handle);
++      Cairo.cairo_stroke(cairo);
++      Cairo.cairo_restore(cairo);
++      return;
++    }

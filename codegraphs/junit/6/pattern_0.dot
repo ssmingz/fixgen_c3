@@ -1,0 +1,94 @@
+digraph "Pattern" {
+0 [label="addFirstListener#?,RunListener#3:INSERT
+removeListener#?,RunListener#3:INSERT
+addListener#?,RunListener#3:INSERT" shape=ellipse]
+1 [label="addFirstListener#?,RunListener#2:\{
+    fListeners.add(0, listener);
+\}
+removeListener#?,RunListener#2:\{
+    fListeners.remove(listener);
+\}
+addListener#?,RunListener#2:\{
+    fListeners.add(listener);
+\}" shape=ellipse]
+2 [label="addFirstListener#?,RunListener#2:public void addFirstListener(RunListener listener) \{
+    fListeners.add(0, listener);
+\}
+removeListener#?,RunListener#2:public void removeListener(RunListener listener) \{
+    fListeners.remove(listener);
+\}
+addListener#?,RunListener#2:public void addListener(RunListener listener) \{
+    fListeners.add(listener);
+\}" shape=ellipse]
+3 [label="addFirstListener#?,RunListener#2:addFirstListener
+removeListener#?,RunListener#2:removeListener
+addListener#?,RunListener#2:addListener" shape=ellipse]
+4 [label="addFirstListener#?,RunListener#2:void
+removeListener#?,RunListener#2:void
+addListener#?,RunListener#2:void" shape=ellipse]
+5 [label="addFirstListener#?,RunListener#2:RunListener listener
+removeListener#?,RunListener#2:RunListener listener
+addListener#?,RunListener#2:RunListener listener" shape=ellipse]
+6 [label="addFirstListener#?,RunListener#3:fListeners.add(0, listener)
+removeListener#?,RunListener#3:fListeners.remove(listener)
+addListener#?,RunListener#3:fListeners.add(listener)" shape=ellipse]
+7 [label="addFirstListener#?,RunListener#3:fListenersLock
+removeListener#?,RunListener#3:fListenersLock
+addListener#?,RunListener#3:fListenersLock" shape=ellipse]
+8 [label="addFirstListener#?,RunListener#3:synchronized(fListenersLock) \{
+
+\}
+removeListener#?,RunListener#3:synchronized(fListenersLock) \{
+
+\}
+addListener#?,RunListener#3:synchronized(fListenersLock) \{
+
+\}" shape=ellipse]
+9 [label="addFirstListener#?,RunListener#3:\{
+    fListeners.add(0, listener);
+\}
+removeListener#?,RunListener#3:\{
+    fListeners.remove(listener);
+\}
+addListener#?,RunListener#3:\{
+    fListeners.add(listener);
+\}" shape=ellipse]
+10 [label="addFirstListener#?,RunListener#3:add
+removeListener#?,RunListener#3:remove
+addListener#?,RunListener#3:add" shape=ellipse]
+11 [label="addFirstListener#?,RunListener#3:fListeners
+removeListener#?,RunListener#3:fListeners
+addListener#?,RunListener#3:fListeners" shape=ellipse]
+12 [label="addFirstListener#?,RunListener#3:add(int,RunListener)
+removeListener#?,RunListener#3:remove(RunListener)
+addListener#?,RunListener#3:add(RunListener)" shape=ellipse]
+13 [label="addFirstListener#?,RunListener#3:0" shape=ellipse]
+14 [label="addFirstListener#?,RunListener#3:listener
+removeListener#?,RunListener#3:listener
+addListener#?,RunListener#3:listener" shape=ellipse]
+15 [label="addFirstListener#?,RunListener#3:MOVE
+removeListener#?,RunListener#3:MOVE
+addListener#?,RunListener#3:MOVE" shape=ellipse]
+0 -> 8 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 3 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+6 -> 10 [label="AST:3"];
+6 -> 11 [label="AST:3"];
+6 -> 12 [label="AST:3"];
+6 -> 13 [label="AST:1"];
+6 -> 14 [label="AST:3"];
+6 -> 15 [label="Action:3"];
+7 -> 6 [label="Control Dep:3"];
+7 -> 9 [label="Control Dep:3"];
+7 -> 12 [label="Control Dep:3"];
+7 -> 11 [label="Control Dep:3"];
+7 -> 13 [label="Control Dep:1"];
+7 -> 14 [label="Control Dep:3"];
+8 -> 7 [label="AST:3"];
+8 -> 9 [label="AST:3"];
+15 -> 8 [label="Action:3"];
+}

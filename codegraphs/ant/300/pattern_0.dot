@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="setErrorProperty#?#3:INSERT
+setWarningProperty#?#3:INSERT" shape=ellipse]
+1 [label="setErrorProperty#?#3:setProperty(errorProperty)
+setWarningProperty#?#3:setProperty(warningProperty)" shape=ellipse]
+2 [label="setErrorProperty#?#2:\{
+    setProperty(errorProperty);
+\}
+setWarningProperty#?#2:\{
+    setProperty(warningProperty);
+\}" shape=ellipse]
+3 [label="setErrorProperty#?#2:protected final void setErrorProperty() \{
+    setProperty(errorProperty);
+\}
+setWarningProperty#?#2:protected final void setWarningProperty() \{
+    setProperty(warningProperty);
+\}" shape=ellipse]
+4 [label="setErrorProperty#?#3:setProperty
+setWarningProperty#?#3:setProperty" shape=ellipse]
+5 [label="setErrorProperty#?#-1:
+setWarningProperty#?#-1:" shape=ellipse]
+6 [label="setErrorProperty#?#-1:PlaceHold
+setWarningProperty#?#-1:PlaceHold" shape=ellipse]
+7 [label="setErrorProperty#?#-1:PlaceHold
+setWarningProperty#?#-1:PlaceHold" shape=ellipse]
+8 [label="setErrorProperty#?#3:setProperty(<unknown>)
+setWarningProperty#?#3:setProperty(<unknown>)" shape=ellipse]
+9 [label="setErrorProperty#?#-1:null
+setWarningProperty#?#-1:null" shape=ellipse]
+10 [label="setErrorProperty#?#3:errorProperty
+setWarningProperty#?#3:warningProperty" shape=ellipse]
+11 [label="setErrorProperty#?#-1:errorProperty
+setWarningProperty#?#-1:warningProperty" shape=ellipse]
+12 [label="setErrorProperty#?#3:\"true\"
+setWarningProperty#?#3:\"true\"" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+}

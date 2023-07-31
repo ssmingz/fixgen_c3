@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2662/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2662/1/after.java
+@@ -10,1 +10,6 @@
+-    synchronizer.syncExec(runnable);
++    NSAutoreleasePool localPool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    try {
++      synchronizer.syncExec(runnable);
++    } finally {
++      localPool.release();
++    }

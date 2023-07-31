@@ -1,0 +1,209 @@
+digraph "Pattern" {
+0 [label="addBeans#?,Hashtable#3:UPDATE
+execute#?#9:UPDATE
+startTestSuite#?,JUnitTest#10:UPDATE
+addBeans#?,Hashtable#3:UPDATE
+startTestSuite#?,JUnitTest#10:UPDATE
+createAttributes#?,MetricsElement#7:UPDATE
+addVendorFiles#?,Hashtable,String#32:UPDATE
+execute#?#9:UPDATE
+createAttributes#?,MetricsElement#7:UPDATE
+addVendorFiles#?,Hashtable,String#32:UPDATE" shape=ellipse]
+1 [label="addBeans#?,Hashtable#3:Enumeration
+execute#?#9:Enumeration
+startTestSuite#?,JUnitTest#10:Enumeration
+addBeans#?,Hashtable#3:Enumeration
+startTestSuite#?,JUnitTest#10:Enumeration
+createAttributes#?,MetricsElement#7:Enumeration
+addVendorFiles#?,Hashtable,String#32:Enumeration
+execute#?#9:Enumeration
+createAttributes#?,MetricsElement#7:Enumeration
+addVendorFiles#?,Hashtable,String#32:Enumeration" shape=ellipse]
+2 [label="addBeans#?,Hashtable#3:Enumeration e = dictionary.keys()
+execute#?#9:Enumeration e = beans.keys()
+startTestSuite#?,JUnitTest#10:Enumeration e = props.propertyNames()
+addBeans#?,Hashtable#3:Enumeration e = dictionary.keys()
+startTestSuite#?,JUnitTest#10:Enumeration e = props.propertyNames()
+createAttributes#?,MetricsElement#7:Enumeration metrics = elem.getMetrics()
+addVendorFiles#?,Hashtable,String#32:Enumeration e = ht.keys()
+execute#?#9:Enumeration e = beans.keys()
+createAttributes#?,MetricsElement#7:Enumeration metrics = elem.getMetrics()
+addVendorFiles#?,Hashtable,String#32:Enumeration e = ht.keys()" shape=ellipse]
+3 [label="addBeans#?,Hashtable#3:for (Enumeration e = dictionary.keys(); e.hasMoreElements();) \{
+    String key = ((String) (e.nextElement()));
+    boolean isValid = (key.length() > 0) && Character.isJavaIdentifierStart(key.charAt(0));
+    for (int i = 1; isValid && (i < key.length()); i++) \{
+        isValid = Character.isJavaIdentifierPart(key.charAt(i));
+    \}
+    if (isValid) \{
+        beans.put(key, dictionary.get(key));
+    \}
+\}
+execute#?#9:for (Enumeration e = beans.keys(); e.hasMoreElements();) \{
+    String key = ((String) (e.nextElement()));
+    Object value = beans.get(key);
+    manager.declareBean(key, value, value.getClass());
+\}
+addBeans#?,Hashtable#3:for (Enumeration e = dictionary.keys(); e.hasMoreElements();) \{
+    String key = ((String) (e.nextElement()));
+    boolean isValid = (key.length() > 0) && Character.isJavaIdentifierStart(key.charAt(0));
+    for (int i = 1; isValid && (i < key.length()); i++) \{
+        isValid = Character.isJavaIdentifierPart(key.charAt(i));
+    \}
+    if (isValid) \{
+        beans.put(key, dictionary.get(key));
+    \}
+\}
+execute#?#9:for (Enumeration e = beans.keys(); e.hasMoreElements();) \{
+    String key = ((String) (e.nextElement()));
+    Object value = beans.get(key);
+    manager.declareBean(key, value, value.getClass());
+\}" shape=ellipse]
+4 [label="addBeans#?,Hashtable#3:e
+execute#?#9:e
+startTestSuite#?,JUnitTest#10:e
+addBeans#?,Hashtable#3:e
+startTestSuite#?,JUnitTest#10:e
+createAttributes#?,MetricsElement#7:metrics
+addVendorFiles#?,Hashtable,String#32:e
+execute#?#9:e
+createAttributes#?,MetricsElement#7:metrics
+addVendorFiles#?,Hashtable,String#32:e" shape=ellipse]
+5 [label="addBeans#?,Hashtable#3:dictionary.keys()
+execute#?#9:beans.keys()
+startTestSuite#?,JUnitTest#10:props.propertyNames()
+addBeans#?,Hashtable#3:dictionary.keys()
+startTestSuite#?,JUnitTest#10:props.propertyNames()
+createAttributes#?,MetricsElement#7:elem.getMetrics()
+addVendorFiles#?,Hashtable,String#32:ht.keys()
+execute#?#9:beans.keys()
+createAttributes#?,MetricsElement#7:elem.getMetrics()
+addVendorFiles#?,Hashtable,String#32:ht.keys()" shape=ellipse]
+6 [label="addBeans#?,Hashtable#-1:
+execute#?#-1:
+startTestSuite#?,JUnitTest#-1:
+addBeans#?,Hashtable#-1:
+startTestSuite#?,JUnitTest#-1:
+createAttributes#?,MetricsElement#-1:
+addVendorFiles#?,Hashtable,String#-1:
+execute#?#-1:
+createAttributes#?,MetricsElement#-1:
+addVendorFiles#?,Hashtable,String#-1:" shape=ellipse]
+7 [label="addBeans#?,Hashtable#3:Iterator
+execute#?#9:Iterator
+startTestSuite#?,JUnitTest#10:Iterator
+addBeans#?,Hashtable#3:Iterator
+startTestSuite#?,JUnitTest#10:Iterator
+createAttributes#?,MetricsElement#7:Iterator
+addVendorFiles#?,Hashtable,String#32:Iterator
+execute#?#9:Iterator
+createAttributes#?,MetricsElement#7:Iterator
+addVendorFiles#?,Hashtable,String#32:Iterator" shape=ellipse]
+8 [label="startTestSuite#?,JUnitTest#9:props != null" shape=ellipse]
+9 [label="startTestSuite#?,JUnitTest#9:\{
+    Enumeration e = props.propertyNames();
+    while (e.hasMoreElements()) \{
+        String name = ((String) (e.nextElement()));
+        Element propElement = doc.createElement(PROPERTY);
+        propElement.setAttribute(ATTR_NAME, name);
+        propElement.setAttribute(ATTR_VALUE, props.getProperty(name));
+        propsElement.appendChild(propElement);
+    \} 
+\}" shape=ellipse]
+10 [label="startTestSuite#?,JUnitTest#9:props != null" shape=ellipse]
+11 [label="startTestSuite#?,JUnitTest#9:\{
+    Enumeration e = props.propertyNames();
+    while (e.hasMoreElements()) \{
+        String name = ((String) (e.nextElement()));
+        Element propElement = doc.createElement(PROPERTY);
+        propElement.setAttribute(ATTR_NAME, name);
+        propElement.setAttribute(ATTR_VALUE, props.getProperty(name));
+        propsElement.appendChild(propElement);
+    \} 
+\}" shape=ellipse]
+12 [label="createAttributes#?,MetricsElement#2:\{
+    AttributesImpl impl = new AttributesImpl();
+    int i = 0;
+    String name = ATTRIBUTES[i++];
+    impl.addAttribute(\"\", name, name, \"CDATA\", elem.getName());
+    Enumeration metrics = elem.getMetrics();
+    for (; metrics.hasMoreElements(); i++) \{
+        String value = ((String) (metrics.nextElement()));
+        if (value.length() > 0) \{
+            name = ATTRIBUTES[i];
+            impl.addAttribute(\"\", name, name, \"CDATA\", value);
+        \}
+    \}
+    return impl;
+\}" shape=ellipse]
+13 [label="addVendorFiles#?,Hashtable,String#13:!newCMP" shape=ellipse]
+14 [label="addVendorFiles#?,Hashtable,String#24:\{
+    File ejbDescriptor = ((File) (ejbFiles.get(META_DIR + EJB_DD)));
+    SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+    saxParserFactory.setValidating(true);
+    SAXParser saxParser = saxParserFactory.newSAXParser();
+    DescriptorHandler handler = getWeblogicDescriptorHandler(ejbDescriptor.getParentFile());
+    saxParser.parse(new InputSource(new FileInputStream(weblogicDD)), handler);
+    Hashtable ht = handler.getFiles();
+    Enumeration e = ht.keys();
+    while (e.hasMoreElements()) \{
+        String key = ((String) (e.nextElement()));
+        ejbFiles.put(key, ht.get(key));
+    \} 
+\}" shape=ellipse]
+15 [label="createAttributes#?,MetricsElement#2:\{
+    AttributesImpl impl = new AttributesImpl();
+    int i = 0;
+    String name = ATTRIBUTES[i++];
+    impl.addAttribute(\"\", name, name, \"CDATA\", elem.getName());
+    Enumeration metrics = elem.getMetrics();
+    for (; metrics.hasMoreElements(); i++) \{
+        String value = ((String) (metrics.nextElement()));
+        if (value.length() > 0) \{
+            name = ATTRIBUTES[i];
+            impl.addAttribute(\"\", name, name, \"CDATA\", value);
+        \}
+    \}
+    return impl;
+\}" shape=ellipse]
+16 [label="addVendorFiles#?,Hashtable,String#13:!newCMP" shape=ellipse]
+17 [label="addVendorFiles#?,Hashtable,String#24:\{
+    File ejbDescriptor = ((File) (ejbFiles.get(META_DIR + EJB_DD)));
+    SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+    saxParserFactory.setValidating(true);
+    SAXParser saxParser = saxParserFactory.newSAXParser();
+    DescriptorHandler handler = getWeblogicDescriptorHandler(ejbDescriptor.getParentFile());
+    saxParser.parse(new InputSource(new FileInputStream(weblogicDD)), handler);
+    Hashtable ht = handler.getFiles();
+    Enumeration e = ht.keys();
+    while (e.hasMoreElements()) \{
+        String key = ((String) (e.nextElement()));
+        ejbFiles.put(key, ht.get(key));
+    \} 
+\}" shape=ellipse]
+0 -> 7 [label="Action:10"];
+1 -> 0 [label="Action:10"];
+1 -> 6 [label="AST:10"];
+2 -> 1 [label="AST:10"];
+2 -> 4 [label="AST:10"];
+2 -> 5 [label="AST:10"];
+3 -> 2 [label="AST:4"];
+8 -> 9 [label="Control Dep:1"];
+8 -> 2 [label="Control Dep:1"];
+8 -> 5 [label="Control Dep:1"];
+9 -> 2 [label="AST:1"];
+10 -> 11 [label="Control Dep:1"];
+10 -> 2 [label="Control Dep:1"];
+10 -> 5 [label="Control Dep:1"];
+11 -> 2 [label="AST:1"];
+12 -> 2 [label="AST:1"];
+13 -> 14 [label="Control Dep:1"];
+13 -> 2 [label="Control Dep:1"];
+13 -> 5 [label="Control Dep:1"];
+14 -> 2 [label="AST:1"];
+15 -> 2 [label="AST:1"];
+16 -> 17 [label="Control Dep:1"];
+16 -> 2 [label="Control Dep:1"];
+16 -> 5 [label="Control Dep:1"];
+17 -> 2 [label="AST:1"];
+}

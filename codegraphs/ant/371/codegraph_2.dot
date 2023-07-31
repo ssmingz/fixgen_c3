@@ -1,0 +1,63 @@
+digraph "testAntlib_uri_auto#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testAntlib_uri_auto" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@isSharedJVM()" shape=ellipse]
+3 [label="3:CtVirtualElement@isSharedJVM" shape=ellipse]
+4 [label="3:CtInvocationImpl@isSharedJVM()" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+6 [label="4:CtVirtualElement@executeTarget" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"antlib_uri_auto\"" shape=ellipse]
+8 [label="4:CtInvocationImpl@executeTarget(\"antlib_uri_auto\")" shape=ellipse]
+9 [label="3:CtBlockImpl@\{
+    executeTarget(\"antlib_uri_auto\");
+\}" shape=ellipse]
+10 [label="3:CtIfImpl@if (isSharedJVM()) \{
+    executeTarget(\"antlib_uri_auto\");
+\}" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto\");
+    \}
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public void testAntlib_uri_auto() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto\");
+    \}
+\}" shape=ellipse]
+13 [label="3:Delete@DELETE" shape=ellipse]
+14 [label="2:Insert@INSERT" shape=ellipse]
+15 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+16 [label="4:Insert@INSERT" shape=ellipse]
+17 [label="4:CtInvocationImpl@Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())" shape=ellipse]
+18 [label="5:Insert@INSERT" shape=ellipse]
+19 [label="5:CtFieldReadImpl@buildRule" shape=ellipse]
+20 [label="4:Move@MOVE" shape=ellipse]
+21 [label="3:Move@MOVE" shape=ellipse]
+4 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+4 -> 9 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 5 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 21 [label="Action"];
+8 -> 6 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 18 [label="Action"];
+8 -> 20 [label="Action"];
+9 -> 8 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 13 [label="Action"];
+11 -> 10 [label="AST"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 14 [label="Action"];
+12 -> 16 [label="Action"];
+14 -> 15 [label="Action"];
+16 -> 17 [label="Action"];
+18 -> 19 [label="Action"];
+20 -> 12 [label="Action"];
+21 -> 17 [label="Action"];
+}

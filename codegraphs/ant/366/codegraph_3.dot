@@ -1,0 +1,41 @@
+digraph "createInclude#?" {
+0 [label="2:CtTypeReferenceImpl@NameEntry" shape=ellipse]
+1 [label="2:CtVirtualElement@createInclude" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtFieldWriteImpl@defaultSetDefined" shape=ellipse]
+4 [label="3:CtLiteralImpl@true" shape=ellipse]
+5 [label="3:CtAssignmentImpl@defaultSetDefined = true" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@createInclude()" shape=ellipse]
+7 [label="4:CtVirtualElement@createInclude" shape=ellipse]
+8 [label="4:CtFieldReadImpl@defaultSet" shape=ellipse]
+9 [label="4:CtInvocationImpl@defaultSet.createInclude()" shape=ellipse]
+10 [label="4:CtReturnImpl@return defaultSet.createInclude()" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    defaultSetDefined = true;
+    return defaultSet.createInclude();
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public NameEntry createInclude() throws TaskException \{
+    defaultSetDefined = true;
+    return defaultSet.createInclude();
+\}" shape=ellipse]
+13 [label="3:Update@UPDATE" shape=ellipse]
+14 [label="3:CtFieldWriteImpl@m_defaultSetDefined" shape=ellipse]
+15 [label="4:Update@UPDATE" shape=ellipse]
+16 [label="4:CtFieldReadImpl@m_defaultSet" shape=ellipse]
+3 -> 13 [label="Action"];
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+8 -> 15 [label="Action"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 14 [label="Action"];
+15 -> 16 [label="Action"];
+}

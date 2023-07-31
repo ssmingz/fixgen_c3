@@ -1,0 +1,776 @@
+digraph "Pattern" {
+0 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:INSERT
+getResourcesToAdd#?,FileSet[],File,boolean#76:INSERT" shape=ellipse]
+1 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:for (int i = 0; i < rcs.length; i++) \{
+    if (initialResources[i].length == 0) \{
+        newerResources[i] = new Resource[]\{  \};
+        continue;
+    \}
+    for (int j = 0; j < initialResources[i].length; j++) \{
+        FileProvider fp = ((FileProvider) (initialResources[i][j].as(FileProvider.class)));
+        if ((fp != null) && zipFile.equals(fp.getFile())) \{
+            throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+        \}
+    \}
+    Resource[] rs = initialResources[i];
+    rs = selectFileResources(rs);
+    newerResources[i] = ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner());
+    needsUpdate = needsUpdate || (newerResources[i].length > 0);
+    if (needsUpdate && (!doUpdate)) \{
+        break;
+    \}
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#50:for (int i = 0; i < filesets.length; i++) \{
+    if (initialResources[i].length == 0) \{
+        newerResources[i] = new Resource[]\{  \};
+        continue;
+    \}
+    FileNameMapper myMapper = new IdentityMapper();
+    if (filesets[i] instanceof ZipFileSet) \{
+        ZipFileSet zfs = ((ZipFileSet) (filesets[i]));
+        if ((zfs.getFullpath(getProject()) != null) && (!zfs.getFullpath(getProject()).equals(\"\"))) \{
+            MergingMapper fm = new MergingMapper();
+            fm.setTo(zfs.getFullpath(getProject()));
+            myMapper = fm;
+        \} else if ((zfs.getPrefix(getProject()) != null) && (!zfs.getPrefix(getProject()).equals(\"\"))) \{
+            GlobPatternMapper gm = new GlobPatternMapper();
+            gm.setFrom(\"*\");
+            String prefix = zfs.getPrefix(getProject());
+            if ((!prefix.endsWith(\"/\")) && (!prefix.endsWith(\"\\\"))) \{
+                prefix += \"/\";
+            \}
+            gm.setTo(prefix + \"*\");
+            myMapper = gm;
+        \}
+    \}
+    Resource[] resources = initialResources[i];
+    resources = selectFileResources(resources);
+    newerResources[i] = ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner());
+    needsUpdate = needsUpdate || (newerResources[i].length > 0);
+    if (needsUpdate && (!doUpdate)) \{
+        break;
+    \}
+\}" shape=ellipse]
+2 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#3:\{
+    Resource[][] initialResources = grabNonFileSetResources(rcs);
+    if (isEmpty(initialResources)) \{
+        return new ArchiveState(needsUpdate, initialResources);
+    \}
+    if (!zipFile.exists()) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    Resource[][] newerResources = new Resource[rcs.length][];
+    for (int i = 0; i < rcs.length; i++) \{
+        if (initialResources[i].length == 0) \{
+            newerResources[i] = new Resource[]\{  \};
+            continue;
+        \}
+        for (int j = 0; j < initialResources[i].length; j++) \{
+            FileProvider fp = ((FileProvider) (initialResources[i][j].as(FileProvider.class)));
+            if ((fp != null) && zipFile.equals(fp.getFile())) \{
+                throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+            \}
+        \}
+        Resource[] rs = initialResources[i];
+        rs = selectFileResources(rs);
+        newerResources[i] = ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner());
+        needsUpdate = needsUpdate || (newerResources[i].length > 0);
+        if (needsUpdate && (!doUpdate)) \{
+            break;
+        \}
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    return new ArchiveState(needsUpdate, newerResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#3:\{
+    Resource[][] initialResources = grabResources(filesets);
+    if (isEmpty(initialResources)) \{
+        if (needsUpdate && doUpdate) \{
+            return new ArchiveState(true, initialResources);
+        \}
+        if (emptyBehavior.equals(\"skip\")) \{
+            if (doUpdate) \{
+                logOnFirstPass((((archiveType + \" archive \") + zipFile) + \" not updated because no new files were\") + \" included.\", MSG_VERBOSE);
+            \} else \{
+                logOnFirstPass((((\"Warning: skipping \" + archiveType) + \" archive \") + zipFile) + \" because no files were included.\", MSG_WARN);
+            \}
+        \} else if (emptyBehavior.equals(\"fail\")) \{
+            throw new BuildException((((\"Cannot create \" + archiveType) + \" archive \") + zipFile) + \": no files were included.\", getLocation());
+        \} else if (!zipFile.exists()) \{
+            needsUpdate = true;
+        \}
+        return new ArchiveState(needsUpdate, initialResources);
+    \}
+    if (!zipFile.exists()) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    Resource[][] newerResources = new Resource[filesets.length][];
+    for (int i = 0; i < filesets.length; i++) \{
+        if ((!(fileset instanceof ZipFileSet)) || (((ZipFileSet) (fileset)).getSrc(getProject()) == null)) \{
+            File base = filesets[i].getDir(getProject());
+            for (int j = 0; j < initialResources[i].length; j++) \{
+                File resourceAsFile = FILE_UTILS.resolveFile(base, initialResources[i][j].getName());
+                if (resourceAsFile.equals(zipFile)) \{
+                    throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+                \}
+            \}
+        \}
+    \}
+    for (int i = 0; i < filesets.length; i++) \{
+        if (initialResources[i].length == 0) \{
+            newerResources[i] = new Resource[]\{  \};
+            continue;
+        \}
+        FileNameMapper myMapper = new IdentityMapper();
+        if (filesets[i] instanceof ZipFileSet) \{
+            ZipFileSet zfs = ((ZipFileSet) (filesets[i]));
+            if ((zfs.getFullpath(getProject()) != null) && (!zfs.getFullpath(getProject()).equals(\"\"))) \{
+                MergingMapper fm = new MergingMapper();
+                fm.setTo(zfs.getFullpath(getProject()));
+                myMapper = fm;
+            \} else if ((zfs.getPrefix(getProject()) != null) && (!zfs.getPrefix(getProject()).equals(\"\"))) \{
+                GlobPatternMapper gm = new GlobPatternMapper();
+                gm.setFrom(\"*\");
+                String prefix = zfs.getPrefix(getProject());
+                if ((!prefix.endsWith(\"/\")) && (!prefix.endsWith(\"\\\"))) \{
+                    prefix += \"/\";
+                \}
+                gm.setTo(prefix + \"*\");
+                myMapper = gm;
+            \}
+        \}
+        Resource[] resources = initialResources[i];
+        resources = selectFileResources(resources);
+        newerResources[i] = ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner());
+        needsUpdate = needsUpdate || (newerResources[i].length > 0);
+        if (needsUpdate && (!doUpdate)) \{
+            break;
+        \}
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    return new ArchiveState(needsUpdate, newerResources);
+\}" shape=ellipse]
+3 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#2:protected ArchiveState getNonFileSetResourcesToAdd(ResourceCollection[] rcs, File zipFile, boolean needsUpdate) throws BuildException \{
+    Resource[][] initialResources = grabNonFileSetResources(rcs);
+    if (isEmpty(initialResources)) \{
+        return new ArchiveState(needsUpdate, initialResources);
+    \}
+    if (!zipFile.exists()) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    Resource[][] newerResources = new Resource[rcs.length][];
+    for (int i = 0; i < rcs.length; i++) \{
+        if (initialResources[i].length == 0) \{
+            newerResources[i] = new Resource[]\{  \};
+            continue;
+        \}
+        for (int j = 0; j < initialResources[i].length; j++) \{
+            FileProvider fp = ((FileProvider) (initialResources[i][j].as(FileProvider.class)));
+            if ((fp != null) && zipFile.equals(fp.getFile())) \{
+                throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+            \}
+        \}
+        Resource[] rs = initialResources[i];
+        rs = selectFileResources(rs);
+        newerResources[i] = ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner());
+        needsUpdate = needsUpdate || (newerResources[i].length > 0);
+        if (needsUpdate && (!doUpdate)) \{
+            break;
+        \}
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    return new ArchiveState(needsUpdate, newerResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#2:protected ArchiveState getResourcesToAdd(FileSet[] filesets, File zipFile, boolean needsUpdate) throws BuildException \{
+    Resource[][] initialResources = grabResources(filesets);
+    if (isEmpty(initialResources)) \{
+        if (needsUpdate && doUpdate) \{
+            return new ArchiveState(true, initialResources);
+        \}
+        if (emptyBehavior.equals(\"skip\")) \{
+            if (doUpdate) \{
+                logOnFirstPass((((archiveType + \" archive \") + zipFile) + \" not updated because no new files were\") + \" included.\", MSG_VERBOSE);
+            \} else \{
+                logOnFirstPass((((\"Warning: skipping \" + archiveType) + \" archive \") + zipFile) + \" because no files were included.\", MSG_WARN);
+            \}
+        \} else if (emptyBehavior.equals(\"fail\")) \{
+            throw new BuildException((((\"Cannot create \" + archiveType) + \" archive \") + zipFile) + \": no files were included.\", getLocation());
+        \} else if (!zipFile.exists()) \{
+            needsUpdate = true;
+        \}
+        return new ArchiveState(needsUpdate, initialResources);
+    \}
+    if (!zipFile.exists()) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    Resource[][] newerResources = new Resource[filesets.length][];
+    for (int i = 0; i < filesets.length; i++) \{
+        if ((!(fileset instanceof ZipFileSet)) || (((ZipFileSet) (fileset)).getSrc(getProject()) == null)) \{
+            File base = filesets[i].getDir(getProject());
+            for (int j = 0; j < initialResources[i].length; j++) \{
+                File resourceAsFile = FILE_UTILS.resolveFile(base, initialResources[i][j].getName());
+                if (resourceAsFile.equals(zipFile)) \{
+                    throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+                \}
+            \}
+        \}
+    \}
+    for (int i = 0; i < filesets.length; i++) \{
+        if (initialResources[i].length == 0) \{
+            newerResources[i] = new Resource[]\{  \};
+            continue;
+        \}
+        FileNameMapper myMapper = new IdentityMapper();
+        if (filesets[i] instanceof ZipFileSet) \{
+            ZipFileSet zfs = ((ZipFileSet) (filesets[i]));
+            if ((zfs.getFullpath(getProject()) != null) && (!zfs.getFullpath(getProject()).equals(\"\"))) \{
+                MergingMapper fm = new MergingMapper();
+                fm.setTo(zfs.getFullpath(getProject()));
+                myMapper = fm;
+            \} else if ((zfs.getPrefix(getProject()) != null) && (!zfs.getPrefix(getProject()).equals(\"\"))) \{
+                GlobPatternMapper gm = new GlobPatternMapper();
+                gm.setFrom(\"*\");
+                String prefix = zfs.getPrefix(getProject());
+                if ((!prefix.endsWith(\"/\")) && (!prefix.endsWith(\"\\\"))) \{
+                    prefix += \"/\";
+                \}
+                gm.setTo(prefix + \"*\");
+                myMapper = gm;
+            \}
+        \}
+        Resource[] resources = initialResources[i];
+        resources = selectFileResources(resources);
+        newerResources[i] = ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner());
+        needsUpdate = needsUpdate || (newerResources[i].length > 0);
+        if (needsUpdate && (!doUpdate)) \{
+            break;
+        \}
+    \}
+    if (needsUpdate && (!doUpdate)) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    return new ArchiveState(needsUpdate, newerResources);
+\}" shape=ellipse]
+4 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#4:Resource[][] initialResources = grabNonFileSetResources(rcs)
+getResourcesToAdd#?,FileSet[],File,boolean#4:Resource[][] initialResources = grabResources(filesets)" shape=ellipse]
+5 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#5:if (isEmpty(initialResources)) \{
+    return new ArchiveState(needsUpdate, initialResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#34:if (needsUpdate && (!doUpdate)) \{
+    return new ArchiveState(true, initialResources);
+\}" shape=ellipse]
+6 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#8:if (!zipFile.exists()) \{
+    return new ArchiveState(true, initialResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#31:if (!zipFile.exists()) \{
+    return new ArchiveState(true, initialResources);
+\}" shape=ellipse]
+7 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#11:if (needsUpdate && (!doUpdate)) \{
+    return new ArchiveState(true, initialResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#84:if (needsUpdate && (!doUpdate)) \{
+    return new ArchiveState(true, initialResources);
+\}" shape=ellipse]
+8 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#14:Resource[][] newerResources = new Resource[rcs.length][]
+getResourcesToAdd#?,FileSet[],File,boolean#37:Resource[][] newerResources = new Resource[filesets.length][]" shape=ellipse]
+9 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#35:if (needsUpdate && (!doUpdate)) \{
+    return new ArchiveState(true, initialResources);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#87:return new ArchiveState(needsUpdate, newerResources)" shape=ellipse]
+10 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#38:return new ArchiveState(needsUpdate, newerResources)
+getResourcesToAdd#?,FileSet[],File,boolean#5:if (isEmpty(initialResources)) \{
+    if (needsUpdate && doUpdate) \{
+        return new ArchiveState(true, initialResources);
+    \}
+    if (emptyBehavior.equals(\"skip\")) \{
+        if (doUpdate) \{
+            logOnFirstPass((((archiveType + \" archive \") + zipFile) + \" not updated because no new files were\") + \" included.\", MSG_VERBOSE);
+        \} else \{
+            logOnFirstPass((((\"Warning: skipping \" + archiveType) + \" archive \") + zipFile) + \" because no files were included.\", MSG_WARN);
+        \}
+    \} else if (emptyBehavior.equals(\"fail\")) \{
+        throw new BuildException((((\"Cannot create \" + archiveType) + \" archive \") + zipFile) + \": no files were included.\", getLocation());
+    \} else if (!zipFile.exists()) \{
+        needsUpdate = true;
+    \}
+    return new ArchiveState(needsUpdate, initialResources);
+\}" shape=ellipse]
+11 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:int i = 0
+getResourcesToAdd#?,FileSet[],File,boolean#50:int i = 0" shape=ellipse]
+12 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:i
+getResourcesToAdd#?,FileSet[],File,boolean#50:i" shape=ellipse]
+13 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:int
+getResourcesToAdd#?,FileSet[],File,boolean#50:int" shape=ellipse]
+14 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:0
+getResourcesToAdd#?,FileSet[],File,boolean#50:0" shape=ellipse]
+15 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:i < rcs.length
+getResourcesToAdd#?,FileSet[],File,boolean#50:i < filesets.length" shape=ellipse]
+16 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:i
+getResourcesToAdd#?,FileSet[],File,boolean#50:i" shape=ellipse]
+17 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:rcs.length
+getResourcesToAdd#?,FileSet[],File,boolean#50:filesets.length" shape=ellipse]
+18 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:\{
+    if (initialResources[i].length == 0) \{
+        newerResources[i] = new Resource[]\{  \};
+        continue;
+    \}
+    for (int j = 0; j < initialResources[i].length; j++) \{
+        FileProvider fp = ((FileProvider) (initialResources[i][j].as(FileProvider.class)));
+        if ((fp != null) && zipFile.equals(fp.getFile())) \{
+            throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+        \}
+    \}
+    Resource[] rs = initialResources[i];
+    rs = selectFileResources(rs);
+    newerResources[i] = ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner());
+    needsUpdate = needsUpdate || (newerResources[i].length > 0);
+    if (needsUpdate && (!doUpdate)) \{
+        break;
+    \}
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#50:\{
+    if (initialResources[i].length == 0) \{
+        newerResources[i] = new Resource[]\{  \};
+        continue;
+    \}
+    FileNameMapper myMapper = new IdentityMapper();
+    if (filesets[i] instanceof ZipFileSet) \{
+        ZipFileSet zfs = ((ZipFileSet) (filesets[i]));
+        if ((zfs.getFullpath(getProject()) != null) && (!zfs.getFullpath(getProject()).equals(\"\"))) \{
+            MergingMapper fm = new MergingMapper();
+            fm.setTo(zfs.getFullpath(getProject()));
+            myMapper = fm;
+        \} else if ((zfs.getPrefix(getProject()) != null) && (!zfs.getPrefix(getProject()).equals(\"\"))) \{
+            GlobPatternMapper gm = new GlobPatternMapper();
+            gm.setFrom(\"*\");
+            String prefix = zfs.getPrefix(getProject());
+            if ((!prefix.endsWith(\"/\")) && (!prefix.endsWith(\"\\\"))) \{
+                prefix += \"/\";
+            \}
+            gm.setTo(prefix + \"*\");
+            myMapper = gm;
+        \}
+    \}
+    Resource[] resources = initialResources[i];
+    resources = selectFileResources(resources);
+    newerResources[i] = ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner());
+    needsUpdate = needsUpdate || (newerResources[i].length > 0);
+    if (needsUpdate && (!doUpdate)) \{
+        break;
+    \}
+\}" shape=ellipse]
+19 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:if (initialResources[i].length == 0) \{
+    newerResources[i] = new Resource[]\{  \};
+    continue;
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#51:if (initialResources[i].length == 0) \{
+    newerResources[i] = new Resource[]\{  \};
+    continue;
+\}" shape=ellipse]
+20 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:initialResources[i].length == 0
+getResourcesToAdd#?,FileSet[],File,boolean#51:initialResources[i].length == 0" shape=ellipse]
+21 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:initialResources[i].length
+getResourcesToAdd#?,FileSet[],File,boolean#51:initialResources[i].length" shape=ellipse]
+22 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:initialResources[i]
+getResourcesToAdd#?,FileSet[],File,boolean#51:initialResources[i]" shape=ellipse]
+23 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:initialResources
+getResourcesToAdd#?,FileSet[],File,boolean#51:initialResources" shape=ellipse]
+24 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:i
+getResourcesToAdd#?,FileSet[],File,boolean#51:i" shape=ellipse]
+25 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#16:0
+getResourcesToAdd#?,FileSet[],File,boolean#51:0" shape=ellipse]
+26 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:for (int j = 0; j < initialResources[i].length; j++) \{
+    FileProvider fp = ((FileProvider) (initialResources[i][j].as(FileProvider.class)));
+    if ((fp != null) && zipFile.equals(fp.getFile())) \{
+        throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+    \}
+\}" shape=ellipse]
+27 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:int j = 0
+getResourcesToAdd#?,FileSet[],File,boolean#56:i" shape=ellipse]
+28 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:0" shape=ellipse]
+29 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:j < initialResources[i].length
+getResourcesToAdd#?,FileSet[],File,boolean#79:newerResources[i].length" shape=ellipse]
+30 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:j" shape=ellipse]
+31 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:initialResources[i].length" shape=ellipse]
+32 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:initialResources[i]
+getResourcesToAdd#?,FileSet[],File,boolean#75:initialResources[i]" shape=ellipse]
+33 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:initialResources
+getResourcesToAdd#?,FileSet[],File,boolean#75:initialResources" shape=ellipse]
+34 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:i
+getResourcesToAdd#?,FileSet[],File,boolean#75:i" shape=ellipse]
+35 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:j++
+getResourcesToAdd#?,FileSet[],File,boolean#80:(!doUpdate)" shape=ellipse]
+36 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#20:j
+getResourcesToAdd#?,FileSet[],File,boolean#80:doUpdate" shape=ellipse]
+37 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#26:Resource[] rs = initialResources[i]
+getResourcesToAdd#?,FileSet[],File,boolean#76:resources = selectFileResources(resources)" shape=ellipse]
+38 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#26:Resource[]" shape=ellipse]
+39 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#26:initialResources[i]" shape=ellipse]
+40 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#26:initialResources" shape=ellipse]
+41 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#26:i
+getResourcesToAdd#?,FileSet[],File,boolean#77:i" shape=ellipse]
+42 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:rs = selectFileResources(rs)
+getResourcesToAdd#?,FileSet[],File,boolean#79:needsUpdate = needsUpdate || (newerResources[i].length > 0)" shape=ellipse]
+43 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:rs" shape=ellipse]
+44 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:selectFileResources(rs)" shape=ellipse]
+45 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:selectFileResources(<unknown>)
+getResourcesToAdd#?,FileSet[],File,boolean#76:selectFileResources(<unknown>)" shape=ellipse]
+46 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:
+getResourcesToAdd#?,FileSet[],File,boolean#-1:" shape=ellipse]
+47 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:PlaceHold
+getResourcesToAdd#?,FileSet[],File,boolean#-1:PlaceHold" shape=ellipse]
+48 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:rs
+getResourcesToAdd#?,FileSet[],File,boolean#76:resources" shape=ellipse]
+49 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#28:newerResources[i] = ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner())
+getResourcesToAdd#?,FileSet[],File,boolean#77:newerResources[i] = ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner())" shape=ellipse]
+50 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#28:newerResources[i]" shape=ellipse]
+51 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#28:newerResources
+getResourcesToAdd#?,FileSet[],File,boolean#77:newerResources" shape=ellipse]
+52 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#28:i
+getResourcesToAdd#?,FileSet[],File,boolean#79:i" shape=ellipse]
+53 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:ResourceUtils.selectOutOfDateSources(this, rs, new IdentityMapper(), getZipScanner())
+getResourcesToAdd#?,FileSet[],File,boolean#78:ResourceUtils.selectOutOfDateSources(this, resources, myMapper, getZipScanner())" shape=ellipse]
+54 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:selectOutOfDateSources(PlaceHold,Resource[],IdentityMapper)
+getResourcesToAdd#?,FileSet[],File,boolean#78:selectOutOfDateSources(PlaceHold,Resource[],FileNameMapper)" shape=ellipse]
+55 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:ResourceUtils
+getResourcesToAdd#?,FileSet[],File,boolean#78:ResourceUtils" shape=ellipse]
+56 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:this
+getResourcesToAdd#?,FileSet[],File,boolean#78:this" shape=ellipse]
+57 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:PlaceHold
+getResourcesToAdd#?,FileSet[],File,boolean#-1:PlaceHold" shape=ellipse]
+58 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:rs
+getResourcesToAdd#?,FileSet[],File,boolean#78:resources" shape=ellipse]
+59 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:new IdentityMapper()" shape=ellipse]
+60 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:IdentityMapper()
+getResourcesToAdd#?,FileSet[],File,boolean#-1:IdentityMapper()" shape=ellipse]
+61 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:getZipScanner()
+getResourcesToAdd#?,FileSet[],File,boolean#78:getZipScanner()" shape=ellipse]
+62 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#29:getZipScanner()
+getResourcesToAdd#?,FileSet[],File,boolean#78:getZipScanner()" shape=ellipse]
+63 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:
+getResourcesToAdd#?,FileSet[],File,boolean#-1:" shape=ellipse]
+64 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:PlaceHold
+getResourcesToAdd#?,FileSet[],File,boolean#-1:PlaceHold" shape=ellipse]
+65 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:needsUpdate = needsUpdate || (newerResources[i].length > 0)
+getResourcesToAdd#?,FileSet[],File,boolean#56:if (filesets[i] instanceof ZipFileSet) \{
+    ZipFileSet zfs = ((ZipFileSet) (filesets[i]));
+    if ((zfs.getFullpath(getProject()) != null) && (!zfs.getFullpath(getProject()).equals(\"\"))) \{
+        MergingMapper fm = new MergingMapper();
+        fm.setTo(zfs.getFullpath(getProject()));
+        myMapper = fm;
+    \} else if ((zfs.getPrefix(getProject()) != null) && (!zfs.getPrefix(getProject()).equals(\"\"))) \{
+        GlobPatternMapper gm = new GlobPatternMapper();
+        gm.setFrom(\"*\");
+        String prefix = zfs.getPrefix(getProject());
+        if ((!prefix.endsWith(\"/\")) && (!prefix.endsWith(\"\\\"))) \{
+            prefix += \"/\";
+        \}
+        gm.setTo(prefix + \"*\");
+        myMapper = gm;
+    \}
+\}" shape=ellipse]
+66 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:needsUpdate" shape=ellipse]
+67 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:needsUpdate || (newerResources[i].length > 0)
+getResourcesToAdd#?,FileSet[],File,boolean#56:filesets[i] instanceof ZipFileSet" shape=ellipse]
+68 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:needsUpdate" shape=ellipse]
+69 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:(newerResources[i].length > 0)" shape=ellipse]
+70 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:newerResources[i].length
+getResourcesToAdd#?,FileSet[],File,boolean#56:filesets" shape=ellipse]
+71 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:newerResources[i]" shape=ellipse]
+72 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:newerResources
+getResourcesToAdd#?,FileSet[],File,boolean#79:newerResources" shape=ellipse]
+73 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:i
+getResourcesToAdd#?,FileSet[],File,boolean#79:needsUpdate" shape=ellipse]
+74 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#30:0
+getResourcesToAdd#?,FileSet[],File,boolean#79:0" shape=ellipse]
+75 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#31:if (needsUpdate && (!doUpdate)) \{
+    break;
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#80:if (needsUpdate && (!doUpdate)) \{
+    break;
+\}" shape=ellipse]
+76 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#31:needsUpdate && (!doUpdate)" shape=ellipse]
+77 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#31:needsUpdate
+getResourcesToAdd#?,FileSet[],File,boolean#80:needsUpdate" shape=ellipse]
+78 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#31:(!doUpdate)" shape=ellipse]
+79 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#31:doUpdate" shape=ellipse]
+80 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:i++
+getResourcesToAdd#?,FileSet[],File,boolean#50:i++" shape=ellipse]
+81 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#-1:int
+getResourcesToAdd#?,FileSet[],File,boolean#-1:int" shape=ellipse]
+82 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#15:i" shape=ellipse]
+83 [label="getNonFileSetResourcesToAdd#?,ResourceCollection[],File,boolean#27:if (doFilesonly) \{
+    rs = selectFileResources(rs);
+\}
+getResourcesToAdd#?,FileSet[],File,boolean#76:if (doFilesonly) \{
+    resources = selectFileResources(resources);
+\}" shape=ellipse]
+84 [label="getResourcesToAdd#?,FileSet[],File,boolean#76:resources" shape=ellipse]
+85 [label="getResourcesToAdd#?,FileSet[],File,boolean#77:newerResources[i]" shape=ellipse]
+86 [label="getResourcesToAdd#?,FileSet[],File,boolean#78:myMapper" shape=ellipse]
+87 [label="getResourcesToAdd#?,FileSet[],File,boolean#76:selectFileResources(resources)" shape=ellipse]
+88 [label="getResourcesToAdd#?,FileSet[],File,boolean#79:needsUpdate || (newerResources[i].length > 0)" shape=ellipse]
+89 [label="getResourcesToAdd#?,FileSet[],File,boolean#75:Resource[]" shape=ellipse]
+90 [label="getResourcesToAdd#?,FileSet[],File,boolean#79:needsUpdate" shape=ellipse]
+91 [label="getResourcesToAdd#?,FileSet[],File,boolean#38:for (int i = 0; i < filesets.length; i++) \{
+    if ((!(fileset instanceof ZipFileSet)) || (((ZipFileSet) (fileset)).getSrc(getProject()) == null)) \{
+        File base = filesets[i].getDir(getProject());
+        for (int j = 0; j < initialResources[i].length; j++) \{
+            File resourceAsFile = FILE_UTILS.resolveFile(base, initialResources[i][j].getName());
+            if (resourceAsFile.equals(zipFile)) \{
+                throw new BuildException(\"A zip file cannot include \" + \"itself\", getLocation());
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+92 [label="getResourcesToAdd#?,FileSet[],File,boolean#56:filesets[i]" shape=ellipse]
+93 [label="getResourcesToAdd#?,FileSet[],File,boolean#79:(newerResources[i].length > 0)" shape=ellipse]
+94 [label="getResourcesToAdd#?,FileSet[],File,boolean#55:new IdentityMapper()" shape=ellipse]
+95 [label="getResourcesToAdd#?,FileSet[],File,boolean#79:newerResources[i]" shape=ellipse]
+96 [label="getResourcesToAdd#?,FileSet[],File,boolean#80:needsUpdate && (!doUpdate)" shape=ellipse]
+97 [label="getResourcesToAdd#?,FileSet[],File,boolean#75:Resource[] resources = initialResources[i]" shape=ellipse]
+98 [label="getResourcesToAdd#?,FileSet[],File,boolean#56:ZipFileSet" shape=ellipse]
+99 [label="getResourcesToAdd#?,FileSet[],File,boolean#50:i" shape=ellipse]
+100 [label="getResourcesToAdd#?,FileSet[],File,boolean#55:FileNameMapper myMapper = new IdentityMapper()" shape=ellipse]
+0 -> 83 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 80 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 91 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+12 -> 16 [label="Define Use:2"];
+15 -> 16 [label="AST:2"];
+15 -> 17 [label="AST:2"];
+15 -> 18 [label="Control Dep:2"];
+15 -> 19 [label="Control Dep:2"];
+15 -> 20 [label="Control Dep:2"];
+15 -> 21 [label="Control Dep:2"];
+15 -> 22 [label="Control Dep:2"];
+15 -> 23 [label="Control Dep:2"];
+15 -> 24 [label="Control Dep:2"];
+15 -> 25 [label="Control Dep:2"];
+15 -> 26 [label="Control Dep:1"];
+15 -> 27 [label="Control Dep:2"];
+15 -> 28 [label="Control Dep:1"];
+15 -> 29 [label="Control Dep:2"];
+15 -> 30 [label="Control Dep:1"];
+15 -> 31 [label="Control Dep:1"];
+15 -> 32 [label="Control Dep:2"];
+15 -> 33 [label="Control Dep:2"];
+15 -> 34 [label="Control Dep:2"];
+15 -> 35 [label="Control Dep:2"];
+15 -> 36 [label="Control Dep:2"];
+15 -> 37 [label="Control Dep:2"];
+15 -> 38 [label="Control Dep:1"];
+15 -> 39 [label="Control Dep:1"];
+15 -> 40 [label="Control Dep:1"];
+15 -> 41 [label="Control Dep:2"];
+15 -> 42 [label="Control Dep:2"];
+15 -> 43 [label="Control Dep:1"];
+15 -> 44 [label="Control Dep:1"];
+15 -> 45 [label="Control Dep:2"];
+15 -> 46 [label="Control Dep:2"];
+15 -> 47 [label="Control Dep:2"];
+15 -> 48 [label="Control Dep:2"];
+15 -> 49 [label="Control Dep:2"];
+15 -> 50 [label="Control Dep:1"];
+15 -> 51 [label="Control Dep:2"];
+15 -> 52 [label="Control Dep:2"];
+15 -> 53 [label="Control Dep:2"];
+15 -> 54 [label="Control Dep:2"];
+15 -> 55 [label="Control Dep:2"];
+15 -> 56 [label="Control Dep:2"];
+15 -> 57 [label="Control Dep:2"];
+15 -> 58 [label="Control Dep:2"];
+15 -> 59 [label="Control Dep:1"];
+15 -> 60 [label="Control Dep:2"];
+15 -> 61 [label="Control Dep:2"];
+15 -> 62 [label="Control Dep:2"];
+15 -> 63 [label="Control Dep:2"];
+15 -> 64 [label="Control Dep:2"];
+15 -> 65 [label="Control Dep:2"];
+15 -> 66 [label="Control Dep:1"];
+15 -> 67 [label="Control Dep:2"];
+15 -> 68 [label="Control Dep:1"];
+15 -> 69 [label="Control Dep:1"];
+15 -> 70 [label="Control Dep:2"];
+15 -> 71 [label="Control Dep:1"];
+15 -> 72 [label="Control Dep:2"];
+15 -> 73 [label="Control Dep:2"];
+15 -> 74 [label="Control Dep:2"];
+15 -> 75 [label="Control Dep:2"];
+15 -> 76 [label="Control Dep:1"];
+15 -> 77 [label="Control Dep:2"];
+15 -> 78 [label="Control Dep:1"];
+15 -> 79 [label="Control Dep:1"];
+15 -> 84 [label="Control Dep:1"];
+15 -> 85 [label="Control Dep:1"];
+15 -> 86 [label="Control Dep:1"];
+15 -> 87 [label="Control Dep:1"];
+15 -> 88 [label="Control Dep:1"];
+15 -> 89 [label="Control Dep:1"];
+15 -> 90 [label="Control Dep:1"];
+15 -> 92 [label="Control Dep:1"];
+15 -> 93 [label="Control Dep:1"];
+15 -> 94 [label="Control Dep:1"];
+15 -> 95 [label="Control Dep:1"];
+15 -> 96 [label="Control Dep:1"];
+15 -> 97 [label="Control Dep:1"];
+15 -> 98 [label="Control Dep:1"];
+15 -> 100 [label="Control Dep:1"];
+18 -> 19 [label="AST:2"];
+18 -> 26 [label="AST:1"];
+18 -> 37 [label="AST:2"];
+18 -> 42 [label="AST:2"];
+18 -> 49 [label="AST:2"];
+18 -> 65 [label="AST:2"];
+18 -> 75 [label="AST:2"];
+18 -> 97 [label="AST:1"];
+18 -> 100 [label="AST:1"];
+19 -> 20 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+20 -> 25 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+22 -> 24 [label="AST:2"];
+26 -> 27 [label="AST:1"];
+26 -> 29 [label="AST:1"];
+26 -> 35 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+29 -> 30 [label="AST:1"];
+29 -> 31 [label="AST:1"];
+29 -> 90 [label="Data Dep:1"];
+29 -> 95 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+32 -> 33 [label="AST:2"];
+32 -> 34 [label="AST:2"];
+35 -> 36 [label="AST:2"];
+37 -> 38 [label="AST:1"];
+37 -> 39 [label="AST:1"];
+37 -> 84 [label="AST:1"];
+37 -> 87 [label="AST:1"];
+39 -> 40 [label="AST:1"];
+39 -> 41 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+42 -> 44 [label="AST:1"];
+42 -> 88 [label="AST:1"];
+42 -> 90 [label="AST:1"];
+43 -> 58 [label="Define Use:1"];
+44 -> 46 [label="AST:1"];
+44 -> 45 [label="AST:1"];
+44 -> 48 [label="AST:1"];
+46 -> 43 [label="Data Dep:1"];
+46 -> 47 [label="AST:2"];
+46 -> 84 [label="Data Dep:1"];
+48 -> 43 [label="Data Dep:1"];
+48 -> 84 [label="Data Dep:1"];
+49 -> 50 [label="AST:1"];
+49 -> 53 [label="AST:2"];
+49 -> 85 [label="AST:1"];
+50 -> 51 [label="AST:1"];
+50 -> 52 [label="AST:1"];
+53 -> 55 [label="AST:2"];
+53 -> 54 [label="AST:2"];
+53 -> 56 [label="AST:2"];
+53 -> 58 [label="AST:2"];
+53 -> 59 [label="AST:1"];
+53 -> 61 [label="AST:2"];
+53 -> 86 [label="AST:1"];
+56 -> 50 [label="Data Dep:1"];
+56 -> 57 [label="AST:2"];
+56 -> 85 [label="Data Dep:1"];
+58 -> 50 [label="Data Dep:1"];
+58 -> 85 [label="Data Dep:1"];
+59 -> 60 [label="AST:1"];
+61 -> 63 [label="AST:2"];
+61 -> 62 [label="AST:2"];
+63 -> 50 [label="Data Dep:1"];
+63 -> 64 [label="AST:2"];
+63 -> 85 [label="Data Dep:1"];
+65 -> 66 [label="AST:1"];
+65 -> 67 [label="AST:2"];
+66 -> 77 [label="Define Use:1"];
+67 -> 68 [label="AST:1"];
+67 -> 69 [label="AST:1"];
+67 -> 92 [label="AST:1"];
+67 -> 98 [label="AST:1"];
+68 -> 66 [label="Data Dep:1"];
+69 -> 70 [label="AST:1"];
+69 -> 74 [label="AST:1"];
+70 -> 66 [label="Data Dep:1"];
+70 -> 71 [label="AST:1"];
+71 -> 72 [label="AST:1"];
+71 -> 73 [label="AST:1"];
+73 -> 90 [label="Data Dep:1"];
+75 -> 76 [label="AST:1"];
+75 -> 96 [label="AST:1"];
+76 -> 77 [label="AST:1"];
+76 -> 78 [label="AST:1"];
+78 -> 79 [label="AST:1"];
+80 -> 81 [label="AST:2"];
+80 -> 82 [label="AST:1"];
+80 -> 99 [label="AST:1"];
+82 -> 24 [label="Define Use:1"];
+82 -> 34 [label="Define Use:1"];
+82 -> 41 [label="Define Use:1"];
+82 -> 52 [label="Define Use:1"];
+82 -> 73 [label="Define Use:1"];
+84 -> 58 [label="Define Use:1"];
+85 -> 51 [label="AST:1"];
+85 -> 41 [label="AST:1"];
+86 -> 85 [label="Data Dep:1"];
+87 -> 46 [label="AST:1"];
+87 -> 45 [label="AST:1"];
+87 -> 48 [label="AST:1"];
+88 -> 73 [label="AST:1"];
+88 -> 93 [label="AST:1"];
+90 -> 77 [label="Define Use:1"];
+92 -> 70 [label="AST:1"];
+92 -> 27 [label="AST:1"];
+93 -> 29 [label="AST:1"];
+93 -> 74 [label="AST:1"];
+94 -> 60 [label="AST:1"];
+95 -> 72 [label="AST:1"];
+95 -> 52 [label="AST:1"];
+96 -> 77 [label="AST:1"];
+96 -> 35 [label="AST:1"];
+97 -> 89 [label="AST:1"];
+97 -> 32 [label="AST:1"];
+99 -> 24 [label="Define Use:1"];
+99 -> 27 [label="Define Use:1"];
+99 -> 34 [label="Define Use:1"];
+99 -> 41 [label="Define Use:1"];
+99 -> 52 [label="Define Use:1"];
+100 -> 94 [label="AST:1"];
+}

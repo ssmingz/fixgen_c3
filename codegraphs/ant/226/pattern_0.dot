@@ -1,0 +1,426 @@
+digraph "Pattern" {
+0 [label="printTargets#?,Project,boolean#14:INSERT
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:INSERT" shape=ellipse]
+1 [label="printTargets#?,Project,boolean#11:while (ptargets.hasMoreElements()) \{
+    currentTarget = ((Target) (ptargets.nextElement()));
+    targetName = currentTarget.getName();
+    targetDescription = currentTarget.getDescription();
+    if (targetDescription == null) \{
+        int pos = findTargetPosition(subNames, targetName);
+        subNames.insertElementAt(targetName, pos);
+    \} else \{
+        int pos = findTargetPosition(topNames, targetName);
+        topNames.insertElementAt(targetName, pos);
+        topDescriptions.insertElementAt(targetDescription, pos);
+        if (targetName.length() > maxLength) \{
+            maxLength = targetName.length();
+        \}
+    \}
+\} 
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:for (int i = 0; i < dirs.length; i++) \{
+    String name = dirs[i].replace(separatorChar, '/');
+    if (!name.endsWith(\"/\")) \{
+        name += \"/\";
+    \}
+    addParentDirs(thisBaseDir, name, zOut, prefix);
+\}" shape=ellipse]
+2 [label="printTargets#?,Project,boolean#2:\{
+    int maxLength = 0;
+    Enumeration ptargets = project.getTargets().elements();
+    String targetName;
+    String targetDescription;
+    Target currentTarget;
+    Vector topNames = new Vector();
+    Vector topDescriptions = new Vector();
+    Vector subNames = new Vector();
+    while (ptargets.hasMoreElements()) \{
+        currentTarget = ((Target) (ptargets.nextElement()));
+        targetName = currentTarget.getName();
+        targetDescription = currentTarget.getDescription();
+        if (targetDescription == null) \{
+            int pos = findTargetPosition(subNames, targetName);
+            subNames.insertElementAt(targetName, pos);
+        \} else \{
+            int pos = findTargetPosition(topNames, targetName);
+            topNames.insertElementAt(targetName, pos);
+            topDescriptions.insertElementAt(targetDescription, pos);
+            if (targetName.length() > maxLength) \{
+                maxLength = targetName.length();
+            \}
+        \}
+    \} 
+    printTargets(project, topNames, topDescriptions, \"Main targets:\", maxLength);
+    if (topNames.size() == 0) \{
+        printSubTargets = true;
+    \}
+    if (printSubTargets) \{
+        printTargets(project, subNames, null, \"Subtargets:\", 0);
+    \}
+    String defaultTarget = project.getDefaultTarget();
+    if ((defaultTarget != null) && (!\"\".equals(defaultTarget))) \{
+        project.log(\"Default target: \" + defaultTarget);
+    \}
+\}
+addFiles#?,FileScanner,ZipOutputStream,String,String#3:\{
+    if ((prefix.length() > 0) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"Both prefix and fullpath attributes may not be set on the same fileset.\");
+    \}
+    File thisBaseDir = scanner.getBasedir();
+    String[] dirs = scanner.getIncludedDirectories();
+    if ((dirs.length > 0) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+    \}
+    for (int i = 0; i < dirs.length; i++) \{
+        String name = dirs[i].replace(separatorChar, '/');
+        if (!name.endsWith(\"/\")) \{
+            name += \"/\";
+        \}
+        addParentDirs(thisBaseDir, name, zOut, prefix);
+    \}
+    String[] files = scanner.getIncludedFiles();
+    if ((files.length > 1) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+    \}
+    for (int i = 0; i < files.length; i++) \{
+        File f = new File(thisBaseDir, files[i]);
+        if (fullpath.length() > 0) \{
+            addParentDirs(null, fullpath, zOut, \"\");
+            zipFile(f, zOut, fullpath);
+        \} else \{
+            String name = files[i].replace(separatorChar, '/');
+            addParentDirs(thisBaseDir, name, zOut, prefix);
+            zipFile(f, zOut, prefix + name);
+        \}
+    \}
+\}" shape=ellipse]
+3 [label="printTargets#?,Project,boolean#2:private static void printTargets(Project project, boolean printSubTargets) \{
+    int maxLength = 0;
+    Enumeration ptargets = project.getTargets().elements();
+    String targetName;
+    String targetDescription;
+    Target currentTarget;
+    Vector topNames = new Vector();
+    Vector topDescriptions = new Vector();
+    Vector subNames = new Vector();
+    while (ptargets.hasMoreElements()) \{
+        currentTarget = ((Target) (ptargets.nextElement()));
+        targetName = currentTarget.getName();
+        targetDescription = currentTarget.getDescription();
+        if (targetDescription == null) \{
+            int pos = findTargetPosition(subNames, targetName);
+            subNames.insertElementAt(targetName, pos);
+        \} else \{
+            int pos = findTargetPosition(topNames, targetName);
+            topNames.insertElementAt(targetName, pos);
+            topDescriptions.insertElementAt(targetDescription, pos);
+            if (targetName.length() > maxLength) \{
+                maxLength = targetName.length();
+            \}
+        \}
+    \} 
+    printTargets(project, topNames, topDescriptions, \"Main targets:\", maxLength);
+    if (topNames.size() == 0) \{
+        printSubTargets = true;
+    \}
+    if (printSubTargets) \{
+        printTargets(project, subNames, null, \"Subtargets:\", 0);
+    \}
+    String defaultTarget = project.getDefaultTarget();
+    if ((defaultTarget != null) && (!\"\".equals(defaultTarget))) \{
+        project.log(\"Default target: \" + defaultTarget);
+    \}
+\}
+addFiles#?,FileScanner,ZipOutputStream,String,String#2:protected void addFiles(FileScanner scanner, ZipOutputStream zOut, String prefix, String fullpath) throws IOException \{
+    if ((prefix.length() > 0) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"Both prefix and fullpath attributes may not be set on the same fileset.\");
+    \}
+    File thisBaseDir = scanner.getBasedir();
+    String[] dirs = scanner.getIncludedDirectories();
+    if ((dirs.length > 0) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+    \}
+    for (int i = 0; i < dirs.length; i++) \{
+        String name = dirs[i].replace(separatorChar, '/');
+        if (!name.endsWith(\"/\")) \{
+            name += \"/\";
+        \}
+        addParentDirs(thisBaseDir, name, zOut, prefix);
+    \}
+    String[] files = scanner.getIncludedFiles();
+    if ((files.length > 1) && (fullpath.length() > 0)) \{
+        throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+    \}
+    for (int i = 0; i < files.length; i++) \{
+        File f = new File(thisBaseDir, files[i]);
+        if (fullpath.length() > 0) \{
+            addParentDirs(null, fullpath, zOut, \"\");
+            zipFile(f, zOut, fullpath);
+        \} else \{
+            String name = files[i].replace(separatorChar, '/');
+            addParentDirs(thisBaseDir, name, zOut, prefix);
+            zipFile(f, zOut, prefix + name);
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="printTargets#?,Project,boolean#3:int maxLength = 0
+addFiles#?,FileScanner,ZipOutputStream,String,String#8:File thisBaseDir = scanner.getBasedir()" shape=ellipse]
+5 [label="printTargets#?,Project,boolean#4:Enumeration ptargets = project.getTargets().elements()
+addFiles#?,FileScanner,ZipOutputStream,String,String#9:String[] dirs = scanner.getIncludedDirectories()" shape=ellipse]
+6 [label="printTargets#?,Project,boolean#5:String targetName
+addFiles#?,FileScanner,ZipOutputStream,String,String#21:String[] files = scanner.getIncludedFiles()" shape=ellipse]
+7 [label="printTargets#?,Project,boolean#6:String targetDescription
+addFiles#?,FileScanner,ZipOutputStream,String,String#4:if ((prefix.length() > 0) && (fullpath.length() > 0)) \{
+    throw new BuildException(\"Both prefix and fullpath attributes may not be set on the same fileset.\");
+\}" shape=ellipse]
+8 [label="printTargets#?,Project,boolean#7:Target currentTarget
+addFiles#?,FileScanner,ZipOutputStream,String,String#10:if ((dirs.length > 0) && (fullpath.length() > 0)) \{
+    throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+\}" shape=ellipse]
+9 [label="printTargets#?,Project,boolean#8:Vector topNames = new Vector()
+addFiles#?,FileScanner,ZipOutputStream,String,String#22:if ((files.length > 1) && (fullpath.length() > 0)) \{
+    throw new BuildException(\"fullpath attribute may only be specified for filesets that specify a single file.\");
+\}" shape=ellipse]
+10 [label="printTargets#?,Project,boolean#9:Vector topDescriptions = new Vector()" shape=ellipse]
+11 [label="printTargets#?,Project,boolean#10:Vector subNames = new Vector()" shape=ellipse]
+12 [label="printTargets#?,Project,boolean#27:printTargets(project, topNames, topDescriptions, \"Main targets:\", maxLength)" shape=ellipse]
+13 [label="printTargets#?,Project,boolean#28:if (topNames.size() == 0) \{
+    printSubTargets = true;
+\}" shape=ellipse]
+14 [label="printTargets#?,Project,boolean#31:if (printSubTargets) \{
+    printTargets(project, subNames, null, \"Subtargets:\", 0);
+\}" shape=ellipse]
+15 [label="printTargets#?,Project,boolean#34:String defaultTarget = project.getDefaultTarget()" shape=ellipse]
+16 [label="printTargets#?,Project,boolean#35:if ((defaultTarget != null) && (!\"\".equals(defaultTarget))) \{
+    project.log(\"Default target: \" + defaultTarget);
+\}" shape=ellipse]
+17 [label="printTargets#?,Project,boolean#11:ptargets.hasMoreElements()" shape=ellipse]
+18 [label="printTargets#?,Project,boolean#11:hasMoreElements
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:i" shape=ellipse]
+19 [label="printTargets#?,Project,boolean#11:ptargets
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:dirs" shape=ellipse]
+20 [label="printTargets#?,Project,boolean#11:hasMoreElements()
+addFiles#?,FileScanner,ZipOutputStream,String,String#16:endsWith(java.lang.String)" shape=ellipse]
+21 [label="printTargets#?,Project,boolean#11:\{
+    currentTarget = ((Target) (ptargets.nextElement()));
+    targetName = currentTarget.getName();
+    targetDescription = currentTarget.getDescription();
+    if (targetDescription == null) \{
+        int pos = findTargetPosition(subNames, targetName);
+        subNames.insertElementAt(targetName, pos);
+    \} else \{
+        int pos = findTargetPosition(topNames, targetName);
+        topNames.insertElementAt(targetName, pos);
+        topDescriptions.insertElementAt(targetDescription, pos);
+        if (targetName.length() > maxLength) \{
+            maxLength = targetName.length();
+        \}
+    \}
+\}
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:\{
+    String name = dirs[i].replace(separatorChar, '/');
+    if (!name.endsWith(\"/\")) \{
+        name += \"/\";
+    \}
+    addParentDirs(thisBaseDir, name, zOut, prefix);
+\}" shape=ellipse]
+22 [label="printTargets#?,Project,boolean#12:currentTarget = ((Target) (ptargets.nextElement()))
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:String name = dirs[i].replace(separatorChar, '/')" shape=ellipse]
+23 [label="printTargets#?,Project,boolean#12:currentTarget" shape=ellipse]
+24 [label="printTargets#?,Project,boolean#12:((Target) (ptargets.nextElement()))
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:dirs[i].replace(separatorChar, '/')" shape=ellipse]
+25 [label="printTargets#?,Project,boolean#12:nextElement()
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:replace(char,char)" shape=ellipse]
+26 [label="printTargets#?,Project,boolean#12:ptargets" shape=ellipse]
+27 [label="printTargets#?,Project,boolean#13:targetName = currentTarget.getName()
+addFiles#?,FileScanner,ZipOutputStream,String,String#16:if (!name.endsWith(\"/\")) \{
+    name += \"/\";
+\}" shape=ellipse]
+28 [label="printTargets#?,Project,boolean#13:targetName" shape=ellipse]
+29 [label="printTargets#?,Project,boolean#13:currentTarget.getName()" shape=ellipse]
+30 [label="printTargets#?,Project,boolean#13:getName()
+addFiles#?,FileScanner,ZipOutputStream,String,String#19:addParentDirs(<unknown>,java.lang.String,<unknown>,java.lang.String)" shape=ellipse]
+31 [label="printTargets#?,Project,boolean#13:currentTarget
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:dirs.length" shape=ellipse]
+32 [label="printTargets#?,Project,boolean#14:targetDescription = currentTarget.getDescription()" shape=ellipse]
+33 [label="printTargets#?,Project,boolean#14:targetDescription" shape=ellipse]
+34 [label="printTargets#?,Project,boolean#14:currentTarget.getDescription()" shape=ellipse]
+35 [label="printTargets#?,Project,boolean#14:getDescription()
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:int" shape=ellipse]
+36 [label="printTargets#?,Project,boolean#14:currentTarget
+addFiles#?,FileScanner,ZipOutputStream,String,String#19:zOut" shape=ellipse]
+37 [label="printTargets#?,Project,boolean#15:if (targetDescription == null) \{
+    int pos = findTargetPosition(subNames, targetName);
+    subNames.insertElementAt(targetName, pos);
+\} else \{
+    int pos = findTargetPosition(topNames, targetName);
+    topNames.insertElementAt(targetName, pos);
+    topDescriptions.insertElementAt(targetDescription, pos);
+    if (targetName.length() > maxLength) \{
+        maxLength = targetName.length();
+    \}
+\}" shape=ellipse]
+38 [label="printTargets#?,Project,boolean#15:targetDescription == null" shape=ellipse]
+39 [label="printTargets#?,Project,boolean#15:targetDescription
+addFiles#?,FileScanner,ZipOutputStream,String,String#19:prefix" shape=ellipse]
+40 [label="printTargets#?,Project,boolean#15:null
+addFiles#?,FileScanner,ZipOutputStream,String,String#14:0" shape=ellipse]
+41 [label="printTargets#?,Project,boolean#14:if (targetName.equals(\"\")) \{
+    continue;
+\}
+addFiles#?,FileScanner,ZipOutputStream,String,String#15:if (\"\".equals(dirs[i])) \{
+    continue;
+\}" shape=ellipse]
+42 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#-1:boolean" shape=ellipse]
+43 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#16:\"/\"" shape=ellipse]
+44 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#-1:PlaceHold" shape=ellipse]
+45 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#15:dirs[i]" shape=ellipse]
+46 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#15:'/'" shape=ellipse]
+47 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#19:addParentDirs(thisBaseDir, name, zOut, prefix)" shape=ellipse]
+48 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#14:int i = 0" shape=ellipse]
+49 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#19:name" shape=ellipse]
+50 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#-1:" shape=ellipse]
+51 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#-1:int" shape=ellipse]
+52 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#26:for (int i = 0; i < files.length; i++) \{
+    File f = new File(thisBaseDir, files[i]);
+    if (fullpath.length() > 0) \{
+        addParentDirs(null, fullpath, zOut, \"\");
+        zipFile(f, zOut, fullpath);
+    \} else \{
+        String name = files[i].replace(separatorChar, '/');
+        addParentDirs(thisBaseDir, name, zOut, prefix);
+        zipFile(f, zOut, prefix + name);
+    \}
+\}" shape=ellipse]
+53 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#16:name" shape=ellipse]
+54 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#15:i" shape=ellipse]
+55 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#16:name.endsWith(\"/\")" shape=ellipse]
+56 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#14:i++" shape=ellipse]
+57 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#14:i < dirs.length" shape=ellipse]
+58 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#15:separatorChar" shape=ellipse]
+59 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#19:thisBaseDir" shape=ellipse]
+60 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#14:i" shape=ellipse]
+61 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#14:i" shape=ellipse]
+62 [label="addFiles#?,FileScanner,ZipOutputStream,String,String#16:!name.endsWith(\"/\")" shape=ellipse]
+0 -> 41 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 17 [label="AST:1"];
+1 -> 21 [label="AST:2"];
+1 -> 48 [label="AST:1"];
+1 -> 56 [label="AST:1"];
+1 -> 57 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:1"];
+2 -> 11 [label="AST:1"];
+2 -> 12 [label="AST:1"];
+2 -> 13 [label="AST:1"];
+2 -> 14 [label="AST:1"];
+2 -> 15 [label="AST:1"];
+2 -> 16 [label="AST:1"];
+2 -> 52 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+17 -> 18 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+17 -> 20 [label="AST:1"];
+17 -> 21 [label="Control Dep:1"];
+17 -> 22 [label="Control Dep:1"];
+17 -> 23 [label="Control Dep:1"];
+17 -> 24 [label="Control Dep:1"];
+17 -> 25 [label="Control Dep:1"];
+17 -> 26 [label="Control Dep:1"];
+17 -> 27 [label="Control Dep:1"];
+17 -> 28 [label="Control Dep:1"];
+17 -> 29 [label="Control Dep:1"];
+17 -> 30 [label="Control Dep:1"];
+17 -> 31 [label="Control Dep:1"];
+17 -> 32 [label="Control Dep:1"];
+17 -> 33 [label="Control Dep:1"];
+17 -> 34 [label="Control Dep:1"];
+17 -> 35 [label="Control Dep:1"];
+17 -> 36 [label="Control Dep:1"];
+17 -> 37 [label="Control Dep:1"];
+17 -> 38 [label="Control Dep:1"];
+17 -> 39 [label="Control Dep:1"];
+17 -> 40 [label="Control Dep:1"];
+18 -> 61 [label="Define Use:1"];
+21 -> 22 [label="AST:2"];
+21 -> 27 [label="AST:2"];
+21 -> 32 [label="AST:1"];
+21 -> 37 [label="AST:1"];
+21 -> 47 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+22 -> 24 [label="AST:2"];
+23 -> 31 [label="Define Use:1"];
+23 -> 36 [label="Define Use:1"];
+24 -> 26 [label="AST:1"];
+24 -> 25 [label="AST:2"];
+24 -> 45 [label="AST:1"];
+24 -> 46 [label="AST:1"];
+24 -> 58 [label="AST:1"];
+26 -> 23 [label="Data Dep:1"];
+27 -> 28 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 62 [label="AST:1"];
+29 -> 31 [label="AST:1"];
+29 -> 30 [label="AST:1"];
+31 -> 28 [label="Data Dep:1"];
+32 -> 33 [label="AST:1"];
+32 -> 34 [label="AST:1"];
+33 -> 39 [label="Define Use:1"];
+34 -> 36 [label="AST:1"];
+34 -> 35 [label="AST:1"];
+36 -> 33 [label="Data Dep:1"];
+37 -> 38 [label="AST:1"];
+38 -> 39 [label="AST:1"];
+38 -> 40 [label="AST:1"];
+45 -> 19 [label="AST:1"];
+45 -> 54 [label="AST:1"];
+47 -> 50 [label="AST:1"];
+47 -> 30 [label="AST:1"];
+47 -> 59 [label="AST:1"];
+47 -> 49 [label="AST:1"];
+47 -> 36 [label="AST:1"];
+47 -> 39 [label="AST:1"];
+48 -> 18 [label="AST:1"];
+48 -> 35 [label="AST:1"];
+48 -> 40 [label="AST:1"];
+50 -> 44 [label="AST:1"];
+55 -> 43 [label="AST:1"];
+55 -> 53 [label="AST:1"];
+55 -> 20 [label="AST:1"];
+56 -> 51 [label="AST:1"];
+56 -> 60 [label="AST:1"];
+57 -> 42 [label="AST:1"];
+57 -> 43 [label="Control Dep:1"];
+57 -> 44 [label="Control Dep:1"];
+57 -> 45 [label="Control Dep:1"];
+57 -> 46 [label="Control Dep:1"];
+57 -> 47 [label="Control Dep:1"];
+57 -> 49 [label="Control Dep:1"];
+57 -> 50 [label="Control Dep:1"];
+57 -> 53 [label="Control Dep:1"];
+57 -> 54 [label="Control Dep:1"];
+57 -> 55 [label="Control Dep:1"];
+57 -> 61 [label="AST:1"];
+57 -> 31 [label="AST:1"];
+57 -> 21 [label="Control Dep:1"];
+57 -> 22 [label="Control Dep:1"];
+57 -> 24 [label="Control Dep:1"];
+57 -> 25 [label="Control Dep:1"];
+57 -> 19 [label="Control Dep:1"];
+57 -> 58 [label="Control Dep:1"];
+57 -> 27 [label="Control Dep:1"];
+57 -> 62 [label="Control Dep:1"];
+57 -> 20 [label="Control Dep:1"];
+57 -> 30 [label="Control Dep:1"];
+57 -> 59 [label="Control Dep:1"];
+57 -> 36 [label="Control Dep:1"];
+57 -> 39 [label="Control Dep:1"];
+60 -> 54 [label="Define Use:1"];
+62 -> 55 [label="AST:1"];
+}

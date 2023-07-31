@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="testBlankTarget#?#2:INSERT
+test4#?#2:INSERT" shape=ellipse]
+1 [label="testBlankTarget#?#2:public void testBlankTarget() \{
+    expectBuildException(\"blank-target\", \"target name must not be empty\");
+\}
+test4#?#2:public void test4() \{
+    expectBuildException(\"test4\", \"target attribute must not be empty\");
+\}" shape=ellipse]
+2 [label="testBlankTarget#?#2:testBlankTarget
+test4#?#2:test4" shape=ellipse]
+3 [label="testBlankTarget#?#2:void
+test4#?#2:void" shape=ellipse]
+4 [label="testBlankTarget#?#2:\{
+    expectBuildException(\"blank-target\", \"target name must not be empty\");
+\}
+test4#?#2:\{
+    expectBuildException(\"test4\", \"target attribute must not be empty\");
+\}" shape=ellipse]
+5 [label="testBlankTarget#?#3:expectBuildException(\"blank-target\", \"target name must not be empty\")
+test4#?#3:expectBuildException(\"test4\", \"target attribute must not be empty\")" shape=ellipse]
+6 [label="testBlankTarget#?#2:public
+test4#?#2:public" shape=ellipse]
+7 [label="testBlankTarget#?#2:VE: Modifiers_Method
+test4#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testBlankTarget#?#4:INSERT
+test4#?#4:INSERT" shape=ellipse]
+9 [label="testBlankTarget#?#4:try \{
+    buildRule.executeTarget(\"blank-target\");
+    fail(\"target name must not be empty\");
+\} catch (BuildException ex) \{
+\}
+test4#?#4:try \{
+    buildRule.executeTarget(\"test4\");
+    fail(\"target attribute must not be empty\");
+\} catch (BuildException ex) \{
+\}" shape=ellipse]
+10 [label="testBlankTarget#?#2:@Test
+test4#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

@@ -1,0 +1,30 @@
+digraph "Pattern" {
+0 [label="testAntlib_uri_auto#?#2:INSERT
+testAntlib_uri_auto2#?#2:INSERT" shape=ellipse]
+1 [label="testAntlib_uri_auto#?#2:public void testAntlib_uri_auto() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto\");
+    \}
+\}
+testAntlib_uri_auto2#?#2:public void testAntlib_uri_auto2() \{
+    if (isSharedJVM()) \{
+        executeTarget(\"antlib_uri_auto2\");
+    \}
+\}" shape=ellipse]
+2 [label="testAntlib_uri_auto#?#4:MOVE
+testAntlib_uri_auto2#?#4:MOVE" shape=ellipse]
+3 [label="testAntlib_uri_auto#?#4:executeTarget(\"antlib_uri_auto\")
+testAntlib_uri_auto2#?#4:executeTarget(\"antlib_uri_auto2\")" shape=ellipse]
+4 [label="testAntlib_uri_auto#?#4:INSERT
+testAntlib_uri_auto2#?#4:INSERT" shape=ellipse]
+5 [label="testAntlib_uri_auto#?#4:Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())
+testAntlib_uri_auto2#?#4:Assume.assumeTrue(\"Test requires shared JVM\", isSharedJVM())" shape=ellipse]
+6 [label="testAntlib_uri_auto#?#2:@Test
+testAntlib_uri_auto2#?#2:@Test" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="Action:2"];
+2 -> 1 [label="Action:2"];
+3 -> 2 [label="Action:2"];
+4 -> 5 [label="Action:2"];
+}

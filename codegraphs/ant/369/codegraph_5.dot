@@ -1,0 +1,157 @@
+digraph "checkConfiguration#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@checkConfiguration" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@getExecutable()" shape=ellipse]
+4 [label="3:CtVirtualElement@getExecutable" shape=ellipse]
+5 [label="3:CtFieldReadImpl@cmdl" shape=ellipse]
+6 [label="3:CtInvocationImpl@cmdl.getExecutable()" shape=ellipse]
+7 [label="3:CtLiteralImpl@null" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@cmdl.getExecutable() == null" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+10 [label="4:CtLiteralImpl@\"no executable specified\"" shape=ellipse]
+11 [label="4:CtFieldReadImpl@location" shape=ellipse]
+12 [label="4:CtConstructorCallImpl@new BuildException(\"no executable specified\", location)" shape=ellipse]
+13 [label="4:CtThrowImpl@throw new BuildException(\"no executable specified\", location)" shape=ellipse]
+14 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"no executable specified\", location);
+\}" shape=ellipse]
+15 [label="3:CtIfImpl@if (cmdl.getExecutable() == null) \{
+    throw new BuildException(\"no executable specified\", location);
+\}" shape=ellipse]
+16 [label="6:CtFieldReadImpl@dir" shape=ellipse]
+17 [label="6:CtLiteralImpl@null" shape=ellipse]
+18 [label="6:CtBinaryOperatorImpl@(dir != null)" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@exists()" shape=ellipse]
+20 [label="6:CtVirtualElement@exists" shape=ellipse]
+21 [label="6:CtFieldReadImpl@dir" shape=ellipse]
+22 [label="6:CtInvocationImpl@dir.exists()" shape=ellipse]
+23 [label="6:CtUnaryOperatorImpl@(!dir.exists())" shape=ellipse]
+24 [label="6:CtBinaryOperatorImpl@(dir != null) && (!dir.exists())" shape=ellipse]
+25 [label="7:CtTypeReferenceImpl@BuildException" shape=ellipse]
+26 [label="7:CtLiteralImpl@\"The directory you specified does not \"" shape=ellipse]
+27 [label="7:CtLiteralImpl@\"exist\"" shape=ellipse]
+28 [label="7:CtBinaryOperatorImpl@\"The directory you specified does not \" + \"exist\"" shape=ellipse]
+29 [label="7:CtConstructorCallImpl@new BuildException(\"The directory you specified does not \" + \"exist\")" shape=ellipse]
+30 [label="7:CtThrowImpl@throw new BuildException(\"The directory you specified does not \" + \"exist\")" shape=ellipse]
+31 [label="6:CtBlockImpl@\{
+    throw new BuildException(\"The directory you specified does not \" + \"exist\");
+\}" shape=ellipse]
+32 [label="6:CtIfImpl@if ((dir != null) && (!dir.exists())) \{
+    throw new BuildException(\"The directory you specified does not \" + \"exist\");
+\}" shape=ellipse]
+33 [label="9:CtFieldReadImpl@dir" shape=ellipse]
+34 [label="9:CtLiteralImpl@null" shape=ellipse]
+35 [label="9:CtBinaryOperatorImpl@(dir != null)" shape=ellipse]
+36 [label="9:CtExecutableReferenceImpl@isDirectory()" shape=ellipse]
+37 [label="9:CtVirtualElement@isDirectory" shape=ellipse]
+38 [label="9:CtFieldReadImpl@dir" shape=ellipse]
+39 [label="9:CtInvocationImpl@dir.isDirectory()" shape=ellipse]
+40 [label="9:CtUnaryOperatorImpl@(!dir.isDirectory())" shape=ellipse]
+41 [label="9:CtBinaryOperatorImpl@(dir != null) && (!dir.isDirectory())" shape=ellipse]
+42 [label="10:CtTypeReferenceImpl@BuildException" shape=ellipse]
+43 [label="10:CtLiteralImpl@\"The directory you specified is not a \"" shape=ellipse]
+44 [label="10:CtLiteralImpl@\"directory\"" shape=ellipse]
+45 [label="10:CtBinaryOperatorImpl@\"The directory you specified is not a \" + \"directory\"" shape=ellipse]
+46 [label="10:CtConstructorCallImpl@new BuildException(\"The directory you specified is not a \" + \"directory\")" shape=ellipse]
+47 [label="10:CtThrowImpl@throw new BuildException(\"The directory you specified is not a \" + \"directory\")" shape=ellipse]
+48 [label="9:CtBlockImpl@\{
+    throw new BuildException(\"The directory you specified is not a \" + \"directory\");
+\}" shape=ellipse]
+49 [label="9:CtIfImpl@if ((dir != null) && (!dir.isDirectory())) \{
+    throw new BuildException(\"The directory you specified is not a \" + \"directory\");
+\}" shape=ellipse]
+50 [label="2:CtBlockImpl@\{
+    if (cmdl.getExecutable() == null) \{
+        throw new BuildException(\"no executable specified\", location);
+    \}
+    if ((dir != null) && (!dir.exists())) \{
+        throw new BuildException(\"The directory you specified does not \" + \"exist\");
+    \}
+    if ((dir != null) && (!dir.isDirectory())) \{
+        throw new BuildException(\"The directory you specified is not a \" + \"directory\");
+    \}
+\}" shape=ellipse]
+51 [label="2:CtMethodImpl@protected void checkConfiguration() throws BuildException \{
+    if (cmdl.getExecutable() == null) \{
+        throw new BuildException(\"no executable specified\", location);
+    \}
+    if ((dir != null) && (!dir.exists())) \{
+        throw new BuildException(\"The directory you specified does not \" + \"exist\");
+    \}
+    if ((dir != null) && (!dir.isDirectory())) \{
+        throw new BuildException(\"The directory you specified is not a \" + \"directory\");
+    \}
+\}" shape=ellipse]
+52 [label="4:Delete@DELETE" shape=ellipse]
+53 [label="4:Insert@INSERT" shape=ellipse]
+54 [label="4:CtInvocationImpl@getLocation()" shape=ellipse]
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 3 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 14 [label="Control Dep"];
+8 -> 13 [label="Control Dep"];
+8 -> 12 [label="Control Dep"];
+8 -> 10 [label="Control Dep"];
+8 -> 11 [label="Control Dep"];
+11 -> 52 [label="Action"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 53 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 31 [label="Control Dep"];
+24 -> 30 [label="Control Dep"];
+24 -> 29 [label="Control Dep"];
+24 -> 28 [label="Control Dep"];
+24 -> 26 [label="Control Dep"];
+24 -> 27 [label="Control Dep"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 24 [label="AST"];
+32 -> 31 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 36 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 35 [label="AST"];
+41 -> 40 [label="AST"];
+41 -> 48 [label="Control Dep"];
+41 -> 47 [label="Control Dep"];
+41 -> 46 [label="Control Dep"];
+41 -> 45 [label="Control Dep"];
+41 -> 43 [label="Control Dep"];
+41 -> 44 [label="Control Dep"];
+45 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 41 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 15 [label="AST"];
+50 -> 32 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 1 [label="AST"];
+51 -> 0 [label="AST"];
+51 -> 2 [label="AST"];
+51 -> 50 [label="AST"];
+53 -> 54 [label="Action"];
+}

@@ -1,0 +1,35 @@
+digraph "addFileset#?,FileSet" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addFileset" shape=ellipse]
+2 [label="2:CtParameterImpl@FileSet set" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileSet" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addFileset(FileSet)" shape=ellipse]
+5 [label="3:CtVirtualElement@addFileset" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@getBuildpath()" shape=ellipse]
+7 [label="3:CtVirtualElement@getBuildpath" shape=ellipse]
+8 [label="3:CtInvocationImpl@getBuildpath()" shape=ellipse]
+9 [label="3:CtVariableReadImpl@set" shape=ellipse]
+10 [label="3:CtInvocationImpl@getBuildpath().addFileset(set)" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    getBuildpath().addFileset(set);
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public void addFileset(FileSet set) \{
+    getBuildpath().addFileset(set);
+\}" shape=ellipse]
+13 [label="3:Update@UPDATE" shape=ellipse]
+14 [label="3:CtInvocationImpl@add(set)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 6 [label="AST"];
+10 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 13 [label="Action"];
+11 -> 10 [label="AST"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 14 [label="Action"];
+}

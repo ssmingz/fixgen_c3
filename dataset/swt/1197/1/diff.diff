@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1197/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1197/1/after.java
+@@ -72,1 +72,5 @@
+-      OS.gdk_drawable_get_size(image.pixmap, w, h);
++      if (OS.GTK_VERSION >= OS.VERSION(2, 24, 0)) {
++        OS.gdk_pixmap_get_size(image.pixmap, w, h);
++      } else {
++        OS.gdk_drawable_get_size(image.pixmap, w, h);
++      }

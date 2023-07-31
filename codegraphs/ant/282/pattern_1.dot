@@ -1,0 +1,112 @@
+digraph "Pattern" {
+0 [label="testNotSelector#?#2:INSERT
+testCorrectTaskNameBadAttr#?#2:INSERT
+testConditionConditionTask#?#2:INSERT
+testCorrectTaskNameBadEl#?#2:INSERT
+testExcluded#?#2:INSERT" shape=ellipse]
+1 [label="testNotSelector#?#2:public void testNotSelector() \{
+    expectBuildExceptionContaining(\"not.selector\", \"checking for use as a selector (not allowed)\", \"fileset doesn\'t support the nested \\"isfile\");
+\}
+testCorrectTaskNameBadAttr#?#2:public void testCorrectTaskNameBadAttr() \{
+    expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\");
+\}
+testConditionConditionTask#?#2:public void testConditionConditionTask() \{
+    expectBuildExceptionContaining(\"condition.condition.task\", \"task masking condition\", \"doesn't support the nested\");
+\}
+testCorrectTaskNameBadEl#?#2:public void testCorrectTaskNameBadEl() \{
+    expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\");
+\}
+testExcluded#?#2:public void testExcluded() \{
+    expectBuildExceptionContaining(\"excluded\", \"excluded uri\", \"Attempt to use a reserved URI ant:notallowed\");
+\}" shape=ellipse]
+2 [label="testNotSelector#?#2:testNotSelector
+testCorrectTaskNameBadAttr#?#2:testCorrectTaskNameBadAttr
+testConditionConditionTask#?#2:VE: Modifiers_Method
+testCorrectTaskNameBadEl#?#2:testCorrectTaskNameBadEl
+testExcluded#?#2:testExcluded" shape=ellipse]
+3 [label="testNotSelector#?#2:void
+testCorrectTaskNameBadAttr#?#2:void
+testConditionConditionTask#?#2:void
+testCorrectTaskNameBadEl#?#2:void
+testExcluded#?#2:void" shape=ellipse]
+4 [label="testNotSelector#?#2:\{
+    expectBuildExceptionContaining(\"not.selector\", \"checking for use as a selector (not allowed)\", \"fileset doesn\'t support the nested \\"isfile\");
+\}
+testCorrectTaskNameBadAttr#?#2:\{
+    expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\");
+\}
+testConditionConditionTask#?#2:\{
+    expectBuildExceptionContaining(\"condition.condition.task\", \"task masking condition\", \"doesn't support the nested\");
+\}
+testCorrectTaskNameBadEl#?#2:\{
+    expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\");
+\}
+testExcluded#?#2:\{
+    expectBuildExceptionContaining(\"excluded\", \"excluded uri\", \"Attempt to use a reserved URI ant:notallowed\");
+\}" shape=ellipse]
+5 [label="testNotSelector#?#3:expectBuildExceptionContaining(\"not.selector\", \"checking for use as a selector (not allowed)\", \"fileset doesn\'t support the nested \\"isfile\")
+testCorrectTaskNameBadAttr#?#3:expectBuildExceptionContaining(\"correct_taskname_badattr\", \"attribute message\", \"javac doesn't support the\")
+testConditionConditionTask#?#3:expectBuildExceptionContaining(\"condition.condition.task\", \"task masking condition\", \"doesn't support the nested\")
+testCorrectTaskNameBadEl#?#3:expectBuildExceptionContaining(\"correct_taskname_badel\", \"element message\", \"javac doesn't support the\")
+testExcluded#?#3:expectBuildExceptionContaining(\"excluded\", \"excluded uri\", \"Attempt to use a reserved URI ant:notallowed\")" shape=ellipse]
+6 [label="testNotSelector#?#2:public
+testCorrectTaskNameBadAttr#?#2:public
+testConditionConditionTask#?#2:public
+testCorrectTaskNameBadEl#?#2:public
+testExcluded#?#2:public" shape=ellipse]
+7 [label="testNotSelector#?#2:VE: Modifiers_Method
+testCorrectTaskNameBadAttr#?#2:VE: Modifiers_Method
+testConditionConditionTask#?#2:testConditionConditionTask
+testCorrectTaskNameBadEl#?#2:VE: Modifiers_Method
+testExcluded#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testNotSelector#?#4:INSERT
+testCorrectTaskNameBadAttr#?#4:INSERT
+testConditionConditionTask#?#4:INSERT
+testCorrectTaskNameBadEl#?#4:INSERT
+testExcluded#?#4:INSERT" shape=ellipse]
+9 [label="testNotSelector#?#4:try \{
+    buildRule.executeTarget(\"not.selector\");
+    fail(\"Exception should have been thrown: checking for use as a selector (not allowed)\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"fileset doesn\'t support the nested \\"isfile\", ex.getMessage());
+\}
+testCorrectTaskNameBadAttr#?#4:try \{
+    buildRule.executeTarget(\"correct_taskname_badattr\");
+    fail(\"BuildException expected: attribute message\");
+\} catch (BuildException ex) \{
+    assertContains(\"javac doesn't support the\", ex.getMessage());
+\}
+testConditionConditionTask#?#4:try \{
+    buildRule.executeTarget(\"condition.condition.task\");
+    fail(\"Build exception expected: Task masking condition\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"doesn't support the nested\", ex.getMessage());
+\}
+testCorrectTaskNameBadEl#?#4:try \{
+    buildRule.executeTarget(\"correct_taskname_badel\");
+    fail(\"BuildException expected: element message\");
+\} catch (BuildException ex) \{
+    assertContains(\"javac doesn't support the\", ex.getMessage());
+\}
+testExcluded#?#4:try \{
+    buildRule.executeTarget(\"excluded\");
+    fail(\"BuildException expected: excluded uri\");
+\} catch (BuildException ex) \{
+    assertEquals(\"Attempt to use a reserved URI ant:notallowed\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testNotSelector#?#2:@Test
+testCorrectTaskNameBadAttr#?#2:@Test
+testConditionConditionTask#?#2:@Test
+testCorrectTaskNameBadEl#?#2:@Test
+testExcluded#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:5"];
+1 -> 0 [label="Action:5"];
+1 -> 2 [label="AST:5"];
+1 -> 3 [label="AST:5"];
+1 -> 4 [label="AST:5"];
+1 -> 6 [label="AST:5"];
+1 -> 7 [label="AST:5"];
+1 -> 8 [label="Action:5"];
+4 -> 5 [label="AST:5"];
+8 -> 9 [label="Action:5"];
+}

@@ -1,0 +1,295 @@
+digraph "Pattern" {
+0 [label="execute#?#16:INSERT
+compile#?#16:INSERT" shape=ellipse]
+1 [label="execute#?#15:RmicAdapterFactory.getRmic(getCompiler(), this)
+compile#?#15:CompilerAdapterFactory.getCompiler(compilerImpl, this)" shape=ellipse]
+2 [label="execute#?#15:RmicAdapter adapter = RmicAdapterFactory.getRmic(getCompiler(), this)
+compile#?#15:CompilerAdapter adapter = CompilerAdapterFactory.getCompiler(compilerImpl, this)" shape=ellipse]
+3 [label="execute#?#2:\{
+    if (baseDir == null) \{
+        throw new BuildException(ERROR_BASE_NOT_SET, getLocation());
+    \}
+    if (!baseDir.exists()) \{
+        throw new BuildException(ERROR_NO_BASE_EXISTS + baseDir, getLocation());
+    \}
+    if (!baseDir.isDirectory()) \{
+        throw new BuildException(ERROR_NOT_A_DIR + baseDir, getLocation());
+    \}
+    if (verify) \{
+        log(\"Verify has been turned on.\", MSG_VERBOSE);
+    \}
+    RmicAdapter adapter = RmicAdapterFactory.getRmic(getCompiler(), this);
+    adapter.setRmic(this);
+    Path classpath = adapter.getClasspath();
+    loader = getProject().createClassLoader(classpath);
+    try \{
+        if (classname == null) \{
+            DirectoryScanner ds = this.getDirectoryScanner(baseDir);
+            String[] files = ds.getIncludedFiles();
+            scanDir(baseDir, files, adapter.getMapper());
+        \} else \{
+            String path = classname.replace('.', separatorChar) + \".class\";
+            File f = new File(baseDir, path);
+            if (f.isFile()) \{
+                scanDir(baseDir, new String[]\{ path \}, adapter.getMapper());
+            \} else \{
+                compileList.add(classname);
+            \}
+        \}
+        int fileCount = compileList.size();
+        if (fileCount > 0) \{
+            log(((((\"RMI Compiling \" + fileCount) + \" class\") + (fileCount > 1 ? \"es\" : \"\")) + \" to \") + baseDir, MSG_INFO);
+            if (!adapter.execute()) \{
+                throw new BuildException(ERROR_RMIC_FAILED, getLocation());
+            \}
+        \}
+        if (((null != sourceBase) && (!baseDir.equals(sourceBase))) && (fileCount > 0)) \{
+            if (idl) \{
+                log(\"Cannot determine sourcefiles in idl mode, \", MSG_WARN);
+                log(\"sourcebase attribute will be ignored.\", MSG_WARN);
+            \} else \{
+                for (int j = 0; j < fileCount; j++) \{
+                    moveGeneratedFile(baseDir, sourceBase, ((String) (compileList.elementAt(j))), adapter);
+                \}
+            \}
+        \}
+    \} finally \{
+        compileList.removeAllElements();
+    \}
+\}
+compile#?#4:\{
+    log((((\"Compiling \" + compileList.length) + \" source file\") + (compileList.length == 1 ? \"\" : \"s\")) + (destDir != null ? \" to \" + destDir : \"\"));
+    if (listFiles) \{
+        for (int i = 0; i < compileList.length; i++) \{
+            String filename = compileList[i].getAbsolutePath();
+            log(filename);
+        \}
+    \}
+    CompilerAdapter adapter = CompilerAdapterFactory.getCompiler(compilerImpl, this);
+    adapter.setJavac(this);
+    if (adapter.execute()) \{
+        try \{
+            generateMissingPackageInfoClasses();
+        \} catch (IOException x) \{
+            throw new BuildException(x, getLocation());
+        \}
+    \} else \{
+        this.taskSuccess = false;
+        if (errorProperty != null) \{
+            getProject().setNewProperty(errorProperty, \"true\");
+        \}
+        if (failOnError) \{
+            throw new BuildException(FAIL_MSG, getLocation());
+        \} else \{
+            log(FAIL_MSG, MSG_ERR);
+        \}
+    \}
+\}" shape=ellipse]
+4 [label="execute#?#15:adapter" shape=ellipse]
+5 [label="execute#?#15:RmicAdapter" shape=ellipse]
+6 [label="execute#?#15:getRmic
+compile#?#15:getCompiler" shape=ellipse]
+7 [label="execute#?#15:RmicAdapterFactory
+compile#?#15:CompilerAdapterFactory" shape=ellipse]
+8 [label="execute#?#-1:RmicAdapterFactory" shape=ellipse]
+9 [label="execute#?#15:getRmic(PlaceHold)
+compile#?#15:getCompiler(java.lang.String,PlaceHold)" shape=ellipse]
+10 [label="execute#?#-1:RmicAdapterFactory" shape=ellipse]
+11 [label="execute#?#-1:RmicAdapter" shape=ellipse]
+12 [label="execute#?#-1:PlaceHold" shape=ellipse]
+13 [label="execute#?#15:getCompiler()" shape=ellipse]
+14 [label="execute#?#15:getCompiler" shape=ellipse]
+15 [label="execute#?#-1:
+compile#?#-1:" shape=ellipse]
+16 [label="execute#?#15:getCompiler()
+compile#?#16:setJavac(PlaceHold)" shape=ellipse]
+17 [label="execute#?#15:this
+compile#?#15:this" shape=ellipse]
+18 [label="execute#?#-1:PlaceHold" shape=ellipse]
+19 [label="execute#?#-1:PlaceHold
+compile#?#-1:PlaceHold" shape=ellipse]
+20 [label="execute#?#16:createCompilerClasspath()
+compile#?#16:createCompilerClasspath()" shape=ellipse]
+21 [label="compile#?#7:(compileList.length == 1 ? \"\" : \"s\")" shape=ellipse]
+22 [label="compile#?#6:(((\"Compiling \" + compileList.length) + \" source file\") + (compileList.length == 1 ? \"\" : \"s\")) + (destDir != null ? \" to \" + destDir : \"\")" shape=ellipse]
+23 [label="compile#?#7:compileList.length" shape=ellipse]
+24 [label="compile#?#4:compileList.length > 0" shape=ellipse]
+25 [label="compile#?#8:(destDir != null ? \" to \" + destDir : \"\")" shape=ellipse]
+26 [label="compile#?#16:this" shape=ellipse]
+27 [label="compile#?#17:adapter" shape=ellipse]
+28 [label="compile#?#-1:PlaceHold" shape=ellipse]
+29 [label="compile#?#6:compileList.length" shape=ellipse]
+30 [label="compile#?#16:adapter" shape=ellipse]
+31 [label="compile#?#17:adapter.execute()" shape=ellipse]
+32 [label="compile#?#8:destDir" shape=ellipse]
+33 [label="compile#?#17:if (adapter.execute()) \{
+    try \{
+        generateMissingPackageInfoClasses();
+    \} catch (IOException x) \{
+        throw new BuildException(x, getLocation());
+    \}
+\} else \{
+    this.taskSuccess = false;
+    if (errorProperty != null) \{
+        getProject().setNewProperty(errorProperty, \"true\");
+    \}
+    if (failOnError) \{
+        throw new BuildException(FAIL_MSG, getLocation());
+    \} else \{
+        log(FAIL_MSG, MSG_ERR);
+    \}
+\}" shape=ellipse]
+34 [label="compile#?#9:listFiles" shape=ellipse]
+35 [label="compile#?#4:compileList.length" shape=ellipse]
+36 [label="compile#?#5:log(<unknown>)" shape=ellipse]
+37 [label="compile#?#6:\" source file\"" shape=ellipse]
+38 [label="compile#?#6:\"Compiling \"" shape=ellipse]
+39 [label="compile#?#8:destDir != null" shape=ellipse]
+40 [label="compile#?#6:(\"Compiling \" + compileList.length)" shape=ellipse]
+41 [label="compile#?#8:null" shape=ellipse]
+42 [label="compile#?#4:if (compileList.length > 0) \{
+    log((((\"Compiling \" + compileList.length) + \" source file\") + (compileList.length == 1 ? \"\" : \"s\")) + (destDir != null ? \" to \" + destDir : \"\"));
+    if (listFiles) \{
+        for (int i = 0; i < compileList.length; i++) \{
+            String filename = compileList[i].getAbsolutePath();
+            log(filename);
+        \}
+    \}
+    CompilerAdapter adapter = CompilerAdapterFactory.getCompiler(compilerImpl, this);
+    adapter.setJavac(this);
+    if (adapter.execute()) \{
+        try \{
+            generateMissingPackageInfoClasses();
+        \} catch (IOException x) \{
+            throw new BuildException(x, getLocation());
+        \}
+    \} else \{
+        this.taskSuccess = false;
+        if (errorProperty != null) \{
+            getProject().setNewProperty(errorProperty, \"true\");
+        \}
+        if (failOnError) \{
+            throw new BuildException(FAIL_MSG, getLocation());
+        \} else \{
+            log(FAIL_MSG, MSG_ERR);
+        \}
+    \}
+\}" shape=ellipse]
+43 [label="compile#?#4:0" shape=ellipse]
+44 [label="compile#?#5:log((((\"Compiling \" + compileList.length) + \" source file\") + (compileList.length == 1 ? \"\" : \"s\")) + (destDir != null ? \" to \" + destDir : \"\"))" shape=ellipse]
+45 [label="compile#?#6:((\"Compiling \" + compileList.length) + \" source file\")" shape=ellipse]
+46 [label="compile#?#7:compileList.length == 1" shape=ellipse]
+47 [label="compile#?#15:compilerImpl" shape=ellipse]
+48 [label="compile#?#-1:compileList" shape=ellipse]
+49 [label="compile#?#9:if (listFiles) \{
+    for (int i = 0; i < compileList.length; i++) \{
+        String filename = compileList[i].getAbsolutePath();
+        log(filename);
+    \}
+\}" shape=ellipse]
+50 [label="compile#?#17:execute()" shape=ellipse]
+51 [label="compile#?#16:adapter.setJavac(this)" shape=ellipse]
+52 [label="compile#?#7:1" shape=ellipse]
+53 [label="compile#?#-1:compileList" shape=ellipse]
+54 [label="compile#?#-1:PlaceHold" shape=ellipse]
+55 [label="compile#?#6:(((\"Compiling \" + compileList.length) + \" source file\") + (compileList.length == 1 ? \"\" : \"s\"))" shape=ellipse]
+0 -> 20 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 13 [label="AST:1"];
+1 -> 17 [label="AST:2"];
+1 -> 47 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 33 [label="AST:1"];
+3 -> 44 [label="AST:1"];
+3 -> 49 [label="AST:1"];
+3 -> 51 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+13 -> 15 [label="AST:1"];
+13 -> 16 [label="AST:1"];
+15 -> 4 [label="Data Dep:1"];
+15 -> 28 [label="AST:1"];
+17 -> 4 [label="Data Dep:1"];
+17 -> 18 [label="AST:1"];
+17 -> 19 [label="AST:2"];
+21 -> 46 [label="AST:1"];
+22 -> 55 [label="AST:1"];
+22 -> 25 [label="AST:1"];
+23 -> 53 [label="AST:1"];
+24 -> 21 [label="Control Dep:1"];
+24 -> 22 [label="Control Dep:1"];
+24 -> 23 [label="Control Dep:1"];
+24 -> 35 [label="AST:1"];
+24 -> 43 [label="AST:1"];
+24 -> 3 [label="Control Dep:1"];
+24 -> 44 [label="Control Dep:1"];
+24 -> 36 [label="Control Dep:1"];
+24 -> 15 [label="Control Dep:1"];
+24 -> 28 [label="Control Dep:1"];
+24 -> 55 [label="Control Dep:1"];
+24 -> 45 [label="Control Dep:1"];
+24 -> 40 [label="Control Dep:1"];
+24 -> 38 [label="Control Dep:1"];
+24 -> 29 [label="Control Dep:1"];
+24 -> 48 [label="Control Dep:1"];
+24 -> 37 [label="Control Dep:1"];
+24 -> 46 [label="Control Dep:1"];
+24 -> 53 [label="Control Dep:1"];
+24 -> 52 [label="Control Dep:1"];
+24 -> 25 [label="Control Dep:1"];
+24 -> 39 [label="Control Dep:1"];
+24 -> 32 [label="Control Dep:1"];
+24 -> 41 [label="Control Dep:1"];
+24 -> 49 [label="Control Dep:1"];
+24 -> 34 [label="Control Dep:1"];
+24 -> 2 [label="Control Dep:1"];
+24 -> 1 [label="Control Dep:1"];
+24 -> 9 [label="Control Dep:1"];
+24 -> 7 [label="Control Dep:1"];
+24 -> 47 [label="Control Dep:1"];
+24 -> 17 [label="Control Dep:1"];
+24 -> 19 [label="Control Dep:1"];
+24 -> 51 [label="Control Dep:1"];
+24 -> 16 [label="Control Dep:1"];
+24 -> 30 [label="Control Dep:1"];
+24 -> 26 [label="Control Dep:1"];
+24 -> 54 [label="Control Dep:1"];
+24 -> 33 [label="Control Dep:1"];
+24 -> 31 [label="Control Dep:1"];
+24 -> 50 [label="Control Dep:1"];
+24 -> 27 [label="Control Dep:1"];
+25 -> 39 [label="AST:1"];
+26 -> 54 [label="AST:1"];
+29 -> 48 [label="AST:1"];
+31 -> 27 [label="AST:1"];
+31 -> 50 [label="AST:1"];
+33 -> 31 [label="AST:1"];
+39 -> 32 [label="AST:1"];
+39 -> 41 [label="AST:1"];
+40 -> 29 [label="AST:1"];
+40 -> 38 [label="AST:1"];
+42 -> 24 [label="AST:1"];
+42 -> 3 [label="AST:1"];
+44 -> 22 [label="AST:1"];
+44 -> 36 [label="AST:1"];
+44 -> 15 [label="AST:1"];
+45 -> 37 [label="AST:1"];
+45 -> 40 [label="AST:1"];
+46 -> 23 [label="AST:1"];
+46 -> 52 [label="AST:1"];
+49 -> 34 [label="AST:1"];
+51 -> 26 [label="AST:1"];
+51 -> 30 [label="AST:1"];
+51 -> 16 [label="AST:1"];
+55 -> 21 [label="AST:1"];
+55 -> 45 [label="AST:1"];
+}

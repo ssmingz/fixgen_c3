@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2914/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2914/0/after.java
+@@ -4,1 +4,1 @@
+-    Hashtable<String, List<String>> mimeInfo = cde_getDataTypeInfo();
++    Map<String, List<String>> mimeInfo = cde_getDataTypeInfo();
+@@ -8,3 +8,3 @@
+-    Enumeration<String> keys = mimeInfo.keys();
+-    while ((mimeType == null) && keys.hasMoreElements()) {
+-      String type = keys.nextElement();
++    Iterator<String> keys = mimeInfo.keySet().iterator();
++    while ((mimeType == null) && keys.hasNext()) {
++      String type = keys.next();

@@ -1,0 +1,66 @@
+digraph "Pattern" {
+0 [label="testExtensions#?#10:UPDATE
+testSetters#?#13:UPDATE
+testFileExtensions#?#7:UPDATE" shape=ellipse]
+1 [label="testExtensions#?#10:null
+testSetters#?#13:null
+testFileExtensions#?#7:null" shape=ellipse]
+2 [label="testExtensions#?#10:check.setFileExtensions(null)
+testSetters#?#13:c.setFileExtensions(null)
+testFileExtensions#?#7:Utils.fileExtensionMatches(file, null)" shape=ellipse]
+3 [label="testExtensions#?#9:\{
+    check.setFileExtensions(null);
+    fail();
+\}
+testSetters#?#3:\{
+    final Checker c = new Checker();
+    c.setClassLoader(this.getClass().getClassLoader());
+    c.setClassloader(this.getClass().getClassLoader());
+    c.setBasedir(\"some\");
+    c.setSeverity(\"ignore\");
+    PackageObjectFactory factory = new PackageObjectFactory(new HashSet<String>(), Thread.currentThread().getContextClassLoader());
+    c.setModuleFactory(factory);
+    c.setFileExtensions(null);
+    c.setFileExtensions(new String[]\{ \".java\", \"xml\" \});
+    try \{
+        c.setCharset(\"UNKNOW-CHARSET\");
+        fail(\"Exception is expected\");
+    \} catch (UnsupportedEncodingException ex) \{
+        assertEquals(\"unsupported charset: 'UNKNOW-CHARSET'\", ex.getMessage());
+    \}
+\}" shape=ellipse]
+4 [label="testExtensions#?#10:setFileExtensions
+testSetters#?#13:setFileExtensions
+testFileExtensions#?#7:fileExtensionMatches" shape=ellipse]
+5 [label="testExtensions#?#10:check
+testSetters#?#13:c
+testFileExtensions#?#7:file" shape=ellipse]
+6 [label="testExtensions#?#10:setFileExtensions(<unknown>)
+testSetters#?#13:setFileExtensions(<unknown>)
+testFileExtensions#?#7:fileExtensionMatches(File,<unknown>)" shape=ellipse]
+7 [label="testExtensions#?#10:<nulltype>
+testSetters#?#13:<nulltype>
+testFileExtensions#?#7:<nulltype>" shape=ellipse]
+8 [label="testExtensions#?#10:String[]
+testSetters#?#13:String[]
+testFileExtensions#?#7:String[]" shape=ellipse]
+9 [label="testExtensions#?#10:String
+testSetters#?#13:String
+testFileExtensions#?#7:String" shape=ellipse]
+10 [label="testExtensions#?#10:java.lang
+testSetters#?#13:java.lang
+testFileExtensions#?#7:java.lang" shape=ellipse]
+11 [label="testFileExtensions#?#7:assertTrue(Utils.fileExtensionMatches(file, null))" shape=ellipse]
+12 [label="testFileExtensions#?#7:Utils" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 12 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:3"];
+9 -> 10 [label="AST:3"];
+11 -> 2 [label="AST:1"];
+}

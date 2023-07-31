@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testNoAppend#?#8:INSERT
+testAppend#?#8:INSERT" shape=ellipse]
+1 [label="testNoAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\"))
+testAppend#?#5:FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\"))" shape=ellipse]
+2 [label="testNoAppend#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")))
+testAppend#?#4:assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")))" shape=ellipse]
+3 [label="testNoAppend#?#2:\{
+    executeTarget(\"noappend\");
+    assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")));
+\}
+testAppend#?#2:\{
+    executeTarget(\"append\");
+    assertTrue(FILE_UTILS.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")));
+\}" shape=ellipse]
+4 [label="testNoAppend#?#4:assertTrue
+testAppend#?#4:assertTrue" shape=ellipse]
+5 [label="testNoAppend#?#-1:
+testAppend#?#-1:" shape=ellipse]
+6 [label="testNoAppend#?#4:assertTrue(<unknown>)
+testAppend#?#4:assertTrue(<unknown>)" shape=ellipse]
+7 [label="testNoAppend#?#5:contentEquals
+testAppend#?#5:contentEquals" shape=ellipse]
+8 [label="testNoAppend#?#5:FILE_UTILS
+testAppend#?#5:FILE_UTILS" shape=ellipse]
+9 [label="testNoAppend#?#-1:FILE_UTILS
+testAppend#?#-1:FILE_UTILS" shape=ellipse]
+10 [label="testNoAppend#?#5:contentEquals()
+testAppend#?#5:contentEquals()" shape=ellipse]
+11 [label="testNoAppend#?#-1:FILE_UTILS
+testAppend#?#-1:FILE_UTILS" shape=ellipse]
+12 [label="testNoAppend#?#6:project.resolveFile(REC_DIR + \"rectest1.result\")
+testAppend#?#6:project.resolveFile(REC_DIR + \"rectest2.result\")" shape=ellipse]
+13 [label="testNoAppend#?#6:resolveFile
+testAppend#?#6:resolveFile" shape=ellipse]
+14 [label="testNoAppend#?#6:project
+testAppend#?#6:project" shape=ellipse]
+15 [label="testNoAppend#?#6:resolveFile()
+testAppend#?#6:resolveFile()" shape=ellipse]
+16 [label="testNoAppend#?#6:REC_DIR + \"rectest1.result\"
+testAppend#?#6:REC_DIR + \"rectest2.result\"" shape=ellipse]
+17 [label="testNoAppend#?#7:project.resolveFile(REC_DIR + \"rectest1.log\")
+testAppend#?#7:project.resolveFile(REC_DIR + \"rectest2.log\")" shape=ellipse]
+18 [label="testNoAppend#?#7:resolveFile
+testAppend#?#7:resolveFile" shape=ellipse]
+19 [label="testNoAppend#?#7:project
+testAppend#?#7:project" shape=ellipse]
+20 [label="testNoAppend#?#7:resolveFile()
+testAppend#?#7:resolveFile()" shape=ellipse]
+21 [label="testNoAppend#?#7:REC_DIR + \"rectest1.log\"
+testAppend#?#7:REC_DIR + \"rectest2.log\"" shape=ellipse]
+22 [label="testNoAppend#?#8:true
+testAppend#?#8:true" shape=ellipse]
+0 -> 22 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+12 -> 16 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 20 [label="AST:2"];
+17 -> 21 [label="AST:2"];
+}

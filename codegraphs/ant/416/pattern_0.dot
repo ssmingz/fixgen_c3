@@ -1,0 +1,134 @@
+digraph "Pattern" {
+0 [label="couldHoldIncluded#?,String#4:INSERT
+isIncluded#?,String#4:INSERT
+isExcluded#?,String#4:INSERT" shape=ellipse]
+1 [label="couldHoldIncluded#?,String#4:matchPatternStart(includes[i], name)
+isIncluded#?,String#4:matchPath(includes[i], name)
+isExcluded#?,String#4:matchPath(excludes[i], name)" shape=ellipse]
+2 [label="couldHoldIncluded#?,String#3:i < includes.length
+isIncluded#?,String#3:i < includes.length
+isExcluded#?,String#3:i < excludes.length" shape=ellipse]
+3 [label="couldHoldIncluded#?,String#3:for (int i = 0; i < includes.length; i++) \{
+    if (matchPatternStart(includes[i], name)) \{
+        return true;
+    \}
+\}
+isIncluded#?,String#3:for (int i = 0; i < includes.length; i++) \{
+    if (matchPath(includes[i], name)) \{
+        return true;
+    \}
+\}
+isExcluded#?,String#3:for (int i = 0; i < excludes.length; i++) \{
+    if (matchPath(excludes[i], name)) \{
+        return true;
+    \}
+\}" shape=ellipse]
+4 [label="couldHoldIncluded#?,String#3:i
+isIncluded#?,String#3:i
+isExcluded#?,String#3:i" shape=ellipse]
+5 [label="couldHoldIncluded#?,String#3:includes.length
+isIncluded#?,String#3:includes.length
+isExcluded#?,String#3:excludes.length" shape=ellipse]
+6 [label="couldHoldIncluded#?,String#3:\{
+    if (matchPatternStart(includes[i], name)) \{
+        return true;
+    \}
+\}
+isIncluded#?,String#3:\{
+    if (matchPath(includes[i], name)) \{
+        return true;
+    \}
+\}
+isExcluded#?,String#3:\{
+    if (matchPath(excludes[i], name)) \{
+        return true;
+    \}
+\}" shape=ellipse]
+7 [label="couldHoldIncluded#?,String#4:if (matchPatternStart(includes[i], name)) \{
+    return true;
+\}
+isIncluded#?,String#4:if (matchPath(includes[i], name)) \{
+    return true;
+\}
+isExcluded#?,String#4:if (matchPath(excludes[i], name)) \{
+    return true;
+\}" shape=ellipse]
+8 [label="couldHoldIncluded#?,String#4:matchPatternStart(<unknown>,java.lang.String)
+isIncluded#?,String#4:matchPath(<unknown>,java.lang.String)
+isExcluded#?,String#4:matchPath(<unknown>,java.lang.String)" shape=ellipse]
+9 [label="couldHoldIncluded#?,String#-1:
+isIncluded#?,String#-1:
+isExcluded#?,String#-1:" shape=ellipse]
+10 [label="couldHoldIncluded#?,String#-1:PlaceHold
+isIncluded#?,String#-1:PlaceHold
+isExcluded#?,String#-1:PlaceHold" shape=ellipse]
+11 [label="couldHoldIncluded#?,String#4:includes[i]
+isIncluded#?,String#4:includes[i]
+isExcluded#?,String#4:excludes[i]" shape=ellipse]
+12 [label="couldHoldIncluded#?,String#4:includes
+isIncluded#?,String#4:includes
+isExcluded#?,String#4:excludes" shape=ellipse]
+13 [label="couldHoldIncluded#?,String#4:i
+isIncluded#?,String#4:i
+isExcluded#?,String#4:i" shape=ellipse]
+14 [label="couldHoldIncluded#?,String#4:name
+isIncluded#?,String#4:name
+isExcluded#?,String#4:name" shape=ellipse]
+15 [label="couldHoldIncluded#?,String#4:matchPatternStart
+isIncluded#?,String#4:matchPath
+isExcluded#?,String#4:matchPath" shape=ellipse]
+16 [label="couldHoldIncluded#?,String#4:\{
+    return true;
+\}
+isIncluded#?,String#4:\{
+    return true;
+\}
+isExcluded#?,String#4:\{
+    return true;
+\}" shape=ellipse]
+17 [label="couldHoldIncluded#?,String#5:return true
+isIncluded#?,String#5:return true
+isExcluded#?,String#5:return true" shape=ellipse]
+18 [label="couldHoldIncluded#?,String#5:true
+isIncluded#?,String#5:true
+isExcluded#?,String#5:true" shape=ellipse]
+19 [label="couldHoldIncluded#?,String#-1:boolean
+isIncluded#?,String#-1:boolean
+isExcluded#?,String#-1:boolean" shape=ellipse]
+20 [label="couldHoldIncluded#?,String#4:isCaseSensitive
+isIncluded#?,String#4:isCaseSensitive
+isExcluded#?,String#4:isCaseSensitive" shape=ellipse]
+0 -> 20 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 15 [label="AST:3"];
+1 -> 9 [label="AST:3"];
+1 -> 8 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 14 [label="AST:3"];
+1 -> 16 [label="Control Dep:3"];
+1 -> 17 [label="Control Dep:3"];
+1 -> 18 [label="Control Dep:3"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Control Dep:3"];
+2 -> 7 [label="Control Dep:3"];
+2 -> 8 [label="Control Dep:3"];
+2 -> 9 [label="Control Dep:3"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:3"];
+3 -> 2 [label="AST:3"];
+3 -> 6 [label="AST:3"];
+6 -> 7 [label="AST:3"];
+7 -> 1 [label="AST:3"];
+7 -> 16 [label="AST:3"];
+9 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+16 -> 17 [label="AST:3"];
+17 -> 18 [label="AST:3"];
+18 -> 19 [label="AST:3"];
+}

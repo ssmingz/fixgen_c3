@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/731/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/731/0/after.java
+@@ -4,3 +4,0 @@
+-      String outputName = getClassName(mainClass).toLowerCase();
+-      String inc = (("#include \"swt.h\"\n" + "#include \"") + outputName) + "_structs.h\"\n";
+-      metaData.setMetaData("swt_includes", inc);
+@@ -8,0 +5,1 @@
++      gen.setMainClass(mainClass);
+@@ -16,1 +14,0 @@
+-      String extension = (gen.getCPP()) ? ".cpp" : ".c";
+@@ -18,1 +15,1 @@
+-        output(out.toByteArray(), ((outputDir + outputName) + "_structs") + extension);
++        output(out.toByteArray(), outputDir + gen.getOutputName());

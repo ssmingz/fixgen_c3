@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testExitAndOtherException#?#5:INSERT
+testSingleExit#?#5:INSERT" shape=ellipse]
+1 [label="testExitAndOtherException#?#3:try \{
+    executeTarget(\"testExitAndOtherException\");
+\} catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}
+testSingleExit#?#3:try \{
+    executeTarget(\"testSingleExit\");
+\} catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}" shape=ellipse]
+2 [label="testExitAndOtherException#?#2:\{
+    try \{
+        executeTarget(\"testExitAndOtherException\");
+    \} catch (ExitStatusException ex) \{
+        assertEquals(42, ex.getStatus());
+    \}
+\}
+testSingleExit#?#2:\{
+    try \{
+        executeTarget(\"testSingleExit\");
+    \} catch (ExitStatusException ex) \{
+        assertEquals(42, ex.getStatus());
+    \}
+\}" shape=ellipse]
+3 [label="testExitAndOtherException#?#2:public void testExitAndOtherException() \{
+    try \{
+        executeTarget(\"testExitAndOtherException\");
+    \} catch (ExitStatusException ex) \{
+        assertEquals(42, ex.getStatus());
+    \}
+\}
+testSingleExit#?#2:public void testSingleExit() \{
+    try \{
+        executeTarget(\"testSingleExit\");
+    \} catch (ExitStatusException ex) \{
+        assertEquals(42, ex.getStatus());
+    \}
+\}" shape=ellipse]
+4 [label="testExitAndOtherException#?#3:\{
+    executeTarget(\"testExitAndOtherException\");
+\}
+testSingleExit#?#3:\{
+    executeTarget(\"testSingleExit\");
+\}" shape=ellipse]
+5 [label="testExitAndOtherException#?#4:executeTarget(\"testExitAndOtherException\")
+testSingleExit#?#4:executeTarget(\"testSingleExit\")" shape=ellipse]
+6 [label="testExitAndOtherException#?#5: catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}
+testSingleExit#?#5: catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}" shape=ellipse]
+7 [label="testExitAndOtherException#?#5:ExitStatusException ex
+testSingleExit#?#5:ExitStatusException ex" shape=ellipse]
+8 [label="testExitAndOtherException#?#5:\{
+    assertEquals(42, ex.getStatus());
+\}
+testSingleExit#?#5:\{
+    assertEquals(42, ex.getStatus());
+\}" shape=ellipse]
+9 [label="testExitAndOtherException#?#5:buildRule.executeTarget(\"testExitAndOtherException\")
+testSingleExit#?#5:buildRule.executeTarget(\"testSingleExit\")" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+7 -> 8 [label="Control Dep:2"];
+}

@@ -1,0 +1,34 @@
+digraph "Pattern" {
+0 [label="getValue#?#7:INSERT
+write#?,PrintWriter,boolean#4:INSERT" shape=ellipse]
+1 [label="getValue#?#7:Enumeration
+write#?,PrintWriter,boolean#4:Enumeration" shape=ellipse]
+2 [label="getValue#?#7:Enumeration e = getValues()
+write#?,PrintWriter,boolean#4:Enumeration e = getValues()" shape=ellipse]
+3 [label="getValue#?#7:for (Enumeration e = getValues(); e.hasMoreElements();) \{
+    String value = ((String) (e.nextElement()));
+    fullValue += value + \" \";
+\}
+write#?,PrintWriter,boolean#4:for (Enumeration e = getValues(); e.hasMoreElements();) \{
+    writeValue(writer, ((String) (e.nextElement())));
+\}" shape=ellipse]
+4 [label="getValue#?#7:e
+write#?,PrintWriter,boolean#4:e" shape=ellipse]
+5 [label="getValue#?#7:getValues()
+write#?,PrintWriter,boolean#4:getValues()" shape=ellipse]
+6 [label="getValue#?#-1:
+write#?,PrintWriter,boolean#-1:" shape=ellipse]
+7 [label="getValue#?#7:String
+write#?,PrintWriter,boolean#4:String" shape=ellipse]
+8 [label="write#?,PrintWriter,boolean#3:!flatten" shape=ellipse]
+0 -> 7 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 3 [label="Control Dep:1"];
+8 -> 2 [label="Control Dep:1"];
+8 -> 5 [label="Control Dep:1"];
+}

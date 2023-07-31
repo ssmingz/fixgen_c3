@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2338/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2338/1/after.java
+@@ -8,7 +8,4 @@
+-        throw new TaskException(
+-            ((((("Error initializing task " + taskModel.getName()) + " at ")
+-                            + taskModel.getLocation())
+-                        + "(Reason: ")
+-                    + throwable.getMessage())
+-                + ")",
+-            throwable);
++        final String message =
++            REZ.getString(
++                "init.error", taskModel.getName(), taskModel.getLocation(), throwable.getMessage());
++        throw new TaskException(message, throwable);

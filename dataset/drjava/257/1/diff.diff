@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/257/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/257/1/after.java
+@@ -3,1 +3,10 @@
+-    _debugger.setCurrentThread(t);
++    Utilities.invokeLater(
++        new Runnable() {
++          public void run() {
++            try {
++              _debugger.setCurrentThread(t);
++            } catch (DebugException e) {
++              throw new UnexpectedException(e);
++            }
++          }
++        });

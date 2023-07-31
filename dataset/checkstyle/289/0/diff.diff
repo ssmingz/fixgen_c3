@@ -1,0 +1,13 @@
+--- D:\expdata\c3\dataset\checkstyle\289\0/before.java
++++ D:\expdata\c3\dataset\checkstyle\289\0/after.java
+@@ -4,6 +4,4 @@
+-    switch (ast.getType()) {
+-      case TokenTypes.LITERAL_IF:
+-        leaveLiteralIf(ast);
+-        break;
+-      default:
+-        throw new IllegalStateException(ast.toString());
++    if (ast.getType() == TokenTypes.LITERAL_IF) {
++      leaveLiteralIf(ast);
++    } else {
++      throw new IllegalStateException(ast.toString());

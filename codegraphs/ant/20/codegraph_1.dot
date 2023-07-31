@@ -1,0 +1,200 @@
+digraph "doContextualize#?,Task,Configuration,TaskContext" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@doContextualize" shape=ellipse]
+2 [label="3:CtParameterImpl@final Task task" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Task" shape=ellipse]
+4 [label="3:CtParameterImpl@final Configuration taskModel" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Configuration" shape=ellipse]
+6 [label="3:CtParameterImpl@final TaskContext context" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@TaskContext" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@TaskException" shape=ellipse]
+9 [label="6:CtVariableReadImpl@task" shape=ellipse]
+10 [label="6:CtTypeAccessImpl@Contextualizable" shape=ellipse]
+11 [label="6:CtTypeReferenceImpl@Contextualizable" shape=ellipse]
+12 [label="6:CtBinaryOperatorImpl@task instanceof Contextualizable" shape=ellipse]
+13 [label="7:CtExecutableReferenceImpl@contextualize(TaskContext)" shape=ellipse]
+14 [label="7:CtVirtualElement@contextualize" shape=ellipse]
+15 [label="7:CtVariableReadImpl@((Contextualizable) (task))" shape=ellipse]
+16 [label="7:CtTypeReferenceImpl@Contextualizable" shape=ellipse]
+17 [label="7:CtVariableReadImpl@context" shape=ellipse]
+18 [label="7:CtInvocationImpl@((Contextualizable) (task)).contextualize(context)" shape=ellipse]
+19 [label="6:CtBlockImpl@\{
+    ((Contextualizable) (task)).contextualize(context);
+\}" shape=ellipse]
+20 [label="6:CtIfImpl@if (task instanceof Contextualizable) \{
+    ((Contextualizable) (task)).contextualize(context);
+\}" shape=ellipse]
+21 [label="5:CtBlockImpl@\{
+    if (task instanceof Contextualizable) \{
+        ((Contextualizable) (task)).contextualize(context);
+    \}
+\}" shape=ellipse]
+22 [label="9:CtVirtualElement@throwable" shape=ellipse]
+23 [label="9:CtTypeReferenceImpl@Throwable" shape=ellipse]
+24 [label="9:CtCatchVariableImpl@final Throwable throwable" shape=ellipse]
+25 [label="10:CtTypeReferenceImpl@TaskException" shape=ellipse]
+26 [label="11:CtLiteralImpl@\"Error contextualizing task \"" shape=ellipse]
+27 [label="11:CtExecutableReferenceImpl@getName()" shape=ellipse]
+28 [label="11:CtVirtualElement@getName" shape=ellipse]
+29 [label="11:CtVariableReadImpl@taskModel" shape=ellipse]
+30 [label="11:CtInvocationImpl@taskModel.getName()" shape=ellipse]
+31 [label="11:CtBinaryOperatorImpl@(\"Error contextualizing task \" + taskModel.getName())" shape=ellipse]
+32 [label="11:CtLiteralImpl@\" at \"" shape=ellipse]
+33 [label="11:CtBinaryOperatorImpl@((\"Error contextualizing task \" + taskModel.getName()) + \" at \")" shape=ellipse]
+34 [label="12:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+35 [label="12:CtVirtualElement@getLocation" shape=ellipse]
+36 [label="12:CtVariableReadImpl@taskModel" shape=ellipse]
+37 [label="12:CtInvocationImpl@taskModel.getLocation()" shape=ellipse]
+38 [label="11:CtBinaryOperatorImpl@(((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation())" shape=ellipse]
+39 [label="13:CtLiteralImpl@\"(Reason: \"" shape=ellipse]
+40 [label="11:CtBinaryOperatorImpl@((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \")" shape=ellipse]
+41 [label="14:CtExecutableReferenceImpl@getMessage()" shape=ellipse]
+42 [label="14:CtVirtualElement@getMessage" shape=ellipse]
+43 [label="14:CtVariableReadImpl@throwable" shape=ellipse]
+44 [label="14:CtInvocationImpl@throwable.getMessage()" shape=ellipse]
+45 [label="11:CtBinaryOperatorImpl@(((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage())" shape=ellipse]
+46 [label="15:CtLiteralImpl@\")\"" shape=ellipse]
+47 [label="11:CtBinaryOperatorImpl@(((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\"" shape=ellipse]
+48 [label="16:CtVariableReadImpl@throwable" shape=ellipse]
+49 [label="10:CtConstructorCallImpl@new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable)" shape=ellipse]
+50 [label="10:CtThrowImpl@throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable)" shape=ellipse]
+51 [label="9:CtBlockImpl@\{
+    throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable);
+\}" shape=ellipse]
+52 [label="9:CtCatchImpl@ catch (final Throwable throwable) \{
+    throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable);
+\}" shape=ellipse]
+53 [label="5:CtTryImpl@try \{
+    if (task instanceof Contextualizable) \{
+        ((Contextualizable) (task)).contextualize(context);
+    \}
+\} catch (final Throwable throwable) \{
+    throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable);
+\}" shape=ellipse]
+54 [label="4:CtBlockImpl@\{
+    try \{
+        if (task instanceof Contextualizable) \{
+            ((Contextualizable) (task)).contextualize(context);
+        \}
+    \} catch (final Throwable throwable) \{
+        throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable);
+    \}
+\}" shape=ellipse]
+55 [label="2:CtMethodImpl@protected final void doContextualize(final Task task, final Configuration taskModel, final TaskContext context) throws TaskException \{
+    try \{
+        if (task instanceof Contextualizable) \{
+            ((Contextualizable) (task)).contextualize(context);
+        \}
+    \} catch (final Throwable throwable) \{
+        throw new TaskException((((((\"Error contextualizing task \" + taskModel.getName()) + \" at \") + taskModel.getLocation()) + \"(Reason: \") + throwable.getMessage()) + \")\", throwable);
+    \}
+\}" shape=ellipse]
+56 [label="11:Update@UPDATE" shape=ellipse]
+57 [label="12:CtLiteralImpl@\"compose.error\"" shape=ellipse]
+58 [label="10:Delete@DELETE" shape=ellipse]
+59 [label="10:Insert@INSERT" shape=ellipse]
+60 [label="10:CtLocalVariableImpl@final String message = REZ.getString(\"compose.error\", taskModel.getName(), taskModel.getLocation(), throwable.getMessage())" shape=ellipse]
+61 [label="16:Insert@INSERT" shape=ellipse]
+62 [label="16:CtThrowImpl@throw new TaskException(message, throwable)" shape=ellipse]
+63 [label="11:Move@MOVE" shape=ellipse]
+64 [label="11:Move@MOVE" shape=ellipse]
+65 [label="12:Move@MOVE" shape=ellipse]
+66 [label="14:Move@MOVE" shape=ellipse]
+67 [label="16:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+10 -> 11 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 19 [label="Control Dep"];
+12 -> 18 [label="Control Dep"];
+12 -> 13 [label="Control Dep"];
+12 -> 15 [label="Control Dep"];
+12 -> 17 [label="Control Dep"];
+15 -> 16 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 15 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 12 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 43 [label="Define-Use"];
+22 -> 48 [label="Define-Use"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 51 [label="Control Dep"];
+24 -> 50 [label="Control Dep"];
+24 -> 49 [label="Control Dep"];
+24 -> 47 [label="Control Dep"];
+24 -> 45 [label="Control Dep"];
+24 -> 40 [label="Control Dep"];
+24 -> 38 [label="Control Dep"];
+24 -> 33 [label="Control Dep"];
+24 -> 31 [label="Control Dep"];
+24 -> 26 [label="Control Dep"];
+24 -> 30 [label="Control Dep"];
+24 -> 27 [label="Control Dep"];
+24 -> 29 [label="Control Dep"];
+24 -> 32 [label="Control Dep"];
+24 -> 37 [label="Control Dep"];
+24 -> 34 [label="Control Dep"];
+24 -> 36 [label="Control Dep"];
+24 -> 39 [label="Control Dep"];
+24 -> 44 [label="Control Dep"];
+24 -> 41 [label="Control Dep"];
+24 -> 43 [label="Control Dep"];
+24 -> 46 [label="Control Dep"];
+24 -> 48 [label="Control Dep"];
+26 -> 56 [label="Action"];
+26 -> 63 [label="Action"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 64 [label="Action"];
+31 -> 26 [label="AST"];
+31 -> 30 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+37 -> 65 [label="Action"];
+38 -> 33 [label="AST"];
+38 -> 37 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 39 [label="AST"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 41 [label="AST"];
+44 -> 66 [label="Action"];
+45 -> 40 [label="AST"];
+45 -> 44 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 67 [label="Action"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 49 [label="AST"];
+50 -> 58 [label="Action"];
+51 -> 50 [label="AST"];
+52 -> 24 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 59 [label="Action"];
+52 -> 61 [label="Action"];
+53 -> 21 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 1 [label="AST"];
+55 -> 0 [label="AST"];
+55 -> 2 [label="AST"];
+55 -> 4 [label="AST"];
+55 -> 6 [label="AST"];
+55 -> 8 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 57 [label="Action"];
+59 -> 60 [label="Action"];
+61 -> 62 [label="Action"];
+}

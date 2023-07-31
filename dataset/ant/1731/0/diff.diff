@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1731/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1731/0/after.java
+@@ -3,1 +3,5 @@
+-    return isReference() ? getRef(getProject()).isCaseSensitive() : caseSensitive;
++    if (isReference()) {
++      return getRef(getProject()).isCaseSensitive();
++    }
++    dieOnCircularReference();
++    return caseSensitive;

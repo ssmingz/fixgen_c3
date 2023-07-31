@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2444/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2444/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testFixFileExclusive", ERROR_FILE_AND_SRCDIR, ERROR_FILE_AND_SRCDIR);
++    try {
++      buildRule.executeTarget("testFixFileExclusive");
++      fail(ERROR_FILE_AND_SRCDIR);
++    } catch (BuildException ex) {
++      AntAssert.assertContains(ERROR_FILE_AND_SRCDIR, ex.getMessage());
++    }

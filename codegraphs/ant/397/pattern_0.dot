@@ -1,0 +1,101 @@
+digraph "Pattern" {
+0 [label="execute#?#3:UPDATE
+execute#?#6:UPDATE" shape=ellipse]
+1 [label="execute#?#3:final Commandline cmd = createCommand()
+execute#?#6:final Commandline cmd = createCommand()" shape=ellipse]
+2 [label="execute#?#2:\{
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setWorkingDirectory(m_topDir);
+    exe.setCommandline(cmd);
+    final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\";
+    getContext().info(message);
+    exe.execute(getContext());
+\}
+execute#?#2:\{
+    validate();
+    final String message = \"Generating Key for \" + m_alias;
+    getContext().info(message);
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setCommandline(cmd);
+    exe.execute(getContext());
+\}" shape=ellipse]
+3 [label="execute#?#2:public void execute() throws TaskException \{
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setWorkingDirectory(m_topDir);
+    exe.setCommandline(cmd);
+    final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\";
+    getContext().info(message);
+    exe.execute(getContext());
+\}
+execute#?#2:public void execute() throws TaskException \{
+    validate();
+    final String message = \"Generating Key for \" + m_alias;
+    getContext().info(message);
+    final Commandline cmd = createCommand();
+    final Execute exe = new Execute();
+    exe.setCommandline(cmd);
+    exe.execute(getContext());
+\}" shape=ellipse]
+4 [label="execute#?#4:final Execute exe = new Execute()
+execute#?#7:final Execute exe = new Execute()" shape=ellipse]
+5 [label="execute#?#5:exe.setWorkingDirectory(m_topDir)
+execute#?#5:getContext().info(message)" shape=ellipse]
+6 [label="execute#?#6:exe.setCommandline(cmd)
+execute#?#8:exe.setCommandline(cmd)" shape=ellipse]
+7 [label="execute#?#7:final String message = (\"Building the RPM based on the \" + m_specFile) + \" file\"
+execute#?#4:final String message = \"Generating Key for \" + m_alias" shape=ellipse]
+8 [label="execute#?#8:getContext().info(message)
+execute#?#9:exe.execute(getContext())" shape=ellipse]
+9 [label="execute#?#9:exe.execute(getContext())
+execute#?#3:validate()" shape=ellipse]
+10 [label="execute#?#3:cmd
+execute#?#6:cmd" shape=ellipse]
+11 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+12 [label="execute#?#6:cmd
+execute#?#8:cmd" shape=ellipse]
+13 [label="execute#?#3:Commandline
+execute#?#6:Commandline" shape=ellipse]
+14 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+15 [label="execute#?#3:UPDATE
+execute#?#6:UPDATE" shape=ellipse]
+16 [label="execute#?#3:createCommand()
+execute#?#6:createCommand()" shape=ellipse]
+17 [label="execute#?#3:createCommand
+execute#?#6:createCommand" shape=ellipse]
+18 [label="execute#?#3:createCommand()
+execute#?#6:createCommand()" shape=ellipse]
+19 [label="execute#?#3:final
+execute#?#6:final" shape=ellipse]
+20 [label="execute#?#3:VE: Modifiers_LocalVariable
+execute#?#6:VE: Modifiers_LocalVariable" shape=ellipse]
+21 [label="execute#?#3:final Execute exe = createCommand()
+execute#?#6:final Execute exe = createCommand()" shape=ellipse]
+0 -> 21 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 10 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 20 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+6 -> 12 [label="AST:2"];
+10 -> 12 [label="Define Use:2"];
+11 -> 10 [label="Data Dep:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="Action:2"];
+16 -> 11 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+}

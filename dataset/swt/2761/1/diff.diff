@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2761/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2761/1/after.java
+@@ -3,6 +3,1 @@
+-    if (!isValidThread()) {
+-      error(ERROR_THREAD_INVALID_ACCESS);
+-    }
+-    if (!isValidWidget()) {
+-      error(ERROR_WIDGET_DISPOSED);
+-    }
++    checkWidget();
+@@ -11,0 +6,3 @@
++      if (color.isDisposed()) {
++        SWT.error(ERROR_INVALID_ARGUMENT);
++      }

@@ -1,0 +1,23 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3318/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3318/1/after.java
+@@ -3,3 +3,2 @@
+-    int result = super.gtk_focus_in_event(widget, event);
+-    if (handle == 0) {
+-      return 0;
++    if (widget != shellHandle) {
++      return super.gtk_focus_in_event(widget, event);
+@@ -7,7 +6,2 @@
+-    if (widget == shellHandle) {
+-      if (tooltipsHandle != 0) {
+-        OS.gtk_tooltips_enable(tooltipsHandle);
+-      }
+-      hasFocus = true;
+-      sendEvent(Activate);
+-      return 0;
++    if (tooltipsHandle != 0) {
++      OS.gtk_tooltips_enable(tooltipsHandle);
+@@ -15,1 +9,3 @@
+-    return result;
++    hasFocus = true;
++    sendEvent(Activate);
++    return 0;

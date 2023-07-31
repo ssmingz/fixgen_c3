@@ -1,0 +1,245 @@
+digraph "Pattern" {
+0 [label="createLogger#?#14:INSERT
+getBaseDir#?#6:INSERT" shape=ellipse]
+1 [label="createLogger#?#14:BuildException e
+getBaseDir#?#6:BuildException ex" shape=ellipse]
+2 [label="createLogger#?#8:loggerClassname != null
+getBaseDir#?#3:baseDir == null" shape=ellipse]
+3 [label="createLogger#?#4:silent" shape=ellipse]
+4 [label="createLogger#?#8:if (loggerClassname != null) \{
+    try \{
+        logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+    \} catch (BuildException e) \{
+        System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+        throw new RuntimeException();
+    \}
+\} else \{
+    logger = new DefaultLogger();
+\}
+getBaseDir#?#3:if (baseDir == null) \{
+    try \{
+        setBasedir(\".\");
+    \} catch (BuildException ex) \{
+        ex.printStackTrace();
+    \}
+\}" shape=ellipse]
+5 [label="createLogger#?#8:loggerClassname
+getBaseDir#?#3:baseDir" shape=ellipse]
+6 [label="createLogger#?#8:null
+getBaseDir#?#3:null" shape=ellipse]
+7 [label="createLogger#?#8:\{
+    try \{
+        logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+    \} catch (BuildException e) \{
+        System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+        throw new RuntimeException();
+    \}
+\}
+getBaseDir#?#3:\{
+    try \{
+        setBasedir(\".\");
+    \} catch (BuildException ex) \{
+        ex.printStackTrace();
+    \}
+\}" shape=ellipse]
+8 [label="createLogger#?#9:try \{
+    logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+\} catch (BuildException e) \{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}
+getBaseDir#?#4:try \{
+    setBasedir(\".\");
+\} catch (BuildException ex) \{
+    ex.printStackTrace();
+\}" shape=ellipse]
+9 [label="createLogger#?#9:\{
+    logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)));
+\}
+getBaseDir#?#4:\{
+    setBasedir(\".\");
+\}" shape=ellipse]
+10 [label="createLogger#?#10:logger = ((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)))" shape=ellipse]
+11 [label="createLogger#?#10:logger" shape=ellipse]
+12 [label="createLogger#?#12:((BuildLogger) (ClasspathUtils.newInstance(loggerClassname, Main.class.getClassLoader(), BuildLogger.class)))" shape=ellipse]
+13 [label="createLogger#?#12:newInstance(java.lang.ClassLoader,java.lang.Class)
+getBaseDir#?#5:setBasedir(java.lang.String)" shape=ellipse]
+14 [label="createLogger#?#12:ClasspathUtils
+getBaseDir#?#-1:PlaceHold" shape=ellipse]
+15 [label="createLogger#?#13:loggerClassname
+getBaseDir#?#5:\".\"" shape=ellipse]
+16 [label="createLogger#?#13:Main.class.getClassLoader()" shape=ellipse]
+17 [label="createLogger#?#13:getClassLoader()" shape=ellipse]
+18 [label="createLogger#?#13:Main.class" shape=ellipse]
+19 [label="createLogger#?#-1:Main" shape=ellipse]
+20 [label="createLogger#?#13:BuildLogger.class" shape=ellipse]
+21 [label="createLogger#?#-1:BuildLogger" shape=ellipse]
+22 [label="createLogger#?#14: catch (BuildException e) \{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}
+getBaseDir#?#6: catch (BuildException ex) \{
+    ex.printStackTrace();
+\}" shape=ellipse]
+23 [label="createLogger#?#20:\{
+    logger = new DefaultLogger();
+\}" shape=ellipse]
+24 [label="createLogger#?#21:logger = new DefaultLogger()" shape=ellipse]
+25 [label="createLogger#?#21:logger" shape=ellipse]
+26 [label="createLogger#?#21:new DefaultLogger()" shape=ellipse]
+27 [label="createLogger#?#-1:DefaultLogger()" shape=ellipse]
+28 [label="createLogger#?#14:e
+getBaseDir#?#6:ex" shape=ellipse]
+29 [label="createLogger#?#17:e
+getBaseDir#?#7:ex" shape=ellipse]
+30 [label="createLogger#?#14:BuildException
+getBaseDir#?#6:BuildException" shape=ellipse]
+31 [label="createLogger#?#-1:
+getBaseDir#?#-1:" shape=ellipse]
+32 [label="createLogger#?#14:\{
+    System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage());
+    throw new RuntimeException();
+\}
+getBaseDir#?#6:\{
+    ex.printStackTrace();
+\}" shape=ellipse]
+33 [label="createLogger#?#15:System.err.println(((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage())" shape=ellipse]
+34 [label="createLogger#?#18:throw new RuntimeException()" shape=ellipse]
+35 [label="createLogger#?#15:println(char[])
+getBaseDir#?#7:printStackTrace()" shape=ellipse]
+36 [label="createLogger#?#-1:PrintStream
+getBaseDir#?#-1:BuildException" shape=ellipse]
+37 [label="createLogger#?#-1:void" shape=ellipse]
+38 [label="createLogger#?#-1:char[]" shape=ellipse]
+39 [label="createLogger#?#15:System.err" shape=ellipse]
+40 [label="createLogger#?#15:System" shape=ellipse]
+41 [label="createLogger#?#15:java.lang.System.err" shape=ellipse]
+42 [label="createLogger#?#16:((\"The specified logger class \" + loggerClassname) + \" could not be used because \") + e.getMessage()" shape=ellipse]
+43 [label="createLogger#?#16:((\"The specified logger class \" + loggerClassname) + \" could not be used because \")" shape=ellipse]
+44 [label="createLogger#?#17:e.getMessage()" shape=ellipse]
+45 [label="createLogger#?#16:(\"The specified logger class \" + loggerClassname)" shape=ellipse]
+46 [label="createLogger#?#16:\"The specified logger class \"" shape=ellipse]
+47 [label="createLogger#?#16:loggerClassname" shape=ellipse]
+48 [label="createLogger#?#16:\" could not be used because \"" shape=ellipse]
+49 [label="createLogger#?#-1:String" shape=ellipse]
+50 [label="createLogger#?#17:getMessage()" shape=ellipse]
+51 [label="createLogger#?#-1:BuildException" shape=ellipse]
+52 [label="createLogger#?#18:new RuntimeException()" shape=ellipse]
+53 [label="createLogger#?#-1:java.lang.RuntimeException()" shape=ellipse]
+54 [label="createLogger#?#14:
+getBaseDir#?#6:" shape=ellipse]
+55 [label="getBaseDir#?#-1:" shape=ellipse]
+56 [label="getBaseDir#?#7:ex.printStackTrace()" shape=ellipse]
+57 [label="getBaseDir#?#5:setBasedir(\".\")" shape=ellipse]
+0 -> 54 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 28 [label="AST:2"];
+1 -> 30 [label="AST:2"];
+1 -> 32 [label="Control Dep:2"];
+1 -> 33 [label="Control Dep:1"];
+1 -> 35 [label="Control Dep:2"];
+1 -> 39 [label="Control Dep:1"];
+1 -> 40 [label="Control Dep:1"];
+1 -> 42 [label="Control Dep:1"];
+1 -> 43 [label="Control Dep:1"];
+1 -> 45 [label="Control Dep:1"];
+1 -> 46 [label="Control Dep:1"];
+1 -> 47 [label="Control Dep:1"];
+1 -> 48 [label="Control Dep:1"];
+1 -> 44 [label="Control Dep:1"];
+1 -> 50 [label="Control Dep:1"];
+1 -> 29 [label="Control Dep:2"];
+1 -> 34 [label="Control Dep:1"];
+1 -> 52 [label="Control Dep:1"];
+1 -> 53 [label="Control Dep:1"];
+1 -> 56 [label="Control Dep:1"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:2"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 55 [label="Control Dep:1"];
+2 -> 57 [label="Control Dep:1"];
+3 -> 2 [label="Control Dep:1"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 5 [label="Control Dep:1"];
+3 -> 6 [label="Control Dep:1"];
+4 -> 2 [label="AST:2"];
+4 -> 7 [label="AST:2"];
+4 -> 23 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 22 [label="AST:2"];
+9 -> 10 [label="AST:1"];
+9 -> 57 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 15 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+12 -> 20 [label="AST:1"];
+15 -> 11 [label="Data Dep:1"];
+16 -> 18 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+18 -> 11 [label="Data Dep:1"];
+18 -> 19 [label="AST:1"];
+20 -> 11 [label="Data Dep:1"];
+20 -> 21 [label="AST:1"];
+22 -> 1 [label="AST:2"];
+22 -> 32 [label="AST:2"];
+23 -> 24 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+24 -> 26 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+28 -> 29 [label="Define Use:2"];
+30 -> 31 [label="AST:2"];
+32 -> 33 [label="AST:1"];
+32 -> 34 [label="AST:1"];
+32 -> 56 [label="AST:1"];
+33 -> 39 [label="AST:1"];
+33 -> 35 [label="AST:1"];
+33 -> 42 [label="AST:1"];
+34 -> 52 [label="AST:1"];
+35 -> 36 [label="AST:2"];
+35 -> 37 [label="AST:1"];
+35 -> 38 [label="AST:1"];
+39 -> 40 [label="AST:1"];
+39 -> 41 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+42 -> 44 [label="AST:1"];
+43 -> 45 [label="AST:1"];
+43 -> 48 [label="AST:1"];
+44 -> 29 [label="AST:1"];
+44 -> 50 [label="AST:1"];
+45 -> 46 [label="AST:1"];
+45 -> 47 [label="AST:1"];
+48 -> 49 [label="AST:1"];
+50 -> 51 [label="AST:1"];
+52 -> 53 [label="AST:1"];
+55 -> 14 [label="AST:1"];
+56 -> 29 [label="AST:1"];
+56 -> 35 [label="AST:1"];
+57 -> 55 [label="AST:1"];
+57 -> 13 [label="AST:1"];
+57 -> 15 [label="AST:1"];
+}

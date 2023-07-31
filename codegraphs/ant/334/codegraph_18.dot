@@ -1,0 +1,176 @@
+digraph "run#?,Commandline" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@run" shape=ellipse]
+2 [label="2:CtParameterImpl@Commandline cmd" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="4:CtTypeReferenceImpl@Project" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+6 [label="4:CtVirtualElement@getProject" shape=ellipse]
+7 [label="4:CtInvocationImpl@getProject()" shape=ellipse]
+8 [label="4:CtVirtualElement@aProj" shape=ellipse]
+9 [label="4:CtLocalVariableImpl@Project aProj = getProject()" shape=ellipse]
+10 [label="5:CtTypeReferenceImpl@Execute" shape=ellipse]
+11 [label="5:CtTypeReferenceImpl@Execute" shape=ellipse]
+12 [label="5:CtTypeReferenceImpl@LogStreamHandler" shape=ellipse]
+13 [label="5:CtThisAccessImpl@this" shape=ellipse]
+14 [label="5:CtFieldReadImpl@Project.MSG_INFO" shape=ellipse]
+15 [label="5:CtFieldReadImpl@Project.MSG_WARN" shape=ellipse]
+16 [label="5:CtConstructorCallImpl@new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN)" shape=ellipse]
+17 [label="5:CtConstructorCallImpl@new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN))" shape=ellipse]
+18 [label="5:CtVirtualElement@exe" shape=ellipse]
+19 [label="5:CtLocalVariableImpl@Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN))" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@setAntRun(Project)" shape=ellipse]
+21 [label="6:CtVirtualElement@setAntRun" shape=ellipse]
+22 [label="6:CtVariableReadImpl@exe" shape=ellipse]
+23 [label="6:CtVariableReadImpl@aProj" shape=ellipse]
+24 [label="6:CtInvocationImpl@exe.setAntRun(aProj)" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@setWorkingDirectory()" shape=ellipse]
+26 [label="7:CtVirtualElement@setWorkingDirectory" shape=ellipse]
+27 [label="7:CtVariableReadImpl@exe" shape=ellipse]
+28 [label="7:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+29 [label="7:CtVirtualElement@getBaseDir" shape=ellipse]
+30 [label="7:CtVariableReadImpl@aProj" shape=ellipse]
+31 [label="7:CtInvocationImpl@aProj.getBaseDir()" shape=ellipse]
+32 [label="7:CtInvocationImpl@exe.setWorkingDirectory(aProj.getBaseDir())" shape=ellipse]
+33 [label="8:CtExecutableReferenceImpl@setCommandline()" shape=ellipse]
+34 [label="8:CtVirtualElement@setCommandline" shape=ellipse]
+35 [label="8:CtVariableReadImpl@exe" shape=ellipse]
+36 [label="8:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+37 [label="8:CtVirtualElement@getCommandline" shape=ellipse]
+38 [label="8:CtVariableReadImpl@cmd" shape=ellipse]
+39 [label="8:CtInvocationImpl@cmd.getCommandline()" shape=ellipse]
+40 [label="8:CtInvocationImpl@exe.setCommandline(cmd.getCommandline())" shape=ellipse]
+41 [label="9:CtExecutableReferenceImpl@execute()" shape=ellipse]
+42 [label="9:CtVirtualElement@execute" shape=ellipse]
+43 [label="9:CtVariableReadImpl@exe" shape=ellipse]
+44 [label="9:CtInvocationImpl@exe.execute()" shape=ellipse]
+45 [label="9:CtReturnImpl@return exe.execute()" shape=ellipse]
+46 [label="3:CtBlockImpl@\{
+    Project aProj = getProject();
+    Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
+    exe.setAntRun(aProj);
+    exe.setWorkingDirectory(aProj.getBaseDir());
+    exe.setCommandline(cmd.getCommandline());
+    return exe.execute();
+\}" shape=ellipse]
+47 [label="10:CtVirtualElement@e" shape=ellipse]
+48 [label="10:CtTypeReferenceImpl@IOException" shape=ellipse]
+49 [label="10:CtCatchVariableImpl@IOException e" shape=ellipse]
+50 [label="11:CtTypeReferenceImpl@BuildException" shape=ellipse]
+51 [label="11:CtVariableReadImpl@e" shape=ellipse]
+52 [label="11:CtConstructorCallImpl@new BuildException(e)" shape=ellipse]
+53 [label="11:CtThrowImpl@throw new BuildException(e)" shape=ellipse]
+54 [label="10:CtBlockImpl@\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+55 [label="10:CtCatchImpl@ catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+56 [label="3:CtTryImpl@try \{
+    Project aProj = getProject();
+    Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
+    exe.setAntRun(aProj);
+    exe.setWorkingDirectory(aProj.getBaseDir());
+    exe.setCommandline(cmd.getCommandline());
+    return exe.execute();
+\} catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+57 [label="2:CtBlockImpl@\{
+    try \{
+        Project aProj = getProject();
+        Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
+        exe.setAntRun(aProj);
+        exe.setWorkingDirectory(aProj.getBaseDir());
+        exe.setCommandline(cmd.getCommandline());
+        return exe.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+58 [label="2:CtMethodImpl@protected int run(Commandline cmd) \{
+    try \{
+        Project aProj = getProject();
+        Execute exe = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_WARN));
+        exe.setAntRun(aProj);
+        exe.setWorkingDirectory(aProj.getBaseDir());
+        exe.setCommandline(cmd.getCommandline());
+        return exe.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+59 [label="11:Insert@INSERT" shape=ellipse]
+60 [label="11:CtLiteralImpl@\"Error\"" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+8 -> 23 [label="Define-Use"];
+8 -> 30 [label="Define-Use"];
+9 -> 8 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+13 -> 18 [label="Data Dep"];
+14 -> 18 [label="Data Dep"];
+15 -> 18 [label="Data Dep"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 22 [label="Define-Use"];
+18 -> 27 [label="Define-Use"];
+18 -> 35 [label="Define-Use"];
+18 -> 43 [label="Define-Use"];
+19 -> 18 [label="AST"];
+19 -> 10 [label="AST"];
+19 -> 17 [label="AST"];
+24 -> 21 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 28 [label="AST"];
+32 -> 26 [label="AST"];
+32 -> 27 [label="AST"];
+32 -> 25 [label="AST"];
+32 -> 31 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 36 [label="AST"];
+40 -> 34 [label="AST"];
+40 -> 35 [label="AST"];
+40 -> 33 [label="AST"];
+40 -> 39 [label="AST"];
+44 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+44 -> 41 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 9 [label="AST"];
+46 -> 19 [label="AST"];
+46 -> 24 [label="AST"];
+46 -> 32 [label="AST"];
+46 -> 40 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 51 [label="Define-Use"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+49 -> 54 [label="Control Dep"];
+49 -> 53 [label="Control Dep"];
+49 -> 52 [label="Control Dep"];
+49 -> 51 [label="Control Dep"];
+52 -> 51 [label="AST"];
+52 -> 59 [label="Action"];
+53 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 49 [label="AST"];
+55 -> 54 [label="AST"];
+56 -> 46 [label="AST"];
+56 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 1 [label="AST"];
+58 -> 0 [label="AST"];
+58 -> 2 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 60 [label="Action"];
+}

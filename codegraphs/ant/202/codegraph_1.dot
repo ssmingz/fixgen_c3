@@ -1,0 +1,209 @@
+digraph "getOutputStream#?" {
+0 [label="2:CtTypeReferenceImpl@OutputStream" shape=ellipse]
+1 [label="2:CtVirtualElement@getOutputStream" shape=ellipse]
+2 [label="3:CtThisAccessImpl@this" shape=ellipse]
+3 [label="3:CtFieldReadImpl@this.outputStream" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@this.outputStream == null" shape=ellipse]
+6 [label="4:CtFieldReadImpl@output" shape=ellipse]
+7 [label="4:CtLiteralImpl@null" shape=ellipse]
+8 [label="4:CtBinaryOperatorImpl@output != null" shape=ellipse]
+9 [label="6:CtExecutableReferenceImpl@setOutputStream(PrintStream)" shape=ellipse]
+10 [label="6:CtVirtualElement@setOutputStream" shape=ellipse]
+11 [label="7:CtTypeReferenceImpl@PrintStream" shape=ellipse]
+12 [label="8:CtTypeReferenceImpl@BufferedOutputStream" shape=ellipse]
+13 [label="8:CtTypeReferenceImpl@FileOutputStream" shape=ellipse]
+14 [label="8:CtExecutableReferenceImpl@getPath()" shape=ellipse]
+15 [label="8:CtVirtualElement@getPath" shape=ellipse]
+16 [label="8:CtFieldReadImpl@output" shape=ellipse]
+17 [label="8:CtInvocationImpl@output.getPath()" shape=ellipse]
+18 [label="8:CtFieldReadImpl@append" shape=ellipse]
+19 [label="8:CtConstructorCallImpl@new FileOutputStream(output.getPath(), append)" shape=ellipse]
+20 [label="8:CtConstructorCallImpl@new BufferedOutputStream(new FileOutputStream(output.getPath(), append))" shape=ellipse]
+21 [label="7:CtConstructorCallImpl@new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append)))" shape=ellipse]
+22 [label="6:CtInvocationImpl@setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))))" shape=ellipse]
+23 [label="5:CtBlockImpl@\{
+    setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+\}" shape=ellipse]
+24 [label="9:CtVirtualElement@e" shape=ellipse]
+25 [label="9:CtTypeReferenceImpl@IOException" shape=ellipse]
+26 [label="9:CtCatchVariableImpl@IOException e" shape=ellipse]
+27 [label="10:CtTypeReferenceImpl@BuildException" shape=ellipse]
+28 [label="10:CtVariableReadImpl@e" shape=ellipse]
+29 [label="10:CtFieldReadImpl@location" shape=ellipse]
+30 [label="10:CtConstructorCallImpl@new BuildException(e, location)" shape=ellipse]
+31 [label="10:CtThrowImpl@throw new BuildException(e, location)" shape=ellipse]
+32 [label="9:CtBlockImpl@\{
+    throw new BuildException(e, location);
+\}" shape=ellipse]
+33 [label="9:CtCatchImpl@ catch (IOException e) \{
+    throw new BuildException(e, location);
+\}" shape=ellipse]
+34 [label="5:CtTryImpl@try \{
+    setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+\} catch (IOException e) \{
+    throw new BuildException(e, location);
+\}" shape=ellipse]
+35 [label="4:CtBlockImpl@\{
+    try \{
+        setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+    \} catch (IOException e) \{
+        throw new BuildException(e, location);
+    \}
+\}" shape=ellipse]
+36 [label="13:CtExecutableReferenceImpl@setOutputStream(LogOutputStream)" shape=ellipse]
+37 [label="13:CtVirtualElement@setOutputStream" shape=ellipse]
+38 [label="13:CtTypeReferenceImpl@LogOutputStream" shape=ellipse]
+39 [label="13:CtThisAccessImpl@this" shape=ellipse]
+40 [label="13:CtFieldReadImpl@Project.MSG_INFO" shape=ellipse]
+41 [label="13:CtConstructorCallImpl@new LogOutputStream(this, Project.MSG_INFO)" shape=ellipse]
+42 [label="13:CtInvocationImpl@setOutputStream(new LogOutputStream(this, Project.MSG_INFO))" shape=ellipse]
+43 [label="12:CtBlockImpl@\{
+    setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+\}" shape=ellipse]
+44 [label="4:CtIfImpl@if (output != null) \{
+    try \{
+        setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+    \} catch (IOException e) \{
+        throw new BuildException(e, location);
+    \}
+\} else \{
+    setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+\}" shape=ellipse]
+45 [label="3:CtBlockImpl@\{
+    if (output != null) \{
+        try \{
+            setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+        \} catch (IOException e) \{
+            throw new BuildException(e, location);
+        \}
+    \} else \{
+        setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+    \}
+\}" shape=ellipse]
+46 [label="3:CtIfImpl@if (this.outputStream == null) \{
+    if (output != null) \{
+        try \{
+            setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+        \} catch (IOException e) \{
+            throw new BuildException(e, location);
+        \}
+    \} else \{
+        setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+    \}
+\}" shape=ellipse]
+47 [label="16:CtThisAccessImpl@this" shape=ellipse]
+48 [label="16:CtFieldReadImpl@this.outputStream" shape=ellipse]
+49 [label="16:CtReturnImpl@return this.outputStream" shape=ellipse]
+50 [label="2:CtBlockImpl@\{
+    if (this.outputStream == null) \{
+        if (output != null) \{
+            try \{
+                setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+            \} catch (IOException e) \{
+                throw new BuildException(e, location);
+            \}
+        \} else \{
+            setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+        \}
+    \}
+    return this.outputStream;
+\}" shape=ellipse]
+51 [label="2:CtMethodImpl@protected OutputStream getOutputStream() \{
+    if (this.outputStream == null) \{
+        if (output != null) \{
+            try \{
+                setOutputStream(new PrintStream(new BufferedOutputStream(new FileOutputStream(output.getPath(), append))));
+            \} catch (IOException e) \{
+                throw new BuildException(e, location);
+            \}
+        \} else \{
+            setOutputStream(new LogOutputStream(this, Project.MSG_INFO));
+        \}
+    \}
+    return this.outputStream;
+\}" shape=ellipse]
+52 [label="10:Delete@DELETE" shape=ellipse]
+53 [label="10:Insert@INSERT" shape=ellipse]
+54 [label="10:CtInvocationImpl@getLocation()" shape=ellipse]
+3 -> 2 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 45 [label="Control Dep"];
+5 -> 44 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 6 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 35 [label="Control Dep"];
+8 -> 34 [label="Control Dep"];
+8 -> 23 [label="Control Dep"];
+8 -> 22 [label="Control Dep"];
+8 -> 9 [label="Control Dep"];
+8 -> 21 [label="Control Dep"];
+8 -> 20 [label="Control Dep"];
+8 -> 19 [label="Control Dep"];
+8 -> 17 [label="Control Dep"];
+8 -> 14 [label="Control Dep"];
+8 -> 16 [label="Control Dep"];
+8 -> 18 [label="Control Dep"];
+8 -> 33 [label="Control Dep"];
+8 -> 26 [label="Control Dep"];
+8 -> 43 [label="Control Dep"];
+8 -> 42 [label="Control Dep"];
+8 -> 36 [label="Control Dep"];
+8 -> 41 [label="Control Dep"];
+8 -> 39 [label="Control Dep"];
+8 -> 40 [label="Control Dep"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 14 [label="AST"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 10 [label="AST"];
+22 -> 9 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 28 [label="Define-Use"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 32 [label="Control Dep"];
+26 -> 31 [label="Control Dep"];
+26 -> 30 [label="Control Dep"];
+26 -> 28 [label="Control Dep"];
+26 -> 29 [label="Control Dep"];
+29 -> 52 [label="Action"];
+30 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+30 -> 53 [label="Action"];
+31 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 26 [label="AST"];
+33 -> 32 [label="AST"];
+34 -> 23 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+41 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 37 [label="AST"];
+42 -> 36 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 8 [label="AST"];
+44 -> 35 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 5 [label="AST"];
+46 -> 45 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 46 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 1 [label="AST"];
+51 -> 0 [label="AST"];
+51 -> 50 [label="AST"];
+53 -> 54 [label="Action"];
+}

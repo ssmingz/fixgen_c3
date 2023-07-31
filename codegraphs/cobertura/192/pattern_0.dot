@@ -1,0 +1,56 @@
+digraph "Pattern" {
+0 [label="execute#?#43:UPDATE
+runTestAntScript#?,String,String#9:UPDATE" shape=ellipse]
+1 [label="execute#?#43:PlaceHold
+runTestAntScript#?,String,String#9:InstrumentTask" shape=ellipse]
+2 [label="execute#?#43:" shape=ellipse]
+3 [label="execute#?#43:transferCoberturaDataFileProperty(getJava())" shape=ellipse]
+4 [label="execute#?#43:PlaceHold
+runTestAntScript#?,String,String#9:transferCoberturaDataFileProperty(Java)" shape=ellipse]
+5 [label="execute#?#43:PlaceHold
+runTestAntScript#?,String,String#9:InstrumentTask" shape=ellipse]
+6 [label="execute#?#43:AntUtil
+runTestAntScript#?,String,String#9:AntUtil" shape=ellipse]
+7 [label="execute#?#43:
+runTestAntScript#?,String,String#9:" shape=ellipse]
+8 [label="runTestAntScript#?,String,String#9:InstrumentTask.transferCoberturaDataFileProperty(task)" shape=ellipse]
+9 [label="runTestAntScript#?,String,String#2:\{
+    Java task = new Java();
+    task.setTaskName(\"java\");
+    task.setProject(new Project());
+    task.init();
+    task.setClassname(\"org.apache.tools.ant.launch.Launcher\");
+    task.setFork(true);
+    InstrumentTask.transferCoberturaDataFileProperty(task);
+    task.createArg().setValue(\"-f\");
+    task.createArg().setValue(BASEDIR + \"/build.xml\");
+    task.createArg().setValue(target);
+    task.setFailonerror(true);
+    File outputFile = Util.createTemporaryTextFile(\"cobertura-test\");
+    task.setOutput(outputFile);
+    Path classpath = task.createClasspath();
+    PathElement pathElement = classpath.createPathElement();
+    pathElement.setPath(System.getProperty(\"java.class.path\"));
+    try \{
+        task.execute();
+    \} finally \{
+        if (outputFile.exists()) \{
+            System.out.println((((\"\n\n\nOutput from Ant for \" + testName) + \" test:\n----------------------------------------\n\") + Util.getText(outputFile)) + \"----------------------------------------\");
+            outputFile.delete();
+        \}
+    \}
+\}" shape=ellipse]
+10 [label="runTestAntScript#?,String,String#9:task" shape=ellipse]
+11 [label="runTestAntScript#?,String,String#9:transferCoberturaDataFileProperty" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+6 -> 7 [label="AST:2"];
+8 -> 11 [label="AST:1"];
+8 -> 1 [label="AST:1"];
+8 -> 4 [label="AST:1"];
+8 -> 10 [label="AST:1"];
+9 -> 8 [label="AST:1"];
+}

@@ -1,0 +1,246 @@
+digraph "Pattern" {
+0 [label="generateTableRowForClass#?,ClassData,String,double#4:DELETE
+generateTableRowForPackage#?,PackageData#6:DELETE" shape=ellipse]
+1 [label="generateTableRowForClass#?,ClassData,String,double#4:double lineCoverage = -1
+generateTableRowForPackage#?,PackageData#6:double lineCoverage = -1" shape=ellipse]
+2 [label="generateTableRowForClass#?,ClassData,String,double#2:\{
+    StringBuffer ret = new StringBuffer();
+    double lineCoverage = -1;
+    double branchCoverage = -1;
+    if (classData.getNumberOfValidLines() > 0) \{
+        lineCoverage = classData.getLineCoverageRate();
+    \}
+    if (classData.getNumberOfValidBranches() > 0) \{
+        branchCoverage = classData.getBranchCoverageRate();
+    \}
+    ret.append(\"  <tr>\");
+    ret.append((((\"<td class=\\"text\\"><a href=\\"\" + sourceFileName) + \".html\\">\") + classData.getBaseName()) + \"</a></td>\");
+    ret.append(generateTableColumnsFromData(lineCoverage, classData.getNumberOfValidLines(), branchCoverage, classData.getNumberOfValidBranches(), ccn));
+    ret.append(\"</tr>\n\");
+    return ret.toString();
+\}
+generateTableRowForPackage#?,PackageData#2:\{
+    StringBuffer ret = new StringBuffer();
+    String url1 = (\"frame-summary-\" + packageData.getName()) + \".html\";
+    String url2 = (\"frame-sourcefiles-\" + packageData.getName()) + \".html\";
+    double lineCoverage = -1;
+    double branchCoverage = -1;
+    double ccn = complexity.getCCNForPackage(packageData);
+    if (packageData.getNumberOfValidLines() > 0) \{
+        lineCoverage = packageData.getLineCoverageRate();
+    \}
+    if (packageData.getNumberOfValidBranches() > 0) \{
+        branchCoverage = packageData.getBranchCoverageRate();
+    \}
+    ret.append(\"  <tr>\");
+    ret.append((((((\"<td class=\\"text\\"><a href=\\"\" + url1) + \"\\" onclick=\'parent.sourceFileList.location.href=\\"\") + url2) + \"\\"\'>\") + generatePackageName(packageData)) + \"</a></td>\");
+    ret.append((\"<td class=\\"value\\">\" + packageData.getNumberOfChildren()) + \"</td>\");
+    ret.append(generateTableColumnsFromData(lineCoverage, packageData.getNumberOfValidLines(), branchCoverage, packageData.getNumberOfValidBranches(), ccn));
+    ret.append(\"</tr>\");
+    return ret.toString();
+\}" shape=ellipse]
+3 [label="generateTableRowForClass#?,ClassData,String,double#2:private String generateTableRowForClass(ClassData classData, String sourceFileName, double ccn) \{
+    StringBuffer ret = new StringBuffer();
+    double lineCoverage = -1;
+    double branchCoverage = -1;
+    if (classData.getNumberOfValidLines() > 0) \{
+        lineCoverage = classData.getLineCoverageRate();
+    \}
+    if (classData.getNumberOfValidBranches() > 0) \{
+        branchCoverage = classData.getBranchCoverageRate();
+    \}
+    ret.append(\"  <tr>\");
+    ret.append((((\"<td class=\\"text\\"><a href=\\"\" + sourceFileName) + \".html\\">\") + classData.getBaseName()) + \"</a></td>\");
+    ret.append(generateTableColumnsFromData(lineCoverage, classData.getNumberOfValidLines(), branchCoverage, classData.getNumberOfValidBranches(), ccn));
+    ret.append(\"</tr>\n\");
+    return ret.toString();
+\}
+generateTableRowForPackage#?,PackageData#2:private String generateTableRowForPackage(PackageData packageData) \{
+    StringBuffer ret = new StringBuffer();
+    String url1 = (\"frame-summary-\" + packageData.getName()) + \".html\";
+    String url2 = (\"frame-sourcefiles-\" + packageData.getName()) + \".html\";
+    double lineCoverage = -1;
+    double branchCoverage = -1;
+    double ccn = complexity.getCCNForPackage(packageData);
+    if (packageData.getNumberOfValidLines() > 0) \{
+        lineCoverage = packageData.getLineCoverageRate();
+    \}
+    if (packageData.getNumberOfValidBranches() > 0) \{
+        branchCoverage = packageData.getBranchCoverageRate();
+    \}
+    ret.append(\"  <tr>\");
+    ret.append((((((\"<td class=\\"text\\"><a href=\\"\" + url1) + \"\\" onclick=\'parent.sourceFileList.location.href=\\"\") + url2) + \"\\"\'>\") + generatePackageName(packageData)) + \"</a></td>\");
+    ret.append((\"<td class=\\"value\\">\" + packageData.getNumberOfChildren()) + \"</td>\");
+    ret.append(generateTableColumnsFromData(lineCoverage, packageData.getNumberOfValidLines(), branchCoverage, packageData.getNumberOfValidBranches(), ccn));
+    ret.append(\"</tr>\");
+    return ret.toString();
+\}" shape=ellipse]
+4 [label="generateTableRowForClass#?,ClassData,String,double#3:StringBuffer ret = new StringBuffer()
+generateTableRowForPackage#?,PackageData#3:StringBuffer ret = new StringBuffer()" shape=ellipse]
+5 [label="generateTableRowForClass#?,ClassData,String,double#5:double branchCoverage = -1
+generateTableRowForPackage#?,PackageData#7:double branchCoverage = -1" shape=ellipse]
+6 [label="generateTableRowForClass#?,ClassData,String,double#6:if (classData.getNumberOfValidLines() > 0) \{
+    lineCoverage = classData.getLineCoverageRate();
+\}
+generateTableRowForPackage#?,PackageData#9:if (packageData.getNumberOfValidLines() > 0) \{
+    lineCoverage = packageData.getLineCoverageRate();
+\}" shape=ellipse]
+7 [label="generateTableRowForClass#?,ClassData,String,double#9:if (classData.getNumberOfValidBranches() > 0) \{
+    branchCoverage = classData.getBranchCoverageRate();
+\}
+generateTableRowForPackage#?,PackageData#12:if (packageData.getNumberOfValidBranches() > 0) \{
+    branchCoverage = packageData.getBranchCoverageRate();
+\}" shape=ellipse]
+8 [label="generateTableRowForClass#?,ClassData,String,double#12:ret.append(\"  <tr>\")
+generateTableRowForPackage#?,PackageData#15:ret.append(\"  <tr>\")" shape=ellipse]
+9 [label="generateTableRowForClass#?,ClassData,String,double#13:ret.append((((\"<td class=\\"text\\"><a href=\\"\" + sourceFileName) + \".html\\">\") + classData.getBaseName()) + \"</a></td>\")
+generateTableRowForPackage#?,PackageData#16:ret.append((((((\"<td class=\\"text\\"><a href=\\"\" + url1) + \"\\" onclick=\'parent.sourceFileList.location.href=\\"\") + url2) + \"\\"\'>\") + generatePackageName(packageData)) + \"</a></td>\")" shape=ellipse]
+10 [label="generateTableRowForClass#?,ClassData,String,double#17:ret.append(generateTableColumnsFromData(lineCoverage, classData.getNumberOfValidLines(), branchCoverage, classData.getNumberOfValidBranches(), ccn))
+generateTableRowForPackage#?,PackageData#24:ret.append(generateTableColumnsFromData(lineCoverage, packageData.getNumberOfValidLines(), branchCoverage, packageData.getNumberOfValidBranches(), ccn))" shape=ellipse]
+11 [label="generateTableRowForClass#?,ClassData,String,double#18:generateTableColumnsFromData(lineCoverage, classData.getNumberOfValidLines(), branchCoverage, classData.getNumberOfValidBranches(), ccn)
+generateTableRowForPackage#?,PackageData#25:generateTableColumnsFromData(lineCoverage, packageData.getNumberOfValidLines(), branchCoverage, packageData.getNumberOfValidBranches(), ccn)" shape=ellipse]
+12 [label="generateTableRowForClass#?,ClassData,String,double#18:generateTableColumnsFromData
+generateTableRowForPackage#?,PackageData#25:generateTableColumnsFromData" shape=ellipse]
+13 [label="generateTableRowForClass#?,ClassData,String,double#18:
+generateTableRowForPackage#?,PackageData#25:" shape=ellipse]
+14 [label="generateTableRowForClass#?,ClassData,String,double#18:PlaceHold
+generateTableRowForPackage#?,PackageData#25:PlaceHold" shape=ellipse]
+15 [label="generateTableRowForClass#?,ClassData,String,double#18:PlaceHold
+generateTableRowForPackage#?,PackageData#25:PlaceHold" shape=ellipse]
+16 [label="generateTableRowForClass#?,ClassData,String,double#18:PlaceHold
+generateTableRowForPackage#?,PackageData#25:PlaceHold" shape=ellipse]
+17 [label="generateTableRowForClass#?,ClassData,String,double#18:generateTableColumnsFromData(double,<unknown>,double,<unknown>,double)
+generateTableRowForPackage#?,PackageData#25:generateTableColumnsFromData(double,<unknown>,double,<unknown>,double)" shape=ellipse]
+18 [label="generateTableRowForClass#?,ClassData,String,double#18:double
+generateTableRowForPackage#?,PackageData#25:double" shape=ellipse]
+19 [label="generateTableRowForClass#?,ClassData,String,double#18:null
+generateTableRowForPackage#?,PackageData#25:null" shape=ellipse]
+20 [label="generateTableRowForClass#?,ClassData,String,double#18:double
+generateTableRowForPackage#?,PackageData#25:double" shape=ellipse]
+21 [label="generateTableRowForClass#?,ClassData,String,double#18:null
+generateTableRowForPackage#?,PackageData#25:null" shape=ellipse]
+22 [label="generateTableRowForClass#?,ClassData,String,double#18:double
+generateTableRowForPackage#?,PackageData#25:double" shape=ellipse]
+23 [label="generateTableRowForClass#?,ClassData,String,double#19:lineCoverage
+generateTableRowForPackage#?,PackageData#26:lineCoverage" shape=ellipse]
+24 [label="generateTableRowForClass#?,ClassData,String,double#19:lineCoverage
+generateTableRowForPackage#?,PackageData#26:lineCoverage" shape=ellipse]
+25 [label="generateTableRowForClass#?,ClassData,String,double#19:DELETE
+generateTableRowForPackage#?,PackageData#26:DELETE" shape=ellipse]
+26 [label="generateTableRowForClass#?,ClassData,String,double#20:classData.getNumberOfValidLines()
+generateTableRowForPackage#?,PackageData#27:packageData.getNumberOfValidLines()" shape=ellipse]
+27 [label="generateTableRowForClass#?,ClassData,String,double#20:getNumberOfValidLines
+generateTableRowForPackage#?,PackageData#27:getNumberOfValidLines" shape=ellipse]
+28 [label="generateTableRowForClass#?,ClassData,String,double#20:classData
+generateTableRowForPackage#?,PackageData#27:packageData" shape=ellipse]
+29 [label="generateTableRowForClass#?,ClassData,String,double#20:classData
+generateTableRowForPackage#?,PackageData#27:packageData" shape=ellipse]
+30 [label="generateTableRowForClass#?,ClassData,String,double#20:MOVE
+generateTableRowForPackage#?,PackageData#27:MOVE" shape=ellipse]
+31 [label="generateTableRowForClass#?,ClassData,String,double#20:getNumberOfValidLines()
+generateTableRowForPackage#?,PackageData#27:getNumberOfValidLines()" shape=ellipse]
+32 [label="generateTableRowForClass#?,ClassData,String,double#20:ClassData
+generateTableRowForPackage#?,PackageData#27:PackageData" shape=ellipse]
+33 [label="generateTableRowForClass#?,ClassData,String,double#20:DELETE
+generateTableRowForPackage#?,PackageData#27:DELETE" shape=ellipse]
+34 [label="generateTableRowForClass#?,ClassData,String,double#21:branchCoverage
+generateTableRowForPackage#?,PackageData#28:branchCoverage" shape=ellipse]
+35 [label="generateTableRowForClass#?,ClassData,String,double#21:branchCoverage
+generateTableRowForPackage#?,PackageData#28:branchCoverage" shape=ellipse]
+36 [label="generateTableRowForClass#?,ClassData,String,double#21:DELETE
+generateTableRowForPackage#?,PackageData#28:DELETE" shape=ellipse]
+37 [label="generateTableRowForClass#?,ClassData,String,double#22:classData.getNumberOfValidBranches()
+generateTableRowForPackage#?,PackageData#29:packageData.getNumberOfValidBranches()" shape=ellipse]
+38 [label="generateTableRowForClass#?,ClassData,String,double#22:getNumberOfValidBranches
+generateTableRowForPackage#?,PackageData#29:getNumberOfValidBranches" shape=ellipse]
+39 [label="generateTableRowForClass#?,ClassData,String,double#22:classData
+generateTableRowForPackage#?,PackageData#29:packageData" shape=ellipse]
+40 [label="generateTableRowForClass#?,ClassData,String,double#22:classData
+generateTableRowForPackage#?,PackageData#29:packageData" shape=ellipse]
+41 [label="generateTableRowForClass#?,ClassData,String,double#22:getNumberOfValidBranches()
+generateTableRowForPackage#?,PackageData#29:getNumberOfValidBranches()" shape=ellipse]
+42 [label="generateTableRowForClass#?,ClassData,String,double#22:ClassData
+generateTableRowForPackage#?,PackageData#29:PackageData" shape=ellipse]
+43 [label="generateTableRowForClass#?,ClassData,String,double#22:DELETE
+generateTableRowForPackage#?,PackageData#29:DELETE" shape=ellipse]
+44 [label="generateTableRowForClass#?,ClassData,String,double#23:ccn
+generateTableRowForPackage#?,PackageData#30:ccn" shape=ellipse]
+45 [label="generateTableRowForClass#?,ClassData,String,double#23:ccn
+generateTableRowForPackage#?,PackageData#30:ccn" shape=ellipse]
+46 [label="generateTableRowForClass#?,ClassData,String,double#24:ret.append(\"</tr>\n\")
+generateTableRowForPackage#?,PackageData#31:ret.append(\"</tr>\")" shape=ellipse]
+47 [label="generateTableRowForClass#?,ClassData,String,double#25:return ret.toString()
+generateTableRowForPackage#?,PackageData#32:return ret.toString()" shape=ellipse]
+48 [label="generateTableRowForClass#?,ClassData,String,double#4:lineCoverage
+generateTableRowForPackage#?,PackageData#6:lineCoverage" shape=ellipse]
+49 [label="generateTableRowForClass#?,ClassData,String,double#4:double
+generateTableRowForPackage#?,PackageData#6:double" shape=ellipse]
+50 [label="generateTableRowForClass#?,ClassData,String,double#4:-1
+generateTableRowForPackage#?,PackageData#6:-1" shape=ellipse]
+51 [label="generateTableRowForClass#?,ClassData,String,double#4:int
+generateTableRowForPackage#?,PackageData#6:int" shape=ellipse]
+52 [label="generateTableRowForClass#?,ClassData,String,double#4:1
+generateTableRowForPackage#?,PackageData#6:1" shape=ellipse]
+53 [label="generateTableRowForPackage#?,PackageData#23:ret.append((\"<td class=\\"value\\">\" + packageData.getNumberOfChildren()) + \"</td>\")" shape=ellipse]
+54 [label="generateTableRowForPackage#?,PackageData#5:String url2 = (\"frame-sourcefiles-\" + packageData.getName()) + \".html\"" shape=ellipse]
+55 [label="generateTableRowForPackage#?,PackageData#4:String url1 = (\"frame-summary-\" + packageData.getName()) + \".html\"" shape=ellipse]
+56 [label="generateTableRowForPackage#?,PackageData#8:double ccn = complexity.getCCNForPackage(packageData)" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 48 [label="AST:2"];
+1 -> 49 [label="AST:2"];
+1 -> 50 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:2"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:2"];
+2 -> 46 [label="AST:2"];
+2 -> 47 [label="AST:2"];
+2 -> 53 [label="AST:1"];
+2 -> 54 [label="AST:1"];
+2 -> 55 [label="AST:1"];
+2 -> 56 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 17 [label="AST:2"];
+11 -> 23 [label="AST:2"];
+11 -> 26 [label="AST:2"];
+11 -> 34 [label="AST:2"];
+11 -> 37 [label="AST:2"];
+11 -> 44 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+17 -> 19 [label="AST:2"];
+17 -> 20 [label="AST:2"];
+17 -> 21 [label="AST:2"];
+17 -> 22 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+23 -> 25 [label="Action:2"];
+26 -> 27 [label="AST:2"];
+26 -> 28 [label="AST:2"];
+26 -> 31 [label="AST:2"];
+26 -> 33 [label="Action:2"];
+28 -> 29 [label="AST:2"];
+28 -> 30 [label="Action:2"];
+30 -> 11 [label="Action:2"];
+31 -> 32 [label="AST:2"];
+34 -> 35 [label="AST:2"];
+34 -> 36 [label="Action:2"];
+37 -> 38 [label="AST:2"];
+37 -> 39 [label="AST:2"];
+37 -> 41 [label="AST:2"];
+37 -> 43 [label="Action:2"];
+39 -> 40 [label="AST:2"];
+41 -> 42 [label="AST:2"];
+44 -> 45 [label="AST:2"];
+48 -> 23 [label="Define Use:2"];
+50 -> 51 [label="AST:2"];
+50 -> 52 [label="AST:2"];
+}

@@ -1,0 +1,253 @@
+digraph "Pattern" {
+0 [label="getIncludedDirectoryResources#?#3:INSERT
+getIncludedFiles#?#3:INSERT
+getIncludedFileResources#?#3:INSERT
+getIncludedDirectories#?#3:INSERT" shape=ellipse]
+1 [label="getIncludedDirectoryResources#?#2:public Resource[] getIncludedDirectoryResources() \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\}
+getIncludedFiles#?#2:public String[] getIncludedFiles() \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\}
+getIncludedFileResources#?#2:public Resource[] getIncludedFileResources() \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\}
+getIncludedDirectories#?#2:public String[] getIncludedDirectories() \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\}" shape=ellipse]
+2 [label="getIncludedDirectoryResources#?#2:getIncludedDirectoryResources
+getIncludedFiles#?#2:getIncludedFiles
+getIncludedFileResources#?#2:getIncludedFileResources
+getIncludedDirectories#?#2:getIncludedDirectories" shape=ellipse]
+3 [label="getIncludedDirectoryResources#?#2:Resource[]
+getIncludedFiles#?#2:String[]
+getIncludedFileResources#?#2:Resource[]
+getIncludedDirectories#?#2:String[]" shape=ellipse]
+4 [label="getIncludedDirectoryResources#?#2:Resource[]
+getIncludedFiles#?#2:String[]
+getIncludedFileResources#?#2:Resource[]
+getIncludedDirectories#?#2:String[]" shape=ellipse]
+5 [label="getIncludedDirectoryResources#?#-1:Resource
+getIncludedFiles#?#-1:String
+getIncludedFileResources#?#-1:Resource
+getIncludedDirectories#?#-1:String" shape=ellipse]
+6 [label="getIncludedDirectoryResources#?#2:\{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\}
+getIncludedFiles#?#2:\{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\}
+getIncludedFileResources#?#2:\{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\}
+getIncludedDirectories#?#2:\{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\}" shape=ellipse]
+7 [label="getIncludedDirectoryResources#?#3:Vector myvector = new Vector()
+getIncludedFiles#?#3:Vector myvector = new Vector()
+getIncludedFileResources#?#3:Vector myvector = new Vector()
+getIncludedDirectories#?#3:Vector myvector = new Vector()" shape=ellipse]
+8 [label="getIncludedDirectoryResources#?#4:scanme()
+getIncludedFiles#?#4:scanme()
+getIncludedFileResources#?#4:scanme()
+getIncludedDirectories#?#4:scanme()" shape=ellipse]
+9 [label="getIncludedDirectoryResources#?#5:for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+    Resource myresource = ((Resource) (e.nextElement()));
+    if (myresource.isDirectory() && match(myresource.getName())) \{
+        myvector.addElement(myresource.clone());
+    \}
+\}
+getIncludedFiles#?#5:for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+    Resource myresource = ((Resource) (e.nextElement()));
+    if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+        myvector.addElement(myresource.getName());
+    \}
+\}
+getIncludedFileResources#?#5:for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+    Resource myresource = ((Resource) (e.nextElement()));
+    if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+        myvector.addElement(myresource.clone());
+    \}
+\}
+getIncludedDirectories#?#5:for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+    Resource myresource = ((Resource) (e.nextElement()));
+    if (myresource.isDirectory() && match(myresource.getName())) \{
+        myvector.addElement(myresource.getName());
+    \}
+\}" shape=ellipse]
+10 [label="getIncludedDirectoryResources#?#11:Resource[] resources = new Resource[myvector.size()]
+getIncludedFiles#?#11:String[] files = new String[myvector.size()]
+getIncludedFileResources#?#11:Resource[] resources = new Resource[myvector.size()]
+getIncludedDirectories#?#11:String[] files = new String[myvector.size()]" shape=ellipse]
+11 [label="getIncludedDirectoryResources#?#12:myvector.copyInto(resources)
+getIncludedFiles#?#12:myvector.copyInto(files)
+getIncludedFileResources#?#12:myvector.copyInto(resources)
+getIncludedDirectories#?#12:myvector.copyInto(files)" shape=ellipse]
+12 [label="getIncludedDirectoryResources#?#13:return resources
+getIncludedFiles#?#13:return files
+getIncludedFileResources#?#13:return resources
+getIncludedDirectories#?#13:return files" shape=ellipse]
+13 [label="getIncludedDirectoryResources#?#2:VE: Modifiers_Method
+getIncludedFiles#?#2:VE: Modifiers_Method
+getIncludedFileResources#?#2:VE: Modifiers_Method
+getIncludedDirectories#?#2:VE: Modifiers_Method" shape=ellipse]
+14 [label="getIncludedDirectoryResources#?#2:public
+getIncludedFiles#?#2:public
+getIncludedFileResources#?#2:public
+getIncludedDirectories#?#2:public" shape=ellipse]
+15 [label="getIncludedDirectoryResources#?#3:if (srcFile != null) \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\} else \{
+    return super.getIncludedDirectoryResources();
+\}
+getIncludedFiles#?#3:if (srcFile != null) \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\} else \{
+    return super.getIncludedFiles();
+\}
+getIncludedFileResources#?#3:if (srcFile != null) \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if ((!myresource.isDirectory()) && match(myresource.getName())) \{
+            myvector.addElement(myresource.clone());
+        \}
+    \}
+    Resource[] resources = new Resource[myvector.size()];
+    myvector.copyInto(resources);
+    return resources;
+\} else \{
+    return super.getIncludedFileResources();
+\}
+getIncludedDirectories#?#3:if (srcFile != null) \{
+    Vector myvector = new Vector();
+    scanme();
+    for (Enumeration e = myentries.elements(); e.hasMoreElements();) \{
+        Resource myresource = ((Resource) (e.nextElement()));
+        if (myresource.isDirectory() && match(myresource.getName())) \{
+            myvector.addElement(myresource.getName());
+        \}
+    \}
+    String[] files = new String[myvector.size()];
+    myvector.copyInto(files);
+    return files;
+\} else \{
+    return super.getIncludedDirectories();
+\}" shape=ellipse]
+0 -> 15 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 2 [label="AST:4"];
+1 -> 3 [label="AST:4"];
+1 -> 6 [label="AST:4"];
+1 -> 13 [label="AST:4"];
+1 -> 14 [label="AST:4"];
+3 -> 4 [label="AST:4"];
+3 -> 5 [label="AST:4"];
+6 -> 7 [label="AST:4"];
+6 -> 8 [label="AST:4"];
+6 -> 9 [label="AST:4"];
+6 -> 10 [label="AST:4"];
+6 -> 11 [label="AST:4"];
+6 -> 12 [label="AST:4"];
+}

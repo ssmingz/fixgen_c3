@@ -1,0 +1,54 @@
+digraph "Pattern" {
+0 [label="run#?,String[]#75:UPDATE
+doReportUserHomeLibraries#?,PrintStream#6:UPDATE" shape=ellipse]
+1 [label="run#?,String[]#75:ANT_PRIVATEDIR
+doReportUserHomeLibraries#?,PrintStream#6:Launcher.ANT_PRIVATEDIR" shape=ellipse]
+2 [label="run#?,String[]#75:(ANT_PRIVATEDIR + File.separatorChar)
+doReportUserHomeLibraries#?,PrintStream#6:(Launcher.ANT_PRIVATEDIR + File.separator)" shape=ellipse]
+3 [label="run#?,String[]#75:(ANT_PRIVATEDIR + File.separatorChar) + ANT_PRIVATELIB
+doReportUserHomeLibraries#?,PrintStream#6:(Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB" shape=ellipse]
+4 [label="run#?,String[]#75:File.separatorChar
+doReportUserHomeLibraries#?,PrintStream#6:File.separator" shape=ellipse]
+5 [label="run#?,String[]#-1:ANT_PRIVATEDIR
+doReportUserHomeLibraries#?,PrintStream#-1:Launcher.ANT_PRIVATEDIR" shape=ellipse]
+6 [label="run#?,String[]#72:userLibDir
+doReportUserHomeLibraries#?,PrintStream#5:libDir" shape=ellipse]
+7 [label="run#?,String[]#72:File userLibDir = new File(System.getProperty(USER_HOMEDIR), (ANT_PRIVATEDIR + File.separatorChar) + ANT_PRIVATELIB)
+doReportUserHomeLibraries#?,PrintStream#5:File libDir = new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB)" shape=ellipse]
+8 [label="run#?,String[]#75:ANT_PRIVATELIB
+doReportUserHomeLibraries#?,PrintStream#6:Launcher.ANT_PRIVATELIB" shape=ellipse]
+9 [label="run#?,String[]#76:userLibDir
+doReportUserHomeLibraries#?,PrintStream#7:libDir" shape=ellipse]
+10 [label="run#?,String[]#75:MOVE
+doReportUserHomeLibraries#?,PrintStream#6:MOVE" shape=ellipse]
+11 [label="run#?,String[]#73:new File(System.getProperty(USER_HOMEDIR), (ANT_PRIVATEDIR + File.separatorChar) + ANT_PRIVATELIB)
+doReportUserHomeLibraries#?,PrintStream#6:new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB)" shape=ellipse]
+12 [label="run#?,String[]#72:USER_LIBDIR
+doReportUserHomeLibraries#?,PrintStream#5:Launcher.USER_LIBDIR" shape=ellipse]
+13 [label="run#?,String[]#72:userLibDir
+doReportUserHomeLibraries#?,PrintStream#5:libDir" shape=ellipse]
+14 [label="doReportUserHomeLibraries#?,PrintStream#-1:Launcher" shape=ellipse]
+15 [label="doReportUserHomeLibraries#?,PrintStream#-1:Launcher" shape=ellipse]
+16 [label="doReportUserHomeLibraries#?,PrintStream#6:home" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 6 [label="Data Dep:2"];
+1 -> 10 [label="Action:2"];
+1 -> 14 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+4 -> 6 [label="Data Dep:2"];
+6 -> 9 [label="Define Use:2"];
+7 -> 6 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+8 -> 6 [label="Data Dep:2"];
+10 -> 11 [label="Action:2"];
+11 -> 3 [label="AST:2"];
+11 -> 16 [label="AST:1"];
+12 -> 13 [label="Data Dep:2"];
+14 -> 15 [label="AST:1"];
+16 -> 6 [label="Data Dep:1"];
+}

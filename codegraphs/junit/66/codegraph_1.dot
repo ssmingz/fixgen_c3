@@ -1,0 +1,52 @@
+digraph "starting#?,Description" {
+0 [label="3:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="3:CtVirtualElement@starting" shape=ellipse]
+2 [label="3:CtParameterImpl@Description description" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Description" shape=ellipse]
+4 [label="4:CtFieldReferenceImpl@startTime" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+6 [label="4:CtFieldWriteImpl@startTime" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@nanoTime()" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@System" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@long" shape=ellipse]
+10 [label="4:CtVirtualElement@nanoTime" shape=ellipse]
+11 [label="4:CtTypeAccessImpl@System" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@System" shape=ellipse]
+13 [label="4:CtInvocationImpl@System.nanoTime()" shape=ellipse]
+14 [label="4:CtAssignmentImpl@startTime = System.nanoTime()" shape=ellipse]
+15 [label="3:CtBlockImpl@\{
+    startTime = System.nanoTime();
+\}" shape=ellipse]
+16 [label="3:CtMethodImpl@@Override
+protected final void starting(Description description) \{
+    startTime = System.nanoTime();
+\}" shape=ellipse]
+17 [label="2:CtAnnotationImpl@@Override" shape=ellipse]
+18 [label="4:Update@UPDATE" shape=ellipse]
+19 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+20 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+21 [label="4:CtFieldReferenceImpl@startNanos" shape=ellipse]
+22 [label="4:CtFieldWriteImpl@startNanos" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 18 [label="Action"];
+7 -> 8 [label="AST"];
+7 -> 9 [label="AST"];
+11 -> 12 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 7 [label="AST"];
+14 -> 6 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 17 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+18 -> 22 [label="Action"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+}

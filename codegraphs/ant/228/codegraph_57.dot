@@ -1,0 +1,45 @@
+digraph "add#?,Process" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@add" shape=ellipse]
+2 [label="2:CtParameterImpl@Process process" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Process" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@addElement(java.lang.Process)" shape=ellipse]
+5 [label="3:CtVirtualElement@addElement" shape=ellipse]
+6 [label="3:CtFieldReadImpl@processes" shape=ellipse]
+7 [label="3:CtVariableReadImpl@process" shape=ellipse]
+8 [label="3:CtInvocationImpl@processes.addElement(process)" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@contains(java.lang.Process)" shape=ellipse]
+10 [label="4:CtVirtualElement@contains" shape=ellipse]
+11 [label="4:CtFieldReadImpl@processes" shape=ellipse]
+12 [label="4:CtVariableReadImpl@process" shape=ellipse]
+13 [label="4:CtInvocationImpl@processes.contains(process)" shape=ellipse]
+14 [label="4:CtReturnImpl@return processes.contains(process)" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    processes.addElement(process);
+    return processes.contains(process);
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public boolean add(Process process) \{
+    processes.addElement(process);
+    return processes.contains(process);
+\}" shape=ellipse]
+17 [label="3:Update@UPDATE" shape=ellipse]
+18 [label="3:CtInvocationImpl@processes.add(process)" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 17 [label="Action"];
+13 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 8 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 2 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

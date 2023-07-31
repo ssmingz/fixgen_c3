@@ -1,0 +1,120 @@
+digraph "doReportUserHomeLibraries#?,PrintStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@doReportUserHomeLibraries" shape=ellipse]
+2 [label="2:CtParameterImpl@PrintStream out" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@PrintStream" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+6 [label="3:CtVirtualElement@getProperty" shape=ellipse]
+7 [label="3:CtTypeAccessImpl@System" shape=ellipse]
+8 [label="3:CtTypeAccessImpl@USER_HOMEDIR" shape=ellipse]
+9 [label="3:CtInvocationImpl@System.getProperty(USER_HOMEDIR)" shape=ellipse]
+10 [label="3:CtVirtualElement@home" shape=ellipse]
+11 [label="3:CtLocalVariableImpl@String home = System.getProperty(USER_HOMEDIR)" shape=ellipse]
+12 [label="4:CtExecutableReferenceImpl@println(java.lang.String)" shape=ellipse]
+13 [label="4:CtVirtualElement@println" shape=ellipse]
+14 [label="4:CtVariableReadImpl@out" shape=ellipse]
+15 [label="4:CtLiteralImpl@\"user.home: \"" shape=ellipse]
+16 [label="4:CtVariableReadImpl@home" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@\"user.home: \" + home" shape=ellipse]
+18 [label="4:CtInvocationImpl@out.println(\"user.home: \" + home)" shape=ellipse]
+19 [label="5:CtTypeReferenceImpl@File" shape=ellipse]
+20 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+21 [label="6:CtVariableReadImpl@home" shape=ellipse]
+22 [label="6:CtFieldReadImpl@Launcher.ANT_PRIVATEDIR" shape=ellipse]
+23 [label="6:CtFieldReadImpl@File.separator" shape=ellipse]
+24 [label="6:CtBinaryOperatorImpl@(Launcher.ANT_PRIVATEDIR + File.separator)" shape=ellipse]
+25 [label="6:CtFieldReadImpl@Launcher.ANT_PRIVATELIB" shape=ellipse]
+26 [label="6:CtBinaryOperatorImpl@(Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB" shape=ellipse]
+27 [label="6:CtConstructorCallImpl@new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB)" shape=ellipse]
+28 [label="5:CtVirtualElement@libDir" shape=ellipse]
+29 [label="5:CtLocalVariableImpl@File libDir = new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB)" shape=ellipse]
+30 [label="7:CtVirtualElement@File[]" shape=ellipse]
+31 [label="7:CtArrayTypeReferenceImpl@File[]" shape=ellipse]
+32 [label="7:CtExecutableReferenceImpl@listJarFiles(<unknown>)" shape=ellipse]
+33 [label="7:CtVirtualElement@listJarFiles" shape=ellipse]
+34 [label="7:CtVariableReadImpl@libDir" shape=ellipse]
+35 [label="7:CtInvocationImpl@listJarFiles(libDir)" shape=ellipse]
+36 [label="7:CtVirtualElement@libs" shape=ellipse]
+37 [label="7:CtLocalVariableImpl@File[] libs = listJarFiles(libDir)" shape=ellipse]
+38 [label="8:CtExecutableReferenceImpl@printLibraries(<unknown>,<unknown>)" shape=ellipse]
+39 [label="8:CtVirtualElement@printLibraries" shape=ellipse]
+40 [label="8:CtVariableReadImpl@libs" shape=ellipse]
+41 [label="8:CtVariableReadImpl@out" shape=ellipse]
+42 [label="8:CtInvocationImpl@printLibraries(libs, out)" shape=ellipse]
+43 [label="2:CtBlockImpl@\{
+    String home = System.getProperty(USER_HOMEDIR);
+    out.println(\"user.home: \" + home);
+    File libDir = new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB);
+    File[] libs = listJarFiles(libDir);
+    printLibraries(libs, out);
+\}" shape=ellipse]
+44 [label="2:CtMethodImpl@private static void doReportUserHomeLibraries(PrintStream out) \{
+    String home = System.getProperty(USER_HOMEDIR);
+    out.println(\"user.home: \" + home);
+    File libDir = new File(home, (Launcher.ANT_PRIVATEDIR + File.separator) + Launcher.ANT_PRIVATELIB);
+    File[] libs = listJarFiles(libDir);
+    printLibraries(libs, out);
+\}" shape=ellipse]
+45 [label="6:Update@UPDATE" shape=ellipse]
+46 [label="5:CtFieldReadImpl@Launcher.USER_LIBDIR" shape=ellipse]
+47 [label="6:Delete@DELETE" shape=ellipse]
+48 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 16 [label="Define-Use"];
+10 -> 21 [label="Define-Use"];
+11 -> 10 [label="AST"];
+11 -> 4 [label="AST"];
+11 -> 9 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 13 [label="AST"];
+18 -> 14 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+21 -> 28 [label="Data Dep"];
+22 -> 28 [label="Data Dep"];
+22 -> 45 [label="Action"];
+22 -> 48 [label="Action"];
+23 -> 28 [label="Data Dep"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 28 [label="Data Dep"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 47 [label="Action"];
+27 -> 21 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 34 [label="Define-Use"];
+29 -> 28 [label="AST"];
+29 -> 19 [label="AST"];
+29 -> 27 [label="AST"];
+31 -> 30 [label="AST"];
+34 -> 36 [label="Data Dep"];
+35 -> 33 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 40 [label="Define-Use"];
+37 -> 36 [label="AST"];
+37 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 38 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 11 [label="AST"];
+43 -> 18 [label="AST"];
+43 -> 29 [label="AST"];
+43 -> 37 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 1 [label="AST"];
+44 -> 0 [label="AST"];
+44 -> 2 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 46 [label="Action"];
+48 -> 27 [label="Action"];
+}

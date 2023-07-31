@@ -1,0 +1,112 @@
+digraph "Pattern" {
+0 [label="checkIndentation#?#6:UPDATE
+checkCondExpr#?#4:UPDATE
+checkCondExpr#?#4:UPDATE" shape=ellipse]
+1 [label="checkIndentation#?#6:getLevel()
+checkCondExpr#?#4:getLevel()
+checkCondExpr#?#4:getLevel()" shape=ellipse]
+2 [label="checkIndentation#?#5:type != null" shape=ellipse]
+3 [label="checkIndentation#?#5:if (type != null) \{
+    checkExpressionSubtree(type, getLevel(), false, false);
+\}" shape=ellipse]
+4 [label="checkIndentation#?#5:type
+checkCondExpr#?#4:condAst
+checkCondExpr#?#4:condAst" shape=ellipse]
+5 [label="checkIndentation#?#5:null
+checkCondExpr#?#4:false
+checkCondExpr#?#4:false" shape=ellipse]
+6 [label="checkIndentation#?#5:\{
+    checkExpressionSubtree(type, getLevel(), false, false);
+\}
+checkCondExpr#?#2:\{
+    final DetailAST condAst = getMainAst().findFirstToken(LPAREN).getNextSibling();
+    checkExpressionSubtree(condAst, getLevel(), false, false);
+\}
+checkCondExpr#?#2:\{
+    final DetailAST condAst = getMainAst().findFirstToken(LPAREN).getNextSibling();
+    checkExpressionSubtree(condAst, getLevel(), false, false);
+\}" shape=ellipse]
+7 [label="checkIndentation#?#6:checkExpressionSubtree(type, getLevel(), false, false)" shape=ellipse]
+8 [label="checkIndentation#?#6:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)
+checkCondExpr#?#4:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)
+checkCondExpr#?#4:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)" shape=ellipse]
+9 [label="checkIndentation#?#6:
+checkCondExpr#?#4:
+checkCondExpr#?#4:" shape=ellipse]
+10 [label="checkIndentation#?#6:PlaceHold" shape=ellipse]
+11 [label="checkIndentation#?#6:type" shape=ellipse]
+12 [label="checkIndentation#?#6:getLevel()
+checkCondExpr#?#4:getLevel()
+checkCondExpr#?#4:getLevel()" shape=ellipse]
+13 [label="checkIndentation#?#6:
+checkCondExpr#?#4:
+checkCondExpr#?#4:" shape=ellipse]
+14 [label="checkIndentation#?#6:PlaceHold
+checkCondExpr#?#4:PlaceHold
+checkCondExpr#?#4:PlaceHold" shape=ellipse]
+15 [label="checkIndentation#?#6:false
+checkCondExpr#?#4:false
+checkCondExpr#?#4:false" shape=ellipse]
+16 [label="checkIndentation#?#6:false" shape=ellipse]
+17 [label="checkIndentation#?#6:getIndent
+checkCondExpr#?#4:getIndent
+checkCondExpr#?#4:getIndent" shape=ellipse]
+18 [label="checkIndentation#?#6:getLevel
+checkCondExpr#?#4:getLevel
+checkCondExpr#?#4:getLevel" shape=ellipse]
+19 [label="checkCondExpr#?#4:checkExpressionSubtree(condAst, getLevel(), false, false)" shape=ellipse]
+20 [label="checkCondExpr#?#4:checkExpressionSubtree
+checkCondExpr#?#4:checkExpressionSubtree" shape=ellipse]
+21 [label="checkCondExpr#?#4:getIndent()
+checkCondExpr#?#4:getIndent()" shape=ellipse]
+22 [label="checkCondExpr#?#4:PlaceHold" shape=ellipse]
+23 [label="checkCondExpr#?#4:checkExpressionSubtree(condAst, getLevel(), false, false)" shape=ellipse]
+24 [label="checkCondExpr#?#4:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 18 [label="AST:3"];
+1 -> 13 [label="AST:3"];
+1 -> 12 [label="AST:3"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:1"];
+2 -> 7 [label="Control Dep:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+3 -> 2 [label="AST:1"];
+3 -> 6 [label="AST:1"];
+6 -> 7 [label="AST:1"];
+6 -> 19 [label="AST:1"];
+6 -> 23 [label="AST:1"];
+7 -> 1 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 8 [label="AST:1"];
+7 -> 11 [label="AST:1"];
+7 -> 15 [label="AST:1"];
+7 -> 16 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+13 -> 14 [label="AST:3"];
+13 -> 22 [label="AST:1"];
+13 -> 24 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+19 -> 9 [label="AST:1"];
+19 -> 8 [label="AST:1"];
+19 -> 4 [label="AST:1"];
+19 -> 1 [label="AST:1"];
+19 -> 5 [label="AST:1"];
+19 -> 15 [label="AST:1"];
+23 -> 20 [label="AST:1"];
+23 -> 9 [label="AST:1"];
+23 -> 8 [label="AST:1"];
+23 -> 4 [label="AST:1"];
+23 -> 1 [label="AST:1"];
+23 -> 5 [label="AST:1"];
+23 -> 15 [label="AST:1"];
+}

@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="doValidate#?,File#7:DELETE
+parse#?,Project,Object#18:DELETE
+getSystemId#?,File#3:DELETE
+setBaseDir#?,File#3:DELETE" shape=ellipse]
+1 [label="doValidate#?,File#7:fu
+parse#?,Project,Object#18:fu
+getSystemId#?,File#3:fu
+setBaseDir#?,File#3:fileUtils" shape=ellipse]
+2 [label="doValidate#?,File#7:fu.toURI(afile.getAbsolutePath())
+parse#?,Project,Object#18:fu.toURI(bFile.getAbsolutePath())
+getSystemId#?,File#3:fu.toURI(file.getAbsolutePath())
+setBaseDir#?,File#3:fileUtils.normalize(baseDir.getAbsolutePath())" shape=ellipse]
+3 [label="doValidate#?,File#7:String uri = fu.toURI(afile.getAbsolutePath())
+parse#?,Project,Object#18:String uri = fu.toURI(bFile.getAbsolutePath())
+getSystemId#?,File#3:return fu.toURI(file.getAbsolutePath())
+setBaseDir#?,File#3:baseDir = fileUtils.normalize(baseDir.getAbsolutePath())" shape=ellipse]
+4 [label="doValidate#?,File#7:toURI
+parse#?,Project,Object#18:toURI
+getSystemId#?,File#3:toURI
+setBaseDir#?,File#3:normalize" shape=ellipse]
+5 [label="doValidate#?,File#7:toURI()
+parse#?,Project,Object#18:toURI()
+getSystemId#?,File#3:toURI()
+setBaseDir#?,File#3:normalize()" shape=ellipse]
+6 [label="doValidate#?,File#7:afile.getAbsolutePath()
+parse#?,Project,Object#18:bFile.getAbsolutePath()
+getSystemId#?,File#3:file.getAbsolutePath()
+setBaseDir#?,File#3:baseDir.getAbsolutePath()" shape=ellipse]
+7 [label="doValidate#?,File#7:INSERT
+parse#?,Project,Object#18:INSERT
+getSystemId#?,File#3:INSERT
+setBaseDir#?,File#3:INSERT" shape=ellipse]
+8 [label="doValidate#?,File#-1:fu
+parse#?,Project,Object#-1:fu
+getSystemId#?,File#-1:fu
+setBaseDir#?,File#-1:fileUtils" shape=ellipse]
+9 [label="doValidate#?,File#7:uri
+parse#?,Project,Object#18:uri
+setBaseDir#?,File#3:baseDir" shape=ellipse]
+10 [label="doValidate#?,File#7:afile
+parse#?,Project,Object#18:bFile
+setBaseDir#?,File#3:baseDir" shape=ellipse]
+11 [label="doValidate#?,File#8:uri
+parse#?,Project,Object#21:uri" shape=ellipse]
+12 [label="parse#?,Project,Object#22:uri" shape=ellipse]
+13 [label="setBaseDir#?,File#8:baseDir" shape=ellipse]
+14 [label="setBaseDir#?,File#5:baseDir" shape=ellipse]
+15 [label="setBaseDir#?,File#-1:baseDir" shape=ellipse]
+16 [label="setBaseDir#?,File#7:baseDir" shape=ellipse]
+17 [label="setBaseDir#?,File#4:baseDir" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 8 [label="AST:4"];
+1 -> 9 [label="Data Dep:3"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+3 -> 9 [label="AST:3"];
+6 -> 10 [label="AST:3"];
+9 -> 11 [label="Define Use:2"];
+9 -> 12 [label="Define Use:1"];
+9 -> 13 [label="Define Use:1"];
+9 -> 14 [label="Define Use:1"];
+9 -> 15 [label="AST:1"];
+9 -> 16 [label="Define Use:1"];
+9 -> 17 [label="Define Use:1"];
+10 -> 9 [label="Data Dep:3"];
+15 -> 10 [label="Define Use:1"];
+}

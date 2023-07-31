@@ -1,0 +1,303 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@file" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@file == null" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+7 [label="4:CtVirtualElement@log" shape=ellipse]
+8 [label="4:CtFieldReadImpl@message" shape=ellipse]
+9 [label="4:CtFieldReadImpl@logLevel" shape=ellipse]
+10 [label="4:CtInvocationImpl@log(message, logLevel)" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    log(message, logLevel);
+\}" shape=ellipse]
+12 [label="6:CtTypeReferenceImpl@FileWriter" shape=ellipse]
+13 [label="6:CtLiteralImpl@null" shape=ellipse]
+14 [label="6:CtVirtualElement@out" shape=ellipse]
+15 [label="6:CtLocalVariableImpl@FileWriter out = null" shape=ellipse]
+16 [label="8:CtVariableWriteImpl@out" shape=ellipse]
+17 [label="8:CtTypeReferenceImpl@FileWriter" shape=ellipse]
+18 [label="8:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+19 [label="8:CtVirtualElement@getAbsolutePath" shape=ellipse]
+20 [label="8:CtFieldReadImpl@file" shape=ellipse]
+21 [label="8:CtInvocationImpl@file.getAbsolutePath()" shape=ellipse]
+22 [label="8:CtFieldReadImpl@append" shape=ellipse]
+23 [label="8:CtConstructorCallImpl@new FileWriter(file.getAbsolutePath(), append)" shape=ellipse]
+24 [label="8:CtAssignmentImpl@out = new FileWriter(file.getAbsolutePath(), append)" shape=ellipse]
+25 [label="9:CtExecutableReferenceImpl@write(int)" shape=ellipse]
+26 [label="9:CtVirtualElement@write" shape=ellipse]
+27 [label="9:CtVariableReadImpl@out" shape=ellipse]
+28 [label="9:CtFieldReadImpl@message" shape=ellipse]
+29 [label="9:CtLiteralImpl@0" shape=ellipse]
+30 [label="9:CtExecutableReferenceImpl@length()" shape=ellipse]
+31 [label="9:CtVirtualElement@length" shape=ellipse]
+32 [label="9:CtFieldReadImpl@message" shape=ellipse]
+33 [label="9:CtInvocationImpl@message.length()" shape=ellipse]
+34 [label="9:CtInvocationImpl@out.write(message, 0, message.length())" shape=ellipse]
+35 [label="7:CtBlockImpl@\{
+    out = new FileWriter(file.getAbsolutePath(), append);
+    out.write(message, 0, message.length());
+\}" shape=ellipse]
+36 [label="10:CtVirtualElement@ioe" shape=ellipse]
+37 [label="10:CtTypeReferenceImpl@IOException" shape=ellipse]
+38 [label="10:CtCatchVariableImpl@IOException ioe" shape=ellipse]
+39 [label="11:CtTypeReferenceImpl@BuildException" shape=ellipse]
+40 [label="11:CtVariableReadImpl@ioe" shape=ellipse]
+41 [label="11:CtConstructorCallImpl@new BuildException(ioe)" shape=ellipse]
+42 [label="11:CtThrowImpl@throw new BuildException(ioe)" shape=ellipse]
+43 [label="10:CtBlockImpl@\{
+    throw new BuildException(ioe);
+\}" shape=ellipse]
+44 [label="10:CtCatchImpl@ catch (IOException ioe) \{
+    throw new BuildException(ioe);
+\}" shape=ellipse]
+45 [label="13:CtVariableReadImpl@out" shape=ellipse]
+46 [label="13:CtLiteralImpl@null" shape=ellipse]
+47 [label="13:CtBinaryOperatorImpl@out != null" shape=ellipse]
+48 [label="15:CtExecutableReferenceImpl@close()" shape=ellipse]
+49 [label="15:CtVirtualElement@close" shape=ellipse]
+50 [label="15:CtVariableReadImpl@out" shape=ellipse]
+51 [label="15:CtInvocationImpl@out.close()" shape=ellipse]
+52 [label="14:CtBlockImpl@\{
+    out.close();
+\}" shape=ellipse]
+53 [label="16:CtVirtualElement@ioex" shape=ellipse]
+54 [label="16:CtTypeReferenceImpl@IOException" shape=ellipse]
+55 [label="16:CtCatchVariableImpl@IOException ioex" shape=ellipse]
+56 [label="16:CtBlockImpl@\{
+\}" shape=ellipse]
+57 [label="16:CtCatchImpl@ catch (IOException ioex) \{
+\}" shape=ellipse]
+58 [label="14:CtTryImpl@try \{
+    out.close();
+\} catch (IOException ioex) \{
+\}" shape=ellipse]
+59 [label="13:CtBlockImpl@\{
+    try \{
+        out.close();
+    \} catch (IOException ioex) \{
+    \}
+\}" shape=ellipse]
+60 [label="13:CtIfImpl@if (out != null) \{
+    try \{
+        out.close();
+    \} catch (IOException ioex) \{
+    \}
+\}" shape=ellipse]
+61 [label="12:CtBlockImpl@\{
+    if (out != null) \{
+        try \{
+            out.close();
+        \} catch (IOException ioex) \{
+        \}
+    \}
+\}" shape=ellipse]
+62 [label="7:CtTryImpl@try \{
+    out = new FileWriter(file.getAbsolutePath(), append);
+    out.write(message, 0, message.length());
+\} catch (IOException ioe) \{
+    throw new BuildException(ioe);
+\} finally \{
+    if (out != null) \{
+        try \{
+            out.close();
+        \} catch (IOException ioex) \{
+        \}
+    \}
+\}" shape=ellipse]
+63 [label="5:CtBlockImpl@\{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(file.getAbsolutePath(), append);
+        out.write(message, 0, message.length());
+    \} catch (IOException ioe) \{
+        throw new BuildException(ioe);
+    \} finally \{
+        if (out != null) \{
+            try \{
+                out.close();
+            \} catch (IOException ioex) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+64 [label="3:CtIfImpl@if (file == null) \{
+    log(message, logLevel);
+\} else \{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(file.getAbsolutePath(), append);
+        out.write(message, 0, message.length());
+    \} catch (IOException ioe) \{
+        throw new BuildException(ioe);
+    \} finally \{
+        if (out != null) \{
+            try \{
+                out.close();
+            \} catch (IOException ioex) \{
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+65 [label="2:CtBlockImpl@\{
+    if (file == null) \{
+        log(message, logLevel);
+    \} else \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(file.getAbsolutePath(), append);
+            out.write(message, 0, message.length());
+        \} catch (IOException ioe) \{
+            throw new BuildException(ioe);
+        \} finally \{
+            if (out != null) \{
+                try \{
+                    out.close();
+                \} catch (IOException ioex) \{
+                \}
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+66 [label="2:CtMethodImpl@public void execute() throws BuildException \{
+    if (file == null) \{
+        log(message, logLevel);
+    \} else \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(file.getAbsolutePath(), append);
+            out.write(message, 0, message.length());
+        \} catch (IOException ioe) \{
+            throw new BuildException(ioe);
+        \} finally \{
+            if (out != null) \{
+                try \{
+                    out.close();
+                \} catch (IOException ioex) \{
+                \}
+            \}
+        \}
+    \}
+\}" shape=ellipse]
+67 [label="11:Insert@INSERT" shape=ellipse]
+68 [label="11:CtLiteralImpl@\"Error\"" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 11 [label="Control Dep"];
+5 -> 10 [label="Control Dep"];
+5 -> 6 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 63 [label="Control Dep"];
+5 -> 15 [label="Control Dep"];
+5 -> 13 [label="Control Dep"];
+5 -> 62 [label="Control Dep"];
+5 -> 35 [label="Control Dep"];
+5 -> 24 [label="Control Dep"];
+5 -> 16 [label="Control Dep"];
+5 -> 23 [label="Control Dep"];
+5 -> 21 [label="Control Dep"];
+5 -> 18 [label="Control Dep"];
+5 -> 20 [label="Control Dep"];
+5 -> 22 [label="Control Dep"];
+5 -> 34 [label="Control Dep"];
+5 -> 25 [label="Control Dep"];
+5 -> 27 [label="Control Dep"];
+5 -> 28 [label="Control Dep"];
+5 -> 29 [label="Control Dep"];
+5 -> 33 [label="Control Dep"];
+5 -> 30 [label="Control Dep"];
+5 -> 32 [label="Control Dep"];
+5 -> 44 [label="Control Dep"];
+5 -> 38 [label="Control Dep"];
+5 -> 61 [label="Control Dep"];
+5 -> 60 [label="Control Dep"];
+5 -> 47 [label="Control Dep"];
+5 -> 45 [label="Control Dep"];
+5 -> 46 [label="Control Dep"];
+10 -> 7 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 13 [label="AST"];
+16 -> 27 [label="Define-Use"];
+16 -> 45 [label="Define-Use"];
+16 -> 50 [label="Define-Use"];
+20 -> 16 [label="Data Dep"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 18 [label="AST"];
+22 -> 16 [label="Data Dep"];
+23 -> 21 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 16 [label="AST"];
+24 -> 23 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 30 [label="AST"];
+34 -> 26 [label="AST"];
+34 -> 27 [label="AST"];
+34 -> 25 [label="AST"];
+34 -> 28 [label="AST"];
+34 -> 29 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 24 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 40 [label="Define-Use"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 43 [label="Control Dep"];
+38 -> 42 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+38 -> 40 [label="Control Dep"];
+41 -> 40 [label="AST"];
+41 -> 67 [label="Action"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 38 [label="AST"];
+44 -> 43 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 59 [label="Control Dep"];
+47 -> 58 [label="Control Dep"];
+47 -> 52 [label="Control Dep"];
+47 -> 51 [label="Control Dep"];
+47 -> 48 [label="Control Dep"];
+47 -> 50 [label="Control Dep"];
+47 -> 57 [label="Control Dep"];
+47 -> 55 [label="Control Dep"];
+51 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 48 [label="AST"];
+52 -> 51 [label="AST"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 56 [label="Control Dep"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 52 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 47 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 35 [label="AST"];
+62 -> 44 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 15 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 5 [label="AST"];
+64 -> 11 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 1 [label="AST"];
+66 -> 0 [label="AST"];
+66 -> 2 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 68 [label="Action"];
+}

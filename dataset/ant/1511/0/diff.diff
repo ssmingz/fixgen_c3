@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1511/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1511/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "noname", "Absence of name attribute not detected", "scriptdef requires a name attribute");
++    try {
++      buildRule.executeTarget("noname");
++      fail("Absence of name attribute not detected");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("scriptdef requires a name attribute", ex.getMessage());
++    }

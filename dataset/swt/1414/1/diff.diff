@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1414/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1414/1/after.java
+@@ -8,0 +8,11 @@
++    try {
++      if ((selection.y - selection.x) > 0) {
++        setClipboardContent(selection.x, selection.y - selection.x, SELECTION_CLIPBOARD);
++      } else {
++        clipboard.clearContents(SELECTION_CLIPBOARD);
++      }
++    } catch (SWTError error) {
++      if (error.code != DND.ERROR_CANNOT_SET_CLIPBOARD) {
++        throw error;
++      }
++    }

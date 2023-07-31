@@ -1,0 +1,351 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+4 [label="3:CtVirtualElement@debug" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+6 [label="3:CtVirtualElement@getLogger" shape=ellipse]
+7 [label="3:CtInvocationImpl@getLogger()" shape=ellipse]
+8 [label="3:CtLiteralImpl@\"Using Kaffe rmic\"" shape=ellipse]
+9 [label="3:CtInvocationImpl@getLogger().debug(\"Using Kaffe rmic\")" shape=ellipse]
+10 [label="4:CtTypeReferenceImpl@Commandline" shape=ellipse]
+11 [label="4:CtExecutableReferenceImpl@setupRmicCommand()" shape=ellipse]
+12 [label="4:CtVirtualElement@setupRmicCommand" shape=ellipse]
+13 [label="4:CtInvocationImpl@setupRmicCommand()" shape=ellipse]
+14 [label="4:CtVirtualElement@cmd" shape=ellipse]
+15 [label="4:CtLocalVariableImpl@Commandline cmd = setupRmicCommand()" shape=ellipse]
+16 [label="6:CtTypeReferenceImpl@Class" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@forName(java.lang.String)" shape=ellipse]
+18 [label="6:CtVirtualElement@forName" shape=ellipse]
+19 [label="6:CtTypeAccessImpl@Class" shape=ellipse]
+20 [label="6:CtLiteralImpl@\"kaffe.rmi.rmic.RMIC\"" shape=ellipse]
+21 [label="6:CtInvocationImpl@Class.forName(\"kaffe.rmi.rmic.RMIC\")" shape=ellipse]
+22 [label="6:CtVirtualElement@c" shape=ellipse]
+23 [label="6:CtLocalVariableImpl@Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\")" shape=ellipse]
+24 [label="7:CtTypeReferenceImpl@Constructor" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@getConstructor(java.lang.Class[])" shape=ellipse]
+26 [label="7:CtVirtualElement@getConstructor" shape=ellipse]
+27 [label="7:CtVariableReadImpl@c" shape=ellipse]
+28 [label="7:CtNewArrayImpl@new Class[]\{ String[].class \}" shape=ellipse]
+29 [label="7:CtFieldReadImpl@String[].class" shape=ellipse]
+30 [label="7:CtInvocationImpl@c.getConstructor(new Class[]\{ String[].class \})" shape=ellipse]
+31 [label="7:CtVirtualElement@cons" shape=ellipse]
+32 [label="7:CtLocalVariableImpl@Constructor cons = c.getConstructor(new Class[]\{ String[].class \})" shape=ellipse]
+33 [label="8:CtTypeReferenceImpl@Object" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@newInstance(java.lang.Object[])" shape=ellipse]
+35 [label="8:CtVirtualElement@newInstance" shape=ellipse]
+36 [label="8:CtVariableReadImpl@cons" shape=ellipse]
+37 [label="8:CtNewArrayImpl@new Object[]\{ cmd.getArguments() \}" shape=ellipse]
+38 [label="8:CtInvocationImpl@cmd.getArguments()" shape=ellipse]
+39 [label="8:CtInvocationImpl@cons.newInstance(new Object[]\{ cmd.getArguments() \})" shape=ellipse]
+40 [label="8:CtVirtualElement@rmic" shape=ellipse]
+41 [label="8:CtLocalVariableImpl@Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \})" shape=ellipse]
+42 [label="9:CtTypeReferenceImpl@Method" shape=ellipse]
+43 [label="9:CtExecutableReferenceImpl@getMethod(java.lang.String,java.lang.Class[])" shape=ellipse]
+44 [label="9:CtVirtualElement@getMethod" shape=ellipse]
+45 [label="9:CtVariableReadImpl@c" shape=ellipse]
+46 [label="9:CtLiteralImpl@\"run\"" shape=ellipse]
+47 [label="9:CtLiteralImpl@null" shape=ellipse]
+48 [label="9:CtInvocationImpl@c.getMethod(\"run\", null)" shape=ellipse]
+49 [label="9:CtVirtualElement@doRmic" shape=ellipse]
+50 [label="9:CtLocalVariableImpl@Method doRmic = c.getMethod(\"run\", null)" shape=ellipse]
+51 [label="10:CtVirtualElement@String[]" shape=ellipse]
+52 [label="10:CtArrayTypeReferenceImpl@String[]" shape=ellipse]
+53 [label="10:CtExecutableReferenceImpl@getArguments()" shape=ellipse]
+54 [label="10:CtVirtualElement@getArguments" shape=ellipse]
+55 [label="10:CtVariableReadImpl@cmd" shape=ellipse]
+56 [label="10:CtInvocationImpl@cmd.getArguments()" shape=ellipse]
+57 [label="10:CtVirtualElement@str" shape=ellipse]
+58 [label="10:CtLocalVariableImpl@String str[] = cmd.getArguments()" shape=ellipse]
+59 [label="11:CtTypeReferenceImpl@Boolean" shape=ellipse]
+60 [label="11:CtExecutableReferenceImpl@invoke(java.lang.Object,<unknown>)" shape=ellipse]
+61 [label="11:CtVirtualElement@invoke" shape=ellipse]
+62 [label="11:CtVariableReadImpl@doRmic" shape=ellipse]
+63 [label="11:CtVariableReadImpl@rmic" shape=ellipse]
+64 [label="11:CtLiteralImpl@null" shape=ellipse]
+65 [label="11:CtInvocationImpl@((Boolean) (doRmic.invoke(rmic, null)))" shape=ellipse]
+66 [label="11:CtTypeReferenceImpl@Boolean" shape=ellipse]
+67 [label="11:CtVirtualElement@ok" shape=ellipse]
+68 [label="11:CtLocalVariableImpl@Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)))" shape=ellipse]
+69 [label="12:CtExecutableReferenceImpl@booleanValue()" shape=ellipse]
+70 [label="12:CtVirtualElement@booleanValue" shape=ellipse]
+71 [label="12:CtVariableReadImpl@ok" shape=ellipse]
+72 [label="12:CtInvocationImpl@ok.booleanValue()" shape=ellipse]
+73 [label="12:CtReturnImpl@return ok.booleanValue()" shape=ellipse]
+74 [label="5:CtBlockImpl@\{
+    Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+    Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+    Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+    Method doRmic = c.getMethod(\"run\", null);
+    String str[] = cmd.getArguments();
+    Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+    return ok.booleanValue();
+\}" shape=ellipse]
+75 [label="13:CtVirtualElement@ex" shape=ellipse]
+76 [label="13:CtTypeReferenceImpl@ClassNotFoundException" shape=ellipse]
+77 [label="13:CtCatchVariableImpl@ClassNotFoundException ex" shape=ellipse]
+78 [label="14:CtTypeReferenceImpl@TaskException" shape=ellipse]
+79 [label="15:CtLiteralImpl@\"Cannot use Kaffe rmic, as it is not available\"" shape=ellipse]
+80 [label="16:CtLiteralImpl@\" A common solution is to set the environment variable\"" shape=ellipse]
+81 [label="15:CtBinaryOperatorImpl@(\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\")" shape=ellipse]
+82 [label="17:CtLiteralImpl@\" JAVA_HOME or CLASSPATH.\"" shape=ellipse]
+83 [label="15:CtBinaryOperatorImpl@(\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\"" shape=ellipse]
+84 [label="14:CtConstructorCallImpl@new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\")" shape=ellipse]
+85 [label="14:CtThrowImpl@throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\")" shape=ellipse]
+86 [label="13:CtBlockImpl@\{
+    throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+\}" shape=ellipse]
+87 [label="13:CtCatchImpl@ catch (ClassNotFoundException ex) \{
+    throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+\}" shape=ellipse]
+88 [label="18:CtVirtualElement@ex" shape=ellipse]
+89 [label="18:CtTypeReferenceImpl@Exception" shape=ellipse]
+90 [label="18:CtCatchVariableImpl@Exception ex" shape=ellipse]
+91 [label="19:CtVariableReadImpl@ex" shape=ellipse]
+92 [label="19:CtTypeAccessImpl@TaskException" shape=ellipse]
+93 [label="19:CtTypeReferenceImpl@TaskException" shape=ellipse]
+94 [label="19:CtBinaryOperatorImpl@ex instanceof TaskException" shape=ellipse]
+95 [label="20:CtVariableReadImpl@((TaskException) (ex))" shape=ellipse]
+96 [label="20:CtTypeReferenceImpl@TaskException" shape=ellipse]
+97 [label="20:CtThrowImpl@throw ((TaskException) (ex))" shape=ellipse]
+98 [label="19:CtBlockImpl@\{
+    throw ((TaskException) (ex));
+\}" shape=ellipse]
+99 [label="22:CtTypeReferenceImpl@TaskException" shape=ellipse]
+100 [label="22:CtLiteralImpl@\"Error starting Kaffe rmic: \"" shape=ellipse]
+101 [label="22:CtVariableReadImpl@ex" shape=ellipse]
+102 [label="22:CtConstructorCallImpl@new TaskException(\"Error starting Kaffe rmic: \", ex)" shape=ellipse]
+103 [label="22:CtThrowImpl@throw new TaskException(\"Error starting Kaffe rmic: \", ex)" shape=ellipse]
+104 [label="21:CtBlockImpl@\{
+    throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+\}" shape=ellipse]
+105 [label="19:CtIfImpl@if (ex instanceof TaskException) \{
+    throw ((TaskException) (ex));
+\} else \{
+    throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+\}" shape=ellipse]
+106 [label="18:CtBlockImpl@\{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+    \}
+\}" shape=ellipse]
+107 [label="18:CtCatchImpl@ catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+    \}
+\}" shape=ellipse]
+108 [label="5:CtTryImpl@try \{
+    Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+    Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+    Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+    Method doRmic = c.getMethod(\"run\", null);
+    String str[] = cmd.getArguments();
+    Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+    return ok.booleanValue();
+\} catch (ClassNotFoundException ex) \{
+    throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+\} catch (Exception ex) \{
+    if (ex instanceof TaskException) \{
+        throw ((TaskException) (ex));
+    \} else \{
+        throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+    \}
+\}" shape=ellipse]
+109 [label="2:CtBlockImpl@\{
+    getLogger().debug(\"Using Kaffe rmic\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+        Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+        Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+        Method doRmic = c.getMethod(\"run\", null);
+        String str[] = cmd.getArguments();
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+        \}
+    \}
+\}" shape=ellipse]
+110 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    getLogger().debug(\"Using Kaffe rmic\");
+    Commandline cmd = setupRmicCommand();
+    try \{
+        Class c = Class.forName(\"kaffe.rmi.rmic.RMIC\");
+        Constructor cons = c.getConstructor(new Class[]\{ String[].class \});
+        Object rmic = cons.newInstance(new Object[]\{ cmd.getArguments() \});
+        Method doRmic = c.getMethod(\"run\", null);
+        String str[] = cmd.getArguments();
+        Boolean ok = ((Boolean) (doRmic.invoke(rmic, null)));
+        return ok.booleanValue();
+    \} catch (ClassNotFoundException ex) \{
+        throw new TaskException((\"Cannot use Kaffe rmic, as it is not available\" + \" A common solution is to set the environment variable\") + \" JAVA_HOME or CLASSPATH.\");
+    \} catch (Exception ex) \{
+        if (ex instanceof TaskException) \{
+            throw ((TaskException) (ex));
+        \} else \{
+            throw new TaskException(\"Error starting Kaffe rmic: \", ex);
+        \}
+    \}
+\}" shape=ellipse]
+111 [label="3:Update@UPDATE" shape=ellipse]
+112 [label="3:CtInvocationImpl@getTaskContext()" shape=ellipse]
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 111 [label="Action"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 3 [label="AST"];
+9 -> 8 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 11 [label="AST"];
+14 -> 55 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 27 [label="Define-Use"];
+22 -> 45 [label="Define-Use"];
+23 -> 22 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 21 [label="AST"];
+27 -> 31 [label="Data Dep"];
+28 -> 29 [label="AST"];
+29 -> 31 [label="Data Dep"];
+30 -> 26 [label="AST"];
+30 -> 27 [label="AST"];
+30 -> 25 [label="AST"];
+30 -> 28 [label="AST"];
+31 -> 36 [label="Define-Use"];
+32 -> 31 [label="AST"];
+32 -> 24 [label="AST"];
+32 -> 30 [label="AST"];
+36 -> 40 [label="Data Dep"];
+37 -> 38 [label="AST"];
+39 -> 35 [label="AST"];
+39 -> 36 [label="AST"];
+39 -> 34 [label="AST"];
+39 -> 37 [label="AST"];
+40 -> 63 [label="Define-Use"];
+41 -> 40 [label="AST"];
+41 -> 33 [label="AST"];
+41 -> 39 [label="AST"];
+45 -> 49 [label="Data Dep"];
+48 -> 44 [label="AST"];
+48 -> 45 [label="AST"];
+48 -> 43 [label="AST"];
+48 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 62 [label="Define-Use"];
+50 -> 49 [label="AST"];
+50 -> 42 [label="AST"];
+50 -> 48 [label="AST"];
+52 -> 51 [label="AST"];
+55 -> 57 [label="Data Dep"];
+56 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+56 -> 53 [label="AST"];
+58 -> 57 [label="AST"];
+58 -> 52 [label="AST"];
+58 -> 56 [label="AST"];
+62 -> 67 [label="Data Dep"];
+63 -> 67 [label="Data Dep"];
+65 -> 61 [label="AST"];
+65 -> 66 [label="AST"];
+65 -> 62 [label="AST"];
+65 -> 60 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+67 -> 71 [label="Define-Use"];
+68 -> 67 [label="AST"];
+68 -> 59 [label="AST"];
+68 -> 65 [label="AST"];
+72 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+72 -> 69 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 23 [label="AST"];
+74 -> 32 [label="AST"];
+74 -> 41 [label="AST"];
+74 -> 50 [label="AST"];
+74 -> 58 [label="AST"];
+74 -> 68 [label="AST"];
+74 -> 73 [label="AST"];
+77 -> 75 [label="AST"];
+77 -> 76 [label="AST"];
+77 -> 86 [label="Control Dep"];
+77 -> 85 [label="Control Dep"];
+77 -> 84 [label="Control Dep"];
+77 -> 83 [label="Control Dep"];
+77 -> 81 [label="Control Dep"];
+77 -> 79 [label="Control Dep"];
+77 -> 80 [label="Control Dep"];
+77 -> 82 [label="Control Dep"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+83 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 85 [label="AST"];
+87 -> 77 [label="AST"];
+87 -> 86 [label="AST"];
+88 -> 91 [label="Define-Use"];
+88 -> 95 [label="Define-Use"];
+88 -> 101 [label="Define-Use"];
+90 -> 88 [label="AST"];
+90 -> 89 [label="AST"];
+90 -> 106 [label="Control Dep"];
+90 -> 105 [label="Control Dep"];
+90 -> 94 [label="Control Dep"];
+90 -> 91 [label="Control Dep"];
+90 -> 92 [label="Control Dep"];
+92 -> 93 [label="AST"];
+94 -> 91 [label="AST"];
+94 -> 92 [label="AST"];
+94 -> 98 [label="Control Dep"];
+94 -> 97 [label="Control Dep"];
+94 -> 95 [label="Control Dep"];
+94 -> 104 [label="Control Dep"];
+94 -> 103 [label="Control Dep"];
+94 -> 102 [label="Control Dep"];
+94 -> 100 [label="Control Dep"];
+94 -> 101 [label="Control Dep"];
+95 -> 96 [label="AST"];
+97 -> 95 [label="AST"];
+98 -> 97 [label="AST"];
+102 -> 100 [label="AST"];
+102 -> 101 [label="AST"];
+103 -> 102 [label="AST"];
+104 -> 103 [label="AST"];
+105 -> 94 [label="AST"];
+105 -> 98 [label="AST"];
+105 -> 104 [label="AST"];
+106 -> 105 [label="AST"];
+107 -> 90 [label="AST"];
+107 -> 106 [label="AST"];
+108 -> 74 [label="AST"];
+108 -> 87 [label="AST"];
+108 -> 107 [label="AST"];
+109 -> 9 [label="AST"];
+109 -> 15 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 1 [label="AST"];
+110 -> 0 [label="AST"];
+110 -> 2 [label="AST"];
+110 -> 109 [label="AST"];
+111 -> 112 [label="Action"];
+}

@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/124/12/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/124/12/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,7 @@
+-    expectBuildException(
+-        "duplicatetextname2",
+-        "the attribute name \"text\" has already been used by the text element");
++    try {
++      buildRule.executeTarget("duplicatetextname2");
++      fail(
++          "BuildException expected: the attribute name \"text\" has already been used by the text"
++              + " element");
++    } catch (BuildException ex) {
++    }

@@ -1,0 +1,24 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 [label="locationInParent:EXPRESSION" shape=ellipse]
+2 [label="locationInParent:STATEMENT
+nodeType:CtReturnImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+3 [label="nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+4 [label="locationInParent:VARIABLE
+nodeType2:CtVariableReferenceImpl
+nodeType3:CtVariableReferenceImpl" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

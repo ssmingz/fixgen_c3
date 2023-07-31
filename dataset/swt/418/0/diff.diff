@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/418/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/418/0/after.java
+@@ -30,0 +30,8 @@
++    if (!OS.IsWinCE) {
++      for (int i = 0; i < Control.ACCENTS.length; i++) {
++        int value = OS.VkKeyScan(ACCENTS[i]);
++        if (((value & 0xff) == wParam) && ((value & 0x600) == 0x600)) {
++          return null;
++        }
++      }
++    }

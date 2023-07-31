@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/808/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/808/0/after.java
+@@ -3,17 +3,1 @@
+-    if (drawable == null) {
+-      SWT.error(ERROR_NULL_ARGUMENT);
+-    }
+-    GCData data = new GCData();
+-    int gdkGC = drawable.internal_new_GC(data);
+-    Device device = data.device;
+-    if (device == null) {
+-      device = Device.getDevice();
+-    }
+-    if (device == null) {
+-      SWT.error(ERROR_NULL_ARGUMENT);
+-    }
+-    data.device = device;
+-    init(drawable, data, gdkGC);
+-    if (device.tracking) {
+-      device.new_Object(this);
+-    }
++    this(drawable, 0);

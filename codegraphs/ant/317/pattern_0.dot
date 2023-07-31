@@ -1,0 +1,105 @@
+digraph "Pattern" {
+0 [label="setVerbose#?,boolean#3:UPDATE
+setIncludeEmptyDirs#?,boolean#3:UPDATE
+setOverwrite#?,boolean#3:UPDATE
+addFileset#?,FileSet#3:UPDATE
+logRemovedCount#?,int,String,String,String#4:UPDATE
+setGranularity#?,long#3:UPDATE
+setFailOnError#?,boolean#3:UPDATE
+setTodir#?,File#3:UPDATE" shape=ellipse]
+1 [label="setVerbose#?,boolean#3:_copy
+setIncludeEmptyDirs#?,boolean#3:_copy
+setOverwrite#?,boolean#3:_copy
+addFileset#?,FileSet#3:_copy
+logRemovedCount#?,int,String,String,String#4:_copy
+setGranularity#?,long#3:_copy
+setFailOnError#?,boolean#3:_copy
+setTodir#?,File#3:_copy" shape=ellipse]
+2 [label="setVerbose#?,boolean#3:_copy.setVerbose(verbose)
+setIncludeEmptyDirs#?,boolean#3:_copy.setIncludeEmptyDirs(includeEmpty)
+setOverwrite#?,boolean#3:_copy.setOverwrite(overwrite)
+addFileset#?,FileSet#3:_copy.addFileset(set)
+logRemovedCount#?,int,String,String,String#4:_copy.getToDir()
+setGranularity#?,long#3:_copy.setGranularity(granularity)
+setFailOnError#?,boolean#3:_copy.setFailOnError(failonerror)
+setTodir#?,File#3:_copy.setTodir(destDir)" shape=ellipse]
+3 [label="setVerbose#?,boolean#2:\{
+    _copy.setVerbose(verbose);
+\}
+setIncludeEmptyDirs#?,boolean#2:\{
+    _copy.setIncludeEmptyDirs(includeEmpty);
+\}
+setOverwrite#?,boolean#2:\{
+    _copy.setOverwrite(overwrite);
+\}
+addFileset#?,FileSet#2:\{
+    _copy.addFileset(set);
+\}
+setGranularity#?,long#2:\{
+    _copy.setGranularity(granularity);
+\}
+setFailOnError#?,boolean#2:\{
+    _copy.setFailOnError(failonerror);
+\}
+setTodir#?,File#2:\{
+    _copy.setTodir(destDir);
+\}" shape=ellipse]
+4 [label="setVerbose#?,boolean#3:setVerbose
+setIncludeEmptyDirs#?,boolean#3:setIncludeEmptyDirs
+setOverwrite#?,boolean#3:setOverwrite
+addFileset#?,FileSet#3:addFileset
+logRemovedCount#?,int,String,String,String#4:getToDir
+setGranularity#?,long#3:setGranularity
+setFailOnError#?,boolean#3:setFailOnError
+setTodir#?,File#3:setTodir" shape=ellipse]
+5 [label="setVerbose#?,boolean#3:setVerbose(boolean)
+setIncludeEmptyDirs#?,boolean#3:setIncludeEmptyDirs(boolean)
+setOverwrite#?,boolean#3:setOverwrite(boolean)
+addFileset#?,FileSet#3:addFileset(FileSet)
+logRemovedCount#?,int,String,String,String#4:getToDir()
+setGranularity#?,long#3:setGranularity(long)
+setFailOnError#?,boolean#3:setFailOnError(boolean)
+setTodir#?,File#3:setTodir(File)" shape=ellipse]
+6 [label="setVerbose#?,boolean#3:verbose
+setIncludeEmptyDirs#?,boolean#3:includeEmpty
+setOverwrite#?,boolean#3:overwrite
+addFileset#?,FileSet#3:set
+setGranularity#?,long#3:granularity
+setFailOnError#?,boolean#3:failonerror
+setTodir#?,File#3:destDir" shape=ellipse]
+7 [label="setVerbose#?,boolean#-1:_copy
+setIncludeEmptyDirs#?,boolean#-1:_copy
+setOverwrite#?,boolean#-1:_copy
+addFileset#?,FileSet#-1:_copy
+logRemovedCount#?,int,String,String,String#-1:_copy
+setGranularity#?,long#-1:_copy
+setFailOnError#?,boolean#-1:_copy
+setTodir#?,File#-1:_copy" shape=ellipse]
+8 [label="setVerbose#?,boolean#3:myCopy
+setIncludeEmptyDirs#?,boolean#3:myCopy
+setOverwrite#?,boolean#3:myCopy
+addFileset#?,FileSet#3:myCopy
+logRemovedCount#?,int,String,String,String#4:myCopy
+setGranularity#?,long#3:myCopy
+setFailOnError#?,boolean#3:myCopy
+setTodir#?,File#3:myCopy" shape=ellipse]
+9 [label="logRemovedCount#?,int,String,String,String#10:toDir" shape=ellipse]
+10 [label="logRemovedCount#?,int,String,String,String#4:toDir" shape=ellipse]
+11 [label="logRemovedCount#?,int,String,String,String#4:toDir" shape=ellipse]
+12 [label="logRemovedCount#?,int,String,String,String#4:File toDir = _copy.getToDir()" shape=ellipse]
+13 [label="logRemovedCount#?,int,String,String,String#8:toDir" shape=ellipse]
+0 -> 8 [label="Action:8"];
+1 -> 0 [label="Action:8"];
+1 -> 7 [label="AST:8"];
+1 -> 11 [label="Data Dep:1"];
+2 -> 1 [label="AST:8"];
+2 -> 4 [label="AST:8"];
+2 -> 5 [label="AST:8"];
+2 -> 6 [label="AST:7"];
+3 -> 2 [label="AST:7"];
+8 -> 10 [label="Data Dep:1"];
+11 -> 9 [label="Define Use:1"];
+11 -> 13 [label="Define Use:1"];
+12 -> 11 [label="AST:1"];
+12 -> 2 [label="AST:1"];
+}

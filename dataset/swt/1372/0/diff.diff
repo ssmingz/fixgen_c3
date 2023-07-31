@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1372/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1372/0/after.java
+@@ -27,0 +27,1 @@
++          int unscapedStr = OS.CFStringCreateWithCharacters(0, new char[] {'%'}, 1);
+@@ -29,1 +30,1 @@
+-                  kCFAllocatorDefault, str, 0, 0, kCFStringEncodingUTF8);
++                  kCFAllocatorDefault, str, unscapedStr, 0, kCFStringEncodingUTF8);
+@@ -42,0 +43,3 @@
++          if (unscapedStr != 0) {
++            OS.CFRelease(unscapedStr);
++          }

@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1360/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1360/1/after.java
+@@ -2,2 +2,9 @@
+-  static final native int VtblCall(
+-      int fnNumber, int ppVtbl, byte[] arg0, int arg1, nsID arg2, int[] arg3);
++  static final int VtblCall(
++      int fnNumber, int ppVtbl, byte[] arg0, int arg1, nsID arg2, int[] arg3) {
++    lock.lock();
++    try {
++      return _VtblCall(fnNumber, ppVtbl, arg0, arg1, arg2, arg3);
++    } finally {
++      lock.unlock();
++    }
++  }

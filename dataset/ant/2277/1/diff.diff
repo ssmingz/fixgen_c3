@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2277/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2277/1/after.java
+@@ -3,3 +3,5 @@
+-    return isReference() && (getProject() != null)
+-        ? getRef(getProject()).selectorCount()
+-        : selectors.size();
++    if (isReference()) {
++      return getRef(getProject()).selectorCount();
++    }
++    dieOnCircularReference();
++    return selectors.size();

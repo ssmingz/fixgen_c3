@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3745/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3745/2/after.java
+@@ -4,1 +4,6 @@
+-    setDay(day, false);
++    if ((style & SWT.CALENDAR) != 0) {
++      setDay(day, false);
++    } else {
++      calendar.set(Calendar.DAY_OF_MONTH, day);
++      updateControl();
++    }

@@ -1,0 +1,24 @@
+--- D:\expdata\c3\dataset\cobertura\125\1/before.java
++++ D:\expdata\c3\dataset\cobertura\125\1/after.java
+@@ -4,8 +4,0 @@
+-    double lineCoverage = -1;
+-    double branchCoverage = -1;
+-    if (classData.getNumberOfValidLines() > 0) {
+-      lineCoverage = classData.getLineCoverageRate();
+-    }
+-    if (classData.getNumberOfValidBranches() > 0) {
+-      branchCoverage = classData.getBranchCoverageRate();
+-    }
+@@ -14,2 +6,1 @@
+-        ((("<td class=\"text\"><a href=\"" + sourceFileName) + ".html\">")
+-                + classData.getBaseName())
++        ((("<td><a href=\"" + sourceFileName) + ".html\">") + classData.getBaseName())
+@@ -17,7 +8,1 @@
+-    ret.append(
+-        generateTableColumnsFromData(
+-            lineCoverage,
+-            classData.getNumberOfValidLines(),
+-            branchCoverage,
+-            classData.getNumberOfValidBranches(),
+-            ccn));
++    ret.append(generateTableColumnsFromData(classData, ccn));

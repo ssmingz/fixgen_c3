@@ -1,0 +1,231 @@
+digraph "Pattern" {
+0 [label="fireErrors#?,String#3:UPDATE
+testCustomMessageWithParameters#?#10:UPDATE
+testDestroy#?#14:UPDATE
+testAddFilter#?#8:UPDATE
+getMessages#?#2:UPDATE
+process#?,File,List#3:UPDATE
+testIOException#?#8:UPDATE
+testRemoveFilter#?#11:UPDATE
+process#?,List#10:UPDATE
+testCustomMessage#?#10:UPDATE
+logIOException#?,IOException,File#11:UPDATE" shape=ellipse]
+1 [label="fireErrors#?,String#3:TreeSet<LocalizedMessage>
+testCustomMessageWithParameters#?#10:TreeSet<LocalizedMessage>
+testDestroy#?#14:TreeSet<LocalizedMessage>
+testAddFilter#?#8:TreeSet<LocalizedMessage>
+getMessages#?#2:TreeSet<LocalizedMessage>
+process#?,File,List#3:TreeSet<LocalizedMessage>
+testIOException#?#8:TreeSet<LocalizedMessage>
+testRemoveFilter#?#11:TreeSet<LocalizedMessage>
+process#?,List#10:TreeSet<LocalizedMessage>
+testCustomMessage#?#10:TreeSet<LocalizedMessage>
+logIOException#?,IOException,File#11:TreeSet<LocalizedMessage>" shape=ellipse]
+2 [label="fireErrors#?,String#3:final TreeSet<LocalizedMessage> errors = getMessageCollector().getMessages()
+testCustomMessageWithParameters#?#10:TreeSet<LocalizedMessage> messages = collector.getMessages()
+testDestroy#?#14:final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet()
+testAddFilter#?#8:final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet()
+testIOException#?#8:final TreeSet<LocalizedMessage> messages = check.process(file, Collections.<String>emptyList())
+testRemoveFilter#?#11:final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet()
+process#?,List#10:final TreeSet<LocalizedMessage> fileMessages = Sets.newTreeSet()
+testCustomMessage#?#10:TreeSet<LocalizedMessage> messages = collector.getMessages()
+logIOException#?,IOException,File#11:final TreeSet<LocalizedMessage> messages = Sets.newTreeSet()" shape=ellipse]
+3 [label="fireErrors#?,String#2:\{
+    final TreeSet<LocalizedMessage> errors = getMessageCollector().getMessages();
+    getMessageCollector().reset();
+    getMessageDispatcher().fireErrors(fileName, errors);
+\}
+testCustomMessageWithParameters#?#3:\{
+    DefaultConfiguration config = createCheckConfig(emptyCheck.getClass());
+    config.addMessage(\"msgKey\", \"This is a custom message with \{0\}.\");
+    emptyCheck.configure(config);
+    LocalizedMessages collector = new LocalizedMessages();
+    emptyCheck.setMessages(collector);
+    emptyCheck.log(0, \"msgKey\", \"TestParam\");
+    TreeSet<LocalizedMessage> messages = collector.getMessages();
+    Assert.assertTrue(messages.size() == 1);
+    Assert.assertEquals(\"This is a custom message with TestParam.\", messages.first().getMessage());
+\}
+testDestroy#?#3:\{
+    final DebugChecker checker = new DebugChecker();
+    final DebugAuditAdapter auditAdapter = new DebugAuditAdapter();
+    checker.addListener(auditAdapter);
+    final DebugFilter filter = new DebugFilter();
+    checker.addFilter(filter);
+    checker.destroy();
+    checker.fireAuditStarted();
+    checker.fireAuditFinished();
+    checker.fireFileStarted(\"Some File Name\");
+    checker.fireFileFinished(\"Some File Name\");
+    final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet();
+    msgs.add(new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass(), null));
+    checker.fireErrors(\"Some File Name\", msgs);
+    assertFalse(\"Checker.destroy() doesn't remove listeners.\", auditAdapter.wasCalled());
+    assertFalse(\"Checker.destroy() doesn't remove filters.\", filter.wasCalled());
+\}
+testAddFilter#?#3:\{
+    final DebugChecker checker = new DebugChecker();
+    final DebugFilter filter = new DebugFilter();
+    checker.addFilter(filter);
+    filter.resetFilter();
+    final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet();
+    msgs.add(new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass(), null));
+    checker.fireErrors(\"Some File Name\", msgs);
+    assertTrue(\"Checker.fireErrors() doesn't call filter\", filter.wasCalled());
+\}
+getMessages#?#2:\{
+    return Sets.newTreeSet(messages);
+\}
+process#?,File,List#3:\{
+    getMessageCollector().reset();
+    if (Utils.fileExtensionMatches(file, fileExtensions)) \{
+        processFiltered(file, lines);
+    \}
+    return getMessageCollector().getMessages();
+\}
+testIOException#?#3:\{
+    final UniquePropertiesCheck check = new UniquePropertiesCheck();
+    check.configure(checkConfig);
+    final String fileName = getPath(\"InputUniquePropertiesCheckNotExisting.properties\");
+    final File file = new File(fileName);
+    final TreeSet<LocalizedMessage> messages = check.process(file, Collections.<String>emptyList());
+    Assert.assertEquals(\"Wrong messages count: \" + messages.size(), messages.size(), 1);
+    final LocalizedMessage message = messages.iterator().next();
+    final String retrievedMessage = messages.iterator().next().getKey();
+    Assert.assertEquals((\"Message key '\" + retrievedMessage) + \"' is not valid\", retrievedMessage, \"unable.open.cause\");
+    Assert.assertEquals((\"Message '\" + message.getMessage()) + \"' is not valid\", message.getMessage(), getCheckMessage(IO_EXCEPTION_KEY, fileName, getFileNotFoundDetail(file)));
+\}
+testRemoveFilter#?#3:\{
+    final DebugChecker checker = new DebugChecker();
+    final DebugFilter filter = new DebugFilter();
+    final DebugFilter f2 = new DebugFilter();
+    checker.addFilter(filter);
+    checker.addFilter(f2);
+    checker.removeFilter(filter);
+    f2.resetFilter();
+    final TreeSet<LocalizedMessage> msgs = Sets.newTreeSet();
+    msgs.add(new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass(), null));
+    checker.fireErrors(\"Some File Name\", msgs);
+    assertTrue(\"Checker.fireErrors() doesn't call filter\", f2.wasCalled());
+    assertFalse(\"Checker.fireErrors() does call removed filter\", filter.wasCalled());
+\}
+process#?,List#7:\{
+    final String fileName = f.getAbsolutePath();
+    fireFileStarted(fileName);
+    final TreeSet<LocalizedMessage> fileMessages = Sets.newTreeSet();
+    try \{
+        final FileText theText = new FileText(f.getAbsoluteFile(), mCharset);
+        for (final FileSetCheck fsc : mFileSetChecks) \{
+            fileMessages.addAll(fsc.process(f, theText));
+        \}
+    \} catch (final FileNotFoundException fnfe) \{
+        Utils.getExceptionLogger().debug(\"FileNotFoundException occured.\", fnfe);
+        fileMessages.add(new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, \"general.fileNotFound\", null, null, this.getClass(), null));
+    \} catch (final IOException ioe) \{
+        Utils.getExceptionLogger().debug(\"IOException occured.\", ioe);
+        fileMessages.add(new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, \"general.exception\", new String[]\{ ioe.getMessage() \}, null, this.getClass(), null));
+    \}
+    fireErrors(fileName, fileMessages);
+    fireFileFinished(fileName);
+\}
+testCustomMessage#?#3:\{
+    DefaultConfiguration config = createCheckConfig(emptyCheck.getClass());
+    config.addMessage(\"msgKey\", \"This is a custom message.\");
+    emptyCheck.configure(config);
+    LocalizedMessages collector = new LocalizedMessages();
+    emptyCheck.setMessages(collector);
+    emptyCheck.log(0, \"msgKey\");
+    TreeSet<LocalizedMessage> messages = collector.getMessages();
+    Assert.assertTrue(messages.size() == 1);
+    Assert.assertEquals(\"This is a custom message.\", messages.first().getMessage());
+\}
+logIOException#?,IOException,File#2:\{
+    String[] args = null;
+    String key = \"general.fileNotFound\";
+    if (!(ex instanceof FileNotFoundException)) \{
+        args = new String[]\{ ex.getMessage() \};
+        key = \"general.exception\";
+    \}
+    final LocalizedMessage message = new LocalizedMessage(0, Defn.CHECKSTYLE_BUNDLE, key, args, getId(), this.getClass(), null);
+    final TreeSet<LocalizedMessage> messages = Sets.newTreeSet();
+    messages.add(message);
+    getMessageDispatcher().fireErrors(file.getPath(), messages);
+    Utils.getExceptionLogger().debug(\"IOException occured.\", ex);
+\}" shape=ellipse]
+4 [label="fireErrors#?,String#3:errors
+testCustomMessageWithParameters#?#10:messages
+testDestroy#?#14:msgs
+testAddFilter#?#8:msgs
+testIOException#?#8:messages
+testRemoveFilter#?#11:msgs
+process#?,List#10:fileMessages
+testCustomMessage#?#10:messages
+logIOException#?,IOException,File#11:messages" shape=ellipse]
+5 [label="fireErrors#?,String#3:getMessageCollector().getMessages()
+testCustomMessageWithParameters#?#10:collector.getMessages()
+testDestroy#?#14:Sets.newTreeSet()
+testAddFilter#?#8:Sets.newTreeSet()
+testIOException#?#8:check.process(file, Collections.<String>emptyList())
+testRemoveFilter#?#11:Sets.newTreeSet()
+process#?,List#10:Sets.newTreeSet()
+testCustomMessage#?#10:collector.getMessages()
+logIOException#?,IOException,File#11:Sets.newTreeSet()" shape=ellipse]
+6 [label="fireErrors#?,String#3:
+testCustomMessageWithParameters#?#10:
+testDestroy#?#14:
+testAddFilter#?#8:
+getMessages#?#2:
+process#?,File,List#3:
+testIOException#?#8:
+testRemoveFilter#?#11:
+process#?,List#10:
+testCustomMessage#?#10:
+logIOException#?,IOException,File#11:" shape=ellipse]
+7 [label="fireErrors#?,String#3:LocalizedMessage
+testCustomMessageWithParameters#?#10:LocalizedMessage
+testDestroy#?#14:LocalizedMessage
+testAddFilter#?#8:LocalizedMessage
+getMessages#?#2:LocalizedMessage
+process#?,File,List#3:LocalizedMessage
+testIOException#?#8:LocalizedMessage
+testRemoveFilter#?#11:LocalizedMessage
+process#?,List#10:LocalizedMessage
+testCustomMessage#?#10:LocalizedMessage
+logIOException#?,IOException,File#11:LocalizedMessage" shape=ellipse]
+8 [label="getMessages#?#2:getMessages
+process#?,File,List#3:process" shape=ellipse]
+9 [label="getMessages#?#2:public TreeSet<LocalizedMessage> getMessages() \{
+    return Sets.newTreeSet(messages);
+\}" shape=ellipse]
+10 [label="process#?,File,List#2:@Override" shape=ellipse]
+11 [label="process#?,File,List#3:File file" shape=ellipse]
+12 [label="process#?,File,List#3:List<String> lines" shape=ellipse]
+13 [label="process#?,File,List#3:@Override
+public final TreeSet<LocalizedMessage> process(File file, List<String> lines) \{
+    getMessageCollector().reset();
+    if (Utils.fileExtensionMatches(file, fileExtensions)) \{
+        processFiltered(file, lines);
+    \}
+    return getMessageCollector().getMessages();
+\}" shape=ellipse]
+14 [label="process#?,List#7:aFiles" shape=ellipse]
+1 -> 0 [label="Action:11"];
+1 -> 6 [label="AST:11"];
+1 -> 7 [label="AST:11"];
+2 -> 1 [label="AST:9"];
+2 -> 4 [label="AST:9"];
+2 -> 5 [label="AST:9"];
+3 -> 2 [label="AST:9"];
+9 -> 8 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+9 -> 3 [label="AST:1"];
+13 -> 10 [label="AST:1"];
+13 -> 11 [label="AST:1"];
+13 -> 12 [label="AST:1"];
+13 -> 8 [label="AST:1"];
+13 -> 1 [label="AST:1"];
+13 -> 3 [label="AST:1"];
+14 -> 3 [label="Control Dep:1"];
+14 -> 2 [label="Control Dep:1"];
+14 -> 5 [label="Control Dep:1"];
+}

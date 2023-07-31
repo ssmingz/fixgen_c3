@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1834/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1834/0/after.java
+@@ -15,2 +15,6 @@
+-      String resultStr = new URL(((SAXSource) (result)).getInputSource().getSystemId()).getFile();
+-      assertTrue("Nonexistent Catalog entry return input", expected.endsWith(resultStr));
++      String resultStr = fileURLPartWithoutLeadingSlashes(((SAXSource) (result)));
++      assertTrue(
++          (("Nonexistent Catalog entry return input with a system ID like " + expected)
++                  + " but was ")
++              + resultStr,
++          expected.endsWith(resultStr));

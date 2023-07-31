@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2971/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2971/1/after.java
+@@ -3,7 +3,1 @@
+-    if (device == null) {
+-      device = Device.getDevice();
+-    }
+-    if (device == null) {
+-      SWT.error(ERROR_NULL_ARGUMENT);
+-    }
+-    this.device = device;
++    super(device);
+@@ -18,1 +12,1 @@
+-    int[] result = Image.init(device, null, source, mask);
++    int[] result = Image.init(this.device, null, source, mask);
+@@ -34,3 +28,1 @@
+-    if (device.tracking) {
+-      device.new_Object(this);
+-    }
++    init();

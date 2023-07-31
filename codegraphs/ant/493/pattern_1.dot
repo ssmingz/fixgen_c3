@@ -1,0 +1,304 @@
+digraph "Pattern" {
+0 [label="execute#?#36:INSERT
+execute#?#25:INSERT" shape=ellipse]
+1 [label="execute#?#2:public void execute() throws BuildException \{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new BuildException(\"Invalid target: \" + target);
+    \}
+    File javaFile = null;
+    if (outputDirectory == null) \{
+        cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + getDefaultOutputDirectory());
+        javaFile = new File(createOutputFileName(target, outputFile, null));
+    \} else \{
+        if (!outputDirectory.isDirectory()) \{
+            throw new BuildException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+        \}
+        cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+        javaFile = new File(createOutputFileName(target, outputFile, outputDirectory.getPath()));
+    \}
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+        return;
+    \}
+    if (outputFile != null) \{
+        cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJTREE));
+    final Path classpath = cmdl.createClasspath(getProject());
+    final File javaccJar = JavaCC.getArchiveFile(javaccHome);
+    classpath.createPathElement().setPath(javaccJar.getAbsolutePath());
+    classpath.addJavaRuntime();
+    final Commandline.Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null);
+    log(cmdl.describeCommand(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new BuildException(\"JJTree failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to launch JJTree\", e);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new BuildException(\"Invalid target: \" + target);
+    \}
+    if (outputFile != null) \{
+        cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+    \}
+    File javaFile = new File(createOutputFileName(target, outputFile, plainText));
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+        return;
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJDOC));
+    final Path classpath = cmdl.createClasspath(getProject());
+    final File javaccJar = JavaCC.getArchiveFile(javaccHome);
+    classpath.createPathElement().setPath(javaccJar.getAbsolutePath());
+    classpath.addJavaRuntime();
+    final Commandline.Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null);
+    log(cmdl.describeCommand(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new BuildException(\"JJDoc failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to launch JJDoc\", e);
+    \}
+\}" shape=ellipse]
+2 [label="execute#?#2:execute
+execute#?#2:execute" shape=ellipse]
+3 [label="execute#?#2:void
+execute#?#2:void" shape=ellipse]
+4 [label="execute#?#2:BuildException
+execute#?#2:BuildException" shape=ellipse]
+5 [label="execute#?#-1:
+execute#?#-1:" shape=ellipse]
+6 [label="execute#?#2:\{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new BuildException(\"Invalid target: \" + target);
+    \}
+    File javaFile = null;
+    if (outputDirectory == null) \{
+        cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + getDefaultOutputDirectory());
+        javaFile = new File(createOutputFileName(target, outputFile, null));
+    \} else \{
+        if (!outputDirectory.isDirectory()) \{
+            throw new BuildException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+        \}
+        cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+        javaFile = new File(createOutputFileName(target, outputFile, outputDirectory.getPath()));
+    \}
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+        return;
+    \}
+    if (outputFile != null) \{
+        cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJTREE));
+    final Path classpath = cmdl.createClasspath(getProject());
+    final File javaccJar = JavaCC.getArchiveFile(javaccHome);
+    classpath.createPathElement().setPath(javaccJar.getAbsolutePath());
+    classpath.addJavaRuntime();
+    final Commandline.Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null);
+    log(cmdl.describeCommand(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new BuildException(\"JJTree failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to launch JJTree\", e);
+    \}
+\}
+execute#?#2:\{
+    Enumeration iter = optionalAttrs.keys();
+    while (iter.hasMoreElements()) \{
+        String name = ((String) (iter.nextElement()));
+        Object value = optionalAttrs.get(name);
+        cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+    \} 
+    if ((target == null) || (!target.isFile())) \{
+        throw new BuildException(\"Invalid target: \" + target);
+    \}
+    if (outputFile != null) \{
+        cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+    \}
+    File javaFile = new File(createOutputFileName(target, outputFile, plainText));
+    if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+        log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+        return;
+    \}
+    cmdl.createArgument().setValue(target.getAbsolutePath());
+    cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJDOC));
+    final Path classpath = cmdl.createClasspath(getProject());
+    final File javaccJar = JavaCC.getArchiveFile(javaccHome);
+    classpath.createPathElement().setPath(javaccJar.getAbsolutePath());
+    classpath.addJavaRuntime();
+    final Commandline.Argument arg = cmdl.createVmArgument();
+    arg.setValue(\"-mx140M\");
+    arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath());
+    final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null);
+    log(cmdl.describeCommand(), MSG_VERBOSE);
+    process.setCommandline(cmdl.getCommandline());
+    try \{
+        if (process.execute() != 0) \{
+            throw new BuildException(\"JJDoc failed.\");
+        \}
+    \} catch (IOException e) \{
+        throw new BuildException(\"Failed to launch JJDoc\", e);
+    \}
+\}" shape=ellipse]
+7 [label="execute#?#3:Enumeration iter = optionalAttrs.keys()
+execute#?#3:Enumeration iter = optionalAttrs.keys()" shape=ellipse]
+8 [label="execute#?#4:while (iter.hasMoreElements()) \{
+    String name = ((String) (iter.nextElement()));
+    Object value = optionalAttrs.get(name);
+    cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+\} 
+execute#?#4:while (iter.hasMoreElements()) \{
+    String name = ((String) (iter.nextElement()));
+    Object value = optionalAttrs.get(name);
+    cmdl.createArgument().setValue(((\"-\" + name) + \":\") + value.toString());
+\} " shape=ellipse]
+9 [label="execute#?#9:if ((target == null) || (!target.isFile())) \{
+    throw new BuildException(\"Invalid target: \" + target);
+\}
+execute#?#9:if ((target == null) || (!target.isFile())) \{
+    throw new BuildException(\"Invalid target: \" + target);
+\}" shape=ellipse]
+10 [label="execute#?#12:File javaFile = null
+execute#?#15:File javaFile = new File(createOutputFileName(target, outputFile, plainText))" shape=ellipse]
+11 [label="execute#?#13:if (outputDirectory == null) \{
+    cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + getDefaultOutputDirectory());
+    javaFile = new File(createOutputFileName(target, outputFile, null));
+\} else \{
+    if (!outputDirectory.isDirectory()) \{
+        throw new BuildException((\"'outputdirectory' \" + outputDirectory) + \" is not a directory.\");
+    \}
+    cmdl.createArgument().setValue(\"-OUTPUT_DIRECTORY:\" + outputDirectory.getAbsolutePath().replace('\\', '/'));
+    javaFile = new File(createOutputFileName(target, outputFile, outputDirectory.getPath()));
+\}
+execute#?#12:if (outputFile != null) \{
+    cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+\}" shape=ellipse]
+12 [label="execute#?#24:if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+    log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+    return;
+\}
+execute#?#16:if (javaFile.exists() && (target.lastModified() < javaFile.lastModified())) \{
+    log((\"Target is already built - skipping (\" + target) + \")\", MSG_VERBOSE);
+    return;
+\}" shape=ellipse]
+13 [label="execute#?#28:if (outputFile != null) \{
+    cmdl.createArgument().setValue(((\"-\" + OUTPUT_FILE) + \":\") + outputFile.replace('\\', '/'));
+\}
+execute#?#33:try \{
+    if (process.execute() != 0) \{
+        throw new BuildException(\"JJDoc failed.\");
+    \}
+\} catch (IOException e) \{
+    throw new BuildException(\"Failed to launch JJDoc\", e);
+\}" shape=ellipse]
+14 [label="execute#?#31:cmdl.createArgument().setValue(target.getAbsolutePath())
+execute#?#20:cmdl.createArgument().setValue(target.getAbsolutePath())" shape=ellipse]
+15 [label="execute#?#32:cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJTREE))
+execute#?#21:cmdl.setClassname(JavaCC.getMainClass(javaccHome, TASKDEF_TYPE_JJDOC))" shape=ellipse]
+16 [label="execute#?#33:final Path classpath = cmdl.createClasspath(getProject())
+execute#?#22:final Path classpath = cmdl.createClasspath(getProject())" shape=ellipse]
+17 [label="execute#?#34:final File javaccJar = JavaCC.getArchiveFile(javaccHome)
+execute#?#23:final File javaccJar = JavaCC.getArchiveFile(javaccHome)" shape=ellipse]
+18 [label="execute#?#35:classpath.createPathElement().setPath(javaccJar.getAbsolutePath())
+execute#?#24:classpath.createPathElement().setPath(javaccJar.getAbsolutePath())" shape=ellipse]
+19 [label="execute#?#36:classpath.addJavaRuntime()
+execute#?#25:classpath.addJavaRuntime()" shape=ellipse]
+20 [label="execute#?#37:final Commandline.Argument arg = cmdl.createVmArgument()
+execute#?#26:final Commandline.Argument arg = cmdl.createVmArgument()" shape=ellipse]
+21 [label="execute#?#38:arg.setValue(\"-mx140M\")
+execute#?#27:arg.setValue(\"-mx140M\")" shape=ellipse]
+22 [label="execute#?#39:arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath())
+execute#?#28:arg.setValue(\"-Dinstall.root=\" + javaccHome.getAbsolutePath())" shape=ellipse]
+23 [label="execute#?#40:final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null)
+execute#?#29:final Execute process = new Execute(new LogStreamHandler(this, Project.MSG_INFO, Project.MSG_INFO), null)" shape=ellipse]
+24 [label="execute#?#42:log(cmdl.describeCommand(), MSG_VERBOSE)
+execute#?#31:log(cmdl.describeCommand(), MSG_VERBOSE)" shape=ellipse]
+25 [label="execute#?#43:process.setCommandline(cmdl.getCommandline())
+execute#?#32:process.setCommandline(cmdl.getCommandline())" shape=ellipse]
+26 [label="execute#?#44:try \{
+    if (process.execute() != 0) \{
+        throw new BuildException(\"JJTree failed.\");
+    \}
+\} catch (IOException e) \{
+    throw new BuildException(\"Failed to launch JJTree\", e);
+\}" shape=ellipse]
+27 [label="execute#?#2:VE: Modifiers_Method
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+28 [label="execute#?#2:public
+execute#?#2:public" shape=ellipse]
+29 [label="execute#?#2:VE: ThrownTypes_execute
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+30 [label="execute#?#36:cmdl.setClassname(JavaCC.getMainClass(classpath, TASKDEF_TYPE_JJTREE))
+execute#?#25:cmdl.setClassname(JavaCC.getMainClass(classpath, TASKDEF_TYPE_JJDOC))" shape=ellipse]
+0 -> 30 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 27 [label="AST:2"];
+1 -> 28 [label="AST:2"];
+1 -> 29 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+6 -> 10 [label="AST:2"];
+6 -> 11 [label="AST:2"];
+6 -> 12 [label="AST:2"];
+6 -> 13 [label="AST:2"];
+6 -> 14 [label="AST:2"];
+6 -> 15 [label="AST:2"];
+6 -> 16 [label="AST:2"];
+6 -> 17 [label="AST:2"];
+6 -> 18 [label="AST:2"];
+6 -> 19 [label="AST:2"];
+6 -> 20 [label="AST:2"];
+6 -> 21 [label="AST:2"];
+6 -> 22 [label="AST:2"];
+6 -> 23 [label="AST:2"];
+6 -> 24 [label="AST:2"];
+6 -> 25 [label="AST:2"];
+6 -> 26 [label="AST:1"];
+}

@@ -1,0 +1,11 @@
+--- D:\expdata\c3\dataset\cobertura\84\1/before.java
++++ D:\expdata\c3\dataset\cobertura\84\1/after.java
+@@ -13,1 +13,7 @@
+-        this.ignoreRegexp = Pattern.compile(regex);
++        try {
++          Perl5Compiler pc = new Perl5Compiler();
++          this.ignoreRegexp = pc.compile(regex);
++        } catch (MalformedPatternException e) {
++          logger.warn(
++              (("The regular expression " + regex) + " is invalid: ") + e.getLocalizedMessage());
++        }

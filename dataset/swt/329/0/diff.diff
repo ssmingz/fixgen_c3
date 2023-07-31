@@ -1,0 +1,30 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/329/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/329/0/after.java
+@@ -3,5 +3,8 @@
+-    switch (((int) (user_data))) {
+-      case DELETE_FROM_CURSOR:
+-        {
+-          if (segments != null) {
+-            clearSegments(true);
++    if (hooks(GetSegments) || filters(GetSegments)) {
++      switch (((int) (user_data))) {
++        case DELETE_FROM_CURSOR:
++          {
++            if (segments != null) {
++              clearSegments(true);
++            }
++            break;
+@@ -9,7 +12,6 @@
+-          break;
+-        }
+-      case DELETE_FROM_CURSOR_INVERSE:
+-        {
+-          applySegments();
+-          return 0;
+-        }
++        case DELETE_FROM_CURSOR_INVERSE:
++          {
++            applySegments();
++            return 0;
++          }
++      }

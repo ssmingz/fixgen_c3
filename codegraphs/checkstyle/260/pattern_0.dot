@@ -1,0 +1,182 @@
+digraph "Pattern" {
+0 [label="testRemoveFilter#?#13:UPDATE
+testRemoveFilter#?#12:UPDATE" shape=ellipse]
+1 [label="testRemoveFilter#?#13:new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass())
+testRemoveFilter#?#12:new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, getClass())" shape=ellipse]
+2 [label="testRemoveFilter#?#12:msgs[0] = new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass())
+testRemoveFilter#?#11:msgs[0] = new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, getClass())" shape=ellipse]
+3 [label="testRemoveFilter#?#3:\{
+    DebugChecker c = new DebugChecker();
+    DebugFilter f = new DebugFilter();
+    DebugFilter f2 = new DebugFilter();
+    c.addFilter(f);
+    c.addFilter(f2);
+    c.removeFilter(f);
+    f2.resetFilter();
+    LocalizedMessage[] msgs = new LocalizedMessage[1];
+    msgs[0] = new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, null, getClass());
+    c.fireErrors(\"Some File Name\", msgs);
+    assertTrue(\"Checker.fireErrors() doesn't call filter\", f2.wasCalled());
+    assertFalse(\"Checker.fireErrors() does call removed filter\", f.wasCalled());
+\}
+testRemoveFilter#?#2:\{
+    DebugChecker c = new DebugChecker();
+    DebugFilter f = new DebugFilter();
+    DebugFilter f2 = new DebugFilter();
+    c.addFilter(f);
+    c.addFilter(f2);
+    c.removeFilter(f);
+    f2.resetFilter();
+    LocalizedMessage[] msgs = new LocalizedMessage[1];
+    msgs[0] = new LocalizedMessage(0, 0, \"a Bundle\", \"message.key\", new Object[]\{ \"arg\" \}, getClass());
+    c.fireErrors(\"Some File Name\", msgs);
+    assertTrue(\"Checker.fireErrors() doesn't call filter\", f2.wasCalled());
+    assertFalse(\"Checker.fireErrors() does call removed filter\", f.wasCalled());
+\}" shape=ellipse]
+4 [label="testRemoveFilter#?#12:msgs[0]
+testRemoveFilter#?#11:msgs[0]" shape=ellipse]
+5 [label="testRemoveFilter#?#13:LocalizedMessage(int,int,java.lang.String,java.lang.String,java.lang.Object[],<unknown>,java.lang.Class)
+testRemoveFilter#?#12:LocalizedMessage(int,int,java.lang.String,java.lang.String,java.lang.Object[],java.lang.Class)" shape=ellipse]
+6 [label="testRemoveFilter#?#13:LocalizedMessage
+testRemoveFilter#?#12:LocalizedMessage" shape=ellipse]
+7 [label="testRemoveFilter#?#13:LocalizedMessage
+testRemoveFilter#?#12:LocalizedMessage" shape=ellipse]
+8 [label="testRemoveFilter#?#13:int
+testRemoveFilter#?#12:int" shape=ellipse]
+9 [label="testRemoveFilter#?#13:int
+testRemoveFilter#?#12:int" shape=ellipse]
+10 [label="testRemoveFilter#?#13:String
+testRemoveFilter#?#12:String" shape=ellipse]
+11 [label="testRemoveFilter#?#13:String
+testRemoveFilter#?#12:String" shape=ellipse]
+12 [label="testRemoveFilter#?#13:Object[]
+testRemoveFilter#?#12:Object[]" shape=ellipse]
+13 [label="testRemoveFilter#?#13:null
+testRemoveFilter#?#12:Class<? extends PlaceHold>" shape=ellipse]
+14 [label="testRemoveFilter#?#13:Class<? extends PlaceHold>" shape=ellipse]
+15 [label="testRemoveFilter#?#14:0
+testRemoveFilter#?#12:0" shape=ellipse]
+16 [label="testRemoveFilter#?#14:int
+testRemoveFilter#?#12:int" shape=ellipse]
+17 [label="testRemoveFilter#?#14:0
+testRemoveFilter#?#12:0" shape=ellipse]
+18 [label="testRemoveFilter#?#14:int
+testRemoveFilter#?#12:int" shape=ellipse]
+19 [label="testRemoveFilter#?#14:\"a Bundle\"
+testRemoveFilter#?#12:\"a Bundle\"" shape=ellipse]
+20 [label="testRemoveFilter#?#14:String
+testRemoveFilter#?#12:String" shape=ellipse]
+21 [label="testRemoveFilter#?#14:\"message.key\"
+testRemoveFilter#?#12:\"message.key\"" shape=ellipse]
+22 [label="testRemoveFilter#?#14:String
+testRemoveFilter#?#12:String" shape=ellipse]
+23 [label="testRemoveFilter#?#14:new Object[]\{ \"arg\" \}
+testRemoveFilter#?#12:new Object[]\{ \"arg\" \}" shape=ellipse]
+24 [label="testRemoveFilter#?#14:Object[]
+testRemoveFilter#?#12:Object[]" shape=ellipse]
+25 [label="testRemoveFilter#?#14:\"arg\"
+testRemoveFilter#?#12:\"arg\"" shape=ellipse]
+26 [label="testRemoveFilter#?#14:null" shape=ellipse]
+27 [label="testRemoveFilter#?#14:<nulltype>
+testRemoveFilter#?#13:<nulltype>" shape=ellipse]
+28 [label="testRemoveFilter#?#14:getClass()
+testRemoveFilter#?#12:getClass()" shape=ellipse]
+29 [label="testRemoveFilter#?#14:getClass
+testRemoveFilter#?#12:getClass" shape=ellipse]
+30 [label="testRemoveFilter#?#14:
+testRemoveFilter#?#12:" shape=ellipse]
+31 [label="testRemoveFilter#?#14:getClass()
+testRemoveFilter#?#12:getClass()" shape=ellipse]
+32 [label="testRemoveFilter#?#13:LocalizedMessage(int,int,java.lang.String,java.lang.String,java.lang.Object[],<unknown>,java.lang.Class,<unknown>)
+testRemoveFilter#?#12:LocalizedMessage(int,int,java.lang.String,java.lang.String,java.lang.Object[],<unknown>,java.lang.Class)" shape=ellipse]
+33 [label="testRemoveFilter#?#13:LocalizedMessage
+testRemoveFilter#?#12:LocalizedMessage" shape=ellipse]
+34 [label="testRemoveFilter#?#13:
+testRemoveFilter#?#12:" shape=ellipse]
+35 [label="testRemoveFilter#?#13:int
+testRemoveFilter#?#12:int" shape=ellipse]
+36 [label="testRemoveFilter#?#13:int
+testRemoveFilter#?#12:int" shape=ellipse]
+37 [label="testRemoveFilter#?#13:String
+testRemoveFilter#?#12:String" shape=ellipse]
+38 [label="testRemoveFilter#?#13:java.lang
+testRemoveFilter#?#12:java.lang" shape=ellipse]
+39 [label="testRemoveFilter#?#13:String
+testRemoveFilter#?#12:String" shape=ellipse]
+40 [label="testRemoveFilter#?#13:java.lang
+testRemoveFilter#?#12:java.lang" shape=ellipse]
+41 [label="testRemoveFilter#?#13:Object[]
+testRemoveFilter#?#12:Object[]" shape=ellipse]
+42 [label="testRemoveFilter#?#13:Object
+testRemoveFilter#?#12:Object" shape=ellipse]
+43 [label="testRemoveFilter#?#13:java.lang
+testRemoveFilter#?#12:java.lang" shape=ellipse]
+44 [label="testRemoveFilter#?#13:null
+testRemoveFilter#?#12:null" shape=ellipse]
+45 [label="testRemoveFilter#?#13:Class<? extends PlaceHold>
+testRemoveFilter#?#12:Class<? extends PlaceHold>" shape=ellipse]
+46 [label="testRemoveFilter#?#13:java.lang
+testRemoveFilter#?#12:java.lang" shape=ellipse]
+47 [label="testRemoveFilter#?#13:? extends PlaceHold
+testRemoveFilter#?#12:? extends PlaceHold" shape=ellipse]
+48 [label="testRemoveFilter#?#13:PlaceHold
+testRemoveFilter#?#12:PlaceHold" shape=ellipse]
+49 [label="testRemoveFilter#?#13:
+testRemoveFilter#?#12:" shape=ellipse]
+50 [label="testRemoveFilter#?#13:null" shape=ellipse]
+51 [label="testRemoveFilter#?#14:null" shape=ellipse]
+52 [label="testRemoveFilter#?#14:<nulltype>" shape=ellipse]
+53 [label="testRemoveFilter#?#13:null" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 21 [label="AST:2"];
+1 -> 23 [label="AST:2"];
+1 -> 26 [label="AST:1"];
+1 -> 28 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+5 -> 9 [label="AST:2"];
+5 -> 10 [label="AST:2"];
+5 -> 11 [label="AST:2"];
+5 -> 12 [label="AST:2"];
+5 -> 13 [label="AST:2"];
+5 -> 14 [label="AST:1"];
+15 -> 16 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+23 -> 25 [label="AST:2"];
+26 -> 27 [label="AST:1"];
+28 -> 29 [label="AST:2"];
+28 -> 30 [label="AST:2"];
+28 -> 31 [label="AST:2"];
+30 -> 4 [label="Data Dep:2"];
+32 -> 33 [label="AST:2"];
+32 -> 35 [label="AST:2"];
+32 -> 36 [label="AST:2"];
+32 -> 37 [label="AST:2"];
+32 -> 39 [label="AST:2"];
+32 -> 41 [label="AST:2"];
+32 -> 44 [label="AST:2"];
+32 -> 45 [label="AST:2"];
+32 -> 50 [label="AST:1"];
+33 -> 34 [label="AST:2"];
+37 -> 38 [label="AST:2"];
+39 -> 40 [label="AST:2"];
+41 -> 42 [label="AST:2"];
+42 -> 43 [label="AST:2"];
+45 -> 46 [label="AST:2"];
+45 -> 47 [label="AST:2"];
+47 -> 48 [label="AST:2"];
+48 -> 49 [label="AST:2"];
+51 -> 52 [label="AST:1"];
+53 -> 27 [label="AST:1"];
+}

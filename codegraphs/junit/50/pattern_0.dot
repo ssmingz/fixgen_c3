@@ -1,0 +1,80 @@
+digraph "Pattern" {
+0 [label="savePreferences#?#5:UPDATE
+savePreferences#?#5:UPDATE" shape=ellipse]
+1 [label="savePreferences#?#5:getPreferences().save(fos, \"\")
+savePreferences#?#5:getPreferences().store(fos, \"\")" shape=ellipse]
+2 [label="savePreferences#?#4:\{
+    getPreferences().save(fos, \"\");
+\}
+savePreferences#?#4:\{
+    getPreferences().store(fos, \"\");
+\}" shape=ellipse]
+3 [label="savePreferences#?#4:try \{
+    getPreferences().save(fos, \"\");
+\} finally \{
+    fos.close();
+\}
+savePreferences#?#4:try \{
+    getPreferences().store(fos, \"\");
+\} finally \{
+    fos.close();
+\}" shape=ellipse]
+4 [label="savePreferences#?#5:save
+savePreferences#?#5:store" shape=ellipse]
+5 [label="savePreferences#?#5:getPreferences()
+savePreferences#?#5:getPreferences()" shape=ellipse]
+6 [label="savePreferences#?#5:getPreferences
+savePreferences#?#5:getPreferences" shape=ellipse]
+7 [label="savePreferences#?#5:
+savePreferences#?#5:" shape=ellipse]
+8 [label="savePreferences#?#5:getPreferences()
+savePreferences#?#5:getPreferences()" shape=ellipse]
+9 [label="savePreferences#?#5:save(FileOutputStream,java.lang.String)
+savePreferences#?#5:store(FileOutputStream,java.lang.String)" shape=ellipse]
+10 [label="savePreferences#?#5:FileOutputStream
+savePreferences#?#5:FileOutputStream" shape=ellipse]
+11 [label="savePreferences#?#5:String
+savePreferences#?#5:String" shape=ellipse]
+12 [label="savePreferences#?#5:fos
+savePreferences#?#5:fos" shape=ellipse]
+13 [label="savePreferences#?#3:fos
+savePreferences#?#3:fos" shape=ellipse]
+14 [label="savePreferences#?#5:fos
+savePreferences#?#5:fos" shape=ellipse]
+15 [label="savePreferences#?#5:\"\"
+savePreferences#?#5:\"\"" shape=ellipse]
+16 [label="savePreferences#?#5:String
+savePreferences#?#5:String" shape=ellipse]
+17 [label="savePreferences#?#5:store
+savePreferences#?#5:save" shape=ellipse]
+18 [label="savePreferences#?#5:store(FileOutputStream,java.lang.String)
+savePreferences#?#5:save(FileOutputStream,java.lang.String)" shape=ellipse]
+19 [label="savePreferences#?#5:FileOutputStream
+savePreferences#?#5:FileOutputStream" shape=ellipse]
+20 [label="savePreferences#?#5:
+savePreferences#?#5:" shape=ellipse]
+21 [label="savePreferences#?#5:String
+savePreferences#?#5:String" shape=ellipse]
+22 [label="savePreferences#?#5:java.lang
+savePreferences#?#5:java.lang" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+5 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+13 -> 12 [label="Define Use:2"];
+15 -> 16 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+18 -> 21 [label="AST:2"];
+19 -> 20 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+}

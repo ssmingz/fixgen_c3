@@ -1,0 +1,46 @@
+digraph "createFilterSet#?" {
+0 [label="2:CtTypeReferenceImpl@FilterSet" shape=ellipse]
+1 [label="2:CtVirtualElement@createFilterSet" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@FilterSet" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@FilterSet" shape=ellipse]
+4 [label="3:CtConstructorCallImpl@new FilterSet()" shape=ellipse]
+5 [label="3:CtVirtualElement@filterSet" shape=ellipse]
+6 [label="3:CtLocalVariableImpl@final FilterSet filterSet = new FilterSet()" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@addElement(FilterSet)" shape=ellipse]
+8 [label="4:CtVirtualElement@addElement" shape=ellipse]
+9 [label="4:CtFieldReadImpl@m_filterSets" shape=ellipse]
+10 [label="4:CtVariableReadImpl@filterSet" shape=ellipse]
+11 [label="4:CtInvocationImpl@m_filterSets.addElement(filterSet)" shape=ellipse]
+12 [label="5:CtVariableReadImpl@filterSet" shape=ellipse]
+13 [label="5:CtReturnImpl@return filterSet" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    final FilterSet filterSet = new FilterSet();
+    m_filterSets.addElement(filterSet);
+    return filterSet;
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@public FilterSet createFilterSet() \{
+    final FilterSet filterSet = new FilterSet();
+    m_filterSets.addElement(filterSet);
+    return filterSet;
+\}" shape=ellipse]
+16 [label="4:Update@UPDATE" shape=ellipse]
+17 [label="4:CtInvocationImpl@m_filterSets.add(filterSet)" shape=ellipse]
+5 -> 10 [label="Define-Use"];
+5 -> 12 [label="Define-Use"];
+6 -> 5 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 16 [label="Action"];
+13 -> 12 [label="AST"];
+14 -> 6 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 17 [label="Action"];
+}

@@ -1,0 +1,43 @@
+digraph "Pattern" {
+0 [label="testResultPropertyZeroNoFork#?#2:INSERT
+testResultPropertyNonZeroNoFork#?#2:INSERT" shape=ellipse]
+1 [label="testResultPropertyZeroNoFork#?#2:public void testResultPropertyZeroNoFork() \{
+    executeTarget(\"testResultPropertyZeroNoFork\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZeroNoFork#?#2:public void testResultPropertyNonZeroNoFork() \{
+    executeTarget(\"testResultPropertyNonZeroNoFork\");
+    assertEquals(\"-1\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+2 [label="testResultPropertyZeroNoFork#?#2:testResultPropertyZeroNoFork
+testResultPropertyNonZeroNoFork#?#2:testResultPropertyNonZeroNoFork" shape=ellipse]
+3 [label="testResultPropertyZeroNoFork#?#2:void
+testResultPropertyNonZeroNoFork#?#2:void" shape=ellipse]
+4 [label="testResultPropertyZeroNoFork#?#2:\{
+    executeTarget(\"testResultPropertyZeroNoFork\");
+    assertEquals(\"0\", project.getProperty(\"exitcode\"));
+\}
+testResultPropertyNonZeroNoFork#?#2:\{
+    executeTarget(\"testResultPropertyNonZeroNoFork\");
+    assertEquals(\"-1\", project.getProperty(\"exitcode\"));
+\}" shape=ellipse]
+5 [label="testResultPropertyZeroNoFork#?#3:executeTarget(\"testResultPropertyZeroNoFork\")
+testResultPropertyNonZeroNoFork#?#3:executeTarget(\"testResultPropertyNonZeroNoFork\")" shape=ellipse]
+6 [label="testResultPropertyZeroNoFork#?#4:assertEquals(\"0\", project.getProperty(\"exitcode\"))
+testResultPropertyNonZeroNoFork#?#4:assertEquals(\"-1\", project.getProperty(\"exitcode\"))" shape=ellipse]
+7 [label="testResultPropertyZeroNoFork#?#2:public
+testResultPropertyNonZeroNoFork#?#2:public" shape=ellipse]
+8 [label="testResultPropertyZeroNoFork#?#2:VE: Modifiers_Method
+testResultPropertyNonZeroNoFork#?#2:VE: Modifiers_Method" shape=ellipse]
+9 [label="testResultPropertyZeroNoFork#?#2:@Test
+testResultPropertyNonZeroNoFork#?#2:@Test" shape=ellipse]
+0 -> 9 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+}

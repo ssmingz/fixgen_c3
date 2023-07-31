@@ -1,0 +1,156 @@
+digraph "Pattern" {
+0 [label="findContainingConstantDef#?,DetailAST#10:UPDATE
+visitToken#?,DetailAST#3:UPDATE" shape=ellipse]
+1 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils.inInterfaceBlock(varDefAST)
+visitToken#?,DetailAST#3:ScopeUtils.inInterfaceBlock(aAST)" shape=ellipse]
+2 [label="findContainingConstantDef#?,DetailAST#10:if (ScopeUtils.inInterfaceBlock(varDefAST)) \{
+    return varDefAST;
+\}
+visitToken#?,DetailAST#3:if (ScopeUtils.inInterfaceBlock(aAST)) \{
+    return;
+\}" shape=ellipse]
+3 [label="findContainingConstantDef#?,DetailAST#2:\{
+    DetailAST varDefAST = aAST;
+    while ((varDefAST != null) && (varDefAST.getType() != TokenTypes.VARIABLE_DEF)) \{
+        varDefAST = varDefAST.getParent();
+    \} 
+    if (varDefAST == null) \{
+        return null;
+    \}
+    if (ScopeUtils.inInterfaceBlock(varDefAST)) \{
+        return varDefAST;
+    \}
+    final DetailAST modifiersAST = varDefAST.findFirstToken(MODIFIERS);
+    if (modifiersAST.branchContains(FINAL)) \{
+        return varDefAST;
+    \}
+    return null;
+\}
+visitToken#?,DetailAST#2:\{
+    if (ScopeUtils.inInterfaceBlock(aAST)) \{
+        return;
+    \}
+    final DetailAST modifiers = aAST.findFirstToken(MODIFIERS);
+    if (((modifiers.branchContains(LITERAL_PRIVATE) || modifiers.branchContains(ABSTRACT)) || modifiers.branchContains(FINAL)) || modifiers.branchContains(LITERAL_STATIC)) \{
+        return;
+    \}
+    if (!ScopeUtils.getSurroundingScope(aAST).isIn(PROTECTED)) \{
+        return;
+    \}
+    final DetailAST implementation = aAST.findFirstToken(SLIST);
+    if ((implementation != null) && (implementation.getFirstChild().getType() == TokenTypes.RCURLY)) \{
+        return;
+    \}
+    final DetailAST classDef = findContainingClass(aAST);
+    final DetailAST classMods = classDef.findFirstToken(MODIFIERS);
+    if (classMods.branchContains(FINAL)) \{
+        return;
+    \}
+    final DetailAST objBlock = classDef.findFirstToken(OBJBLOCK);
+    boolean hasDefaultConstructor = true;
+    boolean hasExplNonPrivateCtor = false;
+    DetailAST candidate = ((DetailAST) (objBlock.getFirstChild()));
+    while (candidate != null) \{
+        if (candidate.getType() == TokenTypes.CTOR_DEF) \{
+            hasDefaultConstructor = false;
+            final DetailAST ctorMods = candidate.findFirstToken(MODIFIERS);
+            if (!ctorMods.branchContains(LITERAL_PRIVATE)) \{
+                hasExplNonPrivateCtor = true;
+                break;
+            \}
+        \}
+        candidate = ((DetailAST) (candidate.getNextSibling()));
+    \} 
+    if (hasDefaultConstructor || hasExplNonPrivateCtor) \{
+        final String name = aAST.findFirstToken(IDENT).getText();
+        log(aAST.getLineNo(), aAST.getColumnNo(), \"design.forExtension\", name);
+    \}
+\}" shape=ellipse]
+4 [label="findContainingConstantDef#?,DetailAST#10:\{
+    return varDefAST;
+\}
+visitToken#?,DetailAST#3:\{
+    return;
+\}" shape=ellipse]
+5 [label="findContainingConstantDef#?,DetailAST#10:inInterfaceOrAnnotationBlock
+visitToken#?,DetailAST#3:inInterfaceOrAnnotationBlock" shape=ellipse]
+6 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+7 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+8 [label="findContainingConstantDef#?,DetailAST#10:
+visitToken#?,DetailAST#3:" shape=ellipse]
+9 [label="findContainingConstantDef#?,DetailAST#10:inInterfaceOrAnnotationBlock(DetailAST)
+visitToken#?,DetailAST#3:inInterfaceOrAnnotationBlock(DetailAST)" shape=ellipse]
+10 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+11 [label="findContainingConstantDef#?,DetailAST#10:
+visitToken#?,DetailAST#3:" shape=ellipse]
+12 [label="findContainingConstantDef#?,DetailAST#10:boolean
+visitToken#?,DetailAST#3:boolean" shape=ellipse]
+13 [label="findContainingConstantDef#?,DetailAST#10:DetailAST
+visitToken#?,DetailAST#3:DetailAST" shape=ellipse]
+14 [label="findContainingConstantDef#?,DetailAST#10:
+visitToken#?,DetailAST#3:" shape=ellipse]
+15 [label="findContainingConstantDef#?,DetailAST#10:varDefAST
+visitToken#?,DetailAST#3:aAST" shape=ellipse]
+16 [label="findContainingConstantDef#?,DetailAST#10:varDefAST
+visitToken#?,DetailAST#3:aAST" shape=ellipse]
+17 [label="findContainingConstantDef#?,DetailAST#10:DetailAST
+visitToken#?,DetailAST#3:DetailAST" shape=ellipse]
+18 [label="findContainingConstantDef#?,DetailAST#10:
+visitToken#?,DetailAST#3:" shape=ellipse]
+19 [label="findContainingConstantDef#?,DetailAST#11:return varDefAST
+visitToken#?,DetailAST#4:return" shape=ellipse]
+20 [label="findContainingConstantDef#?,DetailAST#11:varDefAST" shape=ellipse]
+21 [label="findContainingConstantDef#?,DetailAST#11:varDefAST" shape=ellipse]
+22 [label="findContainingConstantDef#?,DetailAST#10:inInterfaceBlock
+visitToken#?,DetailAST#3:inInterfaceBlock" shape=ellipse]
+23 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+24 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+25 [label="findContainingConstantDef#?,DetailAST#10:inInterfaceBlock(DetailAST)
+visitToken#?,DetailAST#3:inInterfaceBlock(DetailAST)" shape=ellipse]
+26 [label="findContainingConstantDef#?,DetailAST#10:ScopeUtils
+visitToken#?,DetailAST#3:ScopeUtils" shape=ellipse]
+27 [label="findContainingConstantDef#?,DetailAST#10:boolean
+visitToken#?,DetailAST#3:boolean" shape=ellipse]
+28 [label="findContainingConstantDef#?,DetailAST#10:DetailAST
+visitToken#?,DetailAST#3:DetailAST" shape=ellipse]
+29 [label="findContainingConstantDef#?,DetailAST#5:varDefAST" shape=ellipse]
+30 [label="findContainingConstantDef#?,DetailAST#10:varDefAST
+visitToken#?,DetailAST#3:aAST" shape=ellipse]
+31 [label="visitToken#?,DetailAST#3:aAST" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 22 [label="AST:2"];
+1 -> 23 [label="AST:2"];
+1 -> 25 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 4 [label="Control Dep:2"];
+1 -> 19 [label="Control Dep:2"];
+1 -> 20 [label="Control Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 19 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 12 [label="AST:2"];
+9 -> 13 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+15 -> 30 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+17 -> 18 [label="AST:2"];
+19 -> 20 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+23 -> 24 [label="AST:2"];
+25 -> 26 [label="AST:2"];
+25 -> 27 [label="AST:2"];
+25 -> 28 [label="AST:2"];
+29 -> 15 [label="Define Use:1"];
+29 -> 20 [label="Define Use:1"];
+31 -> 16 [label="AST:1"];
+}

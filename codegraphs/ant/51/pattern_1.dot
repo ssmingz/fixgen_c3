@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testSingleCopy#?#2:INSERT
+testOutputProperty#?#2:INSERT" shape=ellipse]
+1 [label="testSingleCopy#?#2:public void testSingleCopy() \{
+    executeTarget(\"singlecopy\");
+\}
+testOutputProperty#?#2:public void testOutputProperty() throws Exception \{
+    executeTarget(\"testOutputProperty\");
+\}" shape=ellipse]
+2 [label="testSingleCopy#?#2:testSingleCopy
+testOutputProperty#?#2:testOutputProperty" shape=ellipse]
+3 [label="testSingleCopy#?#2:void
+testOutputProperty#?#2:void" shape=ellipse]
+4 [label="testSingleCopy#?#2:\{
+    executeTarget(\"singlecopy\");
+\}
+testOutputProperty#?#2:\{
+    executeTarget(\"testOutputProperty\");
+\}" shape=ellipse]
+5 [label="testSingleCopy#?#3:executeTarget(\"singlecopy\")
+testOutputProperty#?#3:executeTarget(\"testOutputProperty\")" shape=ellipse]
+6 [label="testSingleCopy#?#2:public
+testOutputProperty#?#2:public" shape=ellipse]
+7 [label="testSingleCopy#?#2:VE: Modifiers_Method
+testOutputProperty#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testSingleCopy#?#2:@Test
+testOutputProperty#?#2:@Test" shape=ellipse]
+9 [label="testOutputProperty#?#-1:java.lang" shape=ellipse]
+10 [label="testOutputProperty#?#2:Exception" shape=ellipse]
+11 [label="testOutputProperty#?#2:VE: ThrownTypes_testOutputProperty" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:1"];
+1 -> 11 [label="AST:1"];
+4 -> 5 [label="AST:2"];
+10 -> 9 [label="AST:1"];
+}

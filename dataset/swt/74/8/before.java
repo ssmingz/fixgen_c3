@@ -1,0 +1,19 @@
+class PlaceHold {
+  int gtk_row_activated(int tree, int path, int column) {
+    if (path == 0) {
+      return 0;
+    }
+    TreeItem item = null;
+    int iter = OS.g_malloc(OS.GtkTreeIter_sizeof());
+    if (OS.gtk_tree_model_get_iter(modelHandle, iter, path)) {
+      int[] index = new int[1];
+      OS.gtk_tree_model_get(modelHandle, iter, ID_COLUMN, index, -1);
+      item = items[index[0]];
+    }
+    OS.g_free(iter);
+    Event event = new Event();
+    event.item = item;
+    postEvent(DefaultSelection, event);
+    return 0;
+  }
+}

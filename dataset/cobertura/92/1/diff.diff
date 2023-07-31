@@ -1,0 +1,19 @@
+--- D:\expdata\c3\dataset\cobertura\92\1/before.java
++++ D:\expdata\c3\dataset\cobertura\92\1/after.java
+@@ -3,5 +3,8 @@
+-    Iterator iter = this.children.values().iterator();
+-    while (iter.hasNext()) {
+-      ClassData classData = ((ClassData) (iter.next()));
+-      if (classData.isValidSourceLineNumber(lineNumber)) {
+-        return classData.getLineCoverage(lineNumber);
++    lock.lock();
++    try {
++      Iterator iter = this.children.values().iterator();
++      while (iter.hasNext()) {
++        ClassData classData = ((ClassData) (iter.next()));
++        if (classData.isValidSourceLineNumber(lineNumber)) {
++          return classData.getLineCoverage(lineNumber);
++        }
+@@ -9,0 +12,2 @@
++    } finally {
++      lock.unlock();

@@ -1,0 +1,94 @@
+digraph "nextElement#?" {
+0 [label="2:CtTypeReferenceImpl@Object" shape=ellipse]
+1 [label="2:CtVirtualElement@nextElement" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@NoSuchElementException" shape=ellipse]
+3 [label="3:CtExecutableReferenceImpl@hasMoreElements()" shape=ellipse]
+4 [label="3:CtVirtualElement@hasMoreElements" shape=ellipse]
+5 [label="3:CtInvocationImpl@hasMoreElements()" shape=ellipse]
+6 [label="3:CtUnaryOperatorImpl@!hasMoreElements()" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@NoSuchElementException" shape=ellipse]
+8 [label="4:CtLiteralImpl@\"OneLiner\"" shape=ellipse]
+9 [label="4:CtConstructorCallImpl@new NoSuchElementException(\"OneLiner\")" shape=ellipse]
+10 [label="4:CtThrowImpl@throw new NoSuchElementException(\"OneLiner\")" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    throw new NoSuchElementException(\"OneLiner\");
+\}" shape=ellipse]
+12 [label="3:CtIfImpl@if (!hasMoreElements()) \{
+    throw new NoSuchElementException(\"OneLiner\");
+\}" shape=ellipse]
+13 [label="6:CtTypeReferenceImpl@BufferLine" shape=ellipse]
+14 [label="6:CtTypeReferenceImpl@BufferLine" shape=ellipse]
+15 [label="6:CtExecutableReferenceImpl@toString()" shape=ellipse]
+16 [label="6:CtVirtualElement@toString" shape=ellipse]
+17 [label="6:CtFieldReadImpl@line" shape=ellipse]
+18 [label="6:CtInvocationImpl@line.toString()" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@toString()" shape=ellipse]
+20 [label="6:CtVirtualElement@toString" shape=ellipse]
+21 [label="6:CtFieldReadImpl@eolStr" shape=ellipse]
+22 [label="6:CtInvocationImpl@eolStr.toString()" shape=ellipse]
+23 [label="6:CtConstructorCallImpl@new BufferLine(line.toString(), eolStr.toString())" shape=ellipse]
+24 [label="6:CtVirtualElement@tmpLine" shape=ellipse]
+25 [label="6:CtLocalVariableImpl@BufferLine tmpLine = new BufferLine(line.toString(), eolStr.toString())" shape=ellipse]
+26 [label="7:CtExecutableReferenceImpl@nextLine()" shape=ellipse]
+27 [label="7:CtVirtualElement@nextLine" shape=ellipse]
+28 [label="7:CtInvocationImpl@nextLine()" shape=ellipse]
+29 [label="8:CtVariableReadImpl@tmpLine" shape=ellipse]
+30 [label="8:CtReturnImpl@return tmpLine" shape=ellipse]
+31 [label="2:CtBlockImpl@\{
+    if (!hasMoreElements()) \{
+        throw new NoSuchElementException(\"OneLiner\");
+    \}
+    BufferLine tmpLine = new BufferLine(line.toString(), eolStr.toString());
+    nextLine();
+    return tmpLine;
+\}" shape=ellipse]
+32 [label="2:CtMethodImpl@public Object nextElement() throws NoSuchElementException \{
+    if (!hasMoreElements()) \{
+        throw new NoSuchElementException(\"OneLiner\");
+    \}
+    BufferLine tmpLine = new BufferLine(line.toString(), eolStr.toString());
+    nextLine();
+    return tmpLine;
+\}" shape=ellipse]
+33 [label="6:Update@UPDATE" shape=ellipse]
+34 [label="6:CtInvocationImpl@eolStr.substring(0)" shape=ellipse]
+5 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 11 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+6 -> 8 [label="Control Dep"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 6 [label="AST"];
+12 -> 11 [label="AST"];
+17 -> 24 [label="Data Dep"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+21 -> 24 [label="Data Dep"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+22 -> 33 [label="Action"];
+23 -> 18 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 29 [label="Define-Use"];
+25 -> 24 [label="AST"];
+25 -> 13 [label="AST"];
+25 -> 23 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 26 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 12 [label="AST"];
+31 -> 25 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 1 [label="AST"];
+32 -> 0 [label="AST"];
+32 -> 2 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 34 [label="Action"];
+}

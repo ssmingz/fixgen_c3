@@ -1,0 +1,25 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2415/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2415/1/after.java
+@@ -25,4 +25,0 @@
+-    int x = 0;
+-    int y = 0;
+-    int width = 0;
+-    int height = 0;
+@@ -30,12 +26,5 @@
+-    if (OS.GTK_VERSION >= OS.VERSION(2, 18, 0)) {
+-      OS.gtk_widget_get_allocation(handle, allocation);
+-      x = allocation.x;
+-      y = allocation.y;
+-      width = allocation.width;
+-      height = allocation.height;
+-    } else {
+-      x = OS.GTK_WIDGET_X(handle);
+-      y = OS.GTK_WIDGET_Y(handle);
+-      width = OS.GTK_WIDGET_WIDTH(handle);
+-      height = OS.GTK_WIDGET_HEIGHT(handle);
+-    }
++    gtk_widget_get_allocation(handle, allocation);
++    int x = allocation.x;
++    int y = allocation.y;
++    int width = allocation.width;
++    int height = allocation.height;

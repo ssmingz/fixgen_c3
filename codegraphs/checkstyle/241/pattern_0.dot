@@ -1,0 +1,125 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#5:DELETE
+visitToken#?,DetailAST#6:DELETE" shape=ellipse]
+1 [label="visitToken#?,DetailAST#5:getRegexp()
+visitToken#?,DetailAST#6:getRegexp()" shape=ellipse]
+2 [label="visitToken#?,DetailAST#5:getRegexp().matcher(text)
+visitToken#?,DetailAST#6:getRegexp().matcher(nameAST.getText())" shape=ellipse]
+3 [label="visitToken#?,DetailAST#5:getRegexp().matcher(text).find()
+visitToken#?,DetailAST#6:getRegexp().matcher(nameAST.getText()).find()" shape=ellipse]
+4 [label="visitToken#?,DetailAST#10:format" shape=ellipse]
+5 [label="visitToken#?,DetailAST#10:format
+visitToken#?,DetailAST#12:format" shape=ellipse]
+6 [label="visitToken#?,DetailAST#10:PlaceHold
+visitToken#?,DetailAST#12:PlaceHold" shape=ellipse]
+7 [label="visitToken#?,DetailAST#10:
+visitToken#?,DetailAST#12:" shape=ellipse]
+8 [label="visitToken#?,DetailAST#5:matcher" shape=ellipse]
+9 [label="visitToken#?,DetailAST#5:matcher(java.lang.String)
+visitToken#?,DetailAST#6:matcher()" shape=ellipse]
+10 [label="visitToken#?,DetailAST#5:text" shape=ellipse]
+11 [label="visitToken#?,DetailAST#5:INSERT" shape=ellipse]
+12 [label="visitToken#?,DetailAST#5:regexp
+visitToken#?,DetailAST#6:regexp" shape=ellipse]
+13 [label="visitToken#?,DetailAST#5:PlaceHold
+visitToken#?,DetailAST#6:PlaceHold" shape=ellipse]
+14 [label="visitToken#?,DetailAST#5:
+visitToken#?,DetailAST#6:" shape=ellipse]
+15 [label="visitToken#?,DetailAST#5:getRegexp
+visitToken#?,DetailAST#6:getRegexp" shape=ellipse]
+16 [label="visitToken#?,DetailAST#5:
+visitToken#?,DetailAST#6:" shape=ellipse]
+17 [label="visitToken#?,DetailAST#5:PlaceHold" shape=ellipse]
+18 [label="visitToken#?,DetailAST#5:PlaceHold
+visitToken#?,DetailAST#6:PlaceHold" shape=ellipse]
+19 [label="visitToken#?,DetailAST#5:getRegexp()
+visitToken#?,DetailAST#6:getRegexp()" shape=ellipse]
+20 [label="visitToken#?,DetailAST#4:if (mustCheckName(ast)) \{
+    final DetailAST nameAST = ast.findFirstToken(IDENT);
+    if (!getRegexp().matcher(nameAST.getText()).find()) \{
+        log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+    \}
+\}" shape=ellipse]
+21 [label="visitToken#?,DetailAST#4:mustCheckName(ast)" shape=ellipse]
+22 [label="visitToken#?,DetailAST#4:" shape=ellipse]
+23 [label="visitToken#?,DetailAST#4:ast" shape=ellipse]
+24 [label="visitToken#?,DetailAST#6:nameAST" shape=ellipse]
+25 [label="visitToken#?,DetailAST#4:\{
+    final DetailAST nameAST = ast.findFirstToken(IDENT);
+    if (!getRegexp().matcher(nameAST.getText()).find()) \{
+        log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+    \}
+\}" shape=ellipse]
+26 [label="visitToken#?,DetailAST#5:ast.findFirstToken(IDENT)" shape=ellipse]
+27 [label="visitToken#?,DetailAST#5:ast" shape=ellipse]
+28 [label="visitToken#?,DetailAST#5:IDENT" shape=ellipse]
+29 [label="visitToken#?,DetailAST#6:if (!getRegexp().matcher(nameAST.getText()).find()) \{
+    log(nameAST.getLineNo(), nameAST.getColumnNo(), MSG_INVALID_PATTERN, nameAST.getText(), getFormat());
+\}" shape=ellipse]
+30 [label="visitToken#?,DetailAST#6:!getRegexp().matcher(nameAST.getText()).find()" shape=ellipse]
+31 [label="visitToken#?,DetailAST#12:format" shape=ellipse]
+32 [label="visitToken#?,DetailAST#6:nameAST.getText()" shape=ellipse]
+33 [label="visitToken#?,DetailAST#4:mustCheckName" shape=ellipse]
+34 [label="visitToken#?,DetailAST#4:mustCheckName(<unknown>)" shape=ellipse]
+35 [label="visitToken#?,DetailAST#6:find()" shape=ellipse]
+36 [label="visitToken#?,DetailAST#5:final DetailAST nameAST = ast.findFirstToken(IDENT)" shape=ellipse]
+37 [label="visitToken#?,DetailAST#6:getText()" shape=ellipse]
+38 [label="visitToken#?,DetailAST#5:findFirstToken()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 15 [label="AST:2"];
+1 -> 16 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 8 [label="AST:1"];
+2 -> 9 [label="AST:2"];
+2 -> 10 [label="AST:1"];
+2 -> 11 [label="Action:1"];
+2 -> 32 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 4 [label="Control Dep:1"];
+3 -> 35 [label="AST:1"];
+4 -> 5 [label="AST:1"];
+5 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+16 -> 17 [label="AST:1"];
+16 -> 18 [label="AST:2"];
+20 -> 21 [label="AST:1"];
+20 -> 25 [label="AST:1"];
+21 -> 33 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 34 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+21 -> 25 [label="Control Dep:1"];
+21 -> 36 [label="Control Dep:1"];
+21 -> 26 [label="Control Dep:1"];
+21 -> 38 [label="Control Dep:1"];
+21 -> 27 [label="Control Dep:1"];
+21 -> 28 [label="Control Dep:1"];
+21 -> 29 [label="Control Dep:1"];
+21 -> 30 [label="Control Dep:1"];
+21 -> 3 [label="Control Dep:1"];
+21 -> 35 [label="Control Dep:1"];
+21 -> 2 [label="Control Dep:1"];
+21 -> 9 [label="Control Dep:1"];
+21 -> 1 [label="Control Dep:1"];
+21 -> 19 [label="Control Dep:1"];
+21 -> 16 [label="Control Dep:1"];
+21 -> 18 [label="Control Dep:1"];
+21 -> 32 [label="Control Dep:1"];
+21 -> 37 [label="Control Dep:1"];
+21 -> 24 [label="Control Dep:1"];
+25 -> 36 [label="AST:1"];
+25 -> 29 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+26 -> 38 [label="AST:1"];
+26 -> 28 [label="AST:1"];
+29 -> 30 [label="AST:1"];
+30 -> 3 [label="AST:1"];
+30 -> 31 [label="Control Dep:1"];
+31 -> 5 [label="AST:1"];
+32 -> 24 [label="AST:1"];
+32 -> 37 [label="AST:1"];
+36 -> 26 [label="AST:1"];
+}

@@ -1,0 +1,92 @@
+digraph "getDescriptors#?,Path,String" {
+0 [label="2:CtTypeReferenceImpl@Enumeration" shape=ellipse]
+1 [label="2:CtVirtualElement@getDescriptors" shape=ellipse]
+2 [label="2:CtParameterImpl@Path path" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Path" shape=ellipse]
+4 [label="2:CtParameterImpl@final String res" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@BuildException" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@IOException" shape=ellipse]
+8 [label="4:CtFieldReadImpl@loaderId" shape=ellipse]
+9 [label="4:CtLiteralImpl@null" shape=ellipse]
+10 [label="4:CtBinaryOperatorImpl@loaderId == null" shape=ellipse]
+11 [label="5:CtExecutableReferenceImpl@getResources(java.lang.String)" shape=ellipse]
+12 [label="5:CtVirtualElement@getResources" shape=ellipse]
+13 [label="5:CtExecutableReferenceImpl@getCoreLoader()" shape=ellipse]
+14 [label="5:CtVirtualElement@getCoreLoader" shape=ellipse]
+15 [label="5:CtFieldReadImpl@project" shape=ellipse]
+16 [label="5:CtInvocationImpl@project.getCoreLoader()" shape=ellipse]
+17 [label="5:CtVariableReadImpl@res" shape=ellipse]
+18 [label="5:CtInvocationImpl@project.getCoreLoader().getResources(res)" shape=ellipse]
+19 [label="5:CtReturnImpl@return project.getCoreLoader().getResources(res)" shape=ellipse]
+20 [label="4:CtBlockImpl@\{
+    return project.getCoreLoader().getResources(res);
+\}" shape=ellipse]
+21 [label="4:CtIfImpl@if (loaderId == null) \{
+    return project.getCoreLoader().getResources(res);
+\}" shape=ellipse]
+22 [label="7:CtTypeReferenceImpl@DescriptorEnumeration" shape=ellipse]
+23 [label="7:CtExecutableReferenceImpl@list()" shape=ellipse]
+24 [label="7:CtVirtualElement@list" shape=ellipse]
+25 [label="7:CtVariableReadImpl@path" shape=ellipse]
+26 [label="7:CtInvocationImpl@path.list()" shape=ellipse]
+27 [label="7:CtVariableReadImpl@res" shape=ellipse]
+28 [label="7:CtConstructorCallImpl@new DescriptorEnumeration(path.list(), res)" shape=ellipse]
+29 [label="7:CtReturnImpl@return new DescriptorEnumeration(path.list(), res)" shape=ellipse]
+30 [label="3:CtBlockImpl@\{
+    if (loaderId == null) \{
+        return project.getCoreLoader().getResources(res);
+    \}
+    return new DescriptorEnumeration(path.list(), res);
+\}" shape=ellipse]
+31 [label="2:CtMethodImpl@private Enumeration getDescriptors(Path path, final String res) throws BuildException, IOException \{
+    if (loaderId == null) \{
+        return project.getCoreLoader().getResources(res);
+    \}
+    return new DescriptorEnumeration(path.list(), res);
+\}" shape=ellipse]
+32 [label="5:Delete@DELETE" shape=ellipse]
+33 [label="5:Insert@INSERT" shape=ellipse]
+34 [label="5:CtInvocationImpl@getProject()" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 20 [label="Control Dep"];
+10 -> 19 [label="Control Dep"];
+10 -> 18 [label="Control Dep"];
+10 -> 11 [label="Control Dep"];
+10 -> 16 [label="Control Dep"];
+10 -> 13 [label="Control Dep"];
+10 -> 15 [label="Control Dep"];
+10 -> 17 [label="Control Dep"];
+15 -> 32 [label="Action"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 33 [label="Action"];
+18 -> 12 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 11 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 10 [label="AST"];
+21 -> 20 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 21 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 1 [label="AST"];
+31 -> 0 [label="AST"];
+31 -> 2 [label="AST"];
+31 -> 4 [label="AST"];
+31 -> 6 [label="AST"];
+31 -> 7 [label="AST"];
+31 -> 30 [label="AST"];
+33 -> 34 [label="Action"];
+}

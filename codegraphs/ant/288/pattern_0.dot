@@ -1,0 +1,103 @@
+digraph "Pattern" {
+0 [label="testDeleteRestart#?#3:DELETE
+testAppend#?#3:DELETE
+testNoAppend#?#3:DELETE
+testRestart#?#3:DELETE" shape=ellipse]
+1 [label="testDeleteRestart#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testAppend#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testNoAppend#?#3:FileUtils fileUtils = FileUtils.newFileUtils()
+testRestart#?#3:FileUtils fileUtils = FileUtils.newFileUtils()" shape=ellipse]
+2 [label="testDeleteRestart#?#2:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"deleterestart\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\")));
+\}
+testAppend#?#2:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"append\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")));
+\}
+testNoAppend#?#2:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"noappend\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")));
+\}
+testRestart#?#2:\{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"restart\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\")));
+\}" shape=ellipse]
+3 [label="testDeleteRestart#?#2:public void testDeleteRestart() throws IOException \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"deleterestart\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\")));
+\}
+testAppend#?#2:public void testAppend() throws IOException \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"append\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")));
+\}
+testNoAppend#?#2:public void testNoAppend() throws IOException \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"noappend\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")));
+\}
+testRestart#?#2:public void testRestart() throws IOException \{
+    FileUtils fileUtils = FileUtils.newFileUtils();
+    executeTarget(\"restart\");
+    assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\")));
+\}" shape=ellipse]
+4 [label="testDeleteRestart#?#4:executeTarget(\"deleterestart\")
+testAppend#?#4:executeTarget(\"append\")
+testNoAppend#?#4:executeTarget(\"noappend\")
+testRestart#?#4:executeTarget(\"restart\")" shape=ellipse]
+5 [label="testDeleteRestart#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest4.result\"), project.resolveFile(REC_DIR + \"rectest4.log\")))
+testAppend#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest2.result\"), project.resolveFile(REC_DIR + \"rectest2.log\")))
+testNoAppend#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest1.result\"), project.resolveFile(REC_DIR + \"rectest1.log\")))
+testRestart#?#5:assertTrue(fileUtils.contentEquals(project.resolveFile(REC_DIR + \"rectest3.result\"), project.resolveFile(REC_DIR + \"rectest3.log\")))" shape=ellipse]
+6 [label="testDeleteRestart#?#3:fileUtils
+testAppend#?#3:fileUtils
+testNoAppend#?#3:fileUtils
+testRestart#?#3:fileUtils" shape=ellipse]
+7 [label="testDeleteRestart#?#6:fileUtils
+testAppend#?#6:fileUtils
+testNoAppend#?#6:fileUtils
+testRestart#?#6:fileUtils" shape=ellipse]
+8 [label="testDeleteRestart#?#3:FileUtils
+testAppend#?#3:FileUtils
+testNoAppend#?#3:FileUtils
+testRestart#?#3:FileUtils" shape=ellipse]
+9 [label="testDeleteRestart#?#-1:
+testAppend#?#-1:
+testNoAppend#?#-1:
+testRestart#?#-1:" shape=ellipse]
+10 [label="testDeleteRestart#?#3:FileUtils.newFileUtils()
+testAppend#?#3:FileUtils.newFileUtils()
+testNoAppend#?#3:FileUtils.newFileUtils()
+testRestart#?#3:FileUtils.newFileUtils()" shape=ellipse]
+11 [label="testDeleteRestart#?#3:newFileUtils
+testAppend#?#3:newFileUtils
+testNoAppend#?#3:newFileUtils
+testRestart#?#3:newFileUtils" shape=ellipse]
+12 [label="testDeleteRestart#?#3:FileUtils
+testAppend#?#3:FileUtils
+testNoAppend#?#3:FileUtils
+testRestart#?#3:FileUtils" shape=ellipse]
+13 [label="testDeleteRestart#?#3:newFileUtils()
+testAppend#?#3:newFileUtils()
+testNoAppend#?#3:newFileUtils()
+testRestart#?#3:newFileUtils()" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 6 [label="AST:4"];
+1 -> 8 [label="AST:4"];
+1 -> 10 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+6 -> 7 [label="Define Use:4"];
+8 -> 9 [label="AST:4"];
+10 -> 11 [label="AST:4"];
+10 -> 12 [label="AST:4"];
+10 -> 13 [label="AST:4"];
+}

@@ -1,0 +1,178 @@
+digraph "Pattern" {
+0 [label="exec#?,ExecMetaData#4:INSERT
+execJava13#?,ExecMetaData#3:INSERT" shape=ellipse]
+1 [label="exec#?,ExecMetaData#3:\{
+    return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+\}" shape=ellipse]
+2 [label="exec#?,ExecMetaData#3:ExecUtil.isCwd(metaData.getWorkingDirectory())" shape=ellipse]
+3 [label="exec#?,ExecMetaData#3:if (ExecUtil.isCwd(metaData.getWorkingDirectory())) \{
+    return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment());
+\} else if (null == c_execWithCWD) \{
+    final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+    throw new ExecException(message);
+\} else \{
+    return execJava13(metaData);
+\}
+execJava13#?,ExecMetaData#7:try \{
+    return ((Process) (c_execWithCWD.invoke(Runtime.getRuntime(), args)));
+\} catch (final IllegalAccessException iae) \{
+    throw new ExecException(iae.getMessage(), iae);
+\} catch (final IllegalArgumentException iae) \{
+    throw new ExecException(iae.getMessage(), iae);
+\} catch (final InvocationTargetException ite) \{
+    final Throwable t = ite.getTargetException();
+    if (t instanceof IOException) \{
+        t.fillInStackTrace();
+        throw ((IOException) (t));
+    \} else \{
+        throw new ExecException(t.getMessage(), t);
+    \}
+\}" shape=ellipse]
+4 [label="exec#?,ExecMetaData#3:isCwd
+execJava13#?,ExecMetaData#2:VE: Modifiers_Method" shape=ellipse]
+5 [label="exec#?,ExecMetaData#3:ExecUtil" shape=ellipse]
+6 [label="exec#?,ExecMetaData#3:isCwd()
+execJava13#?,ExecMetaData#2:Process" shape=ellipse]
+7 [label="exec#?,ExecMetaData#3:metaData.getWorkingDirectory()" shape=ellipse]
+8 [label="exec#?,ExecMetaData#4:return Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment())
+execJava13#?,ExecMetaData#3:final Object[] args = new Object[]\{ metaData.getCommand(), metaData.getEnvironment(), metaData.getWorkingDirectory() \}" shape=ellipse]
+9 [label="exec#?,ExecMetaData#4:Runtime.getRuntime().exec(metaData.getCommand(), metaData.getEnvironment())" shape=ellipse]
+10 [label="exec#?,ExecMetaData#4:exec(java.lang.String,java.lang.String[])
+execJava13#?,ExecMetaData#2:ExecException" shape=ellipse]
+11 [label="exec#?,ExecMetaData#4:Runtime.getRuntime()" shape=ellipse]
+12 [label="exec#?,ExecMetaData#4:getRuntime()
+execJava13#?,ExecMetaData#2:IOException" shape=ellipse]
+13 [label="exec#?,ExecMetaData#4:Runtime" shape=ellipse]
+14 [label="exec#?,ExecMetaData#4:metaData.getCommand()" shape=ellipse]
+15 [label="exec#?,ExecMetaData#4:getCommand()
+execJava13#?,ExecMetaData#2:ExecMetaData" shape=ellipse]
+16 [label="exec#?,ExecMetaData#4:metaData" shape=ellipse]
+17 [label="exec#?,ExecMetaData#4:metaData.getEnvironment()" shape=ellipse]
+18 [label="exec#?,ExecMetaData#4:getEnvironment()" shape=ellipse]
+19 [label="exec#?,ExecMetaData#4:metaData" shape=ellipse]
+20 [label="exec#?,ExecMetaData#5:
+    if (null == c_execWithCWD) \{
+        final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+        throw new ExecException(message);
+    \} else \{
+        return execJava13(metaData);
+    \}
+" shape=ellipse]
+21 [label="exec#?,ExecMetaData#5:if (null == c_execWithCWD) \{
+    final String message = \"Unable to launch native command in a \" + \"working directory other than \\".\\"\";
+    throw new ExecException(message);
+\} else \{
+    return execJava13(metaData);
+\}" shape=ellipse]
+22 [label="exec#?,ExecMetaData#5:null == c_execWithCWD" shape=ellipse]
+23 [label="exec#?,ExecMetaData#5:null" shape=ellipse]
+24 [label="exec#?,ExecMetaData#5:c_execWithCWD" shape=ellipse]
+25 [label="exec#?,ExecMetaData#4:final String[] env = ExecUtil.toNativeEnvironment(metaData.getEnvironment())
+execJava13#?,ExecMetaData#3:final String[] env = ExecUtil.toNativeEnvironment(metaData.getEnvironment())" shape=ellipse]
+26 [label="execJava13#?,ExecMetaData#2:VE: Modifiers_Parameter" shape=ellipse]
+27 [label="execJava13#?,ExecMetaData#2:final ExecMetaData metaData" shape=ellipse]
+28 [label="execJava13#?,ExecMetaData#2:\{
+    final Object[] args = new Object[]\{ metaData.getCommand(), metaData.getEnvironment(), metaData.getWorkingDirectory() \};
+    try \{
+        return ((Process) (c_execWithCWD.invoke(Runtime.getRuntime(), args)));
+    \} catch (final IllegalAccessException iae) \{
+        throw new ExecException(iae.getMessage(), iae);
+    \} catch (final IllegalArgumentException iae) \{
+        throw new ExecException(iae.getMessage(), iae);
+    \} catch (final InvocationTargetException ite) \{
+        final Throwable t = ite.getTargetException();
+        if (t instanceof IOException) \{
+            t.fillInStackTrace();
+            throw ((IOException) (t));
+        \} else \{
+            throw new ExecException(t.getMessage(), t);
+        \}
+    \}
+\}" shape=ellipse]
+29 [label="execJava13#?,ExecMetaData#-1:java.lang" shape=ellipse]
+30 [label="execJava13#?,ExecMetaData#2:execJava13" shape=ellipse]
+31 [label="execJava13#?,ExecMetaData#2:final" shape=ellipse]
+32 [label="execJava13#?,ExecMetaData#2:VE: ThrownTypes_execJava13" shape=ellipse]
+33 [label="execJava13#?,ExecMetaData#-1:" shape=ellipse]
+34 [label="execJava13#?,ExecMetaData#2:private" shape=ellipse]
+35 [label="execJava13#?,ExecMetaData#2:private Process execJava13(final ExecMetaData metaData) throws IOException, ExecException \{
+    final Object[] args = new Object[]\{ metaData.getCommand(), metaData.getEnvironment(), metaData.getWorkingDirectory() \};
+    try \{
+        return ((Process) (c_execWithCWD.invoke(Runtime.getRuntime(), args)));
+    \} catch (final IllegalAccessException iae) \{
+        throw new ExecException(iae.getMessage(), iae);
+    \} catch (final IllegalArgumentException iae) \{
+        throw new ExecException(iae.getMessage(), iae);
+    \} catch (final InvocationTargetException ite) \{
+        final Throwable t = ite.getTargetException();
+        if (t instanceof IOException) \{
+            t.fillInStackTrace();
+            throw ((IOException) (t));
+        \} else \{
+            throw new ExecException(t.getMessage(), t);
+        \}
+    \}
+\}" shape=ellipse]
+36 [label="execJava13#?,ExecMetaData#-1:" shape=ellipse]
+0 -> 25 [label="Action:2"];
+1 -> 0 [label="Action:1"];
+1 -> 8 [label="AST:1"];
+2 -> 1 [label="Control Dep:1"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:1"];
+2 -> 8 [label="Control Dep:1"];
+2 -> 9 [label="Control Dep:1"];
+2 -> 10 [label="Control Dep:1"];
+2 -> 11 [label="Control Dep:1"];
+2 -> 12 [label="Control Dep:1"];
+2 -> 13 [label="Control Dep:1"];
+2 -> 14 [label="Control Dep:1"];
+2 -> 15 [label="Control Dep:1"];
+2 -> 16 [label="Control Dep:1"];
+2 -> 17 [label="Control Dep:1"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:1"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+3 -> 1 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+3 -> 20 [label="AST:1"];
+6 -> 29 [label="AST:1"];
+8 -> 9 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 14 [label="AST:1"];
+9 -> 17 [label="AST:1"];
+10 -> 33 [label="AST:1"];
+11 -> 13 [label="AST:1"];
+11 -> 12 [label="AST:1"];
+12 -> 36 [label="AST:1"];
+14 -> 16 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+17 -> 19 [label="AST:1"];
+17 -> 18 [label="AST:1"];
+20 -> 21 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+22 -> 24 [label="AST:1"];
+27 -> 26 [label="AST:1"];
+27 -> 15 [label="AST:1"];
+27 -> 31 [label="AST:1"];
+28 -> 8 [label="AST:1"];
+28 -> 3 [label="AST:1"];
+35 -> 27 [label="AST:1"];
+35 -> 28 [label="AST:1"];
+35 -> 30 [label="AST:1"];
+35 -> 32 [label="AST:1"];
+35 -> 34 [label="AST:1"];
+35 -> 6 [label="AST:1"];
+35 -> 12 [label="AST:1"];
+35 -> 10 [label="AST:1"];
+35 -> 4 [label="AST:1"];
+35 -> 0 [label="Action:1"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/207/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/207/0/after.java
+@@ -3,1 +3,5 @@
+-    return getDocument().isModifiedSinceSave();
++    if (_cache.isDDocInCache(this)) {
++      return getDocument().isModifiedSinceSave();
++    } else {
++      return false;
++    }

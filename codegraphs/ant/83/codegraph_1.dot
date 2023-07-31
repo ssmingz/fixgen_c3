@@ -1,0 +1,834 @@
+digraph "read#?,byte[],int,int" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@read" shape=ellipse]
+2 [label="2:CtParameterImpl@byte[] buf" shape=ellipse]
+3 [label="2:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+4 [label="2:CtParameterImpl@int offset" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+6 [label="2:CtParameterImpl@int numToRead" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+8 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+10 [label="3:CtLiteralImpl@0" shape=ellipse]
+11 [label="3:CtVirtualElement@totalRead" shape=ellipse]
+12 [label="3:CtLocalVariableImpl@int totalRead = 0" shape=ellipse]
+13 [label="4:CtThisAccessImpl@this" shape=ellipse]
+14 [label="4:CtFieldReadImpl@this.entryOffset" shape=ellipse]
+15 [label="4:CtThisAccessImpl@this" shape=ellipse]
+16 [label="4:CtFieldReadImpl@this.entrySize" shape=ellipse]
+17 [label="4:CtBinaryOperatorImpl@this.entryOffset >= this.entrySize" shape=ellipse]
+18 [label="5:CtLiteralImpl@1" shape=ellipse]
+19 [label="5:CtUnaryOperatorImpl@-1" shape=ellipse]
+20 [label="5:CtReturnImpl@return -1" shape=ellipse]
+21 [label="4:CtBlockImpl@\{
+    return -1;
+\}" shape=ellipse]
+22 [label="4:CtIfImpl@if (this.entryOffset >= this.entrySize) \{
+    return -1;
+\}" shape=ellipse]
+23 [label="7:CtVariableReadImpl@numToRead" shape=ellipse]
+24 [label="7:CtThisAccessImpl@this" shape=ellipse]
+25 [label="7:CtFieldReadImpl@this.entryOffset" shape=ellipse]
+26 [label="7:CtBinaryOperatorImpl@(numToRead + this.entryOffset)" shape=ellipse]
+27 [label="7:CtThisAccessImpl@this" shape=ellipse]
+28 [label="7:CtFieldReadImpl@this.entrySize" shape=ellipse]
+29 [label="7:CtBinaryOperatorImpl@(numToRead + this.entryOffset) > this.entrySize" shape=ellipse]
+30 [label="8:CtVariableWriteImpl@numToRead" shape=ellipse]
+31 [label="8:CtThisAccessImpl@this" shape=ellipse]
+32 [label="8:CtFieldReadImpl@this.entrySize" shape=ellipse]
+33 [label="8:CtThisAccessImpl@this" shape=ellipse]
+34 [label="8:CtFieldReadImpl@this.entryOffset" shape=ellipse]
+35 [label="8:CtBinaryOperatorImpl@this.entrySize - this.entryOffset" shape=ellipse]
+36 [label="8:CtAssignmentImpl@numToRead = this.entrySize - this.entryOffset" shape=ellipse]
+37 [label="7:CtBlockImpl@\{
+    numToRead = this.entrySize - this.entryOffset;
+\}" shape=ellipse]
+38 [label="7:CtIfImpl@if ((numToRead + this.entryOffset) > this.entrySize) \{
+    numToRead = this.entrySize - this.entryOffset;
+\}" shape=ellipse]
+39 [label="10:CtThisAccessImpl@this" shape=ellipse]
+40 [label="10:CtFieldReadImpl@this.readBuf" shape=ellipse]
+41 [label="10:CtLiteralImpl@null" shape=ellipse]
+42 [label="10:CtBinaryOperatorImpl@this.readBuf != null" shape=ellipse]
+43 [label="11:CtTypeReferenceImpl@int" shape=ellipse]
+44 [label="11:CtVariableReadImpl@numToRead" shape=ellipse]
+45 [label="11:CtThisAccessImpl@this" shape=ellipse]
+46 [label="11:CtFieldReadImpl@this.readBuf" shape=ellipse]
+47 [label="11:CtFieldReadImpl@this.readBuf.length" shape=ellipse]
+48 [label="11:CtBinaryOperatorImpl@numToRead > this.readBuf.length" shape=ellipse]
+49 [label="11:CtThisAccessImpl@this" shape=ellipse]
+50 [label="11:CtFieldReadImpl@this.readBuf" shape=ellipse]
+51 [label="11:CtFieldReadImpl@this.readBuf.length" shape=ellipse]
+52 [label="11:CtVariableReadImpl@numToRead" shape=ellipse]
+53 [label="11:CtConditionalImpl@(numToRead > this.readBuf.length) ? this.readBuf.length : numToRead" shape=ellipse]
+54 [label="11:CtVirtualElement@sz" shape=ellipse]
+55 [label="11:CtLocalVariableImpl@int sz = (numToRead > this.readBuf.length) ? this.readBuf.length : numToRead" shape=ellipse]
+56 [label="12:CtExecutableReferenceImpl@arraycopy(java.lang.Object,int,java.lang.Object,int,int)" shape=ellipse]
+57 [label="12:CtVirtualElement@arraycopy" shape=ellipse]
+58 [label="12:CtTypeAccessImpl@System" shape=ellipse]
+59 [label="12:CtThisAccessImpl@this" shape=ellipse]
+60 [label="12:CtFieldReadImpl@this.readBuf" shape=ellipse]
+61 [label="12:CtLiteralImpl@0" shape=ellipse]
+62 [label="12:CtVariableReadImpl@buf" shape=ellipse]
+63 [label="12:CtVariableReadImpl@offset" shape=ellipse]
+64 [label="12:CtVariableReadImpl@sz" shape=ellipse]
+65 [label="12:CtInvocationImpl@System.arraycopy(this.readBuf, 0, buf, offset, sz)" shape=ellipse]
+66 [label="13:CtVariableReadImpl@sz" shape=ellipse]
+67 [label="13:CtThisAccessImpl@this" shape=ellipse]
+68 [label="13:CtFieldReadImpl@this.readBuf" shape=ellipse]
+69 [label="13:CtFieldReadImpl@this.readBuf.length" shape=ellipse]
+70 [label="13:CtBinaryOperatorImpl@sz >= this.readBuf.length" shape=ellipse]
+71 [label="14:CtFieldWriteImpl@this.readBuf" shape=ellipse]
+72 [label="14:CtThisAccessImpl@this" shape=ellipse]
+73 [label="14:CtLiteralImpl@null" shape=ellipse]
+74 [label="14:CtAssignmentImpl@this.readBuf = null" shape=ellipse]
+75 [label="13:CtBlockImpl@\{
+    this.readBuf = null;
+\}" shape=ellipse]
+76 [label="16:CtTypeReferenceImpl@int" shape=ellipse]
+77 [label="16:CtThisAccessImpl@this" shape=ellipse]
+78 [label="16:CtFieldReadImpl@this.readBuf" shape=ellipse]
+79 [label="16:CtFieldReadImpl@this.readBuf.length" shape=ellipse]
+80 [label="16:CtVariableReadImpl@sz" shape=ellipse]
+81 [label="16:CtBinaryOperatorImpl@this.readBuf.length - sz" shape=ellipse]
+82 [label="16:CtVirtualElement@newLen" shape=ellipse]
+83 [label="16:CtLocalVariableImpl@int newLen = this.readBuf.length - sz" shape=ellipse]
+84 [label="17:CtVirtualElement@byte[]" shape=ellipse]
+85 [label="17:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+86 [label="17:CtNewArrayImpl@new byte[newLen]" shape=ellipse]
+87 [label="17:CtVariableReadImpl@newLen" shape=ellipse]
+88 [label="17:CtVirtualElement@newBuf" shape=ellipse]
+89 [label="17:CtLocalVariableImpl@byte[] newBuf = new byte[newLen]" shape=ellipse]
+90 [label="18:CtExecutableReferenceImpl@arraycopy(java.lang.Object,int,java.lang.Object,int,int)" shape=ellipse]
+91 [label="18:CtVirtualElement@arraycopy" shape=ellipse]
+92 [label="18:CtTypeAccessImpl@System" shape=ellipse]
+93 [label="18:CtThisAccessImpl@this" shape=ellipse]
+94 [label="18:CtFieldReadImpl@this.readBuf" shape=ellipse]
+95 [label="18:CtVariableReadImpl@sz" shape=ellipse]
+96 [label="18:CtVariableReadImpl@newBuf" shape=ellipse]
+97 [label="18:CtLiteralImpl@0" shape=ellipse]
+98 [label="18:CtVariableReadImpl@newLen" shape=ellipse]
+99 [label="18:CtInvocationImpl@System.arraycopy(this.readBuf, sz, newBuf, 0, newLen)" shape=ellipse]
+100 [label="19:CtFieldWriteImpl@this.readBuf" shape=ellipse]
+101 [label="19:CtThisAccessImpl@this" shape=ellipse]
+102 [label="19:CtVariableReadImpl@newBuf" shape=ellipse]
+103 [label="19:CtAssignmentImpl@this.readBuf = newBuf" shape=ellipse]
+104 [label="15:CtBlockImpl@\{
+    int newLen = this.readBuf.length - sz;
+    byte[] newBuf = new byte[newLen];
+    System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+    this.readBuf = newBuf;
+\}" shape=ellipse]
+105 [label="13:CtIfImpl@if (sz >= this.readBuf.length) \{
+    this.readBuf = null;
+\} else \{
+    int newLen = this.readBuf.length - sz;
+    byte[] newBuf = new byte[newLen];
+    System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+    this.readBuf = newBuf;
+\}" shape=ellipse]
+106 [label="21:CtVariableWriteImpl@totalRead" shape=ellipse]
+107 [label="21:CtVariableReadImpl@sz" shape=ellipse]
+108 [label="21:CtOperatorAssignmentImpl@totalRead += sz" shape=ellipse]
+109 [label="22:CtVariableWriteImpl@numToRead" shape=ellipse]
+110 [label="22:CtVariableReadImpl@sz" shape=ellipse]
+111 [label="22:CtOperatorAssignmentImpl@numToRead -= sz" shape=ellipse]
+112 [label="23:CtVariableWriteImpl@offset" shape=ellipse]
+113 [label="23:CtVariableReadImpl@sz" shape=ellipse]
+114 [label="23:CtOperatorAssignmentImpl@offset += sz" shape=ellipse]
+115 [label="10:CtBlockImpl@\{
+    int sz = (numToRead > this.readBuf.length) ? this.readBuf.length : numToRead;
+    System.arraycopy(this.readBuf, 0, buf, offset, sz);
+    if (sz >= this.readBuf.length) \{
+        this.readBuf = null;
+    \} else \{
+        int newLen = this.readBuf.length - sz;
+        byte[] newBuf = new byte[newLen];
+        System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+        this.readBuf = newBuf;
+    \}
+    totalRead += sz;
+    numToRead -= sz;
+    offset += sz;
+\}" shape=ellipse]
+116 [label="10:CtIfImpl@if (this.readBuf != null) \{
+    int sz = (numToRead > this.readBuf.length) ? this.readBuf.length : numToRead;
+    System.arraycopy(this.readBuf, 0, buf, offset, sz);
+    if (sz >= this.readBuf.length) \{
+        this.readBuf = null;
+    \} else \{
+        int newLen = this.readBuf.length - sz;
+        byte[] newBuf = new byte[newLen];
+        System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+        this.readBuf = newBuf;
+    \}
+    totalRead += sz;
+    numToRead -= sz;
+    offset += sz;
+\}" shape=ellipse]
+117 [label="25:CtVariableReadImpl@numToRead" shape=ellipse]
+118 [label="25:CtLiteralImpl@0" shape=ellipse]
+119 [label="25:CtBinaryOperatorImpl@numToRead > 0" shape=ellipse]
+120 [label="26:CtVirtualElement@byte[]" shape=ellipse]
+121 [label="26:CtArrayTypeReferenceImpl@byte[]" shape=ellipse]
+122 [label="26:CtExecutableReferenceImpl@readRecord()" shape=ellipse]
+123 [label="26:CtVirtualElement@readRecord" shape=ellipse]
+124 [label="26:CtThisAccessImpl@this" shape=ellipse]
+125 [label="26:CtFieldReadImpl@this.buffer" shape=ellipse]
+126 [label="26:CtInvocationImpl@this.buffer.readRecord()" shape=ellipse]
+127 [label="26:CtVirtualElement@rec" shape=ellipse]
+128 [label="26:CtLocalVariableImpl@byte[] rec = this.buffer.readRecord()" shape=ellipse]
+129 [label="27:CtVariableReadImpl@rec" shape=ellipse]
+130 [label="27:CtLiteralImpl@null" shape=ellipse]
+131 [label="27:CtBinaryOperatorImpl@rec == null" shape=ellipse]
+132 [label="28:CtTypeReferenceImpl@IOException" shape=ellipse]
+133 [label="28:CtLiteralImpl@\"unexpected EOF with \"" shape=ellipse]
+134 [label="28:CtVariableReadImpl@numToRead" shape=ellipse]
+135 [label="28:CtBinaryOperatorImpl@(\"unexpected EOF with \" + numToRead)" shape=ellipse]
+136 [label="28:CtLiteralImpl@\" bytes unread\"" shape=ellipse]
+137 [label="28:CtBinaryOperatorImpl@(\"unexpected EOF with \" + numToRead) + \" bytes unread\"" shape=ellipse]
+138 [label="28:CtConstructorCallImpl@new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\")" shape=ellipse]
+139 [label="28:CtThrowImpl@throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\")" shape=ellipse]
+140 [label="27:CtBlockImpl@\{
+    throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+\}" shape=ellipse]
+141 [label="27:CtIfImpl@if (rec == null) \{
+    throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+\}" shape=ellipse]
+142 [label="30:CtTypeReferenceImpl@int" shape=ellipse]
+143 [label="30:CtVariableReadImpl@numToRead" shape=ellipse]
+144 [label="30:CtVirtualElement@sz" shape=ellipse]
+145 [label="30:CtLocalVariableImpl@int sz = numToRead" shape=ellipse]
+146 [label="31:CtTypeReferenceImpl@int" shape=ellipse]
+147 [label="31:CtVariableReadImpl@rec" shape=ellipse]
+148 [label="31:CtLocalVariableReferenceImpl@rec" shape=ellipse]
+149 [label="31:CtFieldReadImpl@rec.length" shape=ellipse]
+150 [label="31:CtVirtualElement@recLen" shape=ellipse]
+151 [label="31:CtLocalVariableImpl@int recLen = rec.length" shape=ellipse]
+152 [label="32:CtVariableReadImpl@recLen" shape=ellipse]
+153 [label="32:CtVariableReadImpl@sz" shape=ellipse]
+154 [label="32:CtBinaryOperatorImpl@recLen > sz" shape=ellipse]
+155 [label="33:CtExecutableReferenceImpl@arraycopy(java.lang.Object,int,java.lang.Object,int,int)" shape=ellipse]
+156 [label="33:CtVirtualElement@arraycopy" shape=ellipse]
+157 [label="33:CtTypeAccessImpl@System" shape=ellipse]
+158 [label="33:CtVariableReadImpl@rec" shape=ellipse]
+159 [label="33:CtLiteralImpl@0" shape=ellipse]
+160 [label="33:CtVariableReadImpl@buf" shape=ellipse]
+161 [label="33:CtVariableReadImpl@offset" shape=ellipse]
+162 [label="33:CtVariableReadImpl@sz" shape=ellipse]
+163 [label="33:CtInvocationImpl@System.arraycopy(rec, 0, buf, offset, sz)" shape=ellipse]
+164 [label="34:CtFieldWriteImpl@this.readBuf" shape=ellipse]
+165 [label="34:CtThisAccessImpl@this" shape=ellipse]
+166 [label="34:CtNewArrayImpl@new byte[recLen - sz]" shape=ellipse]
+167 [label="34:CtBinaryOperatorImpl@recLen - sz" shape=ellipse]
+168 [label="34:CtAssignmentImpl@this.readBuf = new byte[recLen - sz]" shape=ellipse]
+169 [label="35:CtExecutableReferenceImpl@arraycopy(java.lang.Object,int,java.lang.Object,int,int)" shape=ellipse]
+170 [label="35:CtVirtualElement@arraycopy" shape=ellipse]
+171 [label="35:CtTypeAccessImpl@System" shape=ellipse]
+172 [label="35:CtVariableReadImpl@rec" shape=ellipse]
+173 [label="35:CtVariableReadImpl@sz" shape=ellipse]
+174 [label="35:CtThisAccessImpl@this" shape=ellipse]
+175 [label="35:CtFieldReadImpl@this.readBuf" shape=ellipse]
+176 [label="35:CtLiteralImpl@0" shape=ellipse]
+177 [label="35:CtVariableReadImpl@recLen" shape=ellipse]
+178 [label="35:CtVariableReadImpl@sz" shape=ellipse]
+179 [label="35:CtBinaryOperatorImpl@recLen - sz" shape=ellipse]
+180 [label="35:CtInvocationImpl@System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz)" shape=ellipse]
+181 [label="32:CtBlockImpl@\{
+    System.arraycopy(rec, 0, buf, offset, sz);
+    this.readBuf = new byte[recLen - sz];
+    System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+\}" shape=ellipse]
+182 [label="37:CtVariableWriteImpl@sz" shape=ellipse]
+183 [label="37:CtVariableReadImpl@recLen" shape=ellipse]
+184 [label="37:CtAssignmentImpl@sz = recLen" shape=ellipse]
+185 [label="38:CtExecutableReferenceImpl@arraycopy(java.lang.Object,int,java.lang.Object,int,int)" shape=ellipse]
+186 [label="38:CtVirtualElement@arraycopy" shape=ellipse]
+187 [label="38:CtTypeAccessImpl@System" shape=ellipse]
+188 [label="38:CtVariableReadImpl@rec" shape=ellipse]
+189 [label="38:CtLiteralImpl@0" shape=ellipse]
+190 [label="38:CtVariableReadImpl@buf" shape=ellipse]
+191 [label="38:CtVariableReadImpl@offset" shape=ellipse]
+192 [label="38:CtVariableReadImpl@recLen" shape=ellipse]
+193 [label="38:CtInvocationImpl@System.arraycopy(rec, 0, buf, offset, recLen)" shape=ellipse]
+194 [label="36:CtBlockImpl@\{
+    sz = recLen;
+    System.arraycopy(rec, 0, buf, offset, recLen);
+\}" shape=ellipse]
+195 [label="32:CtIfImpl@if (recLen > sz) \{
+    System.arraycopy(rec, 0, buf, offset, sz);
+    this.readBuf = new byte[recLen - sz];
+    System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+\} else \{
+    sz = recLen;
+    System.arraycopy(rec, 0, buf, offset, recLen);
+\}" shape=ellipse]
+196 [label="40:CtVariableWriteImpl@totalRead" shape=ellipse]
+197 [label="40:CtVariableReadImpl@sz" shape=ellipse]
+198 [label="40:CtOperatorAssignmentImpl@totalRead += sz" shape=ellipse]
+199 [label="41:CtVariableWriteImpl@numToRead" shape=ellipse]
+200 [label="41:CtVariableReadImpl@sz" shape=ellipse]
+201 [label="41:CtOperatorAssignmentImpl@numToRead -= sz" shape=ellipse]
+202 [label="42:CtVariableWriteImpl@offset" shape=ellipse]
+203 [label="42:CtVariableReadImpl@sz" shape=ellipse]
+204 [label="42:CtOperatorAssignmentImpl@offset += sz" shape=ellipse]
+205 [label="25:CtBlockImpl@\{
+    byte[] rec = this.buffer.readRecord();
+    if (rec == null) \{
+        throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+    \}
+    int sz = numToRead;
+    int recLen = rec.length;
+    if (recLen > sz) \{
+        System.arraycopy(rec, 0, buf, offset, sz);
+        this.readBuf = new byte[recLen - sz];
+        System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+    \} else \{
+        sz = recLen;
+        System.arraycopy(rec, 0, buf, offset, recLen);
+    \}
+    totalRead += sz;
+    numToRead -= sz;
+    offset += sz;
+\}" shape=ellipse]
+206 [label="25:CtWhileImpl@while (numToRead > 0) \{
+    byte[] rec = this.buffer.readRecord();
+    if (rec == null) \{
+        throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+    \}
+    int sz = numToRead;
+    int recLen = rec.length;
+    if (recLen > sz) \{
+        System.arraycopy(rec, 0, buf, offset, sz);
+        this.readBuf = new byte[recLen - sz];
+        System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+    \} else \{
+        sz = recLen;
+        System.arraycopy(rec, 0, buf, offset, recLen);
+    \}
+    totalRead += sz;
+    numToRead -= sz;
+    offset += sz;
+\} " shape=ellipse]
+207 [label="44:CtFieldWriteImpl@this.entryOffset" shape=ellipse]
+208 [label="44:CtThisAccessImpl@this" shape=ellipse]
+209 [label="44:CtVariableReadImpl@totalRead" shape=ellipse]
+210 [label="44:CtOperatorAssignmentImpl@this.entryOffset += totalRead" shape=ellipse]
+211 [label="45:CtVariableReadImpl@totalRead" shape=ellipse]
+212 [label="45:CtReturnImpl@return totalRead" shape=ellipse]
+213 [label="2:CtBlockImpl@\{
+    int totalRead = 0;
+    if (this.entryOffset >= this.entrySize) \{
+        return -1;
+    \}
+    if ((numToRead + this.entryOffset) > this.entrySize) \{
+        numToRead = this.entrySize - this.entryOffset;
+    \}
+    if (this.readBuf != null) \{
+        int sz = (numToRead > this.readBuf.length) ? this.readBuf.length : numToRead;
+        System.arraycopy(this.readBuf, 0, buf, offset, sz);
+        if (sz >= this.readBuf.length) \{
+            this.readBuf = null;
+        \} else \{
+            int newLen = this.readBuf.length - sz;
+            byte[] newBuf = new byte[newLen];
+            System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+            this.readBuf = newBuf;
+        \}
+        totalRead += sz;
+        numToRead -= sz;
+        offset += sz;
+    \}
+    while (numToRead > 0) \{
+        byte[] rec = this.buffer.readRecord();
+        if (rec == null) \{
+            throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+        \}
+        int sz = numToRead;
+        int recLen = rec.length;
+        if (recLen > sz) \{
+            System.arraycopy(rec, 0, buf, offset, sz);
+            this.readBuf = new byte[recLen - sz];
+            System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+        \} else \{
+            sz = recLen;
+            System.arraycopy(rec, 0, buf, offset, recLen);
+        \}
+        totalRead += sz;
+        numToRead -= sz;
+        offset += sz;
+    \} 
+    this.entryOffset += totalRead;
+    return totalRead;
+\}" shape=ellipse]
+214 [label="2:CtMethodImpl@public int read(byte[] buf, int offset, int numToRead) throws IOException \{
+    int totalRead = 0;
+    if (this.entryOffset >= this.entrySize) \{
+        return -1;
+    \}
+    if ((numToRead + this.entryOffset) > this.entrySize) \{
+        numToRead = this.entrySize - this.entryOffset;
+    \}
+    if (this.readBuf != null) \{
+        int sz = (numToRead > this.readBuf.length) ? this.readBuf.length : numToRead;
+        System.arraycopy(this.readBuf, 0, buf, offset, sz);
+        if (sz >= this.readBuf.length) \{
+            this.readBuf = null;
+        \} else \{
+            int newLen = this.readBuf.length - sz;
+            byte[] newBuf = new byte[newLen];
+            System.arraycopy(this.readBuf, sz, newBuf, 0, newLen);
+            this.readBuf = newBuf;
+        \}
+        totalRead += sz;
+        numToRead -= sz;
+        offset += sz;
+    \}
+    while (numToRead > 0) \{
+        byte[] rec = this.buffer.readRecord();
+        if (rec == null) \{
+            throw new IOException((\"unexpected EOF with \" + numToRead) + \" bytes unread\");
+        \}
+        int sz = numToRead;
+        int recLen = rec.length;
+        if (recLen > sz) \{
+            System.arraycopy(rec, 0, buf, offset, sz);
+            this.readBuf = new byte[recLen - sz];
+            System.arraycopy(rec, sz, this.readBuf, 0, recLen - sz);
+        \} else \{
+            sz = recLen;
+            System.arraycopy(rec, 0, buf, offset, recLen);
+        \}
+        totalRead += sz;
+        numToRead -= sz;
+        offset += sz;
+    \} 
+    this.entryOffset += totalRead;
+    return totalRead;
+\}" shape=ellipse]
+215 [label="8:Insert@INSERT" shape=ellipse]
+216 [label="8:CtTypeReferenceImpl@int" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 14 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 21 [label="Control Dep"];
+17 -> 20 [label="Control Dep"];
+17 -> 19 [label="Control Dep"];
+17 -> 18 [label="Control Dep"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 23 [label="AST"];
+26 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 26 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 37 [label="Control Dep"];
+29 -> 36 [label="Control Dep"];
+29 -> 30 [label="Control Dep"];
+29 -> 35 [label="Control Dep"];
+29 -> 32 [label="Control Dep"];
+29 -> 31 [label="Control Dep"];
+29 -> 34 [label="Control Dep"];
+29 -> 33 [label="Control Dep"];
+30 -> 44 [label="Define-Use"];
+30 -> 52 [label="Define-Use"];
+30 -> 117 [label="Define-Use"];
+30 -> 134 [label="Define-Use"];
+30 -> 143 [label="Define-Use"];
+32 -> 31 [label="AST"];
+32 -> 30 [label="Data Dep"];
+34 -> 33 [label="AST"];
+34 -> 30 [label="Data Dep"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 215 [label="Action"];
+36 -> 30 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 29 [label="AST"];
+38 -> 37 [label="AST"];
+40 -> 39 [label="AST"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 115 [label="Control Dep"];
+42 -> 55 [label="Control Dep"];
+42 -> 53 [label="Control Dep"];
+42 -> 48 [label="Control Dep"];
+42 -> 44 [label="Control Dep"];
+42 -> 47 [label="Control Dep"];
+42 -> 46 [label="Control Dep"];
+42 -> 45 [label="Control Dep"];
+42 -> 65 [label="Control Dep"];
+42 -> 56 [label="Control Dep"];
+42 -> 58 [label="Control Dep"];
+42 -> 60 [label="Control Dep"];
+42 -> 59 [label="Control Dep"];
+42 -> 61 [label="Control Dep"];
+42 -> 62 [label="Control Dep"];
+42 -> 63 [label="Control Dep"];
+42 -> 64 [label="Control Dep"];
+42 -> 105 [label="Control Dep"];
+42 -> 70 [label="Control Dep"];
+42 -> 66 [label="Control Dep"];
+42 -> 69 [label="Control Dep"];
+42 -> 68 [label="Control Dep"];
+42 -> 67 [label="Control Dep"];
+42 -> 108 [label="Control Dep"];
+42 -> 106 [label="Control Dep"];
+42 -> 107 [label="Control Dep"];
+42 -> 111 [label="Control Dep"];
+42 -> 109 [label="Control Dep"];
+42 -> 110 [label="Control Dep"];
+42 -> 114 [label="Control Dep"];
+42 -> 112 [label="Control Dep"];
+42 -> 113 [label="Control Dep"];
+44 -> 54 [label="Data Dep"];
+46 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 54 [label="Data Dep"];
+48 -> 44 [label="AST"];
+48 -> 47 [label="AST"];
+48 -> 51 [label="Control Dep"];
+48 -> 50 [label="Control Dep"];
+48 -> 49 [label="Control Dep"];
+48 -> 52 [label="Control Dep"];
+50 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 54 [label="Data Dep"];
+52 -> 54 [label="Data Dep"];
+53 -> 48 [label="AST"];
+53 -> 51 [label="AST"];
+53 -> 52 [label="AST"];
+54 -> 64 [label="Define-Use"];
+54 -> 66 [label="Define-Use"];
+54 -> 80 [label="Define-Use"];
+54 -> 95 [label="Define-Use"];
+54 -> 107 [label="Define-Use"];
+54 -> 110 [label="Define-Use"];
+54 -> 113 [label="Define-Use"];
+55 -> 54 [label="AST"];
+55 -> 43 [label="AST"];
+55 -> 53 [label="AST"];
+60 -> 59 [label="AST"];
+65 -> 57 [label="AST"];
+65 -> 58 [label="AST"];
+65 -> 56 [label="AST"];
+65 -> 60 [label="AST"];
+65 -> 61 [label="AST"];
+65 -> 62 [label="AST"];
+65 -> 63 [label="AST"];
+65 -> 64 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 66 [label="AST"];
+70 -> 69 [label="AST"];
+70 -> 75 [label="Control Dep"];
+70 -> 74 [label="Control Dep"];
+70 -> 71 [label="Control Dep"];
+70 -> 73 [label="Control Dep"];
+70 -> 104 [label="Control Dep"];
+70 -> 83 [label="Control Dep"];
+70 -> 81 [label="Control Dep"];
+70 -> 79 [label="Control Dep"];
+70 -> 78 [label="Control Dep"];
+70 -> 77 [label="Control Dep"];
+70 -> 80 [label="Control Dep"];
+70 -> 89 [label="Control Dep"];
+70 -> 85 [label="Control Dep"];
+70 -> 86 [label="Control Dep"];
+70 -> 99 [label="Control Dep"];
+70 -> 90 [label="Control Dep"];
+70 -> 92 [label="Control Dep"];
+70 -> 94 [label="Control Dep"];
+70 -> 93 [label="Control Dep"];
+70 -> 95 [label="Control Dep"];
+70 -> 96 [label="Control Dep"];
+70 -> 97 [label="Control Dep"];
+70 -> 98 [label="Control Dep"];
+70 -> 103 [label="Control Dep"];
+70 -> 100 [label="Control Dep"];
+70 -> 102 [label="Control Dep"];
+71 -> 72 [label="AST"];
+74 -> 71 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 74 [label="AST"];
+78 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+79 -> 82 [label="Data Dep"];
+80 -> 82 [label="Data Dep"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 98 [label="Define-Use"];
+83 -> 82 [label="AST"];
+83 -> 76 [label="AST"];
+83 -> 81 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 87 [label="AST"];
+87 -> 88 [label="Data Dep"];
+88 -> 96 [label="Define-Use"];
+88 -> 102 [label="Define-Use"];
+89 -> 88 [label="AST"];
+89 -> 85 [label="AST"];
+89 -> 86 [label="AST"];
+94 -> 93 [label="AST"];
+99 -> 91 [label="AST"];
+99 -> 92 [label="AST"];
+99 -> 90 [label="AST"];
+99 -> 94 [label="AST"];
+99 -> 95 [label="AST"];
+99 -> 96 [label="AST"];
+99 -> 97 [label="AST"];
+99 -> 98 [label="AST"];
+100 -> 101 [label="AST"];
+102 -> 100 [label="Data Dep"];
+103 -> 100 [label="AST"];
+103 -> 102 [label="AST"];
+104 -> 83 [label="AST"];
+104 -> 89 [label="AST"];
+104 -> 99 [label="AST"];
+104 -> 103 [label="AST"];
+105 -> 70 [label="AST"];
+105 -> 75 [label="AST"];
+105 -> 104 [label="AST"];
+107 -> 106 [label="Data Dep"];
+108 -> 106 [label="AST"];
+108 -> 107 [label="AST"];
+109 -> 117 [label="Define-Use"];
+109 -> 134 [label="Define-Use"];
+109 -> 143 [label="Define-Use"];
+110 -> 109 [label="Data Dep"];
+111 -> 109 [label="AST"];
+111 -> 110 [label="AST"];
+112 -> 161 [label="Define-Use"];
+112 -> 191 [label="Define-Use"];
+113 -> 112 [label="Data Dep"];
+114 -> 112 [label="AST"];
+114 -> 113 [label="AST"];
+115 -> 55 [label="AST"];
+115 -> 65 [label="AST"];
+115 -> 105 [label="AST"];
+115 -> 108 [label="AST"];
+115 -> 111 [label="AST"];
+115 -> 114 [label="AST"];
+116 -> 42 [label="AST"];
+116 -> 115 [label="AST"];
+119 -> 117 [label="AST"];
+119 -> 118 [label="AST"];
+119 -> 205 [label="Control Dep"];
+119 -> 128 [label="Control Dep"];
+119 -> 121 [label="Control Dep"];
+119 -> 126 [label="Control Dep"];
+119 -> 122 [label="Control Dep"];
+119 -> 125 [label="Control Dep"];
+119 -> 124 [label="Control Dep"];
+119 -> 141 [label="Control Dep"];
+119 -> 131 [label="Control Dep"];
+119 -> 129 [label="Control Dep"];
+119 -> 130 [label="Control Dep"];
+119 -> 145 [label="Control Dep"];
+119 -> 143 [label="Control Dep"];
+119 -> 151 [label="Control Dep"];
+119 -> 149 [label="Control Dep"];
+119 -> 147 [label="Control Dep"];
+119 -> 195 [label="Control Dep"];
+119 -> 154 [label="Control Dep"];
+119 -> 152 [label="Control Dep"];
+119 -> 153 [label="Control Dep"];
+119 -> 198 [label="Control Dep"];
+119 -> 196 [label="Control Dep"];
+119 -> 197 [label="Control Dep"];
+119 -> 201 [label="Control Dep"];
+119 -> 199 [label="Control Dep"];
+119 -> 200 [label="Control Dep"];
+119 -> 204 [label="Control Dep"];
+119 -> 202 [label="Control Dep"];
+119 -> 203 [label="Control Dep"];
+121 -> 120 [label="AST"];
+125 -> 124 [label="AST"];
+125 -> 127 [label="Data Dep"];
+126 -> 123 [label="AST"];
+126 -> 125 [label="AST"];
+126 -> 122 [label="AST"];
+127 -> 129 [label="Define-Use"];
+127 -> 147 [label="Define-Use"];
+127 -> 158 [label="Define-Use"];
+127 -> 172 [label="Define-Use"];
+127 -> 188 [label="Define-Use"];
+128 -> 127 [label="AST"];
+128 -> 121 [label="AST"];
+128 -> 126 [label="AST"];
+131 -> 129 [label="AST"];
+131 -> 130 [label="AST"];
+131 -> 140 [label="Control Dep"];
+131 -> 139 [label="Control Dep"];
+131 -> 138 [label="Control Dep"];
+131 -> 137 [label="Control Dep"];
+131 -> 135 [label="Control Dep"];
+131 -> 133 [label="Control Dep"];
+131 -> 134 [label="Control Dep"];
+131 -> 136 [label="Control Dep"];
+135 -> 133 [label="AST"];
+135 -> 134 [label="AST"];
+137 -> 135 [label="AST"];
+137 -> 136 [label="AST"];
+138 -> 137 [label="AST"];
+139 -> 138 [label="AST"];
+140 -> 139 [label="AST"];
+141 -> 131 [label="AST"];
+141 -> 140 [label="AST"];
+143 -> 144 [label="Data Dep"];
+144 -> 153 [label="Define-Use"];
+144 -> 162 [label="Define-Use"];
+144 -> 173 [label="Define-Use"];
+144 -> 178 [label="Define-Use"];
+144 -> 197 [label="Define-Use"];
+144 -> 200 [label="Define-Use"];
+144 -> 203 [label="Define-Use"];
+145 -> 144 [label="AST"];
+145 -> 142 [label="AST"];
+145 -> 143 [label="AST"];
+147 -> 148 [label="AST"];
+149 -> 147 [label="AST"];
+149 -> 150 [label="Data Dep"];
+150 -> 152 [label="Define-Use"];
+150 -> 177 [label="Define-Use"];
+150 -> 183 [label="Define-Use"];
+150 -> 192 [label="Define-Use"];
+151 -> 150 [label="AST"];
+151 -> 146 [label="AST"];
+151 -> 149 [label="AST"];
+154 -> 152 [label="AST"];
+154 -> 153 [label="AST"];
+154 -> 181 [label="Control Dep"];
+154 -> 163 [label="Control Dep"];
+154 -> 155 [label="Control Dep"];
+154 -> 157 [label="Control Dep"];
+154 -> 158 [label="Control Dep"];
+154 -> 159 [label="Control Dep"];
+154 -> 160 [label="Control Dep"];
+154 -> 161 [label="Control Dep"];
+154 -> 162 [label="Control Dep"];
+154 -> 168 [label="Control Dep"];
+154 -> 164 [label="Control Dep"];
+154 -> 166 [label="Control Dep"];
+154 -> 180 [label="Control Dep"];
+154 -> 169 [label="Control Dep"];
+154 -> 171 [label="Control Dep"];
+154 -> 172 [label="Control Dep"];
+154 -> 173 [label="Control Dep"];
+154 -> 175 [label="Control Dep"];
+154 -> 174 [label="Control Dep"];
+154 -> 176 [label="Control Dep"];
+154 -> 179 [label="Control Dep"];
+154 -> 177 [label="Control Dep"];
+154 -> 178 [label="Control Dep"];
+154 -> 194 [label="Control Dep"];
+154 -> 184 [label="Control Dep"];
+154 -> 182 [label="Control Dep"];
+154 -> 183 [label="Control Dep"];
+154 -> 193 [label="Control Dep"];
+154 -> 185 [label="Control Dep"];
+154 -> 187 [label="Control Dep"];
+154 -> 188 [label="Control Dep"];
+154 -> 189 [label="Control Dep"];
+154 -> 190 [label="Control Dep"];
+154 -> 191 [label="Control Dep"];
+154 -> 192 [label="Control Dep"];
+163 -> 156 [label="AST"];
+163 -> 157 [label="AST"];
+163 -> 155 [label="AST"];
+163 -> 158 [label="AST"];
+163 -> 159 [label="AST"];
+163 -> 160 [label="AST"];
+163 -> 161 [label="AST"];
+163 -> 162 [label="AST"];
+164 -> 165 [label="AST"];
+166 -> 167 [label="AST"];
+168 -> 164 [label="AST"];
+168 -> 166 [label="AST"];
+175 -> 174 [label="AST"];
+179 -> 177 [label="AST"];
+179 -> 178 [label="AST"];
+180 -> 170 [label="AST"];
+180 -> 171 [label="AST"];
+180 -> 169 [label="AST"];
+180 -> 172 [label="AST"];
+180 -> 173 [label="AST"];
+180 -> 175 [label="AST"];
+180 -> 176 [label="AST"];
+180 -> 179 [label="AST"];
+181 -> 163 [label="AST"];
+181 -> 168 [label="AST"];
+181 -> 180 [label="AST"];
+182 -> 197 [label="Define-Use"];
+182 -> 200 [label="Define-Use"];
+182 -> 203 [label="Define-Use"];
+183 -> 182 [label="Data Dep"];
+184 -> 182 [label="AST"];
+184 -> 183 [label="AST"];
+193 -> 186 [label="AST"];
+193 -> 187 [label="AST"];
+193 -> 185 [label="AST"];
+193 -> 188 [label="AST"];
+193 -> 189 [label="AST"];
+193 -> 190 [label="AST"];
+193 -> 191 [label="AST"];
+193 -> 192 [label="AST"];
+194 -> 184 [label="AST"];
+194 -> 193 [label="AST"];
+195 -> 154 [label="AST"];
+195 -> 181 [label="AST"];
+195 -> 194 [label="AST"];
+196 -> 209 [label="Define-Use"];
+196 -> 211 [label="Define-Use"];
+197 -> 196 [label="Data Dep"];
+198 -> 196 [label="AST"];
+198 -> 197 [label="AST"];
+200 -> 199 [label="Data Dep"];
+201 -> 199 [label="AST"];
+201 -> 200 [label="AST"];
+203 -> 202 [label="Data Dep"];
+204 -> 202 [label="AST"];
+204 -> 203 [label="AST"];
+205 -> 128 [label="AST"];
+205 -> 141 [label="AST"];
+205 -> 145 [label="AST"];
+205 -> 151 [label="AST"];
+205 -> 195 [label="AST"];
+205 -> 198 [label="AST"];
+205 -> 201 [label="AST"];
+205 -> 204 [label="AST"];
+206 -> 119 [label="AST"];
+206 -> 205 [label="AST"];
+207 -> 208 [label="AST"];
+209 -> 207 [label="Data Dep"];
+210 -> 207 [label="AST"];
+210 -> 209 [label="AST"];
+212 -> 211 [label="AST"];
+213 -> 12 [label="AST"];
+213 -> 22 [label="AST"];
+213 -> 38 [label="AST"];
+213 -> 116 [label="AST"];
+213 -> 206 [label="AST"];
+213 -> 210 [label="AST"];
+213 -> 212 [label="AST"];
+214 -> 1 [label="AST"];
+214 -> 0 [label="AST"];
+214 -> 2 [label="AST"];
+214 -> 4 [label="AST"];
+214 -> 6 [label="AST"];
+214 -> 8 [label="AST"];
+214 -> 213 [label="AST"];
+215 -> 216 [label="Action"];
+}

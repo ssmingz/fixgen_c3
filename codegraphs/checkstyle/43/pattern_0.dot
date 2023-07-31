@@ -1,0 +1,105 @@
+digraph "Pattern" {
+0 [label="visitLiteralThrows#?,DetailAST#5:DELETE
+checkCount#?,DetailAST#4:DELETE" shape=ellipse]
+1 [label="visitLiteralThrows#?,DetailAST#5:\"throws.count\"
+checkCount#?,DetailAST#4:\"return.count\"" shape=ellipse]
+2 [label="visitLiteralThrows#?,DetailAST#4:count > getMax()
+checkCount#?,DetailAST#3:checking && (count > getMax())" shape=ellipse]
+3 [label="visitLiteralThrows#?,DetailAST#4:if (count > getMax()) \{
+    log(ast.getLineNo(), ast.getColumnNo(), \"throws.count\", count, getMax());
+\}
+checkCount#?,DetailAST#3:if (checking && (count > getMax())) \{
+    log(ast.getLineNo(), ast.getColumnNo(), \"return.count\", count, getMax());
+\}" shape=ellipse]
+4 [label="visitLiteralThrows#?,DetailAST#4:count
+checkCount#?,DetailAST#3:checking" shape=ellipse]
+5 [label="visitLiteralThrows#?,DetailAST#4:getMax()" shape=ellipse]
+6 [label="visitLiteralThrows#?,DetailAST#4:\{
+    log(ast.getLineNo(), ast.getColumnNo(), \"throws.count\", count, getMax());
+\}
+checkCount#?,DetailAST#3:\{
+    log(ast.getLineNo(), ast.getColumnNo(), \"return.count\", count, getMax());
+\}" shape=ellipse]
+7 [label="visitLiteralThrows#?,DetailAST#5:log(ast.getLineNo(), ast.getColumnNo(), \"throws.count\", count, getMax())
+checkCount#?,DetailAST#4:log(ast.getLineNo(), ast.getColumnNo(), \"return.count\", count, getMax())" shape=ellipse]
+8 [label="visitLiteralThrows#?,DetailAST#5:log(<unknown>,<unknown>,java.lang.String,int,<unknown>)
+checkCount#?,DetailAST#4:log(<unknown>,<unknown>,java.lang.String,<unknown>,<unknown>)" shape=ellipse]
+9 [label="visitLiteralThrows#?,DetailAST#5:
+checkCount#?,DetailAST#4:" shape=ellipse]
+10 [label="visitLiteralThrows#?,DetailAST#5:PlaceHold
+checkCount#?,DetailAST#4:PlaceHold" shape=ellipse]
+11 [label="visitLiteralThrows#?,DetailAST#5:ast.getLineNo()
+checkCount#?,DetailAST#4:ast.getLineNo()" shape=ellipse]
+12 [label="visitLiteralThrows#?,DetailAST#5:getLineNo()
+checkCount#?,DetailAST#4:getLineNo()" shape=ellipse]
+13 [label="visitLiteralThrows#?,DetailAST#5:ast
+checkCount#?,DetailAST#4:ast" shape=ellipse]
+14 [label="visitLiteralThrows#?,DetailAST#5:ast.getColumnNo()
+checkCount#?,DetailAST#4:ast.getColumnNo()" shape=ellipse]
+15 [label="visitLiteralThrows#?,DetailAST#5:getColumnNo()
+checkCount#?,DetailAST#4:getColumnNo()" shape=ellipse]
+16 [label="visitLiteralThrows#?,DetailAST#5:ast
+checkCount#?,DetailAST#4:ast" shape=ellipse]
+17 [label="visitLiteralThrows#?,DetailAST#5:count
+checkCount#?,DetailAST#4:count" shape=ellipse]
+18 [label="visitLiteralThrows#?,DetailAST#5:getMax()
+checkCount#?,DetailAST#4:getMax()" shape=ellipse]
+19 [label="visitLiteralThrows#?,DetailAST#5:getMax()
+checkCount#?,DetailAST#4:getMax()" shape=ellipse]
+20 [label="visitLiteralThrows#?,DetailAST#5:
+checkCount#?,DetailAST#4:" shape=ellipse]
+21 [label="visitLiteralThrows#?,DetailAST#5:PlaceHold
+checkCount#?,DetailAST#4:PlaceHold" shape=ellipse]
+22 [label="visitLiteralThrows#?,DetailAST#5:MSG_KEY
+checkCount#?,DetailAST#4:MSG_KEY" shape=ellipse]
+23 [label="visitLiteralThrows#?,DetailAST#5:MSG_KEY
+checkCount#?,DetailAST#4:MSG_KEY" shape=ellipse]
+24 [label="visitLiteralThrows#?,DetailAST#5:
+checkCount#?,DetailAST#4:" shape=ellipse]
+25 [label="visitLiteralThrows#?,DetailAST#5:String
+checkCount#?,DetailAST#4:String" shape=ellipse]
+26 [label="checkCount#?,DetailAST#3:(count > getMax())" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 25 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+2 -> 22 [label="Control Dep:2"];
+2 -> 26 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 1 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 11 [label="AST:2"];
+7 -> 14 [label="AST:2"];
+7 -> 17 [label="AST:2"];
+7 -> 18 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+18 -> 20 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+22 -> 23 [label="AST:2"];
+23 -> 24 [label="AST:2"];
+}

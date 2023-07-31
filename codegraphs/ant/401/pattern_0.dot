@@ -1,0 +1,31 @@
+digraph "Pattern" {
+0 [label="setReverse#?,boolean#3:DELETE
+setQuiet#?,boolean#3:DELETE" shape=ellipse]
+1 [label="setReverse#?,boolean#3:reverse = r
+setQuiet#?,boolean#3:quiet = q" shape=ellipse]
+2 [label="setReverse#?,boolean#2:\{
+    reverse = r;
+\}
+setQuiet#?,boolean#2:\{
+    quiet = q;
+\}" shape=ellipse]
+3 [label="setReverse#?,boolean#2:public void setReverse(boolean r) \{
+    reverse = r;
+\}
+setQuiet#?,boolean#2:public void setQuiet(boolean q) \{
+    quiet = q;
+\}" shape=ellipse]
+4 [label="setReverse#?,boolean#3:reverse
+setQuiet#?,boolean#3:quiet" shape=ellipse]
+5 [label="setReverse#?,boolean#3:r
+setQuiet#?,boolean#3:q" shape=ellipse]
+6 [label="setReverse#?,boolean#-1:reverse
+setQuiet#?,boolean#-1:quiet" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+5 -> 4 [label="Data Dep:2"];
+}

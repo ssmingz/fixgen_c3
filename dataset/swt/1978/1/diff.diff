@@ -1,0 +1,17 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1978/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1978/1/after.java
+@@ -2,1 +2,13 @@
+-  void doPageUp(int stateMask) {}
++  void doPageUp(int stateMask) {
++    if ((stateMask & (SWT.CTRL | SWT.SHIFT)) == 0) {
++      int visibleItemCount = (getClientArea().height - getHeaderHeight()) / itemHeight;
++      int newFocusIndex = (focusItem.availableIndex - visibleItemCount) + 1;
++      newFocusIndex = Math.max(newFocusIndex, 0);
++      TreeItem2 item = availableItems[newFocusIndex];
++      selectItem(item, false);
++      setFocusItem(item, true);
++      showItem(item);
++      redrawItem(item.availableIndex);
++      return;
++    }
++  }

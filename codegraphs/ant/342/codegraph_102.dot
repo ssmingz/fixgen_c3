@@ -1,0 +1,29 @@
+digraph "setUp#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setUp" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@configureProject(<unknown>)" shape=ellipse]
+3 [label="3:CtVirtualElement@configureProject" shape=ellipse]
+4 [label="3:CtTypeAccessImpl@BUILD_FILE" shape=ellipse]
+5 [label="3:CtInvocationImpl@configureProject(BUILD_FILE)" shape=ellipse]
+6 [label="2:CtBlockImpl@\{
+    configureProject(BUILD_FILE);
+\}" shape=ellipse]
+7 [label="2:CtMethodImpl@public void setUp() \{
+    configureProject(BUILD_FILE);
+\}" shape=ellipse]
+8 [label="2:Insert@INSERT" shape=ellipse]
+9 [label="2:CtAnnotationImpl@@Before" shape=ellipse]
+10 [label="4:Insert@INSERT" shape=ellipse]
+11 [label="4:CtFieldReadImpl@buildRule" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 10 [label="Action"];
+6 -> 5 [label="AST"];
+7 -> 1 [label="AST"];
+7 -> 0 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 8 [label="Action"];
+8 -> 9 [label="Action"];
+10 -> 11 [label="Action"];
+}

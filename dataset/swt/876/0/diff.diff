@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/876/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/876/0/after.java
+@@ -10,3 +10,5 @@
+-    int path = OS.gtk_tree_model_get_path(modelHandle, items[index].handle);
+-    OS.gtk_tree_view_set_cursor(handle, path, 0, false);
+-    OS.gtk_tree_path_free(path);
++    if ((style & SWT.SINGLE) != 0) {
++      int path = OS.gtk_tree_model_get_path(modelHandle, items[index].handle);
++      OS.gtk_tree_view_set_cursor(handle, path, 0, false);
++      OS.gtk_tree_path_free(path);
++    }

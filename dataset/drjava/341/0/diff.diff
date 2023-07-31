@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/341/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/341/0/after.java
+@@ -5,3 +5,8 @@
+-      getGlassPane().setVisible(false);
+-      _currentDefPane.setEditable(true);
+-      setAllowKeyEvents(true);
++      Utilities.invokeAndWait(
++          new Runnable() {
++            public void run() {
++              getGlassPane().setVisible(false);
++              _currentDefPane.setEditable(true);
++              setAllowKeyEvents(true);
++            }
++          });

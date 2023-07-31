@@ -1,0 +1,13 @@
+--- D:\expdata\c3\dataset\checkstyle\23\1/before.java
++++ D:\expdata\c3\dataset\checkstyle\23\1/after.java
+@@ -3,3 +3,3 @@
+-    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+-    int columnNo = expandedTabsColumnNo(rparen);
+-    if (getLevel().accept(columnNo)) {
++    final DetailAST rparen = getMainAst().findFirstToken(RPAREN);
++    final int columnNo = expandedTabsColumnNo(rparen);
++    if (getLevel().accept(columnNo) || (!startsLine(rparen))) {
+@@ -8,3 +8,0 @@
+-    if (!startsLine(rparen)) {
+-      return;
+-    }

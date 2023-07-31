@@ -1,0 +1,101 @@
+digraph "createInstance#?,String" {
+0 [label="2:CtTypeReferenceImpl@RegexpMatcher" shape=ellipse]
+1 [label="2:CtVirtualElement@createInstance" shape=ellipse]
+2 [label="2:CtParameterImpl@String className" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@Class" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@forName(java.lang.String)" shape=ellipse]
+7 [label="4:CtVirtualElement@forName" shape=ellipse]
+8 [label="4:CtTypeAccessImpl@Class" shape=ellipse]
+9 [label="4:CtVariableReadImpl@className" shape=ellipse]
+10 [label="4:CtInvocationImpl@Class.forName(className)" shape=ellipse]
+11 [label="4:CtVirtualElement@implClass" shape=ellipse]
+12 [label="4:CtLocalVariableImpl@Class implClass = Class.forName(className)" shape=ellipse]
+13 [label="5:CtExecutableReferenceImpl@newInstance()" shape=ellipse]
+14 [label="5:CtVirtualElement@newInstance" shape=ellipse]
+15 [label="5:CtVariableReadImpl@implClass" shape=ellipse]
+16 [label="5:CtInvocationImpl@((RegexpMatcher) (implClass.newInstance()))" shape=ellipse]
+17 [label="5:CtTypeReferenceImpl@RegexpMatcher" shape=ellipse]
+18 [label="5:CtReturnImpl@return ((RegexpMatcher) (implClass.newInstance()))" shape=ellipse]
+19 [label="3:CtBlockImpl@\{
+    Class implClass = Class.forName(className);
+    return ((RegexpMatcher) (implClass.newInstance()));
+\}" shape=ellipse]
+20 [label="6:CtVirtualElement@t" shape=ellipse]
+21 [label="6:CtTypeReferenceImpl@Throwable" shape=ellipse]
+22 [label="6:CtCatchVariableImpl@Throwable t" shape=ellipse]
+23 [label="7:CtTypeReferenceImpl@BuildException" shape=ellipse]
+24 [label="7:CtVariableReadImpl@t" shape=ellipse]
+25 [label="7:CtConstructorCallImpl@new BuildException(t)" shape=ellipse]
+26 [label="7:CtThrowImpl@throw new BuildException(t)" shape=ellipse]
+27 [label="6:CtBlockImpl@\{
+    throw new BuildException(t);
+\}" shape=ellipse]
+28 [label="6:CtCatchImpl@ catch (Throwable t) \{
+    throw new BuildException(t);
+\}" shape=ellipse]
+29 [label="3:CtTryImpl@try \{
+    Class implClass = Class.forName(className);
+    return ((RegexpMatcher) (implClass.newInstance()));
+\} catch (Throwable t) \{
+    throw new BuildException(t);
+\}" shape=ellipse]
+30 [label="2:CtBlockImpl@\{
+    try \{
+        Class implClass = Class.forName(className);
+        return ((RegexpMatcher) (implClass.newInstance()));
+    \} catch (Throwable t) \{
+        throw new BuildException(t);
+    \}
+\}" shape=ellipse]
+31 [label="2:CtMethodImpl@protected RegexpMatcher createInstance(String className) throws BuildException \{
+    try \{
+        Class implClass = Class.forName(className);
+        return ((RegexpMatcher) (implClass.newInstance()));
+    \} catch (Throwable t) \{
+        throw new BuildException(t);
+    \}
+\}" shape=ellipse]
+32 [label="7:Update@UPDATE" shape=ellipse]
+33 [label="7:CtConstructorCallImpl@new BuildException(\"Error\", t)" shape=ellipse]
+2 -> 3 [label="AST"];
+9 -> 11 [label="Data Dep"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 15 [label="Define-Use"];
+12 -> 11 [label="AST"];
+12 -> 5 [label="AST"];
+12 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 17 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 13 [label="AST"];
+18 -> 16 [label="AST"];
+19 -> 12 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 24 [label="Define-Use"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 27 [label="Control Dep"];
+22 -> 26 [label="Control Dep"];
+22 -> 25 [label="Control Dep"];
+22 -> 24 [label="Control Dep"];
+25 -> 24 [label="AST"];
+25 -> 32 [label="Action"];
+26 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 22 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 19 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 1 [label="AST"];
+31 -> 0 [label="AST"];
+31 -> 2 [label="AST"];
+31 -> 4 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 33 [label="Action"];
+}

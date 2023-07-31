@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/124/16/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/124/16/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,5 @@
+-    expectBuildException("test2", "required attribute missing");
++    try {
++      buildRule.executeTarget("test2");
++      fail("Required attribute missing");
++    } catch (BuildException ex) {
++    }

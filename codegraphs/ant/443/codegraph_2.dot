@@ -1,0 +1,36 @@
+digraph "setModTime#?,long" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setModTime" shape=ellipse]
+2 [label="2:CtParameterImpl@long time" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@long" shape=ellipse]
+4 [label="3:CtFieldWriteImpl@this.modTime" shape=ellipse]
+5 [label="3:CtThisAccessImpl@this" shape=ellipse]
+6 [label="3:CtVariableReadImpl@time" shape=ellipse]
+7 [label="3:CtLiteralImpl@1000" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@time / 1000" shape=ellipse]
+9 [label="3:CtAssignmentImpl@this.modTime = time / 1000" shape=ellipse]
+10 [label="2:CtBlockImpl@\{
+    this.modTime = time / 1000;
+\}" shape=ellipse]
+11 [label="2:CtMethodImpl@public void setModTime(long time) \{
+    this.modTime = time / 1000;
+\}" shape=ellipse]
+12 [label="3:Delete@DELETE" shape=ellipse]
+13 [label="3:Insert@INSERT" shape=ellipse]
+14 [label="3:CtFieldReadImpl@MILLIS_PER_SECOND" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 4 [label="Data Dep"];
+7 -> 12 [label="Action"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 13 [label="Action"];
+9 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 1 [label="AST"];
+11 -> 0 [label="AST"];
+11 -> 2 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 14 [label="Action"];
+}

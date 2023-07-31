@@ -1,0 +1,115 @@
+digraph "Pattern" {
+0 [label="describeCause#?,Throwable#3:UPDATE
+getTestClass#?#3:UPDATE
+getName#?#3:UPDATE
+getTestClass#?#3:UPDATE
+getTestClass#?#3:UPDATE
+getRunnerAnnotations#?#3:UPDATE
+withAfterClasses#?,Statement#3:UPDATE
+withBeforeClasses#?,Statement#3:UPDATE" shape=ellipse]
+1 [label="describeCause#?,Throwable#3:fTestClass
+getTestClass#?#3:fTestClass
+getName#?#3:fTestClass
+getTestClass#?#3:fTestClass
+getTestClass#?#3:fTestClass
+getRunnerAnnotations#?#3:fTestClass
+withAfterClasses#?,Statement#3:fTestClass
+withBeforeClasses#?,Statement#3:fTestClass" shape=ellipse]
+2 [label="describeCause#?,Throwable#3:Description.createTestDescription(fTestClass, \"initializationError\")
+getName#?#3:fTestClass.getName()
+getRunnerAnnotations#?#3:fTestClass.getAnnotations()
+withAfterClasses#?,Statement#3:fTestClass.getAnnotatedMethods(AfterClass.class)
+withBeforeClasses#?,Statement#3:fTestClass.getAnnotatedMethods(BeforeClass.class)" shape=ellipse]
+3 [label="describeCause#?,Throwable#3:return Description.createTestDescription(fTestClass, \"initializationError\")
+getName#?#3:return fTestClass.getName()
+getRunnerAnnotations#?#3:return fTestClass.getAnnotations()
+withAfterClasses#?,Statement#3:List<FrameworkMethod> afters = fTestClass.getAnnotatedMethods(AfterClass.class)
+withBeforeClasses#?,Statement#3:List<FrameworkMethod> befores = fTestClass.getAnnotatedMethods(BeforeClass.class)" shape=ellipse]
+4 [label="describeCause#?,Throwable#3:createTestDescription
+getName#?#3:getName
+getRunnerAnnotations#?#3:getAnnotations
+withAfterClasses#?,Statement#3:getAnnotatedMethods
+withBeforeClasses#?,Statement#3:getAnnotatedMethods" shape=ellipse]
+5 [label="describeCause#?,Throwable#3:Description
+withAfterClasses#?,Statement#3:AfterClass.class
+withBeforeClasses#?,Statement#3:BeforeClass.class" shape=ellipse]
+6 [label="describeCause#?,Throwable#3:createTestDescription(java.lang.String)
+getTestClass#?#3:PlaceHold
+getName#?#3:getName()
+getTestClass#?#3:PlaceHold
+getTestClass#?#3:PlaceHold
+getRunnerAnnotations#?#3:getAnnotations()
+withAfterClasses#?,Statement#3:getAnnotatedMethods(java.lang.Class)
+withBeforeClasses#?,Statement#3:getAnnotatedMethods(java.lang.Class)" shape=ellipse]
+7 [label="describeCause#?,Throwable#3:\"initializationError\"" shape=ellipse]
+8 [label="describeCause#?,Throwable#3:fTestClass
+getName#?#3:fTestClass
+getRunnerAnnotations#?#3:fTestClass
+withAfterClasses#?,Statement#3:fTestClass
+withBeforeClasses#?,Statement#3:fTestClass" shape=ellipse]
+9 [label="describeCause#?,Throwable#3:PlaceHold
+getName#?#3:PlaceHold
+getRunnerAnnotations#?#3:PlaceHold
+withAfterClasses#?,Statement#3:PlaceHold
+withBeforeClasses#?,Statement#3:PlaceHold" shape=ellipse]
+10 [label="describeCause#?,Throwable#3:testClass
+getTestClass#?#3:testClass
+getName#?#3:testClass
+getTestClass#?#3:testClass
+getTestClass#?#3:testClass
+getRunnerAnnotations#?#3:testClass
+withAfterClasses#?,Statement#3:testClass
+withBeforeClasses#?,Statement#3:testClass" shape=ellipse]
+11 [label="getTestClass#?#3:return fTestClass" shape=ellipse]
+12 [label="getTestClass#?#2:\{
+    return fTestClass;
+\}
+getTestClass#?#2:\{
+    return fTestClass;
+\}
+getTestClass#?#2:\{
+    return fTestClass;
+\}" shape=ellipse]
+13 [label="getTestClass#?#3:fTestClass" shape=ellipse]
+14 [label="getTestClass#?#3:return fTestClass" shape=ellipse]
+15 [label="getTestClass#?#3:fTestClass" shape=ellipse]
+16 [label="getTestClass#?#3:return fTestClass" shape=ellipse]
+17 [label="getTestClass#?#3:fTestClass" shape=ellipse]
+18 [label="withAfterClasses#?,Statement#3:afters" shape=ellipse]
+19 [label="withAfterClasses#?,Statement#4:afters" shape=ellipse]
+20 [label="withAfterClasses#?,Statement#4:afters" shape=ellipse]
+21 [label="withBeforeClasses#?,Statement#4:befores" shape=ellipse]
+22 [label="withBeforeClasses#?,Statement#4:befores" shape=ellipse]
+23 [label="withBeforeClasses#?,Statement#3:befores" shape=ellipse]
+1 -> 0 [label="Action:8"];
+1 -> 8 [label="AST:5"];
+1 -> 13 [label="AST:1"];
+1 -> 15 [label="AST:1"];
+1 -> 17 [label="AST:1"];
+1 -> 18 [label="Data Dep:1"];
+1 -> 23 [label="Data Dep:1"];
+2 -> 1 [label="AST:5"];
+2 -> 4 [label="AST:5"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:5"];
+2 -> 7 [label="AST:1"];
+3 -> 2 [label="AST:5"];
+3 -> 18 [label="AST:1"];
+3 -> 23 [label="AST:1"];
+5 -> 18 [label="Data Dep:1"];
+5 -> 23 [label="Data Dep:1"];
+8 -> 9 [label="AST:5"];
+11 -> 1 [label="AST:1"];
+12 -> 11 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 16 [label="AST:1"];
+13 -> 6 [label="AST:1"];
+14 -> 1 [label="AST:1"];
+15 -> 6 [label="AST:1"];
+16 -> 1 [label="AST:1"];
+17 -> 6 [label="AST:1"];
+18 -> 19 [label="Define Use:1"];
+18 -> 20 [label="Define Use:1"];
+23 -> 21 [label="Define Use:1"];
+23 -> 22 [label="Define Use:1"];
+}

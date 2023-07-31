@@ -1,0 +1,84 @@
+digraph "Pattern" {
+0 [label="visitToken#?,DetailAST#2:INSERT
+leaveToken#?,DetailAST#2:INSERT" shape=ellipse]
+1 [label="visitToken#?,DetailAST#2:public void visitToken(DetailAST aAST) \{
+    if (isOverridingMethod(aAST)) \{
+        mMethodStack.add(new MethodNode(aAST));
+    \} else if (isSuperCall(aAST)) \{
+        final MethodNode methodNode = ((MethodNode) (mMethodStack.getLast()));
+        methodNode.setCallsSuper();
+    \}
+\}
+leaveToken#?,DetailAST#2:public void leaveToken(DetailAST aAST) \{
+    if (isOverridingMethod(aAST)) \{
+        final MethodNode methodNode = ((MethodNode) (mMethodStack.removeLast()));
+        if (!methodNode.getCallsSuper()) \{
+            final DetailAST methodAST = methodNode.getMethod();
+            final DetailAST nameAST = methodAST.findFirstToken(IDENT);
+            log(nameAST.getLineNo(), nameAST.getColumnNo(), \"missing.super.call\", new Object[]\{ nameAST.getText() \});
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="visitToken#?,DetailAST#2:visitToken
+leaveToken#?,DetailAST#2:leaveToken" shape=ellipse]
+3 [label="visitToken#?,DetailAST#2:void
+leaveToken#?,DetailAST#2:void" shape=ellipse]
+4 [label="visitToken#?,DetailAST#2:DetailAST aAST
+leaveToken#?,DetailAST#2:DetailAST aAST" shape=ellipse]
+5 [label="visitToken#?,DetailAST#2:DetailAST
+leaveToken#?,DetailAST#2:DetailAST" shape=ellipse]
+6 [label="visitToken#?,DetailAST#2:\{
+    if (isOverridingMethod(aAST)) \{
+        mMethodStack.add(new MethodNode(aAST));
+    \} else if (isSuperCall(aAST)) \{
+        final MethodNode methodNode = ((MethodNode) (mMethodStack.getLast()));
+        methodNode.setCallsSuper();
+    \}
+\}
+leaveToken#?,DetailAST#2:\{
+    if (isOverridingMethod(aAST)) \{
+        final MethodNode methodNode = ((MethodNode) (mMethodStack.removeLast()));
+        if (!methodNode.getCallsSuper()) \{
+            final DetailAST methodAST = methodNode.getMethod();
+            final DetailAST nameAST = methodAST.findFirstToken(IDENT);
+            log(nameAST.getLineNo(), nameAST.getColumnNo(), \"missing.super.call\", new Object[]\{ nameAST.getText() \});
+        \}
+    \}
+\}" shape=ellipse]
+7 [label="visitToken#?,DetailAST#3:if (isOverridingMethod(aAST)) \{
+    mMethodStack.add(new MethodNode(aAST));
+\} else if (isSuperCall(aAST)) \{
+    final MethodNode methodNode = ((MethodNode) (mMethodStack.getLast()));
+    methodNode.setCallsSuper();
+\}
+leaveToken#?,DetailAST#3:if (isOverridingMethod(aAST)) \{
+    final MethodNode methodNode = ((MethodNode) (mMethodStack.removeLast()));
+    if (!methodNode.getCallsSuper()) \{
+        final DetailAST methodAST = methodNode.getMethod();
+        final DetailAST nameAST = methodAST.findFirstToken(IDENT);
+        log(nameAST.getLineNo(), nameAST.getColumnNo(), \"missing.super.call\", new Object[]\{ nameAST.getText() \});
+    \}
+\}" shape=ellipse]
+8 [label="visitToken#?,DetailAST#2:@java.lang.Override
+leaveToken#?,DetailAST#2:@java.lang.Override" shape=ellipse]
+9 [label="visitToken#?,DetailAST#2:Override
+leaveToken#?,DetailAST#2:Override" shape=ellipse]
+10 [label="visitToken#?,DetailAST#2:java.lang
+leaveToken#?,DetailAST#2:java.lang" shape=ellipse]
+11 [label="visitToken#?,DetailAST#2:Override
+leaveToken#?,DetailAST#2:Override" shape=ellipse]
+12 [label="visitToken#?,DetailAST#2:java.lang
+leaveToken#?,DetailAST#2:java.lang" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 11 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+}

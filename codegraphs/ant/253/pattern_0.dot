@@ -1,0 +1,41 @@
+digraph "Pattern" {
+0 [label="testNonImmediateBasedirAndName#?#6:DELETE
+testRelativeFactoryResource#?#6:DELETE
+testNonImmediateBasedir#?#8:DELETE" shape=ellipse]
+1 [label="testNonImmediateBasedirAndName#?#6:separatorChar
+testRelativeFactoryResource#?#6:separatorChar
+testNonImmediateBasedir#?#8:separatorChar" shape=ellipse]
+2 [label="testNonImmediateBasedirAndName#?#6:f.getName().replace('/', separatorChar)
+testRelativeFactoryResource#?#6:relative.getName().replace('/', separatorChar)
+testNonImmediateBasedir#?#8:f.getName().replace('/', separatorChar)" shape=ellipse]
+3 [label="testNonImmediateBasedirAndName#?#6:assertEquals(\"foo/bar\", f.getName().replace('/', separatorChar))
+testRelativeFactoryResource#?#6:assertEquals(\"foo/bar\", relative.getName().replace('/', separatorChar))
+testNonImmediateBasedir#?#8:assertEquals(\"foo/bar\", f.getName().replace('/', separatorChar))" shape=ellipse]
+4 [label="testNonImmediateBasedirAndName#?#6:replace
+testRelativeFactoryResource#?#6:replace
+testNonImmediateBasedir#?#8:replace" shape=ellipse]
+5 [label="testNonImmediateBasedirAndName#?#6:f.getName()
+testRelativeFactoryResource#?#6:relative.getName()
+testNonImmediateBasedir#?#8:f.getName()" shape=ellipse]
+6 [label="testNonImmediateBasedirAndName#?#6:replace(char)
+testRelativeFactoryResource#?#6:replace(char)
+testNonImmediateBasedir#?#8:replace(char)" shape=ellipse]
+7 [label="testNonImmediateBasedirAndName#?#6:'/'
+testRelativeFactoryResource#?#6:'/'
+testNonImmediateBasedir#?#8:'/'" shape=ellipse]
+8 [label="testNonImmediateBasedirAndName#?#6:INSERT
+testRelativeFactoryResource#?#6:INSERT
+testNonImmediateBasedir#?#8:INSERT" shape=ellipse]
+9 [label="testNonImmediateBasedirAndName#?#-1:separatorChar
+testRelativeFactoryResource#?#-1:separatorChar
+testNonImmediateBasedir#?#-1:separatorChar" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 9 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+}

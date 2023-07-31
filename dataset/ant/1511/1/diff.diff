@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1511/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1511/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "exception", "Should have thrown an exception in the script", "TypeError");
++    try {
++      buildRule.executeTarget("exception");
++      fail("Should have thrown an exception in the script");
++    } catch (BuildException ex) {
++      AntAssert.assertContains("TypeError", ex.getMessage());
++    }

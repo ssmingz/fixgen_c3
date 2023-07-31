@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/245/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/245/1/after.java
+@@ -2,1 +2,1 @@
+-  public void releaseWriteLock() {
++  public synchronized void releaseWriteLock() {
+@@ -4,0 +4,3 @@
++    if (_lockState < UNLOCKED) {
++      _lockState++;
++    }

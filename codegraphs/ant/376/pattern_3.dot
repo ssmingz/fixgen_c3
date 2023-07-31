@@ -1,0 +1,67 @@
+digraph "Pattern" {
+0 [label="testPrefixAddsDir#?#4:INSERT
+testSimpleCompile#?#4:INSERT" shape=ellipse]
+1 [label="testPrefixAddsDir#?#3:executeTarget(\"testPrefixAddsDir\")
+testSimpleCompile#?#3:executeTarget(\"simple-compile\")" shape=ellipse]
+2 [label="testPrefixAddsDir#?#2:\{
+    executeTarget(\"testPrefixAddsDir\");
+    File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\");
+    zfPrefixAddsDir = new ZipFile(archive);
+    ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\");
+    assertNotNull(\"test/ has been added\", ze);
+\}
+testSimpleCompile#?#2:\{
+    executeTarget(\"simple-compile\");
+    assertTrue(new File(getProject().getProperty(\"output\"), \"org_example_Foo.h\").exists());
+\}" shape=ellipse]
+3 [label="testPrefixAddsDir#?#2:public void testPrefixAddsDir() throws IOException \{
+    executeTarget(\"testPrefixAddsDir\");
+    File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\");
+    zfPrefixAddsDir = new ZipFile(archive);
+    ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\");
+    assertNotNull(\"test/ has been added\", ze);
+\}
+testSimpleCompile#?#2:public void testSimpleCompile() \{
+    executeTarget(\"simple-compile\");
+    assertTrue(new File(getProject().getProperty(\"output\"), \"org_example_Foo.h\").exists());
+\}" shape=ellipse]
+4 [label="testPrefixAddsDir#?#4:File archive = new File(getProject().getProperty(\"output\"), \"test3.zip\")" shape=ellipse]
+5 [label="testPrefixAddsDir#?#5:zfPrefixAddsDir = new ZipFile(archive)" shape=ellipse]
+6 [label="testPrefixAddsDir#?#6:ZipEntry ze = zfPrefixAddsDir.getEntry(\"test/\")" shape=ellipse]
+7 [label="testPrefixAddsDir#?#7:assertNotNull(\"test/ has been added\", ze)
+testSimpleCompile#?#4:assertTrue(new File(getProject().getProperty(\"output\"), \"org_example_Foo.h\").exists())" shape=ellipse]
+8 [label="testPrefixAddsDir#?#3:executeTarget
+testSimpleCompile#?#3:executeTarget" shape=ellipse]
+9 [label="testPrefixAddsDir#?#-1:
+testSimpleCompile#?#-1:" shape=ellipse]
+10 [label="testPrefixAddsDir#?#-1:PlaceHold
+testSimpleCompile#?#-1:PlaceHold" shape=ellipse]
+11 [label="testPrefixAddsDir#?#-1:PlaceHold
+testSimpleCompile#?#-1:PlaceHold" shape=ellipse]
+12 [label="testPrefixAddsDir#?#3:executeTarget(java.lang.String)
+testSimpleCompile#?#3:executeTarget(java.lang.String)" shape=ellipse]
+13 [label="testPrefixAddsDir#?#-1:String
+testSimpleCompile#?#-1:String" shape=ellipse]
+14 [label="testPrefixAddsDir#?#3:\"testPrefixAddsDir\"
+testSimpleCompile#?#3:\"simple-compile\"" shape=ellipse]
+15 [label="testPrefixAddsDir#?#-1:String
+testSimpleCompile#?#-1:String" shape=ellipse]
+16 [label="testPrefixAddsDir#?#4:buildRule
+testSimpleCompile#?#4:buildRule" shape=ellipse]
+0 -> 16 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:1"];
+2 -> 6 [label="AST:1"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+}

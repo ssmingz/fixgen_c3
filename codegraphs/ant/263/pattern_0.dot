@@ -1,0 +1,74 @@
+digraph "Pattern" {
+0 [label="setInput#?,File#3:UPDATE
+setInputString#?,String#3:UPDATE
+setInput#?,File#3:UPDATE
+setInputString#?,String#3:UPDATE" shape=ellipse]
+1 [label="setInput#?,File#3:redirector
+setInputString#?,String#3:redirector
+setInput#?,File#3:redirector
+setInputString#?,String#3:redirector" shape=ellipse]
+2 [label="setInput#?,File#3:redirector.setInput(input)
+setInputString#?,String#3:redirector.setInputString(inputString)
+setInput#?,File#3:redirector.setInput(input)
+setInputString#?,String#3:redirector.setInputString(inputString)" shape=ellipse]
+3 [label="setInput#?,File#2:\{
+    redirector.setInput(input);
+    incompatibleWithSpawn = true;
+\}
+setInputString#?,String#2:\{
+    redirector.setInputString(inputString);
+    incompatibleWithSpawn = true;
+\}
+setInput#?,File#2:\{
+    redirector.setInput(input);
+    incompatibleWithSpawn = true;
+\}
+setInputString#?,String#2:\{
+    redirector.setInputString(inputString);
+    incompatibleWithSpawn = true;
+\}" shape=ellipse]
+4 [label="setInput#?,File#3:setInput
+setInputString#?,String#3:setInputString
+setInput#?,File#3:setInput
+setInputString#?,String#3:setInputString" shape=ellipse]
+5 [label="setInput#?,File#3:setInput(File)
+setInputString#?,String#3:setInputString(java.lang.String)
+setInput#?,File#3:setInput(File)
+setInputString#?,String#3:setInputString(java.lang.String)" shape=ellipse]
+6 [label="setInput#?,File#3:input
+setInputString#?,String#3:inputString
+setInput#?,File#3:input
+setInputString#?,String#3:inputString" shape=ellipse]
+7 [label="setInput#?,File#3:DELETE
+setInputString#?,String#3:DELETE
+setInput#?,File#3:DELETE
+setInputString#?,String#3:DELETE" shape=ellipse]
+8 [label="setInput#?,File#-1:redirector
+setInputString#?,String#-1:redirector
+setInput#?,File#-1:redirector
+setInputString#?,String#-1:redirector" shape=ellipse]
+9 [label="setInput#?,File#3:MOVE
+setInputString#?,String#3:MOVE
+setInput#?,File#3:MOVE
+setInputString#?,String#3:MOVE" shape=ellipse]
+10 [label="setInput#?,File#3:inputString != null
+setInputString#?,String#3:input != null
+setInput#?,File#3:inputString != null
+setInputString#?,String#3:input != null" shape=ellipse]
+11 [label="setInput#?,File#3:inputString
+setInputString#?,String#3:input
+setInput#?,File#3:inputString
+setInputString#?,String#3:input" shape=ellipse]
+0 -> 11 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 8 [label="AST:4"];
+1 -> 9 [label="Action:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="Action:4"];
+3 -> 2 [label="AST:4"];
+9 -> 10 [label="Action:4"];
+10 -> 11 [label="AST:4"];
+}

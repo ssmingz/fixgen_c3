@@ -1,0 +1,133 @@
+digraph "testTearDownSetupFails#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testTearDownSetupFails" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@TornDown" shape=ellipse]
+3 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+4 [label="4:CtExecutableReferenceImpl@TornDown(java.lang.String)" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@TornDown" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@TornDown" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+8 [label="4:CtLiteralImpl@\"fails\"" shape=ellipse]
+9 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+10 [label="4:CtNewClassImpl@new TornDown(\"fails\") \{
+    protected void setUp() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+11 [label="4:CtClassImpl@ \{
+    protected void setUp() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+12 [label="3:CtVirtualElement@fails" shape=ellipse]
+13 [label="3:CtLocalVariableImpl@TornDown fails = new TornDown(\"fails\") \{
+    protected void setUp() \{
+        throw new Error();
+    \}
+\}" shape=ellipse]
+14 [label="9:CtExecutableReferenceImpl@verifyError(<unknown>)" shape=ellipse]
+15 [label="9:CtTypeReferenceImpl@null" shape=ellipse]
+16 [label="9:CtVirtualElement@verifyError" shape=ellipse]
+17 [label="9:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+18 [label="9:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+19 [label="9:CtThisAccessImpl@" shape=ellipse]
+20 [label="9:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+21 [label="9:CtVariableReadImpl@fails" shape=ellipse]
+22 [label="9:CtLocalVariableReferenceImpl@fails" shape=ellipse]
+23 [label="9:CtInvocationImpl@verifyError(fails)" shape=ellipse]
+24 [label="10:CtFieldReferenceImpl@fTornDown" shape=ellipse]
+25 [label="10:CtFieldReadImpl@fails.fTornDown" shape=ellipse]
+26 [label="10:CtVariableReadImpl@fails" shape=ellipse]
+27 [label="10:CtUnaryOperatorImpl@!fails.fTornDown" shape=ellipse]
+28 [label="10:CtAssertImpl@assert !fails.fTornDown" shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void setUp() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert !fails.fTornDown;
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public void testTearDownSetupFails() \{
+    TornDown fails = new TornDown(\"fails\") \{
+        protected void setUp() \{
+            throw new Error();
+        \}
+    \};
+    verifyError(fails);
+    assert !fails.fTornDown;
+\}" shape=ellipse]
+31 [label="10:Delete@DELETE" shape=ellipse]
+32 [label="10:Insert@INSERT" shape=ellipse]
+33 [label="10:CtPackageReferenceImpl@" shape=ellipse]
+34 [label="10:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+35 [label="10:CtPackageReferenceImpl@" shape=ellipse]
+36 [label="10:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+37 [label="10:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+38 [label="10:CtThisAccessImpl@" shape=ellipse]
+39 [label="10:CtTypeReferenceImpl@null" shape=ellipse]
+40 [label="10:CtExecutableReferenceImpl@assertTrue(<unknown>)" shape=ellipse]
+41 [label="10:CtPackageReferenceImpl@" shape=ellipse]
+42 [label="10:CtTypeReferenceImpl@TornDown" shape=ellipse]
+43 [label="10:CtLocalVariableReferenceImpl@fails" shape=ellipse]
+44 [label="10:CtVariableReadImpl@fails" shape=ellipse]
+45 [label="10:CtFieldReferenceImpl@fTornDown" shape=ellipse]
+46 [label="10:CtFieldReadImpl@fails.fTornDown" shape=ellipse]
+47 [label="10:CtUnaryOperatorImpl@!fails.fTornDown" shape=ellipse]
+48 [label="10:CtInvocationImpl@assertTrue()" shape=ellipse]
+49 [label="10:CtVirtualElement@assertTrue" shape=ellipse]
+50 [label="10:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+4 -> 6 [label="AST"];
+4 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 11 [label="AST"];
+12 -> 21 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 2 [label="AST"];
+13 -> 10 [label="AST"];
+14 -> 15 [label="AST"];
+17 -> 18 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 17 [label="AST"];
+21 -> 22 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 14 [label="AST"];
+23 -> 21 [label="AST"];
+25 -> 26 [label="AST"];
+25 -> 24 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 50 [label="Action"];
+28 -> 27 [label="AST"];
+28 -> 31 [label="Action"];
+29 -> 13 [label="AST"];
+29 -> 23 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 32 [label="Action"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 29 [label="AST"];
+32 -> 48 [label="Action"];
+34 -> 33 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 34 [label="AST"];
+38 -> 37 [label="AST"];
+40 -> 39 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 49 [label="AST"];
+48 -> 38 [label="AST"];
+48 -> 40 [label="AST"];
+48 -> 47 [label="AST"];
+50 -> 48 [label="Action"];
+}

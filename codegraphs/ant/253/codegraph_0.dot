@@ -1,0 +1,105 @@
+digraph "testNonImmediateBasedirAndName#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testNonImmediateBasedirAndName" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@FileResource" shape=ellipse]
+4 [label="3:CtFieldReadImpl@root" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"foo/bar\"" shape=ellipse]
+6 [label="3:CtConstructorCallImpl@new FileResource(root, \"foo/bar\")" shape=ellipse]
+7 [label="3:CtVirtualElement@f" shape=ellipse]
+8 [label="3:CtLocalVariableImpl@FileResource f = new FileResource(root, \"foo/bar\")" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@assertEquals(File,<unknown>)" shape=ellipse]
+10 [label="4:CtVirtualElement@assertEquals" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@File" shape=ellipse]
+12 [label="4:CtFieldReadImpl@root" shape=ellipse]
+13 [label="4:CtLiteralImpl@\"foo/bar\"" shape=ellipse]
+14 [label="4:CtConstructorCallImpl@new File(root, \"foo/bar\")" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@getFile()" shape=ellipse]
+16 [label="4:CtVirtualElement@getFile" shape=ellipse]
+17 [label="4:CtVariableReadImpl@f" shape=ellipse]
+18 [label="4:CtInvocationImpl@f.getFile()" shape=ellipse]
+19 [label="4:CtInvocationImpl@assertEquals(new File(root, \"foo/bar\"), f.getFile())" shape=ellipse]
+20 [label="5:CtExecutableReferenceImpl@assertEquals(<unknown>,<unknown>)" shape=ellipse]
+21 [label="5:CtVirtualElement@assertEquals" shape=ellipse]
+22 [label="5:CtFieldReadImpl@root" shape=ellipse]
+23 [label="5:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+24 [label="5:CtVirtualElement@getBaseDir" shape=ellipse]
+25 [label="5:CtVariableReadImpl@f" shape=ellipse]
+26 [label="5:CtInvocationImpl@f.getBaseDir()" shape=ellipse]
+27 [label="5:CtInvocationImpl@assertEquals(root, f.getBaseDir())" shape=ellipse]
+28 [label="6:CtExecutableReferenceImpl@assertEquals(java.lang.String,<unknown>)" shape=ellipse]
+29 [label="6:CtVirtualElement@assertEquals" shape=ellipse]
+30 [label="6:CtLiteralImpl@\"foo/bar\"" shape=ellipse]
+31 [label="6:CtExecutableReferenceImpl@replace(char)" shape=ellipse]
+32 [label="6:CtVirtualElement@replace" shape=ellipse]
+33 [label="6:CtExecutableReferenceImpl@getName()" shape=ellipse]
+34 [label="6:CtVirtualElement@getName" shape=ellipse]
+35 [label="6:CtVariableReadImpl@f" shape=ellipse]
+36 [label="6:CtInvocationImpl@f.getName()" shape=ellipse]
+37 [label="6:CtLiteralImpl@'/'" shape=ellipse]
+38 [label="6:CtTypeAccessImpl@separatorChar" shape=ellipse]
+39 [label="6:CtInvocationImpl@f.getName().replace('/', separatorChar)" shape=ellipse]
+40 [label="6:CtInvocationImpl@assertEquals(\"foo/bar\", f.getName().replace('/', separatorChar))" shape=ellipse]
+41 [label="2:CtBlockImpl@\{
+    FileResource f = new FileResource(root, \"foo/bar\");
+    assertEquals(new File(root, \"foo/bar\"), f.getFile());
+    assertEquals(root, f.getBaseDir());
+    assertEquals(\"foo/bar\", f.getName().replace('/', separatorChar));
+\}" shape=ellipse]
+42 [label="2:CtMethodImpl@public void testNonImmediateBasedirAndName() \{
+    FileResource f = new FileResource(root, \"foo/bar\");
+    assertEquals(new File(root, \"foo/bar\"), f.getFile());
+    assertEquals(root, f.getBaseDir());
+    assertEquals(\"foo/bar\", f.getName().replace('/', separatorChar));
+\}" shape=ellipse]
+43 [label="6:Delete@DELETE" shape=ellipse]
+44 [label="6:Insert@INSERT" shape=ellipse]
+45 [label="6:CtTypeAccessImpl@separatorChar" shape=ellipse]
+4 -> 7 [label="Data Dep"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 17 [label="Define-Use"];
+7 -> 25 [label="Define-Use"];
+7 -> 35 [label="Define-Use"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+8 -> 6 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+18 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+18 -> 15 [label="AST"];
+19 -> 10 [label="AST"];
+19 -> 9 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 18 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 20 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 26 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 33 [label="AST"];
+38 -> 43 [label="Action"];
+39 -> 32 [label="AST"];
+39 -> 36 [label="AST"];
+39 -> 31 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 44 [label="Action"];
+40 -> 29 [label="AST"];
+40 -> 28 [label="AST"];
+40 -> 30 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 8 [label="AST"];
+41 -> 19 [label="AST"];
+41 -> 27 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 1 [label="AST"];
+42 -> 0 [label="AST"];
+42 -> 41 [label="AST"];
+44 -> 45 [label="Action"];
+}

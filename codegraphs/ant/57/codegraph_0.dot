@@ -1,0 +1,51 @@
+digraph "configure#?,Object,Configuration" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@configure" shape=ellipse]
+2 [label="2:CtParameterImpl@final Object object" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Object" shape=ellipse]
+4 [label="2:CtParameterImpl@final Configuration element" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@Configuration" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@ConfigurationException" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@configure(java.lang.Object,Configuration)" shape=ellipse]
+8 [label="4:CtVirtualElement@configure" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@getConfigurer()" shape=ellipse]
+10 [label="4:CtVirtualElement@getConfigurer" shape=ellipse]
+11 [label="4:CtInvocationImpl@getConfigurer()" shape=ellipse]
+12 [label="4:CtVariableReadImpl@object" shape=ellipse]
+13 [label="4:CtVariableReadImpl@element" shape=ellipse]
+14 [label="4:CtExecutableReferenceImpl@getContext()" shape=ellipse]
+15 [label="4:CtVirtualElement@getContext" shape=ellipse]
+16 [label="4:CtInvocationImpl@getContext()" shape=ellipse]
+17 [label="4:CtInvocationImpl@getConfigurer().configure(object, element, getContext())" shape=ellipse]
+18 [label="3:CtBlockImpl@\{
+    getConfigurer().configure(object, element, getContext());
+\}" shape=ellipse]
+19 [label="2:CtMethodImpl@protected final void configure(final Object object, final Configuration element) throws ConfigurationException \{
+    getConfigurer().configure(object, element, getContext());
+\}" shape=ellipse]
+20 [label="4:Delete@DELETE" shape=ellipse]
+21 [label="4:Insert@INSERT" shape=ellipse]
+22 [label="4:CtFieldReadImpl@m_configurer" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 20 [label="Action"];
+16 -> 15 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 8 [label="AST"];
+17 -> 11 [label="AST"];
+17 -> 7 [label="AST"];
+17 -> 12 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 21 [label="Action"];
+18 -> 17 [label="AST"];
+19 -> 1 [label="AST"];
+19 -> 0 [label="AST"];
+19 -> 2 [label="AST"];
+19 -> 4 [label="AST"];
+19 -> 6 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 22 [label="Action"];
+}

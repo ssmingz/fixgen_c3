@@ -1,0 +1,217 @@
+digraph "Pattern" {
+0 [label="execP4Command#?,String,P4Handler#39:INSERT
+execute#?#10:INSERT" shape=ellipse]
+1 [label="execP4Command#?,String,P4Handler#38: catch (Exception e) \{
+    throw new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage());
+\}" shape=ellipse]
+2 [label="execP4Command#?,String,P4Handler#3:try \{
+    Commandline commandline = new Commandline();
+    commandline.setExecutable(\"p4\");
+    if ((P4Port != null) && (P4Port.length() != 0)) \{
+        commandline.createArgument().setValue(P4Port);
+    \}
+    if ((P4User != null) && (P4User.length() != 0)) \{
+        commandline.createArgument().setValue(P4User);
+    \}
+    if ((P4Client != null) && (P4Client.length() != 0)) \{
+        commandline.createArgument().setValue(P4Client);
+    \}
+    commandline.createArgument().setLine(command);
+    String[] cmdline = commandline.getCommandline();
+    String cmdl = \"\";
+    for (int i = 0; i < cmdline.length; i++) \{
+        cmdl += cmdline[i] + \" \";
+    \}
+    log(\"Execing \" + cmdl, MSG_VERBOSE);
+    if (handler == null) \{
+        handler = new SimpleP4OutputHandler(this);
+    \}
+    Execute exe = new Execute(handler, null);
+    exe.setAntRun(project);
+    exe.setCommandline(commandline.getCommandline());
+    try \{
+        exe.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \} finally \{
+        try \{
+            handler.stop();
+        \} catch (Exception e) \{
+        \}
+    \}
+\} catch (Exception e) \{
+    throw new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage());
+\}
+execute#?#11:if (failOnError) \{
+    throw new BuildException(message);
+\} else \{
+    log(message, MSG_ERR);
+    return;
+\}" shape=ellipse]
+3 [label="execP4Command#?,String,P4Handler#2:\{
+    try \{
+        Commandline commandline = new Commandline();
+        commandline.setExecutable(\"p4\");
+        if ((P4Port != null) && (P4Port.length() != 0)) \{
+            commandline.createArgument().setValue(P4Port);
+        \}
+        if ((P4User != null) && (P4User.length() != 0)) \{
+            commandline.createArgument().setValue(P4User);
+        \}
+        if ((P4Client != null) && (P4Client.length() != 0)) \{
+            commandline.createArgument().setValue(P4Client);
+        \}
+        commandline.createArgument().setLine(command);
+        String[] cmdline = commandline.getCommandline();
+        String cmdl = \"\";
+        for (int i = 0; i < cmdline.length; i++) \{
+            cmdl += cmdline[i] + \" \";
+        \}
+        log(\"Execing \" + cmdl, MSG_VERBOSE);
+        if (handler == null) \{
+            handler = new SimpleP4OutputHandler(this);
+        \}
+        Execute exe = new Execute(handler, null);
+        exe.setAntRun(project);
+        exe.setCommandline(commandline.getCommandline());
+        try \{
+            exe.execute();
+        \} catch (IOException e) \{
+            throw new BuildException(e);
+        \} finally \{
+            try \{
+                handler.stop();
+            \} catch (Exception e) \{
+            \}
+        \}
+    \} catch (Exception e) \{
+        throw new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage());
+    \}
+\}" shape=ellipse]
+4 [label="execP4Command#?,String,P4Handler#3:\{
+    Commandline commandline = new Commandline();
+    commandline.setExecutable(\"p4\");
+    if ((P4Port != null) && (P4Port.length() != 0)) \{
+        commandline.createArgument().setValue(P4Port);
+    \}
+    if ((P4User != null) && (P4User.length() != 0)) \{
+        commandline.createArgument().setValue(P4User);
+    \}
+    if ((P4Client != null) && (P4Client.length() != 0)) \{
+        commandline.createArgument().setValue(P4Client);
+    \}
+    commandline.createArgument().setLine(command);
+    String[] cmdline = commandline.getCommandline();
+    String cmdl = \"\";
+    for (int i = 0; i < cmdline.length; i++) \{
+        cmdl += cmdline[i] + \" \";
+    \}
+    log(\"Execing \" + cmdl, MSG_VERBOSE);
+    if (handler == null) \{
+        handler = new SimpleP4OutputHandler(this);
+    \}
+    Execute exe = new Execute(handler, null);
+    exe.setAntRun(project);
+    exe.setCommandline(commandline.getCommandline());
+    try \{
+        exe.execute();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \} finally \{
+        try \{
+            handler.stop();
+        \} catch (Exception e) \{
+        \}
+    \}
+\}" shape=ellipse]
+5 [label="execP4Command#?,String,P4Handler#38:Exception e" shape=ellipse]
+6 [label="execP4Command#?,String,P4Handler#38:e
+execute#?#10:src" shape=ellipse]
+7 [label="execP4Command#?,String,P4Handler#38:Exception
+execute#?#-1:BuildException()" shape=ellipse]
+8 [label="execP4Command#?,String,P4Handler#38:\{
+    throw new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage());
+\}" shape=ellipse]
+9 [label="execP4Command#?,String,P4Handler#39:throw new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage())
+execute#?#10:throw new BuildException(src + \" doesn't exist\")" shape=ellipse]
+10 [label="execP4Command#?,String,P4Handler#39:new BuildException(\"Problem exec'ing P4 command: \" + e.getMessage())" shape=ellipse]
+11 [label="execP4Command#?,String,P4Handler#-1:BuildException(java.lang.String)" shape=ellipse]
+12 [label="execP4Command#?,String,P4Handler#39:\"Problem exec'ing P4 command: \" + e.getMessage()" shape=ellipse]
+13 [label="execP4Command#?,String,P4Handler#39:\"Problem exec'ing P4 command: \"
+execute#?#10:\" doesn't exist\"" shape=ellipse]
+14 [label="execP4Command#?,String,P4Handler#39:e.getMessage()
+execute#?#9:src.isExists()" shape=ellipse]
+15 [label="execP4Command#?,String,P4Handler#39:getMessage()" shape=ellipse]
+16 [label="execP4Command#?,String,P4Handler#39:e" shape=ellipse]
+17 [label="execP4Command#?,String,P4Handler#40:INSERT" shape=ellipse]
+18 [label="execP4Command#?,String,P4Handler#40:if (failOnError) \{
+    throw new BuildException(failMsg);
+\} else \{
+    log(failMsg, MSG_ERR);
+\}
+execute#?#9:if (!src.isExists()) \{
+    throw new BuildException(src + \" doesn't exist\");
+\}" shape=ellipse]
+19 [label="execP4Command#?,String,P4Handler#39:String failMsg = \"Problem exec'ing P4 command: \" + e.getMessage()
+execute#?#10:String message = src + \" doesn't exist\"" shape=ellipse]
+20 [label="execP4Command#?,String,P4Handler#39:MOVE
+execute#?#10:MOVE" shape=ellipse]
+21 [label="execute#?#10:new BuildException(src + \" doesn't exist\")" shape=ellipse]
+22 [label="execute#?#10:src + \" doesn't exist\"" shape=ellipse]
+23 [label="execute#?#9:!src.isExists()" shape=ellipse]
+24 [label="execute#?#9:\{
+    throw new BuildException(src + \" doesn't exist\");
+\}" shape=ellipse]
+25 [label="execute#?#11:INSERT" shape=ellipse]
+0 -> 19 [label="Action:2"];
+1 -> 0 [label="Action:1"];
+1 -> 5 [label="AST:1"];
+1 -> 8 [label="AST:1"];
+1 -> 17 [label="Action:1"];
+2 -> 1 [label="AST:1"];
+2 -> 4 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+5 -> 6 [label="AST:1"];
+5 -> 7 [label="AST:1"];
+5 -> 8 [label="Control Dep:1"];
+5 -> 9 [label="Control Dep:1"];
+5 -> 10 [label="Control Dep:1"];
+5 -> 11 [label="Control Dep:1"];
+5 -> 12 [label="Control Dep:1"];
+5 -> 13 [label="Control Dep:1"];
+5 -> 14 [label="Control Dep:1"];
+5 -> 15 [label="Control Dep:1"];
+5 -> 16 [label="Control Dep:1"];
+6 -> 16 [label="Define Use:1"];
+8 -> 9 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 21 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+10 -> 12 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+12 -> 14 [label="AST:1"];
+12 -> 20 [label="Action:1"];
+14 -> 16 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+17 -> 18 [label="Action:1"];
+18 -> 23 [label="AST:1"];
+18 -> 24 [label="AST:1"];
+20 -> 19 [label="Action:2"];
+21 -> 7 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+22 -> 6 [label="AST:1"];
+22 -> 13 [label="AST:1"];
+22 -> 20 [label="Action:1"];
+23 -> 21 [label="Control Dep:1"];
+23 -> 22 [label="Control Dep:1"];
+23 -> 14 [label="AST:1"];
+23 -> 24 [label="Control Dep:1"];
+23 -> 9 [label="Control Dep:1"];
+23 -> 7 [label="Control Dep:1"];
+23 -> 6 [label="Control Dep:1"];
+23 -> 13 [label="Control Dep:1"];
+24 -> 9 [label="AST:1"];
+24 -> 0 [label="Action:1"];
+24 -> 25 [label="Action:1"];
+25 -> 2 [label="Action:1"];
+}

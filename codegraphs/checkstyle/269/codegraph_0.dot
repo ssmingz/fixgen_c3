@@ -1,0 +1,45 @@
+digraph "isMultiLevel#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@isMultiLevel" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@cardinality()" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@mLevels" shape=ellipse]
+4 [label="3:CtVirtualElement@cardinality" shape=ellipse]
+5 [label="3:CtFieldReferenceImpl@mLevels" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+7 [label="3:CtFieldReadImpl@mLevels" shape=ellipse]
+8 [label="3:CtInvocationImpl@mLevels.cardinality()" shape=ellipse]
+9 [label="3:CtLiteralImpl@1" shape=ellipse]
+10 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@mLevels.cardinality() > 1" shape=ellipse]
+12 [label="3:CtReturnImpl@return mLevels.cardinality() > 1" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    return mLevels.cardinality() > 1;
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public final boolean isMultiLevel() \{
+    return mLevels.cardinality() > 1;
+\}" shape=ellipse]
+15 [label="3:Update@UPDATE" shape=ellipse]
+16 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+17 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+18 [label="3:CtFieldReferenceImpl@levels" shape=ellipse]
+19 [label="3:CtFieldReadImpl@levels" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 15 [label="Action"];
+8 -> 4 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 2 [label="AST"];
+9 -> 10 [label="AST"];
+11 -> 8 [label="AST"];
+11 -> 9 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 19 [label="Action"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+}

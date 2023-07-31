@@ -1,0 +1,86 @@
+digraph "accept#?,FileObject,String,TaskContext" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@accept" shape=ellipse]
+2 [label="2:CtParameterImpl@final FileObject file" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@FileObject" shape=ellipse]
+4 [label="2:CtParameterImpl@final String path" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="2:CtParameterImpl@final TaskContext context" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@TaskContext" shape=ellipse]
+8 [label="3:CtTypeReferenceImpl@TaskException" shape=ellipse]
+9 [label="4:CtFieldReadImpl@m_selector" shape=ellipse]
+10 [label="4:CtLiteralImpl@null" shape=ellipse]
+11 [label="4:CtBinaryOperatorImpl@m_selector == null" shape=ellipse]
+12 [label="5:CtTypeReferenceImpl@TaskException" shape=ellipse]
+13 [label="5:CtLiteralImpl@\"notfileselector.no-selector.error\"" shape=ellipse]
+14 [label="5:CtConstructorCallImpl@new TaskException(\"notfileselector.no-selector.error\")" shape=ellipse]
+15 [label="5:CtThrowImpl@throw new TaskException(\"notfileselector.no-selector.error\")" shape=ellipse]
+16 [label="4:CtBlockImpl@\{
+    throw new TaskException(\"notfileselector.no-selector.error\");
+\}" shape=ellipse]
+17 [label="4:CtIfImpl@if (m_selector == null) \{
+    throw new TaskException(\"notfileselector.no-selector.error\");
+\}" shape=ellipse]
+18 [label="7:CtExecutableReferenceImpl@accept(FileObject,java.lang.String,TaskContext)" shape=ellipse]
+19 [label="7:CtVirtualElement@accept" shape=ellipse]
+20 [label="7:CtFieldReadImpl@m_selector" shape=ellipse]
+21 [label="7:CtVariableReadImpl@file" shape=ellipse]
+22 [label="7:CtVariableReadImpl@path" shape=ellipse]
+23 [label="7:CtVariableReadImpl@context" shape=ellipse]
+24 [label="7:CtInvocationImpl@m_selector.accept(file, path, context)" shape=ellipse]
+25 [label="7:CtUnaryOperatorImpl@!m_selector.accept(file, path, context)" shape=ellipse]
+26 [label="7:CtReturnImpl@return !m_selector.accept(file, path, context)" shape=ellipse]
+27 [label="3:CtBlockImpl@\{
+    if (m_selector == null) \{
+        throw new TaskException(\"notfileselector.no-selector.error\");
+    \}
+    return !m_selector.accept(file, path, context);
+\}" shape=ellipse]
+28 [label="2:CtMethodImpl@public boolean accept(final FileObject file, final String path, final TaskContext context) throws TaskException \{
+    if (m_selector == null) \{
+        throw new TaskException(\"notfileselector.no-selector.error\");
+    \}
+    return !m_selector.accept(file, path, context);
+\}" shape=ellipse]
+29 [label="5:Delete@DELETE" shape=ellipse]
+30 [label="5:Insert@INSERT" shape=ellipse]
+31 [label="5:CtLocalVariableImpl@final String message = REZ.getString(\"notfileselector.no-selector.error\")" shape=ellipse]
+32 [label="6:Insert@INSERT" shape=ellipse]
+33 [label="6:CtVariableReadImpl@message" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 16 [label="Control Dep"];
+11 -> 15 [label="Control Dep"];
+11 -> 14 [label="Control Dep"];
+11 -> 13 [label="Control Dep"];
+13 -> 29 [label="Action"];
+14 -> 13 [label="AST"];
+14 -> 32 [label="Action"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 30 [label="Action"];
+17 -> 11 [label="AST"];
+17 -> 16 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 21 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 17 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 1 [label="AST"];
+28 -> 0 [label="AST"];
+28 -> 2 [label="AST"];
+28 -> 4 [label="AST"];
+28 -> 6 [label="AST"];
+28 -> 8 [label="AST"];
+28 -> 27 [label="AST"];
+30 -> 31 [label="Action"];
+32 -> 33 [label="Action"];
+}

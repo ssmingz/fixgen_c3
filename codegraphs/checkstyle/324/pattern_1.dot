@@ -1,0 +1,62 @@
+digraph "Pattern" {
+0 [label="setIllegalClassNames#?,String[]#5:UPDATE
+setLegalAbstractClassNames#?,String[]#5:UPDATE" shape=ellipse]
+1 [label="setIllegalClassNames#?,String[]#5:name
+setLegalAbstractClassNames#?,String[]#5:element" shape=ellipse]
+2 [label="setIllegalClassNames#?,String[]#4:classNames
+setLegalAbstractClassNames#?,String[]#4:classNames" shape=ellipse]
+3 [label="setIllegalClassNames#?,String[]#4:for (String name : classNames) \{
+    illegalClassNames.add(name);
+\}
+setLegalAbstractClassNames#?,String[]#4:for (String element : classNames) \{
+    legalAbstractClassNames.add(element);
+\}" shape=ellipse]
+4 [label="setIllegalClassNames#?,String[]#4:classNames
+setLegalAbstractClassNames#?,String[]#4:classNames" shape=ellipse]
+5 [label="setIllegalClassNames#?,String[]#4:\{
+    illegalClassNames.add(name);
+\}
+setLegalAbstractClassNames#?,String[]#4:\{
+    legalAbstractClassNames.add(element);
+\}" shape=ellipse]
+6 [label="setIllegalClassNames#?,String[]#5:illegalClassNames.add(name)
+setLegalAbstractClassNames#?,String[]#5:legalAbstractClassNames.add(element)" shape=ellipse]
+7 [label="setIllegalClassNames#?,String[]#5:add(java.lang.String)
+setLegalAbstractClassNames#?,String[]#5:add(java.lang.String)" shape=ellipse]
+8 [label="setIllegalClassNames#?,String[]#5:illegalClassNames
+setLegalAbstractClassNames#?,String[]#5:legalAbstractClassNames" shape=ellipse]
+9 [label="setIllegalClassNames#?,String[]#4:name
+setLegalAbstractClassNames#?,String[]#4:element" shape=ellipse]
+10 [label="setIllegalClassNames#?,String[]#4:String name
+setLegalAbstractClassNames#?,String[]#4:String element" shape=ellipse]
+11 [label="setIllegalClassNames#?,String[]#5:name
+setLegalAbstractClassNames#?,String[]#5:element" shape=ellipse]
+12 [label="setIllegalClassNames#?,String[]#4:classNames
+setLegalAbstractClassNames#?,String[]#4:classNames" shape=ellipse]
+13 [label="setIllegalClassNames#?,String[]#4:String[]
+setLegalAbstractClassNames#?,String[]#4:String[]" shape=ellipse]
+14 [label="setIllegalClassNames#?,String[]#4:String
+setLegalAbstractClassNames#?,String[]#4:String" shape=ellipse]
+15 [label="setIllegalClassNames#?,String[]#4:java.lang
+setLegalAbstractClassNames#?,String[]#4:java.lang" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 11 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="Control Dep:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 10 [label="AST:2"];
+3 -> 5 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+6 -> 1 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+9 -> 1 [label="Define Use:2"];
+10 -> 9 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+}

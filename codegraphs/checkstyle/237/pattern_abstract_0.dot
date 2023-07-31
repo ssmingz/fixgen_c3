@@ -1,0 +1,51 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Delete
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:DELETE
+value2:" shape=ellipse]
+1 [label="locationInParent:CAST
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:MethodNode
+value2:MethodNode" shape=ellipse]
+2 [label="locationInParent:DEFAULT_EXPRESSION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+3 [label="locationInParent:CONDITION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl" shape=ellipse]
+4 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl" shape=ellipse]
+5 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object" shape=ellipse]
+6 [label="locationInParent:TARGET
+nodeType:CtFieldReadImpl
+nodeType2:CtFieldAccessImpl
+nodeType3:CtVariableAccessImpl
+value:mMethodStack
+value2:PlaceHold" shape=ellipse]
+7 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl" shape=ellipse]
+1 -> 0 [label="Action:2"];
+2 -> 1 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 7 [label="Control Dep:2"];
+3 -> 6 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+}

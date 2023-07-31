@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2074/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2074/1/after.java
+@@ -14,1 +14,4 @@
+-    sendMouseEvent(MouseEnter, xEvent);
++    if (!sendMouseEvent(MouseEnter, xEvent)) {
++      OS.memmove(continue_to_dispatch, new int[1], 4);
++      return 1;
++    }

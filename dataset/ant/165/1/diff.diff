@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/165/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/165/1/after.java
+@@ -3,4 +3,2 @@
+-    final Object[] args =
+-        new Object[] {
+-          metaData.getCommand(), metaData.getEnvironment(), metaData.getWorkingDirectory()
+-        };
++    final String[] env = ExecUtil.toNativeEnvironment(metaData.getEnvironment());
++    final Object[] args = new Object[] {metaData.getCommand(), env, metaData.getWorkingDirectory()};

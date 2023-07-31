@@ -1,0 +1,142 @@
+digraph "validate#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@validate" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@m_metamataHome" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@(m_metamataHome == null)" shape=ellipse]
+6 [label="3:CtExecutableReferenceImpl@exists()" shape=ellipse]
+7 [label="3:CtVirtualElement@exists" shape=ellipse]
+8 [label="3:CtFieldReadImpl@m_metamataHome" shape=ellipse]
+9 [label="3:CtInvocationImpl@m_metamataHome.exists()" shape=ellipse]
+10 [label="3:CtUnaryOperatorImpl@(!m_metamataHome.exists())" shape=ellipse]
+11 [label="3:CtBinaryOperatorImpl@(m_metamataHome == null) || (!m_metamataHome.exists())" shape=ellipse]
+12 [label="4:CtTypeReferenceImpl@TaskException" shape=ellipse]
+13 [label="4:CtLiteralImpl@\"'metamatahome' must point to Metamata home directory.\"" shape=ellipse]
+14 [label="4:CtConstructorCallImpl@new TaskException(\"'metamatahome' must point to Metamata home directory.\")" shape=ellipse]
+15 [label="4:CtThrowImpl@throw new TaskException(\"'metamatahome' must point to Metamata home directory.\")" shape=ellipse]
+16 [label="3:CtBlockImpl@\{
+    throw new TaskException(\"'metamatahome' must point to Metamata home directory.\");
+\}" shape=ellipse]
+17 [label="3:CtIfImpl@if ((m_metamataHome == null) || (!m_metamataHome.exists())) \{
+    throw new TaskException(\"'metamatahome' must point to Metamata home directory.\");
+\}" shape=ellipse]
+18 [label="6:CtFieldWriteImpl@m_metamataHome" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@resolveFile(<unknown>)" shape=ellipse]
+20 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+21 [label="6:CtExecutableReferenceImpl@getPath()" shape=ellipse]
+22 [label="6:CtVirtualElement@getPath" shape=ellipse]
+23 [label="6:CtFieldReadImpl@m_metamataHome" shape=ellipse]
+24 [label="6:CtInvocationImpl@m_metamataHome.getPath()" shape=ellipse]
+25 [label="6:CtInvocationImpl@resolveFile(m_metamataHome.getPath())" shape=ellipse]
+26 [label="6:CtAssignmentImpl@m_metamataHome = resolveFile(m_metamataHome.getPath())" shape=ellipse]
+27 [label="7:CtTypeReferenceImpl@File" shape=ellipse]
+28 [label="7:CtExecutableReferenceImpl@getMetamataJar(<unknown>)" shape=ellipse]
+29 [label="7:CtVirtualElement@getMetamataJar" shape=ellipse]
+30 [label="7:CtFieldReadImpl@m_metamataHome" shape=ellipse]
+31 [label="7:CtInvocationImpl@getMetamataJar(m_metamataHome)" shape=ellipse]
+32 [label="7:CtVirtualElement@jar" shape=ellipse]
+33 [label="7:CtLocalVariableImpl@File jar = getMetamataJar(m_metamataHome)" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@exists()" shape=ellipse]
+35 [label="8:CtVirtualElement@exists" shape=ellipse]
+36 [label="8:CtVariableReadImpl@jar" shape=ellipse]
+37 [label="8:CtInvocationImpl@jar.exists()" shape=ellipse]
+38 [label="8:CtUnaryOperatorImpl@!jar.exists()" shape=ellipse]
+39 [label="9:CtTypeReferenceImpl@TaskException" shape=ellipse]
+40 [label="9:CtVariableReadImpl@jar" shape=ellipse]
+41 [label="9:CtLiteralImpl@\" does not exist. Check your metamata installation.\"" shape=ellipse]
+42 [label="9:CtBinaryOperatorImpl@jar + \" does not exist. Check your metamata installation.\"" shape=ellipse]
+43 [label="9:CtConstructorCallImpl@new TaskException(jar + \" does not exist. Check your metamata installation.\")" shape=ellipse]
+44 [label="9:CtThrowImpl@throw new TaskException(jar + \" does not exist. Check your metamata installation.\")" shape=ellipse]
+45 [label="8:CtBlockImpl@\{
+    throw new TaskException(jar + \" does not exist. Check your metamata installation.\");
+\}" shape=ellipse]
+46 [label="8:CtIfImpl@if (!jar.exists()) \{
+    throw new TaskException(jar + \" does not exist. Check your metamata installation.\");
+\}" shape=ellipse]
+47 [label="2:CtBlockImpl@\{
+    if ((m_metamataHome == null) || (!m_metamataHome.exists())) \{
+        throw new TaskException(\"'metamatahome' must point to Metamata home directory.\");
+    \}
+    m_metamataHome = resolveFile(m_metamataHome.getPath());
+    File jar = getMetamataJar(m_metamataHome);
+    if (!jar.exists()) \{
+        throw new TaskException(jar + \" does not exist. Check your metamata installation.\");
+    \}
+\}" shape=ellipse]
+48 [label="2:CtMethodImpl@protected void validate() throws TaskException \{
+    if ((m_metamataHome == null) || (!m_metamataHome.exists())) \{
+        throw new TaskException(\"'metamatahome' must point to Metamata home directory.\");
+    \}
+    m_metamataHome = resolveFile(m_metamataHome.getPath());
+    File jar = getMetamataJar(m_metamataHome);
+    if (!jar.exists()) \{
+        throw new TaskException(jar + \" does not exist. Check your metamata installation.\");
+    \}
+\}" shape=ellipse]
+49 [label="6:Insert@INSERT" shape=ellipse]
+50 [label="6:CtInvocationImpl@getContext()" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+11 -> 16 [label="Control Dep"];
+11 -> 15 [label="Control Dep"];
+11 -> 14 [label="Control Dep"];
+11 -> 13 [label="Control Dep"];
+14 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 11 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 30 [label="Define-Use"];
+23 -> 18 [label="Data Dep"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 21 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 49 [label="Action"];
+26 -> 18 [label="AST"];
+26 -> 25 [label="AST"];
+30 -> 32 [label="Data Dep"];
+31 -> 29 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 36 [label="Define-Use"];
+32 -> 40 [label="Define-Use"];
+33 -> 32 [label="AST"];
+33 -> 27 [label="AST"];
+33 -> 31 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 45 [label="Control Dep"];
+38 -> 44 [label="Control Dep"];
+38 -> 43 [label="Control Dep"];
+38 -> 42 [label="Control Dep"];
+38 -> 40 [label="Control Dep"];
+38 -> 41 [label="Control Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 38 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 17 [label="AST"];
+47 -> 26 [label="AST"];
+47 -> 33 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 1 [label="AST"];
+48 -> 0 [label="AST"];
+48 -> 2 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 50 [label="Action"];
+}

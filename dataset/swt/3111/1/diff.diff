@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3111/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3111/1/after.java
+@@ -12,1 +12,11 @@
+-    OS.SectRgn(handle, region.handle, handle);
++    NSAutoreleasePool pool = null;
++    if (!NSThread.isMainThread()) {
++      pool = ((NSAutoreleasePool) (new NSAutoreleasePool().alloc().init()));
++    }
++    try {
++      OS.SectRgn(handle, region.handle, handle);
++    } finally {
++      if (pool != null) {
++        pool.release();
++      }
++    }

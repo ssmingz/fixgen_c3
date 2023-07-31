@@ -1,0 +1,168 @@
+digraph "Pattern" {
+0 [label="sendFile#?,FTPClient,String,String#-1:MOVE
+delFile#?,FTPClient,String#-1:MOVE
+sendFile#?,FTPClient,String,String#-1:MOVE
+getFile#?,FTPClient,String,String#-1:MOVE" shape=ellipse]
+1 [label="sendFile#?,FTPClient,String,String#-1:PlaceHold
+delFile#?,FTPClient,String#-1:PlaceHold
+sendFile#?,FTPClient,String,String#-1:PlaceHold
+getFile#?,FTPClient,String,String#-1:PlaceHold" shape=ellipse]
+2 [label="sendFile#?,FTPClient,String,String#19:skipFailedTransfers == true
+delFile#?,FTPClient,String#8:skipFailedTransfers == true
+sendFile#?,FTPClient,String,String#19:skipFailedTransfers == true
+getFile#?,FTPClient,String,String#21:skipFailedTransfers == true" shape=ellipse]
+3 [label="sendFile#?,FTPClient,String,String#17:!success
+delFile#?,FTPClient,String#6:!ftp.deleteFile(resolveFile(filename))
+sendFile#?,FTPClient,String,String#17:!success
+getFile#?,FTPClient,String,String#19:!FTPReply.isPositiveCompletion(ftp.getReplyCode())" shape=ellipse]
+4 [label="sendFile#?,FTPClient,String,String#19:if (skipFailedTransfers == true) \{
+    log(s, MSG_WARN);
+    skipped++;
+\} else \{
+    throw new TaskException(s);
+\}
+delFile#?,FTPClient,String#8:if (skipFailedTransfers == true) \{
+    log(s, MSG_WARN);
+    skipped++;
+\} else \{
+    throw new TaskException(s);
+\}
+sendFile#?,FTPClient,String,String#19:if (skipFailedTransfers == true) \{
+    log(s, MSG_WARN);
+    skipped++;
+\} else \{
+    throw new TaskException(s);
+\}
+getFile#?,FTPClient,String,String#21:if (skipFailedTransfers == true) \{
+    log(s, MSG_WARN);
+    skipped++;
+\} else \{
+    throw new TaskException(s);
+\}" shape=ellipse]
+5 [label="sendFile#?,FTPClient,String,String#19:skipFailedTransfers
+delFile#?,FTPClient,String#8:skipFailedTransfers
+sendFile#?,FTPClient,String,String#19:skipFailedTransfers
+getFile#?,FTPClient,String,String#21:skipFailedTransfers" shape=ellipse]
+6 [label="sendFile#?,FTPClient,String,String#19:true
+delFile#?,FTPClient,String#8:true
+sendFile#?,FTPClient,String,String#19:true
+getFile#?,FTPClient,String,String#21:true" shape=ellipse]
+7 [label="sendFile#?,FTPClient,String,String#19:\{
+    log(s, MSG_WARN);
+    skipped++;
+\}
+delFile#?,FTPClient,String#8:\{
+    log(s, MSG_WARN);
+    skipped++;
+\}
+sendFile#?,FTPClient,String,String#19:\{
+    log(s, MSG_WARN);
+    skipped++;
+\}
+getFile#?,FTPClient,String,String#21:\{
+    log(s, MSG_WARN);
+    skipped++;
+\}" shape=ellipse]
+8 [label="sendFile#?,FTPClient,String,String#20:log(s, MSG_WARN)
+delFile#?,FTPClient,String#9:log(s, MSG_WARN)
+sendFile#?,FTPClient,String,String#20:log(s, MSG_WARN)
+getFile#?,FTPClient,String,String#22:log(s, MSG_WARN)" shape=ellipse]
+9 [label="sendFile#?,FTPClient,String,String#20:log(java.lang.String,<unknown>)
+delFile#?,FTPClient,String#9:log(java.lang.String,<unknown>)
+sendFile#?,FTPClient,String,String#20:log(java.lang.String,<unknown>)
+getFile#?,FTPClient,String,String#22:log(java.lang.String,<unknown>)" shape=ellipse]
+10 [label="sendFile#?,FTPClient,String,String#-1:
+delFile#?,FTPClient,String#-1:
+sendFile#?,FTPClient,String,String#-1:
+getFile#?,FTPClient,String,String#-1:" shape=ellipse]
+11 [label="sendFile#?,FTPClient,String,String#20:s
+delFile#?,FTPClient,String#9:s
+sendFile#?,FTPClient,String,String#20:s
+getFile#?,FTPClient,String,String#22:s" shape=ellipse]
+12 [label="sendFile#?,FTPClient,String,String#20:MSG_WARN
+delFile#?,FTPClient,String#9:MSG_WARN
+sendFile#?,FTPClient,String,String#20:MSG_WARN
+getFile#?,FTPClient,String,String#22:MSG_WARN" shape=ellipse]
+13 [label="sendFile#?,FTPClient,String,String#21:skipped++
+delFile#?,FTPClient,String#10:skipped++
+sendFile#?,FTPClient,String,String#21:skipped++
+getFile#?,FTPClient,String,String#23:skipped++" shape=ellipse]
+14 [label="sendFile#?,FTPClient,String,String#21:skipped
+delFile#?,FTPClient,String#10:skipped
+sendFile#?,FTPClient,String,String#21:skipped
+getFile#?,FTPClient,String,String#23:skipped" shape=ellipse]
+15 [label="sendFile#?,FTPClient,String,String#22:\{
+    throw new TaskException(s);
+\}
+delFile#?,FTPClient,String#11:\{
+    throw new TaskException(s);
+\}
+sendFile#?,FTPClient,String,String#22:\{
+    throw new TaskException(s);
+\}
+getFile#?,FTPClient,String,String#24:\{
+    throw new TaskException(s);
+\}" shape=ellipse]
+16 [label="sendFile#?,FTPClient,String,String#23:throw new TaskException(s)
+delFile#?,FTPClient,String#12:throw new TaskException(s)
+sendFile#?,FTPClient,String,String#23:throw new TaskException(s)
+getFile#?,FTPClient,String,String#25:throw new TaskException(s)" shape=ellipse]
+17 [label="sendFile#?,FTPClient,String,String#23:new TaskException(s)
+delFile#?,FTPClient,String#12:new TaskException(s)
+sendFile#?,FTPClient,String,String#23:new TaskException(s)
+getFile#?,FTPClient,String,String#25:new TaskException(s)" shape=ellipse]
+18 [label="sendFile#?,FTPClient,String,String#-1:TaskException(java.lang.String)
+delFile#?,FTPClient,String#-1:TaskException(java.lang.String)
+sendFile#?,FTPClient,String,String#-1:TaskException(java.lang.String)
+getFile#?,FTPClient,String,String#-1:TaskException(java.lang.String)" shape=ellipse]
+19 [label="sendFile#?,FTPClient,String,String#23:s
+delFile#?,FTPClient,String#12:s
+sendFile#?,FTPClient,String,String#23:s
+getFile#?,FTPClient,String,String#25:s" shape=ellipse]
+20 [label="sendFile#?,FTPClient,String,String#-1:PlaceHold
+delFile#?,FTPClient,String#-1:PlaceHold
+sendFile#?,FTPClient,String,String#-1:PlaceHold
+getFile#?,FTPClient,String,String#-1:PlaceHold" shape=ellipse]
+21 [label="sendFile#?,FTPClient,String,String#20:getLogger()
+delFile#?,FTPClient,String#9:getLogger()
+sendFile#?,FTPClient,String,String#20:getLogger()
+getFile#?,FTPClient,String,String#22:getLogger()" shape=ellipse]
+0 -> 21 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 20 [label="AST:4"];
+2 -> 1 [label="Control Dep:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="Control Dep:4"];
+2 -> 8 [label="Control Dep:4"];
+2 -> 9 [label="Control Dep:4"];
+2 -> 10 [label="Control Dep:4"];
+2 -> 11 [label="Control Dep:4"];
+2 -> 12 [label="Control Dep:4"];
+2 -> 13 [label="Control Dep:4"];
+2 -> 14 [label="Control Dep:4"];
+2 -> 15 [label="Control Dep:4"];
+2 -> 16 [label="Control Dep:4"];
+2 -> 17 [label="Control Dep:4"];
+2 -> 18 [label="Control Dep:4"];
+2 -> 19 [label="Control Dep:4"];
+3 -> 2 [label="Control Dep:4"];
+3 -> 4 [label="Control Dep:4"];
+3 -> 5 [label="Control Dep:4"];
+3 -> 6 [label="Control Dep:4"];
+4 -> 2 [label="AST:4"];
+4 -> 7 [label="AST:4"];
+4 -> 15 [label="AST:4"];
+7 -> 8 [label="AST:4"];
+7 -> 13 [label="AST:4"];
+8 -> 10 [label="AST:4"];
+8 -> 9 [label="AST:4"];
+8 -> 11 [label="AST:4"];
+8 -> 12 [label="AST:4"];
+10 -> 1 [label="AST:4"];
+13 -> 14 [label="AST:4"];
+15 -> 16 [label="AST:4"];
+16 -> 17 [label="AST:4"];
+17 -> 18 [label="AST:4"];
+17 -> 19 [label="AST:4"];
+}

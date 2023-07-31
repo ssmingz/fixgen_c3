@@ -1,0 +1,92 @@
+digraph "setFiles#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setFiles" shape=ellipse]
+2 [label="2:CtParameterImpl@String filenames" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@StringTokenizer" shape=ellipse]
+7 [label="3:CtVariableReadImpl@filenames" shape=ellipse]
+8 [label="3:CtLiteralImpl@\", \"" shape=ellipse]
+9 [label="3:CtConstructorCallImpl@new StringTokenizer(filenames, \", \")" shape=ellipse]
+10 [label="3:CtVirtualElement@t" shape=ellipse]
+11 [label="3:CtLocalVariableImpl@StringTokenizer t = new StringTokenizer(filenames, \", \")" shape=ellipse]
+12 [label="4:CtExecutableReferenceImpl@hasMoreTokens()" shape=ellipse]
+13 [label="4:CtVirtualElement@hasMoreTokens" shape=ellipse]
+14 [label="4:CtVariableReadImpl@t" shape=ellipse]
+15 [label="4:CtInvocationImpl@t.hasMoreTokens()" shape=ellipse]
+16 [label="5:CtExecutableReferenceImpl@addElement()" shape=ellipse]
+17 [label="5:CtVirtualElement@addElement" shape=ellipse]
+18 [label="5:CtFieldReadImpl@files" shape=ellipse]
+19 [label="5:CtExecutableReferenceImpl@resolveFile(<unknown>)" shape=ellipse]
+20 [label="5:CtVirtualElement@resolveFile" shape=ellipse]
+21 [label="5:CtExecutableReferenceImpl@nextToken()" shape=ellipse]
+22 [label="5:CtVirtualElement@nextToken" shape=ellipse]
+23 [label="5:CtVariableReadImpl@t" shape=ellipse]
+24 [label="5:CtInvocationImpl@t.nextToken()" shape=ellipse]
+25 [label="5:CtInvocationImpl@resolveFile(t.nextToken())" shape=ellipse]
+26 [label="5:CtInvocationImpl@files.addElement(resolveFile(t.nextToken()))" shape=ellipse]
+27 [label="4:CtBlockImpl@\{
+    files.addElement(resolveFile(t.nextToken()));
+\}" shape=ellipse]
+28 [label="4:CtWhileImpl@while (t.hasMoreTokens()) \{
+    files.addElement(resolveFile(t.nextToken()));
+\} " shape=ellipse]
+29 [label="2:CtBlockImpl@\{
+    StringTokenizer t = new StringTokenizer(filenames, \", \");
+    while (t.hasMoreTokens()) \{
+        files.addElement(resolveFile(t.nextToken()));
+    \} 
+\}" shape=ellipse]
+30 [label="2:CtMethodImpl@public void setFiles(String filenames) throws TaskException \{
+    StringTokenizer t = new StringTokenizer(filenames, \", \");
+    while (t.hasMoreTokens()) \{
+        files.addElement(resolveFile(t.nextToken()));
+    \} 
+\}" shape=ellipse]
+31 [label="5:Update@UPDATE" shape=ellipse]
+32 [label="5:CtInvocationImpl@files.add(resolveFile(t.nextToken()))" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 10 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 14 [label="Define-Use"];
+10 -> 23 [label="Define-Use"];
+11 -> 10 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 9 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+15 -> 27 [label="Control Dep"];
+15 -> 26 [label="Control Dep"];
+15 -> 16 [label="Control Dep"];
+15 -> 18 [label="Control Dep"];
+15 -> 25 [label="Control Dep"];
+15 -> 19 [label="Control Dep"];
+15 -> 24 [label="Control Dep"];
+15 -> 21 [label="Control Dep"];
+15 -> 23 [label="Control Dep"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 21 [label="AST"];
+25 -> 20 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 17 [label="AST"];
+26 -> 18 [label="AST"];
+26 -> 16 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 31 [label="Action"];
+27 -> 26 [label="AST"];
+28 -> 15 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 11 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 1 [label="AST"];
+30 -> 0 [label="AST"];
+30 -> 2 [label="AST"];
+30 -> 4 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 32 [label="Action"];
+}

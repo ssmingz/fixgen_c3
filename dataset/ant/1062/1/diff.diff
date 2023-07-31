@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1062/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1062/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,1 +4,6 @@
+-    expectBuildException("testClassnameAndJar", "Should not be able to set both classname AND jar");
++    try {
++      buildRule.executeTarget("testClassnameAndJar");
++      fail("Build exception should have been thrown - both classname and JAR are not allowed");
++    } catch (BuildException ex) {
++      assertEquals("Cannot use 'jar' and 'classname' attributes in same command.", ex.getMessage());
++    }

@@ -1,0 +1,10 @@
+--- D:\expdata\c3\dataset\cobertura\105\0/before.java
++++ D:\expdata\c3\dataset\cobertura\105\0/after.java
+@@ -3,1 +3,6 @@
+-    return this.falseHits;
++    lock.lock();
++    try {
++      return this.falseHits;
++    } finally {
++      lock.unlock();
++    }

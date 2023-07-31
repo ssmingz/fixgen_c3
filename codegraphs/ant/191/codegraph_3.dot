@@ -1,0 +1,94 @@
+digraph "setUp#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setUp" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@configureProject(java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@configureProject" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"src/etc/testcases/taskdefs/java.xml\"" shape=ellipse]
+5 [label="3:CtInvocationImpl@configureProject(\"src/etc/testcases/taskdefs/java.xml\")" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@executeTarget(java.lang.String)" shape=ellipse]
+7 [label="4:CtVirtualElement@executeTarget" shape=ellipse]
+8 [label="4:CtFieldReadImpl@project" shape=ellipse]
+9 [label="4:CtLiteralImpl@\"setUp\"" shape=ellipse]
+10 [label="4:CtInvocationImpl@project.executeTarget(\"setUp\")" shape=ellipse]
+11 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+12 [label="5:CtExecutableReferenceImpl@getProperty(java.lang.String)" shape=ellipse]
+13 [label="5:CtVirtualElement@getProperty" shape=ellipse]
+14 [label="5:CtTypeAccessImpl@System" shape=ellipse]
+15 [label="5:CtLiteralImpl@\"junit.run.fatal.tests\"" shape=ellipse]
+16 [label="5:CtInvocationImpl@System.getProperty(\"junit.run.fatal.tests\")" shape=ellipse]
+17 [label="5:CtVirtualElement@runFatal" shape=ellipse]
+18 [label="5:CtLocalVariableImpl@String runFatal = System.getProperty(\"junit.run.fatal.tests\")" shape=ellipse]
+19 [label="6:CtVariableReadImpl@runFatal" shape=ellipse]
+20 [label="6:CtLiteralImpl@null" shape=ellipse]
+21 [label="6:CtBinaryOperatorImpl@runFatal != null" shape=ellipse]
+22 [label="7:CtFieldWriteImpl@runFatalTests" shape=ellipse]
+23 [label="7:CtLiteralImpl@true" shape=ellipse]
+24 [label="7:CtAssignmentImpl@runFatalTests = true" shape=ellipse]
+25 [label="6:CtBlockImpl@\{
+    runFatalTests = true;
+\}" shape=ellipse]
+26 [label="6:CtIfImpl@if (runFatal != null) \{
+    runFatalTests = true;
+\}" shape=ellipse]
+27 [label="2:CtBlockImpl@\{
+    configureProject(\"src/etc/testcases/taskdefs/java.xml\");
+    project.executeTarget(\"setUp\");
+    String runFatal = System.getProperty(\"junit.run.fatal.tests\");
+    if (runFatal != null) \{
+        runFatalTests = true;
+    \}
+\}" shape=ellipse]
+28 [label="2:CtMethodImpl@public void setUp() \{
+    configureProject(\"src/etc/testcases/taskdefs/java.xml\");
+    project.executeTarget(\"setUp\");
+    String runFatal = System.getProperty(\"junit.run.fatal.tests\");
+    if (runFatal != null) \{
+        runFatalTests = true;
+    \}
+\}" shape=ellipse]
+29 [label="4:Update@UPDATE" shape=ellipse]
+30 [label="5:CtFieldReadImpl@buildRule" shape=ellipse]
+31 [label="2:Insert@INSERT" shape=ellipse]
+32 [label="2:CtAnnotationImpl@@Before" shape=ellipse]
+33 [label="4:Insert@INSERT" shape=ellipse]
+34 [label="4:CtFieldReadImpl@buildRule" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 33 [label="Action"];
+8 -> 29 [label="Action"];
+10 -> 7 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+16 -> 13 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 19 [label="Define-Use"];
+18 -> 17 [label="AST"];
+18 -> 11 [label="AST"];
+18 -> 16 [label="AST"];
+21 -> 19 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 25 [label="Control Dep"];
+21 -> 24 [label="Control Dep"];
+21 -> 22 [label="Control Dep"];
+21 -> 23 [label="Control Dep"];
+24 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 21 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 5 [label="AST"];
+27 -> 10 [label="AST"];
+27 -> 18 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 1 [label="AST"];
+28 -> 0 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 31 [label="Action"];
+29 -> 30 [label="Action"];
+31 -> 32 [label="Action"];
+33 -> 34 [label="Action"];
+}

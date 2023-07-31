@@ -1,0 +1,58 @@
+digraph "hashCode#?" {
+0 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="3:CtVirtualElement@hashCode" shape=ellipse]
+2 [label="4:CtExecutableReferenceImpl@hashCode()" shape=ellipse]
+3 [label="4:CtTypeReferenceImpl@int" shape=ellipse]
+4 [label="4:CtVirtualElement@hashCode" shape=ellipse]
+5 [label="4:CtExecutableReferenceImpl@valueOf(java.lang.String)" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@Integer" shape=ellipse]
+7 [label="4:CtTypeReferenceImpl@Integer" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@String" shape=ellipse]
+9 [label="4:CtVirtualElement@valueOf" shape=ellipse]
+10 [label="4:CtTypeAccessImpl@Integer" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@Integer" shape=ellipse]
+12 [label="4:CtFieldReferenceImpl@mMatchValue" shape=ellipse]
+13 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+14 [label="4:CtFieldReadImpl@mMatchValue" shape=ellipse]
+15 [label="4:CtInvocationImpl@Integer.valueOf(mMatchValue)" shape=ellipse]
+16 [label="4:CtInvocationImpl@Integer.valueOf(mMatchValue).hashCode()" shape=ellipse]
+17 [label="4:CtReturnImpl@return Integer.valueOf(mMatchValue).hashCode()" shape=ellipse]
+18 [label="3:CtBlockImpl@\{
+    return Integer.valueOf(mMatchValue).hashCode();
+\}" shape=ellipse]
+19 [label="3:CtMethodImpl@@Override
+public int hashCode() \{
+    return Integer.valueOf(mMatchValue).hashCode();
+\}" shape=ellipse]
+20 [label="2:CtAnnotationImpl@@Override" shape=ellipse]
+21 [label="4:Update@UPDATE" shape=ellipse]
+22 [label="4:CtPackageReferenceImpl@" shape=ellipse]
+23 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+24 [label="4:CtFieldReferenceImpl@matchValue" shape=ellipse]
+25 [label="4:CtFieldReadImpl@matchValue" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 6 [label="AST"];
+5 -> 7 [label="AST"];
+5 -> 8 [label="AST"];
+10 -> 11 [label="AST"];
+12 -> 13 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 21 [label="Action"];
+15 -> 9 [label="AST"];
+15 -> 10 [label="AST"];
+15 -> 5 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 4 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 2 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 1 [label="AST"];
+19 -> 20 [label="AST"];
+19 -> 0 [label="AST"];
+19 -> 18 [label="AST"];
+21 -> 25 [label="Action"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+}

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/261/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/261/1/after.java
+@@ -3,1 +3,5 @@
+-    return ((JavaVersion) (get(JAVA_VERSION)));
++    try {
++      return ((JavaVersion) (get(JAVA_VERSION)));
++    } catch (final ContextException ce) {
++      throw new IllegalStateException("No JavaVersion in Context");
++    }

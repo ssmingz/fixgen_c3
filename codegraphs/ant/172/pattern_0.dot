@@ -1,0 +1,53 @@
+digraph "Pattern" {
+0 [label="addClasspath#?,Path#3:UPDATE
+setClasspath#?,Path#3:UPDATE" shape=ellipse]
+1 [label="addClasspath#?,Path#3:m_compileClasspath.addPath(path)
+setClasspath#?,Path#3:createClasspath().addPath(path)" shape=ellipse]
+2 [label="addClasspath#?,Path#2:\{
+    m_compileClasspath.addPath(path);
+\}
+setClasspath#?,Path#2:\{
+    createClasspath().addPath(path);
+\}" shape=ellipse]
+3 [label="addClasspath#?,Path#2:public void addClasspath(final Path path) \{
+    m_compileClasspath.addPath(path);
+\}
+setClasspath#?,Path#2:public void setClasspath(final Path path) \{
+    createClasspath().addPath(path);
+\}" shape=ellipse]
+4 [label="addClasspath#?,Path#3:addPath
+setClasspath#?,Path#3:addPath" shape=ellipse]
+5 [label="addClasspath#?,Path#3:m_compileClasspath
+setClasspath#?,Path#3:path" shape=ellipse]
+6 [label="addClasspath#?,Path#-1:m_compileClasspath
+setClasspath#?,Path#-1:path" shape=ellipse]
+7 [label="addClasspath#?,Path#3:addPath(Path)
+setClasspath#?,Path#3:addPath(Path)" shape=ellipse]
+8 [label="addClasspath#?,Path#-1:m_compileClasspath
+setClasspath#?,Path#-1:Path" shape=ellipse]
+9 [label="addClasspath#?,Path#-1:Path" shape=ellipse]
+10 [label="addClasspath#?,Path#3:path" shape=ellipse]
+11 [label="addClasspath#?,Path#-1:path
+setClasspath#?,Path#-1:" shape=ellipse]
+12 [label="addClasspath#?,Path#3:m_compileClasspath.add(path)
+setClasspath#?,Path#3:createClasspath().add(path)" shape=ellipse]
+13 [label="setClasspath#?,Path#3:createClasspath" shape=ellipse]
+14 [label="setClasspath#?,Path#3:createClasspath()" shape=ellipse]
+15 [label="setClasspath#?,Path#3:createClasspath()" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:1"];
+1 -> 14 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+14 -> 13 [label="AST:1"];
+14 -> 11 [label="AST:1"];
+14 -> 15 [label="AST:1"];
+}

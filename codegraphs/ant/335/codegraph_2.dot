@@ -1,0 +1,741 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+3 [label="3:CtFieldReadImpl@src" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtBinaryOperatorImpl@src == null" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@BuildException" shape=ellipse]
+7 [label="4:CtLiteralImpl@\"A source resource is required.\"" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new BuildException(\"A source resource is required.\")" shape=ellipse]
+9 [label="4:CtThrowImpl@throw new BuildException(\"A source resource is required.\")" shape=ellipse]
+10 [label="3:CtBlockImpl@\{
+    throw new BuildException(\"A source resource is required.\");
+\}" shape=ellipse]
+11 [label="3:CtIfImpl@if (src == null) \{
+    throw new BuildException(\"A source resource is required.\");
+\}" shape=ellipse]
+12 [label="6:CtExecutableReferenceImpl@isExists()" shape=ellipse]
+13 [label="6:CtVirtualElement@isExists" shape=ellipse]
+14 [label="6:CtFieldReadImpl@src" shape=ellipse]
+15 [label="6:CtInvocationImpl@src.isExists()" shape=ellipse]
+16 [label="6:CtUnaryOperatorImpl@!src.isExists()" shape=ellipse]
+17 [label="7:CtFieldReadImpl@src" shape=ellipse]
+18 [label="7:CtTypeAccessImpl@JavaResource" shape=ellipse]
+19 [label="7:CtTypeReferenceImpl@JavaResource" shape=ellipse]
+20 [label="7:CtBinaryOperatorImpl@src instanceof JavaResource" shape=ellipse]
+21 [label="8:CtExecutableReferenceImpl@log(<unknown>,<unknown>)" shape=ellipse]
+22 [label="8:CtVirtualElement@log" shape=ellipse]
+23 [label="8:CtLiteralImpl@\"Unable to find resource \"" shape=ellipse]
+24 [label="8:CtFieldReadImpl@src" shape=ellipse]
+25 [label="8:CtBinaryOperatorImpl@\"Unable to find resource \" + src" shape=ellipse]
+26 [label="8:CtTypeAccessImpl@MSG_WARN" shape=ellipse]
+27 [label="8:CtInvocationImpl@log(\"Unable to find resource \" + src, MSG_WARN)" shape=ellipse]
+28 [label="9:CtReturnImpl@return" shape=ellipse]
+29 [label="7:CtBlockImpl@\{
+    log(\"Unable to find resource \" + src, MSG_WARN);
+    return;
+\}" shape=ellipse]
+30 [label="7:CtIfImpl@if (src instanceof JavaResource) \{
+    log(\"Unable to find resource \" + src, MSG_WARN);
+    return;
+\}" shape=ellipse]
+31 [label="11:CtTypeReferenceImpl@BuildException" shape=ellipse]
+32 [label="11:CtLiteralImpl@\"Source resource does not exist: \"" shape=ellipse]
+33 [label="11:CtFieldReadImpl@src" shape=ellipse]
+34 [label="11:CtBinaryOperatorImpl@\"Source resource does not exist: \" + src" shape=ellipse]
+35 [label="11:CtConstructorCallImpl@new BuildException(\"Source resource does not exist: \" + src)" shape=ellipse]
+36 [label="11:CtThrowImpl@throw new BuildException(\"Source resource does not exist: \" + src)" shape=ellipse]
+37 [label="6:CtBlockImpl@\{
+    if (src instanceof JavaResource) \{
+        log(\"Unable to find resource \" + src, MSG_WARN);
+        return;
+    \}
+    throw new BuildException(\"Source resource does not exist: \" + src);
+\}" shape=ellipse]
+38 [label="6:CtIfImpl@if (!src.isExists()) \{
+    if (src instanceof JavaResource) \{
+        log(\"Unable to find resource \" + src, MSG_WARN);
+        return;
+    \}
+    throw new BuildException(\"Source resource does not exist: \" + src);
+\}" shape=ellipse]
+39 [label="13:CtTypeReferenceImpl@BufferedInputStream" shape=ellipse]
+40 [label="13:CtLiteralImpl@null" shape=ellipse]
+41 [label="13:CtVirtualElement@bis" shape=ellipse]
+42 [label="13:CtLocalVariableImpl@BufferedInputStream bis = null" shape=ellipse]
+43 [label="14:CtTypeReferenceImpl@Reader" shape=ellipse]
+44 [label="14:CtLiteralImpl@null" shape=ellipse]
+45 [label="14:CtVirtualElement@instream" shape=ellipse]
+46 [label="14:CtLocalVariableImpl@Reader instream = null" shape=ellipse]
+47 [label="15:CtTypeReferenceImpl@ByteArrayInputStream" shape=ellipse]
+48 [label="15:CtLiteralImpl@null" shape=ellipse]
+49 [label="15:CtVirtualElement@tis" shape=ellipse]
+50 [label="15:CtLocalVariableImpl@ByteArrayInputStream tis = null" shape=ellipse]
+51 [label="17:CtVariableWriteImpl@bis" shape=ellipse]
+52 [label="17:CtTypeReferenceImpl@BufferedInputStream" shape=ellipse]
+53 [label="17:CtExecutableReferenceImpl@getInputStream()" shape=ellipse]
+54 [label="17:CtVirtualElement@getInputStream" shape=ellipse]
+55 [label="17:CtFieldReadImpl@src" shape=ellipse]
+56 [label="17:CtInvocationImpl@src.getInputStream()" shape=ellipse]
+57 [label="17:CtConstructorCallImpl@new BufferedInputStream(src.getInputStream())" shape=ellipse]
+58 [label="17:CtAssignmentImpl@bis = new BufferedInputStream(src.getInputStream())" shape=ellipse]
+59 [label="18:CtFieldReadImpl@encoding" shape=ellipse]
+60 [label="18:CtLiteralImpl@null" shape=ellipse]
+61 [label="18:CtBinaryOperatorImpl@encoding == null" shape=ellipse]
+62 [label="19:CtVariableWriteImpl@instream" shape=ellipse]
+63 [label="19:CtTypeReferenceImpl@InputStreamReader" shape=ellipse]
+64 [label="19:CtVariableReadImpl@bis" shape=ellipse]
+65 [label="19:CtConstructorCallImpl@new InputStreamReader(bis)" shape=ellipse]
+66 [label="19:CtAssignmentImpl@instream = new InputStreamReader(bis)" shape=ellipse]
+67 [label="18:CtBlockImpl@\{
+    instream = new InputStreamReader(bis);
+\}" shape=ellipse]
+68 [label="21:CtVariableWriteImpl@instream" shape=ellipse]
+69 [label="21:CtTypeReferenceImpl@InputStreamReader" shape=ellipse]
+70 [label="21:CtVariableReadImpl@bis" shape=ellipse]
+71 [label="21:CtFieldReadImpl@encoding" shape=ellipse]
+72 [label="21:CtConstructorCallImpl@new InputStreamReader(bis, encoding)" shape=ellipse]
+73 [label="21:CtAssignmentImpl@instream = new InputStreamReader(bis, encoding)" shape=ellipse]
+74 [label="20:CtBlockImpl@\{
+    instream = new InputStreamReader(bis, encoding);
+\}" shape=ellipse]
+75 [label="18:CtIfImpl@if (encoding == null) \{
+    instream = new InputStreamReader(bis);
+\} else \{
+    instream = new InputStreamReader(bis, encoding);
+\}" shape=ellipse]
+76 [label="23:CtTypeReferenceImpl@ChainReaderHelper" shape=ellipse]
+77 [label="23:CtTypeReferenceImpl@ChainReaderHelper" shape=ellipse]
+78 [label="23:CtConstructorCallImpl@new ChainReaderHelper()" shape=ellipse]
+79 [label="23:CtVirtualElement@crh" shape=ellipse]
+80 [label="23:CtLocalVariableImpl@ChainReaderHelper crh = new ChainReaderHelper()" shape=ellipse]
+81 [label="24:CtExecutableReferenceImpl@setPrimaryReader(Reader)" shape=ellipse]
+82 [label="24:CtVirtualElement@setPrimaryReader" shape=ellipse]
+83 [label="24:CtVariableReadImpl@crh" shape=ellipse]
+84 [label="24:CtVariableReadImpl@instream" shape=ellipse]
+85 [label="24:CtInvocationImpl@crh.setPrimaryReader(instream)" shape=ellipse]
+86 [label="25:CtExecutableReferenceImpl@setFilterChains()" shape=ellipse]
+87 [label="25:CtVirtualElement@setFilterChains" shape=ellipse]
+88 [label="25:CtVariableReadImpl@crh" shape=ellipse]
+89 [label="25:CtFieldReadImpl@filterChains" shape=ellipse]
+90 [label="25:CtInvocationImpl@crh.setFilterChains(filterChains)" shape=ellipse]
+91 [label="26:CtExecutableReferenceImpl@setProject()" shape=ellipse]
+92 [label="26:CtVirtualElement@setProject" shape=ellipse]
+93 [label="26:CtVariableReadImpl@crh" shape=ellipse]
+94 [label="26:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+95 [label="26:CtVirtualElement@getProject" shape=ellipse]
+96 [label="26:CtInvocationImpl@getProject()" shape=ellipse]
+97 [label="26:CtInvocationImpl@crh.setProject(getProject())" shape=ellipse]
+98 [label="27:CtVariableWriteImpl@instream" shape=ellipse]
+99 [label="27:CtExecutableReferenceImpl@getAssembledReader()" shape=ellipse]
+100 [label="27:CtVirtualElement@getAssembledReader" shape=ellipse]
+101 [label="27:CtVariableReadImpl@crh" shape=ellipse]
+102 [label="27:CtInvocationImpl@crh.getAssembledReader()" shape=ellipse]
+103 [label="27:CtAssignmentImpl@instream = crh.getAssembledReader()" shape=ellipse]
+104 [label="28:CtTypeReferenceImpl@String" shape=ellipse]
+105 [label="28:CtExecutableReferenceImpl@readFully(Reader)" shape=ellipse]
+106 [label="28:CtVirtualElement@readFully" shape=ellipse]
+107 [label="28:CtVariableReadImpl@crh" shape=ellipse]
+108 [label="28:CtVariableReadImpl@instream" shape=ellipse]
+109 [label="28:CtInvocationImpl@crh.readFully(instream)" shape=ellipse]
+110 [label="28:CtVirtualElement@text" shape=ellipse]
+111 [label="28:CtLocalVariableImpl@String text = crh.readFully(instream)" shape=ellipse]
+112 [label="29:CtVariableReadImpl@text" shape=ellipse]
+113 [label="29:CtLiteralImpl@null" shape=ellipse]
+114 [label="29:CtBinaryOperatorImpl@(text != null)" shape=ellipse]
+115 [label="29:CtExecutableReferenceImpl@length()" shape=ellipse]
+116 [label="29:CtVirtualElement@length" shape=ellipse]
+117 [label="29:CtVariableReadImpl@text" shape=ellipse]
+118 [label="29:CtInvocationImpl@text.length()" shape=ellipse]
+119 [label="29:CtLiteralImpl@0" shape=ellipse]
+120 [label="29:CtBinaryOperatorImpl@(text.length() != 0)" shape=ellipse]
+121 [label="29:CtBinaryOperatorImpl@(text != null) && (text.length() != 0)" shape=ellipse]
+122 [label="30:CtExecutableReferenceImpl@endsWith(java.lang.String)" shape=ellipse]
+123 [label="30:CtVirtualElement@endsWith" shape=ellipse]
+124 [label="30:CtVariableReadImpl@text" shape=ellipse]
+125 [label="30:CtLiteralImpl@\"\n\"" shape=ellipse]
+126 [label="30:CtInvocationImpl@text.endsWith(\"\n\")" shape=ellipse]
+127 [label="30:CtUnaryOperatorImpl@!text.endsWith(\"\n\")" shape=ellipse]
+128 [label="31:CtVariableWriteImpl@text" shape=ellipse]
+129 [label="31:CtVariableReadImpl@text" shape=ellipse]
+130 [label="31:CtLiteralImpl@\"\n\"" shape=ellipse]
+131 [label="31:CtBinaryOperatorImpl@text + \"\n\"" shape=ellipse]
+132 [label="31:CtAssignmentImpl@text = text + \"\n\"" shape=ellipse]
+133 [label="30:CtBlockImpl@\{
+    text = text + \"\n\";
+\}" shape=ellipse]
+134 [label="30:CtIfImpl@if (!text.endsWith(\"\n\")) \{
+    text = text + \"\n\";
+\}" shape=ellipse]
+135 [label="33:CtVariableWriteImpl@tis" shape=ellipse]
+136 [label="33:CtTypeReferenceImpl@ByteArrayInputStream" shape=ellipse]
+137 [label="33:CtExecutableReferenceImpl@getBytes(java.lang.String)" shape=ellipse]
+138 [label="33:CtVirtualElement@getBytes" shape=ellipse]
+139 [label="33:CtVariableReadImpl@text" shape=ellipse]
+140 [label="33:CtLiteralImpl@\"ISO8859_1\"" shape=ellipse]
+141 [label="33:CtInvocationImpl@text.getBytes(\"ISO8859_1\")" shape=ellipse]
+142 [label="33:CtConstructorCallImpl@new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"))" shape=ellipse]
+143 [label="33:CtAssignmentImpl@tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"))" shape=ellipse]
+144 [label="34:CtTypeReferenceImpl@Properties" shape=ellipse]
+145 [label="34:CtTypeReferenceImpl@Properties" shape=ellipse]
+146 [label="34:CtConstructorCallImpl@new Properties()" shape=ellipse]
+147 [label="34:CtVirtualElement@props" shape=ellipse]
+148 [label="34:CtLocalVariableImpl@final Properties props = new Properties()" shape=ellipse]
+149 [label="35:CtExecutableReferenceImpl@load(ByteArrayInputStream)" shape=ellipse]
+150 [label="35:CtVirtualElement@load" shape=ellipse]
+151 [label="35:CtVariableReadImpl@props" shape=ellipse]
+152 [label="35:CtVariableReadImpl@tis" shape=ellipse]
+153 [label="35:CtInvocationImpl@props.load(tis)" shape=ellipse]
+154 [label="36:CtTypeReferenceImpl@Property" shape=ellipse]
+155 [label="36:CtTypeReferenceImpl@Property" shape=ellipse]
+156 [label="36:CtConstructorCallImpl@new Property()" shape=ellipse]
+157 [label="36:CtVirtualElement@propertyTask" shape=ellipse]
+158 [label="36:CtLocalVariableImpl@Property propertyTask = new Property()" shape=ellipse]
+159 [label="37:CtExecutableReferenceImpl@bindToOwner(PlaceHold)" shape=ellipse]
+160 [label="37:CtVirtualElement@bindToOwner" shape=ellipse]
+161 [label="37:CtVariableReadImpl@propertyTask" shape=ellipse]
+162 [label="37:CtThisAccessImpl@this" shape=ellipse]
+163 [label="37:CtInvocationImpl@propertyTask.bindToOwner(this)" shape=ellipse]
+164 [label="38:CtExecutableReferenceImpl@setPrefix()" shape=ellipse]
+165 [label="38:CtVirtualElement@setPrefix" shape=ellipse]
+166 [label="38:CtVariableReadImpl@propertyTask" shape=ellipse]
+167 [label="38:CtFieldReadImpl@prefix" shape=ellipse]
+168 [label="38:CtInvocationImpl@propertyTask.setPrefix(prefix)" shape=ellipse]
+169 [label="39:CtExecutableReferenceImpl@addProperties(Properties)" shape=ellipse]
+170 [label="39:CtVirtualElement@addProperties" shape=ellipse]
+171 [label="39:CtVariableReadImpl@propertyTask" shape=ellipse]
+172 [label="39:CtVariableReadImpl@props" shape=ellipse]
+173 [label="39:CtInvocationImpl@propertyTask.addProperties(props)" shape=ellipse]
+174 [label="29:CtBlockImpl@\{
+    if (!text.endsWith(\"\n\")) \{
+        text = text + \"\n\";
+    \}
+    tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+    final Properties props = new Properties();
+    props.load(tis);
+    Property propertyTask = new Property();
+    propertyTask.bindToOwner(this);
+    propertyTask.setPrefix(prefix);
+    propertyTask.addProperties(props);
+\}" shape=ellipse]
+175 [label="29:CtIfImpl@if ((text != null) && (text.length() != 0)) \{
+    if (!text.endsWith(\"\n\")) \{
+        text = text + \"\n\";
+    \}
+    tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+    final Properties props = new Properties();
+    props.load(tis);
+    Property propertyTask = new Property();
+    propertyTask.bindToOwner(this);
+    propertyTask.setPrefix(prefix);
+    propertyTask.addProperties(props);
+\}" shape=ellipse]
+176 [label="16:CtBlockImpl@\{
+    bis = new BufferedInputStream(src.getInputStream());
+    if (encoding == null) \{
+        instream = new InputStreamReader(bis);
+    \} else \{
+        instream = new InputStreamReader(bis, encoding);
+    \}
+    ChainReaderHelper crh = new ChainReaderHelper();
+    crh.setPrimaryReader(instream);
+    crh.setFilterChains(filterChains);
+    crh.setProject(getProject());
+    instream = crh.getAssembledReader();
+    String text = crh.readFully(instream);
+    if ((text != null) && (text.length() != 0)) \{
+        if (!text.endsWith(\"\n\")) \{
+            text = text + \"\n\";
+        \}
+        tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+        final Properties props = new Properties();
+        props.load(tis);
+        Property propertyTask = new Property();
+        propertyTask.bindToOwner(this);
+        propertyTask.setPrefix(prefix);
+        propertyTask.addProperties(props);
+    \}
+\}" shape=ellipse]
+177 [label="41:CtVirtualElement@ioe" shape=ellipse]
+178 [label="41:CtTypeReferenceImpl@IOException" shape=ellipse]
+179 [label="41:CtCatchVariableImpl@final IOException ioe" shape=ellipse]
+180 [label="42:CtTypeReferenceImpl@BuildException" shape=ellipse]
+181 [label="42:CtLiteralImpl@\"Unable to load file: \"" shape=ellipse]
+182 [label="42:CtVariableReadImpl@ioe" shape=ellipse]
+183 [label="42:CtBinaryOperatorImpl@\"Unable to load file: \" + ioe" shape=ellipse]
+184 [label="42:CtVariableReadImpl@ioe" shape=ellipse]
+185 [label="42:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+186 [label="42:CtVirtualElement@getLocation" shape=ellipse]
+187 [label="42:CtInvocationImpl@getLocation()" shape=ellipse]
+188 [label="42:CtConstructorCallImpl@new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation())" shape=ellipse]
+189 [label="42:CtThrowImpl@throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation())" shape=ellipse]
+190 [label="41:CtBlockImpl@\{
+    throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation());
+\}" shape=ellipse]
+191 [label="41:CtCatchImpl@ catch (final IOException ioe) \{
+    throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation());
+\}" shape=ellipse]
+192 [label="44:CtExecutableReferenceImpl@close(BufferedInputStream)" shape=ellipse]
+193 [label="44:CtVirtualElement@close" shape=ellipse]
+194 [label="44:CtTypeAccessImpl@FileUtils" shape=ellipse]
+195 [label="44:CtVariableReadImpl@bis" shape=ellipse]
+196 [label="44:CtInvocationImpl@FileUtils.close(bis)" shape=ellipse]
+197 [label="45:CtExecutableReferenceImpl@close(ByteArrayInputStream)" shape=ellipse]
+198 [label="45:CtVirtualElement@close" shape=ellipse]
+199 [label="45:CtTypeAccessImpl@FileUtils" shape=ellipse]
+200 [label="45:CtVariableReadImpl@tis" shape=ellipse]
+201 [label="45:CtInvocationImpl@FileUtils.close(tis)" shape=ellipse]
+202 [label="43:CtBlockImpl@\{
+    FileUtils.close(bis);
+    FileUtils.close(tis);
+\}" shape=ellipse]
+203 [label="16:CtTryImpl@try \{
+    bis = new BufferedInputStream(src.getInputStream());
+    if (encoding == null) \{
+        instream = new InputStreamReader(bis);
+    \} else \{
+        instream = new InputStreamReader(bis, encoding);
+    \}
+    ChainReaderHelper crh = new ChainReaderHelper();
+    crh.setPrimaryReader(instream);
+    crh.setFilterChains(filterChains);
+    crh.setProject(getProject());
+    instream = crh.getAssembledReader();
+    String text = crh.readFully(instream);
+    if ((text != null) && (text.length() != 0)) \{
+        if (!text.endsWith(\"\n\")) \{
+            text = text + \"\n\";
+        \}
+        tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+        final Properties props = new Properties();
+        props.load(tis);
+        Property propertyTask = new Property();
+        propertyTask.bindToOwner(this);
+        propertyTask.setPrefix(prefix);
+        propertyTask.addProperties(props);
+    \}
+\} catch (final IOException ioe) \{
+    throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation());
+\} finally \{
+    FileUtils.close(bis);
+    FileUtils.close(tis);
+\}" shape=ellipse]
+204 [label="2:CtBlockImpl@\{
+    if (src == null) \{
+        throw new BuildException(\"A source resource is required.\");
+    \}
+    if (!src.isExists()) \{
+        if (src instanceof JavaResource) \{
+            log(\"Unable to find resource \" + src, MSG_WARN);
+            return;
+        \}
+        throw new BuildException(\"Source resource does not exist: \" + src);
+    \}
+    BufferedInputStream bis = null;
+    Reader instream = null;
+    ByteArrayInputStream tis = null;
+    try \{
+        bis = new BufferedInputStream(src.getInputStream());
+        if (encoding == null) \{
+            instream = new InputStreamReader(bis);
+        \} else \{
+            instream = new InputStreamReader(bis, encoding);
+        \}
+        ChainReaderHelper crh = new ChainReaderHelper();
+        crh.setPrimaryReader(instream);
+        crh.setFilterChains(filterChains);
+        crh.setProject(getProject());
+        instream = crh.getAssembledReader();
+        String text = crh.readFully(instream);
+        if ((text != null) && (text.length() != 0)) \{
+            if (!text.endsWith(\"\n\")) \{
+                text = text + \"\n\";
+            \}
+            tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+            final Properties props = new Properties();
+            props.load(tis);
+            Property propertyTask = new Property();
+            propertyTask.bindToOwner(this);
+            propertyTask.setPrefix(prefix);
+            propertyTask.addProperties(props);
+        \}
+    \} catch (final IOException ioe) \{
+        throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation());
+    \} finally \{
+        FileUtils.close(bis);
+        FileUtils.close(tis);
+    \}
+\}" shape=ellipse]
+205 [label="2:CtMethodImpl@public final void execute() throws BuildException \{
+    if (src == null) \{
+        throw new BuildException(\"A source resource is required.\");
+    \}
+    if (!src.isExists()) \{
+        if (src instanceof JavaResource) \{
+            log(\"Unable to find resource \" + src, MSG_WARN);
+            return;
+        \}
+        throw new BuildException(\"Source resource does not exist: \" + src);
+    \}
+    BufferedInputStream bis = null;
+    Reader instream = null;
+    ByteArrayInputStream tis = null;
+    try \{
+        bis = new BufferedInputStream(src.getInputStream());
+        if (encoding == null) \{
+            instream = new InputStreamReader(bis);
+        \} else \{
+            instream = new InputStreamReader(bis, encoding);
+        \}
+        ChainReaderHelper crh = new ChainReaderHelper();
+        crh.setPrimaryReader(instream);
+        crh.setFilterChains(filterChains);
+        crh.setProject(getProject());
+        instream = crh.getAssembledReader();
+        String text = crh.readFully(instream);
+        if ((text != null) && (text.length() != 0)) \{
+            if (!text.endsWith(\"\n\")) \{
+                text = text + \"\n\";
+            \}
+            tis = new ByteArrayInputStream(text.getBytes(\"ISO8859_1\"));
+            final Properties props = new Properties();
+            props.load(tis);
+            Property propertyTask = new Property();
+            propertyTask.bindToOwner(this);
+            propertyTask.setPrefix(prefix);
+            propertyTask.addProperties(props);
+        \}
+    \} catch (final IOException ioe) \{
+        throw new BuildException(\"Unable to load file: \" + ioe, ioe, getLocation());
+    \} finally \{
+        FileUtils.close(bis);
+        FileUtils.close(tis);
+    \}
+\}" shape=ellipse]
+206 [label="33:Update@UPDATE" shape=ellipse]
+207 [label="33:CtConstructorCallImpl@new ByteArrayInputStream(text.getBytes(ISO_8859_1))" shape=ellipse]
+208 [label="33:Delete@DELETE" shape=ellipse]
+209 [label="33:Insert@INSERT" shape=ellipse]
+210 [label="33:CtTypeAccessImpl@ISO_8859_1" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 10 [label="Control Dep"];
+5 -> 9 [label="Control Dep"];
+5 -> 8 [label="Control Dep"];
+5 -> 7 [label="Control Dep"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 5 [label="AST"];
+11 -> 10 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 37 [label="Control Dep"];
+16 -> 30 [label="Control Dep"];
+16 -> 20 [label="Control Dep"];
+16 -> 17 [label="Control Dep"];
+16 -> 18 [label="Control Dep"];
+16 -> 36 [label="Control Dep"];
+16 -> 35 [label="Control Dep"];
+16 -> 34 [label="Control Dep"];
+16 -> 32 [label="Control Dep"];
+16 -> 33 [label="Control Dep"];
+18 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 29 [label="Control Dep"];
+20 -> 27 [label="Control Dep"];
+20 -> 21 [label="Control Dep"];
+20 -> 25 [label="Control Dep"];
+20 -> 23 [label="Control Dep"];
+20 -> 24 [label="Control Dep"];
+20 -> 26 [label="Control Dep"];
+20 -> 28 [label="Control Dep"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+27 -> 22 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+29 -> 27 [label="AST"];
+29 -> 28 [label="AST"];
+30 -> 20 [label="AST"];
+30 -> 29 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 16 [label="AST"];
+38 -> 37 [label="AST"];
+42 -> 41 [label="AST"];
+42 -> 39 [label="AST"];
+42 -> 40 [label="AST"];
+45 -> 84 [label="Define-Use"];
+46 -> 45 [label="AST"];
+46 -> 43 [label="AST"];
+46 -> 44 [label="AST"];
+49 -> 152 [label="Define-Use"];
+49 -> 200 [label="Define-Use"];
+50 -> 49 [label="AST"];
+50 -> 47 [label="AST"];
+50 -> 48 [label="AST"];
+51 -> 64 [label="Define-Use"];
+51 -> 70 [label="Define-Use"];
+51 -> 195 [label="Define-Use"];
+55 -> 51 [label="Data Dep"];
+56 -> 54 [label="AST"];
+56 -> 55 [label="AST"];
+56 -> 53 [label="AST"];
+57 -> 56 [label="AST"];
+58 -> 51 [label="AST"];
+58 -> 57 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+61 -> 67 [label="Control Dep"];
+61 -> 66 [label="Control Dep"];
+61 -> 62 [label="Control Dep"];
+61 -> 65 [label="Control Dep"];
+61 -> 64 [label="Control Dep"];
+61 -> 74 [label="Control Dep"];
+61 -> 73 [label="Control Dep"];
+61 -> 68 [label="Control Dep"];
+61 -> 72 [label="Control Dep"];
+61 -> 70 [label="Control Dep"];
+61 -> 71 [label="Control Dep"];
+62 -> 84 [label="Define-Use"];
+64 -> 62 [label="Data Dep"];
+65 -> 64 [label="AST"];
+66 -> 62 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 84 [label="Define-Use"];
+70 -> 68 [label="Data Dep"];
+71 -> 68 [label="Data Dep"];
+72 -> 70 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 68 [label="AST"];
+73 -> 72 [label="AST"];
+74 -> 73 [label="AST"];
+75 -> 61 [label="AST"];
+75 -> 67 [label="AST"];
+75 -> 74 [label="AST"];
+79 -> 83 [label="Define-Use"];
+79 -> 88 [label="Define-Use"];
+79 -> 93 [label="Define-Use"];
+79 -> 101 [label="Define-Use"];
+79 -> 107 [label="Define-Use"];
+80 -> 79 [label="AST"];
+80 -> 76 [label="AST"];
+80 -> 78 [label="AST"];
+85 -> 82 [label="AST"];
+85 -> 83 [label="AST"];
+85 -> 81 [label="AST"];
+85 -> 84 [label="AST"];
+90 -> 87 [label="AST"];
+90 -> 88 [label="AST"];
+90 -> 86 [label="AST"];
+90 -> 89 [label="AST"];
+96 -> 95 [label="AST"];
+96 -> 94 [label="AST"];
+97 -> 92 [label="AST"];
+97 -> 93 [label="AST"];
+97 -> 91 [label="AST"];
+97 -> 96 [label="AST"];
+98 -> 108 [label="Define-Use"];
+101 -> 98 [label="Data Dep"];
+102 -> 100 [label="AST"];
+102 -> 101 [label="AST"];
+102 -> 99 [label="AST"];
+103 -> 98 [label="AST"];
+103 -> 102 [label="AST"];
+107 -> 110 [label="Data Dep"];
+108 -> 110 [label="Data Dep"];
+109 -> 106 [label="AST"];
+109 -> 107 [label="AST"];
+109 -> 105 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 112 [label="Define-Use"];
+110 -> 117 [label="Define-Use"];
+110 -> 124 [label="Define-Use"];
+110 -> 129 [label="Define-Use"];
+110 -> 139 [label="Define-Use"];
+111 -> 110 [label="AST"];
+111 -> 104 [label="AST"];
+111 -> 109 [label="AST"];
+114 -> 112 [label="AST"];
+114 -> 113 [label="AST"];
+118 -> 116 [label="AST"];
+118 -> 117 [label="AST"];
+118 -> 115 [label="AST"];
+120 -> 118 [label="AST"];
+120 -> 119 [label="AST"];
+121 -> 114 [label="AST"];
+121 -> 120 [label="AST"];
+121 -> 174 [label="Control Dep"];
+121 -> 134 [label="Control Dep"];
+121 -> 127 [label="Control Dep"];
+121 -> 126 [label="Control Dep"];
+121 -> 122 [label="Control Dep"];
+121 -> 124 [label="Control Dep"];
+121 -> 125 [label="Control Dep"];
+121 -> 143 [label="Control Dep"];
+121 -> 135 [label="Control Dep"];
+121 -> 142 [label="Control Dep"];
+121 -> 141 [label="Control Dep"];
+121 -> 137 [label="Control Dep"];
+121 -> 139 [label="Control Dep"];
+121 -> 140 [label="Control Dep"];
+121 -> 148 [label="Control Dep"];
+121 -> 146 [label="Control Dep"];
+121 -> 153 [label="Control Dep"];
+121 -> 149 [label="Control Dep"];
+121 -> 151 [label="Control Dep"];
+121 -> 152 [label="Control Dep"];
+121 -> 158 [label="Control Dep"];
+121 -> 156 [label="Control Dep"];
+121 -> 163 [label="Control Dep"];
+121 -> 159 [label="Control Dep"];
+121 -> 161 [label="Control Dep"];
+121 -> 162 [label="Control Dep"];
+121 -> 168 [label="Control Dep"];
+121 -> 164 [label="Control Dep"];
+121 -> 166 [label="Control Dep"];
+121 -> 167 [label="Control Dep"];
+121 -> 173 [label="Control Dep"];
+121 -> 169 [label="Control Dep"];
+121 -> 171 [label="Control Dep"];
+121 -> 172 [label="Control Dep"];
+126 -> 123 [label="AST"];
+126 -> 124 [label="AST"];
+126 -> 122 [label="AST"];
+126 -> 125 [label="AST"];
+127 -> 126 [label="AST"];
+127 -> 133 [label="Control Dep"];
+127 -> 132 [label="Control Dep"];
+127 -> 128 [label="Control Dep"];
+127 -> 131 [label="Control Dep"];
+127 -> 129 [label="Control Dep"];
+127 -> 130 [label="Control Dep"];
+128 -> 139 [label="Define-Use"];
+129 -> 128 [label="Data Dep"];
+131 -> 129 [label="AST"];
+131 -> 130 [label="AST"];
+132 -> 128 [label="AST"];
+132 -> 131 [label="AST"];
+133 -> 132 [label="AST"];
+134 -> 127 [label="AST"];
+134 -> 133 [label="AST"];
+135 -> 152 [label="Define-Use"];
+135 -> 200 [label="Define-Use"];
+139 -> 135 [label="Data Dep"];
+140 -> 208 [label="Action"];
+141 -> 138 [label="AST"];
+141 -> 139 [label="AST"];
+141 -> 137 [label="AST"];
+141 -> 140 [label="AST"];
+141 -> 209 [label="Action"];
+142 -> 141 [label="AST"];
+142 -> 206 [label="Action"];
+143 -> 135 [label="AST"];
+143 -> 142 [label="AST"];
+147 -> 151 [label="Define-Use"];
+147 -> 172 [label="Define-Use"];
+148 -> 147 [label="AST"];
+148 -> 144 [label="AST"];
+148 -> 146 [label="AST"];
+153 -> 150 [label="AST"];
+153 -> 151 [label="AST"];
+153 -> 149 [label="AST"];
+153 -> 152 [label="AST"];
+157 -> 161 [label="Define-Use"];
+157 -> 166 [label="Define-Use"];
+157 -> 171 [label="Define-Use"];
+158 -> 157 [label="AST"];
+158 -> 154 [label="AST"];
+158 -> 156 [label="AST"];
+163 -> 160 [label="AST"];
+163 -> 161 [label="AST"];
+163 -> 159 [label="AST"];
+163 -> 162 [label="AST"];
+168 -> 165 [label="AST"];
+168 -> 166 [label="AST"];
+168 -> 164 [label="AST"];
+168 -> 167 [label="AST"];
+173 -> 170 [label="AST"];
+173 -> 171 [label="AST"];
+173 -> 169 [label="AST"];
+173 -> 172 [label="AST"];
+174 -> 134 [label="AST"];
+174 -> 143 [label="AST"];
+174 -> 148 [label="AST"];
+174 -> 153 [label="AST"];
+174 -> 158 [label="AST"];
+174 -> 163 [label="AST"];
+174 -> 168 [label="AST"];
+174 -> 173 [label="AST"];
+175 -> 121 [label="AST"];
+175 -> 174 [label="AST"];
+176 -> 58 [label="AST"];
+176 -> 75 [label="AST"];
+176 -> 80 [label="AST"];
+176 -> 85 [label="AST"];
+176 -> 90 [label="AST"];
+176 -> 97 [label="AST"];
+176 -> 103 [label="AST"];
+176 -> 111 [label="AST"];
+176 -> 175 [label="AST"];
+177 -> 182 [label="Define-Use"];
+177 -> 184 [label="Define-Use"];
+179 -> 177 [label="AST"];
+179 -> 178 [label="AST"];
+179 -> 190 [label="Control Dep"];
+179 -> 189 [label="Control Dep"];
+179 -> 188 [label="Control Dep"];
+179 -> 183 [label="Control Dep"];
+179 -> 181 [label="Control Dep"];
+179 -> 182 [label="Control Dep"];
+179 -> 184 [label="Control Dep"];
+179 -> 187 [label="Control Dep"];
+179 -> 185 [label="Control Dep"];
+183 -> 181 [label="AST"];
+183 -> 182 [label="AST"];
+187 -> 186 [label="AST"];
+187 -> 185 [label="AST"];
+188 -> 183 [label="AST"];
+188 -> 184 [label="AST"];
+188 -> 187 [label="AST"];
+189 -> 188 [label="AST"];
+190 -> 189 [label="AST"];
+191 -> 179 [label="AST"];
+191 -> 190 [label="AST"];
+196 -> 193 [label="AST"];
+196 -> 194 [label="AST"];
+196 -> 192 [label="AST"];
+196 -> 195 [label="AST"];
+201 -> 198 [label="AST"];
+201 -> 199 [label="AST"];
+201 -> 197 [label="AST"];
+201 -> 200 [label="AST"];
+202 -> 196 [label="AST"];
+202 -> 201 [label="AST"];
+203 -> 176 [label="AST"];
+203 -> 191 [label="AST"];
+203 -> 202 [label="AST"];
+204 -> 11 [label="AST"];
+204 -> 38 [label="AST"];
+204 -> 42 [label="AST"];
+204 -> 46 [label="AST"];
+204 -> 50 [label="AST"];
+204 -> 203 [label="AST"];
+205 -> 1 [label="AST"];
+205 -> 0 [label="AST"];
+205 -> 2 [label="AST"];
+205 -> 204 [label="AST"];
+206 -> 207 [label="Action"];
+209 -> 210 [label="Action"];
+}

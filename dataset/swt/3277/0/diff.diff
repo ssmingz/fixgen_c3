@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3277/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3277/0/after.java
+@@ -5,2 +5,3 @@
+-    if ((0 > index) || (index >= parent.getColumnCount())) {
+-      error(ERROR_INVALID_RANGE);
++    int count = parent.getColumnCount();
++    if ((0 > index) || (index > (count == 0 ? 0 : count - 1))) {
++      return getForeground();

@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/214/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/214/1/after.java
+@@ -10,2 +10,4 @@
+-    gc.setBackground(getParent().getBackground());
+-    gc.fillRectangle(chevronRect);
++    if (!single) {
++      gc.setBackground(getParent().getBackground());
++      gc.fillRectangle(chevronRect);
++    }
+@@ -13,1 +15,2 @@
+-    gc.setForeground(selectionForeground);
++    Color color = (single) ? selectionForeground : getParent().getForeground();
++    gc.setForeground(color);

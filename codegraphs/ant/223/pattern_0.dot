@@ -1,0 +1,25 @@
+digraph "Pattern" {
+0 [label="testPassthrough#?#-1:DELETE
+testAntClasspathDest#?#-1:DELETE
+testInheritPath#?#-1:DELETE" shape=ellipse]
+1 [label="testPassthrough#?#-1:PlaceHold
+testAntClasspathDest#?#-1:PlaceHold
+testInheritPath#?#-1:PlaceHold" shape=ellipse]
+2 [label="testPassthrough#?#-1:
+testAntClasspathDest#?#-1:
+testInheritPath#?#-1:" shape=ellipse]
+3 [label="testPassthrough#?#3:executeTarget(\"testPassthrough\")
+testAntClasspathDest#?#3:executeTarget(\"testAntClasspathDest\")
+testInheritPath#?#3:executeTarget(\"testInheritPath\")" shape=ellipse]
+4 [label="testPassthrough#?#-1:PlaceHold
+testAntClasspathDest#?#-1:PlaceHold
+testInheritPath#?#-1:PlaceHold" shape=ellipse]
+5 [label="testPassthrough#?#-1:PlaceHold
+testAntClasspathDest#?#-1:PlaceHold
+testInheritPath#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 5 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+}

@@ -1,0 +1,87 @@
+digraph "Pattern" {
+0 [label="verifyLongEll#?,int,int#4:UPDATE
+checkWSAfter#?,int,int,MyToken,String#10:UPDATE" shape=ellipse]
+1 [label="verifyLongEll#?,int,int#4:log(aLineNo, aColNo, \"upperEll\")
+checkWSAfter#?,int,int,MyToken,String#10:log(aLineNo, aColNo, \"ws.notFollowed\", aConstruct.getText())" shape=ellipse]
+2 [label="verifyLongEll#?,int,int#3:(!mConfig.isIgnoreLongEll()) && (mLines[aLineNo - 1].charAt(aColNo) == 'l')
+checkWSAfter#?,int,int,MyToken,String#8:((aColNo < line.length()) && (!Character.isWhitespace(line.charAt(aColNo)))) && (aAllow.indexOf(line.charAt(aColNo)) == (-1))" shape=ellipse]
+3 [label="verifyLongEll#?,int,int#3:if ((!mConfig.isIgnoreLongEll()) && (mLines[aLineNo - 1].charAt(aColNo) == 'l')) \{
+    log(aLineNo, aColNo, \"upperEll\");
+\}
+checkWSAfter#?,int,int,MyToken,String#8:if (((aColNo < line.length()) && (!Character.isWhitespace(line.charAt(aColNo)))) && (aAllow.indexOf(line.charAt(aColNo)) == (-1))) \{
+    log(aLineNo, aColNo, \"ws.notFollowed\", aConstruct.getText());
+\}" shape=ellipse]
+4 [label="verifyLongEll#?,int,int#3:(!mConfig.isIgnoreLongEll())" shape=ellipse]
+5 [label="verifyLongEll#?,int,int#3:(mLines[aLineNo - 1].charAt(aColNo) == 'l')
+checkWSAfter#?,int,int,MyToken,String#9:(aAllow.indexOf(line.charAt(aColNo)) == (-1))" shape=ellipse]
+6 [label="verifyLongEll#?,int,int#3:\{
+    log(aLineNo, aColNo, \"upperEll\");
+\}
+checkWSAfter#?,int,int,MyToken,String#9:\{
+    log(aLineNo, aColNo, \"ws.notFollowed\", aConstruct.getText());
+\}" shape=ellipse]
+7 [label="verifyLongEll#?,int,int#4:log(int,int,java.lang.String)
+checkWSAfter#?,int,int,MyToken,String#10:log(int,int,java.lang.String,<unknown>)" shape=ellipse]
+8 [label="verifyLongEll#?,int,int#4:
+checkWSAfter#?,int,int,MyToken,String#10:" shape=ellipse]
+9 [label="verifyLongEll#?,int,int#4:PlaceHold
+checkWSAfter#?,int,int,MyToken,String#10:PlaceHold" shape=ellipse]
+10 [label="verifyLongEll#?,int,int#4:aLineNo
+checkWSAfter#?,int,int,MyToken,String#10:aLineNo" shape=ellipse]
+11 [label="verifyLongEll#?,int,int#4:aColNo
+checkWSAfter#?,int,int,MyToken,String#10:aColNo" shape=ellipse]
+12 [label="verifyLongEll#?,int,int#4:\"upperEll\"
+checkWSAfter#?,int,int,MyToken,String#10:\"ws.notFollowed\"" shape=ellipse]
+13 [label="verifyLongEll#?,int,int#4:add
+checkWSAfter#?,int,int,MyToken,String#10:add" shape=ellipse]
+14 [label="verifyLongEll#?,int,int#4:mMessages
+checkWSAfter#?,int,int,MyToken,String#10:mMessages" shape=ellipse]
+15 [label="verifyLongEll#?,int,int#4:
+checkWSAfter#?,int,int,MyToken,String#10:" shape=ellipse]
+16 [label="verifyLongEll#?,int,int#4:int
+checkWSAfter#?,int,int,MyToken,String#10:int" shape=ellipse]
+17 [label="verifyLongEll#?,int,int#4:int
+checkWSAfter#?,int,int,MyToken,String#10:int" shape=ellipse]
+18 [label="verifyLongEll#?,int,int#4:String
+checkWSAfter#?,int,int,MyToken,String#10:String" shape=ellipse]
+19 [label="verifyLongEll#?,int,int#4:java.lang
+checkWSAfter#?,int,int,MyToken,String#10:java.lang" shape=ellipse]
+20 [label="verifyLongEll#?,int,int#4:log
+checkWSAfter#?,int,int,MyToken,String#10:log" shape=ellipse]
+21 [label="checkWSAfter#?,int,int,MyToken,String#8:((aColNo < line.length()) && (!Character.isWhitespace(line.charAt(aColNo))))" shape=ellipse]
+22 [label="checkWSAfter#?,int,int,MyToken,String#10:aConstruct.getText()" shape=ellipse]
+23 [label="checkWSAfter#?,int,int,MyToken,String#10:getText()" shape=ellipse]
+24 [label="checkWSAfter#?,int,int,MyToken,String#10:aConstruct" shape=ellipse]
+25 [label="checkWSAfter#?,int,int,MyToken,String#8:boolean" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 20 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 22 [label="AST:1"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:1"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 21 [label="AST:1"];
+2 -> 22 [label="Control Dep:1"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 1 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+22 -> 24 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+}

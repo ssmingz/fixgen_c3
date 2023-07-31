@@ -1,0 +1,66 @@
+digraph "Pattern" {
+0 [label="testNoPassword#?#2:INSERT
+testNoCVSRoot#?#2:INSERT" shape=ellipse]
+1 [label="testNoPassword#?#2:public void testNoPassword() \{
+    try \{
+        executeTarget(\"test2\");
+        fail(\"BuildException not thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"password is required\", e.getMessage());
+    \}
+\}
+testNoCVSRoot#?#2:public void testNoCVSRoot() \{
+    try \{
+        executeTarget(\"test1\");
+        fail(\"BuildException not thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"cvsroot is required\", e.getMessage());
+    \}
+\}" shape=ellipse]
+2 [label="testNoPassword#?#2:testNoPassword
+testNoCVSRoot#?#2:testNoCVSRoot" shape=ellipse]
+3 [label="testNoPassword#?#2:void
+testNoCVSRoot#?#2:void" shape=ellipse]
+4 [label="testNoPassword#?#2:\{
+    try \{
+        executeTarget(\"test2\");
+        fail(\"BuildException not thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"password is required\", e.getMessage());
+    \}
+\}
+testNoCVSRoot#?#2:\{
+    try \{
+        executeTarget(\"test1\");
+        fail(\"BuildException not thrown\");
+    \} catch (BuildException e) \{
+        assertEquals(\"cvsroot is required\", e.getMessage());
+    \}
+\}" shape=ellipse]
+5 [label="testNoPassword#?#3:try \{
+    executeTarget(\"test2\");
+    fail(\"BuildException not thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"password is required\", e.getMessage());
+\}
+testNoCVSRoot#?#3:try \{
+    executeTarget(\"test1\");
+    fail(\"BuildException not thrown\");
+\} catch (BuildException e) \{
+    assertEquals(\"cvsroot is required\", e.getMessage());
+\}" shape=ellipse]
+6 [label="testNoPassword#?#2:VE: Modifiers_Method
+testNoCVSRoot#?#2:VE: Modifiers_Method" shape=ellipse]
+7 [label="testNoPassword#?#2:public
+testNoCVSRoot#?#2:public" shape=ellipse]
+8 [label="testNoPassword#?#2:@Test
+testNoCVSRoot#?#2:@Test" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+}

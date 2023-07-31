@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2174/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2174/0/after.java
+@@ -26,1 +26,5 @@
+-          log("expand-file " + te.getName(), MSG_VERBOSE);
++          if (((!overwrite) && f.exists()) && (f.lastModified() >= te.getModTime().getTime())) {
++            log(("Skipping " + f) + " as it is up-to-date", MSG_DEBUG);
++            continue;
++          }
++          log((("expanding " + te.getName()) + " to ") + f, MSG_VERBOSE);

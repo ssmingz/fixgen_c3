@@ -1,0 +1,108 @@
+digraph "Pattern" {
+0 [label="setExcludesfile#?,String#-1:INSERT
+setIncludesfile#?,String#-1:INSERT" shape=ellipse]
+1 [label="setExcludesfile#?,String#6:project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR)
+setIncludesfile#?,String#6:project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR)" shape=ellipse]
+2 [label="setExcludesfile#?,String#5:!excl.exists()
+setIncludesfile#?,String#5:!incl.exists()" shape=ellipse]
+3 [label="setExcludesfile#?,String#3:(excludesfile != null) && (excludesfile.length() > 0)
+setIncludesfile#?,String#3:(includesfile != null) && (includesfile.length() > 0)" shape=ellipse]
+4 [label="setExcludesfile#?,String#5:if (!excl.exists()) \{
+    project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR);
+\} else \{
+    readPatterns(excl, excludeList);
+\}
+setIncludesfile#?,String#5:if (!incl.exists()) \{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\} else \{
+    readPatterns(incl, includeList);
+\}" shape=ellipse]
+5 [label="setExcludesfile#?,String#5:excl.exists()
+setIncludesfile#?,String#5:incl.exists()" shape=ellipse]
+6 [label="setExcludesfile#?,String#5:\{
+    project.log((\"Excludesfile \" + excludesfile) + \" not found.\", MSG_ERR);
+\}
+setIncludesfile#?,String#5:\{
+    project.log((\"Includesfile \" + includesfile) + \" not found.\", MSG_ERR);
+\}" shape=ellipse]
+7 [label="setExcludesfile#?,String#6:log(java.lang.String)
+setIncludesfile#?,String#6:log(java.lang.String)" shape=ellipse]
+8 [label="setExcludesfile#?,String#6:project
+setIncludesfile#?,String#6:project" shape=ellipse]
+9 [label="setExcludesfile#?,String#6:(\"Excludesfile \" + excludesfile) + \" not found.\"
+setIncludesfile#?,String#6:(\"Includesfile \" + includesfile) + \" not found.\"" shape=ellipse]
+10 [label="setExcludesfile#?,String#6:(\"Excludesfile \" + excludesfile)
+setIncludesfile#?,String#6:(\"Includesfile \" + includesfile)" shape=ellipse]
+11 [label="setExcludesfile#?,String#6:\"Excludesfile \"
+setIncludesfile#?,String#6:\"Includesfile \"" shape=ellipse]
+12 [label="setExcludesfile#?,String#6:excludesfile
+setIncludesfile#?,String#6:includesfile" shape=ellipse]
+13 [label="setExcludesfile#?,String#6:\" not found.\"
+setIncludesfile#?,String#6:\" not found.\"" shape=ellipse]
+14 [label="setExcludesfile#?,String#6:MSG_ERR
+setIncludesfile#?,String#6:MSG_ERR" shape=ellipse]
+15 [label="setExcludesfile#?,String#7:\{
+    readPatterns(excl, excludeList);
+\}
+setIncludesfile#?,String#7:\{
+    readPatterns(incl, includeList);
+\}" shape=ellipse]
+16 [label="setExcludesfile#?,String#8:readPatterns(excl, excludeList)
+setIncludesfile#?,String#8:readPatterns(incl, includeList)" shape=ellipse]
+17 [label="setExcludesfile#?,String#8:readPatterns(<unknown>,<unknown>)
+setIncludesfile#?,String#8:readPatterns(<unknown>,<unknown>)" shape=ellipse]
+18 [label="setExcludesfile#?,String#-1:
+setIncludesfile#?,String#-1:" shape=ellipse]
+19 [label="setExcludesfile#?,String#-1:PlaceHold
+setIncludesfile#?,String#-1:PlaceHold" shape=ellipse]
+20 [label="setExcludesfile#?,String#8:excl
+setIncludesfile#?,String#8:incl" shape=ellipse]
+21 [label="setExcludesfile#?,String#8:excludeList
+setIncludesfile#?,String#8:includeList" shape=ellipse]
+22 [label="setExcludesfile#?,String#6:log
+setIncludesfile#?,String#6:log" shape=ellipse]
+23 [label="setExcludesfile#?,String#-1:PlaceHold
+setIncludesfile#?,String#-1:PlaceHold" shape=ellipse]
+0 -> 23 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 22 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+2 -> 21 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 5 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+4 -> 15 [label="AST:2"];
+6 -> 1 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+9 -> 13 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 20 [label="AST:2"];
+16 -> 21 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+}

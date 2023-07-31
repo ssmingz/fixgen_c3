@@ -1,0 +1,186 @@
+digraph "Pattern" {
+0 [label="##ActionPoint##
+locationInParent:ACTION
+nodeType:Insert
+nodeType2:ActionNode
+nodeType3:CtElementImpl
+value:INSERT
+value2:" shape=ellipse]
+1 [label="locationInParent:DEFAULT_EXPRESSION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:java.lang.String.format(String + String, Class.getName())" shape=ellipse]
+2 [label="locationInParent:CONDITION
+nodeType:CtUnaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:!isSubset(int[], int[])" shape=ellipse]
+3 [label="locationInParent:CONDITION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:Check.class.isAssignableFrom(check)
+value2:Check.class.isAssignableFrom(Class)" shape=ellipse]
+4 [label="locationInParent:STATEMENT
+nodeType:CtIfImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:if (!isSubset(int[], int[])) \{
+    java.lang.String errorMessage = java.lang.String.format(String + String, Class.getName());
+    Assert.fail(String);
+\}" shape=ellipse]
+5 [label="locationInParent:EXPRESSION
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value2:isSubset(int[], int[])" shape=ellipse]
+6 [label="locationInParent:THEN
+nodeType:CtBlockImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:\{
+    java.lang.String errorMessage = java.lang.String.format(String + String, Class.getName());
+    Assert.fail(String);
+\}" shape=ellipse]
+7 [label="locationInParent:STATEMENT
+nodeType:CtLocalVariableImpl
+nodeType2:CtStatementImpl
+nodeType3:CtStatementImpl
+value2:java.lang.String errorMessage = java.lang.String.format(String + String, Class.getName())" shape=ellipse]
+8 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:format(java.lang.String,java.lang.Object[])
+value2:format(java.lang.String,java.lang.Object[])" shape=ellipse]
+9 [label="locationInParent:TARGET
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:String
+value2:java.lang.String" shape=ellipse]
+10 [label="locationInParent:ARGUMENT
+nodeType:CtBinaryOperatorImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String + String" shape=ellipse]
+11 [label="locationInParent:LEFT_OPERAND
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value2:String" shape=ellipse]
+12 [label="locationInParent:RIGHT_OPERAND
+nodeType:CtLiteralImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:\" of acceptable tokens.\"
+value2:String" shape=ellipse]
+13 [label="locationInParent:ARGUMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:check.getName()
+value2:Class.getName()" shape=ellipse]
+14 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:getName()
+value2:getName()" shape=ellipse]
+15 [label="locationInParent:TARGET
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:check
+value2:Class" shape=ellipse]
+16 [label="locationInParent:STATEMENT
+nodeType:CtInvocationImpl
+nodeType2:CtTargetedExpressionImpl
+nodeType3:CtExpressionImpl
+value:Assert.fail(errorMessage)
+value2:Assert.fail(String)" shape=ellipse]
+17 [label="locationInParent:EXECUTABLE_REF
+nodeType:CtExecutableReferenceImpl
+nodeType2:CtExecutableReferenceImpl
+nodeType3:CtExecutableReferenceImpl
+value:fail(java.lang.String)
+value2:fail(java.lang.String)" shape=ellipse]
+18 [label="locationInParent:TARGET
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:Assert
+value2:Assert" shape=ellipse]
+19 [label="locationInParent:ARGUMENT
+nodeType:CtVariableReadImpl
+nodeType2:CtVariableAccessImpl
+nodeType3:CtExpressionImpl
+value:errorMessage
+value2:String" shape=ellipse]
+20 [label="locationInParent:ARGUMENT
+nodeType:CtTypeAccessImpl
+nodeType2:CtExpressionImpl
+nodeType3:CtExpressionImpl
+value:ROOT
+value2:Locale.ROOT" shape=ellipse]
+21 [label="locationInParent:ACCESSED_TYPE
+nodeType:CtTypeReferenceImpl
+nodeType2:CtTypeReferenceImpl
+nodeType3:CtTypeReferenceImpl
+value:ROOT
+value2:Locale.ROOT" shape=ellipse]
+22 [label="locationInParent:PACKAGE_REF
+nodeType:CtPackageReferenceImpl
+nodeType2:CtPackageReferenceImpl
+nodeType3:CtPackageReferenceImpl
+value:Locale
+value2:Locale" shape=ellipse]
+23 [label="locationInParent:METHOD_NAME
+nodeType:CtVirtualElement
+nodeType2:CtElementImpl
+nodeType3:Object
+value:format
+value2:java.lang.String.format(String + String, Class.getName())" shape=ellipse]
+0 -> 20 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 23 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:2"];
+2 -> 11 [label="Control Dep:2"];
+2 -> 12 [label="Control Dep:2"];
+2 -> 13 [label="Control Dep:2"];
+2 -> 14 [label="Control Dep:2"];
+2 -> 15 [label="Control Dep:2"];
+2 -> 16 [label="Control Dep:2"];
+2 -> 17 [label="Control Dep:2"];
+2 -> 18 [label="Control Dep:2"];
+2 -> 19 [label="Control Dep:2"];
+2 -> 20 [label="Control Dep:2"];
+3 -> 2 [label="Control Dep:2"];
+3 -> 4 [label="Control Dep:2"];
+3 -> 5 [label="Control Dep:2"];
+4 -> 2 [label="AST:2"];
+4 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 16 [label="AST:2"];
+7 -> 1 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="AST:2"];
+13 -> 15 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+16 -> 18 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 19 [label="AST:2"];
+20 -> 21 [label="AST:2"];
+21 -> 22 [label="AST:2"];
+}

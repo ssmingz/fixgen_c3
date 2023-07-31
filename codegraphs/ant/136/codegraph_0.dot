@@ -1,0 +1,229 @@
+digraph "test1#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@test1" shape=ellipse]
+2 [label="3:CtFieldReadImpl@loginSuceeded" shape=ellipse]
+3 [label="4:CtExecutableReferenceImpl@changeRemoteDir(<unknown>)" shape=ellipse]
+4 [label="4:CtVirtualElement@changeRemoteDir" shape=ellipse]
+5 [label="4:CtFieldReadImpl@remoteTmpDir" shape=ellipse]
+6 [label="4:CtInvocationImpl@changeRemoteDir(remoteTmpDir)" shape=ellipse]
+7 [label="5:CtTypeReferenceImpl@FTP.FTPDirectoryScanner" shape=ellipse]
+8 [label="5:CtTypeReferenceImpl@FTP" shape=ellipse]
+9 [label="5:CtExecutableReferenceImpl@newScanner()" shape=ellipse]
+10 [label="5:CtVirtualElement@newScanner" shape=ellipse]
+11 [label="5:CtFieldReadImpl@myFTPTask" shape=ellipse]
+12 [label="5:CtFieldReadImpl@ftp" shape=ellipse]
+13 [label="5:CtInvocationImpl@myFTPTask.newScanner(ftp)" shape=ellipse]
+14 [label="5:CtVirtualElement@ds" shape=ellipse]
+15 [label="5:CtLocalVariableImpl@FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp)" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@setBasedir(File)" shape=ellipse]
+17 [label="6:CtVirtualElement@setBasedir" shape=ellipse]
+18 [label="6:CtVariableReadImpl@ds" shape=ellipse]
+19 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+20 [label="6:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+21 [label="6:CtVirtualElement@getBaseDir" shape=ellipse]
+22 [label="6:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+23 [label="6:CtVirtualElement@getProject" shape=ellipse]
+24 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+25 [label="6:CtInvocationImpl@getProject().getBaseDir()" shape=ellipse]
+26 [label="6:CtLiteralImpl@\"tmp\"" shape=ellipse]
+27 [label="6:CtConstructorCallImpl@new File(getProject().getBaseDir(), \"tmp\")" shape=ellipse]
+28 [label="6:CtInvocationImpl@ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"))" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@setIncludes(java.lang.String[])" shape=ellipse]
+30 [label="7:CtVirtualElement@setIncludes" shape=ellipse]
+31 [label="7:CtVariableReadImpl@ds" shape=ellipse]
+32 [label="7:CtNewArrayImpl@new String[]\{ \"alpha\" \}" shape=ellipse]
+33 [label="7:CtLiteralImpl@\"alpha\"" shape=ellipse]
+34 [label="7:CtInvocationImpl@ds.setIncludes(new String[]\{ \"alpha\" \})" shape=ellipse]
+35 [label="8:CtExecutableReferenceImpl@scan()" shape=ellipse]
+36 [label="8:CtVirtualElement@scan" shape=ellipse]
+37 [label="8:CtVariableReadImpl@ds" shape=ellipse]
+38 [label="8:CtInvocationImpl@ds.scan()" shape=ellipse]
+39 [label="9:CtExecutableReferenceImpl@compareFiles(<unknown>,java.lang.String[],java.lang.String[])" shape=ellipse]
+40 [label="9:CtVirtualElement@compareFiles" shape=ellipse]
+41 [label="9:CtVariableReadImpl@ds" shape=ellipse]
+42 [label="9:CtNewArrayImpl@new String[]\{  \}" shape=ellipse]
+43 [label="9:CtNewArrayImpl@new String[]\{ \"alpha\" \}" shape=ellipse]
+44 [label="9:CtLiteralImpl@\"alpha\"" shape=ellipse]
+45 [label="9:CtInvocationImpl@compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \})" shape=ellipse]
+46 [label="4:CtBlockImpl@\{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+\}" shape=ellipse]
+47 [label="4:CtIfImpl@if (changeRemoteDir(remoteTmpDir)) \{
+    FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+    ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+    ds.setIncludes(new String[]\{ \"alpha\" \});
+    ds.scan();
+    compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+\}" shape=ellipse]
+48 [label="3:CtBlockImpl@\{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha\" \});
+        ds.scan();
+        compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+    \}
+\}" shape=ellipse]
+49 [label="3:CtIfImpl@if (loginSuceeded) \{
+    if (changeRemoteDir(remoteTmpDir)) \{
+        FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+        ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+        ds.setIncludes(new String[]\{ \"alpha\" \});
+        ds.scan();
+        compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+    \}
+\}" shape=ellipse]
+50 [label="2:CtBlockImpl@\{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha\" \});
+            ds.scan();
+            compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+        \}
+    \}
+\}" shape=ellipse]
+51 [label="2:CtMethodImpl@public void test1() \{
+    if (loginSuceeded) \{
+        if (changeRemoteDir(remoteTmpDir)) \{
+            FTP.FTPDirectoryScanner ds = myFTPTask.newScanner(ftp);
+            ds.setBasedir(new File(getProject().getBaseDir(), \"tmp\"));
+            ds.setIncludes(new String[]\{ \"alpha\" \});
+            ds.scan();
+            compareFiles(ds, new String[]\{  \}, new String[]\{ \"alpha\" \});
+        \}
+    \}
+\}" shape=ellipse]
+52 [label="3:Delete@DELETE" shape=ellipse]
+53 [label="2:Insert@INSERT" shape=ellipse]
+54 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+55 [label="4:Insert@INSERT" shape=ellipse]
+56 [label="4:CtInvocationImpl@Assume.assumeTrue(loginFailureMessage, loginSuceeded)" shape=ellipse]
+57 [label="5:Insert@INSERT" shape=ellipse]
+58 [label="5:CtInvocationImpl@Assume.assumeTrue(\"Could not change remote directory\", changeRemoteDir(remoteTmpDir))" shape=ellipse]
+59 [label="7:Insert@INSERT" shape=ellipse]
+60 [label="7:CtFieldReadImpl@buildRule" shape=ellipse]
+61 [label="5:Move@MOVE" shape=ellipse]
+62 [label="6:Move@MOVE" shape=ellipse]
+63 [label="7:Move@MOVE" shape=ellipse]
+64 [label="8:Move@MOVE" shape=ellipse]
+65 [label="9:Move@MOVE" shape=ellipse]
+66 [label="3:Move@MOVE" shape=ellipse]
+67 [label="4:Move@MOVE" shape=ellipse]
+2 -> 48 [label="Control Dep"];
+2 -> 47 [label="Control Dep"];
+2 -> 6 [label="Control Dep"];
+2 -> 3 [label="Control Dep"];
+2 -> 5 [label="Control Dep"];
+2 -> 66 [label="Action"];
+6 -> 4 [label="AST"];
+6 -> 3 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 46 [label="Control Dep"];
+6 -> 15 [label="Control Dep"];
+6 -> 13 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+6 -> 11 [label="Control Dep"];
+6 -> 12 [label="Control Dep"];
+6 -> 28 [label="Control Dep"];
+6 -> 16 [label="Control Dep"];
+6 -> 18 [label="Control Dep"];
+6 -> 27 [label="Control Dep"];
+6 -> 25 [label="Control Dep"];
+6 -> 20 [label="Control Dep"];
+6 -> 24 [label="Control Dep"];
+6 -> 22 [label="Control Dep"];
+6 -> 26 [label="Control Dep"];
+6 -> 34 [label="Control Dep"];
+6 -> 29 [label="Control Dep"];
+6 -> 31 [label="Control Dep"];
+6 -> 32 [label="Control Dep"];
+6 -> 38 [label="Control Dep"];
+6 -> 35 [label="Control Dep"];
+6 -> 37 [label="Control Dep"];
+6 -> 45 [label="Control Dep"];
+6 -> 39 [label="Control Dep"];
+6 -> 41 [label="Control Dep"];
+6 -> 42 [label="Control Dep"];
+6 -> 43 [label="Control Dep"];
+6 -> 67 [label="Action"];
+7 -> 8 [label="AST"];
+11 -> 14 [label="Data Dep"];
+12 -> 14 [label="Data Dep"];
+13 -> 10 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 18 [label="Define-Use"];
+14 -> 31 [label="Define-Use"];
+14 -> 37 [label="Define-Use"];
+14 -> 41 [label="Define-Use"];
+15 -> 14 [label="AST"];
+15 -> 7 [label="AST"];
+15 -> 13 [label="AST"];
+15 -> 61 [label="Action"];
+24 -> 23 [label="AST"];
+24 -> 22 [label="AST"];
+24 -> 59 [label="Action"];
+25 -> 21 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 20 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 17 [label="AST"];
+28 -> 18 [label="AST"];
+28 -> 16 [label="AST"];
+28 -> 27 [label="AST"];
+28 -> 62 [label="Action"];
+32 -> 33 [label="AST"];
+34 -> 30 [label="AST"];
+34 -> 31 [label="AST"];
+34 -> 29 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 63 [label="Action"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 35 [label="AST"];
+38 -> 64 [label="Action"];
+43 -> 44 [label="AST"];
+45 -> 40 [label="AST"];
+45 -> 39 [label="AST"];
+45 -> 41 [label="AST"];
+45 -> 42 [label="AST"];
+45 -> 43 [label="AST"];
+45 -> 65 [label="Action"];
+46 -> 15 [label="AST"];
+46 -> 28 [label="AST"];
+46 -> 34 [label="AST"];
+46 -> 38 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 6 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 47 [label="AST"];
+49 -> 2 [label="AST"];
+49 -> 48 [label="AST"];
+49 -> 52 [label="Action"];
+50 -> 49 [label="AST"];
+51 -> 1 [label="AST"];
+51 -> 0 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 53 [label="Action"];
+51 -> 55 [label="Action"];
+51 -> 57 [label="Action"];
+53 -> 54 [label="Action"];
+55 -> 56 [label="Action"];
+57 -> 58 [label="Action"];
+59 -> 60 [label="Action"];
+61 -> 51 [label="Action"];
+62 -> 51 [label="Action"];
+63 -> 51 [label="Action"];
+64 -> 51 [label="Action"];
+65 -> 51 [label="Action"];
+66 -> 56 [label="Action"];
+67 -> 58 [label="Action"];
+}

@@ -1,0 +1,282 @@
+digraph "getLocalpathCommand#?,Commandline" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@getLocalpathCommand" shape=ellipse]
+2 [label="2:CtParameterImpl@Commandline cmd" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+5 [label="3:CtFieldReadImpl@m_LocalPath" shape=ellipse]
+6 [label="3:CtLiteralImpl@null" shape=ellipse]
+7 [label="3:CtBinaryOperatorImpl@m_LocalPath == null" shape=ellipse]
+8 [label="4:CtReturnImpl@return" shape=ellipse]
+9 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+10 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+11 [label="6:CtExecutableReferenceImpl@resolveFile(<unknown>)" shape=ellipse]
+12 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+13 [label="6:CtFieldReadImpl@m_LocalPath" shape=ellipse]
+14 [label="6:CtInvocationImpl@resolveFile(m_LocalPath)" shape=ellipse]
+15 [label="6:CtVirtualElement@dir" shape=ellipse]
+16 [label="6:CtLocalVariableImpl@File dir = resolveFile(m_LocalPath)" shape=ellipse]
+17 [label="7:CtExecutableReferenceImpl@exists()" shape=ellipse]
+18 [label="7:CtVirtualElement@exists" shape=ellipse]
+19 [label="7:CtVariableReadImpl@dir" shape=ellipse]
+20 [label="7:CtInvocationImpl@dir.exists()" shape=ellipse]
+21 [label="7:CtUnaryOperatorImpl@!dir.exists()" shape=ellipse]
+22 [label="8:CtTypeReferenceImpl@boolean" shape=ellipse]
+23 [label="8:CtExecutableReferenceImpl@mkdirs()" shape=ellipse]
+24 [label="8:CtVirtualElement@mkdirs" shape=ellipse]
+25 [label="8:CtVariableReadImpl@dir" shape=ellipse]
+26 [label="8:CtInvocationImpl@dir.mkdirs()" shape=ellipse]
+27 [label="8:CtVirtualElement@done" shape=ellipse]
+28 [label="8:CtLocalVariableImpl@boolean done = dir.mkdirs()" shape=ellipse]
+29 [label="9:CtVariableReadImpl@done" shape=ellipse]
+30 [label="9:CtLiteralImpl@false" shape=ellipse]
+31 [label="9:CtBinaryOperatorImpl@done == false" shape=ellipse]
+32 [label="10:CtTypeReferenceImpl@String" shape=ellipse]
+33 [label="11:CtLiteralImpl@\"Directory \"" shape=ellipse]
+34 [label="11:CtFieldReadImpl@m_LocalPath" shape=ellipse]
+35 [label="11:CtBinaryOperatorImpl@(\"Directory \" + m_LocalPath)" shape=ellipse]
+36 [label="11:CtLiteralImpl@\" creation was not \"" shape=ellipse]
+37 [label="11:CtBinaryOperatorImpl@((\"Directory \" + m_LocalPath) + \" creation was not \")" shape=ellipse]
+38 [label="12:CtLiteralImpl@\"succesful for an unknown reason\"" shape=ellipse]
+39 [label="11:CtBinaryOperatorImpl@((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\"" shape=ellipse]
+40 [label="10:CtVirtualElement@msg" shape=ellipse]
+41 [label="10:CtLocalVariableImpl@String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\"" shape=ellipse]
+42 [label="13:CtTypeReferenceImpl@TaskException" shape=ellipse]
+43 [label="13:CtVariableReadImpl@msg" shape=ellipse]
+44 [label="13:CtConstructorCallImpl@new TaskException(msg)" shape=ellipse]
+45 [label="13:CtThrowImpl@throw new TaskException(msg)" shape=ellipse]
+46 [label="9:CtBlockImpl@\{
+    String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+    throw new TaskException(msg);
+\}" shape=ellipse]
+47 [label="9:CtIfImpl@if (done == false) \{
+    String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+    throw new TaskException(msg);
+\}" shape=ellipse]
+48 [label="15:CtExecutableReferenceImpl@info()" shape=ellipse]
+49 [label="15:CtVirtualElement@info" shape=ellipse]
+50 [label="15:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+51 [label="15:CtVirtualElement@getLogger" shape=ellipse]
+52 [label="15:CtInvocationImpl@getLogger()" shape=ellipse]
+53 [label="15:CtLiteralImpl@\"Created dir: \"" shape=ellipse]
+54 [label="15:CtExecutableReferenceImpl@getAbsolutePath()" shape=ellipse]
+55 [label="15:CtVirtualElement@getAbsolutePath" shape=ellipse]
+56 [label="15:CtVariableReadImpl@dir" shape=ellipse]
+57 [label="15:CtInvocationImpl@dir.getAbsolutePath()" shape=ellipse]
+58 [label="15:CtBinaryOperatorImpl@\"Created dir: \" + dir.getAbsolutePath()" shape=ellipse]
+59 [label="15:CtInvocationImpl@getLogger().info(\"Created dir: \" + dir.getAbsolutePath())" shape=ellipse]
+60 [label="7:CtBlockImpl@\{
+    boolean done = dir.mkdirs();
+    if (done == false) \{
+        String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+        throw new TaskException(msg);
+    \}
+    getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+\}" shape=ellipse]
+61 [label="7:CtIfImpl@if (!dir.exists()) \{
+    boolean done = dir.mkdirs();
+    if (done == false) \{
+        String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+        throw new TaskException(msg);
+    \}
+    getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+\}" shape=ellipse]
+62 [label="17:CtExecutableReferenceImpl@addArgument()" shape=ellipse]
+63 [label="17:CtVirtualElement@addArgument" shape=ellipse]
+64 [label="17:CtVariableReadImpl@cmd" shape=ellipse]
+65 [label="17:CtFieldReadImpl@FLAG_OVERRIDE_WORKING_DIR" shape=ellipse]
+66 [label="17:CtFieldReadImpl@m_LocalPath" shape=ellipse]
+67 [label="17:CtBinaryOperatorImpl@FLAG_OVERRIDE_WORKING_DIR + m_LocalPath" shape=ellipse]
+68 [label="17:CtInvocationImpl@cmd.addArgument(FLAG_OVERRIDE_WORKING_DIR + m_LocalPath)" shape=ellipse]
+69 [label="5:CtBlockImpl@\{
+    File dir = resolveFile(m_LocalPath);
+    if (!dir.exists()) \{
+        boolean done = dir.mkdirs();
+        if (done == false) \{
+            String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+            throw new TaskException(msg);
+        \}
+        getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+    \}
+    cmd.addArgument(FLAG_OVERRIDE_WORKING_DIR + m_LocalPath);
+\}" shape=ellipse]
+70 [label="3:CtIfImpl@if (m_LocalPath == null) \{
+    return;
+\} else \{
+    File dir = resolveFile(m_LocalPath);
+    if (!dir.exists()) \{
+        boolean done = dir.mkdirs();
+        if (done == false) \{
+            String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+            throw new TaskException(msg);
+        \}
+        getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+    \}
+    cmd.addArgument(FLAG_OVERRIDE_WORKING_DIR + m_LocalPath);
+\}" shape=ellipse]
+71 [label="2:CtBlockImpl@\{
+    if (m_LocalPath == null) \{
+        return;
+    \} else \{
+        File dir = resolveFile(m_LocalPath);
+        if (!dir.exists()) \{
+            boolean done = dir.mkdirs();
+            if (done == false) \{
+                String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+                throw new TaskException(msg);
+            \}
+            getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+        \}
+        cmd.addArgument(FLAG_OVERRIDE_WORKING_DIR + m_LocalPath);
+    \}
+\}" shape=ellipse]
+72 [label="2:CtMethodImpl@public void getLocalpathCommand(Commandline cmd) throws TaskException \{
+    if (m_LocalPath == null) \{
+        return;
+    \} else \{
+        File dir = resolveFile(m_LocalPath);
+        if (!dir.exists()) \{
+            boolean done = dir.mkdirs();
+            if (done == false) \{
+                String msg = ((\"Directory \" + m_LocalPath) + \" creation was not \") + \"succesful for an unknown reason\";
+                throw new TaskException(msg);
+            \}
+            getLogger().info(\"Created dir: \" + dir.getAbsolutePath());
+        \}
+        cmd.addArgument(FLAG_OVERRIDE_WORKING_DIR + m_LocalPath);
+    \}
+\}" shape=ellipse]
+73 [label="6:Insert@INSERT" shape=ellipse]
+74 [label="6:CtInvocationImpl@getContext()" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 9 [label="Control Dep"];
+7 -> 8 [label="Control Dep"];
+7 -> 69 [label="Control Dep"];
+7 -> 16 [label="Control Dep"];
+7 -> 14 [label="Control Dep"];
+7 -> 11 [label="Control Dep"];
+7 -> 13 [label="Control Dep"];
+7 -> 61 [label="Control Dep"];
+7 -> 21 [label="Control Dep"];
+7 -> 20 [label="Control Dep"];
+7 -> 17 [label="Control Dep"];
+7 -> 19 [label="Control Dep"];
+7 -> 68 [label="Control Dep"];
+7 -> 62 [label="Control Dep"];
+7 -> 64 [label="Control Dep"];
+7 -> 67 [label="Control Dep"];
+7 -> 65 [label="Control Dep"];
+7 -> 66 [label="Control Dep"];
+9 -> 8 [label="AST"];
+13 -> 15 [label="Data Dep"];
+14 -> 12 [label="AST"];
+14 -> 11 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 73 [label="Action"];
+15 -> 19 [label="Define-Use"];
+15 -> 25 [label="Define-Use"];
+15 -> 56 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 60 [label="Control Dep"];
+21 -> 28 [label="Control Dep"];
+21 -> 26 [label="Control Dep"];
+21 -> 23 [label="Control Dep"];
+21 -> 25 [label="Control Dep"];
+21 -> 47 [label="Control Dep"];
+21 -> 31 [label="Control Dep"];
+21 -> 29 [label="Control Dep"];
+21 -> 30 [label="Control Dep"];
+21 -> 59 [label="Control Dep"];
+21 -> 48 [label="Control Dep"];
+21 -> 52 [label="Control Dep"];
+21 -> 50 [label="Control Dep"];
+21 -> 58 [label="Control Dep"];
+21 -> 53 [label="Control Dep"];
+21 -> 57 [label="Control Dep"];
+21 -> 54 [label="Control Dep"];
+21 -> 56 [label="Control Dep"];
+25 -> 27 [label="Data Dep"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 23 [label="AST"];
+27 -> 29 [label="Define-Use"];
+28 -> 27 [label="AST"];
+28 -> 22 [label="AST"];
+28 -> 26 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 46 [label="Control Dep"];
+31 -> 41 [label="Control Dep"];
+31 -> 39 [label="Control Dep"];
+31 -> 37 [label="Control Dep"];
+31 -> 35 [label="Control Dep"];
+31 -> 33 [label="Control Dep"];
+31 -> 34 [label="Control Dep"];
+31 -> 36 [label="Control Dep"];
+31 -> 38 [label="Control Dep"];
+31 -> 45 [label="Control Dep"];
+31 -> 44 [label="Control Dep"];
+31 -> 43 [label="Control Dep"];
+34 -> 40 [label="Data Dep"];
+35 -> 33 [label="AST"];
+35 -> 34 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+39 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 43 [label="Define-Use"];
+41 -> 40 [label="AST"];
+41 -> 32 [label="AST"];
+41 -> 39 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 41 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 31 [label="AST"];
+47 -> 46 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 50 [label="AST"];
+57 -> 55 [label="AST"];
+57 -> 56 [label="AST"];
+57 -> 54 [label="AST"];
+58 -> 53 [label="AST"];
+58 -> 57 [label="AST"];
+59 -> 49 [label="AST"];
+59 -> 52 [label="AST"];
+59 -> 48 [label="AST"];
+59 -> 58 [label="AST"];
+60 -> 28 [label="AST"];
+60 -> 47 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 21 [label="AST"];
+61 -> 60 [label="AST"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 63 [label="AST"];
+68 -> 64 [label="AST"];
+68 -> 62 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 16 [label="AST"];
+69 -> 61 [label="AST"];
+69 -> 68 [label="AST"];
+70 -> 7 [label="AST"];
+70 -> 9 [label="AST"];
+70 -> 69 [label="AST"];
+71 -> 70 [label="AST"];
+72 -> 1 [label="AST"];
+72 -> 0 [label="AST"];
+72 -> 2 [label="AST"];
+72 -> 4 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 74 [label="Action"];
+}

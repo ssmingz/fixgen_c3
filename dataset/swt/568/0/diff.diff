@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/568/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/568/0/after.java
+@@ -2,1 +2,1 @@
+-  int get_accValue(int variant, int pszValue) {
++  int get_accValue(int varChild, int pszValue) {
+@@ -6,3 +6,2 @@
+-    VARIANT v = new VARIANT();
+-    COM.MoveMemory(v, variant, sizeof);
+-    if ((v.vt & 0xffff) != COM.VT_I4) {
++    VARIANT v = getVARIANT(varChild);
++    if (v.vt != COM.VT_I4) {
+@@ -12,1 +11,1 @@
+-    int code = iaccessible.get_accValue(variant, pszValue);
++    int code = iaccessible.get_accValue(varChild, pszValue);

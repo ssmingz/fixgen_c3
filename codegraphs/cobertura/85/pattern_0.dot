@@ -1,0 +1,81 @@
+digraph "Pattern" {
+0 [label="instrumentInvokeTouchSwitch#?#4:UPDATE
+instrumentInvokeTouchJump#?#4:UPDATE
+visitLineNumber#?,int,Label#8:UPDATE" shape=ellipse]
+1 [label="instrumentInvokeTouchSwitch#?#4:INVOKEVIRTUAL
+instrumentInvokeTouchJump#?#4:INVOKEVIRTUAL
+visitLineNumber#?,int,Label#8:INVOKEVIRTUAL" shape=ellipse]
+2 [label="instrumentInvokeTouchSwitch#?#3:mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touchSwitch\", \"(III)V\")
+instrumentInvokeTouchJump#?#3:mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touchJump\", \"(IIZ)V\")
+visitLineNumber#?,int,Label#7:mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touch\", \"(I)V\")" shape=ellipse]
+3 [label="instrumentInvokeTouchSwitch#?#2:\{
+    mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touchSwitch\", \"(III)V\");
+\}
+instrumentInvokeTouchJump#?#2:\{
+    mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touchJump\", \"(IIZ)V\");
+    mv.visitIntInsn(SIPUSH, -1);
+    mv.visitVarInsn(ISTORE, myVariableIndex + 1);
+\}
+visitLineNumber#?,int,Label#2:\{
+    currentLine = line;
+    currentJump = 0;
+    instrumentGetClassData();
+    mv.visitIntInsn(SIPUSH, line);
+    mv.visitMethodInsn(INVOKEVIRTUAL, \"net/sourceforge/cobertura/coveragedata/ClassData\", \"touch\", \"(I)V\");
+    super.visitLineNumber(line, start);
+\}" shape=ellipse]
+4 [label="instrumentInvokeTouchSwitch#?#3:visitMethodInsn
+instrumentInvokeTouchJump#?#3:visitMethodInsn
+visitLineNumber#?,int,Label#7:visitMethodInsn" shape=ellipse]
+5 [label="instrumentInvokeTouchSwitch#?#3:mv
+instrumentInvokeTouchJump#?#3:mv
+visitLineNumber#?,int,Label#7:mv" shape=ellipse]
+6 [label="instrumentInvokeTouchSwitch#?#3:visitMethodInsn(java.lang.String,java.lang.String,java.lang.String)
+instrumentInvokeTouchJump#?#3:visitMethodInsn(java.lang.String,java.lang.String,java.lang.String)
+visitLineNumber#?,int,Label#7:visitMethodInsn(java.lang.String,java.lang.String,java.lang.String)" shape=ellipse]
+7 [label="instrumentInvokeTouchSwitch#?#4:\"net/sourceforge/cobertura/coveragedata/ClassData\"
+instrumentInvokeTouchJump#?#4:\"net/sourceforge/cobertura/coveragedata/ClassData\"
+visitLineNumber#?,int,Label#8:\"net/sourceforge/cobertura/coveragedata/ClassData\"" shape=ellipse]
+8 [label="instrumentInvokeTouchSwitch#?#4:\"touchSwitch\"
+instrumentInvokeTouchJump#?#4:\"touchJump\"
+visitLineNumber#?,int,Label#8:\"touch\"" shape=ellipse]
+9 [label="instrumentInvokeTouchSwitch#?#4:\"(III)V\"
+instrumentInvokeTouchJump#?#4:\"(IIZ)V\"
+visitLineNumber#?,int,Label#8:\"(I)V\"" shape=ellipse]
+10 [label="instrumentInvokeTouchSwitch#?#4:INSERT
+instrumentInvokeTouchJump#?#4:INSERT
+visitLineNumber#?,int,Label#7:INSERT" shape=ellipse]
+11 [label="instrumentInvokeTouchSwitch#?#4:TOUCH_COLLECTOR_CLASS
+instrumentInvokeTouchJump#?#4:TOUCH_COLLECTOR_CLASS
+visitLineNumber#?,int,Label#7:TOUCH_COLLECTOR_CLASS" shape=ellipse]
+12 [label="instrumentInvokeTouchSwitch#?#4:TOUCH_COLLECTOR_CLASS
+instrumentInvokeTouchJump#?#4:TOUCH_COLLECTOR_CLASS
+visitLineNumber#?,int,Label#7:TOUCH_COLLECTOR_CLASS" shape=ellipse]
+13 [label="instrumentInvokeTouchSwitch#?#4:
+instrumentInvokeTouchJump#?#4:
+visitLineNumber#?,int,Label#7:" shape=ellipse]
+14 [label="instrumentInvokeTouchSwitch#?#4:INVOKEVIRTUAL
+instrumentInvokeTouchJump#?#4:INVOKEVIRTUAL
+visitLineNumber#?,int,Label#8:INVOKEVIRTUAL" shape=ellipse]
+15 [label="instrumentInvokeTouchSwitch#?#4:INVOKESTATIC
+instrumentInvokeTouchJump#?#4:INVOKESTATIC
+visitLineNumber#?,int,Label#7:INVOKESTATIC" shape=ellipse]
+16 [label="instrumentInvokeTouchSwitch#?#4:
+instrumentInvokeTouchJump#?#4:
+visitLineNumber#?,int,Label#7:" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 14 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:3"];
+2 -> 8 [label="AST:3"];
+2 -> 9 [label="AST:3"];
+2 -> 10 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+10 -> 11 [label="Action:3"];
+11 -> 12 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+15 -> 16 [label="AST:3"];
+}

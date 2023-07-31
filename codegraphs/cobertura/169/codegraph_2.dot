@@ -1,0 +1,118 @@
+digraph "getNumberOfChildren#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getNumberOfChildren" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@size()" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+4 [label="3:CtVirtualElement@size" shape=ellipse]
+5 [label="3:CtFieldReferenceImpl@children" shape=ellipse]
+6 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+7 [label="3:CtFieldReadImpl@this.children" shape=ellipse]
+8 [label="3:CtThisAccessImpl@this" shape=ellipse]
+9 [label="3:CtInvocationImpl@this.children.size()" shape=ellipse]
+10 [label="3:CtReturnImpl@return this.children.size()" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    return this.children.size();
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public int getNumberOfChildren() \{
+    return this.children.size();
+\}" shape=ellipse]
+13 [label="3:Insert@INSERT" shape=ellipse]
+14 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+15 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+16 [label="3:CtFieldReferenceImpl@lock" shape=ellipse]
+17 [label="3:CtFieldReadImpl@lock" shape=ellipse]
+18 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+19 [label="3:CtTypeReferenceImpl@lock" shape=ellipse]
+20 [label="3:CtExecutableReferenceImpl@lock()" shape=ellipse]
+21 [label="3:CtInvocationImpl@lock.lock()" shape=ellipse]
+22 [label="3:CtVirtualElement@lock" shape=ellipse]
+23 [label="4:Insert@INSERT" shape=ellipse]
+24 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+25 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+26 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+27 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+28 [label="5:CtTypeAccessImpl@PlaceHold" shape=ellipse]
+29 [label="5:CtThisAccessImpl@this" shape=ellipse]
+30 [label="5:CtPackageReferenceImpl@" shape=ellipse]
+31 [label="5:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+32 [label="5:CtFieldReferenceImpl@children" shape=ellipse]
+33 [label="5:CtFieldReadImpl@this.children" shape=ellipse]
+34 [label="5:CtTypeReferenceImpl@int" shape=ellipse]
+35 [label="5:CtExecutableReferenceImpl@size()" shape=ellipse]
+36 [label="5:CtInvocationImpl@this.children.size()" shape=ellipse]
+37 [label="5:CtVirtualElement@size" shape=ellipse]
+38 [label="5:CtReturnImpl@return this.children.size()" shape=ellipse]
+39 [label="4:CtBlockImpl@\{
+    return this.children.size();
+\}" shape=ellipse]
+40 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+41 [label="7:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+42 [label="7:CtFieldReferenceImpl@lock" shape=ellipse]
+43 [label="7:CtFieldReadImpl@lock" shape=ellipse]
+44 [label="7:CtPackageReferenceImpl@" shape=ellipse]
+45 [label="7:CtTypeReferenceImpl@lock" shape=ellipse]
+46 [label="7:CtExecutableReferenceImpl@unlock()" shape=ellipse]
+47 [label="7:CtInvocationImpl@lock.unlock()" shape=ellipse]
+48 [label="7:CtVirtualElement@unlock" shape=ellipse]
+49 [label="6:CtBlockImpl@\{
+    lock.unlock();
+\}" shape=ellipse]
+50 [label="4:CtTryImpl@try \{
+
+\} finally \{
+    lock.unlock();
+\}" shape=ellipse]
+51 [label="3:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 6 [label="AST"];
+7 -> 8 [label="AST"];
+7 -> 5 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 2 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 51 [label="Action"];
+11 -> 10 [label="AST"];
+11 -> 13 [label="Action"];
+11 -> 23 [label="Action"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 21 [label="Action"];
+15 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 16 [label="AST"];
+19 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+21 -> 22 [label="AST"];
+21 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+23 -> 50 [label="Action"];
+25 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 25 [label="AST"];
+29 -> 28 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+33 -> 29 [label="AST"];
+33 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+36 -> 37 [label="AST"];
+36 -> 33 [label="AST"];
+36 -> 35 [label="AST"];
+38 -> 36 [label="AST"];
+39 -> 38 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+45 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+47 -> 48 [label="AST"];
+47 -> 43 [label="AST"];
+47 -> 46 [label="AST"];
+49 -> 47 [label="AST"];
+50 -> 39 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 50 [label="Action"];
+}

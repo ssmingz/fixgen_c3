@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2912/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2912/0/after.java
+@@ -4,1 +4,3 @@
+-    signal_connect(handle, "value_changed", Selection, 2);
++    Display display = getDisplay();
++    int windowProc2 = display.windowProc2;
++    OS.gtk_signal_connect(handle, value_changed, windowProc2, Selection);

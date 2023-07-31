@@ -1,0 +1,22 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2694/5/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2694/5/after.java
+@@ -11,14 +11,1 @@
+-            int i = 0;
+-            int j = 0;
+-            while (i < buffer.length) {
+-              if ((buffer[j++] = buffer[i++]) == Mnemonic) {
+-                if (i == buffer.length) {
+-                  continue;
+-                }
+-                if (buffer[i] == Mnemonic) {
+-                  i++;
+-                  continue;
+-                }
+-                j--;
+-              }
+-            }
++            int length = fixMnemonic(buffer);
+@@ -28,1 +15,2 @@
+-            display.helpString = OS.CFStringCreateWithCharacters(kCFAllocatorDefault, buffer, j);
++            display.helpString =
++                OS.CFStringCreateWithCharacters(kCFAllocatorDefault, buffer, length);

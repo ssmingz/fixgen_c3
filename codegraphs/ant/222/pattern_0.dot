@@ -1,0 +1,504 @@
+digraph "Pattern" {
+0 [label="writeCachedDependencies#?,Hashtable#20:DELETE
+registerTestCase#?,String#11:DELETE
+registerNonCrash#?#10:DELETE
+createCommandFile#?,String[],String[]#28:DELETE" shape=ellipse]
+1 [label="writeCachedDependencies#?,Hashtable#20:if (pw != null) \{
+    pw.close();
+\}
+registerTestCase#?,String#11:if (out != null) \{
+    out.close();
+\}
+registerNonCrash#?#10:if (out != null) \{
+    out.close();
+\}
+createCommandFile#?,String[],String[]#28:if (out != null) \{
+    out.close();
+\}" shape=ellipse]
+2 [label="writeCachedDependencies#?,Hashtable#3:cache != null
+registerTestCase#?,String#3:crashFile != null
+registerNonCrash#?#3:crashFile != null" shape=ellipse]
+3 [label="writeCachedDependencies#?,Hashtable#3:if (cache != null) \{
+    PrintWriter pw = null;
+    try \{
+        cache.mkdirs();
+        File depFile = new File(cache, CACHE_FILE_NAME);
+        pw = new PrintWriter(new FileWriter(depFile));
+        Enumeration e = dependencyMap.keys();
+        while (e.hasMoreElements()) \{
+            String className = ((String) (e.nextElement()));
+            pw.println(CLASSNAME_PREPEND + className);
+            Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+            int size = dependencyList.size();
+            for (int x = 0; x < size; x++) \{
+                pw.println(dependencyList.elementAt(x));
+            \}
+        \} 
+    \} finally \{
+        if (pw != null) \{
+            pw.close();
+        \}
+    \}
+\}
+registerTestCase#?,String#3:if (crashFile != null) \{
+    try \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(crashFile);
+            out.write(testCase + \"\n\");
+            out.flush();
+        \} finally \{
+            if (out != null) \{
+                out.close();
+            \}
+        \}
+    \} catch (IOException e) \{
+    \}
+\}
+registerNonCrash#?#3:if (crashFile != null) \{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\}
+createCommandFile#?,String[],String[]#5:try \{
+    out = new BufferedWriter(new FileWriter(script));
+    if (env != null) \{
+        int eqIndex;
+        for (int i = 0; i < env.length; i++) \{
+            eqIndex = env[i].indexOf('=');
+            if (eqIndex != (-1)) \{
+                out.write(\"$ DEFINE/NOLOG \");
+                out.write(env[i].substring(0, eqIndex));
+                out.write(\" \\"\");
+                out.write(env[i].substring(eqIndex + 1));
+                out.write('\\"');
+                out.newLine();
+            \}
+        \}
+    \}
+    out.write(\"$ \" + cmd[0]);
+    for (int i = 1; i < cmd.length; i++) \{
+        out.write(\" -\");
+        out.newLine();
+        out.write(cmd[i]);
+    \}
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+4 [label="writeCachedDependencies#?,Hashtable#3:cache
+registerTestCase#?,String#3:crashFile
+registerNonCrash#?#3:crashFile
+createCommandFile#?,String[],String[]#28:out" shape=ellipse]
+5 [label="writeCachedDependencies#?,Hashtable#3:null
+registerTestCase#?,String#3:null
+registerNonCrash#?#3:null
+createCommandFile#?,String[],String[]#28:null" shape=ellipse]
+6 [label="writeCachedDependencies#?,Hashtable#3:\{
+    PrintWriter pw = null;
+    try \{
+        cache.mkdirs();
+        File depFile = new File(cache, CACHE_FILE_NAME);
+        pw = new PrintWriter(new FileWriter(depFile));
+        Enumeration e = dependencyMap.keys();
+        while (e.hasMoreElements()) \{
+            String className = ((String) (e.nextElement()));
+            pw.println(CLASSNAME_PREPEND + className);
+            Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+            int size = dependencyList.size();
+            for (int x = 0; x < size; x++) \{
+                pw.println(dependencyList.elementAt(x));
+            \}
+        \} 
+    \} finally \{
+        if (pw != null) \{
+            pw.close();
+        \}
+    \}
+\}
+registerTestCase#?,String#3:\{
+    try \{
+        FileWriter out = null;
+        try \{
+            out = new FileWriter(crashFile);
+            out.write(testCase + \"\n\");
+            out.flush();
+        \} finally \{
+            if (out != null) \{
+                out.close();
+            \}
+        \}
+    \} catch (IOException e) \{
+    \}
+\}
+registerNonCrash#?#3:\{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\}" shape=ellipse]
+7 [label="writeCachedDependencies#?,Hashtable#4:PrintWriter pw = null
+registerTestCase#?,String#4:try \{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(testCase + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\} catch (IOException e) \{
+\}
+registerNonCrash#?#4:FileWriter out = null
+createCommandFile#?,String[],String[]#29:out" shape=ellipse]
+8 [label="writeCachedDependencies#?,Hashtable#4:null
+registerNonCrash#?#4:null" shape=ellipse]
+9 [label="writeCachedDependencies#?,Hashtable#5:try \{
+    cache.mkdirs();
+    File depFile = new File(cache, CACHE_FILE_NAME);
+    pw = new PrintWriter(new FileWriter(depFile));
+    Enumeration e = dependencyMap.keys();
+    while (e.hasMoreElements()) \{
+        String className = ((String) (e.nextElement()));
+        pw.println(CLASSNAME_PREPEND + className);
+        Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+        int size = dependencyList.size();
+        for (int x = 0; x < size; x++) \{
+            pw.println(dependencyList.elementAt(x));
+        \}
+    \} 
+\} finally \{
+    if (pw != null) \{
+        pw.close();
+    \}
+\}
+registerNonCrash#?#5:try \{
+    out = new FileWriter(crashFile);
+    out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\");
+    out.flush();
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+10 [label="writeCachedDependencies#?,Hashtable#5:\{
+    cache.mkdirs();
+    File depFile = new File(cache, CACHE_FILE_NAME);
+    pw = new PrintWriter(new FileWriter(depFile));
+    Enumeration e = dependencyMap.keys();
+    while (e.hasMoreElements()) \{
+        String className = ((String) (e.nextElement()));
+        pw.println(CLASSNAME_PREPEND + className);
+        Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+        int size = dependencyList.size();
+        for (int x = 0; x < size; x++) \{
+            pw.println(dependencyList.elementAt(x));
+        \}
+    \} 
+\}
+registerTestCase#?,String#6:\{
+    out = new FileWriter(crashFile);
+    out.write(testCase + \"\n\");
+    out.flush();
+\}
+registerNonCrash#?#5:\{
+    out = new FileWriter(crashFile);
+    out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\");
+    out.flush();
+\}" shape=ellipse]
+11 [label="writeCachedDependencies#?,Hashtable#6:cache.mkdirs()
+registerTestCase#?,String#8:out.write(testCase + \"\n\")
+registerNonCrash#?#8:out.flush()" shape=ellipse]
+12 [label="writeCachedDependencies#?,Hashtable#6:mkdirs()
+registerTestCase#?,String#8:write(java.lang.String)
+registerNonCrash#?#8:flush()
+createCommandFile#?,String[],String[]#29:close()" shape=ellipse]
+13 [label="writeCachedDependencies#?,Hashtable#6:cache
+registerTestCase#?,String#8:testCase + \"\n\"
+registerNonCrash#?#8:out" shape=ellipse]
+14 [label="writeCachedDependencies#?,Hashtable#7:File depFile = new File(cache, CACHE_FILE_NAME)
+registerTestCase#?,String#7:out = new FileWriter(crashFile)
+registerNonCrash#?#6:out = new FileWriter(crashFile)" shape=ellipse]
+15 [label="writeCachedDependencies#?,Hashtable#7:new File(cache, CACHE_FILE_NAME)
+registerTestCase#?,String#7:new FileWriter(crashFile)
+registerNonCrash#?#6:new FileWriter(crashFile)" shape=ellipse]
+16 [label="writeCachedDependencies#?,Hashtable#-1:File()
+registerTestCase#?,String#-1:FileWriter()
+registerNonCrash#?#-1:FileWriter()" shape=ellipse]
+17 [label="writeCachedDependencies#?,Hashtable#7:cache
+registerTestCase#?,String#7:crashFile
+registerNonCrash#?#6:crashFile" shape=ellipse]
+18 [label="writeCachedDependencies#?,Hashtable#7:CACHE_FILE_NAME" shape=ellipse]
+19 [label="writeCachedDependencies#?,Hashtable#8:pw = new PrintWriter(new FileWriter(depFile))" shape=ellipse]
+20 [label="writeCachedDependencies#?,Hashtable#8:pw
+registerTestCase#?,String#5:FileWriter out = null
+registerNonCrash#?#7:out" shape=ellipse]
+21 [label="writeCachedDependencies#?,Hashtable#8:new PrintWriter(new FileWriter(depFile))" shape=ellipse]
+22 [label="writeCachedDependencies#?,Hashtable#-1:PrintWriter(FileWriter)
+registerTestCase#?,String#9:flush()
+registerNonCrash#?#7:write()" shape=ellipse]
+23 [label="writeCachedDependencies#?,Hashtable#8:new FileWriter(depFile)" shape=ellipse]
+24 [label="writeCachedDependencies#?,Hashtable#-1:FileWriter()" shape=ellipse]
+25 [label="writeCachedDependencies#?,Hashtable#8:depFile" shape=ellipse]
+26 [label="writeCachedDependencies#?,Hashtable#9:Enumeration e = dependencyMap.keys()" shape=ellipse]
+27 [label="writeCachedDependencies#?,Hashtable#9:dependencyMap.keys()" shape=ellipse]
+28 [label="writeCachedDependencies#?,Hashtable#9:keys()" shape=ellipse]
+29 [label="writeCachedDependencies#?,Hashtable#9:dependencyMap
+registerTestCase#?,String#9:out
+registerNonCrash#?#7:Constants.TERMINATED_SUCCESSFULLY" shape=ellipse]
+30 [label="writeCachedDependencies#?,Hashtable#10:while (e.hasMoreElements()) \{
+    String className = ((String) (e.nextElement()));
+    pw.println(CLASSNAME_PREPEND + className);
+    Vector dependencyList = ((Vector) (dependencyMap.get(className)));
+    int size = dependencyList.size();
+    for (int x = 0; x < size; x++) \{
+        pw.println(dependencyList.elementAt(x));
+    \}
+\} " shape=ellipse]
+31 [label="writeCachedDependencies#?,Hashtable#10:e.hasMoreElements()" shape=ellipse]
+32 [label="writeCachedDependencies#?,Hashtable#10:hasMoreElements()" shape=ellipse]
+33 [label="writeCachedDependencies#?,Hashtable#10:e
+registerTestCase#?,String#11:out
+registerNonCrash#?#10:out" shape=ellipse]
+34 [label="writeCachedDependencies#?,Hashtable#19:\{
+    if (pw != null) \{
+        pw.close();
+    \}
+\}
+registerTestCase#?,String#10:\{
+    if (out != null) \{
+        out.close();
+    \}
+\}
+registerNonCrash#?#9:\{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+35 [label="writeCachedDependencies#?,Hashtable#20:pw != null" shape=ellipse]
+36 [label="writeCachedDependencies#?,Hashtable#20:pw" shape=ellipse]
+37 [label="writeCachedDependencies#?,Hashtable#20:null
+registerTestCase#?,String#11:null
+registerNonCrash#?#10:null" shape=ellipse]
+38 [label="writeCachedDependencies#?,Hashtable#20:\{
+    pw.close();
+\}
+registerTestCase#?,String#11:\{
+    out.close();
+\}
+registerNonCrash#?#10:\{
+    out.close();
+\}
+createCommandFile#?,String[],String[]#28:\{
+    out.close();
+\}" shape=ellipse]
+39 [label="writeCachedDependencies#?,Hashtable#21:pw.close()
+registerTestCase#?,String#12:out.close()
+registerNonCrash#?#11:out.close()" shape=ellipse]
+40 [label="registerTestCase#?,String#8:testCase" shape=ellipse]
+41 [label="registerTestCase#?,String#8:\"\n\"" shape=ellipse]
+42 [label="registerTestCase#?,String#7:out" shape=ellipse]
+43 [label="registerTestCase#?,String#5:null" shape=ellipse]
+44 [label="registerTestCase#?,String#8:out" shape=ellipse]
+45 [label="registerTestCase#?,String#4:\{
+    FileWriter out = null;
+    try \{
+        out = new FileWriter(crashFile);
+        out.write(testCase + \"\n\");
+        out.flush();
+    \} finally \{
+        if (out != null) \{
+            out.close();
+        \}
+    \}
+\}" shape=ellipse]
+46 [label="registerTestCase#?,String#15:IOException e" shape=ellipse]
+47 [label="registerTestCase#?,String#9:out.flush()" shape=ellipse]
+48 [label="registerTestCase#?,String#11:out != null" shape=ellipse]
+49 [label="registerTestCase#?,String#6:try \{
+    out = new FileWriter(crashFile);
+    out.write(testCase + \"\n\");
+    out.flush();
+\} finally \{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+50 [label="registerTestCase#?,String#15: catch (IOException e) \{
+\}" shape=ellipse]
+51 [label="registerNonCrash#?#7:out.write(Constants.TERMINATED_SUCCESSFULLY + \"\n\")" shape=ellipse]
+52 [label="registerNonCrash#?#7:Constants.TERMINATED_SUCCESSFULLY + \"\n\"" shape=ellipse]
+53 [label="registerNonCrash#?#7:\"\n\"" shape=ellipse]
+54 [label="registerNonCrash#?#-1:Constants" shape=ellipse]
+55 [label="registerNonCrash#?#10:out != null" shape=ellipse]
+56 [label="registerNonCrash#?#6:out" shape=ellipse]
+57 [label="createCommandFile#?,String[],String[]#29:out.close()" shape=ellipse]
+58 [label="createCommandFile#?,String[],String[]#27:\{
+    if (out != null) \{
+        out.close();
+    \}
+\}" shape=ellipse]
+59 [label="createCommandFile#?,String[],String[]#28:out != null" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 35 [label="AST:1"];
+1 -> 38 [label="AST:4"];
+1 -> 48 [label="AST:1"];
+1 -> 55 [label="AST:1"];
+1 -> 59 [label="AST:1"];
+2 -> 1 [label="Control Dep:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="Control Dep:3"];
+2 -> 7 [label="Control Dep:3"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+2 -> 10 [label="Control Dep:3"];
+2 -> 11 [label="Control Dep:3"];
+2 -> 12 [label="Control Dep:3"];
+2 -> 13 [label="Control Dep:3"];
+2 -> 14 [label="Control Dep:3"];
+2 -> 15 [label="Control Dep:3"];
+2 -> 16 [label="Control Dep:3"];
+2 -> 17 [label="Control Dep:3"];
+2 -> 18 [label="Control Dep:1"];
+2 -> 19 [label="Control Dep:1"];
+2 -> 20 [label="Control Dep:3"];
+2 -> 21 [label="Control Dep:1"];
+2 -> 22 [label="Control Dep:3"];
+2 -> 23 [label="Control Dep:1"];
+2 -> 24 [label="Control Dep:1"];
+2 -> 25 [label="Control Dep:1"];
+2 -> 26 [label="Control Dep:1"];
+2 -> 27 [label="Control Dep:1"];
+2 -> 28 [label="Control Dep:1"];
+2 -> 29 [label="Control Dep:3"];
+2 -> 30 [label="Control Dep:1"];
+2 -> 31 [label="Control Dep:1"];
+2 -> 32 [label="Control Dep:1"];
+2 -> 33 [label="Control Dep:3"];
+2 -> 34 [label="Control Dep:3"];
+2 -> 35 [label="Control Dep:1"];
+2 -> 36 [label="Control Dep:1"];
+2 -> 37 [label="Control Dep:3"];
+2 -> 40 [label="Control Dep:1"];
+2 -> 41 [label="Control Dep:1"];
+2 -> 42 [label="Control Dep:1"];
+2 -> 43 [label="Control Dep:1"];
+2 -> 44 [label="Control Dep:1"];
+2 -> 45 [label="Control Dep:1"];
+2 -> 46 [label="Control Dep:1"];
+2 -> 47 [label="Control Dep:1"];
+2 -> 48 [label="Control Dep:1"];
+2 -> 49 [label="Control Dep:1"];
+2 -> 50 [label="Control Dep:1"];
+2 -> 51 [label="Control Dep:1"];
+2 -> 52 [label="Control Dep:1"];
+2 -> 53 [label="Control Dep:1"];
+2 -> 54 [label="Control Dep:1"];
+2 -> 55 [label="Control Dep:1"];
+2 -> 56 [label="Control Dep:1"];
+3 -> 2 [label="AST:3"];
+3 -> 6 [label="AST:3"];
+3 -> 58 [label="AST:1"];
+6 -> 7 [label="AST:3"];
+6 -> 9 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 45 [label="AST:1"];
+7 -> 50 [label="AST:1"];
+9 -> 10 [label="AST:2"];
+9 -> 34 [label="AST:2"];
+10 -> 11 [label="AST:3"];
+10 -> 14 [label="AST:3"];
+10 -> 19 [label="AST:1"];
+10 -> 26 [label="AST:1"];
+10 -> 30 [label="AST:1"];
+10 -> 47 [label="AST:1"];
+10 -> 51 [label="AST:1"];
+11 -> 13 [label="AST:3"];
+11 -> 12 [label="AST:3"];
+11 -> 44 [label="AST:1"];
+13 -> 40 [label="AST:1"];
+13 -> 41 [label="AST:1"];
+14 -> 15 [label="AST:3"];
+14 -> 42 [label="AST:1"];
+14 -> 56 [label="AST:1"];
+15 -> 16 [label="AST:3"];
+15 -> 17 [label="AST:3"];
+15 -> 18 [label="AST:1"];
+17 -> 42 [label="Data Dep:1"];
+17 -> 56 [label="Data Dep:1"];
+19 -> 20 [label="AST:1"];
+19 -> 21 [label="AST:1"];
+20 -> 36 [label="Define Use:1"];
+20 -> 43 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 23 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 25 [label="AST:1"];
+25 -> 20 [label="Data Dep:1"];
+26 -> 27 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+29 -> 54 [label="AST:1"];
+30 -> 31 [label="AST:1"];
+31 -> 33 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+34 -> 1 [label="AST:3"];
+35 -> 36 [label="AST:1"];
+35 -> 37 [label="AST:1"];
+35 -> 38 [label="Control Dep:1"];
+35 -> 39 [label="Control Dep:1"];
+38 -> 39 [label="AST:3"];
+38 -> 57 [label="AST:1"];
+42 -> 44 [label="Define Use:1"];
+42 -> 29 [label="Define Use:1"];
+42 -> 33 [label="Define Use:1"];
+45 -> 20 [label="AST:1"];
+45 -> 49 [label="AST:1"];
+47 -> 29 [label="AST:1"];
+47 -> 22 [label="AST:1"];
+48 -> 33 [label="AST:1"];
+48 -> 37 [label="AST:1"];
+48 -> 38 [label="Control Dep:1"];
+48 -> 39 [label="Control Dep:1"];
+49 -> 10 [label="AST:1"];
+49 -> 34 [label="AST:1"];
+50 -> 46 [label="AST:1"];
+51 -> 20 [label="AST:1"];
+51 -> 22 [label="AST:1"];
+51 -> 52 [label="AST:1"];
+52 -> 29 [label="AST:1"];
+52 -> 53 [label="AST:1"];
+55 -> 33 [label="AST:1"];
+55 -> 37 [label="AST:1"];
+55 -> 38 [label="Control Dep:1"];
+55 -> 39 [label="Control Dep:1"];
+56 -> 20 [label="Define Use:1"];
+56 -> 13 [label="Define Use:1"];
+56 -> 33 [label="Define Use:1"];
+57 -> 7 [label="AST:1"];
+57 -> 12 [label="AST:1"];
+58 -> 1 [label="AST:1"];
+59 -> 57 [label="Control Dep:1"];
+59 -> 4 [label="AST:1"];
+59 -> 5 [label="AST:1"];
+59 -> 38 [label="Control Dep:1"];
+59 -> 12 [label="Control Dep:1"];
+59 -> 7 [label="Control Dep:1"];
+}

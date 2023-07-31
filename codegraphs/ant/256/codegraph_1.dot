@@ -1,0 +1,241 @@
+digraph "writeServices#?,ZipOutputStream" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@writeServices" shape=ellipse]
+2 [label="2:CtParameterImpl@ZipOutputStream zOut" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@ZipOutputStream" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@IOException" shape=ellipse]
+5 [label="3:CtTypeReferenceImpl@Iterator" shape=ellipse]
+6 [label="3:CtVirtualElement@serviceIterator" shape=ellipse]
+7 [label="3:CtLocalVariableImpl@Iterator serviceIterator" shape=ellipse]
+8 [label="4:CtTypeReferenceImpl@Service" shape=ellipse]
+9 [label="4:CtVirtualElement@service" shape=ellipse]
+10 [label="4:CtLocalVariableImpl@Service service" shape=ellipse]
+11 [label="5:CtVariableWriteImpl@serviceIterator" shape=ellipse]
+12 [label="5:CtExecutableReferenceImpl@iterator()" shape=ellipse]
+13 [label="5:CtVirtualElement@iterator" shape=ellipse]
+14 [label="5:CtFieldReadImpl@serviceList" shape=ellipse]
+15 [label="5:CtInvocationImpl@serviceList.iterator()" shape=ellipse]
+16 [label="5:CtAssignmentImpl@serviceIterator = serviceList.iterator()" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@hasNext()" shape=ellipse]
+18 [label="6:CtVirtualElement@hasNext" shape=ellipse]
+19 [label="6:CtVariableReadImpl@serviceIterator" shape=ellipse]
+20 [label="6:CtInvocationImpl@serviceIterator.hasNext()" shape=ellipse]
+21 [label="7:CtVariableWriteImpl@service" shape=ellipse]
+22 [label="7:CtExecutableReferenceImpl@next()" shape=ellipse]
+23 [label="7:CtVirtualElement@next" shape=ellipse]
+24 [label="7:CtVariableReadImpl@serviceIterator" shape=ellipse]
+25 [label="7:CtInvocationImpl@((Service) (serviceIterator.next()))" shape=ellipse]
+26 [label="7:CtTypeReferenceImpl@Service" shape=ellipse]
+27 [label="7:CtAssignmentImpl@service = ((Service) (serviceIterator.next()))" shape=ellipse]
+28 [label="8:CtTypeReferenceImpl@InputStream" shape=ellipse]
+29 [label="8:CtLiteralImpl@null" shape=ellipse]
+30 [label="8:CtVirtualElement@is" shape=ellipse]
+31 [label="8:CtLocalVariableImpl@InputStream is = null" shape=ellipse]
+32 [label="10:CtVariableWriteImpl@is" shape=ellipse]
+33 [label="10:CtExecutableReferenceImpl@getAsStream()" shape=ellipse]
+34 [label="10:CtVirtualElement@getAsStream" shape=ellipse]
+35 [label="10:CtVariableReadImpl@service" shape=ellipse]
+36 [label="10:CtInvocationImpl@service.getAsStream()" shape=ellipse]
+37 [label="10:CtAssignmentImpl@is = service.getAsStream()" shape=ellipse]
+38 [label="11:CtExecutableReferenceImpl@zipFile(InputStream,ZipOutputStream,long,<unknown>)" shape=ellipse]
+39 [label="11:CtVirtualElement@zipFile" shape=ellipse]
+40 [label="11:CtSuperAccessImpl@super" shape=ellipse]
+41 [label="12:CtVariableReadImpl@is" shape=ellipse]
+42 [label="13:CtVariableReadImpl@zOut" shape=ellipse]
+43 [label="14:CtLiteralImpl@\"META-INF/services/\"" shape=ellipse]
+44 [label="14:CtExecutableReferenceImpl@getType()" shape=ellipse]
+45 [label="14:CtVirtualElement@getType" shape=ellipse]
+46 [label="14:CtVariableReadImpl@service" shape=ellipse]
+47 [label="14:CtInvocationImpl@service.getType()" shape=ellipse]
+48 [label="14:CtBinaryOperatorImpl@\"META-INF/services/\" + service.getType()" shape=ellipse]
+49 [label="15:CtExecutableReferenceImpl@currentTimeMillis()" shape=ellipse]
+50 [label="15:CtVirtualElement@currentTimeMillis" shape=ellipse]
+51 [label="15:CtTypeAccessImpl@System" shape=ellipse]
+52 [label="15:CtInvocationImpl@System.currentTimeMillis()" shape=ellipse]
+53 [label="16:CtLiteralImpl@null" shape=ellipse]
+54 [label="17:CtTypeAccessImpl@DEFAULT_FILE_MODE" shape=ellipse]
+55 [label="11:CtInvocationImpl@super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE)" shape=ellipse]
+56 [label="9:CtBlockImpl@\{
+    is = service.getAsStream();
+    super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\}" shape=ellipse]
+57 [label="19:CtExecutableReferenceImpl@close(InputStream)" shape=ellipse]
+58 [label="19:CtVirtualElement@close" shape=ellipse]
+59 [label="19:CtTypeAccessImpl@FileUtils" shape=ellipse]
+60 [label="19:CtVariableReadImpl@is" shape=ellipse]
+61 [label="19:CtInvocationImpl@FileUtils.close(is)" shape=ellipse]
+62 [label="18:CtBlockImpl@\{
+    FileUtils.close(is);
+\}" shape=ellipse]
+63 [label="9:CtTryImpl@try \{
+    is = service.getAsStream();
+    super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+\} finally \{
+    FileUtils.close(is);
+\}" shape=ellipse]
+64 [label="6:CtBlockImpl@\{
+    service = ((Service) (serviceIterator.next()));
+    InputStream is = null;
+    try \{
+        is = service.getAsStream();
+        super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(is);
+    \}
+\}" shape=ellipse]
+65 [label="6:CtWhileImpl@while (serviceIterator.hasNext()) \{
+    service = ((Service) (serviceIterator.next()));
+    InputStream is = null;
+    try \{
+        is = service.getAsStream();
+        super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+    \} finally \{
+        FileUtils.close(is);
+    \}
+\} " shape=ellipse]
+66 [label="2:CtBlockImpl@\{
+    Iterator serviceIterator;
+    Service service;
+    serviceIterator = serviceList.iterator();
+    while (serviceIterator.hasNext()) \{
+        service = ((Service) (serviceIterator.next()));
+        InputStream is = null;
+        try \{
+            is = service.getAsStream();
+            super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+        \} finally \{
+            FileUtils.close(is);
+        \}
+    \} 
+\}" shape=ellipse]
+67 [label="2:CtMethodImpl@private void writeServices(ZipOutputStream zOut) throws IOException \{
+    Iterator serviceIterator;
+    Service service;
+    serviceIterator = serviceList.iterator();
+    while (serviceIterator.hasNext()) \{
+        service = ((Service) (serviceIterator.next()));
+        InputStream is = null;
+        try \{
+            is = service.getAsStream();
+            super.zipFile(is, zOut, \"META-INF/services/\" + service.getType(), System.currentTimeMillis(), null, DEFAULT_FILE_MODE);
+        \} finally \{
+            FileUtils.close(is);
+        \}
+    \} 
+\}" shape=ellipse]
+68 [label="18:Insert@INSERT" shape=ellipse]
+69 [label="18:CtLiteralImpl@null" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 5 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 19 [label="Define-Use"];
+11 -> 24 [label="Define-Use"];
+14 -> 11 [label="Data Dep"];
+15 -> 13 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 12 [label="AST"];
+16 -> 11 [label="AST"];
+16 -> 15 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 64 [label="Control Dep"];
+20 -> 27 [label="Control Dep"];
+20 -> 21 [label="Control Dep"];
+20 -> 25 [label="Control Dep"];
+20 -> 22 [label="Control Dep"];
+20 -> 24 [label="Control Dep"];
+20 -> 31 [label="Control Dep"];
+20 -> 29 [label="Control Dep"];
+20 -> 63 [label="Control Dep"];
+20 -> 56 [label="Control Dep"];
+20 -> 37 [label="Control Dep"];
+20 -> 32 [label="Control Dep"];
+20 -> 36 [label="Control Dep"];
+20 -> 33 [label="Control Dep"];
+20 -> 35 [label="Control Dep"];
+20 -> 55 [label="Control Dep"];
+20 -> 38 [label="Control Dep"];
+20 -> 40 [label="Control Dep"];
+20 -> 41 [label="Control Dep"];
+20 -> 42 [label="Control Dep"];
+20 -> 48 [label="Control Dep"];
+20 -> 43 [label="Control Dep"];
+20 -> 47 [label="Control Dep"];
+20 -> 44 [label="Control Dep"];
+20 -> 46 [label="Control Dep"];
+20 -> 52 [label="Control Dep"];
+20 -> 49 [label="Control Dep"];
+20 -> 51 [label="Control Dep"];
+20 -> 53 [label="Control Dep"];
+20 -> 54 [label="Control Dep"];
+20 -> 62 [label="Control Dep"];
+20 -> 61 [label="Control Dep"];
+20 -> 57 [label="Control Dep"];
+20 -> 59 [label="Control Dep"];
+20 -> 60 [label="Control Dep"];
+21 -> 35 [label="Define-Use"];
+21 -> 46 [label="Define-Use"];
+24 -> 21 [label="Data Dep"];
+25 -> 23 [label="AST"];
+25 -> 26 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 25 [label="AST"];
+31 -> 30 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+32 -> 41 [label="Define-Use"];
+32 -> 60 [label="Define-Use"];
+35 -> 32 [label="Data Dep"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+36 -> 33 [label="AST"];
+37 -> 32 [label="AST"];
+37 -> 36 [label="AST"];
+47 -> 45 [label="AST"];
+47 -> 46 [label="AST"];
+47 -> 44 [label="AST"];
+48 -> 43 [label="AST"];
+48 -> 47 [label="AST"];
+52 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+52 -> 49 [label="AST"];
+55 -> 39 [label="AST"];
+55 -> 40 [label="AST"];
+55 -> 38 [label="AST"];
+55 -> 41 [label="AST"];
+55 -> 42 [label="AST"];
+55 -> 48 [label="AST"];
+55 -> 52 [label="AST"];
+55 -> 53 [label="AST"];
+55 -> 54 [label="AST"];
+55 -> 68 [label="Action"];
+56 -> 37 [label="AST"];
+56 -> 55 [label="AST"];
+61 -> 58 [label="AST"];
+61 -> 59 [label="AST"];
+61 -> 57 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 56 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 27 [label="AST"];
+64 -> 31 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 20 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 7 [label="AST"];
+66 -> 10 [label="AST"];
+66 -> 16 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 1 [label="AST"];
+67 -> 0 [label="AST"];
+67 -> 2 [label="AST"];
+67 -> 4 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 69 [label="Action"];
+}

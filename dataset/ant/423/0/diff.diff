@@ -1,0 +1,14 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/423/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/423/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,5 +4,4 @@
+-    executeTarget("testReplaceTokens");
+-    File expected =
+-        FILE_UTILS.resolveFile(getProject().getBaseDir(), "expected/replacetokens.test");
+-    File result = new File(getProject().getProperty("output"), "replacetokens.test");
+-    assertTrue(FILE_UTILS.contentEquals(expected, result));
++    buildRule.executeTarget("testReplaceTokens");
++    File expected = buildRule.getProject().resolveFile("expected/replacetokens.test");
++    File result = new File(buildRule.getProject().getProperty("output"), "replacetokens.test");
++    assertEquals(FileUtilities.getFileContents(expected), FileUtilities.getFileContents(result));

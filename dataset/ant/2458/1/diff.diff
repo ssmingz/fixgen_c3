@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/2458/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/2458/1/after.java
+@@ -13,8 +13,2 @@
+-    try {
+-      final int retCode = exe.execute();
+-      if (retCode != 0) {
+-        throw new TaskException("cvs exited with error code " + retCode);
+-      }
+-    } catch (IOException e) {
+-      throw new TaskException(e.toString(), e);
+-    }
++    exe.setReturnCode(0);
++    exe.execute();

@@ -1,0 +1,233 @@
+digraph "Pattern" {
+0 [label="configureType#?,String,BuildElement#10:INSERT
+configureTask#?,BuildElement#12:INSERT" shape=ellipse]
+1 [label="configureType#?,String,BuildElement#2:private Object configureType(String typeName, BuildElement model) throws ExecutionException \{
+    ImportInfo typeDefInfo = componentManager.getDefinition(typeName);
+    if ((typeDefInfo == null) || (typeDefInfo.getDefinitionType() != AntLibrary.TYPEDEF)) \{
+        throw new ExecutionException(((\"There is no defintion for a \" + \"type <\") + typeName) + \">\", model.getLocation());
+    \}
+    String className = typeDefInfo.getClassName();
+    ComponentLibrary componentLibrary = typeDefInfo.getComponentLibrary();
+    try \{
+        ClassLoader typeClassLoader = componentLibrary.getClassLoader();
+        Class typeClass = Class.forName(className, true, typeClassLoader);
+        ClassLoader currentLoader = setContextLoader(typeClassLoader);
+        AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+        Object typeInstance = createTypeInstance(typeClass, libFactory, model);
+        setContextLoader(currentLoader);
+        return typeInstance;
+    \} catch (ClassNotFoundException e) \{
+        throw new ExecutionException((((\"Class \" + className) + \" for type <\") + typeName) + \"> was not found\", e, model.getLocation());
+    \} catch (NoClassDefFoundError e) \{
+        throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for type \") + typeName);
+    \}
+\}
+configureTask#?,BuildElement#2:private TaskContext configureTask(BuildElement model) throws ExecutionException \{
+    String taskType = model.getType();
+    ImportInfo taskDefInfo = componentManager.getDefinition(taskType);
+    if ((taskDefInfo == null) || (taskDefInfo.getDefinitionType() != AntLibrary.TASKDEF)) \{
+        throw new ExecutionException(((\"There is no defintion for a \" + \"task of type <\") + taskType) + \">\", model.getLocation());
+    \}
+    String className = taskDefInfo.getClassName();
+    ComponentLibrary componentLibrary = taskDefInfo.getComponentLibrary();
+    try \{
+        ClassLoader taskClassLoader = componentLibrary.getClassLoader();
+        Class elementClass = Class.forName(className, true, taskClassLoader);
+        AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+        Object element = libFactory.createTaskInstance(elementClass);
+        Task task = null;
+        if (element instanceof Task) \{
+            task = ((Task) (element));
+        \} else \{
+            task = new TaskAdapter(taskType, element);
+        \}
+        ClassLoader currentLoader = setContextLoader(taskClassLoader);
+        TaskContext taskContext = new TaskContext(this);
+        taskContext.init(taskClassLoader, task, model);
+        configureElement(libFactory, element, model);
+        task.validateComponent();
+        setContextLoader(currentLoader);
+        return taskContext;
+    \} catch (ClassNotFoundException e) \{
+        throw new ExecutionException((((\"Class \" + className) + \" for task <\") + taskType) + \"> was not found\", e, model.getLocation());
+    \} catch (NoClassDefFoundError e) \{
+        throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for task \") + taskType, e, model.getLocation());
+    \} catch (InstantiationException e) \{
+        throw new ExecutionException((((\"Unable to instantiate task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+    \} catch (IllegalAccessException e) \{
+        throw new ExecutionException((((\"Unable to access task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+    \} catch (ExecutionException e) \{
+        e.setLocation(model.getLocation(), false);
+        throw e;
+    \} catch (RuntimeException e) \{
+        throw new ExecutionException((e.getClass().getName() + \": \") + e.getMessage(), e, model.getLocation());
+    \}
+\}" shape=ellipse]
+2 [label="configureType#?,String,BuildElement#2:configureType
+configureTask#?,BuildElement#2:configureTask" shape=ellipse]
+3 [label="configureType#?,String,BuildElement#2:Object
+configureTask#?,BuildElement#2:ExecutionException" shape=ellipse]
+4 [label="configureType#?,String,BuildElement#-1:java.lang
+configureTask#?,BuildElement#-1:" shape=ellipse]
+5 [label="configureType#?,String,BuildElement#2:String typeName
+configureTask#?,BuildElement#2:BuildElement model" shape=ellipse]
+6 [label="configureType#?,String,BuildElement#2:String
+configureTask#?,BuildElement#2:BuildElement" shape=ellipse]
+7 [label="configureType#?,String,BuildElement#2:BuildElement model" shape=ellipse]
+8 [label="configureType#?,String,BuildElement#2:BuildElement
+configureTask#?,BuildElement#-1:" shape=ellipse]
+9 [label="configureType#?,String,BuildElement#2:ExecutionException" shape=ellipse]
+10 [label="configureType#?,String,BuildElement#-1:" shape=ellipse]
+11 [label="configureType#?,String,BuildElement#2:\{
+    ImportInfo typeDefInfo = componentManager.getDefinition(typeName);
+    if ((typeDefInfo == null) || (typeDefInfo.getDefinitionType() != AntLibrary.TYPEDEF)) \{
+        throw new ExecutionException(((\"There is no defintion for a \" + \"type <\") + typeName) + \">\", model.getLocation());
+    \}
+    String className = typeDefInfo.getClassName();
+    ComponentLibrary componentLibrary = typeDefInfo.getComponentLibrary();
+    try \{
+        ClassLoader typeClassLoader = componentLibrary.getClassLoader();
+        Class typeClass = Class.forName(className, true, typeClassLoader);
+        ClassLoader currentLoader = setContextLoader(typeClassLoader);
+        AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+        Object typeInstance = createTypeInstance(typeClass, libFactory, model);
+        setContextLoader(currentLoader);
+        return typeInstance;
+    \} catch (ClassNotFoundException e) \{
+        throw new ExecutionException((((\"Class \" + className) + \" for type <\") + typeName) + \"> was not found\", e, model.getLocation());
+    \} catch (NoClassDefFoundError e) \{
+        throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for type \") + typeName);
+    \}
+\}
+configureTask#?,BuildElement#2:\{
+    String taskType = model.getType();
+    ImportInfo taskDefInfo = componentManager.getDefinition(taskType);
+    if ((taskDefInfo == null) || (taskDefInfo.getDefinitionType() != AntLibrary.TASKDEF)) \{
+        throw new ExecutionException(((\"There is no defintion for a \" + \"task of type <\") + taskType) + \">\", model.getLocation());
+    \}
+    String className = taskDefInfo.getClassName();
+    ComponentLibrary componentLibrary = taskDefInfo.getComponentLibrary();
+    try \{
+        ClassLoader taskClassLoader = componentLibrary.getClassLoader();
+        Class elementClass = Class.forName(className, true, taskClassLoader);
+        AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+        Object element = libFactory.createTaskInstance(elementClass);
+        Task task = null;
+        if (element instanceof Task) \{
+            task = ((Task) (element));
+        \} else \{
+            task = new TaskAdapter(taskType, element);
+        \}
+        ClassLoader currentLoader = setContextLoader(taskClassLoader);
+        TaskContext taskContext = new TaskContext(this);
+        taskContext.init(taskClassLoader, task, model);
+        configureElement(libFactory, element, model);
+        task.validateComponent();
+        setContextLoader(currentLoader);
+        return taskContext;
+    \} catch (ClassNotFoundException e) \{
+        throw new ExecutionException((((\"Class \" + className) + \" for task <\") + taskType) + \"> was not found\", e, model.getLocation());
+    \} catch (NoClassDefFoundError e) \{
+        throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for task \") + taskType, e, model.getLocation());
+    \} catch (InstantiationException e) \{
+        throw new ExecutionException((((\"Unable to instantiate task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+    \} catch (IllegalAccessException e) \{
+        throw new ExecutionException((((\"Unable to access task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+    \} catch (ExecutionException e) \{
+        e.setLocation(model.getLocation(), false);
+        throw e;
+    \} catch (RuntimeException e) \{
+        throw new ExecutionException((e.getClass().getName() + \": \") + e.getMessage(), e, model.getLocation());
+    \}
+\}" shape=ellipse]
+12 [label="configureType#?,String,BuildElement#3:ImportInfo typeDefInfo = componentManager.getDefinition(typeName)
+configureTask#?,BuildElement#4:ImportInfo taskDefInfo = componentManager.getDefinition(taskType)" shape=ellipse]
+13 [label="configureType#?,String,BuildElement#4:if ((typeDefInfo == null) || (typeDefInfo.getDefinitionType() != AntLibrary.TYPEDEF)) \{
+    throw new ExecutionException(((\"There is no defintion for a \" + \"type <\") + typeName) + \">\", model.getLocation());
+\}
+configureTask#?,BuildElement#5:if ((taskDefInfo == null) || (taskDefInfo.getDefinitionType() != AntLibrary.TASKDEF)) \{
+    throw new ExecutionException(((\"There is no defintion for a \" + \"task of type <\") + taskType) + \">\", model.getLocation());
+\}" shape=ellipse]
+14 [label="configureType#?,String,BuildElement#8:String className = typeDefInfo.getClassName()
+configureTask#?,BuildElement#10:String className = taskDefInfo.getClassName()" shape=ellipse]
+15 [label="configureType#?,String,BuildElement#9:ComponentLibrary componentLibrary = typeDefInfo.getComponentLibrary()
+configureTask#?,BuildElement#11:ComponentLibrary componentLibrary = taskDefInfo.getComponentLibrary()" shape=ellipse]
+16 [label="configureType#?,String,BuildElement#10:try \{
+    ClassLoader typeClassLoader = componentLibrary.getClassLoader();
+    Class typeClass = Class.forName(className, true, typeClassLoader);
+    ClassLoader currentLoader = setContextLoader(typeClassLoader);
+    AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+    Object typeInstance = createTypeInstance(typeClass, libFactory, model);
+    setContextLoader(currentLoader);
+    return typeInstance;
+\} catch (ClassNotFoundException e) \{
+    throw new ExecutionException((((\"Class \" + className) + \" for type <\") + typeName) + \"> was not found\", e, model.getLocation());
+\} catch (NoClassDefFoundError e) \{
+    throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for type \") + typeName);
+\}
+configureTask#?,BuildElement#12:try \{
+    ClassLoader taskClassLoader = componentLibrary.getClassLoader();
+    Class elementClass = Class.forName(className, true, taskClassLoader);
+    AntLibFactory libFactory = componentManager.getLibFactory(componentLibrary);
+    Object element = libFactory.createTaskInstance(elementClass);
+    Task task = null;
+    if (element instanceof Task) \{
+        task = ((Task) (element));
+    \} else \{
+        task = new TaskAdapter(taskType, element);
+    \}
+    ClassLoader currentLoader = setContextLoader(taskClassLoader);
+    TaskContext taskContext = new TaskContext(this);
+    taskContext.init(taskClassLoader, task, model);
+    configureElement(libFactory, element, model);
+    task.validateComponent();
+    setContextLoader(currentLoader);
+    return taskContext;
+\} catch (ClassNotFoundException e) \{
+    throw new ExecutionException((((\"Class \" + className) + \" for task <\") + taskType) + \"> was not found\", e, model.getLocation());
+\} catch (NoClassDefFoundError e) \{
+    throw new ExecutionException(((\"Could not load a dependent class (\" + e.getMessage()) + \") for task \") + taskType, e, model.getLocation());
+\} catch (InstantiationException e) \{
+    throw new ExecutionException((((\"Unable to instantiate task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+\} catch (IllegalAccessException e) \{
+    throw new ExecutionException((((\"Unable to access task class \" + className) + \" for task <\") + taskType) + \">\", e, model.getLocation());
+\} catch (ExecutionException e) \{
+    e.setLocation(model.getLocation(), false);
+    throw e;
+\} catch (RuntimeException e) \{
+    throw new ExecutionException((e.getClass().getName() + \": \") + e.getMessage(), e, model.getLocation());
+\}" shape=ellipse]
+17 [label="configureType#?,String,BuildElement#2:VE: ThrownTypes_configureType
+configureTask#?,BuildElement#2:VE: ThrownTypes_configureTask" shape=ellipse]
+18 [label="configureType#?,String,BuildElement#2:VE: Modifiers_Method
+configureTask#?,BuildElement#2:VE: Modifiers_Method" shape=ellipse]
+19 [label="configureType#?,String,BuildElement#2:private
+configureTask#?,BuildElement#2:private" shape=ellipse]
+20 [label="configureType#?,String,BuildElement#10:String localName = typeDefInfo.getLocalName()
+configureTask#?,BuildElement#12:String localName = taskDefInfo.getLocalName()" shape=ellipse]
+21 [label="configureTask#?,BuildElement#3:String taskType = model.getType()" shape=ellipse]
+22 [label="configureTask#?,BuildElement#2:TaskContext" shape=ellipse]
+0 -> 20 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 7 [label="AST:1"];
+1 -> 9 [label="AST:1"];
+1 -> 11 [label="AST:2"];
+1 -> 17 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 19 [label="AST:2"];
+1 -> 22 [label="AST:1"];
+3 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+7 -> 8 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+11 -> 15 [label="AST:2"];
+11 -> 16 [label="AST:2"];
+11 -> 21 [label="AST:1"];
+22 -> 8 [label="AST:1"];
+}

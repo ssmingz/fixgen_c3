@@ -1,0 +1,33 @@
+digraph "NewProjectEvent#?,AppContext,ACSProjectElement" {
+0 [label="2:CtVirtualElement@NewProjectEvent" shape=ellipse]
+1 [label="2:CtParameterImpl@AppContext context" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@AppContext" shape=ellipse]
+3 [label="2:CtParameterImpl@ACSProjectElement project" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@ACSProjectElement" shape=ellipse]
+5 [label="3:CtVirtualElement@" shape=ellipse]
+6 [label="3:CtVariableReadImpl@context" shape=ellipse]
+7 [label="3:CtVariableReadImpl@project" shape=ellipse]
+8 [label="3:CtInvocationImpl@(context, project)" shape=ellipse]
+9 [label="2:CtBlockImpl@\{
+    (context, project);
+\}" shape=ellipse]
+10 [label="2:CtMethodImpl@public  NewProjectEvent(AppContext context, ACSProjectElement project) \{
+    (context, project);
+\}" shape=ellipse]
+11 [label="4:Insert@INSERT" shape=ellipse]
+12 [label="4:CtIfImpl@if (project == null) \{
+    throw new IllegalArgumentException(\"A new project can't be null.\");
+\}" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 0 [label="AST"];
+10 -> 1 [label="AST"];
+10 -> 3 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 11 [label="Action"];
+11 -> 12 [label="Action"];
+}

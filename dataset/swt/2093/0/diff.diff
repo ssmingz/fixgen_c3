@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2093/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2093/0/after.java
+@@ -3,2 +3,7 @@
+-    int w = gc.getCharWidth('a');
+-    assertTrue(w > 0);
++    PerformanceMeter meter = createMeter();
++    meter.start();
++    for (int i = 0; i < COUNT; i++) {
++      gc.getCharWidth('a');
++    }
++    meter.stop();
++    disposeMeter(meter);

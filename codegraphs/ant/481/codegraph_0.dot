@@ -1,0 +1,46 @@
+digraph "startElement#?,String,AttributeList" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@startElement" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@AttributeList attrs" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@AttributeList" shape=ellipse]
+6 [label="2:CtTypeReferenceImpl@SAXException" shape=ellipse]
+7 [label="3:CtFieldWriteImpl@this.currentElement" shape=ellipse]
+8 [label="3:CtThisAccessImpl@this" shape=ellipse]
+9 [label="3:CtVariableReadImpl@name" shape=ellipse]
+10 [label="3:CtAssignmentImpl@this.currentElement = name" shape=ellipse]
+11 [label="4:CtFieldWriteImpl@currentText" shape=ellipse]
+12 [label="4:CtLiteralImpl@\"\"" shape=ellipse]
+13 [label="4:CtAssignmentImpl@currentText = \"\"" shape=ellipse]
+14 [label="2:CtBlockImpl@\{
+    this.currentElement = name;
+    currentText = \"\";
+\}" shape=ellipse]
+15 [label="2:CtMethodImpl@public void startElement(String name, AttributeList attrs) throws SAXException \{
+    this.currentElement = name;
+    currentText = \"\";
+\}" shape=ellipse]
+16 [label="5:Insert@INSERT" shape=ellipse]
+17 [label="5:CtIfImpl@if (name.equals(EJB_REF)) \{
+    inEJBRef = true;
+\}" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 7 [label="Data Dep"];
+10 -> 7 [label="AST"];
+10 -> 9 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 1 [label="AST"];
+15 -> 0 [label="AST"];
+15 -> 2 [label="AST"];
+15 -> 4 [label="AST"];
+15 -> 6 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 16 [label="Action"];
+16 -> 17 [label="Action"];
+}

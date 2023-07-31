@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3004/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3004/0/after.java
+@@ -4,6 +4,2 @@
+-    if ((id == view.id)
+-        || (((view instanceof NSControl) && (((NSControl) (view)).cell() != null))
+-            && (((NSControl) (view)).cell().id == id))) {
+-      if (accessible != null) {
+-        returnValue = accessible.internal_accessibilityHitTest(point, CHILDID_SELF);
+-      }
++    if ((id == accessibleHandle()) && (accessible != null)) {
++      returnValue = accessible.internal_accessibilityHitTest(point, CHILDID_SELF);

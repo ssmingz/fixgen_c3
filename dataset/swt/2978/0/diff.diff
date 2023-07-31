@@ -1,0 +1,27 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/2978/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/2978/0/after.java
+@@ -8,9 +8,12 @@
+-    if ((!tree.isRowSelected(row))
+-        && ((modifiers
+-                & (((OS.NSCommandKeyMask | OS.NSShiftKeyMask) | OS.NSAlternateKeyMask)
+-                    | OS.NSControlKeyMask))
+-            == 0)) {
+-      NSIndexSet set = ((NSIndexSet) (new NSIndexSet().alloc()));
+-      set = set.initWithIndex(row);
+-      tree.selectRowIndexes(set, false);
+-      set.release();
++    boolean drag = ((state & DRAG_DETECT) != 0) && hooks(DragDetect);
++    if (drag) {
++      if ((!tree.isRowSelected(row))
++          && ((modifiers
++                  & (((OS.NSCommandKeyMask | OS.NSShiftKeyMask) | OS.NSAlternateKeyMask)
++                      | OS.NSControlKeyMask))
++              == 0)) {
++        NSIndexSet set = ((NSIndexSet) (new NSIndexSet().alloc()));
++        set = set.initWithIndex(row);
++        tree.selectRowIndexes(set, false);
++        set.release();
++      }
+@@ -18,1 +21,1 @@
+-    return (tree.isRowSelected(row) && ((state & DRAG_DETECT) != 0)) && hooks(DragDetect);
++    return tree.isRowSelected(row) && drag;

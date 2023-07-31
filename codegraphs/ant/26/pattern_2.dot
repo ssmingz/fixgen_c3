@@ -1,0 +1,76 @@
+digraph "Pattern" {
+0 [label="testWorks#?#4:INSERT
+testTestZipTask#?#4:INSERT
+testDirset#?#4:INSERT" shape=ellipse]
+1 [label="testWorks#?#3:executeTarget(\"testWorks\")
+testTestZipTask#?#3:executeTarget(\"testZipTask\")
+testDirset#?#3:executeTarget(\"testDirset\")" shape=ellipse]
+2 [label="testWorks#?#2:\{
+    executeTarget(\"testWorks\");
+    assertPropertyContains(\"testWorks\", \"file:\");
+    assertPropertyContains(\"testWorks\", \"/foo\");
+\}
+testTestZipTask#?#2:\{
+    executeTarget(\"testZipTask\");
+    assertLogoUncorrupted();
+\}
+testDirset#?#2:\{
+    executeTarget(\"testDirset\");
+\}" shape=ellipse]
+3 [label="testWorks#?#2:public void testWorks() \{
+    executeTarget(\"testWorks\");
+    assertPropertyContains(\"testWorks\", \"file:\");
+    assertPropertyContains(\"testWorks\", \"/foo\");
+\}
+testTestZipTask#?#2:public void testTestZipTask() throws IOException \{
+    executeTarget(\"testZipTask\");
+    assertLogoUncorrupted();
+\}
+testDirset#?#2:public void testDirset() \{
+    executeTarget(\"testDirset\");
+\}" shape=ellipse]
+4 [label="testWorks#?#4:assertPropertyContains(\"testWorks\", \"file:\")
+testTestZipTask#?#4:assertLogoUncorrupted()" shape=ellipse]
+5 [label="testWorks#?#5:assertPropertyContains(\"testWorks\", \"/foo\")" shape=ellipse]
+6 [label="testWorks#?#3:executeTarget
+testTestZipTask#?#3:executeTarget
+testDirset#?#3:executeTarget" shape=ellipse]
+7 [label="testWorks#?#-1:
+testTestZipTask#?#-1:
+testDirset#?#-1:" shape=ellipse]
+8 [label="testWorks#?#-1:PlaceHold
+testTestZipTask#?#-1:PlaceHold
+testDirset#?#-1:PlaceHold" shape=ellipse]
+9 [label="testWorks#?#-1:PlaceHold
+testTestZipTask#?#-1:PlaceHold
+testDirset#?#-1:PlaceHold" shape=ellipse]
+10 [label="testWorks#?#3:executeTarget(java.lang.String)
+testTestZipTask#?#3:executeTarget(java.lang.String)
+testDirset#?#3:executeTarget(java.lang.String)" shape=ellipse]
+11 [label="testWorks#?#-1:String
+testTestZipTask#?#-1:String
+testDirset#?#-1:String" shape=ellipse]
+12 [label="testWorks#?#3:\"testWorks\"
+testTestZipTask#?#3:\"testZipTask\"
+testDirset#?#3:\"testDirset\"" shape=ellipse]
+13 [label="testWorks#?#-1:String
+testTestZipTask#?#-1:String
+testDirset#?#-1:String" shape=ellipse]
+14 [label="testWorks#?#4:buildRule
+testTestZipTask#?#4:buildRule
+testDirset#?#4:buildRule" shape=ellipse]
+0 -> 14 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 10 [label="AST:3"];
+1 -> 12 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:1"];
+3 -> 2 [label="AST:3"];
+7 -> 8 [label="AST:3"];
+7 -> 9 [label="AST:3"];
+10 -> 11 [label="AST:3"];
+12 -> 13 [label="AST:3"];
+}

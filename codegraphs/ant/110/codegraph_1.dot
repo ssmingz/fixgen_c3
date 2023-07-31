@@ -1,0 +1,364 @@
+digraph "deployConverter#?,String,String,URL" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@deployConverter" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@String location" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+6 [label="2:CtParameterImpl@URL url" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@URL" shape=ellipse]
+8 [label="2:CtTypeReferenceImpl@DeploymentException" shape=ellipse]
+9 [label="3:CtExecutableReferenceImpl@checkDeployment(java.lang.String,<unknown>)" shape=ellipse]
+10 [label="3:CtVirtualElement@checkDeployment" shape=ellipse]
+11 [label="3:CtVariableReadImpl@location" shape=ellipse]
+12 [label="3:CtVariableReadImpl@url" shape=ellipse]
+13 [label="3:CtInvocationImpl@checkDeployment(location, url)" shape=ellipse]
+14 [label="4:CtTypeReferenceImpl@ZipFile" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@getZipFileFor()" shape=ellipse]
+16 [label="4:CtVirtualElement@getZipFileFor" shape=ellipse]
+17 [label="4:CtTypeAccessImpl@DeployerUtil" shape=ellipse]
+18 [label="4:CtExecutableReferenceImpl@getFileFor(<unknown>)" shape=ellipse]
+19 [label="4:CtVirtualElement@getFileFor" shape=ellipse]
+20 [label="4:CtVariableReadImpl@url" shape=ellipse]
+21 [label="4:CtInvocationImpl@getFileFor(url)" shape=ellipse]
+22 [label="4:CtInvocationImpl@DeployerUtil.getZipFileFor(getFileFor(url))" shape=ellipse]
+23 [label="4:CtVirtualElement@zipFile" shape=ellipse]
+24 [label="4:CtLocalVariableImpl@final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url))" shape=ellipse]
+25 [label="5:CtTypeReferenceImpl@Configuration" shape=ellipse]
+26 [label="5:CtExecutableReferenceImpl@loadConfiguration(ZipFile)" shape=ellipse]
+27 [label="5:CtVirtualElement@loadConfiguration" shape=ellipse]
+28 [label="5:CtTypeAccessImpl@DeployerUtil" shape=ellipse]
+29 [label="5:CtVariableReadImpl@zipFile" shape=ellipse]
+30 [label="5:CtTypeAccessImpl@TSKDEF_FILE" shape=ellipse]
+31 [label="5:CtInvocationImpl@DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE)" shape=ellipse]
+32 [label="5:CtVirtualElement@taskdefs" shape=ellipse]
+33 [label="5:CtLocalVariableImpl@final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE)" shape=ellipse]
+34 [label="7:CtVirtualElement@Configuration[]" shape=ellipse]
+35 [label="7:CtArrayTypeReferenceImpl@Configuration[]" shape=ellipse]
+36 [label="7:CtExecutableReferenceImpl@getChildren(java.lang.String)" shape=ellipse]
+37 [label="7:CtVirtualElement@getChildren" shape=ellipse]
+38 [label="7:CtVariableReadImpl@taskdefs" shape=ellipse]
+39 [label="7:CtLiteralImpl@\"converter\"" shape=ellipse]
+40 [label="7:CtInvocationImpl@taskdefs.getChildren(\"converter\")" shape=ellipse]
+41 [label="7:CtVirtualElement@converters" shape=ellipse]
+42 [label="7:CtLocalVariableImpl@final Configuration[] converters = taskdefs.getChildren(\"converter\")" shape=ellipse]
+43 [label="8:CtTypeReferenceImpl@int" shape=ellipse]
+44 [label="8:CtLiteralImpl@0" shape=ellipse]
+45 [label="8:CtVirtualElement@i" shape=ellipse]
+46 [label="8:CtLocalVariableImpl@int i = 0" shape=ellipse]
+47 [label="8:CtVariableReadImpl@i" shape=ellipse]
+48 [label="8:CtVariableReadImpl@converters" shape=ellipse]
+49 [label="8:CtLocalVariableReferenceImpl@converters" shape=ellipse]
+50 [label="8:CtFieldReadImpl@converters.length" shape=ellipse]
+51 [label="8:CtBinaryOperatorImpl@i < converters.length" shape=ellipse]
+52 [label="8:CtVariableWriteImpl@i" shape=ellipse]
+53 [label="8:CtUnaryOperatorImpl@i++" shape=ellipse]
+54 [label="9:CtExecutableReferenceImpl@equals(java.lang.String)" shape=ellipse]
+55 [label="9:CtVirtualElement@equals" shape=ellipse]
+56 [label="9:CtExecutableReferenceImpl@getAttribute(java.lang.String)" shape=ellipse]
+57 [label="9:CtVirtualElement@getAttribute" shape=ellipse]
+58 [label="9:CtVariableReadImpl@converters" shape=ellipse]
+59 [label="9:CtVariableReadImpl@i" shape=ellipse]
+60 [label="9:CtArrayReadImpl@converters[i]" shape=ellipse]
+61 [label="9:CtLiteralImpl@\"classname\"" shape=ellipse]
+62 [label="9:CtInvocationImpl@converters[i].getAttribute(\"classname\")" shape=ellipse]
+63 [label="9:CtVariableReadImpl@name" shape=ellipse]
+64 [label="9:CtInvocationImpl@converters[i].getAttribute(\"classname\").equals(name)" shape=ellipse]
+65 [label="10:CtTypeReferenceImpl@DefaultComponentFactory" shape=ellipse]
+66 [label="10:CtTypeReferenceImpl@DefaultComponentFactory" shape=ellipse]
+67 [label="10:CtNewArrayImpl@new URL[]\{ url \}" shape=ellipse]
+68 [label="10:CtVariableReadImpl@url" shape=ellipse]
+69 [label="10:CtConstructorCallImpl@new DefaultComponentFactory(new URL[]\{ url \})" shape=ellipse]
+70 [label="10:CtVirtualElement@factory" shape=ellipse]
+71 [label="10:CtLocalVariableImpl@final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \})" shape=ellipse]
+72 [label="11:CtExecutableReferenceImpl@handleConverter(<unknown>,<unknown>,<unknown>)" shape=ellipse]
+73 [label="11:CtVirtualElement@handleConverter" shape=ellipse]
+74 [label="11:CtVariableReadImpl@converters" shape=ellipse]
+75 [label="11:CtVariableReadImpl@i" shape=ellipse]
+76 [label="11:CtArrayReadImpl@converters[i]" shape=ellipse]
+77 [label="11:CtVariableReadImpl@url" shape=ellipse]
+78 [label="11:CtVariableReadImpl@factory" shape=ellipse]
+79 [label="11:CtInvocationImpl@handleConverter(converters[i], url, factory)" shape=ellipse]
+80 [label="12:CtBreakImpl@break" shape=ellipse]
+81 [label="9:CtBlockImpl@\{
+    final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+    handleConverter(converters[i], url, factory);
+    break;
+\}" shape=ellipse]
+82 [label="9:CtIfImpl@if (converters[i].getAttribute(\"classname\").equals(name)) \{
+    final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+    handleConverter(converters[i], url, factory);
+    break;
+\}" shape=ellipse]
+83 [label="8:CtBlockImpl@\{
+    if (converters[i].getAttribute(\"classname\").equals(name)) \{
+        final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+        handleConverter(converters[i], url, factory);
+        break;
+    \}
+\}" shape=ellipse]
+84 [label="8:CtForImpl@for (int i = 0; i < converters.length; i++) \{
+    if (converters[i].getAttribute(\"classname\").equals(name)) \{
+        final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+        handleConverter(converters[i], url, factory);
+        break;
+    \}
+\}" shape=ellipse]
+85 [label="6:CtBlockImpl@\{
+    final Configuration[] converters = taskdefs.getChildren(\"converter\");
+    for (int i = 0; i < converters.length; i++) \{
+        if (converters[i].getAttribute(\"classname\").equals(name)) \{
+            final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+            handleConverter(converters[i], url, factory);
+            break;
+        \}
+    \}
+\}" shape=ellipse]
+86 [label="15:CtVirtualElement@ce" shape=ellipse]
+87 [label="15:CtTypeReferenceImpl@ConfigurationException" shape=ellipse]
+88 [label="15:CtCatchVariableImpl@final ConfigurationException ce" shape=ellipse]
+89 [label="16:CtTypeReferenceImpl@DeploymentException" shape=ellipse]
+90 [label="16:CtLiteralImpl@\"Malformed taskdefs.xml\"" shape=ellipse]
+91 [label="16:CtVariableReadImpl@ce" shape=ellipse]
+92 [label="16:CtConstructorCallImpl@new DeploymentException(\"Malformed taskdefs.xml\", ce)" shape=ellipse]
+93 [label="16:CtThrowImpl@throw new DeploymentException(\"Malformed taskdefs.xml\", ce)" shape=ellipse]
+94 [label="15:CtBlockImpl@\{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\}" shape=ellipse]
+95 [label="15:CtCatchImpl@ catch (final ConfigurationException ce) \{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\}" shape=ellipse]
+96 [label="17:CtVirtualElement@e" shape=ellipse]
+97 [label="17:CtTypeReferenceImpl@Exception" shape=ellipse]
+98 [label="17:CtCatchVariableImpl@final Exception e" shape=ellipse]
+99 [label="18:CtTypeReferenceImpl@DeploymentException" shape=ellipse]
+100 [label="18:CtLiteralImpl@\"Failed to deploy \"" shape=ellipse]
+101 [label="18:CtVariableReadImpl@name" shape=ellipse]
+102 [label="18:CtBinaryOperatorImpl@\"Failed to deploy \" + name" shape=ellipse]
+103 [label="18:CtVariableReadImpl@e" shape=ellipse]
+104 [label="18:CtConstructorCallImpl@new DeploymentException(\"Failed to deploy \" + name, e)" shape=ellipse]
+105 [label="18:CtThrowImpl@throw new DeploymentException(\"Failed to deploy \" + name, e)" shape=ellipse]
+106 [label="17:CtBlockImpl@\{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}" shape=ellipse]
+107 [label="17:CtCatchImpl@ catch (final Exception e) \{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}" shape=ellipse]
+108 [label="6:CtTryImpl@try \{
+    final Configuration[] converters = taskdefs.getChildren(\"converter\");
+    for (int i = 0; i < converters.length; i++) \{
+        if (converters[i].getAttribute(\"classname\").equals(name)) \{
+            final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+            handleConverter(converters[i], url, factory);
+            break;
+        \}
+    \}
+\} catch (final ConfigurationException ce) \{
+    throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+\} catch (final Exception e) \{
+    throw new DeploymentException(\"Failed to deploy \" + name, e);
+\}" shape=ellipse]
+109 [label="2:CtBlockImpl@\{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] converters = taskdefs.getChildren(\"converter\");
+        for (int i = 0; i < converters.length; i++) \{
+            if (converters[i].getAttribute(\"classname\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleConverter(converters[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}" shape=ellipse]
+110 [label="2:CtMethodImpl@public void deployConverter(String name, String location, URL url) throws DeploymentException \{
+    checkDeployment(location, url);
+    final ZipFile zipFile = DeployerUtil.getZipFileFor(getFileFor(url));
+    final Configuration taskdefs = DeployerUtil.loadConfiguration(zipFile, TSKDEF_FILE);
+    try \{
+        final Configuration[] converters = taskdefs.getChildren(\"converter\");
+        for (int i = 0; i < converters.length; i++) \{
+            if (converters[i].getAttribute(\"classname\").equals(name)) \{
+                final DefaultComponentFactory factory = new DefaultComponentFactory(new URL[]\{ url \});
+                handleConverter(converters[i], url, factory);
+                break;
+            \}
+        \}
+    \} catch (final ConfigurationException ce) \{
+        throw new DeploymentException(\"Malformed taskdefs.xml\", ce);
+    \} catch (final Exception e) \{
+        throw new DeploymentException(\"Failed to deploy \" + name, e);
+    \}
+\}" shape=ellipse]
+111 [label="4:Update@UPDATE" shape=ellipse]
+112 [label="5:Update@UPDATE" shape=ellipse]
+113 [label="3:Delete@DELETE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+13 -> 10 [label="AST"];
+13 -> 9 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 113 [label="Action"];
+17 -> 111 [label="Action"];
+20 -> 23 [label="Data Dep"];
+21 -> 19 [label="AST"];
+21 -> 18 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 16 [label="AST"];
+22 -> 17 [label="AST"];
+22 -> 15 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 29 [label="Define-Use"];
+24 -> 23 [label="AST"];
+24 -> 14 [label="AST"];
+24 -> 22 [label="AST"];
+28 -> 112 [label="Action"];
+29 -> 32 [label="Data Dep"];
+31 -> 27 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 26 [label="AST"];
+31 -> 29 [label="AST"];
+31 -> 30 [label="AST"];
+32 -> 38 [label="Define-Use"];
+33 -> 32 [label="AST"];
+33 -> 25 [label="AST"];
+33 -> 31 [label="AST"];
+35 -> 34 [label="AST"];
+38 -> 41 [label="Data Dep"];
+40 -> 37 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 36 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 48 [label="Define-Use"];
+41 -> 58 [label="Define-Use"];
+41 -> 60 [label="Define-Use"];
+41 -> 74 [label="Define-Use"];
+41 -> 76 [label="Define-Use"];
+42 -> 41 [label="AST"];
+42 -> 35 [label="AST"];
+42 -> 40 [label="AST"];
+45 -> 47 [label="Define-Use"];
+46 -> 45 [label="AST"];
+46 -> 43 [label="AST"];
+46 -> 44 [label="AST"];
+48 -> 49 [label="AST"];
+50 -> 48 [label="AST"];
+51 -> 47 [label="AST"];
+51 -> 50 [label="AST"];
+51 -> 83 [label="Control Dep"];
+51 -> 82 [label="Control Dep"];
+51 -> 64 [label="Control Dep"];
+51 -> 54 [label="Control Dep"];
+51 -> 62 [label="Control Dep"];
+51 -> 56 [label="Control Dep"];
+51 -> 60 [label="Control Dep"];
+51 -> 58 [label="Control Dep"];
+51 -> 59 [label="Control Dep"];
+51 -> 61 [label="Control Dep"];
+51 -> 63 [label="Control Dep"];
+52 -> 59 [label="Define-Use"];
+52 -> 75 [label="Define-Use"];
+53 -> 52 [label="AST"];
+60 -> 58 [label="AST"];
+60 -> 59 [label="AST"];
+62 -> 57 [label="AST"];
+62 -> 60 [label="AST"];
+62 -> 56 [label="AST"];
+62 -> 61 [label="AST"];
+64 -> 55 [label="AST"];
+64 -> 62 [label="AST"];
+64 -> 54 [label="AST"];
+64 -> 63 [label="AST"];
+64 -> 81 [label="Control Dep"];
+64 -> 71 [label="Control Dep"];
+64 -> 69 [label="Control Dep"];
+64 -> 67 [label="Control Dep"];
+64 -> 79 [label="Control Dep"];
+64 -> 72 [label="Control Dep"];
+64 -> 76 [label="Control Dep"];
+64 -> 74 [label="Control Dep"];
+64 -> 75 [label="Control Dep"];
+64 -> 77 [label="Control Dep"];
+64 -> 78 [label="Control Dep"];
+64 -> 80 [label="Control Dep"];
+67 -> 68 [label="AST"];
+68 -> 70 [label="Data Dep"];
+69 -> 67 [label="AST"];
+70 -> 78 [label="Define-Use"];
+71 -> 70 [label="AST"];
+71 -> 65 [label="AST"];
+71 -> 69 [label="AST"];
+76 -> 74 [label="AST"];
+76 -> 75 [label="AST"];
+79 -> 73 [label="AST"];
+79 -> 72 [label="AST"];
+79 -> 76 [label="AST"];
+79 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+81 -> 71 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 64 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 82 [label="AST"];
+84 -> 46 [label="AST"];
+84 -> 51 [label="AST"];
+84 -> 53 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 42 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 91 [label="Define-Use"];
+88 -> 86 [label="AST"];
+88 -> 87 [label="AST"];
+88 -> 94 [label="Control Dep"];
+88 -> 93 [label="Control Dep"];
+88 -> 92 [label="Control Dep"];
+88 -> 90 [label="Control Dep"];
+88 -> 91 [label="Control Dep"];
+92 -> 90 [label="AST"];
+92 -> 91 [label="AST"];
+93 -> 92 [label="AST"];
+94 -> 93 [label="AST"];
+95 -> 88 [label="AST"];
+95 -> 94 [label="AST"];
+96 -> 103 [label="Define-Use"];
+98 -> 96 [label="AST"];
+98 -> 97 [label="AST"];
+98 -> 106 [label="Control Dep"];
+98 -> 105 [label="Control Dep"];
+98 -> 104 [label="Control Dep"];
+98 -> 102 [label="Control Dep"];
+98 -> 100 [label="Control Dep"];
+98 -> 101 [label="Control Dep"];
+98 -> 103 [label="Control Dep"];
+102 -> 100 [label="AST"];
+102 -> 101 [label="AST"];
+104 -> 102 [label="AST"];
+104 -> 103 [label="AST"];
+105 -> 104 [label="AST"];
+106 -> 105 [label="AST"];
+107 -> 98 [label="AST"];
+107 -> 106 [label="AST"];
+108 -> 85 [label="AST"];
+108 -> 95 [label="AST"];
+108 -> 107 [label="AST"];
+109 -> 13 [label="AST"];
+109 -> 24 [label="AST"];
+109 -> 33 [label="AST"];
+109 -> 108 [label="AST"];
+110 -> 1 [label="AST"];
+110 -> 0 [label="AST"];
+110 -> 2 [label="AST"];
+110 -> 4 [label="AST"];
+110 -> 6 [label="AST"];
+110 -> 8 [label="AST"];
+110 -> 109 [label="AST"];
+}

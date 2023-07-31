@@ -1,0 +1,36 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/43/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/43/0/after.java
+@@ -154,32 +154,1 @@
+-      if (device.useXRender && ((alpha != (-1)) || (alphaData != null))) {
+-        mask = OS.gdk_pixmap_new(0, alpha != (-1) ? 1 : width, alpha != (-1) ? 1 : height, 8);
+-        if (mask == 0) {
+-          SWT.error(ERROR_NO_HANDLES);
+-        }
+-        int gc = OS.gdk_gc_new(mask);
+-        if (alpha != (-1)) {
+-          GdkColor color = new GdkColor();
+-          color.pixel = ((alpha & 0xff) << 8) | (alpha & 0xff);
+-          OS.gdk_gc_set_foreground(gc, color);
+-          OS.gdk_draw_rectangle(mask, gc, 1, 0, 0, 1, 1);
+-        } else {
+-          int imagePtr = OS.gdk_drawable_get_image(mask, 0, 0, width, height);
+-          if (imagePtr == 0) {
+-            SWT.error(ERROR_NO_HANDLES);
+-          }
+-          GdkImage gdkImage = new GdkImage();
+-          OS.memmove(gdkImage, imagePtr);
+-          if (gdkImage.bpl == width) {
+-            OS.memmove(gdkImage.mem, alphaData, alphaData.length);
+-          } else {
+-            byte[] line = new byte[gdkImage.bpl];
+-            for (int y = 0; y < height; y++) {
+-              System.arraycopy(alphaData, width * y, line, 0, width);
+-              OS.memmove(gdkImage.mem + (gdkImage.bpl * y), line, gdkImage.bpl);
+-            }
+-          }
+-          OS.gdk_draw_image(mask, gc, imagePtr, 0, 0, 0, 0, width, height);
+-          OS.g_object_unref(imagePtr);
+-        }
+-        OS.g_object_unref(gc);
+-      }
++      createAlphaMask(width, height);

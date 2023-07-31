@@ -1,0 +1,84 @@
+digraph "Pattern" {
+0 [label="createExec#?#4:DELETE
+init#?#4:DELETE" shape=ellipse]
+1 [label="createExec#?#4:exec.setOwningTarget(this.getOwningTarget())
+init#?#4:callee.setOwningTarget(getOwningTarget())" shape=ellipse]
+2 [label="createExec#?#2:\{
+    ExecTask exec = ((ExecTask) (getProject().createTask(\"exec\")));
+    exec.setOwningTarget(this.getOwningTarget());
+    exec.setTaskName(this.getTaskName());
+    exec.setDescription(this.getDescription());
+    return exec;
+\}
+init#?#2:\{
+    callee = ((Ant) (getProject().createTask(\"ant\")));
+    callee.setOwningTarget(getOwningTarget());
+    callee.setTaskName(getTaskName());
+    callee.setLocation(getLocation());
+    callee.init();
+\}" shape=ellipse]
+3 [label="createExec#?#2:protected ExecTask createExec() throws BuildException \{
+    ExecTask exec = ((ExecTask) (getProject().createTask(\"exec\")));
+    exec.setOwningTarget(this.getOwningTarget());
+    exec.setTaskName(this.getTaskName());
+    exec.setDescription(this.getDescription());
+    return exec;
+\}
+init#?#2:public void init() \{
+    callee = ((Ant) (getProject().createTask(\"ant\")));
+    callee.setOwningTarget(getOwningTarget());
+    callee.setTaskName(getTaskName());
+    callee.setLocation(getLocation());
+    callee.init();
+\}" shape=ellipse]
+4 [label="createExec#?#3:ExecTask exec = ((ExecTask) (getProject().createTask(\"exec\")))
+init#?#3:callee = ((Ant) (getProject().createTask(\"ant\")))" shape=ellipse]
+5 [label="createExec#?#5:exec.setTaskName(this.getTaskName())
+init#?#5:callee.setTaskName(getTaskName())" shape=ellipse]
+6 [label="createExec#?#6:exec.setDescription(this.getDescription())
+init#?#6:callee.setLocation(getLocation())" shape=ellipse]
+7 [label="createExec#?#7:return exec" shape=ellipse]
+8 [label="createExec#?#4:setOwningTarget
+init#?#4:setOwningTarget" shape=ellipse]
+9 [label="createExec#?#4:exec" shape=ellipse]
+10 [label="createExec#?#3:exec
+init#?#3:callee" shape=ellipse]
+11 [label="createExec#?#-1:exec
+init#?#-1:callee" shape=ellipse]
+12 [label="createExec#?#4:setOwningTarget()
+init#?#4:setOwningTarget()" shape=ellipse]
+13 [label="createExec#?#-1:ExecTask
+init#?#-1:callee" shape=ellipse]
+14 [label="createExec#?#4:this.getOwningTarget()
+init#?#4:getOwningTarget()" shape=ellipse]
+15 [label="createExec#?#4:getOwningTarget
+init#?#4:getOwningTarget" shape=ellipse]
+16 [label="createExec#?#4:this
+init#?#-1:" shape=ellipse]
+17 [label="createExec#?#4:getOwningTarget()
+init#?#4:getOwningTarget()" shape=ellipse]
+18 [label="init#?#4:callee" shape=ellipse]
+19 [label="init#?#7:callee.init()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:1"];
+1 -> 12 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+1 -> 18 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 7 [label="AST:1"];
+2 -> 19 [label="AST:1"];
+3 -> 2 [label="AST:2"];
+4 -> 10 [label="AST:2"];
+9 -> 11 [label="AST:1"];
+10 -> 9 [label="Define Use:1"];
+10 -> 18 [label="Define Use:1"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+14 -> 16 [label="AST:2"];
+14 -> 17 [label="AST:2"];
+18 -> 11 [label="AST:1"];
+}

@@ -1,0 +1,27 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1234/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1234/2/after.java
+@@ -3,6 +3,8 @@
+-    Vector myvector = new Vector();
+-    scanme();
+-    for (Enumeration e = myentries.elements(); e.hasMoreElements(); ) {
+-      Resource myresource = ((Resource) (e.nextElement()));
+-      if ((!myresource.isDirectory()) && match(myresource.getName())) {
+-        myvector.addElement(myresource.clone());
++    if (srcFile != null) {
++      Vector myvector = new Vector();
++      scanme();
++      for (Enumeration e = myentries.elements(); e.hasMoreElements(); ) {
++        Resource myresource = ((Resource) (e.nextElement()));
++        if ((!myresource.isDirectory()) && match(myresource.getName())) {
++          myvector.addElement(myresource.clone());
++        }
+@@ -10,0 +12,5 @@
++      Resource[] resources = new Resource[myvector.size()];
++      myvector.copyInto(resources);
++      return resources;
++    } else {
++      return super.getIncludedFileResources();
+@@ -11,3 +18,0 @@
+-    Resource[] resources = new Resource[myvector.size()];
+-    myvector.copyInto(resources);
+-    return resources;

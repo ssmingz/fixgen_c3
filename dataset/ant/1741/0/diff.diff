@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1741/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1741/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,3 +4,6 @@
+-    if (!hasRegex("testFilterReplaceRegex")) {
+-      return;
+-    }
++    buildRule.executeTarget("hasregex");
++    Assume.assumeTrue(
++        "Regex not present",
++        getFileString(buildRule.getProject().getProperty("output") + "/replaceregexp")
++            .contains("bye world"));
++    buildRule.executeTarget("filterreplaceregex");
+@@ -7,3 +11,2 @@
+-        getFileString(
+-            "filterreplaceregex", getProject().getProperty("output") + "/filterreplaceregex");
+-    assertStringContains(contents, "world world world world");
++        getFileString(buildRule.getProject().getProperty("output") + "/filterreplaceregex");
++    assertContains("world world world world", contents);

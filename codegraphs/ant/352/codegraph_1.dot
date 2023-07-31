@@ -1,0 +1,29 @@
+digraph "getUnsafeParameter#?" {
+0 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+1 [label="2:CtVirtualElement@getUnsafeParameter" shape=ellipse]
+2 [label="3:CtFieldReadImpl@_unsafe" shape=ellipse]
+3 [label="3:CtLiteralImpl@\"/unsafe\"" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtConditionalImpl@_unsafe ? \"/unsafe\" : null" shape=ellipse]
+6 [label="3:CtReturnImpl@return _unsafe ? \"/unsafe\" : null" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    return _unsafe ? \"/unsafe\" : null;
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@protected String getUnsafeParameter() \{
+    return _unsafe ? \"/unsafe\" : null;
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="3:CtFieldReadImpl@unsafe" shape=ellipse]
+2 -> 3 [label="Control Dep"];
+2 -> 4 [label="Control Dep"];
+2 -> 9 [label="Action"];
+5 -> 2 [label="AST"];
+5 -> 3 [label="AST"];
+5 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 10 [label="Action"];
+}

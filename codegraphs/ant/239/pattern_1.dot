@@ -1,0 +1,119 @@
+digraph "Pattern" {
+0 [label="execute#?#58:INSERT
+transferFiles#?,FTPClient,FileSet#84:INSERT" shape=ellipse]
+1 [label="execute#?#59:w.close()
+transferFiles#?,FTPClient,FileSet#85:bw.close()" shape=ellipse]
+2 [label="execute#?#58:w != null
+transferFiles#?,FTPClient,FileSet#84:bw != null" shape=ellipse]
+3 [label="execute#?#58:if (w != null) \{
+    w.close();
+\}
+transferFiles#?,FTPClient,FileSet#84:if (bw != null) \{
+    bw.close();
+\}" shape=ellipse]
+4 [label="execute#?#58:w
+transferFiles#?,FTPClient,FileSet#84:bw" shape=ellipse]
+5 [label="execute#?#58:null
+transferFiles#?,FTPClient,FileSet#84:null" shape=ellipse]
+6 [label="execute#?#58:\{
+    w.close();
+\}
+transferFiles#?,FTPClient,FileSet#84:\{
+    bw.close();
+\}" shape=ellipse]
+7 [label="execute#?#59:close()
+transferFiles#?,FTPClient,FileSet#85:close()" shape=ellipse]
+8 [label="execute#?#59:w
+transferFiles#?,FTPClient,FileSet#85:bw" shape=ellipse]
+9 [label="execute#?#59:close
+transferFiles#?,FTPClient,FileSet#85:close" shape=ellipse]
+10 [label="execute#?#59:MOVE
+transferFiles#?,FTPClient,FileSet#85:MOVE" shape=ellipse]
+11 [label="execute#?#50:try \{
+    FileOutputStream fos = new FileOutputStream(manifestFile);
+    OutputStreamWriter osw = new OutputStreamWriter(fos, Manifest.JAR_ENCODING);
+    w = new PrintWriter(osw);
+    toWrite.write(w);
+\} catch (IOException e) \{
+    throw new BuildException(\"Failed to write \" + manifestFile, e, getLocation());
+\} finally \{
+    if (w != null) \{
+        w.close();
+    \}
+\}
+transferFiles#?,FTPClient,FileSet#25:try \{
+    if (action == LIST_FILES) \{
+        File pd = listing.getParentFile();
+        if (!pd.exists()) \{
+            pd.mkdirs();
+        \}
+        bw = new BufferedWriter(new FileWriter(listing));
+    \}
+    RetryHandler h = new RetryHandler(this.retriesAllowed, this);
+    if (action == RM_DIR) \{
+        for (int i = dsfiles.length - 1; i >= 0; i--) \{
+            final String dsfile = dsfiles[i];
+            executeRetryable(h, new Retryable() \{
+                public void execute() throws IOException \{
+                    rmDir(ftp, dsfile);
+                \}
+            \}, dsfile);
+        \}
+    \} else \{
+        final BufferedWriter fbw = bw;
+        final String fdir = dir;
+        if (this.newerOnly) \{
+            this.granularityMillis = this.timestampGranularity.getMilliseconds(action);
+        \}
+        for (int i = 0; i < dsfiles.length; i++) \{
+            final String dsfile = dsfiles[i];
+            executeRetryable(h, new Retryable() \{
+                public void execute() throws IOException \{
+                    switch (action) \{
+                        case SEND_FILES :
+                            sendFile(ftp, fdir, dsfile);
+                            break;
+                        case GET_FILES :
+                            getFile(ftp, fdir, dsfile);
+                            break;
+                        case DEL_FILES :
+                            delFile(ftp, dsfile);
+                            break;
+                        case LIST_FILES :
+                            listFile(ftp, fbw, dsfile);
+                            break;
+                        case CHMOD :
+                            doSiteCommand(ftp, ((\"chmod \" + chmod) + \" \") + resolveFile(dsfile));
+                            transferred++;
+                            break;
+                        default :
+                            throw new BuildException(\"unknown ftp action \" + action);
+                    \}
+                \}
+            \}, dsfile);
+        \}
+    \}
+\} finally \{
+    if (bw != null) \{
+        bw.close();
+    \}
+\}" shape=ellipse]
+12 [label="execute#?#58:FileUtils
+transferFiles#?,FTPClient,FileSet#84:FileUtils" shape=ellipse]
+0 -> 12 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 9 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="Action:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 1 [label="AST:2"];
+10 -> 11 [label="Action:2"];
+}

@@ -1,0 +1,113 @@
+digraph "Pattern" {
+0 [label="getTimeout#?#4:INSERT
+getName#?#3:INSERT" shape=ellipse]
+1 [label="getTimeout#?#2:\{
+    Test annotation = fMethod.getAnnotation(Test.class);
+    long timeout = annotation.timeout();
+    return timeout;
+\}
+getName#?#2:\{
+    return fClass.getName();
+\}" shape=ellipse]
+2 [label="getTimeout#?#2:public long getTimeout() \{
+    Test annotation = fMethod.getAnnotation(Test.class);
+    long timeout = annotation.timeout();
+    return timeout;
+\}
+getName#?#2:public String getName() \{
+    return fClass.getName();
+\}" shape=ellipse]
+3 [label="getTimeout#?#2:getTimeout
+getName#?#2:getName" shape=ellipse]
+4 [label="getTimeout#?#2:long
+getName#?#2:String" shape=ellipse]
+5 [label="getTimeout#?#3:Test annotation = fMethod.getAnnotation(Test.class)
+getName#?#3:return fClass.getName()" shape=ellipse]
+6 [label="getTimeout#?#3:annotation" shape=ellipse]
+7 [label="getTimeout#?#3:Test" shape=ellipse]
+8 [label="getTimeout#?#3:fMethod.getAnnotation(Test.class)
+getName#?#3:fClass.getName()" shape=ellipse]
+9 [label="getTimeout#?#4:long timeout = annotation.timeout()" shape=ellipse]
+10 [label="getTimeout#?#4:timeout
+getName#?#3:fClass" shape=ellipse]
+11 [label="getTimeout#?#4:long
+getName#?#4:java.lang" shape=ellipse]
+12 [label="getTimeout#?#4:annotation.timeout()" shape=ellipse]
+13 [label="getTimeout#?#5:return timeout" shape=ellipse]
+14 [label="getTimeout#?#5:timeout" shape=ellipse]
+15 [label="getTimeout#?#4:if (annotation == null) \{
+    return 0;
+\}
+getName#?#3:if (fClass == null) \{
+    return \"null\";
+\}" shape=ellipse]
+16 [label="getTimeout#?#4:annotation == null" shape=ellipse]
+17 [label="getTimeout#?#4:annotation" shape=ellipse]
+18 [label="getTimeout#?#4:annotation" shape=ellipse]
+19 [label="getTimeout#?#4:Test
+getName#?#3:<nulltype>" shape=ellipse]
+20 [label="getTimeout#?#4:" shape=ellipse]
+21 [label="getTimeout#?#4:null
+getName#?#4:\"null\"" shape=ellipse]
+22 [label="getTimeout#?#4:<nulltype>" shape=ellipse]
+23 [label="getTimeout#?#4:\{
+    return 0;
+\}
+getName#?#3:\{
+    return \"null\";
+\}" shape=ellipse]
+24 [label="getTimeout#?#5:return 0" shape=ellipse]
+25 [label="getTimeout#?#5:0" shape=ellipse]
+26 [label="getTimeout#?#5:int
+getName#?#3:PlaceHold" shape=ellipse]
+27 [label="getName#?#3:fClass == null" shape=ellipse]
+28 [label="getName#?#3:" shape=ellipse]
+29 [label="getName#?#3:null" shape=ellipse]
+30 [label="getName#?#4:return \"null\"" shape=ellipse]
+31 [label="getName#?#3:fClass" shape=ellipse]
+32 [label="getName#?#4:String" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+1 -> 9 [label="AST:1"];
+1 -> 13 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 3 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+5 -> 6 [label="AST:1"];
+5 -> 7 [label="AST:1"];
+5 -> 8 [label="AST:2"];
+9 -> 10 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+10 -> 14 [label="Define Use:1"];
+10 -> 31 [label="AST:1"];
+13 -> 14 [label="AST:1"];
+15 -> 16 [label="AST:1"];
+15 -> 23 [label="AST:2"];
+15 -> 27 [label="AST:1"];
+16 -> 17 [label="AST:1"];
+16 -> 21 [label="AST:1"];
+16 -> 23 [label="Control Dep:1"];
+16 -> 24 [label="Control Dep:1"];
+16 -> 25 [label="Control Dep:1"];
+17 -> 18 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 32 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+23 -> 30 [label="AST:1"];
+24 -> 25 [label="AST:1"];
+25 -> 26 [label="AST:1"];
+26 -> 28 [label="AST:1"];
+27 -> 10 [label="AST:1"];
+27 -> 29 [label="AST:1"];
+27 -> 23 [label="Control Dep:1"];
+27 -> 30 [label="Control Dep:1"];
+27 -> 21 [label="Control Dep:1"];
+29 -> 19 [label="AST:1"];
+30 -> 21 [label="AST:1"];
+31 -> 26 [label="AST:1"];
+32 -> 11 [label="AST:1"];
+}

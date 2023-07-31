@@ -1,0 +1,147 @@
+digraph "setupModernJavacCommandlineSwitches#?,Commandline" {
+0 [label="2:CtTypeReferenceImpl@Commandline" shape=ellipse]
+1 [label="2:CtVirtualElement@setupModernJavacCommandlineSwitches" shape=ellipse]
+2 [label="2:CtParameterImpl@Commandline cmd" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@setupJavacCommandlineSwitches(<unknown>,boolean)" shape=ellipse]
+5 [label="3:CtVirtualElement@setupJavacCommandlineSwitches" shape=ellipse]
+6 [label="3:CtVariableReadImpl@cmd" shape=ellipse]
+7 [label="3:CtLiteralImpl@true" shape=ellipse]
+8 [label="3:CtInvocationImpl@setupJavacCommandlineSwitches(cmd, true)" shape=ellipse]
+9 [label="4:CtExecutableReferenceImpl@getSource()" shape=ellipse]
+10 [label="4:CtVirtualElement@getSource" shape=ellipse]
+11 [label="4:CtFieldReadImpl@attributes" shape=ellipse]
+12 [label="4:CtInvocationImpl@attributes.getSource()" shape=ellipse]
+13 [label="4:CtLiteralImpl@null" shape=ellipse]
+14 [label="4:CtBinaryOperatorImpl@(attributes.getSource() != null)" shape=ellipse]
+15 [label="4:CtExecutableReferenceImpl@assumeJava13()" shape=ellipse]
+16 [label="4:CtVirtualElement@assumeJava13" shape=ellipse]
+17 [label="4:CtInvocationImpl@assumeJava13()" shape=ellipse]
+18 [label="4:CtUnaryOperatorImpl@(!assumeJava13())" shape=ellipse]
+19 [label="4:CtBinaryOperatorImpl@(attributes.getSource() != null) && (!assumeJava13())" shape=ellipse]
+20 [label="5:CtExecutableReferenceImpl@setValue(java.lang.String)" shape=ellipse]
+21 [label="5:CtVirtualElement@setValue" shape=ellipse]
+22 [label="5:CtExecutableReferenceImpl@createArgument()" shape=ellipse]
+23 [label="5:CtVirtualElement@createArgument" shape=ellipse]
+24 [label="5:CtVariableReadImpl@cmd" shape=ellipse]
+25 [label="5:CtInvocationImpl@cmd.createArgument()" shape=ellipse]
+26 [label="5:CtLiteralImpl@\"-source\"" shape=ellipse]
+27 [label="5:CtInvocationImpl@cmd.createArgument().setValue(\"-source\")" shape=ellipse]
+28 [label="6:CtExecutableReferenceImpl@setValue()" shape=ellipse]
+29 [label="6:CtVirtualElement@setValue" shape=ellipse]
+30 [label="6:CtExecutableReferenceImpl@createArgument()" shape=ellipse]
+31 [label="6:CtVirtualElement@createArgument" shape=ellipse]
+32 [label="6:CtVariableReadImpl@cmd" shape=ellipse]
+33 [label="6:CtInvocationImpl@cmd.createArgument()" shape=ellipse]
+34 [label="6:CtExecutableReferenceImpl@getSource()" shape=ellipse]
+35 [label="6:CtVirtualElement@getSource" shape=ellipse]
+36 [label="6:CtFieldReadImpl@attributes" shape=ellipse]
+37 [label="6:CtInvocationImpl@attributes.getSource()" shape=ellipse]
+38 [label="6:CtInvocationImpl@cmd.createArgument().setValue(attributes.getSource())" shape=ellipse]
+39 [label="4:CtBlockImpl@\{
+    cmd.createArgument().setValue(\"-source\");
+    cmd.createArgument().setValue(attributes.getSource());
+\}" shape=ellipse]
+40 [label="4:CtIfImpl@if ((attributes.getSource() != null) && (!assumeJava13())) \{
+    cmd.createArgument().setValue(\"-source\");
+    cmd.createArgument().setValue(attributes.getSource());
+\}" shape=ellipse]
+41 [label="8:CtVariableReadImpl@cmd" shape=ellipse]
+42 [label="8:CtReturnImpl@return cmd" shape=ellipse]
+43 [label="2:CtBlockImpl@\{
+    setupJavacCommandlineSwitches(cmd, true);
+    if ((attributes.getSource() != null) && (!assumeJava13())) \{
+        cmd.createArgument().setValue(\"-source\");
+        cmd.createArgument().setValue(attributes.getSource());
+    \}
+    return cmd;
+\}" shape=ellipse]
+44 [label="2:CtMethodImpl@protected Commandline setupModernJavacCommandlineSwitches(Commandline cmd) \{
+    setupJavacCommandlineSwitches(cmd, true);
+    if ((attributes.getSource() != null) && (!assumeJava13())) \{
+        cmd.createArgument().setValue(\"-source\");
+        cmd.createArgument().setValue(attributes.getSource());
+    \}
+    return cmd;
+\}" shape=ellipse]
+45 [label="6:Insert@INSERT" shape=ellipse]
+46 [label="6:CtLocalVariableImpl@String source = attributes.getSource()" shape=ellipse]
+47 [label="7:Insert@INSERT" shape=ellipse]
+48 [label="7:CtIfImpl@if (assumeJava14() && (source.equals(\"1.1\") || source.equals(\"1.2\"))) \{
+    cmd.createArgument().setValue(\"1.3\");
+\} else \{
+    cmd.createArgument().setValue(source);
+\}" shape=ellipse]
+49 [label="8:Insert@INSERT" shape=ellipse]
+50 [label="8:CtLiteralImpl@\"1.3\"" shape=ellipse]
+51 [label="6:Move@MOVE" shape=ellipse]
+52 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+8 -> 5 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+12 -> 9 [label="AST"];
+14 -> 12 [label="AST"];
+14 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+17 -> 15 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 14 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 39 [label="Control Dep"];
+19 -> 27 [label="Control Dep"];
+19 -> 20 [label="Control Dep"];
+19 -> 25 [label="Control Dep"];
+19 -> 22 [label="Control Dep"];
+19 -> 24 [label="Control Dep"];
+19 -> 26 [label="Control Dep"];
+19 -> 38 [label="Control Dep"];
+19 -> 28 [label="Control Dep"];
+19 -> 33 [label="Control Dep"];
+19 -> 30 [label="Control Dep"];
+19 -> 32 [label="Control Dep"];
+19 -> 37 [label="Control Dep"];
+19 -> 34 [label="Control Dep"];
+19 -> 36 [label="Control Dep"];
+25 -> 23 [label="AST"];
+25 -> 24 [label="AST"];
+25 -> 22 [label="AST"];
+27 -> 21 [label="AST"];
+27 -> 25 [label="AST"];
+27 -> 20 [label="AST"];
+27 -> 26 [label="AST"];
+33 -> 31 [label="AST"];
+33 -> 32 [label="AST"];
+33 -> 30 [label="AST"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+37 -> 51 [label="Action"];
+38 -> 29 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 28 [label="AST"];
+38 -> 37 [label="AST"];
+38 -> 49 [label="Action"];
+38 -> 52 [label="Action"];
+39 -> 27 [label="AST"];
+39 -> 38 [label="AST"];
+39 -> 45 [label="Action"];
+39 -> 47 [label="Action"];
+40 -> 19 [label="AST"];
+40 -> 39 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 8 [label="AST"];
+43 -> 40 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 1 [label="AST"];
+44 -> 0 [label="AST"];
+44 -> 2 [label="AST"];
+44 -> 43 [label="AST"];
+45 -> 46 [label="Action"];
+47 -> 48 [label="Action"];
+49 -> 50 [label="Action"];
+51 -> 46 [label="Action"];
+}

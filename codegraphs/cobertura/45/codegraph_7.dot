@@ -1,0 +1,55 @@
+digraph "HistoryMethodAdapter#?,MethodVisitor,int" {
+0 [label="2:CtVirtualElement@HistoryMethodAdapter" shape=ellipse]
+1 [label="2:CtParameterImpl@MethodVisitor mv" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@MethodVisitor" shape=ellipse]
+3 [label="2:CtParameterImpl@int eventsToTrace" shape=ellipse]
+4 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+5 [label="3:CtExecutableReferenceImpl@()" shape=ellipse]
+6 [label="3:CtVirtualElement@" shape=ellipse]
+7 [label="3:CtVariableReadImpl@mv" shape=ellipse]
+8 [label="3:CtParameterReferenceImpl@mv" shape=ellipse]
+9 [label="3:CtInvocationImpl@(mv)" shape=ellipse]
+10 [label="4:CtFieldReferenceImpl@eventsToTrace" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+12 [label="4:CtFieldWriteImpl@this.eventsToTrace" shape=ellipse]
+13 [label="4:CtThisAccessImpl@this" shape=ellipse]
+14 [label="4:CtVariableReadImpl@eventsToTrace" shape=ellipse]
+15 [label="4:CtParameterReferenceImpl@eventsToTrace" shape=ellipse]
+16 [label="4:CtAssignmentImpl@this.eventsToTrace = eventsToTrace" shape=ellipse]
+17 [label="2:CtBlockImpl@\{
+    (mv);
+    this.eventsToTrace = eventsToTrace;
+\}" shape=ellipse]
+18 [label="2:CtMethodImpl@public  HistoryMethodAdapter(MethodVisitor mv, int eventsToTrace) \{
+    (mv);
+    this.eventsToTrace = eventsToTrace;
+\}" shape=ellipse]
+19 [label="3:Insert@INSERT" shape=ellipse]
+20 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+21 [label="3:CtTypeReferenceImpl@ASM4" shape=ellipse]
+22 [label="3:CtTypeAccessImpl@ASM4" shape=ellipse]
+1 -> 2 [label="AST"];
+3 -> 4 [label="AST"];
+7 -> 8 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 19 [label="Action"];
+10 -> 11 [label="AST"];
+10 -> 14 [label="Define-Use"];
+12 -> 13 [label="AST"];
+12 -> 10 [label="AST"];
+14 -> 15 [label="AST"];
+14 -> 12 [label="Data Dep"];
+16 -> 12 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 9 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 0 [label="AST"];
+18 -> 1 [label="AST"];
+18 -> 3 [label="AST"];
+18 -> 17 [label="AST"];
+19 -> 22 [label="Action"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+}

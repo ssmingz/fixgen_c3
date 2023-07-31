@@ -1,0 +1,142 @@
+digraph "Pattern" {
+0 [label="close#?,Closeable#8:UPDATE
+destroy#?#13:UPDATE" shape=ellipse]
+1 [label="close#?,Closeable#8:IOException e
+destroy#?#13:IOException e" shape=ellipse]
+2 [label="close#?,Closeable#8: catch (IOException e) \{
+    throw new IllegalStateException(\"Cannot close the stream\", e);
+\}
+destroy#?#13: catch (IOException e) \{
+    throw new IllegalStateException(\"Unable to persist cache file\", e);
+\}" shape=ellipse]
+3 [label="close#?,Closeable#6:try \{
+    closeable.close();
+\} catch (IOException e) \{
+    throw new IllegalStateException(\"Cannot close the stream\", e);
+\}
+destroy#?#11:try \{
+    cache.persist();
+\} catch (IOException e) \{
+    throw new IllegalStateException(\"Unable to persist cache file\", e);
+\}" shape=ellipse]
+4 [label="close#?,Closeable#8:\{
+    throw new IllegalStateException(\"Cannot close the stream\", e);
+\}
+destroy#?#13:\{
+    throw new IllegalStateException(\"Unable to persist cache file\", e);
+\}" shape=ellipse]
+5 [label="close#?,Closeable#8:ex
+destroy#?#13:ex" shape=ellipse]
+6 [label="close#?,Closeable#9:e
+destroy#?#14:e" shape=ellipse]
+7 [label="close#?,Closeable#9:ex
+destroy#?#14:ex" shape=ellipse]
+8 [label="close#?,Closeable#9:IOException
+destroy#?#14:IOException" shape=ellipse]
+9 [label="close#?,Closeable#9:
+destroy#?#14:" shape=ellipse]
+10 [label="close#?,Closeable#9:e
+destroy#?#14:e" shape=ellipse]
+11 [label="close#?,Closeable#9:UPDATE
+destroy#?#14:UPDATE" shape=ellipse]
+12 [label="close#?,Closeable#8:IOException
+destroy#?#13:IOException" shape=ellipse]
+13 [label="close#?,Closeable#8:
+destroy#?#13:" shape=ellipse]
+14 [label="close#?,Closeable#9:throw new IllegalStateException(\"Cannot close the stream\", e)
+destroy#?#14:throw new IllegalStateException(\"Unable to persist cache file\", e)" shape=ellipse]
+15 [label="close#?,Closeable#9:new IllegalStateException(\"Cannot close the stream\", e)
+destroy#?#14:new IllegalStateException(\"Unable to persist cache file\", e)" shape=ellipse]
+16 [label="close#?,Closeable#9:java.lang.IllegalStateException(java.lang.String,java.lang.Throwable)
+destroy#?#14:java.lang.IllegalStateException(java.lang.String,java.lang.Throwable)" shape=ellipse]
+17 [label="close#?,Closeable#9:IllegalStateException
+destroy#?#14:IllegalStateException" shape=ellipse]
+18 [label="close#?,Closeable#9:\"Cannot close the stream\"
+destroy#?#14:\"Unable to persist cache file\"" shape=ellipse]
+19 [label="close#?,Closeable#9:String
+destroy#?#14:String" shape=ellipse]
+20 [label="close#?,Closeable#9:IllegalStateException
+destroy#?#14:IllegalStateException" shape=ellipse]
+21 [label="close#?,Closeable#9:String
+destroy#?#14:String" shape=ellipse]
+22 [label="close#?,Closeable#9:Throwable
+destroy#?#14:Throwable" shape=ellipse]
+23 [label="close#?,Closeable#8:e
+destroy#?#13:e" shape=ellipse]
+24 [label="close#?,Closeable#8:IOException
+destroy#?#13:IOException" shape=ellipse]
+25 [label="close#?,Closeable#8:
+destroy#?#13:" shape=ellipse]
+26 [label="destroy#?#10:cache != null" shape=ellipse]
+27 [label="destroy#?#10:if (cache != null) \{
+    try \{
+        cache.persist();
+    \} catch (IOException e) \{
+        throw new IllegalStateException(\"Unable to persist cache file\", e);
+    \}
+\}" shape=ellipse]
+28 [label="destroy#?#10:cache" shape=ellipse]
+29 [label="destroy#?#10:null" shape=ellipse]
+30 [label="destroy#?#10:\{
+    try \{
+        cache.persist();
+    \} catch (IOException e) \{
+        throw new IllegalStateException(\"Unable to persist cache file\", e);
+    \}
+\}" shape=ellipse]
+31 [label="destroy#?#11:\{
+    cache.persist();
+\}" shape=ellipse]
+32 [label="destroy#?#12:cache.persist()" shape=ellipse]
+33 [label="destroy#?#12:cache" shape=ellipse]
+34 [label="destroy#?#12:persist()" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 23 [label="AST:2"];
+1 -> 24 [label="AST:2"];
+1 -> 4 [label="Control Dep:2"];
+1 -> 14 [label="Control Dep:2"];
+1 -> 15 [label="Control Dep:2"];
+1 -> 16 [label="Control Dep:2"];
+1 -> 18 [label="Control Dep:2"];
+1 -> 6 [label="Control Dep:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 31 [label="AST:1"];
+4 -> 14 [label="AST:2"];
+5 -> 6 [label="Define Use:2"];
+5 -> 6 [label="Data Dep:2"];
+5 -> 6 [label="Control Dep:2"];
+6 -> 10 [label="AST:2"];
+6 -> 11 [label="Action:2"];
+7 -> 8 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+14 -> 15 [label="AST:2"];
+15 -> 6 [label="AST:2"];
+15 -> 16 [label="AST:2"];
+15 -> 18 [label="AST:2"];
+16 -> 20 [label="AST:2"];
+16 -> 17 [label="AST:2"];
+16 -> 21 [label="AST:2"];
+16 -> 22 [label="AST:2"];
+18 -> 19 [label="AST:2"];
+23 -> 6 [label="Define Use:2"];
+24 -> 25 [label="AST:2"];
+26 -> 28 [label="AST:1"];
+26 -> 29 [label="AST:1"];
+26 -> 30 [label="Control Dep:1"];
+26 -> 3 [label="Control Dep:1"];
+26 -> 31 [label="Control Dep:1"];
+26 -> 32 [label="Control Dep:1"];
+26 -> 34 [label="Control Dep:1"];
+26 -> 33 [label="Control Dep:1"];
+26 -> 2 [label="Control Dep:1"];
+26 -> 1 [label="Control Dep:1"];
+27 -> 26 [label="AST:1"];
+27 -> 30 [label="AST:1"];
+30 -> 3 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+32 -> 33 [label="AST:1"];
+32 -> 34 [label="AST:1"];
+}

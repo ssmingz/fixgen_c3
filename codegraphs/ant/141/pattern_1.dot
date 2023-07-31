@@ -1,0 +1,74 @@
+digraph "Pattern" {
+0 [label="addFailure#?,Test,Throwable#5:DELETE
+addError#?,Test,Throwable#5:DELETE" shape=ellipse]
+1 [label="addFailure#?,Test,Throwable#5:fireEvent(new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t))
+addError#?,Test,Throwable#5:fireEvent(new TestRunEvent(id, TestRunEvent.TEST_ERROR, testName, t))" shape=ellipse]
+2 [label="addFailure#?,Test,Throwable#2:\{
+    log(\"Adding failure for test: \" + test);
+    String testName = test.toString();
+    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t));
+\}
+addError#?,Test,Throwable#2:\{
+    log(\"Adding error for test: \" + test);
+    String testName = test.toString();
+    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_ERROR, testName, t));
+\}" shape=ellipse]
+3 [label="addFailure#?,Test,Throwable#2:public void addFailure(Test test, Throwable t) \{
+    log(\"Adding failure for test: \" + test);
+    String testName = test.toString();
+    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t));
+\}
+addError#?,Test,Throwable#2:public void addError(Test test, Throwable t) \{
+    log(\"Adding error for test: \" + test);
+    String testName = test.toString();
+    fireEvent(new TestRunEvent(id, TestRunEvent.TEST_ERROR, testName, t));
+\}" shape=ellipse]
+4 [label="addFailure#?,Test,Throwable#3:log(\"Adding failure for test: \" + test)
+addError#?,Test,Throwable#3:log(\"Adding error for test: \" + test)" shape=ellipse]
+5 [label="addFailure#?,Test,Throwable#4:String testName = test.toString()
+addError#?,Test,Throwable#4:String testName = test.toString()" shape=ellipse]
+6 [label="addFailure#?,Test,Throwable#5:fireEvent
+addError#?,Test,Throwable#5:fireEvent" shape=ellipse]
+7 [label="addFailure#?,Test,Throwable#-1:
+addError#?,Test,Throwable#-1:" shape=ellipse]
+8 [label="addFailure#?,Test,Throwable#-1:PlaceHold
+addError#?,Test,Throwable#-1:PlaceHold" shape=ellipse]
+9 [label="addFailure#?,Test,Throwable#-1:PlaceHold
+addError#?,Test,Throwable#-1:PlaceHold" shape=ellipse]
+10 [label="addFailure#?,Test,Throwable#5:fireEvent(TestRunEvent)
+addError#?,Test,Throwable#5:fireEvent(TestRunEvent)" shape=ellipse]
+11 [label="addFailure#?,Test,Throwable#-1:TestRunEvent
+addError#?,Test,Throwable#-1:TestRunEvent" shape=ellipse]
+12 [label="addFailure#?,Test,Throwable#5:new TestRunEvent(id, TestRunEvent.TEST_FAILURE, testName, t)
+addError#?,Test,Throwable#5:new TestRunEvent(id, TestRunEvent.TEST_ERROR, testName, t)" shape=ellipse]
+13 [label="addFailure#?,Test,Throwable#-1:TestRunEvent()
+addError#?,Test,Throwable#-1:TestRunEvent()" shape=ellipse]
+14 [label="addFailure#?,Test,Throwable#5:id
+addError#?,Test,Throwable#5:id" shape=ellipse]
+15 [label="addFailure#?,Test,Throwable#5:TestRunEvent.TEST_FAILURE
+addError#?,Test,Throwable#5:TestRunEvent.TEST_ERROR" shape=ellipse]
+16 [label="addFailure#?,Test,Throwable#5:testName
+addError#?,Test,Throwable#5:testName" shape=ellipse]
+17 [label="addFailure#?,Test,Throwable#5:t
+addError#?,Test,Throwable#5:t" shape=ellipse]
+18 [label="addFailure#?,Test,Throwable#5:MOVE
+addError#?,Test,Throwable#5:MOVE" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+12 -> 13 [label="AST:2"];
+12 -> 14 [label="AST:2"];
+12 -> 15 [label="AST:2"];
+12 -> 16 [label="AST:2"];
+12 -> 17 [label="AST:2"];
+12 -> 18 [label="Action:2"];
+}

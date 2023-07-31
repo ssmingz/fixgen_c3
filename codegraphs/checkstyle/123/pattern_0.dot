@@ -1,0 +1,251 @@
+digraph "Pattern" {
+0 [label="checkIndentation#?#4:DELETE
+checkRParen#?#5:DELETE
+checkLParen#?#5:DELETE" shape=ellipse]
+1 [label="checkIndentation#?#4:columnNo != getLevel()
+checkRParen#?#5:columnNo == getLevel()
+checkLParen#?#5:columnNo == getLevel()" shape=ellipse]
+2 [label="checkIndentation#?#4:if (columnNo != getLevel()) \{
+    logError(getMainAst(), \"\", columnNo);
+\}
+checkRParen#?#5:if (columnNo == getLevel()) \{
+    return;
+\}
+checkLParen#?#5:if (columnNo == getLevel()) \{
+    return;
+\}" shape=ellipse]
+3 [label="checkIndentation#?#2:\{
+    int columnNo = expandedTabsColumnNo(getMainAst());
+    if (columnNo != getLevel()) \{
+        logError(getMainAst(), \"\", columnNo);
+    \}
+    checkLinesIndent(getMainAst().getLineNo(), getMainAst().findFirstToken(SEMI).getLineNo(), getLevel());
+\}
+checkRParen#?#2:\{
+    DetailAST rparen = getMainAst().findFirstToken(RPAREN);
+    int columnNo = expandedTabsColumnNo(rparen);
+    if (columnNo == getLevel()) \{
+        return;
+    \}
+    if (!startsLine(rparen)) \{
+        return;
+    \}
+    logError(rparen, \"rparen\", columnNo);
+\}
+checkLParen#?#2:\{
+    DetailAST lparen = getMainAst();
+    int columnNo = expandedTabsColumnNo(lparen);
+    if (columnNo == getLevel()) \{
+        return;
+    \}
+    if (!startsLine(lparen)) \{
+        return;
+    \}
+    logError(lparen, \"lparen\", columnNo);
+\}" shape=ellipse]
+4 [label="checkIndentation#?#4:\{
+    logError(getMainAst(), \"\", columnNo);
+\}
+checkRParen#?#5:\{
+    return;
+\}
+checkLParen#?#5:\{
+    return;
+\}" shape=ellipse]
+5 [label="checkIndentation#?#4:getLevel().accept(columnNo)
+checkRParen#?#5:getLevel()
+checkLParen#?#5:getLevel()" shape=ellipse]
+6 [label="checkIndentation#?#4:accept
+checkRParen#?#5:getLevel
+checkLParen#?#5:getLevel" shape=ellipse]
+7 [label="checkIndentation#?#4:getLevel()" shape=ellipse]
+8 [label="checkIndentation#?#4:getLevel
+checkRParen#?#5:getLevel
+checkLParen#?#5:getLevel" shape=ellipse]
+9 [label="checkIndentation#?#4:
+checkRParen#?#5:
+checkLParen#?#5:" shape=ellipse]
+10 [label="checkIndentation#?#4:PlaceHold" shape=ellipse]
+11 [label="checkIndentation#?#4:
+checkRParen#?#5:
+checkLParen#?#5:" shape=ellipse]
+12 [label="checkIndentation#?#4:PlaceHold" shape=ellipse]
+13 [label="checkIndentation#?#4:PlaceHold
+checkRParen#?#5:PlaceHold
+checkLParen#?#5:PlaceHold" shape=ellipse]
+14 [label="checkIndentation#?#4:
+checkRParen#?#5:
+checkLParen#?#5:" shape=ellipse]
+15 [label="checkIndentation#?#4:getLevel()
+checkRParen#?#5:getLevel()
+checkLParen#?#5:getLevel()" shape=ellipse]
+16 [label="checkIndentation#?#4:accept(int)
+checkRParen#?#5:getLevel()
+checkLParen#?#5:getLevel()" shape=ellipse]
+17 [label="checkIndentation#?#4:int" shape=ellipse]
+18 [label="checkIndentation#?#4:columnNo
+checkRParen#?#5:
+checkLParen#?#5:" shape=ellipse]
+19 [label="checkIndentation#?#4:columnNo" shape=ellipse]
+20 [label="checkIndentation#?#4:int
+checkRParen#?#5:int
+checkLParen#?#5:int" shape=ellipse]
+21 [label="checkIndentation#?#5:logError(getMainAst(), \"\", columnNo)" shape=ellipse]
+22 [label="checkIndentation#?#5:" shape=ellipse]
+23 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+24 [label="checkIndentation#?#5:PlaceHold
+checkRParen#?#5:boolean
+checkLParen#?#5:boolean" shape=ellipse]
+25 [label="checkIndentation#?#5:logError(<unknown>,java.lang.String,int)" shape=ellipse]
+26 [label="checkIndentation#?#5:getMainAst()" shape=ellipse]
+27 [label="checkIndentation#?#5:" shape=ellipse]
+28 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+29 [label="checkIndentation#?#5:PlaceHold
+checkRParen#?#5:int
+checkLParen#?#5:int" shape=ellipse]
+30 [label="checkIndentation#?#5:getMainAst()" shape=ellipse]
+31 [label="checkIndentation#?#5:\"\"" shape=ellipse]
+32 [label="checkIndentation#?#5:String" shape=ellipse]
+33 [label="checkIndentation#?#5:columnNo" shape=ellipse]
+34 [label="checkIndentation#?#5:columnNo
+checkRParen#?#5:columnNo
+checkLParen#?#5:columnNo" shape=ellipse]
+35 [label="checkIndentation#?#5:logError
+checkRParen#?#5:accept
+checkLParen#?#5:accept" shape=ellipse]
+36 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+37 [label="checkIndentation#?#5:null" shape=ellipse]
+38 [label="checkIndentation#?#5:String" shape=ellipse]
+39 [label="checkIndentation#?#5:int" shape=ellipse]
+40 [label="checkIndentation#?#5:getMainAst" shape=ellipse]
+41 [label="checkIndentation#?#5:PlaceHold" shape=ellipse]
+42 [label="checkIndentation#?#4:INSERT
+checkRParen#?#5:INSERT
+checkLParen#?#5:INSERT" shape=ellipse]
+43 [label="checkIndentation#?#4:columnNo" shape=ellipse]
+44 [label="checkIndentation#?#3:columnNo" shape=ellipse]
+45 [label="checkIndentation#?#4:columnNo" shape=ellipse]
+46 [label="checkIndentation#?#4:getLevel()" shape=ellipse]
+47 [label="checkIndentation#?#4:getLevel" shape=ellipse]
+48 [label="checkIndentation#?#4:
+checkRParen#?#5:columnNo
+checkLParen#?#5:columnNo" shape=ellipse]
+49 [label="checkIndentation#?#4:getLevel()" shape=ellipse]
+50 [label="checkIndentation#?#4:MOVE" shape=ellipse]
+51 [label="checkRParen#?#5:PlaceHold" shape=ellipse]
+52 [label="checkRParen#?#6:return" shape=ellipse]
+53 [label="checkRParen#?#5:columnNo" shape=ellipse]
+54 [label="checkRParen#?#5:getLevel()" shape=ellipse]
+55 [label="checkRParen#?#5:MOVE
+checkLParen#?#5:MOVE" shape=ellipse]
+56 [label="checkRParen#?#5:PlaceHold" shape=ellipse]
+57 [label="checkRParen#?#5:accept(int)" shape=ellipse]
+58 [label="checkRParen#?#4:columnNo" shape=ellipse]
+59 [label="checkRParen#?#5:columnNo" shape=ellipse]
+60 [label="checkLParen#?#5:PlaceHold" shape=ellipse]
+61 [label="checkLParen#?#6:return" shape=ellipse]
+62 [label="checkLParen#?#5:columnNo" shape=ellipse]
+63 [label="checkLParen#?#5:getLevel()" shape=ellipse]
+64 [label="checkLParen#?#5:PlaceHold" shape=ellipse]
+65 [label="checkLParen#?#5:accept(int)" shape=ellipse]
+66 [label="checkLParen#?#4:columnNo" shape=ellipse]
+67 [label="checkLParen#?#5:columnNo" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 43 [label="AST:1"];
+1 -> 46 [label="AST:1"];
+1 -> 4 [label="Control Dep:3"];
+1 -> 21 [label="Control Dep:1"];
+1 -> 25 [label="Control Dep:1"];
+1 -> 22 [label="Control Dep:1"];
+1 -> 23 [label="Control Dep:1"];
+1 -> 26 [label="Control Dep:1"];
+1 -> 30 [label="Control Dep:1"];
+1 -> 27 [label="Control Dep:1"];
+1 -> 28 [label="Control Dep:1"];
+1 -> 31 [label="Control Dep:1"];
+1 -> 33 [label="Control Dep:1"];
+1 -> 52 [label="Control Dep:1"];
+1 -> 53 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+1 -> 61 [label="Control Dep:1"];
+1 -> 62 [label="AST:1"];
+1 -> 63 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 42 [label="Action:3"];
+3 -> 2 [label="AST:3"];
+4 -> 21 [label="AST:1"];
+4 -> 52 [label="AST:1"];
+4 -> 61 [label="AST:1"];
+5 -> 6 [label="AST:3"];
+5 -> 7 [label="AST:1"];
+5 -> 16 [label="AST:3"];
+5 -> 18 [label="AST:3"];
+7 -> 8 [label="AST:1"];
+7 -> 9 [label="AST:1"];
+7 -> 15 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 12 [label="AST:1"];
+10 -> 11 [label="AST:1"];
+12 -> 13 [label="AST:1"];
+13 -> 14 [label="AST:3"];
+16 -> 17 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 51 [label="AST:1"];
+18 -> 56 [label="AST:1"];
+18 -> 60 [label="AST:1"];
+18 -> 64 [label="AST:1"];
+19 -> 20 [label="AST:1"];
+21 -> 35 [label="AST:1"];
+21 -> 22 [label="AST:1"];
+21 -> 25 [label="AST:1"];
+21 -> 26 [label="AST:1"];
+21 -> 31 [label="AST:1"];
+21 -> 33 [label="AST:1"];
+22 -> 36 [label="AST:1"];
+22 -> 23 [label="AST:1"];
+23 -> 24 [label="AST:1"];
+25 -> 37 [label="AST:1"];
+25 -> 38 [label="AST:1"];
+25 -> 39 [label="AST:1"];
+26 -> 40 [label="AST:1"];
+26 -> 27 [label="AST:1"];
+26 -> 30 [label="AST:1"];
+27 -> 41 [label="AST:1"];
+27 -> 28 [label="AST:1"];
+28 -> 29 [label="AST:1"];
+31 -> 32 [label="AST:1"];
+33 -> 34 [label="AST:1"];
+43 -> 45 [label="AST:1"];
+44 -> 33 [label="Define Use:1"];
+44 -> 43 [label="Define Use:1"];
+46 -> 47 [label="AST:1"];
+46 -> 48 [label="AST:1"];
+46 -> 49 [label="AST:1"];
+46 -> 50 [label="Action:1"];
+48 -> 59 [label="AST:1"];
+48 -> 67 [label="AST:1"];
+50 -> 5 [label="Action:1"];
+51 -> 13 [label="AST:1"];
+53 -> 34 [label="AST:1"];
+54 -> 8 [label="AST:1"];
+54 -> 9 [label="AST:1"];
+54 -> 15 [label="AST:1"];
+54 -> 55 [label="Action:1"];
+56 -> 11 [label="AST:1"];
+57 -> 24 [label="AST:1"];
+57 -> 20 [label="AST:1"];
+58 -> 53 [label="Define Use:1"];
+59 -> 29 [label="AST:1"];
+60 -> 13 [label="AST:1"];
+62 -> 34 [label="AST:1"];
+63 -> 8 [label="AST:1"];
+63 -> 9 [label="AST:1"];
+63 -> 15 [label="AST:1"];
+63 -> 55 [label="Action:1"];
+64 -> 11 [label="AST:1"];
+65 -> 24 [label="AST:1"];
+65 -> 20 [label="AST:1"];
+66 -> 62 [label="Define Use:1"];
+67 -> 29 [label="AST:1"];
+}

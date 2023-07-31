@@ -1,0 +1,57 @@
+digraph "Pattern" {
+0 [label="testAddConfigured#?#3:UPDATE
+testAddConfiguredValue#?#3:UPDATE" shape=ellipse]
+1 [label="testAddConfigured#?#3:expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\")
+testAddConfiguredValue#?#3:expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\")" shape=ellipse]
+2 [label="testAddConfigured#?#2:\{
+    expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\");
+\}
+testAddConfiguredValue#?#2:\{
+    expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\");
+\}" shape=ellipse]
+3 [label="testAddConfigured#?#2:public void testAddConfigured() \{
+    expectLogContaining(\"myaddconfigured\", \"value is Value Setexecute: value is Value Set\");
+\}
+testAddConfiguredValue#?#2:public void testAddConfiguredValue() \{
+    expectLogContaining(\"myaddconfiguredvalue\", \"value is Value Setexecute: value is Value Set\");
+\}" shape=ellipse]
+4 [label="testAddConfigured#?#3:expectLogContaining
+testAddConfiguredValue#?#3:expectLogContaining" shape=ellipse]
+5 [label="testAddConfigured#?#-1:
+testAddConfiguredValue#?#-1:" shape=ellipse]
+6 [label="testAddConfigured#?#-1:PlaceHold
+testAddConfiguredValue#?#-1:PlaceHold" shape=ellipse]
+7 [label="testAddConfigured#?#-1:PlaceHold
+testAddConfiguredValue#?#-1:PlaceHold" shape=ellipse]
+8 [label="testAddConfigured#?#3:expectLogContaining(java.lang.String,java.lang.String)
+testAddConfiguredValue#?#3:expectLogContaining(java.lang.String,java.lang.String)" shape=ellipse]
+9 [label="testAddConfigured#?#-1:String
+testAddConfiguredValue#?#-1:String" shape=ellipse]
+10 [label="testAddConfigured#?#-1:String
+testAddConfiguredValue#?#-1:String" shape=ellipse]
+11 [label="testAddConfigured#?#3:\"myaddconfigured\"
+testAddConfiguredValue#?#3:\"myaddconfiguredvalue\"" shape=ellipse]
+12 [label="testAddConfigured#?#-1:String
+testAddConfiguredValue#?#-1:String" shape=ellipse]
+13 [label="testAddConfigured#?#3:\"value is Value Setexecute: value is Value Set\"
+testAddConfiguredValue#?#3:\"value is Value Setexecute: value is Value Set\"" shape=ellipse]
+14 [label="testAddConfigured#?#-1:String
+testAddConfiguredValue#?#-1:String" shape=ellipse]
+15 [label="testAddConfigured#?#5:AntAssert.assertContains(\"value is Value Setexecute: value is Value Set\", buildRule.getLog())
+testAddConfiguredValue#?#5:AntAssert.assertContains(\"value is Value Setexecute: value is Value Set\", buildRule.getLog())" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+11 -> 12 [label="AST:2"];
+13 -> 14 [label="AST:2"];
+}

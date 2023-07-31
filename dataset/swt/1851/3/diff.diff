@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1851/3/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1851/3/after.java
+@@ -12,1 +12,2 @@
+-    startMeasuring();
++    PerformanceMeter meter = createMeter();
++    meter.start();
+@@ -16,3 +17,2 @@
+-    stopMeasuring();
+-    commitMeasurements();
+-    assertPerformance();
++    meter.stop();
++    disposeMeter(meter);

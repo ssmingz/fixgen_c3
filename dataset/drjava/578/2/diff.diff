@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/578/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/578/2/after.java
+@@ -44,1 +44,1 @@
+-    } catch (TypeSystemException e) {
++    } catch (UnmatchedLookupException e) {
+@@ -46,1 +46,5 @@
+-      throw new ExecutionError("no.such.method", node);
++      if (e.matches() > 1) {
++        throw new ExecutionError("ambiguous.method", node);
++      } else {
++        throw new ExecutionError("no.such.method", node);
++      }

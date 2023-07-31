@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1403/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1403/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildException("testMissingDirBail", "not-there doesn't exist");
+-    assertTrue(getBuildException().getMessage().endsWith(" does not exist."));
++    try {
++      buildRule.executeTarget("testMissingDirBail");
++      fail("not-there doesn't exist");
++    } catch (BuildException ex) {
++      assertTrue(ex.getMessage().endsWith(" does not exist."));
++    }

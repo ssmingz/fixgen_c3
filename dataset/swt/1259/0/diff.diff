@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1259/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1259/0/after.java
+@@ -11,2 +11,6 @@
+-    TableColumn column = parent.getColumn(index);
+-    index = ((int) (tableView.columnWithIdentifier(column.nsColumn)));
++    if (parent.columnCount == 0) {
++      index = ((parent.style & SWT.CHECK) != 0) ? 1 : 0;
++    } else {
++      TableColumn column = parent.getColumn(index);
++      index = ((int) (tableView.columnWithIdentifier(column.nsColumn)));
++    }

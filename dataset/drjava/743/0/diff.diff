@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/743/0/after.java
+@@ -137,1 +137,6 @@
+-        _notifier.junitStarted();
++        Utilities.invokeLater(
++            new Runnable() {
++              public void run() {
++                _notifier.junitStarted();
++              }
++            });

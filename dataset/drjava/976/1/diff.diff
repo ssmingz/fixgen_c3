@@ -1,0 +1,20 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/976/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/976/1/after.java
+@@ -3,0 +3,17 @@
++    for (OpenDefinitionsDocument doc : _documents) {
++      for (final R region : _regions.get(doc)) {
++        Utilities.invokeLater(
++            new Runnable() {
++              public void run() {
++                _lock.startRead();
++                try {
++                  for (RegionManagerListener<R> l : _listeners) {
++                    l.regionRemoved(region);
++                  }
++                } finally {
++                  _lock.endRead();
++                }
++              }
++            });
++      }
++    }

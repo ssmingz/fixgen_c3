@@ -1,0 +1,19 @@
+digraph "Pattern" {
+0 [label="testNoTarget#?#-1:DELETE
+testCalledFromTopLevelAnt#?#-1:DELETE" shape=ellipse]
+1 [label="testNoTarget#?#-1:PlaceHold
+testCalledFromTopLevelAnt#?#-1:PlaceHold" shape=ellipse]
+2 [label="testNoTarget#?#-1:
+testCalledFromTopLevelAnt#?#-1:" shape=ellipse]
+3 [label="testNoTarget#?#3:configureProject(\"src/etc/testcases/core/topleveltasks/notarget.xml\")
+testCalledFromTopLevelAnt#?#3:configureProject(\"src/etc/testcases/core/topleveltasks/toplevelant.xml\")" shape=ellipse]
+4 [label="testNoTarget#?#-1:PlaceHold
+testCalledFromTopLevelAnt#?#-1:PlaceHold" shape=ellipse]
+5 [label="testNoTarget#?#-1:PlaceHold
+testCalledFromTopLevelAnt#?#-1:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

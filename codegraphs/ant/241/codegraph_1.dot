@@ -1,0 +1,264 @@
+digraph "bindToKeystore#?,ExecTask" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@bindToKeystore" shape=ellipse]
+2 [label="2:CtParameterImpl@final ExecTask cmd" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@ExecTask" shape=ellipse]
+4 [label="3:CtLiteralImpl@null" shape=ellipse]
+5 [label="3:CtFieldReadImpl@keystore" shape=ellipse]
+6 [label="3:CtBinaryOperatorImpl@null != keystore" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@addValue(<unknown>,java.lang.String)" shape=ellipse]
+8 [label="4:CtVirtualElement@addValue" shape=ellipse]
+9 [label="4:CtVariableReadImpl@cmd" shape=ellipse]
+10 [label="4:CtLiteralImpl@\"-keystore\"" shape=ellipse]
+11 [label="4:CtInvocationImpl@addValue(cmd, \"-keystore\")" shape=ellipse]
+12 [label="5:CtTypeReferenceImpl@String" shape=ellipse]
+13 [label="5:CtVirtualElement@loc" shape=ellipse]
+14 [label="5:CtLocalVariableImpl@String loc" shape=ellipse]
+15 [label="6:CtTypeReferenceImpl@File" shape=ellipse]
+16 [label="6:CtExecutableReferenceImpl@resolveFile()" shape=ellipse]
+17 [label="6:CtVirtualElement@resolveFile" shape=ellipse]
+18 [label="6:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@getBaseDir()" shape=ellipse]
+20 [label="6:CtVirtualElement@getBaseDir" shape=ellipse]
+21 [label="6:CtExecutableReferenceImpl@getProject()" shape=ellipse]
+22 [label="6:CtVirtualElement@getProject" shape=ellipse]
+23 [label="6:CtInvocationImpl@getProject()" shape=ellipse]
+24 [label="6:CtInvocationImpl@getProject().getBaseDir()" shape=ellipse]
+25 [label="6:CtFieldReadImpl@keystore" shape=ellipse]
+26 [label="6:CtInvocationImpl@FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore)" shape=ellipse]
+27 [label="6:CtVirtualElement@keystoreFile" shape=ellipse]
+28 [label="6:CtLocalVariableImpl@File keystoreFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore)" shape=ellipse]
+29 [label="7:CtExecutableReferenceImpl@exists()" shape=ellipse]
+30 [label="7:CtVirtualElement@exists" shape=ellipse]
+31 [label="7:CtVariableReadImpl@keystoreFile" shape=ellipse]
+32 [label="7:CtInvocationImpl@keystoreFile.exists()" shape=ellipse]
+33 [label="8:CtVariableWriteImpl@loc" shape=ellipse]
+34 [label="8:CtExecutableReferenceImpl@getPath()" shape=ellipse]
+35 [label="8:CtVirtualElement@getPath" shape=ellipse]
+36 [label="8:CtVariableReadImpl@keystoreFile" shape=ellipse]
+37 [label="8:CtInvocationImpl@keystoreFile.getPath()" shape=ellipse]
+38 [label="8:CtAssignmentImpl@loc = keystoreFile.getPath()" shape=ellipse]
+39 [label="7:CtBlockImpl@\{
+    loc = keystoreFile.getPath();
+\}" shape=ellipse]
+40 [label="10:CtVariableWriteImpl@loc" shape=ellipse]
+41 [label="10:CtFieldReadImpl@keystore" shape=ellipse]
+42 [label="10:CtAssignmentImpl@loc = keystore" shape=ellipse]
+43 [label="9:CtBlockImpl@\{
+    loc = keystore;
+\}" shape=ellipse]
+44 [label="7:CtIfImpl@if (keystoreFile.exists()) \{
+    loc = keystoreFile.getPath();
+\} else \{
+    loc = keystore;
+\}" shape=ellipse]
+45 [label="12:CtExecutableReferenceImpl@addValue(<unknown>,java.lang.String)" shape=ellipse]
+46 [label="12:CtVirtualElement@addValue" shape=ellipse]
+47 [label="12:CtVariableReadImpl@cmd" shape=ellipse]
+48 [label="12:CtVariableReadImpl@loc" shape=ellipse]
+49 [label="12:CtInvocationImpl@addValue(cmd, loc)" shape=ellipse]
+50 [label="3:CtBlockImpl@\{
+    addValue(cmd, \"-keystore\");
+    String loc;
+    File keystoreFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore);
+    if (keystoreFile.exists()) \{
+        loc = keystoreFile.getPath();
+    \} else \{
+        loc = keystore;
+    \}
+    addValue(cmd, loc);
+\}" shape=ellipse]
+51 [label="3:CtIfImpl@if (null != keystore) \{
+    addValue(cmd, \"-keystore\");
+    String loc;
+    File keystoreFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore);
+    if (keystoreFile.exists()) \{
+        loc = keystoreFile.getPath();
+    \} else \{
+        loc = keystore;
+    \}
+    addValue(cmd, loc);
+\}" shape=ellipse]
+52 [label="14:CtLiteralImpl@null" shape=ellipse]
+53 [label="14:CtFieldReadImpl@storetype" shape=ellipse]
+54 [label="14:CtBinaryOperatorImpl@null != storetype" shape=ellipse]
+55 [label="15:CtExecutableReferenceImpl@addValue(<unknown>,java.lang.String)" shape=ellipse]
+56 [label="15:CtVirtualElement@addValue" shape=ellipse]
+57 [label="15:CtVariableReadImpl@cmd" shape=ellipse]
+58 [label="15:CtLiteralImpl@\"-storetype\"" shape=ellipse]
+59 [label="15:CtInvocationImpl@addValue(cmd, \"-storetype\")" shape=ellipse]
+60 [label="16:CtExecutableReferenceImpl@addValue(<unknown>,<unknown>)" shape=ellipse]
+61 [label="16:CtVirtualElement@addValue" shape=ellipse]
+62 [label="16:CtVariableReadImpl@cmd" shape=ellipse]
+63 [label="16:CtFieldReadImpl@storetype" shape=ellipse]
+64 [label="16:CtInvocationImpl@addValue(cmd, storetype)" shape=ellipse]
+65 [label="14:CtBlockImpl@\{
+    addValue(cmd, \"-storetype\");
+    addValue(cmd, storetype);
+\}" shape=ellipse]
+66 [label="14:CtIfImpl@if (null != storetype) \{
+    addValue(cmd, \"-storetype\");
+    addValue(cmd, storetype);
+\}" shape=ellipse]
+67 [label="2:CtBlockImpl@\{
+    if (null != keystore) \{
+        addValue(cmd, \"-keystore\");
+        String loc;
+        File keystoreFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore);
+        if (keystoreFile.exists()) \{
+            loc = keystoreFile.getPath();
+        \} else \{
+            loc = keystore;
+        \}
+        addValue(cmd, loc);
+    \}
+    if (null != storetype) \{
+        addValue(cmd, \"-storetype\");
+        addValue(cmd, storetype);
+    \}
+\}" shape=ellipse]
+68 [label="2:CtMethodImpl@protected void bindToKeystore(final ExecTask cmd) \{
+    if (null != keystore) \{
+        addValue(cmd, \"-keystore\");
+        String loc;
+        File keystoreFile = FILE_UTILS.resolveFile(getProject().getBaseDir(), keystore);
+        if (keystoreFile.exists()) \{
+            loc = keystoreFile.getPath();
+        \} else \{
+            loc = keystore;
+        \}
+        addValue(cmd, loc);
+    \}
+    if (null != storetype) \{
+        addValue(cmd, \"-storetype\");
+        addValue(cmd, storetype);
+    \}
+\}" shape=ellipse]
+69 [label="6:Update@UPDATE" shape=ellipse]
+70 [label="6:CtInvocationImpl@getProject().resolveFile(keystore)" shape=ellipse]
+71 [label="6:Delete@DELETE" shape=ellipse]
+72 [label="6:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 50 [label="Control Dep"];
+6 -> 11 [label="Control Dep"];
+6 -> 7 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 14 [label="Control Dep"];
+6 -> 28 [label="Control Dep"];
+6 -> 26 [label="Control Dep"];
+6 -> 16 [label="Control Dep"];
+6 -> 18 [label="Control Dep"];
+6 -> 24 [label="Control Dep"];
+6 -> 19 [label="Control Dep"];
+6 -> 23 [label="Control Dep"];
+6 -> 21 [label="Control Dep"];
+6 -> 25 [label="Control Dep"];
+6 -> 44 [label="Control Dep"];
+6 -> 32 [label="Control Dep"];
+6 -> 29 [label="Control Dep"];
+6 -> 31 [label="Control Dep"];
+6 -> 49 [label="Control Dep"];
+6 -> 45 [label="Control Dep"];
+6 -> 47 [label="Control Dep"];
+6 -> 48 [label="Control Dep"];
+11 -> 8 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 48 [label="Define-Use"];
+14 -> 13 [label="AST"];
+14 -> 12 [label="AST"];
+23 -> 22 [label="AST"];
+23 -> 21 [label="AST"];
+24 -> 20 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 19 [label="AST"];
+24 -> 69 [label="Action"];
+24 -> 72 [label="Action"];
+25 -> 27 [label="Data Dep"];
+26 -> 17 [label="AST"];
+26 -> 18 [label="AST"];
+26 -> 16 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 25 [label="AST"];
+26 -> 71 [label="Action"];
+27 -> 31 [label="Define-Use"];
+27 -> 36 [label="Define-Use"];
+28 -> 27 [label="AST"];
+28 -> 15 [label="AST"];
+28 -> 26 [label="AST"];
+32 -> 30 [label="AST"];
+32 -> 31 [label="AST"];
+32 -> 29 [label="AST"];
+32 -> 39 [label="Control Dep"];
+32 -> 38 [label="Control Dep"];
+32 -> 33 [label="Control Dep"];
+32 -> 37 [label="Control Dep"];
+32 -> 34 [label="Control Dep"];
+32 -> 36 [label="Control Dep"];
+32 -> 43 [label="Control Dep"];
+32 -> 42 [label="Control Dep"];
+32 -> 40 [label="Control Dep"];
+32 -> 41 [label="Control Dep"];
+33 -> 48 [label="Define-Use"];
+36 -> 33 [label="Data Dep"];
+37 -> 35 [label="AST"];
+37 -> 36 [label="AST"];
+37 -> 34 [label="AST"];
+38 -> 33 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 48 [label="Define-Use"];
+41 -> 40 [label="Data Dep"];
+42 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+43 -> 42 [label="AST"];
+44 -> 32 [label="AST"];
+44 -> 39 [label="AST"];
+44 -> 43 [label="AST"];
+49 -> 46 [label="AST"];
+49 -> 45 [label="AST"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+50 -> 11 [label="AST"];
+50 -> 14 [label="AST"];
+50 -> 28 [label="AST"];
+50 -> 44 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 6 [label="AST"];
+51 -> 50 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 53 [label="AST"];
+54 -> 65 [label="Control Dep"];
+54 -> 59 [label="Control Dep"];
+54 -> 55 [label="Control Dep"];
+54 -> 57 [label="Control Dep"];
+54 -> 58 [label="Control Dep"];
+54 -> 64 [label="Control Dep"];
+54 -> 60 [label="Control Dep"];
+54 -> 62 [label="Control Dep"];
+54 -> 63 [label="Control Dep"];
+59 -> 56 [label="AST"];
+59 -> 55 [label="AST"];
+59 -> 57 [label="AST"];
+59 -> 58 [label="AST"];
+64 -> 61 [label="AST"];
+64 -> 60 [label="AST"];
+64 -> 62 [label="AST"];
+64 -> 63 [label="AST"];
+65 -> 59 [label="AST"];
+65 -> 64 [label="AST"];
+66 -> 54 [label="AST"];
+66 -> 65 [label="AST"];
+67 -> 51 [label="AST"];
+67 -> 66 [label="AST"];
+68 -> 1 [label="AST"];
+68 -> 0 [label="AST"];
+68 -> 2 [label="AST"];
+68 -> 67 [label="AST"];
+69 -> 70 [label="Action"];
+72 -> 28 [label="Action"];
+}

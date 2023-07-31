@@ -1,0 +1,29 @@
+digraph "Pattern" {
+0 [label="testNoFile#?#-1:MOVE
+testEmpty#?#-1:MOVE" shape=ellipse]
+1 [label="testNoFile#?#-1:PlaceHold
+testEmpty#?#-1:PlaceHold" shape=ellipse]
+2 [label="testNoFile#?#-1:
+testEmpty#?#-1:" shape=ellipse]
+3 [label="testNoFile#?#3:expectBuildExceptionContaining(\"testNoFile\", \"missing file\", \"file\")
+testEmpty#?#3:expectBuildExceptionContaining(\"testEmpty\", \"missing property\", \"property\")" shape=ellipse]
+4 [label="testNoFile#?#-1:PlaceHold
+testEmpty#?#-1:PlaceHold" shape=ellipse]
+5 [label="testNoFile#?#-1:PlaceHold
+testEmpty#?#-1:PlaceHold" shape=ellipse]
+6 [label="testNoFile#?#6:fail(\"BuildException expected: missing file\")
+testEmpty#?#6:fail(\"BuildException expected: missing property\")" shape=ellipse]
+7 [label="testNoFile#?#3:MOVE
+testEmpty#?#3:MOVE" shape=ellipse]
+8 [label="testNoFile#?#3:\"missing file\"
+testEmpty#?#3:\"missing property\"" shape=ellipse]
+0 -> 6 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+3 -> 8 [label="AST:2"];
+7 -> 6 [label="Action:2"];
+8 -> 7 [label="Action:2"];
+}

@@ -1,0 +1,72 @@
+digraph "Pattern" {
+0 [label="testNoLang#?#2:INSERT
+testNolanguage#?#2:INSERT
+testNoName#?#2:INSERT" shape=ellipse]
+1 [label="testNoLang#?#2:public void testNoLang() \{
+    expectBuildExceptionContaining(\"nolang\", \"Absence of language attribute not detected\", \"requires a language attribute\");
+\}
+testNolanguage#?#2:public void testNolanguage() \{
+    expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\");
+\}
+testNoName#?#2:public void testNoName() \{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+2 [label="testNoLang#?#2:testNoLang
+testNolanguage#?#2:testNolanguage
+testNoName#?#2:testNoName" shape=ellipse]
+3 [label="testNoLang#?#2:void
+testNolanguage#?#2:void
+testNoName#?#2:void" shape=ellipse]
+4 [label="testNoLang#?#2:\{
+    expectBuildExceptionContaining(\"nolang\", \"Absence of language attribute not detected\", \"requires a language attribute\");
+\}
+testNolanguage#?#2:\{
+    expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\");
+\}
+testNoName#?#2:\{
+    expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\");
+\}" shape=ellipse]
+5 [label="testNoLang#?#3:expectBuildExceptionContaining(\"nolang\", \"Absence of language attribute not detected\", \"requires a language attribute\")
+testNolanguage#?#3:expectBuildExceptionContaining(\"testNolanguage\", \"Absence of language attribute not detected\", \"script language must be specified\")
+testNoName#?#3:expectBuildExceptionContaining(\"noname\", \"Absence of name attribute not detected\", \"scriptdef requires a name attribute\")" shape=ellipse]
+6 [label="testNoLang#?#2:public
+testNolanguage#?#2:public
+testNoName#?#2:public" shape=ellipse]
+7 [label="testNoLang#?#2:VE: Modifiers_Method
+testNolanguage#?#2:VE: Modifiers_Method
+testNoName#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testNoLang#?#4:INSERT
+testNolanguage#?#4:INSERT
+testNoName#?#4:INSERT" shape=ellipse]
+9 [label="testNoLang#?#4:try \{
+    buildRule.executeTarget(\"nolang\");
+    fail(\"Absence of language attribute not detected\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"requires a language attribute\", ex.getMessage());
+\}
+testNolanguage#?#4:try \{
+    buildRule.executeTarget(\"testNolanguage\");
+    fail(\"Absence of language attribute not detected\");
+\} catch (BuildException ex) \{
+    assertContains(\"script language must be specified\", ex.getMessage());
+\}
+testNoName#?#4:try \{
+    buildRule.executeTarget(\"noname\");
+    fail(\"Absence of name attribute not detected\");
+\} catch (BuildException ex) \{
+    AntAssert.assertContains(\"scriptdef requires a name attribute\", ex.getMessage());
+\}" shape=ellipse]
+10 [label="testNoLang#?#2:@Test
+testNolanguage#?#2:@Test
+testNoName#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 2 [label="AST:3"];
+1 -> 3 [label="AST:3"];
+1 -> 4 [label="AST:3"];
+1 -> 6 [label="AST:3"];
+1 -> 7 [label="AST:3"];
+1 -> 8 [label="Action:3"];
+4 -> 5 [label="AST:3"];
+8 -> 9 [label="Action:3"];
+}

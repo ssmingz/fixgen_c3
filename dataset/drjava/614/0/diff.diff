@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/614/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/614/0/after.java
+@@ -3,1 +3,5 @@
+-    _vm.resume();
++    if (_thread == null) {
++      DrJava.consoleOut().println("Resume called while _thread was null");
++    }
++    _thread.resume();
++    currThreadResumed();

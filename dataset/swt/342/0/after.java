@@ -1,0 +1,15 @@
+class PlaceHold {
+  LRESULT wmScrollChild(int wParam, int lParam) {
+    int code = OS.LOWORD(wParam);
+    switch (code) {
+      case OS.TB_ENDTRACK:
+      case OS.TB_THUMBPOSITION:
+        return null;
+    }
+    if (!ignoreSelection) {
+      Event event = new Event();
+      sendSelectionEvent(Selection, event, true);
+    }
+    return null;
+  }
+}

@@ -1,0 +1,42 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/329/2/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/329/2/after.java
+@@ -3,8 +3,11 @@
+-    switch (((int) (user_data))) {
+-      case BACKSPACE:
+-      case COPY_CLIPBOARD:
+-      case CUT_CLIPBOARD:
+-      case PASTE_CLIPBOARD:
+-        {
+-          if (segments != null) {
+-            clearSegments(true);
++    if (hooks(GetSegments) || filters(GetSegments)) {
++      switch (((int) (user_data))) {
++        case BACKSPACE:
++        case COPY_CLIPBOARD:
++        case CUT_CLIPBOARD:
++        case PASTE_CLIPBOARD:
++          {
++            if (segments != null) {
++              clearSegments(true);
++            }
++            break;
+@@ -12,10 +15,9 @@
+-          break;
+-        }
+-      case BACKSPACE_INVERSE:
+-      case COPY_CLIPBOARD_INVERSE:
+-      case CUT_CLIPBOARD_INVERSE:
+-      case PASTE_CLIPBOARD_INVERSE:
+-        {
+-          applySegments();
+-          return 0;
+-        }
++        case BACKSPACE_INVERSE:
++        case COPY_CLIPBOARD_INVERSE:
++        case CUT_CLIPBOARD_INVERSE:
++        case PASTE_CLIPBOARD_INVERSE:
++          {
++            applySegments();
++            return 0;
++          }
++      }

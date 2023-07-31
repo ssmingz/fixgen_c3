@@ -1,0 +1,58 @@
+digraph "Pattern" {
+0 [label="getBytes#?#27:UPDATE
+FileText#?,File,String#30:UPDATE
+getLines#?,String,String#23:UPDATE
+loadKeys#?,File#16:UPDATE" shape=ellipse]
+1 [label="getBytes#?#27:Utils
+FileText#?,File,String#30:Utils
+getLines#?,String,String#23:Utils
+loadKeys#?,File#16:Utils" shape=ellipse]
+2 [label="getBytes#?#27:Utils.closeQuietly(stream)
+FileText#?,File,String#30:Utils.closeQuietly(reader)
+getLines#?,String,String#23:Utils.closeQuietly(lnr)
+loadKeys#?,File#16:Utils.closeQuietly(inStream)" shape=ellipse]
+3 [label="getBytes#?#26:\{
+    Utils.closeQuietly(stream);
+\}
+FileText#?,File,String#29:\{
+    Utils.closeQuietly(reader);
+\}
+getLines#?,String,String#22:\{
+    Utils.closeQuietly(lnr);
+\}
+loadKeys#?,File#15:\{
+    Utils.closeQuietly(inStream);
+\}" shape=ellipse]
+4 [label="getBytes#?#27:closeQuietly
+FileText#?,File,String#30:closeQuietly
+getLines#?,String,String#23:closeQuietly
+loadKeys#?,File#16:closeQuietly" shape=ellipse]
+5 [label="getBytes#?#27:closeQuietly(FileInputStream)
+FileText#?,File,String#30:closeQuietly(Reader)
+getLines#?,String,String#23:closeQuietly(LineNumberReader)
+loadKeys#?,File#16:closeQuietly(InputStream)" shape=ellipse]
+6 [label="getBytes#?#27:stream
+FileText#?,File,String#30:reader
+getLines#?,String,String#23:lnr
+loadKeys#?,File#16:inStream" shape=ellipse]
+7 [label="getBytes#?#27:Utils
+FileText#?,File,String#30:Utils
+getLines#?,String,String#23:Utils
+loadKeys#?,File#16:Utils" shape=ellipse]
+8 [label="getBytes#?#27:Closeables
+FileText#?,File,String#30:Closeables
+getLines#?,String,String#23:Closeables
+loadKeys#?,File#16:Closeables" shape=ellipse]
+9 [label="getBytes#?#27:
+FileText#?,File,String#30:
+getLines#?,String,String#23:
+loadKeys#?,File#16:" shape=ellipse]
+1 -> 0 [label="Action:4"];
+1 -> 7 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+3 -> 2 [label="AST:4"];
+8 -> 9 [label="AST:4"];
+}

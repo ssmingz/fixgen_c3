@@ -1,0 +1,42 @@
+digraph "Pattern" {
+0 [label="testXmlns#?#2:INSERT
+testDelay#?#2:INSERT" shape=ellipse]
+1 [label="testXmlns#?#2:public void testXmlns() \{
+    expectLog(\"xmlns\", \"MyTask called\");
+\}
+testDelay#?#2:public void testDelay() \{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}" shape=ellipse]
+2 [label="testXmlns#?#2:testXmlns
+testDelay#?#2:testDelay" shape=ellipse]
+3 [label="testXmlns#?#2:void
+testDelay#?#2:void" shape=ellipse]
+4 [label="testXmlns#?#2:\{
+    expectLog(\"xmlns\", \"MyTask called\");
+\}
+testDelay#?#2:\{
+    expectLogContaining(\"delay\", \"MyTask called\");
+\}" shape=ellipse]
+5 [label="testXmlns#?#3:expectLog(\"xmlns\", \"MyTask called\")
+testDelay#?#3:expectLogContaining(\"delay\", \"MyTask called\")" shape=ellipse]
+6 [label="testXmlns#?#2:public
+testDelay#?#2:public" shape=ellipse]
+7 [label="testXmlns#?#2:VE: Modifiers_Method
+testDelay#?#2:VE: Modifiers_Method" shape=ellipse]
+8 [label="testXmlns#?#4:INSERT
+testDelay#?#4:INSERT" shape=ellipse]
+9 [label="testXmlns#?#4:buildRule.executeTarget(\"xmlns\")
+testDelay#?#4:buildRule.executeTarget(\"delay\")" shape=ellipse]
+10 [label="testXmlns#?#2:@Test
+testDelay#?#2:@Test" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 7 [label="AST:2"];
+1 -> 8 [label="Action:2"];
+4 -> 5 [label="AST:2"];
+8 -> 9 [label="Action:2"];
+}

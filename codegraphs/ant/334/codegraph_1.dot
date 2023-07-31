@@ -1,0 +1,94 @@
+digraph "OneLiner#?,File" {
+0 [label="2:CtVirtualElement@OneLiner" shape=ellipse]
+1 [label="2:CtParameterImpl@File srcFile" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@BuildException" shape=ellipse]
+4 [label="4:CtFieldWriteImpl@reader" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@BufferedReader" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@getReader(<unknown>)" shape=ellipse]
+7 [label="4:CtVirtualElement@getReader" shape=ellipse]
+8 [label="4:CtVariableReadImpl@srcFile" shape=ellipse]
+9 [label="4:CtInvocationImpl@getReader(srcFile)" shape=ellipse]
+10 [label="4:CtFieldReadImpl@INBUFLEN" shape=ellipse]
+11 [label="4:CtConstructorCallImpl@new BufferedReader(getReader(srcFile), INBUFLEN)" shape=ellipse]
+12 [label="4:CtAssignmentImpl@reader = new BufferedReader(getReader(srcFile), INBUFLEN)" shape=ellipse]
+13 [label="5:CtExecutableReferenceImpl@nextLine()" shape=ellipse]
+14 [label="5:CtVirtualElement@nextLine" shape=ellipse]
+15 [label="5:CtInvocationImpl@nextLine()" shape=ellipse]
+16 [label="3:CtBlockImpl@\{
+    reader = new BufferedReader(getReader(srcFile), INBUFLEN);
+    nextLine();
+\}" shape=ellipse]
+17 [label="6:CtVirtualElement@e" shape=ellipse]
+18 [label="6:CtTypeReferenceImpl@IOException" shape=ellipse]
+19 [label="6:CtCatchVariableImpl@IOException e" shape=ellipse]
+20 [label="7:CtTypeReferenceImpl@BuildException" shape=ellipse]
+21 [label="7:CtVariableReadImpl@e" shape=ellipse]
+22 [label="7:CtConstructorCallImpl@new BuildException(e)" shape=ellipse]
+23 [label="7:CtThrowImpl@throw new BuildException(e)" shape=ellipse]
+24 [label="6:CtBlockImpl@\{
+    throw new BuildException(e);
+\}" shape=ellipse]
+25 [label="6:CtCatchImpl@ catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+26 [label="3:CtTryImpl@try \{
+    reader = new BufferedReader(getReader(srcFile), INBUFLEN);
+    nextLine();
+\} catch (IOException e) \{
+    throw new BuildException(e);
+\}" shape=ellipse]
+27 [label="2:CtBlockImpl@\{
+    try \{
+        reader = new BufferedReader(getReader(srcFile), INBUFLEN);
+        nextLine();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+28 [label="2:CtMethodImpl@public  OneLiner(File srcFile) throws BuildException \{
+    try \{
+        reader = new BufferedReader(getReader(srcFile), INBUFLEN);
+        nextLine();
+    \} catch (IOException e) \{
+        throw new BuildException(e);
+    \}
+\}" shape=ellipse]
+29 [label="7:Insert@INSERT" shape=ellipse]
+30 [label="7:CtLiteralImpl@\"Error\"" shape=ellipse]
+1 -> 2 [label="AST"];
+8 -> 4 [label="Data Dep"];
+9 -> 7 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 4 [label="Data Dep"];
+11 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 4 [label="AST"];
+12 -> 11 [label="AST"];
+15 -> 14 [label="AST"];
+15 -> 13 [label="AST"];
+16 -> 12 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 21 [label="Define-Use"];
+19 -> 17 [label="AST"];
+19 -> 18 [label="AST"];
+19 -> 24 [label="Control Dep"];
+19 -> 23 [label="Control Dep"];
+19 -> 22 [label="Control Dep"];
+19 -> 21 [label="Control Dep"];
+22 -> 21 [label="AST"];
+22 -> 29 [label="Action"];
+23 -> 22 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 19 [label="AST"];
+25 -> 24 [label="AST"];
+26 -> 16 [label="AST"];
+26 -> 25 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 0 [label="AST"];
+28 -> 1 [label="AST"];
+28 -> 3 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 30 [label="Action"];
+}

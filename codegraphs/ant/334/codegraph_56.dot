@@ -1,0 +1,55 @@
+digraph "getIncludedDirsCount#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getIncludedDirsCount" shape=ellipse]
+2 [label="3:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtBinaryOperatorImpl@dirsIncluded == null" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@IllegalStateException" shape=ellipse]
+6 [label="4:CtConstructorCallImpl@new IllegalStateException()" shape=ellipse]
+7 [label="4:CtThrowImpl@throw new IllegalStateException()" shape=ellipse]
+8 [label="3:CtBlockImpl@\{
+    throw new IllegalStateException();
+\}" shape=ellipse]
+9 [label="3:CtIfImpl@if (dirsIncluded == null) \{
+    throw new IllegalStateException();
+\}" shape=ellipse]
+10 [label="6:CtExecutableReferenceImpl@size()" shape=ellipse]
+11 [label="6:CtVirtualElement@size" shape=ellipse]
+12 [label="6:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+13 [label="6:CtInvocationImpl@dirsIncluded.size()" shape=ellipse]
+14 [label="6:CtReturnImpl@return dirsIncluded.size()" shape=ellipse]
+15 [label="2:CtBlockImpl@\{
+    if (dirsIncluded == null) \{
+        throw new IllegalStateException();
+    \}
+    return dirsIncluded.size();
+\}" shape=ellipse]
+16 [label="2:CtMethodImpl@public synchronized int getIncludedDirsCount() \{
+    if (dirsIncluded == null) \{
+        throw new IllegalStateException();
+    \}
+    return dirsIncluded.size();
+\}" shape=ellipse]
+17 [label="4:Update@UPDATE" shape=ellipse]
+18 [label="4:CtConstructorCallImpl@new IllegalStateException(\"Must call scan() first\")" shape=ellipse]
+4 -> 2 [label="AST"];
+4 -> 3 [label="AST"];
+4 -> 8 [label="Control Dep"];
+4 -> 7 [label="Control Dep"];
+4 -> 6 [label="Control Dep"];
+6 -> 17 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 7 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+13 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+13 -> 10 [label="AST"];
+14 -> 13 [label="AST"];
+15 -> 9 [label="AST"];
+15 -> 14 [label="AST"];
+16 -> 1 [label="AST"];
+16 -> 0 [label="AST"];
+16 -> 15 [label="AST"];
+17 -> 18 [label="Action"];
+}

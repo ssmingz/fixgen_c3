@@ -1,0 +1,120 @@
+digraph "getSrc#?" {
+0 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+1 [label="2:CtVirtualElement@getSrc" shape=ellipse]
+2 [label="3:CtFieldReadImpl@src" shape=ellipse]
+3 [label="3:CtLiteralImpl@null" shape=ellipse]
+4 [label="3:CtBinaryOperatorImpl@src != null" shape=ellipse]
+5 [label="4:CtTypeReferenceImpl@FileProvider" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@as(java.lang.Class)" shape=ellipse]
+7 [label="4:CtVirtualElement@as" shape=ellipse]
+8 [label="4:CtFieldReadImpl@src" shape=ellipse]
+9 [label="4:CtFieldReadImpl@FileProvider.class" shape=ellipse]
+10 [label="4:CtInvocationImpl@((FileProvider) (src.as(FileProvider.class)))" shape=ellipse]
+11 [label="4:CtTypeReferenceImpl@FileProvider" shape=ellipse]
+12 [label="4:CtVirtualElement@fp" shape=ellipse]
+13 [label="4:CtLocalVariableImpl@FileProvider fp = ((FileProvider) (src.as(FileProvider.class)))" shape=ellipse]
+14 [label="5:CtVariableReadImpl@fp" shape=ellipse]
+15 [label="5:CtLiteralImpl@null" shape=ellipse]
+16 [label="5:CtBinaryOperatorImpl@fp != null" shape=ellipse]
+17 [label="6:CtExecutableReferenceImpl@getFile()" shape=ellipse]
+18 [label="6:CtVirtualElement@getFile" shape=ellipse]
+19 [label="6:CtVariableReadImpl@fp" shape=ellipse]
+20 [label="6:CtInvocationImpl@fp.getFile()" shape=ellipse]
+21 [label="6:CtReturnImpl@return fp.getFile()" shape=ellipse]
+22 [label="5:CtBlockImpl@\{
+    return fp.getFile();
+\}" shape=ellipse]
+23 [label="5:CtIfImpl@if (fp != null) \{
+    return fp.getFile();
+\}" shape=ellipse]
+24 [label="3:CtBlockImpl@\{
+    FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+    if (fp != null) \{
+        return fp.getFile();
+    \}
+\}" shape=ellipse]
+25 [label="3:CtIfImpl@if (src != null) \{
+    FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+    if (fp != null) \{
+        return fp.getFile();
+    \}
+\}" shape=ellipse]
+26 [label="9:CtLiteralImpl@null" shape=ellipse]
+27 [label="9:CtReturnImpl@return null" shape=ellipse]
+28 [label="2:CtBlockImpl@\{
+    if (src != null) \{
+        FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+        if (fp != null) \{
+            return fp.getFile();
+        \}
+    \}
+    return null;
+\}" shape=ellipse]
+29 [label="2:CtMethodImpl@public File getSrc() \{
+    if (src != null) \{
+        FileProvider fp = ((FileProvider) (src.as(FileProvider.class)));
+        if (fp != null) \{
+            return fp.getFile();
+        \}
+    \}
+    return null;
+\}" shape=ellipse]
+30 [label="3:Insert@INSERT" shape=ellipse]
+31 [label="3:CtIfImpl@if (isReference()) \{
+    return ((ArchiveFileSet) (getCheckedRef())).getSrc();
+\}" shape=ellipse]
+32 [label="6:Insert@INSERT" shape=ellipse]
+33 [label="6:CtInvocationImpl@dieOnCircularReference()" shape=ellipse]
+4 -> 2 [label="AST"];
+4 -> 3 [label="AST"];
+4 -> 24 [label="Control Dep"];
+4 -> 13 [label="Control Dep"];
+4 -> 10 [label="Control Dep"];
+4 -> 6 [label="Control Dep"];
+4 -> 8 [label="Control Dep"];
+4 -> 9 [label="Control Dep"];
+4 -> 23 [label="Control Dep"];
+4 -> 16 [label="Control Dep"];
+4 -> 14 [label="Control Dep"];
+4 -> 15 [label="Control Dep"];
+8 -> 12 [label="Data Dep"];
+9 -> 12 [label="Data Dep"];
+10 -> 7 [label="AST"];
+10 -> 11 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 6 [label="AST"];
+10 -> 9 [label="AST"];
+12 -> 14 [label="Define-Use"];
+12 -> 19 [label="Define-Use"];
+13 -> 12 [label="AST"];
+13 -> 5 [label="AST"];
+13 -> 10 [label="AST"];
+16 -> 14 [label="AST"];
+16 -> 15 [label="AST"];
+16 -> 22 [label="Control Dep"];
+16 -> 21 [label="Control Dep"];
+16 -> 20 [label="Control Dep"];
+16 -> 17 [label="Control Dep"];
+16 -> 19 [label="Control Dep"];
+20 -> 18 [label="AST"];
+20 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+21 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+23 -> 16 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 13 [label="AST"];
+24 -> 23 [label="AST"];
+25 -> 4 [label="AST"];
+25 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+29 -> 1 [label="AST"];
+29 -> 0 [label="AST"];
+29 -> 28 [label="AST"];
+29 -> 30 [label="Action"];
+29 -> 32 [label="Action"];
+30 -> 31 [label="Action"];
+32 -> 33 [label="Action"];
+}

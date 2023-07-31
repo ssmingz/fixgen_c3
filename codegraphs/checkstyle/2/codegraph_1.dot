@@ -1,0 +1,23 @@
+digraph "getTotal#?" {
+0 [label="2:CtTypeReferenceImpl@int" shape=ellipse]
+1 [label="2:CtVirtualElement@getTotal" shape=ellipse]
+2 [label="3:CtFieldReferenceImpl@total" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+4 [label="3:CtFieldReadImpl@total" shape=ellipse]
+5 [label="3:CtReturnImpl@return total" shape=ellipse]
+6 [label="2:CtBlockImpl@\{
+    return total;
+\}" shape=ellipse]
+7 [label="2:CtMethodImpl@int getTotal() \{
+    return total;
+\}" shape=ellipse]
+8 [label="2:Insert@INSERT" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 2 [label="AST"];
+5 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+7 -> 1 [label="AST"];
+7 -> 0 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 8 [label="Action"];
+}

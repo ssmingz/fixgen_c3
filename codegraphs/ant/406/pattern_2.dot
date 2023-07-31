@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="execute#?#5:INSERT
+accept#?,FileObject,String,TaskContext#6:INSERT" shape=ellipse]
+1 [label="execute#?#4:new TaskException(\"Must specify namespace parameter\")
+accept#?,FileObject,String,TaskContext#5:new TaskException(\"notfileselector.no-selector.error\")" shape=ellipse]
+2 [label="execute#?#3:null == m_namespace
+accept#?,FileObject,String,TaskContext#4:m_selector == null" shape=ellipse]
+3 [label="execute#?#3:if (null == m_namespace) \{
+    throw new TaskException(\"Must specify namespace parameter\");
+\}
+accept#?,FileObject,String,TaskContext#4:if (m_selector == null) \{
+    throw new TaskException(\"notfileselector.no-selector.error\");
+\}" shape=ellipse]
+4 [label="execute#?#3:null
+accept#?,FileObject,String,TaskContext#4:null" shape=ellipse]
+5 [label="execute#?#3:m_namespace
+accept#?,FileObject,String,TaskContext#4:m_selector" shape=ellipse]
+6 [label="execute#?#3:\{
+    throw new TaskException(\"Must specify namespace parameter\");
+\}
+accept#?,FileObject,String,TaskContext#4:\{
+    throw new TaskException(\"notfileselector.no-selector.error\");
+\}" shape=ellipse]
+7 [label="execute#?#4:throw new TaskException(\"Must specify namespace parameter\")
+accept#?,FileObject,String,TaskContext#5:throw new TaskException(\"notfileselector.no-selector.error\")" shape=ellipse]
+8 [label="execute#?#-1:TaskException(java.lang.String)
+accept#?,FileObject,String,TaskContext#-1:TaskException(java.lang.String)" shape=ellipse]
+9 [label="execute#?#4:\"Must specify namespace parameter\"
+accept#?,FileObject,String,TaskContext#5:\"notfileselector.no-selector.error\"" shape=ellipse]
+10 [label="execute#?#5:message
+accept#?,FileObject,String,TaskContext#6:message" shape=ellipse]
+11 [label="execute#?#4:message
+accept#?,FileObject,String,TaskContext#5:message" shape=ellipse]
+0 -> 10 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 8 [label="AST:2"];
+1 -> 9 [label="AST:2"];
+2 -> 1 [label="Control Dep:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="Control Dep:2"];
+2 -> 7 [label="Control Dep:2"];
+2 -> 8 [label="Control Dep:2"];
+2 -> 9 [label="Control Dep:2"];
+3 -> 2 [label="AST:2"];
+3 -> 6 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+7 -> 1 [label="AST:2"];
+11 -> 10 [label="Define Use:2"];
+}

@@ -1,0 +1,973 @@
+digraph "Pattern" {
+0 [label="testLegalAbstractClassNames#?#4:INSERT
+testTagsWithResolver#?#5:INSERT
+testIgnoreMethodNames#?#5:INSERT
+testIgnoreHashCodeMethod#?#6:INSERT
+testIgnoreNone#?#6:INSERT
+testIgnoreOverriddenMethods#?#5:INSERT
+test_generics_2#?#5:INSERT
+testTagsWithSubclassesAllowed#?#5:INSERT
+testIgnoreSome#?#6:INSERT
+testTags#?#4:INSERT
+testIgnoreNegativeOctalHex#?#7:INSERT
+testMemberModifiers#?#4:INSERT
+test_generics_3#?#4:INSERT
+testIntegersOnly#?#6:INSERT
+test_generics_1#?#6:INSERT" shape=ellipse]
+1 [label="testLegalAbstractClassNames#?#3:\{
+    checkConfig.addAttribute(\"legalAbstractClassNames\", \"AbstractClass\");
+    String[] expected = new String[]\{ \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected);
+\}
+testTagsWithResolver#?#3:\{
+    checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\");
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreMethodNames#?#3:\{
+    checkConfig.addAttribute(\"ignoredMethodNames\", \"table2\");
+    String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected);
+\}
+testIgnoreHashCodeMethod#?#3:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreHashCodeMethod\", \"true\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testIgnoreNone#?#3:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"\");
+    final String[] expected = new String[]\{ \"21:24: '1' is a magic number.\", \"22:25: '2' is a magic number.\", \"23:26: '0L' is a magic number.\", \"24:26: '0l' is a magic number.\", \"25:30: '0D' is a magic number.\", \"26:30: '0d' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:20: '1' is a magic number.\", \"30:24: '2' is a magic number.\", \"31:21: '1' is a magic number.\", \"32:23: '1.0' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:22: '0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:13: '1' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:13: '1.0' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"59:25: '00' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"67:23: '0x0' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"70:28: '0x0L' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testIgnoreOverriddenMethods#?#3:\{
+    DefaultConfiguration checkConfig = createCheckConfig(IllegalThrowsCheck.class);
+    String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalThrowsCheckIgnoreOverriddenMethods.java\"), expected);
+\}
+test_generics_2#?#3:\{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}
+testTagsWithSubclassesAllowed#?#3:\{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreSome#?#3:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"0, 1, 3.0, 8, 16\");
+    final String[] expected = new String[]\{ \"22:25: '2' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:24: '2' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:31: '4' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:29: '5' is a magic number.\", \"61:25: '011' is a magic number.\", \"64:30: '011l' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testTags#?#3:\{
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"53:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"WrongException\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreNegativeOctalHex#?#3:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"-9223372036854775808, -2147483648, -1, 0, 1, 2\");
+    checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testMemberModifiers#?#3:\{
+    checkConfig.addAttribute(\"memberModifiers\", \"LITERAL_PRIVATE, LITERAL_PROTECTED,\" + \" LITERAL_STATIC\");
+    String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\"), \"23:15: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"25:25: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"33:15: \" + getCheckMessage(MSG_KEY, \"AbstractClass\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalTypeMemberModifiers.java\"), expected);
+\}
+test_generics_3#?#3:\{
+    final String[] expected = new String[]\{ \"8:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"RE\"), \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}
+testIntegersOnly#?#3:\{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+test_generics_1#?#3:\{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\");
+    final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}" shape=ellipse]
+2 [label="testLegalAbstractClassNames#?#3:@Test
+public void testLegalAbstractClassNames() throws Exception \{
+    checkConfig.addAttribute(\"legalAbstractClassNames\", \"AbstractClass\");
+    String[] expected = new String[]\{ \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected);
+\}
+testTagsWithResolver#?#3:@Test
+public void testTagsWithResolver() throws Exception \{
+    checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\");
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreMethodNames#?#3:@Test
+public void testIgnoreMethodNames() throws Exception \{
+    checkConfig.addAttribute(\"ignoredMethodNames\", \"table2\");
+    String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected);
+\}
+testIgnoreHashCodeMethod#?#3:@Test
+public void testIgnoreHashCodeMethod() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreHashCodeMethod\", \"true\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testIgnoreNone#?#3:@Test
+public void testIgnoreNone() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"\");
+    final String[] expected = new String[]\{ \"21:24: '1' is a magic number.\", \"22:25: '2' is a magic number.\", \"23:26: '0L' is a magic number.\", \"24:26: '0l' is a magic number.\", \"25:30: '0D' is a magic number.\", \"26:30: '0d' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:20: '1' is a magic number.\", \"30:24: '2' is a magic number.\", \"31:21: '1' is a magic number.\", \"32:23: '1.0' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:22: '0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:13: '1' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:13: '1.0' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"59:25: '00' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"67:23: '0x0' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"70:28: '0x0L' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testIgnoreOverriddenMethods#?#3:@Test
+public void testIgnoreOverriddenMethods() throws Exception \{
+    DefaultConfiguration checkConfig = createCheckConfig(IllegalThrowsCheck.class);
+    String[] expected = new String[]\{  \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalThrowsCheckIgnoreOverriddenMethods.java\"), expected);
+\}
+test_generics_2#?#3:@Test
+public void test_generics_2() throws Exception \{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}
+testTagsWithSubclassesAllowed#?#3:@Test
+public void testTagsWithSubclassesAllowed() throws Exception \{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreSome#?#3:@Test
+public void testIgnoreSome() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"0, 1, 3.0, 8, 16\");
+    final String[] expected = new String[]\{ \"22:25: '2' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:24: '2' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:31: '4' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:29: '5' is a magic number.\", \"61:25: '011' is a magic number.\", \"64:30: '011l' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testTags#?#3:@Test
+public void testTags() throws Exception \{
+    final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"53:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"WrongException\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \};
+    verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected);
+\}
+testIgnoreNegativeOctalHex#?#3:@Test
+public void testIgnoreNegativeOctalHex() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"ignoreNumbers\", \"-9223372036854775808, -2147483648, -1, 0, 1, 2\");
+    checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+testMemberModifiers#?#3:@Test
+public void testMemberModifiers() throws Exception \{
+    checkConfig.addAttribute(\"memberModifiers\", \"LITERAL_PRIVATE, LITERAL_PROTECTED,\" + \" LITERAL_STATIC\");
+    String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\"), \"23:15: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"25:25: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"33:15: \" + getCheckMessage(MSG_KEY, \"AbstractClass\") \};
+    verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalTypeMemberModifiers.java\"), expected);
+\}
+test_generics_3#?#3:@Test
+public void test_generics_3() throws Exception \{
+    final String[] expected = new String[]\{ \"8:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"RE\"), \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}
+testIntegersOnly#?#3:@Test
+public void testIntegersOnly() throws Exception \{
+    final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class);
+    checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\");
+    final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \};
+    verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected);
+\}
+test_generics_1#?#3:@Test
+public void test_generics_1() throws Exception \{
+    checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\");
+    checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\");
+    final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \};
+    verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected);
+\}" shape=ellipse]
+3 [label="testLegalAbstractClassNames#?#3:testLegalAbstractClassNames
+testTagsWithResolver#?#3:testTagsWithResolver
+testIgnoreMethodNames#?#3:testIgnoreMethodNames
+testIgnoreHashCodeMethod#?#3:testIgnoreHashCodeMethod
+testIgnoreNone#?#3:testIgnoreNone
+testIgnoreOverriddenMethods#?#3:testIgnoreOverriddenMethods
+test_generics_2#?#3:test_generics_2
+testTagsWithSubclassesAllowed#?#3:testTagsWithSubclassesAllowed
+testIgnoreSome#?#3:testIgnoreSome
+testTags#?#3:testTags
+testIgnoreNegativeOctalHex#?#3:testIgnoreNegativeOctalHex
+testMemberModifiers#?#3:testMemberModifiers
+test_generics_3#?#3:test_generics_3
+testIntegersOnly#?#3:testIntegersOnly
+test_generics_1#?#3:test_generics_1" shape=ellipse]
+4 [label="testLegalAbstractClassNames#?#2:@Test
+testTagsWithResolver#?#2:@Test
+testIgnoreMethodNames#?#2:@Test
+testIgnoreHashCodeMethod#?#2:@Test
+testIgnoreNone#?#2:@Test
+testIgnoreOverriddenMethods#?#2:@Test
+test_generics_2#?#2:@Test
+testTagsWithSubclassesAllowed#?#2:@Test
+testIgnoreSome#?#2:@Test
+testTags#?#2:@Test
+testIgnoreNegativeOctalHex#?#2:@Test
+testMemberModifiers#?#2:@Test
+test_generics_3#?#2:@Test
+testIntegersOnly#?#2:@Test
+test_generics_1#?#2:@Test" shape=ellipse]
+5 [label="testLegalAbstractClassNames#?#3:void
+testTagsWithResolver#?#3:void
+testIgnoreMethodNames#?#3:void
+testIgnoreHashCodeMethod#?#3:void
+testIgnoreNone#?#3:void
+testIgnoreOverriddenMethods#?#3:void
+test_generics_2#?#3:void
+testTagsWithSubclassesAllowed#?#3:void
+testIgnoreSome#?#3:void
+testTags#?#3:void
+testIgnoreNegativeOctalHex#?#3:void
+testMemberModifiers#?#3:void
+test_generics_3#?#3:void
+testIntegersOnly#?#3:void
+test_generics_1#?#3:void" shape=ellipse]
+6 [label="testLegalAbstractClassNames#?#3:Exception
+testTagsWithResolver#?#3:Exception
+testIgnoreMethodNames#?#3:Exception
+testIgnoreHashCodeMethod#?#3:Exception
+testIgnoreNone#?#3:Exception
+testIgnoreOverriddenMethods#?#3:Exception
+test_generics_2#?#3:Exception
+testTagsWithSubclassesAllowed#?#3:Exception
+testIgnoreSome#?#3:Exception
+testTags#?#3:Exception
+testIgnoreNegativeOctalHex#?#3:Exception
+testMemberModifiers#?#3:Exception
+test_generics_3#?#3:Exception
+testIntegersOnly#?#3:Exception
+test_generics_1#?#3:Exception" shape=ellipse]
+7 [label="testLegalAbstractClassNames#?#4:checkConfig.addAttribute(\"legalAbstractClassNames\", \"AbstractClass\")
+testTagsWithResolver#?#4:checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\")
+testIgnoreMethodNames#?#4:checkConfig.addAttribute(\"ignoredMethodNames\", \"table2\")
+testIgnoreHashCodeMethod#?#5:checkConfig.addAttribute(\"ignoreHashCodeMethod\", \"true\")
+testIgnoreNone#?#5:checkConfig.addAttribute(\"ignoreNumbers\", \"\")
+testIgnoreOverriddenMethods#?#6:verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalThrowsCheckIgnoreOverriddenMethods.java\"), expected)
+test_generics_2#?#4:checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\")
+testTagsWithSubclassesAllowed#?#4:checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\")
+testIgnoreSome#?#5:checkConfig.addAttribute(\"ignoreNumbers\", \"0, 1, 3.0, 8, 16\")
+testTags#?#36:verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected)
+testIgnoreNegativeOctalHex#?#6:checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\")
+testMemberModifiers#?#22:verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalTypeMemberModifiers.java\"), expected)
+test_generics_3#?#13:verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected)
+testIntegersOnly#?#5:checkConfig.addAttribute(\"tokens\", \"NUM_INT, NUM_LONG\")
+test_generics_1#?#4:checkConfig.addAttribute(\"allowThrowsTagsForSubclasses\", \"true\")" shape=ellipse]
+8 [label="testLegalAbstractClassNames#?#4:addAttribute
+testTagsWithResolver#?#4:addAttribute
+testIgnoreMethodNames#?#4:addAttribute
+testIgnoreHashCodeMethod#?#5:addAttribute
+testIgnoreNone#?#5:addAttribute
+testIgnoreOverriddenMethods#?#6:verify
+test_generics_2#?#4:addAttribute
+testTagsWithSubclassesAllowed#?#4:addAttribute
+testIgnoreSome#?#5:addAttribute
+testTags#?#36:verify
+testIgnoreNegativeOctalHex#?#6:addAttribute
+testMemberModifiers#?#22:verify
+test_generics_3#?#13:verify
+testIntegersOnly#?#5:addAttribute
+test_generics_1#?#4:addAttribute" shape=ellipse]
+9 [label="testLegalAbstractClassNames#?#4:checkConfig
+testTagsWithResolver#?#4:checkConfig
+testIgnoreMethodNames#?#4:checkConfig
+testIgnoreHashCodeMethod#?#5:checkConfig
+testIgnoreNone#?#5:checkConfig
+testIgnoreOverriddenMethods#?#7:checkConfig
+test_generics_2#?#4:checkConfig
+testTagsWithSubclassesAllowed#?#4:checkConfig
+testIgnoreSome#?#5:checkConfig
+testTags#?#36:checkConfig
+testIgnoreNegativeOctalHex#?#6:checkConfig
+testMemberModifiers#?#23:checkConfig
+test_generics_3#?#13:checkConfig
+testIntegersOnly#?#5:checkConfig
+test_generics_1#?#4:checkConfig" shape=ellipse]
+10 [label="testLegalAbstractClassNames#?#4:addAttribute(java.lang.String,java.lang.String)
+testTagsWithResolver#?#4:addAttribute(java.lang.String,java.lang.String)
+testIgnoreMethodNames#?#4:addAttribute(java.lang.String,java.lang.String)
+testIgnoreHashCodeMethod#?#5:addAttribute(java.lang.String,java.lang.String)
+testIgnoreNone#?#5:addAttribute(java.lang.String,java.lang.String)
+testIgnoreOverriddenMethods#?#6:verify(<unknown>,<unknown>,java.lang.String[])
+test_generics_2#?#4:addAttribute(java.lang.String,java.lang.String)
+testTagsWithSubclassesAllowed#?#4:addAttribute(java.lang.String,java.lang.String)
+testIgnoreSome#?#5:addAttribute(java.lang.String,java.lang.String)
+testTags#?#36:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreNegativeOctalHex#?#6:addAttribute(java.lang.String,java.lang.String)
+testMemberModifiers#?#22:verify(<unknown>,<unknown>,java.lang.String[])
+test_generics_3#?#13:verify(<unknown>,<unknown>,java.lang.String[])
+testIntegersOnly#?#5:addAttribute(java.lang.String,java.lang.String)
+test_generics_1#?#4:addAttribute(java.lang.String,java.lang.String)" shape=ellipse]
+11 [label="testLegalAbstractClassNames#?#4:\"legalAbstractClassNames\"
+testTagsWithResolver#?#4:\"true\"
+testIgnoreMethodNames#?#4:\"ignoredMethodNames\"
+testIgnoreHashCodeMethod#?#5:\"ignoreHashCodeMethod\"
+testIgnoreNone#?#5:\"ignoreNumbers\"
+test_generics_2#?#4:\"allowThrowsTagsForSubclasses\"
+testTagsWithSubclassesAllowed#?#4:\"allowThrowsTagsForSubclasses\"
+testIgnoreSome#?#5:\"ignoreNumbers\"
+testIgnoreNegativeOctalHex#?#6:\"tokens\"
+testIntegersOnly#?#5:\"tokens\"
+test_generics_1#?#4:\"allowThrowsTagsForSubclasses\"" shape=ellipse]
+12 [label="testLegalAbstractClassNames#?#4:\"AbstractClass\"
+testTagsWithResolver#?#4:\"allowUndeclaredRTE\"
+testIgnoreMethodNames#?#4:\"table2\"
+testIgnoreHashCodeMethod#?#5:\"true\"
+testIgnoreNone#?#5:\"\"
+test_generics_2#?#4:\"true\"
+testTagsWithSubclassesAllowed#?#4:\"true\"
+testIgnoreSome#?#5:\"0, 1, 3.0, 8, 16\"
+testIgnoreNegativeOctalHex#?#6:\"NUM_INT, NUM_LONG\"
+testIntegersOnly#?#5:\"NUM_INT, NUM_LONG\"
+test_generics_1#?#4:\"true\"" shape=ellipse]
+13 [label="testLegalAbstractClassNames#?#5:String[] expected = new String[]\{ \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\") \}
+testTagsWithResolver#?#5:final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreMethodNames#?#5:String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\") \}
+testIgnoreHashCodeMethod#?#6:final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testIgnoreNone#?#6:final String[] expected = new String[]\{ \"21:24: '1' is a magic number.\", \"22:25: '2' is a magic number.\", \"23:26: '0L' is a magic number.\", \"24:26: '0l' is a magic number.\", \"25:30: '0D' is a magic number.\", \"26:30: '0d' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:20: '1' is a magic number.\", \"30:24: '2' is a magic number.\", \"31:21: '1' is a magic number.\", \"32:23: '1.0' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:22: '0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:13: '1' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:13: '1.0' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"59:25: '00' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"67:23: '0x0' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"70:28: '0x0L' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testIgnoreOverriddenMethods#?#4:DefaultConfiguration checkConfig = createCheckConfig(IllegalThrowsCheck.class)
+test_generics_2#?#5:final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}
+testTagsWithSubclassesAllowed#?#5:final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreSome#?#6:final String[] expected = new String[]\{ \"22:25: '2' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:24: '2' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:31: '4' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:29: '5' is a magic number.\", \"61:25: '011' is a magic number.\", \"64:30: '011l' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testTags#?#4:final String[] expected = new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"53:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"WrongException\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreNegativeOctalHex#?#7:final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testMemberModifiers#?#6:String[] expected = new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\"), \"23:15: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"25:25: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"33:15: \" + getCheckMessage(MSG_KEY, \"AbstractClass\") \}
+test_generics_3#?#4:final String[] expected = new String[]\{ \"8:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"RE\"), \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}
+testIntegersOnly#?#6:final String[] expected = new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+test_generics_1#?#6:final String[] expected = new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}" shape=ellipse]
+14 [label="testLegalAbstractClassNames#?#5:expected
+testTagsWithResolver#?#5:expected
+testIgnoreMethodNames#?#5:expected
+testIgnoreHashCodeMethod#?#6:expected
+testIgnoreNone#?#6:expected
+test_generics_2#?#5:expected
+testTagsWithSubclassesAllowed#?#5:expected
+testIgnoreSome#?#6:expected
+testTags#?#4:expected
+testIgnoreNegativeOctalHex#?#7:expected
+testMemberModifiers#?#6:expected
+test_generics_3#?#4:expected
+testIntegersOnly#?#6:expected
+test_generics_1#?#6:expected" shape=ellipse]
+15 [label="testLegalAbstractClassNames#?#5:String[]
+testTagsWithResolver#?#5:String[]
+testIgnoreMethodNames#?#5:String[]
+testIgnoreHashCodeMethod#?#6:String[]
+testIgnoreNone#?#6:String[]
+test_generics_2#?#5:String[]
+testTagsWithSubclassesAllowed#?#5:String[]
+testIgnoreSome#?#6:String[]
+testTags#?#4:String[]
+testIgnoreNegativeOctalHex#?#7:String[]
+testMemberModifiers#?#6:String[]
+test_generics_3#?#4:String[]
+testIntegersOnly#?#6:String[]
+test_generics_1#?#6:String[]" shape=ellipse]
+16 [label="testLegalAbstractClassNames#?#6:new String[]\{ \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\") \}
+testTagsWithResolver#?#6:new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreMethodNames#?#6:new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalType.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\") \}
+testIgnoreHashCodeMethod#?#7:new String[]\{ \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testIgnoreNone#?#7:new String[]\{ \"21:24: '1' is a magic number.\", \"22:25: '2' is a magic number.\", \"23:26: '0L' is a magic number.\", \"24:26: '0l' is a magic number.\", \"25:30: '0D' is a magic number.\", \"26:30: '0d' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:20: '1' is a magic number.\", \"30:24: '2' is a magic number.\", \"31:21: '1' is a magic number.\", \"32:23: '1.0' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:22: '0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:13: '1' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:13: '1.0' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"41:26: '3' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"59:25: '00' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"67:23: '0x0' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"70:28: '0x0L' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+test_generics_2#?#6:new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}
+testTagsWithSubclassesAllowed#?#6:new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreSome#?#7:new String[]\{ \"22:25: '2' is a magic number.\", \"28:35: '2' is a magic number.\", \"30:24: '2' is a magic number.\", \"32:29: '2.0' is a magic number.\", \"34:29: '2' is a magic number.\", \"36:17: '2' is a magic number.\", \"38:19: '2.0' is a magic number.\", \"42:32: '1.5' is a magic number.\", \"43:31: '4' is a magic number.\", \"48:26: '1.5' is a magic number.\", \"50:29: '5' is a magic number.\", \"61:25: '011' is a magic number.\", \"64:30: '011l' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"101:29: '-2' is a magic number.\", \"102:35: '+3.5' is a magic number.\", \"103:36: '-2.5' is a magic number.\", \"109:34: '0xffffffff' is a magic number.\", \"110:36: '0xffffffffffffffffL' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"113:36: '037777777777' is a magic number.\", \"114:38: '01777777777777777777777L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testTags#?#5:new String[]\{ \"14:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"18:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"unused\"), \"24: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"33: \" + getCheckMessage(MSG_RETURN_EXPECTED), \"40:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"49:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"53:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"WrongException\"), \"55:16: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"Exception\"), \"55:27: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"NullPointerException\"), \"60:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"68:22: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"72:9: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"WrongParam\"), \"73:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"73:33: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aTwo\"), \"78:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"Unneeded\"), \"79: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL), \"87:8: \" + getCheckMessage(MSG_DUPLICATE_TAG, \"@return\"), \"109:23: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aOne\"), \"109:55: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFour\"), \"109:66: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"aFive\"), \"178:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ThreadDeath\"), \"179:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"ArrayStoreException\"), \"236:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"254:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"java.io.FileNotFoundException\"), \"256:28: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"IOException\"), \"262:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@param\", \"aParam\"), \"320:9: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"329:5: \" + getCheckMessage(MSG_JAVADOC_MISSING), \"333: \" + getCheckMessage(MSG_UNUSED_TAG_GENERAL) \}
+testIgnoreNegativeOctalHex#?#8:new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+testMemberModifiers#?#7:new String[]\{ \"6:13: \" + getCheckMessage(MSG_KEY, \"AbstractClass\"), \"9:13: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"16:13: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"17:13: \" + getCheckMessage(MSG_KEY, \"TreeSet\"), \"23:15: \" + getCheckMessage(MSG_KEY, \"com.puppycrawl.tools.checkstyle.coding.InputIllegalTypeMemberModifiers.AbstractClass\"), \"25:25: \" + getCheckMessage(MSG_KEY, \"java.util.TreeSet\"), \"33:15: \" + getCheckMessage(MSG_KEY, \"AbstractClass\") \}
+test_generics_3#?#5:new String[]\{ \"8:8: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"RE\"), \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}
+testIntegersOnly#?#7:new String[]\{ \"41:26: '3' is a magic number.\", \"43:27: '3' is a magic number.\", \"43:31: '4' is a magic number.\", \"45:29: '3' is a magic number.\", \"47:23: '3' is a magic number.\", \"50:22: '3' is a magic number.\", \"50:29: '5' is a magic number.\", \"50:37: '3' is a magic number.\", \"54:26: '3' is a magic number.\", \"55:39: '3' is a magic number.\", \"60:25: '010' is a magic number.\", \"61:25: '011' is a magic number.\", \"63:30: '010L' is a magic number.\", \"64:30: '011l' is a magic number.\", \"68:24: '0x10' is a magic number.\", \"69:24: '0X011' is a magic number.\", \"71:29: '0x10L' is a magic number.\", \"72:29: '0X11l' is a magic number.\", \"85:28: '3' is a magic number.\", \"92:14: '0xffffffffL' is a magic number.\", \"100:30: '+3' is a magic number.\", \"101:29: '-2' is a magic number.\", \"111:35: '0x80000000' is a magic number.\", \"112:36: '0x8000000000000000L' is a magic number.\", \"115:37: '020000000000' is a magic number.\", \"116:38: '01000000000000000000000L' is a magic number.\", \"131:20: '378' is a magic number.\", \"160:16: '31' is a magic number.\", \"165:16: '42' is a magic number.\", \"170:16: '13' is a magic number.\", \"174:15: '21' is a magic number.\", \"178:15: '37' is a magic number.\", \"182:15: '101' is a magic number.\" \}
+test_generics_1#?#7:new String[]\{ \"17:34: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RE\"), \"33:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@param\", \"<NPE>\"), \"40:12: \" + getCheckMessage(MSG_UNUSED_TAG, \"@throws\", \"E\"), \"43:38: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"RuntimeException\"), \"44:13: \" + getCheckMessage(MSG_EXCPECTED_TAG, \"@throws\", \"java.lang.RuntimeException\") \}" shape=ellipse]
+17 [label="testLegalAbstractClassNames#?#13:verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected)
+testTagsWithResolver#?#34:verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected)
+testIgnoreMethodNames#?#13:verify(checkConfig, getPath((\"coding\" + File.separator) + \"InputIllegalType.java\"), expected)
+testIgnoreHashCodeMethod#?#45:verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected)
+testIgnoreNone#?#71:verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected)
+test_generics_2#?#13:verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected)
+testTagsWithSubclassesAllowed#?#34:verify(checkConfig, getPath(\"checks/javadoc/InputTags.java\"), expected)
+testIgnoreSome#?#43:verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected)
+testIgnoreNegativeOctalHex#?#39:verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected)
+testMemberModifiers#?#4:checkConfig.addAttribute(\"memberModifiers\", \"LITERAL_PRIVATE, LITERAL_PROTECTED,\" + \" LITERAL_STATIC\")
+testIntegersOnly#?#42:verify(checkConfig, getPath(\"InputMagicNumber.java\"), expected)
+test_generics_1#?#14:verify(checkConfig, getPath(\"javadoc/TestGenerics.java\"), expected)" shape=ellipse]
+18 [label="testLegalAbstractClassNames#?#13:verify
+testTagsWithResolver#?#34:verify
+testIgnoreMethodNames#?#13:verify
+testIgnoreHashCodeMethod#?#45:verify
+testIgnoreNone#?#71:verify
+testIgnoreOverriddenMethods#?#5:addAttribute
+test_generics_2#?#13:verify
+testTagsWithSubclassesAllowed#?#34:verify
+testIgnoreSome#?#43:verify
+testTags#?#4:addAttribute
+testIgnoreNegativeOctalHex#?#39:verify
+testMemberModifiers#?#4:addAttribute
+test_generics_3#?#4:addAttribute
+testIntegersOnly#?#42:verify
+test_generics_1#?#14:verify" shape=ellipse]
+19 [label="testLegalAbstractClassNames#?#13:
+testTagsWithResolver#?#34:
+testIgnoreMethodNames#?#13:
+testIgnoreHashCodeMethod#?#45:
+testIgnoreNone#?#71:
+testIgnoreOverriddenMethods#?#5:expected
+test_generics_2#?#13:
+testTagsWithSubclassesAllowed#?#34:
+testIgnoreSome#?#43:
+testTags#?#4:checkConfig
+testIgnoreNegativeOctalHex#?#39:
+testMemberModifiers#?#4:checkConfig
+test_generics_3#?#4:checkConfig
+testIntegersOnly#?#42:
+test_generics_1#?#14:" shape=ellipse]
+20 [label="testLegalAbstractClassNames#?#13:verify(<unknown>,<unknown>,java.lang.String[])
+testTagsWithResolver#?#34:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreMethodNames#?#13:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreHashCodeMethod#?#45:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreNone#?#71:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreOverriddenMethods#?#5:addAttribute(java.lang.String,java.lang.String)
+test_generics_2#?#13:verify(<unknown>,<unknown>,java.lang.String[])
+testTagsWithSubclassesAllowed#?#34:verify(<unknown>,<unknown>,java.lang.String[])
+testIgnoreSome#?#43:verify(<unknown>,<unknown>,java.lang.String[])
+testTags#?#4:addAttribute(java.lang.String,java.lang.String)
+testIgnoreNegativeOctalHex#?#39:verify(<unknown>,<unknown>,java.lang.String[])
+testMemberModifiers#?#4:addAttribute(java.lang.String,java.lang.String)
+test_generics_3#?#4:addAttribute(java.lang.String,java.lang.String)
+testIntegersOnly#?#42:verify(<unknown>,<unknown>,java.lang.String[])
+test_generics_1#?#14:verify(<unknown>,<unknown>,java.lang.String[])" shape=ellipse]
+21 [label="testLegalAbstractClassNames#?#13:checkConfig
+testTagsWithResolver#?#34:checkConfig
+testIgnoreMethodNames#?#13:checkConfig
+testIgnoreHashCodeMethod#?#45:checkConfig
+testIgnoreNone#?#71:checkConfig
+testIgnoreOverriddenMethods#?#5:\"ignoreOverriddenMethods\"
+test_generics_2#?#13:checkConfig
+testTagsWithSubclassesAllowed#?#34:checkConfig
+testIgnoreSome#?#43:checkConfig
+testTags#?#4:\"validateThrows\"
+testIgnoreNegativeOctalHex#?#39:checkConfig
+testMemberModifiers#?#5:\"memberModifiers\"
+test_generics_3#?#4:\"validateThrows\"
+testIntegersOnly#?#42:checkConfig
+test_generics_1#?#14:checkConfig" shape=ellipse]
+22 [label="testLegalAbstractClassNames#?#13:getPath((\"coding\" + File.separator) + \"InputIllegalType.java\")
+testTagsWithResolver#?#34:getPath(\"checks/javadoc/InputTags.java\")
+testIgnoreMethodNames#?#13:getPath((\"coding\" + File.separator) + \"InputIllegalType.java\")
+testIgnoreHashCodeMethod#?#45:getPath(\"InputMagicNumber.java\")
+testIgnoreNone#?#71:getPath(\"InputMagicNumber.java\")
+test_generics_2#?#13:getPath(\"javadoc/TestGenerics.java\")
+testTagsWithSubclassesAllowed#?#34:getPath(\"checks/javadoc/InputTags.java\")
+testIgnoreSome#?#43:getPath(\"InputMagicNumber.java\")
+testIgnoreNegativeOctalHex#?#39:getPath(\"InputMagicNumber.java\")
+testIntegersOnly#?#42:getPath(\"InputMagicNumber.java\")
+test_generics_1#?#14:getPath(\"javadoc/TestGenerics.java\")" shape=ellipse]
+23 [label="testLegalAbstractClassNames#?#13:expected
+testTagsWithResolver#?#34:expected
+testIgnoreMethodNames#?#13:expected
+testIgnoreHashCodeMethod#?#45:expected
+testIgnoreNone#?#71:expected
+testIgnoreOverriddenMethods#?#5:checkConfig
+test_generics_2#?#13:expected
+testTagsWithSubclassesAllowed#?#34:expected
+testIgnoreSome#?#43:expected
+testIgnoreNegativeOctalHex#?#39:expected
+testIntegersOnly#?#42:expected
+test_generics_1#?#14:expected" shape=ellipse]
+24 [label="testLegalAbstractClassNames#?#4:checkConfig.addAttribute(\"validateAbstractClassNames\", \"true\")
+testTagsWithResolver#?#5:checkConfig.addAttribute(\"validateThrows\", \"true\")
+testIgnoreMethodNames#?#5:checkConfig.addAttribute(\"validateAbstractClassNames\", \"true\")
+testIgnoreHashCodeMethod#?#6:checkConfig.addAttribute(\"ignoreAnnotation\", \"true\")
+testIgnoreNone#?#6:checkConfig.addAttribute(\"ignoreAnnotation\", \"true\")
+test_generics_2#?#5:checkConfig.addAttribute(\"validateThrows\", \"true\")
+testTagsWithSubclassesAllowed#?#5:checkConfig.addAttribute(\"validateThrows\", \"true\")
+testIgnoreSome#?#6:checkConfig.addAttribute(\"ignoreAnnotation\", \"true\")
+testIgnoreNegativeOctalHex#?#7:checkConfig.addAttribute(\"ignoreAnnotation\", \"true\")
+testMemberModifiers#?#4:checkConfig.addAttribute(\"validateAbstractClassNames\", \"true\")
+testIntegersOnly#?#6:checkConfig.addAttribute(\"ignoreAnnotation\", \"true\")
+test_generics_1#?#6:checkConfig.addAttribute(\"validateThrows\", \"true\")" shape=ellipse]
+25 [label="testLegalAbstractClassNames#?#4:addAttribute
+testTagsWithResolver#?#5:addAttribute
+testIgnoreMethodNames#?#5:addAttribute
+testIgnoreHashCodeMethod#?#6:addAttribute
+testIgnoreNone#?#6:addAttribute
+test_generics_2#?#5:addAttribute
+testTagsWithSubclassesAllowed#?#5:addAttribute
+testIgnoreSome#?#6:addAttribute
+testIgnoreNegativeOctalHex#?#7:addAttribute
+testMemberModifiers#?#4:addAttribute
+testIntegersOnly#?#6:addAttribute
+test_generics_1#?#6:addAttribute" shape=ellipse]
+26 [label="testLegalAbstractClassNames#?#4:checkConfig
+testTagsWithResolver#?#5:checkConfig
+testIgnoreMethodNames#?#5:checkConfig
+testIgnoreHashCodeMethod#?#6:checkConfig
+testIgnoreNone#?#6:checkConfig
+testIgnoreOverriddenMethods#?#5:new String[]\{  \}
+test_generics_2#?#5:checkConfig
+testTagsWithSubclassesAllowed#?#5:checkConfig
+testIgnoreSome#?#6:checkConfig
+testTags#?#4:\"true\"
+testIgnoreNegativeOctalHex#?#7:checkConfig
+testMemberModifiers#?#4:checkConfig
+test_generics_3#?#4:\"true\"
+testIntegersOnly#?#6:checkConfig
+test_generics_1#?#6:checkConfig" shape=ellipse]
+27 [label="testLegalAbstractClassNames#?#4:checkConfig
+testTagsWithResolver#?#5:checkConfig
+testIgnoreMethodNames#?#5:checkConfig
+testIgnoreHashCodeMethod#?#6:checkConfig
+testIgnoreNone#?#6:checkConfig
+test_generics_2#?#5:checkConfig
+testTagsWithSubclassesAllowed#?#5:checkConfig
+testIgnoreSome#?#6:checkConfig
+testIgnoreNegativeOctalHex#?#7:checkConfig
+testMemberModifiers#?#4:checkConfig
+testIntegersOnly#?#6:checkConfig
+test_generics_1#?#6:checkConfig" shape=ellipse]
+28 [label="testLegalAbstractClassNames#?#4:PlaceHold
+testTagsWithResolver#?#5:PlaceHold
+testIgnoreMethodNames#?#5:PlaceHold
+testIgnoreHashCodeMethod#?#6:DefaultConfiguration
+testIgnoreNone#?#6:DefaultConfiguration
+testIgnoreOverriddenMethods#?#5:DefaultConfiguration
+test_generics_2#?#5:PlaceHold
+testTagsWithSubclassesAllowed#?#5:PlaceHold
+testIgnoreSome#?#6:DefaultConfiguration
+testTags#?#4:PlaceHold
+testIgnoreNegativeOctalHex#?#7:DefaultConfiguration
+testMemberModifiers#?#4:PlaceHold
+test_generics_3#?#4:PlaceHold
+testIntegersOnly#?#6:DefaultConfiguration
+test_generics_1#?#6:PlaceHold" shape=ellipse]
+29 [label="testLegalAbstractClassNames#?#4:
+testTagsWithResolver#?#5:
+testIgnoreMethodNames#?#5:
+testIgnoreHashCodeMethod#?#6:
+testIgnoreNone#?#6:
+testIgnoreOverriddenMethods#?#5:
+test_generics_2#?#5:
+testTagsWithSubclassesAllowed#?#5:
+testIgnoreSome#?#6:
+testTags#?#4:
+testIgnoreNegativeOctalHex#?#7:
+testMemberModifiers#?#4:
+test_generics_3#?#4:
+testIntegersOnly#?#6:
+test_generics_1#?#6:" shape=ellipse]
+30 [label="testLegalAbstractClassNames#?#4:addAttribute(java.lang.String,java.lang.String)
+testTagsWithResolver#?#5:addAttribute(java.lang.String,java.lang.String)
+testIgnoreMethodNames#?#5:addAttribute(java.lang.String,java.lang.String)
+testIgnoreHashCodeMethod#?#6:addAttribute(java.lang.String,java.lang.String)
+testIgnoreNone#?#6:addAttribute(java.lang.String,java.lang.String)
+testIgnoreOverriddenMethods#?#5:java.lang
+test_generics_2#?#5:addAttribute(java.lang.String,java.lang.String)
+testTagsWithSubclassesAllowed#?#5:addAttribute(java.lang.String,java.lang.String)
+testIgnoreSome#?#6:addAttribute(java.lang.String,java.lang.String)
+testTags#?#4:java.lang
+testIgnoreNegativeOctalHex#?#7:addAttribute(java.lang.String,java.lang.String)
+testMemberModifiers#?#4:addAttribute(java.lang.String,java.lang.String)
+test_generics_3#?#4:java.lang
+testIntegersOnly#?#6:addAttribute(java.lang.String,java.lang.String)
+test_generics_1#?#6:addAttribute(java.lang.String,java.lang.String)" shape=ellipse]
+31 [label="testLegalAbstractClassNames#?#4:checkConfig
+testTagsWithResolver#?#5:checkConfig
+testIgnoreMethodNames#?#5:checkConfig
+testIgnoreHashCodeMethod#?#6:DefaultConfiguration
+testIgnoreNone#?#6:DefaultConfiguration
+test_generics_2#?#5:checkConfig
+testTagsWithSubclassesAllowed#?#5:checkConfig
+testIgnoreSome#?#6:DefaultConfiguration
+testIgnoreNegativeOctalHex#?#7:DefaultConfiguration
+testMemberModifiers#?#4:checkConfig
+testIntegersOnly#?#6:DefaultConfiguration
+test_generics_1#?#6:checkConfig" shape=ellipse]
+32 [label="testLegalAbstractClassNames#?#4:
+testTagsWithResolver#?#5:
+testIgnoreMethodNames#?#5:
+testIgnoreHashCodeMethod#?#6:
+testIgnoreNone#?#6:
+testIgnoreOverriddenMethods#?#5:
+test_generics_2#?#5:
+testTagsWithSubclassesAllowed#?#5:
+testIgnoreSome#?#6:
+testTags#?#4:
+testIgnoreNegativeOctalHex#?#7:
+testMemberModifiers#?#4:
+test_generics_3#?#4:
+testIntegersOnly#?#6:
+test_generics_1#?#6:" shape=ellipse]
+33 [label="testLegalAbstractClassNames#?#4:String
+testTagsWithResolver#?#5:String
+testIgnoreMethodNames#?#5:String
+testIgnoreHashCodeMethod#?#6:String
+testIgnoreNone#?#6:String
+test_generics_2#?#5:String
+testTagsWithSubclassesAllowed#?#5:String
+testIgnoreSome#?#6:String
+testIgnoreNegativeOctalHex#?#7:String
+testMemberModifiers#?#4:String
+testIntegersOnly#?#6:String
+test_generics_1#?#6:String" shape=ellipse]
+34 [label="testLegalAbstractClassNames#?#4:java.lang
+testTagsWithResolver#?#5:java.lang
+testIgnoreMethodNames#?#5:java.lang
+testIgnoreHashCodeMethod#?#6:java.lang
+testIgnoreNone#?#6:java.lang
+testIgnoreOverriddenMethods#?#5:java.lang
+test_generics_2#?#5:java.lang
+testTagsWithSubclassesAllowed#?#5:java.lang
+testIgnoreSome#?#6:java.lang
+testTags#?#4:java.lang
+testIgnoreNegativeOctalHex#?#7:java.lang
+testMemberModifiers#?#4:java.lang
+test_generics_3#?#4:java.lang
+testIntegersOnly#?#6:java.lang
+test_generics_1#?#6:java.lang" shape=ellipse]
+35 [label="testLegalAbstractClassNames#?#4:String
+testTagsWithResolver#?#5:String
+testIgnoreMethodNames#?#5:String
+testIgnoreHashCodeMethod#?#6:String
+testIgnoreNone#?#6:String
+test_generics_2#?#5:String
+testTagsWithSubclassesAllowed#?#5:String
+testIgnoreSome#?#6:String
+testIgnoreNegativeOctalHex#?#7:String
+testMemberModifiers#?#4:String
+testIntegersOnly#?#6:String
+test_generics_1#?#6:String" shape=ellipse]
+36 [label="testLegalAbstractClassNames#?#4:java.lang
+testTagsWithResolver#?#5:java.lang
+testIgnoreMethodNames#?#5:java.lang
+testIgnoreHashCodeMethod#?#6:java.lang
+testIgnoreNone#?#6:java.lang
+testIgnoreOverriddenMethods#?#5:java.lang
+test_generics_2#?#5:java.lang
+testTagsWithSubclassesAllowed#?#5:java.lang
+testIgnoreSome#?#6:java.lang
+testTags#?#4:java.lang
+testIgnoreNegativeOctalHex#?#7:java.lang
+testMemberModifiers#?#4:java.lang
+test_generics_3#?#4:java.lang
+testIntegersOnly#?#6:java.lang
+test_generics_1#?#6:java.lang" shape=ellipse]
+37 [label="testLegalAbstractClassNames#?#4:\"validateAbstractClassNames\"
+testTagsWithResolver#?#5:\"validateThrows\"
+testIgnoreMethodNames#?#5:\"validateAbstractClassNames\"
+testIgnoreHashCodeMethod#?#6:\"ignoreAnnotation\"
+testIgnoreNone#?#6:\"ignoreAnnotation\"
+testIgnoreOverriddenMethods#?#5:\"true\"
+test_generics_2#?#5:\"validateThrows\"
+testTagsWithSubclassesAllowed#?#5:\"validateThrows\"
+testIgnoreSome#?#6:\"ignoreAnnotation\"
+testIgnoreNegativeOctalHex#?#7:\"ignoreAnnotation\"
+testMemberModifiers#?#4:\"validateAbstractClassNames\"
+testIntegersOnly#?#6:\"ignoreAnnotation\"
+test_generics_1#?#6:\"validateThrows\"" shape=ellipse]
+38 [label="testLegalAbstractClassNames#?#4:String
+testTagsWithResolver#?#5:String
+testIgnoreMethodNames#?#5:String
+testIgnoreHashCodeMethod#?#6:String
+testIgnoreNone#?#6:String
+testIgnoreOverriddenMethods#?#5:String
+test_generics_2#?#5:String
+testTagsWithSubclassesAllowed#?#5:String
+testIgnoreSome#?#6:String
+testTags#?#4:java.lang
+testIgnoreNegativeOctalHex#?#7:String
+testMemberModifiers#?#4:String
+test_generics_3#?#4:java.lang
+testIntegersOnly#?#6:String
+test_generics_1#?#6:String" shape=ellipse]
+39 [label="testLegalAbstractClassNames#?#4:java.lang
+testTagsWithResolver#?#5:java.lang
+testIgnoreMethodNames#?#5:java.lang
+testIgnoreHashCodeMethod#?#6:java.lang
+testIgnoreNone#?#6:java.lang
+testIgnoreOverriddenMethods#?#5:java.lang
+test_generics_2#?#5:java.lang
+testTagsWithSubclassesAllowed#?#5:java.lang
+testIgnoreSome#?#6:java.lang
+testIgnoreNegativeOctalHex#?#7:java.lang
+testMemberModifiers#?#4:java.lang
+testIntegersOnly#?#6:java.lang
+test_generics_1#?#6:java.lang" shape=ellipse]
+40 [label="testLegalAbstractClassNames#?#4:\"true\"
+testTagsWithResolver#?#5:\"true\"
+testIgnoreMethodNames#?#5:\"true\"
+testIgnoreHashCodeMethod#?#6:\"true\"
+testIgnoreNone#?#6:\"true\"
+test_generics_2#?#5:\"true\"
+testTagsWithSubclassesAllowed#?#5:\"true\"
+testIgnoreSome#?#6:\"true\"
+testIgnoreNegativeOctalHex#?#7:\"true\"
+testMemberModifiers#?#4:\"true\"
+testIntegersOnly#?#6:\"true\"
+test_generics_1#?#6:\"true\"" shape=ellipse]
+41 [label="testLegalAbstractClassNames#?#4:String
+testTagsWithResolver#?#5:String
+testIgnoreMethodNames#?#5:String
+testIgnoreHashCodeMethod#?#6:String
+testIgnoreNone#?#6:String
+test_generics_2#?#5:String
+testTagsWithSubclassesAllowed#?#5:String
+testIgnoreSome#?#6:String
+testIgnoreNegativeOctalHex#?#7:String
+testMemberModifiers#?#4:String
+testIntegersOnly#?#6:String
+test_generics_1#?#6:String" shape=ellipse]
+42 [label="testLegalAbstractClassNames#?#4:java.lang
+testTagsWithResolver#?#5:java.lang
+testIgnoreMethodNames#?#5:java.lang
+testIgnoreHashCodeMethod#?#6:java.lang
+testIgnoreNone#?#6:java.lang
+test_generics_2#?#5:java.lang
+testTagsWithSubclassesAllowed#?#5:java.lang
+testIgnoreSome#?#6:java.lang
+testIgnoreNegativeOctalHex#?#7:java.lang
+testMemberModifiers#?#4:java.lang
+testIntegersOnly#?#6:java.lang
+test_generics_1#?#6:java.lang" shape=ellipse]
+43 [label="testIgnoreHashCodeMethod#?#4:final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+44 [label="testIgnoreHashCodeMethod#?#4:createCheckConfig(MagicNumberCheck.class)
+testIgnoreNone#?#4:createCheckConfig(MagicNumberCheck.class)
+testIgnoreSome#?#4:createCheckConfig(MagicNumberCheck.class)
+testIgnoreNegativeOctalHex#?#4:createCheckConfig(MagicNumberCheck.class)
+testIntegersOnly#?#4:createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+45 [label="testIgnoreHashCodeMethod#?#4:checkConfig" shape=ellipse]
+46 [label="testIgnoreHashCodeMethod#?#4:DefaultConfiguration
+testIgnoreNone#?#4:DefaultConfiguration
+testIgnoreSome#?#4:DefaultConfiguration
+testIgnoreNegativeOctalHex#?#4:DefaultConfiguration
+testIntegersOnly#?#4:DefaultConfiguration
+test_generics_1#?#5:addAttribute(java.lang.String,java.lang.String)" shape=ellipse]
+47 [label="testIgnoreNone#?#4:final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+48 [label="testIgnoreNone#?#4:checkConfig" shape=ellipse]
+49 [label="testIgnoreOverriddenMethods#?#4:createCheckConfig(IllegalThrowsCheck.class)" shape=ellipse]
+50 [label="testIgnoreOverriddenMethods#?#6:
+testIgnoreNegativeOctalHex#?#5:checkConfig
+test_generics_1#?#5:checkConfig" shape=ellipse]
+51 [label="testIgnoreOverriddenMethods#?#8:getPath((\"coding\" + File.separator) + \"InputIllegalThrowsCheckIgnoreOverriddenMethods.java\")" shape=ellipse]
+52 [label="testIgnoreOverriddenMethods#?#10:expected" shape=ellipse]
+53 [label="testIgnoreOverriddenMethods#?#5:checkConfig.addAttribute(\"ignoreOverriddenMethods\", \"true\")" shape=ellipse]
+54 [label="testIgnoreOverriddenMethods#?#5:String[] expected = new String[]\{  \}" shape=ellipse]
+55 [label="testIgnoreOverriddenMethods#?#5:String
+testIgnoreNegativeOctalHex#?#5:addAttribute(java.lang.String,java.lang.String)" shape=ellipse]
+56 [label="testIgnoreOverriddenMethods#?#5:String" shape=ellipse]
+57 [label="testIgnoreOverriddenMethods#?#5:String" shape=ellipse]
+58 [label="testIgnoreOverriddenMethods#?#4:DefaultConfiguration" shape=ellipse]
+59 [label="testIgnoreOverriddenMethods#?#5:DefaultConfiguration" shape=ellipse]
+60 [label="testIgnoreOverriddenMethods#?#5:String[]" shape=ellipse]
+61 [label="testIgnoreOverriddenMethods#?#5:checkConfig" shape=ellipse]
+62 [label="testIgnoreOverriddenMethods#?#4:checkConfig" shape=ellipse]
+63 [label="testIgnoreSome#?#4:final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+64 [label="testIgnoreSome#?#4:checkConfig" shape=ellipse]
+65 [label="testTags#?#36:" shape=ellipse]
+66 [label="testTags#?#36:getPath(\"checks/javadoc/InputTags.java\")" shape=ellipse]
+67 [label="testTags#?#36:expected" shape=ellipse]
+68 [label="testTags#?#4:checkConfig.addAttribute(\"validateThrows\", \"true\")" shape=ellipse]
+69 [label="testTags#?#4:checkConfig" shape=ellipse]
+70 [label="testTags#?#4:checkConfig" shape=ellipse]
+71 [label="testTags#?#4:String" shape=ellipse]
+72 [label="testTags#?#4:String" shape=ellipse]
+73 [label="testTags#?#4:String" shape=ellipse]
+74 [label="testTags#?#4:String" shape=ellipse]
+75 [label="testIgnoreNegativeOctalHex#?#4:final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+76 [label="testIgnoreNegativeOctalHex#?#5:checkConfig.addAttribute(\"ignoreNumbers\", \"-9223372036854775808, -2147483648, -1, 0, 1, 2\")" shape=ellipse]
+77 [label="testIgnoreNegativeOctalHex#?#5:\"ignoreNumbers\"
+test_generics_1#?#5:\"true\"" shape=ellipse]
+78 [label="testIgnoreNegativeOctalHex#?#5:\"-9223372036854775808, -2147483648, -1, 0, 1, 2\"
+test_generics_1#?#5:\"allowUndeclaredRTE\"" shape=ellipse]
+79 [label="testIgnoreNegativeOctalHex#?#5:addAttribute
+test_generics_1#?#5:addAttribute" shape=ellipse]
+80 [label="testIgnoreNegativeOctalHex#?#4:checkConfig" shape=ellipse]
+81 [label="testMemberModifiers#?#5:\"LITERAL_PRIVATE, LITERAL_PROTECTED,\" + \" LITERAL_STATIC\"" shape=ellipse]
+82 [label="testMemberModifiers#?#22:" shape=ellipse]
+83 [label="testMemberModifiers#?#24:getPath((\"coding\" + File.separator) + \"InputIllegalTypeMemberModifiers.java\")" shape=ellipse]
+84 [label="testMemberModifiers#?#25:expected" shape=ellipse]
+85 [label="test_generics_3#?#13:" shape=ellipse]
+86 [label="test_generics_3#?#13:getPath(\"javadoc/TestGenerics.java\")" shape=ellipse]
+87 [label="test_generics_3#?#13:expected" shape=ellipse]
+88 [label="test_generics_3#?#4:checkConfig.addAttribute(\"validateThrows\", \"true\")" shape=ellipse]
+89 [label="test_generics_3#?#4:checkConfig" shape=ellipse]
+90 [label="test_generics_3#?#4:checkConfig" shape=ellipse]
+91 [label="test_generics_3#?#4:String" shape=ellipse]
+92 [label="test_generics_3#?#4:String" shape=ellipse]
+93 [label="test_generics_3#?#4:String" shape=ellipse]
+94 [label="test_generics_3#?#4:String" shape=ellipse]
+95 [label="testIntegersOnly#?#4:final DefaultConfiguration checkConfig = createCheckConfig(MagicNumberCheck.class)" shape=ellipse]
+96 [label="testIntegersOnly#?#4:checkConfig" shape=ellipse]
+97 [label="test_generics_1#?#5:checkConfig.addAttribute(\"allowUndeclaredRTE\", \"true\")" shape=ellipse]
+0 -> 24 [label="Action:12"];
+0 -> 53 [label="Action:1"];
+0 -> 68 [label="Action:1"];
+0 -> 88 [label="Action:1"];
+1 -> 0 [label="Action:15"];
+1 -> 7 [label="AST:15"];
+1 -> 13 [label="AST:15"];
+1 -> 17 [label="AST:12"];
+1 -> 43 [label="AST:1"];
+1 -> 47 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+1 -> 63 [label="AST:1"];
+1 -> 75 [label="AST:1"];
+1 -> 76 [label="AST:1"];
+1 -> 95 [label="AST:1"];
+1 -> 97 [label="AST:1"];
+2 -> 1 [label="AST:15"];
+2 -> 3 [label="AST:15"];
+2 -> 4 [label="AST:15"];
+2 -> 5 [label="AST:15"];
+2 -> 6 [label="AST:15"];
+7 -> 8 [label="AST:15"];
+7 -> 9 [label="AST:15"];
+7 -> 10 [label="AST:15"];
+7 -> 11 [label="AST:11"];
+7 -> 12 [label="AST:11"];
+7 -> 50 [label="AST:1"];
+7 -> 51 [label="AST:1"];
+7 -> 52 [label="AST:1"];
+7 -> 65 [label="AST:1"];
+7 -> 66 [label="AST:1"];
+7 -> 67 [label="AST:1"];
+7 -> 82 [label="AST:1"];
+7 -> 83 [label="AST:1"];
+7 -> 84 [label="AST:1"];
+7 -> 85 [label="AST:1"];
+7 -> 86 [label="AST:1"];
+7 -> 87 [label="AST:1"];
+13 -> 14 [label="AST:14"];
+13 -> 15 [label="AST:14"];
+13 -> 16 [label="AST:14"];
+13 -> 49 [label="AST:1"];
+13 -> 58 [label="AST:1"];
+13 -> 62 [label="AST:1"];
+14 -> 23 [label="Define Use:11"];
+14 -> 67 [label="Define Use:1"];
+14 -> 84 [label="Define Use:1"];
+14 -> 87 [label="Define Use:1"];
+17 -> 18 [label="AST:12"];
+17 -> 19 [label="AST:12"];
+17 -> 20 [label="AST:12"];
+17 -> 21 [label="AST:12"];
+17 -> 22 [label="AST:11"];
+17 -> 23 [label="AST:11"];
+17 -> 81 [label="AST:1"];
+19 -> 52 [label="Define Use:1"];
+19 -> 69 [label="AST:1"];
+19 -> 89 [label="AST:1"];
+20 -> 55 [label="AST:1"];
+20 -> 56 [label="AST:1"];
+20 -> 59 [label="AST:1"];
+20 -> 70 [label="AST:1"];
+20 -> 71 [label="AST:1"];
+20 -> 72 [label="AST:1"];
+20 -> 90 [label="AST:1"];
+20 -> 91 [label="AST:1"];
+20 -> 92 [label="AST:1"];
+21 -> 57 [label="AST:1"];
+21 -> 73 [label="AST:1"];
+21 -> 93 [label="AST:1"];
+23 -> 61 [label="AST:1"];
+24 -> 25 [label="AST:12"];
+24 -> 26 [label="AST:12"];
+24 -> 30 [label="AST:12"];
+24 -> 37 [label="AST:12"];
+24 -> 40 [label="AST:12"];
+26 -> 27 [label="AST:12"];
+26 -> 74 [label="AST:1"];
+26 -> 94 [label="AST:1"];
+27 -> 28 [label="AST:12"];
+28 -> 29 [label="AST:15"];
+30 -> 31 [label="AST:12"];
+30 -> 33 [label="AST:12"];
+30 -> 35 [label="AST:12"];
+31 -> 32 [label="AST:12"];
+33 -> 34 [label="AST:12"];
+35 -> 36 [label="AST:12"];
+37 -> 38 [label="AST:13"];
+38 -> 39 [label="AST:13"];
+40 -> 41 [label="AST:12"];
+41 -> 42 [label="AST:12"];
+43 -> 45 [label="AST:1"];
+43 -> 46 [label="AST:1"];
+43 -> 44 [label="AST:1"];
+45 -> 9 [label="Define Use:1"];
+45 -> 21 [label="Define Use:1"];
+47 -> 48 [label="AST:1"];
+47 -> 46 [label="AST:1"];
+47 -> 44 [label="AST:1"];
+48 -> 9 [label="Define Use:1"];
+48 -> 21 [label="Define Use:1"];
+53 -> 18 [label="AST:1"];
+53 -> 23 [label="AST:1"];
+53 -> 20 [label="AST:1"];
+53 -> 21 [label="AST:1"];
+53 -> 37 [label="AST:1"];
+54 -> 19 [label="AST:1"];
+54 -> 60 [label="AST:1"];
+54 -> 26 [label="AST:1"];
+55 -> 30 [label="AST:1"];
+56 -> 34 [label="AST:1"];
+57 -> 36 [label="AST:1"];
+59 -> 32 [label="AST:1"];
+61 -> 28 [label="AST:1"];
+62 -> 9 [label="Define Use:1"];
+63 -> 64 [label="AST:1"];
+63 -> 46 [label="AST:1"];
+63 -> 44 [label="AST:1"];
+64 -> 9 [label="Define Use:1"];
+64 -> 21 [label="Define Use:1"];
+68 -> 18 [label="AST:1"];
+68 -> 19 [label="AST:1"];
+68 -> 20 [label="AST:1"];
+68 -> 21 [label="AST:1"];
+68 -> 26 [label="AST:1"];
+69 -> 28 [label="AST:1"];
+70 -> 32 [label="AST:1"];
+71 -> 30 [label="AST:1"];
+72 -> 34 [label="AST:1"];
+73 -> 36 [label="AST:1"];
+74 -> 38 [label="AST:1"];
+75 -> 80 [label="AST:1"];
+75 -> 46 [label="AST:1"];
+75 -> 44 [label="AST:1"];
+76 -> 79 [label="AST:1"];
+76 -> 50 [label="AST:1"];
+76 -> 55 [label="AST:1"];
+76 -> 77 [label="AST:1"];
+76 -> 78 [label="AST:1"];
+80 -> 50 [label="Define Use:1"];
+80 -> 9 [label="Define Use:1"];
+80 -> 21 [label="Define Use:1"];
+88 -> 18 [label="AST:1"];
+88 -> 19 [label="AST:1"];
+88 -> 20 [label="AST:1"];
+88 -> 21 [label="AST:1"];
+88 -> 26 [label="AST:1"];
+89 -> 28 [label="AST:1"];
+90 -> 32 [label="AST:1"];
+91 -> 30 [label="AST:1"];
+92 -> 34 [label="AST:1"];
+93 -> 36 [label="AST:1"];
+94 -> 38 [label="AST:1"];
+95 -> 96 [label="AST:1"];
+95 -> 46 [label="AST:1"];
+95 -> 44 [label="AST:1"];
+96 -> 9 [label="Define Use:1"];
+96 -> 21 [label="Define Use:1"];
+97 -> 79 [label="AST:1"];
+97 -> 50 [label="AST:1"];
+97 -> 46 [label="AST:1"];
+97 -> 78 [label="AST:1"];
+97 -> 77 [label="AST:1"];
+}

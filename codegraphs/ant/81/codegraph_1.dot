@@ -1,0 +1,55 @@
+digraph "addError#?,Test,Throwable" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@addError" shape=ellipse]
+2 [label="2:CtParameterImpl@Test test" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Test" shape=ellipse]
+4 [label="2:CtParameterImpl@Throwable t" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@Throwable" shape=ellipse]
+6 [label="3:CtFieldReadImpl@haltOnError" shape=ellipse]
+7 [label="4:CtExecutableReferenceImpl@stop()" shape=ellipse]
+8 [label="4:CtVirtualElement@stop" shape=ellipse]
+9 [label="4:CtFieldReadImpl@res" shape=ellipse]
+10 [label="4:CtInvocationImpl@res.stop()" shape=ellipse]
+11 [label="3:CtBlockImpl@\{
+    res.stop();
+\}" shape=ellipse]
+12 [label="3:CtIfImpl@if (haltOnError) \{
+    res.stop();
+\}" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    if (haltOnError) \{
+        res.stop();
+    \}
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public void addError(Test test, Throwable t) \{
+    if (haltOnError) \{
+        res.stop();
+    \}
+\}" shape=ellipse]
+15 [label="3:Insert@INSERT" shape=ellipse]
+16 [label="3:CtLocalVariableImpl@String testName = JUnitVersionHelper.getTestCaseName(test)" shape=ellipse]
+17 [label="4:Insert@INSERT" shape=ellipse]
+18 [label="4:CtInvocationImpl@logTestListenerEvent((((\"addError(\" + testName) + \", \") + t.getMessage()) + \")\")" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 11 [label="Control Dep"];
+6 -> 10 [label="Control Dep"];
+6 -> 7 [label="Control Dep"];
+6 -> 9 [label="Control Dep"];
+10 -> 8 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 6 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 4 [label="AST"];
+14 -> 13 [label="AST"];
+14 -> 15 [label="Action"];
+14 -> 17 [label="Action"];
+15 -> 16 [label="Action"];
+17 -> 18 [label="Action"];
+}

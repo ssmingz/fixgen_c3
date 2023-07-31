@@ -1,0 +1,52 @@
+digraph "Pattern" {
+0 [label="testSetters#?#13:UPDATE
+testExtensions#?#10:UPDATE" shape=ellipse]
+1 [label="testSetters#?#13:null
+testExtensions#?#10:null" shape=ellipse]
+2 [label="testSetters#?#13:c.setFileExtensions(null)
+testExtensions#?#10:check.setFileExtensions(null)" shape=ellipse]
+3 [label="testSetters#?#3:\{
+    final Checker c = new Checker();
+    c.setClassLoader(this.getClass().getClassLoader());
+    c.setClassloader(this.getClass().getClassLoader());
+    c.setBasedir(\"some\");
+    c.setSeverity(\"ignore\");
+    PackageObjectFactory factory = new PackageObjectFactory(new HashSet<String>(), Thread.currentThread().getContextClassLoader());
+    c.setModuleFactory(factory);
+    c.setFileExtensions(null);
+    c.setFileExtensions(new String[]\{ \".java\", \"xml\" \});
+    try \{
+        c.setCharset(\"UNKNOW-CHARSET\");
+        fail(\"Exception is expected\");
+    \} catch (UnsupportedEncodingException ex) \{
+        assertEquals(\"unsupported charset: 'UNKNOW-CHARSET'\", ex.getMessage());
+    \}
+\}
+testExtensions#?#9:\{
+    check.setFileExtensions(null);
+    fail();
+\}" shape=ellipse]
+4 [label="testSetters#?#13:setFileExtensions
+testExtensions#?#10:setFileExtensions" shape=ellipse]
+5 [label="testSetters#?#13:c
+testExtensions#?#10:check" shape=ellipse]
+6 [label="testSetters#?#13:setFileExtensions(<unknown>)
+testExtensions#?#10:setFileExtensions(<unknown>)" shape=ellipse]
+7 [label="testSetters#?#13:<nulltype>
+testExtensions#?#10:<nulltype>" shape=ellipse]
+8 [label="testSetters#?#13:String[]
+testExtensions#?#10:String[]" shape=ellipse]
+9 [label="testSetters#?#13:String
+testExtensions#?#10:String" shape=ellipse]
+10 [label="testSetters#?#13:java.lang
+testExtensions#?#10:java.lang" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+9 -> 10 [label="AST:2"];
+}

@@ -1,0 +1,37 @@
+digraph "resolveFile#?,String" {
+0 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+1 [label="2:CtVirtualElement@resolveFile" shape=ellipse]
+2 [label="2:CtParameterImpl@String fileName" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@resolveFile(java.lang.String)" shape=ellipse]
+5 [label="3:CtVirtualElement@resolveFile" shape=ellipse]
+6 [label="3:CtFieldReadImpl@fileUtils" shape=ellipse]
+7 [label="3:CtFieldReadImpl@baseDir" shape=ellipse]
+8 [label="3:CtVariableReadImpl@fileName" shape=ellipse]
+9 [label="3:CtInvocationImpl@fileUtils.resolveFile(baseDir, fileName)" shape=ellipse]
+10 [label="3:CtReturnImpl@return fileUtils.resolveFile(baseDir, fileName)" shape=ellipse]
+11 [label="2:CtBlockImpl@\{
+    return fileUtils.resolveFile(baseDir, fileName);
+\}" shape=ellipse]
+12 [label="2:CtMethodImpl@public File resolveFile(String fileName) \{
+    return fileUtils.resolveFile(baseDir, fileName);
+\}" shape=ellipse]
+13 [label="3:Delete@DELETE" shape=ellipse]
+14 [label="3:Insert@INSERT" shape=ellipse]
+15 [label="3:CtTypeAccessImpl@FILE_UTILS" shape=ellipse]
+2 -> 3 [label="AST"];
+6 -> 13 [label="Action"];
+9 -> 5 [label="AST"];
+9 -> 6 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 14 [label="Action"];
+10 -> 9 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 1 [label="AST"];
+12 -> 0 [label="AST"];
+12 -> 2 [label="AST"];
+12 -> 11 [label="AST"];
+14 -> 15 [label="Action"];
+}

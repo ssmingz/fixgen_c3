@@ -1,0 +1,50 @@
+digraph "Pattern" {
+0 [label="setUp#?#4:UPDATE
+setUp#?#4:UPDATE
+setUp#?#4:UPDATE" shape=ellipse]
+1 [label="setUp#?#4:project
+setUp#?#4:project
+setUp#?#4:project" shape=ellipse]
+2 [label="setUp#?#4:project.executeTarget(\"setUp\")
+setUp#?#4:project.executeTarget(\"setUp\")
+setUp#?#4:project.executeTarget(\"setUp\")" shape=ellipse]
+3 [label="setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/java.xml\");
+    project.executeTarget(\"setUp\");
+    String runFatal = System.getProperty(\"junit.run.fatal.tests\");
+    if (runFatal != null) \{
+        runFatalTests = true;
+    \}
+\}
+setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/property.xml\");
+    project.executeTarget(\"setUp\");
+\}
+setUp#?#2:\{
+    configureProject(\"src/etc/testcases/taskdefs/move.xml\");
+    project.executeTarget(\"setUp\");
+\}" shape=ellipse]
+4 [label="setUp#?#4:executeTarget
+setUp#?#4:executeTarget
+setUp#?#4:executeTarget" shape=ellipse]
+5 [label="setUp#?#4:executeTarget(java.lang.String)
+setUp#?#4:executeTarget(java.lang.String)
+setUp#?#4:executeTarget(java.lang.String)" shape=ellipse]
+6 [label="setUp#?#4:\"setUp\"
+setUp#?#4:\"setUp\"
+setUp#?#4:\"setUp\"" shape=ellipse]
+7 [label="setUp#?#-1:project
+setUp#?#-1:project
+setUp#?#-1:project" shape=ellipse]
+8 [label="setUp#?#5:buildRule
+setUp#?#5:buildRule
+setUp#?#5:buildRule" shape=ellipse]
+0 -> 8 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+3 -> 2 [label="AST:3"];
+}

@@ -1,0 +1,380 @@
+digraph "Pattern" {
+0 [label="setUp#?#8:INSERT
+testWhitespaceOff#?#4:INSERT
+testWhitespaceCastParenOff#?#4:INSERT" shape=ellipse]
+1 [label="setUp#?#2:\{
+    mConfig.setHeaderFile(getPath(\"java.header\"));
+    mConfig.setLeftCurlyOptionProperty(LCURLY_METHOD_PROP, NL);
+    mConfig.setLeftCurlyOptionProperty(LCURLY_OTHER_PROP, NLOW);
+    mConfig.setLeftCurlyOptionProperty(LCURLY_TYPE_PROP, NL);
+    mConfig.setRCurly(ALONE);
+    mConfig.setStringProperty(LOCALE_COUNTRY_PROP, ENGLISH.getCountry());
+    mConfig.setStringProperty(LOCALE_LANGUAGE_PROP, ENGLISH.getLanguage());
+\}
+testWhitespaceOff#?#2:\{
+    mConfig.setBooleanProperty(IGNORE_WHITESPACE_PROP, true);
+    mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE);
+    mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceCastParenOff#?#2:\{
+    mConfig.setBooleanProperty(IGNORE_CAST_WHITESPACE_PROP, true);
+    mConfig.setParenPadOption(IGNORE);
+    mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE);
+    mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":39:12: '\{' is not preceeded with whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":41:34: '\{' is not preceeded with whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+2 [label="setUp#?#2:protected void setUp() throws Exception \{
+    mConfig.setHeaderFile(getPath(\"java.header\"));
+    mConfig.setLeftCurlyOptionProperty(LCURLY_METHOD_PROP, NL);
+    mConfig.setLeftCurlyOptionProperty(LCURLY_OTHER_PROP, NLOW);
+    mConfig.setLeftCurlyOptionProperty(LCURLY_TYPE_PROP, NL);
+    mConfig.setRCurly(ALONE);
+    mConfig.setStringProperty(LOCALE_COUNTRY_PROP, ENGLISH.getCountry());
+    mConfig.setStringProperty(LOCALE_LANGUAGE_PROP, ENGLISH.getLanguage());
+\}
+testWhitespaceOff#?#2:public void testWhitespaceOff() throws Exception \{
+    mConfig.setBooleanProperty(IGNORE_WHITESPACE_PROP, true);
+    mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE);
+    mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \};
+    verify(c, filepath, expected);
+\}
+testWhitespaceCastParenOff#?#2:public void testWhitespaceCastParenOff() throws Exception \{
+    mConfig.setBooleanProperty(IGNORE_CAST_WHITESPACE_PROP, true);
+    mConfig.setParenPadOption(IGNORE);
+    mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE);
+    mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE);
+    final Checker c = createChecker();
+    final String filepath = getPath(\"InputWhitespace.java\");
+    assertNotNull(c);
+    final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":39:12: '\{' is not preceeded with whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":41:34: '\{' is not preceeded with whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \};
+    verify(c, filepath, expected);
+\}" shape=ellipse]
+3 [label="setUp#?#2:setUp
+testWhitespaceOff#?#2:testWhitespaceOff
+testWhitespaceCastParenOff#?#2:testWhitespaceCastParenOff" shape=ellipse]
+4 [label="setUp#?#2:void
+testWhitespaceOff#?#2:void
+testWhitespaceCastParenOff#?#2:void" shape=ellipse]
+5 [label="setUp#?#2:Exception
+testWhitespaceOff#?#2:Exception
+testWhitespaceCastParenOff#?#2:Exception" shape=ellipse]
+6 [label="setUp#?#3:mConfig.setHeaderFile(getPath(\"java.header\"))
+testWhitespaceOff#?#3:mConfig.setBooleanProperty(IGNORE_WHITESPACE_PROP, true)
+testWhitespaceCastParenOff#?#4:mConfig.setParenPadOption(IGNORE)" shape=ellipse]
+7 [label="setUp#?#3:setHeaderFile
+testWhitespaceOff#?#3:setBooleanProperty
+testWhitespaceCastParenOff#?#4:setParenPadOption" shape=ellipse]
+8 [label="setUp#?#3:mConfig
+testWhitespaceOff#?#3:mConfig
+testWhitespaceCastParenOff#?#4:mConfig" shape=ellipse]
+9 [label="setUp#?#3:setHeaderFile()
+testWhitespaceOff#?#3:setBooleanProperty(boolean)
+testWhitespaceCastParenOff#?#4:setParenPadOption()" shape=ellipse]
+10 [label="setUp#?#3:getPath(\"java.header\")" shape=ellipse]
+11 [label="setUp#?#4:mConfig.setLeftCurlyOptionProperty(LCURLY_METHOD_PROP, NL)
+testWhitespaceOff#?#4:mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE)
+testWhitespaceCastParenOff#?#5:mConfig.setBlockOptionProperty(TRY_BLOCK_PROP, IGNORE)" shape=ellipse]
+12 [label="setUp#?#4:setLeftCurlyOptionProperty
+testWhitespaceOff#?#4:setBlockOptionProperty
+testWhitespaceCastParenOff#?#5:setBlockOptionProperty" shape=ellipse]
+13 [label="setUp#?#4:mConfig
+testWhitespaceOff#?#4:mConfig
+testWhitespaceCastParenOff#?#5:mConfig" shape=ellipse]
+14 [label="setUp#?#4:setLeftCurlyOptionProperty()
+testWhitespaceOff#?#4:setBlockOptionProperty()
+testWhitespaceCastParenOff#?#5:setBlockOptionProperty()" shape=ellipse]
+15 [label="setUp#?#4:LCURLY_METHOD_PROP
+testWhitespaceOff#?#4:TRY_BLOCK_PROP
+testWhitespaceCastParenOff#?#5:TRY_BLOCK_PROP" shape=ellipse]
+16 [label="setUp#?#4:NL
+testWhitespaceOff#?#4:IGNORE
+testWhitespaceCastParenOff#?#5:IGNORE" shape=ellipse]
+17 [label="setUp#?#5:mConfig.setLeftCurlyOptionProperty(LCURLY_OTHER_PROP, NLOW)
+testWhitespaceOff#?#5:mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE)
+testWhitespaceCastParenOff#?#3:mConfig.setBooleanProperty(IGNORE_CAST_WHITESPACE_PROP, true)" shape=ellipse]
+18 [label="setUp#?#5:setLeftCurlyOptionProperty
+testWhitespaceOff#?#5:setBlockOptionProperty
+testWhitespaceCastParenOff#?#3:setBooleanProperty" shape=ellipse]
+19 [label="setUp#?#5:mConfig
+testWhitespaceOff#?#5:mConfig
+testWhitespaceCastParenOff#?#3:mConfig" shape=ellipse]
+20 [label="setUp#?#5:setLeftCurlyOptionProperty()
+testWhitespaceOff#?#5:setBlockOptionProperty()
+testWhitespaceCastParenOff#?#3:setBooleanProperty(boolean)" shape=ellipse]
+21 [label="setUp#?#5:LCURLY_OTHER_PROP
+testWhitespaceOff#?#5:CATCH_BLOCK_PROP
+testWhitespaceCastParenOff#?#3:IGNORE_CAST_WHITESPACE_PROP" shape=ellipse]
+22 [label="setUp#?#5:NLOW
+testWhitespaceOff#?#5:IGNORE" shape=ellipse]
+23 [label="setUp#?#6:mConfig.setLeftCurlyOptionProperty(LCURLY_TYPE_PROP, NL)
+testWhitespaceOff#?#8:assertNotNull(c)
+testWhitespaceCastParenOff#?#6:mConfig.setBlockOptionProperty(CATCH_BLOCK_PROP, IGNORE)" shape=ellipse]
+24 [label="setUp#?#6:setLeftCurlyOptionProperty
+testWhitespaceOff#?#8:assertNotNull
+testWhitespaceCastParenOff#?#6:setBlockOptionProperty" shape=ellipse]
+25 [label="setUp#?#6:mConfig
+testWhitespaceOff#?#8:
+testWhitespaceCastParenOff#?#6:mConfig" shape=ellipse]
+26 [label="setUp#?#6:setLeftCurlyOptionProperty()
+testWhitespaceOff#?#8:assertNotNull(<unknown>)
+testWhitespaceCastParenOff#?#6:setBlockOptionProperty()" shape=ellipse]
+27 [label="setUp#?#6:LCURLY_TYPE_PROP
+testWhitespaceCastParenOff#?#6:CATCH_BLOCK_PROP" shape=ellipse]
+28 [label="setUp#?#6:NL
+testWhitespaceCastParenOff#?#6:IGNORE" shape=ellipse]
+29 [label="setUp#?#7:mConfig.setRCurly(ALONE)
+testWhitespaceOff#?#17:verify(c, filepath, expected)
+testWhitespaceCastParenOff#?#9:assertNotNull(c)" shape=ellipse]
+30 [label="setUp#?#7:setRCurly
+testWhitespaceOff#?#17:verify
+testWhitespaceCastParenOff#?#9:assertNotNull" shape=ellipse]
+31 [label="setUp#?#7:mConfig
+testWhitespaceOff#?#17:filepath
+testWhitespaceCastParenOff#?#9:" shape=ellipse]
+32 [label="setUp#?#7:setRCurly()
+testWhitespaceOff#?#17:verify(<unknown>,java.lang.String,java.lang.String[])
+testWhitespaceCastParenOff#?#9:assertNotNull(<unknown>)" shape=ellipse]
+33 [label="setUp#?#7:ALONE" shape=ellipse]
+34 [label="setUp#?#8:mConfig.setStringProperty(LOCALE_COUNTRY_PROP, ENGLISH.getCountry())
+testWhitespaceCastParenOff#?#67:verify(c, filepath, expected)" shape=ellipse]
+35 [label="setUp#?#8:setStringProperty
+testWhitespaceOff#?#4:setBooleanProperty
+testWhitespaceCastParenOff#?#67:verify" shape=ellipse]
+36 [label="setUp#?#8:mConfig
+testWhitespaceOff#?#4:mConfig
+testWhitespaceCastParenOff#?#67:filepath" shape=ellipse]
+37 [label="setUp#?#8:setStringProperty()
+testWhitespaceOff#?#4:setBooleanProperty(boolean)
+testWhitespaceCastParenOff#?#67:verify(<unknown>,java.lang.String,java.lang.String[])" shape=ellipse]
+38 [label="setUp#?#8:LOCALE_COUNTRY_PROP
+testWhitespaceOff#?#4:ALLOW_NO_AUTHOR_PROP" shape=ellipse]
+39 [label="setUp#?#8:ENGLISH.getCountry()
+testWhitespaceOff#?#7:getPath(\"InputWhitespace.java\")" shape=ellipse]
+40 [label="setUp#?#9:mConfig.setStringProperty(LOCALE_LANGUAGE_PROP, ENGLISH.getLanguage())" shape=ellipse]
+41 [label="setUp#?#9:setStringProperty
+testWhitespaceCastParenOff#?#4:setBooleanProperty" shape=ellipse]
+42 [label="setUp#?#9:mConfig
+testWhitespaceOff#?#10:new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \}
+testWhitespaceCastParenOff#?#4:mConfig" shape=ellipse]
+43 [label="setUp#?#9:setStringProperty()
+testWhitespaceOff#?#7:String
+testWhitespaceCastParenOff#?#4:setBooleanProperty(boolean)" shape=ellipse]
+44 [label="setUp#?#9:LOCALE_LANGUAGE_PROP
+testWhitespaceCastParenOff#?#4:ALLOW_NO_AUTHOR_PROP" shape=ellipse]
+45 [label="setUp#?#9:ENGLISH.getLanguage()
+testWhitespaceOff#?#6:createChecker()
+testWhitespaceCastParenOff#?#8:getPath(\"InputWhitespace.java\")" shape=ellipse]
+46 [label="setUp#?#8:mConfig.setBooleanProperty(ALLOW_NO_AUTHOR_PROP, true)" shape=ellipse]
+47 [label="setUp#?#8:setBooleanProperty" shape=ellipse]
+48 [label="setUp#?#8:mConfig
+testWhitespaceOff#?#4:false
+testWhitespaceCastParenOff#?#11:new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":39:12: '\{' is not preceeded with whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":41:34: '\{' is not preceeded with whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \}" shape=ellipse]
+49 [label="setUp#?#8:mConfig" shape=ellipse]
+50 [label="setUp#?#8:PlaceHold
+testWhitespaceOff#?#4:PlaceHold
+testWhitespaceCastParenOff#?#4:PlaceHold" shape=ellipse]
+51 [label="setUp#?#8:
+testWhitespaceOff#?#4:
+testWhitespaceCastParenOff#?#4:" shape=ellipse]
+52 [label="setUp#?#8:setBooleanProperty(boolean)
+testWhitespaceOff#?#6:Checker
+testWhitespaceCastParenOff#?#4:boolean" shape=ellipse]
+53 [label="setUp#?#8:mConfig" shape=ellipse]
+54 [label="setUp#?#8:
+testWhitespaceOff#?#4:
+testWhitespaceCastParenOff#?#4:" shape=ellipse]
+55 [label="setUp#?#8:boolean" shape=ellipse]
+56 [label="setUp#?#8:ALLOW_NO_AUTHOR_PROP" shape=ellipse]
+57 [label="setUp#?#8:ALLOW_NO_AUTHOR_PROP
+testWhitespaceOff#?#4:
+testWhitespaceCastParenOff#?#7:Checker" shape=ellipse]
+58 [label="setUp#?#8:" shape=ellipse]
+59 [label="setUp#?#8:true" shape=ellipse]
+60 [label="setUp#?#8:boolean
+testWhitespaceCastParenOff#?#8:String" shape=ellipse]
+61 [label="testWhitespaceOff#?#3:IGNORE_WHITESPACE_PROP" shape=ellipse]
+62 [label="testWhitespaceOff#?#3:true" shape=ellipse]
+63 [label="testWhitespaceOff#?#8:c" shape=ellipse]
+64 [label="testWhitespaceOff#?#17:" shape=ellipse]
+65 [label="testWhitespaceOff#?#17:c" shape=ellipse]
+66 [label="testWhitespaceOff#?#17:expected" shape=ellipse]
+67 [label="testWhitespaceOff#?#4:mConfig.setBooleanProperty(ALLOW_NO_AUTHOR_PROP, false)
+testWhitespaceCastParenOff#?#7:createChecker()" shape=ellipse]
+68 [label="testWhitespaceOff#?#6:final Checker c = createChecker()" shape=ellipse]
+69 [label="testWhitespaceOff#?#6:c" shape=ellipse]
+70 [label="testWhitespaceOff#?#9:expected" shape=ellipse]
+71 [label="testWhitespaceOff#?#9:final String[] expected = new String[]\{ filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":79:9: '\{' should be on the previous line.\" \}" shape=ellipse]
+72 [label="testWhitespaceOff#?#9:String[]
+testWhitespaceCastParenOff#?#10:String[]" shape=ellipse]
+73 [label="testWhitespaceOff#?#4:boolean
+testWhitespaceCastParenOff#?#4:" shape=ellipse]
+74 [label="testWhitespaceOff#?#4:boolean" shape=ellipse]
+75 [label="testWhitespaceOff#?#7:filepath" shape=ellipse]
+76 [label="testWhitespaceOff#?#7:final String filepath = getPath(\"InputWhitespace.java\")" shape=ellipse]
+77 [label="testWhitespaceOff#?#4:mConfig" shape=ellipse]
+78 [label="testWhitespaceOff#?#4:mConfig" shape=ellipse]
+79 [label="testWhitespaceOff#?#4:ALLOW_NO_AUTHOR_PROP" shape=ellipse]
+80 [label="testWhitespaceCastParenOff#?#3:true" shape=ellipse]
+81 [label="testWhitespaceCastParenOff#?#4:IGNORE" shape=ellipse]
+82 [label="testWhitespaceCastParenOff#?#9:c" shape=ellipse]
+83 [label="testWhitespaceCastParenOff#?#67:" shape=ellipse]
+84 [label="testWhitespaceCastParenOff#?#67:c" shape=ellipse]
+85 [label="testWhitespaceCastParenOff#?#67:expected" shape=ellipse]
+86 [label="testWhitespaceCastParenOff#?#4:mConfig.setBooleanProperty(ALLOW_NO_AUTHOR_PROP, false)" shape=ellipse]
+87 [label="testWhitespaceCastParenOff#?#4:false" shape=ellipse]
+88 [label="testWhitespaceCastParenOff#?#7:final Checker c = createChecker()" shape=ellipse]
+89 [label="testWhitespaceCastParenOff#?#7:c" shape=ellipse]
+90 [label="testWhitespaceCastParenOff#?#10:expected" shape=ellipse]
+91 [label="testWhitespaceCastParenOff#?#10:final String[] expected = new String[]\{ filepath + \":5:12: '.' is preceeded with whitespace.\", filepath + \":5:14: '.' is followed by whitespace.\", filepath + \":13: type Javadoc comment is missing an @author tag.\", filepath + \":16:22: '=' is not preceeded with whitespace.\", filepath + \":16:23: '=' is not followed by whitespace.\", filepath + \":18:24: '=' is not followed by whitespace.\", filepath + \":26:14: '=' is not preceeded with whitespace.\", filepath + \":27:10: '=' is not preceeded with whitespace.\", filepath + \":27:11: '=' is not followed by whitespace.\", filepath + \":28:10: '+=' is not preceeded with whitespace.\", filepath + \":28:12: '+=' is not followed by whitespace.\", filepath + \":29:13: '-=' is not followed by whitespace.\", filepath + \":29:14: '-' is followed by whitespace.\", filepath + \":29:21: '+' is followed by whitespace.\", filepath + \":30:14: '++' is preceeded with whitespace.\", filepath + \":30:21: '--' is preceeded with whitespace.\", filepath + \":31:15: '++' is followed by whitespace.\", filepath + \":31:22: '--' is followed by whitespace.\", filepath + \":37:21: 'synchronized' is not followed by whitespace.\", filepath + \":39:12: 'try' is not followed by whitespace.\", filepath + \":39:12: '\{' is not preceeded with whitespace.\", filepath + \":41:14: 'catch' is not followed by whitespace.\", filepath + \":41:34: '\{' is not preceeded with whitespace.\", filepath + \":58:11: 'if' is not followed by whitespace.\", filepath + \":59:9: '\{' should be on the previous line.\", filepath + \":63:9: '\{' should be on the previous line.\", filepath + \":75:9: '\{' should be on the previous line.\", filepath + \":76:19: 'return' is not followed by whitespace.\", filepath + \":79:9: '\{' should be on the previous line.\", filepath + \":97:29: '?' is not preceeded with whitespace.\", filepath + \":97:30: '?' is not followed by whitespace.\", filepath + \":97:34: ':' is not preceeded with whitespace.\", filepath + \":97:35: ':' is not followed by whitespace.\", filepath + \":98:15: '==' is not preceeded with whitespace.\", filepath + \":98:17: '==' is not followed by whitespace.\", filepath + \":104:20: '*' is not followed by whitespace.\", filepath + \":104:21: '*' is not preceeded with whitespace.\", filepath + \":111:22: '!' is followed by whitespace.\", filepath + \":112:23: '~' is followed by whitespace.\", filepath + \":119:18: '%' is not preceeded with whitespace.\", filepath + \":120:20: '%' is not followed by whitespace.\", filepath + \":121:18: '%' is not preceeded with whitespace.\", filepath + \":121:19: '%' is not followed by whitespace.\", filepath + \":123:18: '/' is not preceeded with whitespace.\", filepath + \":124:20: '/' is not followed by whitespace.\", filepath + \":125:18: '/' is not preceeded with whitespace.\", filepath + \":125:19: '/' is not followed by whitespace.\", filepath + \":129:17: '.' is preceeded with whitespace.\", filepath + \":129:24: '.' is followed by whitespace.\", filepath + \":136:10: '.' is preceeded with whitespace.\", filepath + \":136:12: '.' is followed by whitespace.\", filepath + \":153:15: 'assert' is not followed by whitespace.\", filepath + \":156:20: ':' is not preceeded with whitespace.\", filepath + \":156:21: ':' is not followed by whitespace.\" \}" shape=ellipse]
+92 [label="testWhitespaceCastParenOff#?#4:boolean" shape=ellipse]
+93 [label="testWhitespaceCastParenOff#?#8:filepath" shape=ellipse]
+94 [label="testWhitespaceCastParenOff#?#8:final String filepath = getPath(\"InputWhitespace.java\")" shape=ellipse]
+95 [label="testWhitespaceCastParenOff#?#4:mConfig" shape=ellipse]
+96 [label="testWhitespaceCastParenOff#?#4:mConfig" shape=ellipse]
+97 [label="testWhitespaceCastParenOff#?#4:ALLOW_NO_AUTHOR_PROP" shape=ellipse]
+0 -> 46 [label="Action:1"];
+0 -> 67 [label="Action:1"];
+0 -> 86 [label="Action:1"];
+1 -> 0 [label="Action:3"];
+1 -> 6 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 17 [label="AST:3"];
+1 -> 23 [label="AST:3"];
+1 -> 29 [label="AST:3"];
+1 -> 34 [label="AST:2"];
+1 -> 40 [label="AST:1"];
+1 -> 68 [label="AST:1"];
+1 -> 71 [label="AST:1"];
+1 -> 76 [label="AST:1"];
+1 -> 88 [label="AST:1"];
+1 -> 91 [label="AST:1"];
+1 -> 94 [label="AST:1"];
+2 -> 1 [label="AST:3"];
+2 -> 3 [label="AST:3"];
+2 -> 4 [label="AST:3"];
+2 -> 5 [label="AST:3"];
+6 -> 7 [label="AST:3"];
+6 -> 8 [label="AST:3"];
+6 -> 9 [label="AST:3"];
+6 -> 10 [label="AST:1"];
+6 -> 61 [label="AST:1"];
+6 -> 62 [label="AST:1"];
+6 -> 81 [label="AST:1"];
+11 -> 12 [label="AST:3"];
+11 -> 13 [label="AST:3"];
+11 -> 14 [label="AST:3"];
+11 -> 15 [label="AST:3"];
+11 -> 16 [label="AST:3"];
+17 -> 18 [label="AST:3"];
+17 -> 19 [label="AST:3"];
+17 -> 20 [label="AST:3"];
+17 -> 21 [label="AST:3"];
+17 -> 22 [label="AST:2"];
+17 -> 80 [label="AST:1"];
+23 -> 24 [label="AST:3"];
+23 -> 25 [label="AST:3"];
+23 -> 26 [label="AST:3"];
+23 -> 27 [label="AST:2"];
+23 -> 28 [label="AST:2"];
+23 -> 63 [label="AST:1"];
+29 -> 30 [label="AST:3"];
+29 -> 31 [label="AST:3"];
+29 -> 32 [label="AST:3"];
+29 -> 33 [label="AST:1"];
+29 -> 64 [label="AST:1"];
+29 -> 65 [label="AST:1"];
+29 -> 66 [label="AST:1"];
+29 -> 82 [label="AST:1"];
+34 -> 35 [label="AST:2"];
+34 -> 36 [label="AST:2"];
+34 -> 37 [label="AST:2"];
+34 -> 38 [label="AST:1"];
+34 -> 39 [label="AST:1"];
+34 -> 83 [label="AST:1"];
+34 -> 84 [label="AST:1"];
+34 -> 85 [label="AST:1"];
+36 -> 77 [label="AST:1"];
+37 -> 73 [label="AST:1"];
+37 -> 78 [label="AST:1"];
+38 -> 79 [label="AST:1"];
+40 -> 41 [label="AST:1"];
+40 -> 42 [label="AST:1"];
+40 -> 43 [label="AST:1"];
+40 -> 44 [label="AST:1"];
+40 -> 45 [label="AST:1"];
+42 -> 95 [label="AST:1"];
+43 -> 92 [label="AST:1"];
+43 -> 96 [label="AST:1"];
+44 -> 97 [label="AST:1"];
+46 -> 47 [label="AST:1"];
+46 -> 48 [label="AST:1"];
+46 -> 52 [label="AST:1"];
+46 -> 56 [label="AST:1"];
+46 -> 59 [label="AST:1"];
+48 -> 49 [label="AST:1"];
+48 -> 74 [label="AST:1"];
+49 -> 50 [label="AST:1"];
+50 -> 51 [label="AST:3"];
+52 -> 53 [label="AST:1"];
+52 -> 55 [label="AST:1"];
+53 -> 54 [label="AST:1"];
+56 -> 57 [label="AST:1"];
+57 -> 58 [label="AST:1"];
+59 -> 60 [label="AST:1"];
+67 -> 35 [label="AST:1"];
+67 -> 36 [label="AST:1"];
+67 -> 37 [label="AST:1"];
+67 -> 38 [label="AST:1"];
+67 -> 48 [label="AST:1"];
+68 -> 69 [label="AST:1"];
+68 -> 52 [label="AST:1"];
+68 -> 45 [label="AST:1"];
+69 -> 63 [label="Define Use:1"];
+69 -> 65 [label="Define Use:1"];
+70 -> 66 [label="Define Use:1"];
+71 -> 70 [label="AST:1"];
+71 -> 72 [label="AST:1"];
+71 -> 42 [label="AST:1"];
+75 -> 31 [label="Define Use:1"];
+76 -> 75 [label="AST:1"];
+76 -> 43 [label="AST:1"];
+76 -> 39 [label="AST:1"];
+77 -> 50 [label="AST:1"];
+78 -> 54 [label="AST:1"];
+79 -> 57 [label="AST:1"];
+86 -> 41 [label="AST:1"];
+86 -> 42 [label="AST:1"];
+86 -> 43 [label="AST:1"];
+86 -> 44 [label="AST:1"];
+86 -> 87 [label="AST:1"];
+87 -> 52 [label="AST:1"];
+88 -> 89 [label="AST:1"];
+88 -> 57 [label="AST:1"];
+88 -> 67 [label="AST:1"];
+89 -> 82 [label="Define Use:1"];
+89 -> 84 [label="Define Use:1"];
+90 -> 85 [label="Define Use:1"];
+91 -> 90 [label="AST:1"];
+91 -> 72 [label="AST:1"];
+91 -> 48 [label="AST:1"];
+93 -> 36 [label="Define Use:1"];
+94 -> 93 [label="AST:1"];
+94 -> 60 [label="AST:1"];
+94 -> 45 [label="AST:1"];
+95 -> 50 [label="AST:1"];
+96 -> 54 [label="AST:1"];
+97 -> 73 [label="AST:1"];
+}

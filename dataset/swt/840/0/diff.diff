@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/840/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/840/0/after.java
+@@ -7,1 +7,6 @@
+-    this.hour = hour;
++    if ((style & SWT.CALENDAR) != 0) {
++      this.hour = hour;
++    } else {
++      calendar.set(Calendar.HOUR_OF_DAY, hour);
++      updateControl();
++    }

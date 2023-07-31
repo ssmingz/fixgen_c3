@@ -1,0 +1,285 @@
+digraph "accountForIncludedDir#?,String,File,boolean" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@accountForIncludedDir" shape=ellipse]
+2 [label="2:CtParameterImpl@String name" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="2:CtParameterImpl@File file" shape=ellipse]
+5 [label="2:CtTypeReferenceImpl@File" shape=ellipse]
+6 [label="2:CtParameterImpl@boolean fast" shape=ellipse]
+7 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+8 [label="3:CtExecutableReferenceImpl@contains(java.lang.String)" shape=ellipse]
+9 [label="3:CtVirtualElement@contains" shape=ellipse]
+10 [label="3:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+11 [label="3:CtVariableReadImpl@name" shape=ellipse]
+12 [label="3:CtInvocationImpl@dirsIncluded.contains(name)" shape=ellipse]
+13 [label="3:CtExecutableReferenceImpl@contains(java.lang.String)" shape=ellipse]
+14 [label="3:CtVirtualElement@contains" shape=ellipse]
+15 [label="3:CtFieldReadImpl@dirsExcluded" shape=ellipse]
+16 [label="3:CtVariableReadImpl@name" shape=ellipse]
+17 [label="3:CtInvocationImpl@dirsExcluded.contains(name)" shape=ellipse]
+18 [label="3:CtBinaryOperatorImpl@(dirsIncluded.contains(name) || dirsExcluded.contains(name))" shape=ellipse]
+19 [label="4:CtExecutableReferenceImpl@contains(java.lang.String)" shape=ellipse]
+20 [label="4:CtVirtualElement@contains" shape=ellipse]
+21 [label="4:CtFieldReadImpl@dirsDeselected" shape=ellipse]
+22 [label="4:CtVariableReadImpl@name" shape=ellipse]
+23 [label="4:CtInvocationImpl@dirsDeselected.contains(name)" shape=ellipse]
+24 [label="3:CtBinaryOperatorImpl@(dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)" shape=ellipse]
+25 [label="5:CtReturnImpl@return" shape=ellipse]
+26 [label="4:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+27 [label="3:CtIfImpl@if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+    return;
+\}" shape=ellipse]
+28 [label="7:CtTypeReferenceImpl@boolean" shape=ellipse]
+29 [label="7:CtLiteralImpl@false" shape=ellipse]
+30 [label="7:CtVirtualElement@included" shape=ellipse]
+31 [label="7:CtLocalVariableImpl@boolean included = false" shape=ellipse]
+32 [label="8:CtExecutableReferenceImpl@isExcluded(java.lang.String)" shape=ellipse]
+33 [label="8:CtVirtualElement@isExcluded" shape=ellipse]
+34 [label="8:CtVariableReadImpl@name" shape=ellipse]
+35 [label="8:CtInvocationImpl@isExcluded(name)" shape=ellipse]
+36 [label="9:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+37 [label="9:CtVirtualElement@addElement" shape=ellipse]
+38 [label="9:CtFieldReadImpl@dirsExcluded" shape=ellipse]
+39 [label="9:CtVariableReadImpl@name" shape=ellipse]
+40 [label="9:CtInvocationImpl@dirsExcluded.addElement(name)" shape=ellipse]
+41 [label="8:CtBlockImpl@\{
+    dirsExcluded.addElement(name);
+\}" shape=ellipse]
+42 [label="10:CtExecutableReferenceImpl@isSelected(java.lang.String,<unknown>)" shape=ellipse]
+43 [label="10:CtVirtualElement@isSelected" shape=ellipse]
+44 [label="10:CtVariableReadImpl@name" shape=ellipse]
+45 [label="10:CtVariableReadImpl@file" shape=ellipse]
+46 [label="10:CtInvocationImpl@isSelected(name, file)" shape=ellipse]
+47 [label="11:CtVariableWriteImpl@included" shape=ellipse]
+48 [label="11:CtLiteralImpl@true" shape=ellipse]
+49 [label="11:CtAssignmentImpl@included = true" shape=ellipse]
+50 [label="12:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+51 [label="12:CtVirtualElement@addElement" shape=ellipse]
+52 [label="12:CtFieldReadImpl@dirsIncluded" shape=ellipse]
+53 [label="12:CtVariableReadImpl@name" shape=ellipse]
+54 [label="12:CtInvocationImpl@dirsIncluded.addElement(name)" shape=ellipse]
+55 [label="10:CtBlockImpl@\{
+    included = true;
+    dirsIncluded.addElement(name);
+\}" shape=ellipse]
+56 [label="14:CtExecutableReferenceImpl@addElement(java.lang.String)" shape=ellipse]
+57 [label="14:CtVirtualElement@addElement" shape=ellipse]
+58 [label="14:CtFieldReadImpl@dirsDeselected" shape=ellipse]
+59 [label="14:CtVariableReadImpl@name" shape=ellipse]
+60 [label="14:CtInvocationImpl@dirsDeselected.addElement(name)" shape=ellipse]
+61 [label="13:CtBlockImpl@\{
+    dirsDeselected.addElement(name);
+\}" shape=ellipse]
+62 [label="10:CtIfImpl@if (isSelected(name, file)) \{
+    included = true;
+    dirsIncluded.addElement(name);
+\} else \{
+    dirsDeselected.addElement(name);
+\}" shape=ellipse]
+63 [label="10:CtBlockImpl@
+    if (isSelected(name, file)) \{
+        included = true;
+        dirsIncluded.addElement(name);
+    \} else \{
+        dirsDeselected.addElement(name);
+    \}
+" shape=ellipse]
+64 [label="8:CtIfImpl@if (isExcluded(name)) \{
+    dirsExcluded.addElement(name);
+\} else if (isSelected(name, file)) \{
+    included = true;
+    dirsIncluded.addElement(name);
+\} else \{
+    dirsDeselected.addElement(name);
+\}" shape=ellipse]
+65 [label="16:CtFieldWriteImpl@everythingIncluded" shape=ellipse]
+66 [label="16:CtVariableReadImpl@included" shape=ellipse]
+67 [label="16:CtOperatorAssignmentImpl@everythingIncluded &= included" shape=ellipse]
+68 [label="17:CtVariableReadImpl@fast" shape=ellipse]
+69 [label="17:CtExecutableReferenceImpl@couldHoldIncluded(java.lang.String)" shape=ellipse]
+70 [label="17:CtVirtualElement@couldHoldIncluded" shape=ellipse]
+71 [label="17:CtVariableReadImpl@name" shape=ellipse]
+72 [label="17:CtInvocationImpl@couldHoldIncluded(name)" shape=ellipse]
+73 [label="17:CtBinaryOperatorImpl@fast && couldHoldIncluded(name)" shape=ellipse]
+74 [label="18:CtExecutableReferenceImpl@scandir(<unknown>,<unknown>,boolean)" shape=ellipse]
+75 [label="18:CtVirtualElement@scandir" shape=ellipse]
+76 [label="18:CtVariableReadImpl@file" shape=ellipse]
+77 [label="18:CtVariableReadImpl@name" shape=ellipse]
+78 [label="18:CtFieldReadImpl@File.separator" shape=ellipse]
+79 [label="18:CtBinaryOperatorImpl@name + File.separator" shape=ellipse]
+80 [label="18:CtVariableReadImpl@fast" shape=ellipse]
+81 [label="18:CtInvocationImpl@scandir(file, name + File.separator, fast)" shape=ellipse]
+82 [label="17:CtBlockImpl@\{
+    scandir(file, name + File.separator, fast);
+\}" shape=ellipse]
+83 [label="17:CtIfImpl@if (fast && couldHoldIncluded(name)) \{
+    scandir(file, name + File.separator, fast);
+\}" shape=ellipse]
+84 [label="2:CtBlockImpl@\{
+    if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+        return;
+    \}
+    boolean included = false;
+    if (isExcluded(name)) \{
+        dirsExcluded.addElement(name);
+    \} else if (isSelected(name, file)) \{
+        included = true;
+        dirsIncluded.addElement(name);
+    \} else \{
+        dirsDeselected.addElement(name);
+    \}
+    everythingIncluded &= included;
+    if (fast && couldHoldIncluded(name)) \{
+        scandir(file, name + File.separator, fast);
+    \}
+\}" shape=ellipse]
+85 [label="2:CtMethodImpl@private void accountForIncludedDir(String name, File file, boolean fast) \{
+    if ((dirsIncluded.contains(name) || dirsExcluded.contains(name)) || dirsDeselected.contains(name)) \{
+        return;
+    \}
+    boolean included = false;
+    if (isExcluded(name)) \{
+        dirsExcluded.addElement(name);
+    \} else if (isSelected(name, file)) \{
+        included = true;
+        dirsIncluded.addElement(name);
+    \} else \{
+        dirsDeselected.addElement(name);
+    \}
+    everythingIncluded &= included;
+    if (fast && couldHoldIncluded(name)) \{
+        scandir(file, name + File.separator, fast);
+    \}
+\}" shape=ellipse]
+86 [label="17:Insert@INSERT" shape=ellipse]
+87 [label="17:CtBinaryOperatorImpl@(fast && couldHoldIncluded(name)) && (!contentsExcluded(name))" shape=ellipse]
+88 [label="17:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+12 -> 9 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 8 [label="AST"];
+12 -> 11 [label="AST"];
+17 -> 14 [label="AST"];
+17 -> 15 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+18 -> 12 [label="AST"];
+18 -> 17 [label="AST"];
+23 -> 20 [label="AST"];
+23 -> 21 [label="AST"];
+23 -> 19 [label="AST"];
+23 -> 22 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 23 [label="AST"];
+24 -> 26 [label="Control Dep"];
+24 -> 25 [label="Control Dep"];
+26 -> 25 [label="AST"];
+27 -> 24 [label="AST"];
+27 -> 26 [label="AST"];
+30 -> 66 [label="Define-Use"];
+31 -> 30 [label="AST"];
+31 -> 28 [label="AST"];
+31 -> 29 [label="AST"];
+35 -> 33 [label="AST"];
+35 -> 32 [label="AST"];
+35 -> 34 [label="AST"];
+35 -> 41 [label="Control Dep"];
+35 -> 40 [label="Control Dep"];
+35 -> 36 [label="Control Dep"];
+35 -> 38 [label="Control Dep"];
+35 -> 39 [label="Control Dep"];
+35 -> 63 [label="Control Dep"];
+35 -> 62 [label="Control Dep"];
+35 -> 46 [label="Control Dep"];
+35 -> 42 [label="Control Dep"];
+35 -> 44 [label="Control Dep"];
+35 -> 45 [label="Control Dep"];
+40 -> 37 [label="AST"];
+40 -> 38 [label="AST"];
+40 -> 36 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 40 [label="AST"];
+46 -> 43 [label="AST"];
+46 -> 42 [label="AST"];
+46 -> 44 [label="AST"];
+46 -> 45 [label="AST"];
+46 -> 55 [label="Control Dep"];
+46 -> 49 [label="Control Dep"];
+46 -> 47 [label="Control Dep"];
+46 -> 48 [label="Control Dep"];
+46 -> 54 [label="Control Dep"];
+46 -> 50 [label="Control Dep"];
+46 -> 52 [label="Control Dep"];
+46 -> 53 [label="Control Dep"];
+46 -> 61 [label="Control Dep"];
+46 -> 60 [label="Control Dep"];
+46 -> 56 [label="Control Dep"];
+46 -> 58 [label="Control Dep"];
+46 -> 59 [label="Control Dep"];
+47 -> 66 [label="Define-Use"];
+49 -> 47 [label="AST"];
+49 -> 48 [label="AST"];
+54 -> 51 [label="AST"];
+54 -> 52 [label="AST"];
+54 -> 50 [label="AST"];
+54 -> 53 [label="AST"];
+55 -> 49 [label="AST"];
+55 -> 54 [label="AST"];
+60 -> 57 [label="AST"];
+60 -> 58 [label="AST"];
+60 -> 56 [label="AST"];
+60 -> 59 [label="AST"];
+61 -> 60 [label="AST"];
+62 -> 46 [label="AST"];
+62 -> 55 [label="AST"];
+62 -> 61 [label="AST"];
+63 -> 62 [label="AST"];
+64 -> 35 [label="AST"];
+64 -> 41 [label="AST"];
+64 -> 63 [label="AST"];
+66 -> 65 [label="Data Dep"];
+67 -> 65 [label="AST"];
+67 -> 66 [label="AST"];
+72 -> 70 [label="AST"];
+72 -> 69 [label="AST"];
+72 -> 71 [label="AST"];
+73 -> 68 [label="AST"];
+73 -> 72 [label="AST"];
+73 -> 82 [label="Control Dep"];
+73 -> 81 [label="Control Dep"];
+73 -> 74 [label="Control Dep"];
+73 -> 76 [label="Control Dep"];
+73 -> 79 [label="Control Dep"];
+73 -> 77 [label="Control Dep"];
+73 -> 78 [label="Control Dep"];
+73 -> 80 [label="Control Dep"];
+73 -> 88 [label="Action"];
+79 -> 77 [label="AST"];
+79 -> 78 [label="AST"];
+81 -> 75 [label="AST"];
+81 -> 74 [label="AST"];
+81 -> 76 [label="AST"];
+81 -> 79 [label="AST"];
+81 -> 80 [label="AST"];
+82 -> 81 [label="AST"];
+83 -> 73 [label="AST"];
+83 -> 82 [label="AST"];
+83 -> 86 [label="Action"];
+84 -> 27 [label="AST"];
+84 -> 31 [label="AST"];
+84 -> 64 [label="AST"];
+84 -> 67 [label="AST"];
+84 -> 83 [label="AST"];
+85 -> 1 [label="AST"];
+85 -> 0 [label="AST"];
+85 -> 2 [label="AST"];
+85 -> 4 [label="AST"];
+85 -> 6 [label="AST"];
+85 -> 84 [label="AST"];
+86 -> 87 [label="Action"];
+88 -> 87 [label="Action"];
+}

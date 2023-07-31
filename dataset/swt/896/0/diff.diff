@@ -1,0 +1,7 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/896/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/896/0/after.java
+@@ -36,1 +36,3 @@
+-        AccessibleObject accObj = object.getChildByID(event.childID);
++        Accessible result = event.accessible;
++        AccessibleObject accObj =
++            (result != null) ? result.getAccessibleObject() : object.getChildByID(event.childID);

@@ -1,0 +1,35 @@
+digraph "setClasspath#?,Path" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setClasspath" shape=ellipse]
+2 [label="2:CtParameterImpl@Path classpath" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@Path" shape=ellipse]
+4 [label="3:CtExecutableReferenceImpl@setClasspath(Path)" shape=ellipse]
+5 [label="3:CtVirtualElement@setClasspath" shape=ellipse]
+6 [label="3:CtThisAccessImpl@this" shape=ellipse]
+7 [label="3:CtFieldReadImpl@this.cpDelegate" shape=ellipse]
+8 [label="3:CtVariableReadImpl@classpath" shape=ellipse]
+9 [label="3:CtInvocationImpl@this.cpDelegate.setClasspath(classpath)" shape=ellipse]
+10 [label="2:CtBlockImpl@\{
+    this.cpDelegate.setClasspath(classpath);
+\}" shape=ellipse]
+11 [label="2:CtMethodImpl@public void setClasspath(Path classpath) \{
+    this.cpDelegate.setClasspath(classpath);
+\}" shape=ellipse]
+12 [label="3:Delete@DELETE" shape=ellipse]
+13 [label="3:Insert@INSERT" shape=ellipse]
+14 [label="3:CtInvocationImpl@getDelegate()" shape=ellipse]
+2 -> 3 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 12 [label="Action"];
+9 -> 5 [label="AST"];
+9 -> 7 [label="AST"];
+9 -> 4 [label="AST"];
+9 -> 8 [label="AST"];
+9 -> 13 [label="Action"];
+10 -> 9 [label="AST"];
+11 -> 1 [label="AST"];
+11 -> 0 [label="AST"];
+11 -> 2 [label="AST"];
+11 -> 10 [label="AST"];
+13 -> 14 [label="Action"];
+}

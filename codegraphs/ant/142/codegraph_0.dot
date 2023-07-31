@@ -1,0 +1,35 @@
+digraph "BriefJUnitResultFormatter#?" {
+0 [label="2:CtVirtualElement@BriefJUnitResultFormatter" shape=ellipse]
+1 [label="3:CtFieldWriteImpl@results" shape=ellipse]
+2 [label="3:CtTypeReferenceImpl@StringWriter" shape=ellipse]
+3 [label="3:CtConstructorCallImpl@new StringWriter()" shape=ellipse]
+4 [label="3:CtAssignmentImpl@results = new StringWriter()" shape=ellipse]
+5 [label="4:CtFieldWriteImpl@resultWriter" shape=ellipse]
+6 [label="4:CtTypeReferenceImpl@PrintWriter" shape=ellipse]
+7 [label="4:CtFieldReadImpl@results" shape=ellipse]
+8 [label="4:CtConstructorCallImpl@new PrintWriter(results)" shape=ellipse]
+9 [label="4:CtAssignmentImpl@resultWriter = new PrintWriter(results)" shape=ellipse]
+10 [label="2:CtBlockImpl@\{
+    results = new StringWriter();
+    resultWriter = new PrintWriter(results);
+\}" shape=ellipse]
+11 [label="2:CtMethodImpl@public  BriefJUnitResultFormatter() \{
+    results = new StringWriter();
+    resultWriter = new PrintWriter(results);
+\}" shape=ellipse]
+12 [label="4:Update@UPDATE" shape=ellipse]
+13 [label="4:CtConstructorCallImpl@new BufferedWriter(results)" shape=ellipse]
+1 -> 7 [label="Define-Use"];
+4 -> 1 [label="AST"];
+4 -> 3 [label="AST"];
+7 -> 5 [label="Data Dep"];
+8 -> 7 [label="AST"];
+8 -> 12 [label="Action"];
+9 -> 5 [label="AST"];
+9 -> 8 [label="AST"];
+10 -> 4 [label="AST"];
+10 -> 9 [label="AST"];
+11 -> 0 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 13 [label="Action"];
+}

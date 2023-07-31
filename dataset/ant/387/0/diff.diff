@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/387/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/387/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,4 @@
+-    expectFileContains(
+-        "doslineoutput",
+-        getProject().getProperty("output") + "/doslineoutput",
+-        "\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n");
++    buildRule.executeTarget("doslineoutput");
++    assertContains(
++        "\r\nThis\r\nis\r\na\r\nnumber\r\nof\r\nwords\r\n",
++        getFileString(buildRule.getProject().getProperty("output") + "/doslineoutput"));

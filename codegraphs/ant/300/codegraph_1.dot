@@ -1,0 +1,25 @@
+digraph "setWarningProperty#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setWarningProperty" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@setProperty(<unknown>)" shape=ellipse]
+3 [label="3:CtVirtualElement@setProperty" shape=ellipse]
+4 [label="3:CtFieldReadImpl@warningProperty" shape=ellipse]
+5 [label="3:CtInvocationImpl@setProperty(warningProperty)" shape=ellipse]
+6 [label="2:CtBlockImpl@\{
+    setProperty(warningProperty);
+\}" shape=ellipse]
+7 [label="2:CtMethodImpl@protected final void setWarningProperty() \{
+    setProperty(warningProperty);
+\}" shape=ellipse]
+8 [label="3:Insert@INSERT" shape=ellipse]
+9 [label="3:CtLiteralImpl@\"true\"" shape=ellipse]
+5 -> 3 [label="AST"];
+5 -> 2 [label="AST"];
+5 -> 4 [label="AST"];
+5 -> 8 [label="Action"];
+6 -> 5 [label="AST"];
+7 -> 1 [label="AST"];
+7 -> 0 [label="AST"];
+7 -> 6 [label="AST"];
+8 -> 9 [label="Action"];
+}

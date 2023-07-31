@@ -1,0 +1,19 @@
+digraph "Pattern" {
+0 [label="packageInfoValid#?#7:UPDATE
+packageInfoAnnotation#?#7:UPDATE" shape=ellipse]
+1 [label="packageInfoValid#?#7:\"javadoc\"
+packageInfoAnnotation#?#7:\"javadoc\"" shape=ellipse]
+2 [label="packageInfoValid#?#7:(\"javadoc\" + File.separator)
+packageInfoAnnotation#?#7:(\"javadoc\" + File.separator)" shape=ellipse]
+3 [label="packageInfoValid#?#7:((\"javadoc\" + File.separator) + \"pkginfo\")
+packageInfoAnnotation#?#7:((\"javadoc\" + File.separator) + \"pkginfo\")" shape=ellipse]
+4 [label="packageInfoValid#?#7:File.separator
+packageInfoAnnotation#?#7:File.separator" shape=ellipse]
+5 [label="packageInfoValid#?#7:String
+packageInfoAnnotation#?#7:String" shape=ellipse]
+1 -> 0 [label="Action:2"];
+1 -> 5 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

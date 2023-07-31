@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3198/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3198/1/after.java
+@@ -7,0 +7,8 @@
++    if (OS.GetParent(lParam) == handle) {
++      TCHAR buffer = new TCHAR(0, 128);
++      OS.GetClassName(lParam, buffer, buffer.length());
++      String className = buffer.toString(0, buffer.strlen());
++      if (className.equals(AWT_WINDOW_CLASS)) {
++        return LRESULT.ZERO;
++      }
++    }

@@ -1,0 +1,108 @@
+digraph "execute#?" {
+0 [label="2:CtTypeReferenceImpl@boolean" shape=ellipse]
+1 [label="2:CtVirtualElement@execute" shape=ellipse]
+2 [label="2:CtTypeReferenceImpl@TaskException" shape=ellipse]
+3 [label="3:CtTypeReferenceImpl@Commandline" shape=ellipse]
+4 [label="3:CtVirtualElement@cmd" shape=ellipse]
+5 [label="3:CtLocalVariableImpl@Commandline cmd" shape=ellipse]
+6 [label="4:CtExecutableReferenceImpl@debug(java.lang.String)" shape=ellipse]
+7 [label="4:CtVirtualElement@debug" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@getLogger()" shape=ellipse]
+9 [label="4:CtVirtualElement@getLogger" shape=ellipse]
+10 [label="4:CtInvocationImpl@getLogger()" shape=ellipse]
+11 [label="4:CtLiteralImpl@\"Using gcj compiler\"" shape=ellipse]
+12 [label="4:CtInvocationImpl@getLogger().debug(\"Using gcj compiler\")" shape=ellipse]
+13 [label="5:CtVariableWriteImpl@cmd" shape=ellipse]
+14 [label="5:CtExecutableReferenceImpl@setupGCJCommand()" shape=ellipse]
+15 [label="5:CtVirtualElement@setupGCJCommand" shape=ellipse]
+16 [label="5:CtInvocationImpl@setupGCJCommand()" shape=ellipse]
+17 [label="5:CtAssignmentImpl@cmd = setupGCJCommand()" shape=ellipse]
+18 [label="6:CtTypeReferenceImpl@int" shape=ellipse]
+19 [label="6:CtExecutableReferenceImpl@size()" shape=ellipse]
+20 [label="6:CtVirtualElement@size" shape=ellipse]
+21 [label="6:CtVariableReadImpl@cmd" shape=ellipse]
+22 [label="6:CtInvocationImpl@cmd.size()" shape=ellipse]
+23 [label="6:CtVirtualElement@firstFileName" shape=ellipse]
+24 [label="6:CtLocalVariableImpl@int firstFileName = cmd.size()" shape=ellipse]
+25 [label="7:CtExecutableReferenceImpl@logAndAddFilesToCompile(<unknown>)" shape=ellipse]
+26 [label="7:CtVirtualElement@logAndAddFilesToCompile" shape=ellipse]
+27 [label="7:CtVariableReadImpl@cmd" shape=ellipse]
+28 [label="7:CtInvocationImpl@logAndAddFilesToCompile(cmd)" shape=ellipse]
+29 [label="8:CtExecutableReferenceImpl@executeExternalCompile(<unknown>,int)" shape=ellipse]
+30 [label="8:CtVirtualElement@executeExternalCompile" shape=ellipse]
+31 [label="8:CtExecutableReferenceImpl@getCommandline()" shape=ellipse]
+32 [label="8:CtVirtualElement@getCommandline" shape=ellipse]
+33 [label="8:CtVariableReadImpl@cmd" shape=ellipse]
+34 [label="8:CtInvocationImpl@cmd.getCommandline()" shape=ellipse]
+35 [label="8:CtVariableReadImpl@firstFileName" shape=ellipse]
+36 [label="8:CtInvocationImpl@executeExternalCompile(cmd.getCommandline(), firstFileName)" shape=ellipse]
+37 [label="8:CtLiteralImpl@0" shape=ellipse]
+38 [label="8:CtBinaryOperatorImpl@executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+39 [label="8:CtReturnImpl@return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0" shape=ellipse]
+40 [label="2:CtBlockImpl@\{
+    Commandline cmd;
+    getLogger().debug(\"Using gcj compiler\");
+    cmd = setupGCJCommand();
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+41 [label="2:CtMethodImpl@public boolean execute() throws TaskException \{
+    Commandline cmd;
+    getLogger().debug(\"Using gcj compiler\");
+    cmd = setupGCJCommand();
+    int firstFileName = cmd.size();
+    logAndAddFilesToCompile(cmd);
+    return executeExternalCompile(cmd.getCommandline(), firstFileName) == 0;
+\}" shape=ellipse]
+42 [label="4:Update@UPDATE" shape=ellipse]
+43 [label="4:CtInvocationImpl@getTaskContext()" shape=ellipse]
+5 -> 4 [label="AST"];
+5 -> 3 [label="AST"];
+10 -> 9 [label="AST"];
+10 -> 8 [label="AST"];
+10 -> 42 [label="Action"];
+12 -> 7 [label="AST"];
+12 -> 10 [label="AST"];
+12 -> 6 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 21 [label="Define-Use"];
+13 -> 27 [label="Define-Use"];
+13 -> 33 [label="Define-Use"];
+16 -> 15 [label="AST"];
+16 -> 14 [label="AST"];
+17 -> 13 [label="AST"];
+17 -> 16 [label="AST"];
+21 -> 23 [label="Data Dep"];
+22 -> 20 [label="AST"];
+22 -> 21 [label="AST"];
+22 -> 19 [label="AST"];
+23 -> 35 [label="Define-Use"];
+24 -> 23 [label="AST"];
+24 -> 18 [label="AST"];
+24 -> 22 [label="AST"];
+28 -> 26 [label="AST"];
+28 -> 25 [label="AST"];
+28 -> 27 [label="AST"];
+34 -> 32 [label="AST"];
+34 -> 33 [label="AST"];
+34 -> 31 [label="AST"];
+36 -> 30 [label="AST"];
+36 -> 29 [label="AST"];
+36 -> 34 [label="AST"];
+36 -> 35 [label="AST"];
+38 -> 36 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 38 [label="AST"];
+40 -> 5 [label="AST"];
+40 -> 12 [label="AST"];
+40 -> 17 [label="AST"];
+40 -> 24 [label="AST"];
+40 -> 28 [label="AST"];
+40 -> 39 [label="AST"];
+41 -> 1 [label="AST"];
+41 -> 0 [label="AST"];
+41 -> 2 [label="AST"];
+41 -> 40 [label="AST"];
+42 -> 43 [label="Action"];
+}

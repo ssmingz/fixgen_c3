@@ -1,0 +1,15 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1181/9/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1181/9/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,4 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "multipleTargetsOneDoesntExist_FOEtrue",
+-        "Calling not existent target",
+-        "Target \"three\" does not exist in the project \"subant\"");
++    try {
++      buildRule.executeTarget("multipleTargetsOneDoesntExist_FOEtrue");
++      fail("BuildException expected: Calling not existent target");
++    } catch (BuildException ex) {
++      assertContains("Target \"three\" does not exist in the project \"subant\"", ex.getMessage());
++    }

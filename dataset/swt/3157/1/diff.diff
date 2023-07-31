@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3157/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3157/1/after.java
+@@ -29,1 +29,5 @@
+-      rbBand.cxIdeal = Math.max(0, ((width - rect.left) - rect.right) - CoolBar.INSET);
++      rbBand.cxIdeal = (width - rect.left) - CoolBar.INSET;
++      if ((parent.style & SWT.FLAT) == 0) {
++        rbBand.cxIdeal -= rect.right;
++      }
++      rbBand.cxIdeal = Math.max(0, rbBand.cxIdeal);

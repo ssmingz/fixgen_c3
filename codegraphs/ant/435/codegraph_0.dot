@@ -1,0 +1,40 @@
+digraph "setExecutable#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setExecutable" shape=ellipse]
+2 [label="2:CtParameterImpl@String e" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtTypeReferenceImpl@BuildException" shape=ellipse]
+5 [label="4:CtFieldReadImpl@taskType" shape=ellipse]
+6 [label="4:CtLiteralImpl@\" doesn\'t support the executable attribute\"" shape=ellipse]
+7 [label="4:CtBinaryOperatorImpl@taskType + \" doesn\'t support the executable attribute\"" shape=ellipse]
+8 [label="4:CtExecutableReferenceImpl@getLocation()" shape=ellipse]
+9 [label="4:CtVirtualElement@getLocation" shape=ellipse]
+10 [label="4:CtInvocationImpl@getLocation()" shape=ellipse]
+11 [label="3:CtConstructorCallImpl@new BuildException(taskType + \" doesn\'t support the executable attribute\", getLocation())" shape=ellipse]
+12 [label="3:CtThrowImpl@throw new BuildException(taskType + \" doesn\'t support the executable attribute\", getLocation())" shape=ellipse]
+13 [label="2:CtBlockImpl@\{
+    throw new BuildException(taskType + \" doesn\'t support the executable attribute\", getLocation());
+\}" shape=ellipse]
+14 [label="2:CtMethodImpl@public void setExecutable(String e) \{
+    throw new BuildException(taskType + \" doesn\'t support the executable attribute\", getLocation());
+\}" shape=ellipse]
+15 [label="4:Delete@DELETE" shape=ellipse]
+16 [label="4:Insert@INSERT" shape=ellipse]
+17 [label="4:CtInvocationImpl@getTaskType()" shape=ellipse]
+2 -> 3 [label="AST"];
+5 -> 15 [label="Action"];
+7 -> 5 [label="AST"];
+7 -> 6 [label="AST"];
+7 -> 16 [label="Action"];
+10 -> 9 [label="AST"];
+10 -> 8 [label="AST"];
+11 -> 7 [label="AST"];
+11 -> 10 [label="AST"];
+12 -> 11 [label="AST"];
+13 -> 12 [label="AST"];
+14 -> 1 [label="AST"];
+14 -> 0 [label="AST"];
+14 -> 2 [label="AST"];
+14 -> 13 [label="AST"];
+16 -> 17 [label="Action"];
+}

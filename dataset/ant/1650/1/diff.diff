@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1650/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1650/1/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "testWrongClass", "class not an RMIC adapter", ERROR_NOT_RMIC_ADAPTER);
++    try {
++      buildRule.executeTarget("testWrongClass");
++      fail("Class not an RMIC adapter");
++    } catch (BuildException ex) {
++      AntAssert.assertContains(ERROR_NOT_RMIC_ADAPTER, ex.getMessage());
++    }

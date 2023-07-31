@@ -1,0 +1,11 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/167/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/167/1/after.java
+@@ -10,1 +10,7 @@
+-      throw new BuildException(src + " doesn't exist");
++      String message = src + " doesn't exist";
++      if (failOnError) {
++        throw new BuildException(message);
++      } else {
++        log(message, MSG_ERR);
++        return;
++      }

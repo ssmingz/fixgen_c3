@@ -1,0 +1,48 @@
+digraph "Pattern" {
+0 [label="getUnsafe#?#3:UPDATE
+getUnsafeParameter#?#3:UPDATE
+setUnsafe#?,boolean#3:UPDATE" shape=ellipse]
+1 [label="getUnsafe#?#3:this._unsafe
+getUnsafeParameter#?#3:_unsafe
+setUnsafe#?,boolean#3:this._unsafe" shape=ellipse]
+2 [label="getUnsafe#?#3:return this._unsafe
+setUnsafe#?,boolean#3:this._unsafe = unsafe" shape=ellipse]
+3 [label="getUnsafe#?#2:\{
+    return this._unsafe;
+\}" shape=ellipse]
+4 [label="getUnsafe#?#3:this
+getUnsafeParameter#?#-1:_unsafe
+setUnsafe#?,boolean#3:this" shape=ellipse]
+5 [label="getUnsafe#?#-1:PlaceHold" shape=ellipse]
+6 [label="getUnsafe#?#-1:PlaceHold" shape=ellipse]
+7 [label="getUnsafe#?#-1:_unsafe
+setUnsafe#?,boolean#-1:_unsafe" shape=ellipse]
+8 [label="getUnsafe#?#3:this.unsafe
+getUnsafeParameter#?#3:unsafe
+setUnsafe#?,boolean#3:this.unsafe" shape=ellipse]
+9 [label="getUnsafeParameter#?#3:_unsafe ? \"/unsafe\" : null" shape=ellipse]
+10 [label="getUnsafeParameter#?#3:\"/unsafe\"" shape=ellipse]
+11 [label="getUnsafeParameter#?#3:null" shape=ellipse]
+12 [label="getUnsafeParameter#?#3:return _unsafe ? \"/unsafe\" : null" shape=ellipse]
+13 [label="setUnsafe#?,boolean#-1:unsafe" shape=ellipse]
+14 [label="setUnsafe#?,boolean#3:unsafe" shape=ellipse]
+15 [label="setUnsafe#?,boolean#-1:PlaceHold" shape=ellipse]
+0 -> 8 [label="Action:3"];
+1 -> 0 [label="Action:3"];
+1 -> 4 [label="AST:3"];
+1 -> 7 [label="AST:2"];
+1 -> 10 [label="Control Dep:1"];
+1 -> 11 [label="Control Dep:1"];
+2 -> 1 [label="AST:2"];
+2 -> 14 [label="AST:1"];
+3 -> 2 [label="AST:1"];
+4 -> 5 [label="AST:1"];
+4 -> 6 [label="AST:1"];
+7 -> 15 [label="AST:1"];
+9 -> 1 [label="AST:1"];
+9 -> 10 [label="AST:1"];
+9 -> 11 [label="AST:1"];
+12 -> 9 [label="AST:1"];
+14 -> 13 [label="AST:1"];
+14 -> 1 [label="Data Dep:1"];
+}

@@ -1,0 +1,16 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/drjava/333/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/drjava/333/0/after.java
+@@ -2,4 +2,9 @@
+-  public synchronized void runStarted(OpenDefinitionsDocument doc) {
+-    int size = _listeners.size();
+-    for (int i = 0; i < size; i++) {
+-      _listeners.get(i).runStarted(doc);
++  public void runStarted(OpenDefinitionsDocument doc) {
++    _lock.startRead();
++    try {
++      int size = _listeners.size();
++      for (int i = 0; i < size; i++) {
++        _listeners.get(i).runStarted(doc);
++      }
++    } finally {
++      _lock.endRead();

@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1472/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1472/0/after.java
+@@ -2,2 +2,3 @@
+-  protected String getWriteFolderURI() {
+-    return System.getProperty("test.smb.uri") + "/write-tests";
++  protected FileObject getWriteFolder() throws Exception {
++    final String uri = System.getProperty("test.smb.uri") + "/write-tests";
++    return m_manager.resolveFile(uri);

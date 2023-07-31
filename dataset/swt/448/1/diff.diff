@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/448/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/448/1/after.java
+@@ -4,1 +4,8 @@
+-    setBitmap(this.image = image);
++    if ((image != null) && image.isDisposed()) {
++      error(ERROR_INVALID_ARGUMENT);
++    }
++    if ((style & SWT.ARROW) != 0) {
++      return;
++    }
++    this.image = image;
++    _setImage(image);

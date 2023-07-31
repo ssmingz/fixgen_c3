@@ -1,0 +1,135 @@
+digraph "setHeaderFile#?,String" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@setHeaderFile" shape=ellipse]
+2 [label="2:CtParameterImpl@String fileName" shape=ellipse]
+3 [label="2:CtTypeReferenceImpl@String" shape=ellipse]
+4 [label="3:CtVariableReadImpl@fileName" shape=ellipse]
+5 [label="3:CtParameterReferenceImpl@fileName" shape=ellipse]
+6 [label="3:CtLiteralImpl@null" shape=ellipse]
+7 [label="3:CtTypeReferenceImpl@<nulltype>" shape=ellipse]
+8 [label="3:CtBinaryOperatorImpl@(fileName == null)" shape=ellipse]
+9 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+10 [label="3:CtExecutableReferenceImpl@length()" shape=ellipse]
+11 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+12 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+13 [label="3:CtVirtualElement@length" shape=ellipse]
+14 [label="3:CtExecutableReferenceImpl@trim()" shape=ellipse]
+15 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+16 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+17 [label="3:CtVirtualElement@trim" shape=ellipse]
+18 [label="3:CtVariableReadImpl@fileName" shape=ellipse]
+19 [label="3:CtParameterReferenceImpl@fileName" shape=ellipse]
+20 [label="3:CtInvocationImpl@fileName.trim()" shape=ellipse]
+21 [label="3:CtInvocationImpl@fileName.trim().length()" shape=ellipse]
+22 [label="3:CtLiteralImpl@0" shape=ellipse]
+23 [label="3:CtTypeReferenceImpl@int" shape=ellipse]
+24 [label="3:CtBinaryOperatorImpl@(fileName.trim().length() == 0)" shape=ellipse]
+25 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+26 [label="3:CtBinaryOperatorImpl@(fileName == null) || (fileName.trim().length() == 0)" shape=ellipse]
+27 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+28 [label="4:CtReturnImpl@return" shape=ellipse]
+29 [label="3:CtBlockImpl@\{
+    return;
+\}" shape=ellipse]
+30 [label="3:CtIfImpl@if ((fileName == null) || (fileName.trim().length() == 0)) \{
+    return;
+\}" shape=ellipse]
+31 [label="6:CtFieldReferenceImpl@filename" shape=ellipse]
+32 [label="6:CtTypeReferenceImpl@PlaceHold" shape=ellipse]
+33 [label="6:CtFieldWriteImpl@filename" shape=ellipse]
+34 [label="6:CtVariableReadImpl@fileName" shape=ellipse]
+35 [label="6:CtParameterReferenceImpl@fileName" shape=ellipse]
+36 [label="6:CtAssignmentImpl@filename = fileName" shape=ellipse]
+37 [label="2:CtBlockImpl@\{
+    if ((fileName == null) || (fileName.trim().length() == 0)) \{
+        return;
+    \}
+    filename = fileName;
+\}" shape=ellipse]
+38 [label="2:CtMethodImpl@public void setHeaderFile(String fileName) \{
+    if ((fileName == null) || (fileName.trim().length() == 0)) \{
+        return;
+    \}
+    filename = fileName;
+\}" shape=ellipse]
+39 [label="3:Update@UPDATE" shape=ellipse]
+40 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+41 [label="3:CtTypeReferenceImpl@StringUtils" shape=ellipse]
+42 [label="3:CtTypeAccessImpl@StringUtils" shape=ellipse]
+43 [label="3:CtPackageReferenceImpl@" shape=ellipse]
+44 [label="3:CtTypeReferenceImpl@StringUtils" shape=ellipse]
+45 [label="3:CtTypeReferenceImpl@boolean" shape=ellipse]
+46 [label="3:CtPackageReferenceImpl@java.lang" shape=ellipse]
+47 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+48 [label="3:CtExecutableReferenceImpl@isBlank(java.lang.String)" shape=ellipse]
+49 [label="3:CtPackageReferenceImpl@java.lang" shape=ellipse]
+50 [label="3:CtTypeReferenceImpl@String" shape=ellipse]
+51 [label="3:CtParameterReferenceImpl@fileName" shape=ellipse]
+52 [label="3:CtVariableReadImpl@fileName" shape=ellipse]
+53 [label="3:CtInvocationImpl@StringUtils.isBlank(fileName)" shape=ellipse]
+54 [label="3:CtVirtualElement@isBlank" shape=ellipse]
+55 [label="3:Delete@DELETE" shape=ellipse]
+56 [label="3:Move@MOVE" shape=ellipse]
+2 -> 3 [label="AST"];
+4 -> 5 [label="AST"];
+6 -> 7 [label="AST"];
+8 -> 9 [label="AST"];
+8 -> 4 [label="AST"];
+8 -> 6 [label="AST"];
+10 -> 11 [label="AST"];
+10 -> 12 [label="AST"];
+14 -> 15 [label="AST"];
+14 -> 16 [label="AST"];
+18 -> 19 [label="AST"];
+20 -> 17 [label="AST"];
+20 -> 18 [label="AST"];
+20 -> 14 [label="AST"];
+20 -> 39 [label="Action"];
+20 -> 56 [label="Action"];
+21 -> 13 [label="AST"];
+21 -> 20 [label="AST"];
+21 -> 10 [label="AST"];
+22 -> 23 [label="AST"];
+24 -> 25 [label="AST"];
+24 -> 21 [label="AST"];
+24 -> 22 [label="AST"];
+26 -> 27 [label="AST"];
+26 -> 8 [label="AST"];
+26 -> 24 [label="AST"];
+26 -> 29 [label="Control Dep"];
+26 -> 28 [label="Control Dep"];
+26 -> 55 [label="Action"];
+29 -> 28 [label="AST"];
+30 -> 26 [label="AST"];
+30 -> 29 [label="AST"];
+31 -> 32 [label="AST"];
+33 -> 31 [label="AST"];
+34 -> 35 [label="AST"];
+34 -> 33 [label="Data Dep"];
+36 -> 33 [label="AST"];
+36 -> 34 [label="AST"];
+37 -> 30 [label="AST"];
+37 -> 36 [label="AST"];
+38 -> 1 [label="AST"];
+38 -> 0 [label="AST"];
+38 -> 2 [label="AST"];
+38 -> 37 [label="AST"];
+39 -> 53 [label="Action"];
+41 -> 40 [label="AST"];
+42 -> 41 [label="AST"];
+44 -> 43 [label="AST"];
+47 -> 46 [label="AST"];
+48 -> 44 [label="AST"];
+48 -> 45 [label="AST"];
+48 -> 47 [label="AST"];
+50 -> 49 [label="AST"];
+51 -> 50 [label="AST"];
+52 -> 51 [label="AST"];
+53 -> 54 [label="AST"];
+53 -> 42 [label="AST"];
+53 -> 48 [label="AST"];
+53 -> 52 [label="AST"];
+53 -> 29 [label="Control Dep"];
+53 -> 28 [label="Control Dep"];
+56 -> 30 [label="Action"];
+}

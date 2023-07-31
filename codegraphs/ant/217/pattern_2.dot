@@ -1,0 +1,108 @@
+digraph "Pattern" {
+0 [label="testDefaultExcludesAndUpdate#?#2:INSERT
+testForBugzilla34764#?#2:INSERT" shape=ellipse]
+1 [label="testDefaultExcludesAndUpdate#?#2:public void testDefaultExcludesAndUpdate() throws ZipException, IOException \{
+    executeTarget(\"testDefaultExcludesAndUpdate\");
+    ZipFile f = null;
+    try \{
+        f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+    \} finally \{
+        if (f != null) \{
+            f.close();
+        \}
+    \}
+\}
+testForBugzilla34764#?#2:public void testForBugzilla34764() throws IOException \{
+    executeTarget(\"testForBugzilla34764\");
+    ZipFile zf = null;
+    try \{
+        zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        ZipEntry ze = zf.getEntry(\"file1\");
+        assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+    \} finally \{
+        if (zf != null) \{
+            zf.close();
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="testDefaultExcludesAndUpdate#?#2:testDefaultExcludesAndUpdate
+testForBugzilla34764#?#2:VE: ThrownTypes_testForBugzilla34764" shape=ellipse]
+3 [label="testDefaultExcludesAndUpdate#?#2:void
+testForBugzilla34764#?#2:void" shape=ellipse]
+4 [label="testDefaultExcludesAndUpdate#?#2:ZipException
+testForBugzilla34764#?#2:IOException" shape=ellipse]
+5 [label="testDefaultExcludesAndUpdate#?#-1:
+testForBugzilla34764#?#-1:" shape=ellipse]
+6 [label="testDefaultExcludesAndUpdate#?#2:IOException" shape=ellipse]
+7 [label="testDefaultExcludesAndUpdate#?#-1:" shape=ellipse]
+8 [label="testDefaultExcludesAndUpdate#?#2:\{
+    executeTarget(\"testDefaultExcludesAndUpdate\");
+    ZipFile f = null;
+    try \{
+        f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+    \} finally \{
+        if (f != null) \{
+            f.close();
+        \}
+    \}
+\}
+testForBugzilla34764#?#2:\{
+    executeTarget(\"testForBugzilla34764\");
+    ZipFile zf = null;
+    try \{
+        zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+        ZipEntry ze = zf.getEntry(\"file1\");
+        assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+    \} finally \{
+        if (zf != null) \{
+            zf.close();
+        \}
+    \}
+\}" shape=ellipse]
+9 [label="testDefaultExcludesAndUpdate#?#3:executeTarget(\"testDefaultExcludesAndUpdate\")
+testForBugzilla34764#?#3:executeTarget(\"testForBugzilla34764\")" shape=ellipse]
+10 [label="testDefaultExcludesAndUpdate#?#4:ZipFile f = null
+testForBugzilla34764#?#4:ZipFile zf = null" shape=ellipse]
+11 [label="testDefaultExcludesAndUpdate#?#5:try \{
+    f = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    assertNotNull(\"ziptest~ should be included\", f.getEntry(\"ziptest~\"));
+\} finally \{
+    if (f != null) \{
+        f.close();
+    \}
+\}
+testForBugzilla34764#?#5:try \{
+    zf = new ZipFile(new File(getProject().getProperty(\"output\"), \"test3.zip\"));
+    ZipEntry ze = zf.getEntry(\"file1\");
+    assertEquals(UnixStat.FILE_FLAG | 0644, ze.getUnixMode());
+\} finally \{
+    if (zf != null) \{
+        zf.close();
+    \}
+\}" shape=ellipse]
+12 [label="testDefaultExcludesAndUpdate#?#2:VE: ThrownTypes_testDefaultExcludesAndUpdate
+testForBugzilla34764#?#2:VE: Modifiers_Method" shape=ellipse]
+13 [label="testDefaultExcludesAndUpdate#?#2:VE: Modifiers_Method
+testForBugzilla34764#?#2:testForBugzilla34764" shape=ellipse]
+14 [label="testDefaultExcludesAndUpdate#?#2:public
+testForBugzilla34764#?#2:public" shape=ellipse]
+15 [label="testDefaultExcludesAndUpdate#?#2:@Test
+testForBugzilla34764#?#2:@Test" shape=ellipse]
+0 -> 15 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:1"];
+1 -> 8 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+1 -> 13 [label="AST:2"];
+1 -> 14 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:1"];
+8 -> 9 [label="AST:2"];
+8 -> 10 [label="AST:2"];
+8 -> 11 [label="AST:2"];
+}

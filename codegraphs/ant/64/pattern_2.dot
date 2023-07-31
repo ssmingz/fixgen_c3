@@ -1,0 +1,410 @@
+digraph "Pattern" {
+0 [label="execute#?#19:INSERT
+execute#?#16:INSERT
+execute#?#19:INSERT
+execute#?#16:INSERT" shape=ellipse]
+1 [label="execute#?#16:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#13:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#16:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#13:if (Execute.isFailure(result)) \{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+2 [label="execute#?#2:\{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeKind() == null) \{
+        throw new BuildException(\"Required attribute TypeKind not specified\");
+    \}
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_RMTYPE);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:\{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getViewPath() == null) \{
+        setViewPath(aProj.getBaseDir().getPath());
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKBL);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:\{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    if (getViewPath() == null) \{
+        setViewPath(aProj.getBaseDir().getPath());
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKLABEL);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:\{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKLBTYPE);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}" shape=ellipse]
+3 [label="execute#?#2:public void execute() throws BuildException \{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeKind() == null) \{
+        throw new BuildException(\"Required attribute TypeKind not specified\");
+    \}
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_RMTYPE);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getViewPath() == null) \{
+        setViewPath(aProj.getBaseDir().getPath());
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKBL);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    if (getViewPath() == null) \{
+        setViewPath(aProj.getBaseDir().getPath());
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKLABEL);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    Commandline commandLine = new Commandline();
+    Project aProj = getProject();
+    int result = 0;
+    if (getTypeName() == null) \{
+        throw new BuildException(\"Required attribute TypeName not specified\");
+    \}
+    commandLine.setExecutable(getClearToolCommand());
+    commandLine.createArgument().setValue(COMMAND_MKLBTYPE);
+    checkOptions(commandLine);
+    result = run(commandLine);
+    if (Execute.isFailure(result)) \{
+        String msg = \"Failed executing: \" + commandLine.toString();
+        throw new BuildException(msg, location);
+    \}
+\}" shape=ellipse]
+4 [label="execute#?#3:Commandline commandLine = new Commandline()
+execute#?#3:Commandline commandLine = new Commandline()
+execute#?#3:Commandline commandLine = new Commandline()
+execute#?#3:Commandline commandLine = new Commandline()" shape=ellipse]
+5 [label="execute#?#4:Project aProj = getProject()
+execute#?#4:Project aProj = getProject()
+execute#?#4:Project aProj = getProject()
+execute#?#4:Project aProj = getProject()" shape=ellipse]
+6 [label="execute#?#5:int result = 0
+execute#?#5:int result = 0
+execute#?#5:int result = 0
+execute#?#5:int result = 0" shape=ellipse]
+7 [label="execute#?#6:if (getTypeKind() == null) \{
+    throw new BuildException(\"Required attribute TypeKind not specified\");
+\}
+execute#?#6:if (getViewPath() == null) \{
+    setViewPath(aProj.getBaseDir().getPath());
+\}
+execute#?#6:if (getTypeName() == null) \{
+    throw new BuildException(\"Required attribute TypeName not specified\");
+\}
+execute#?#6:if (getTypeName() == null) \{
+    throw new BuildException(\"Required attribute TypeName not specified\");
+\}" shape=ellipse]
+8 [label="execute#?#9:if (getTypeName() == null) \{
+    throw new BuildException(\"Required attribute TypeName not specified\");
+\}
+execute#?#12:result = run(commandLine)
+execute#?#9:if (getViewPath() == null) \{
+    setViewPath(aProj.getBaseDir().getPath());
+\}
+execute#?#12:result = run(commandLine)" shape=ellipse]
+9 [label="execute#?#12:commandLine.setExecutable(getClearToolCommand())
+execute#?#9:commandLine.setExecutable(getClearToolCommand())
+execute#?#12:commandLine.setExecutable(getClearToolCommand())
+execute#?#9:commandLine.setExecutable(getClearToolCommand())" shape=ellipse]
+10 [label="execute#?#13:commandLine.createArgument().setValue(COMMAND_RMTYPE)
+execute#?#10:commandLine.createArgument().setValue(COMMAND_MKBL)
+execute#?#13:commandLine.createArgument().setValue(COMMAND_MKLABEL)
+execute#?#10:commandLine.createArgument().setValue(COMMAND_MKLBTYPE)" shape=ellipse]
+11 [label="execute#?#14:checkOptions(commandLine)
+execute#?#11:checkOptions(commandLine)
+execute#?#14:checkOptions(commandLine)
+execute#?#11:checkOptions(commandLine)" shape=ellipse]
+12 [label="execute#?#15:result = run(commandLine)
+execute#?#15:result = run(commandLine)" shape=ellipse]
+13 [label="execute#?#16:Execute.isFailure(result)
+execute#?#13:Execute.isFailure(result)
+execute#?#16:Execute.isFailure(result)
+execute#?#13:Execute.isFailure(result)" shape=ellipse]
+14 [label="execute#?#16:isFailure
+execute#?#13:isFailure
+execute#?#16:isFailure
+execute#?#13:isFailure" shape=ellipse]
+15 [label="execute#?#16:Execute
+execute#?#13:Execute
+execute#?#16:Execute
+execute#?#13:Execute" shape=ellipse]
+16 [label="execute#?#16:isFailure(int)
+execute#?#13:isFailure(int)
+execute#?#16:isFailure(int)
+execute#?#13:isFailure(int)" shape=ellipse]
+17 [label="execute#?#16:result
+execute#?#13:result
+execute#?#16:result
+execute#?#13:result" shape=ellipse]
+18 [label="execute#?#16:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#13:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#16:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}
+execute#?#13:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, location);
+\}" shape=ellipse]
+19 [label="execute#?#17:String msg = \"Failed executing: \" + commandLine.toString()
+execute#?#14:String msg = \"Failed executing: \" + commandLine.toString()
+execute#?#17:String msg = \"Failed executing: \" + commandLine.toString()
+execute#?#14:String msg = \"Failed executing: \" + commandLine.toString()" shape=ellipse]
+20 [label="execute#?#17:\"Failed executing: \" + commandLine.toString()
+execute#?#14:\"Failed executing: \" + commandLine.toString()
+execute#?#17:\"Failed executing: \" + commandLine.toString()
+execute#?#14:\"Failed executing: \" + commandLine.toString()" shape=ellipse]
+21 [label="execute#?#17:\"Failed executing: \"
+execute#?#14:\"Failed executing: \"
+execute#?#17:\"Failed executing: \"
+execute#?#14:\"Failed executing: \"" shape=ellipse]
+22 [label="execute#?#17:commandLine.toString()
+execute#?#14:commandLine.toString()
+execute#?#17:commandLine.toString()
+execute#?#14:commandLine.toString()" shape=ellipse]
+23 [label="execute#?#17:toString()
+execute#?#14:toString()
+execute#?#17:toString()
+execute#?#14:toString()" shape=ellipse]
+24 [label="execute#?#17:commandLine
+execute#?#14:commandLine
+execute#?#17:commandLine
+execute#?#14:commandLine" shape=ellipse]
+25 [label="execute#?#18:throw new BuildException(msg, location)
+execute#?#15:throw new BuildException(msg, location)
+execute#?#18:throw new BuildException(msg, location)
+execute#?#15:throw new BuildException(msg, location)" shape=ellipse]
+26 [label="execute#?#18:new BuildException(msg, location)
+execute#?#15:new BuildException(msg, location)
+execute#?#18:new BuildException(msg, location)
+execute#?#15:new BuildException(msg, location)" shape=ellipse]
+27 [label="execute#?#-1:BuildException()
+execute#?#-1:BuildException()
+execute#?#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+28 [label="execute#?#18:msg
+execute#?#15:msg
+execute#?#18:msg
+execute#?#15:msg" shape=ellipse]
+29 [label="execute#?#18:location
+execute#?#15:location
+execute#?#18:location
+execute#?#15:location" shape=ellipse]
+30 [label="execute#?#16:MOVE
+execute#?#13:MOVE
+execute#?#16:MOVE
+execute#?#13:MOVE" shape=ellipse]
+31 [label="execute#?#19:Execute.isFailure(result) && getFailOnErr()
+execute#?#16:Execute.isFailure(result) && getFailOnErr()
+execute#?#19:Execute.isFailure(result) && getFailOnErr()
+execute#?#16:Execute.isFailure(result) && getFailOnErr()" shape=ellipse]
+32 [label="execute#?#19:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, getLocation());
+\}
+execute#?#16:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, getLocation());
+\}
+execute#?#19:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, getLocation());
+\}
+execute#?#16:\{
+    String msg = \"Failed executing: \" + commandLine.toString();
+    throw new BuildException(msg, getLocation());
+\}" shape=ellipse]
+33 [label="execute#?#20:toString()
+execute#?#17:toString()
+execute#?#20:toString()
+execute#?#17:toString()" shape=ellipse]
+34 [label="execute#?#21:throw new BuildException(msg, getLocation())
+execute#?#18:throw new BuildException(msg, getLocation())
+execute#?#21:throw new BuildException(msg, getLocation())
+execute#?#18:throw new BuildException(msg, getLocation())" shape=ellipse]
+35 [label="execute#?#21:new BuildException(msg, getLocation())
+execute#?#18:new BuildException(msg, getLocation())
+execute#?#21:new BuildException(msg, getLocation())
+execute#?#18:new BuildException(msg, getLocation())" shape=ellipse]
+36 [label="execute#?#-1:BuildException()
+execute#?#-1:BuildException()
+execute#?#-1:BuildException()
+execute#?#-1:BuildException()" shape=ellipse]
+37 [label="execute#?#21:getLocation()
+execute#?#18:getLocation()
+execute#?#21:getLocation()
+execute#?#18:getLocation()" shape=ellipse]
+38 [label="execute#?#21:INSERT
+execute#?#18:INSERT
+execute#?#21:INSERT
+execute#?#18:INSERT" shape=ellipse]
+39 [label="execute#?#21:getLocation()
+execute#?#18:getLocation()
+execute#?#21:getLocation()
+execute#?#18:getLocation()" shape=ellipse]
+40 [label="execute#?#-1:
+execute#?#-1:
+execute#?#-1:
+execute#?#-1:" shape=ellipse]
+41 [label="execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold
+execute#?#-1:PlaceHold" shape=ellipse]
+0 -> 31 [label="Action:4"];
+1 -> 0 [label="Action:4"];
+1 -> 13 [label="AST:4"];
+1 -> 18 [label="AST:4"];
+2 -> 1 [label="AST:4"];
+2 -> 4 [label="AST:4"];
+2 -> 5 [label="AST:4"];
+2 -> 6 [label="AST:4"];
+2 -> 7 [label="AST:4"];
+2 -> 8 [label="AST:4"];
+2 -> 9 [label="AST:4"];
+2 -> 10 [label="AST:4"];
+2 -> 11 [label="AST:4"];
+2 -> 12 [label="AST:2"];
+3 -> 2 [label="AST:4"];
+13 -> 14 [label="AST:4"];
+13 -> 15 [label="AST:4"];
+13 -> 16 [label="AST:4"];
+13 -> 17 [label="AST:4"];
+13 -> 18 [label="Control Dep:4"];
+13 -> 19 [label="Control Dep:4"];
+13 -> 20 [label="Control Dep:4"];
+13 -> 21 [label="Control Dep:4"];
+13 -> 22 [label="Control Dep:4"];
+13 -> 23 [label="Control Dep:4"];
+13 -> 24 [label="Control Dep:4"];
+13 -> 25 [label="Control Dep:4"];
+13 -> 26 [label="Control Dep:4"];
+13 -> 27 [label="Control Dep:4"];
+13 -> 28 [label="Control Dep:4"];
+13 -> 29 [label="Control Dep:4"];
+13 -> 30 [label="Action:4"];
+18 -> 19 [label="AST:4"];
+18 -> 25 [label="AST:4"];
+19 -> 20 [label="AST:4"];
+20 -> 21 [label="AST:4"];
+20 -> 22 [label="AST:4"];
+22 -> 24 [label="AST:4"];
+22 -> 23 [label="AST:4"];
+25 -> 26 [label="AST:4"];
+26 -> 27 [label="AST:4"];
+26 -> 28 [label="AST:4"];
+26 -> 29 [label="AST:4"];
+26 -> 38 [label="Action:4"];
+30 -> 31 [label="Action:4"];
+31 -> 32 [label="Control Dep:4"];
+31 -> 33 [label="Control Dep:4"];
+31 -> 34 [label="Control Dep:4"];
+31 -> 35 [label="Control Dep:4"];
+31 -> 36 [label="Control Dep:4"];
+31 -> 37 [label="Control Dep:4"];
+31 -> 39 [label="Control Dep:4"];
+31 -> 40 [label="Control Dep:4"];
+31 -> 41 [label="Control Dep:4"];
+32 -> 34 [label="AST:4"];
+34 -> 35 [label="AST:4"];
+35 -> 36 [label="AST:4"];
+35 -> 37 [label="AST:4"];
+37 -> 40 [label="AST:4"];
+37 -> 39 [label="AST:4"];
+38 -> 37 [label="Action:4"];
+40 -> 41 [label="AST:4"];
+}

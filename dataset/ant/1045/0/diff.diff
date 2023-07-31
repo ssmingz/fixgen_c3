@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1045/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1045/0/after.java
+@@ -2,1 +2,2 @@
+-  public void testAbsolutePath() {
++  @Test
++  public void testAbsolutePath() throws IOException, SAXException {
+@@ -11,8 +12,4 @@
+-    try {
+-      InputSource result =
+-          catalog.resolveEntity("-//stevo//DTD doc 1.0//EN", "nap:chemical+brothers");
+-      assertNotNull(result);
+-      assertEquals(toURLString(dtdFile), result.getSystemId());
+-    } catch (Exception e) {
+-      fail("resolveEntity() failed!" + e.toString());
+-    }
++    InputSource result =
++        catalog.resolveEntity("-//stevo//DTD doc 1.0//EN", "nap:chemical+brothers");
++    assertNotNull(result);
++    assertEquals(toURLString(dtdFile), result.getSystemId());

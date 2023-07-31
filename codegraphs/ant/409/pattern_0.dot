@@ -1,0 +1,40 @@
+digraph "Pattern" {
+0 [label="testFilterReaderBeforeAfter#?#3:UPDATE
+testConcatFilterBeforeAfter#?#3:UPDATE" shape=ellipse]
+1 [label="testFilterReaderBeforeAfter#?#3:\"testFilterReaderBeforeAfter\"
+testConcatFilterBeforeAfter#?#3:\"testConcatFilterBeforeAfter\"" shape=ellipse]
+2 [label="testFilterReaderBeforeAfter#?#3:executeTarget(\"testFilterReaderBeforeAfter\")
+testConcatFilterBeforeAfter#?#3:executeTarget(\"testConcatFilterBeforeAfter\")" shape=ellipse]
+3 [label="testFilterReaderBeforeAfter#?#2:\{
+    executeTarget(\"testFilterReaderBeforeAfter\");
+    File resultFile = getProject().resolveFile(\"result/concat.filterReaderBeforeAfter.test\");
+    String resultContent = fu.readFully(new FileReader(resultFile));
+    assertTrue(\"First 5 lines differs.\", resultContent.startsWith(FILE_BEGINNING_WITH));
+    assertTrue(\"Last 5 lines differs.\", resultContent.endsWith(FILE_ENDING_WITH));
+\}
+testConcatFilterBeforeAfter#?#2:\{
+    executeTarget(\"testConcatFilterBeforeAfter\");
+    File resultFile = getProject().resolveFile(\"result/concat.concatfilterBeforeAfter.test\");
+    String resultContent = fu.readFully(new FileReader(resultFile));
+    assertTrue(\"First 5 lines differs.\", resultContent.startsWith(FILE_BEGINNING_WITH));
+    assertTrue(\"Last 5 lines differs.\", resultContent.endsWith(FILE_ENDING_WITH));
+\}" shape=ellipse]
+4 [label="testFilterReaderBeforeAfter#?#3:executeTarget
+testConcatFilterBeforeAfter#?#3:executeTarget" shape=ellipse]
+5 [label="testFilterReaderBeforeAfter#?#-1:
+testConcatFilterBeforeAfter#?#-1:" shape=ellipse]
+6 [label="testFilterReaderBeforeAfter#?#3:executeTarget(java.lang.String)
+testConcatFilterBeforeAfter#?#3:executeTarget(java.lang.String)" shape=ellipse]
+7 [label="testFilterReaderBeforeAfter#?#-1:String
+testConcatFilterBeforeAfter#?#-1:String" shape=ellipse]
+8 [label="testFilterReaderBeforeAfter#?#3:\"testFilterReaderPrependAppend\"
+testConcatFilterBeforeAfter#?#3:\"testConcatFilterPrependAppend\"" shape=ellipse]
+0 -> 8 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 7 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+}

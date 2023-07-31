@@ -1,0 +1,16 @@
+--- D:\expdata\c3\dataset\cobertura\175\1/before.java
++++ D:\expdata\c3\dataset\cobertura\175\1/after.java
+@@ -3,1 +3,12 @@
+-    ProjectData projectDataToSave = new ProjectData();
++    ProjectData projectDataToSave = null;
++    globalProjectDataLock.lock();
++    try {
++      projectDataToSave = getGlobalProjectData();
++      globalProjectData = new ProjectData();
++    } finally {
++      globalProjectDataLock.unlock();
++    }
++    try {
++      Thread.sleep(1000);
++    } catch (InterruptedException e) {
++    }

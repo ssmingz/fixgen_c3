@@ -1,0 +1,96 @@
+digraph "Pattern" {
+0 [label="checkCondExpr#?#4:UPDATE
+checkSwitchExpr#?#4:UPDATE
+checkIndentation#?#6:UPDATE" shape=ellipse]
+1 [label="checkCondExpr#?#4:getLevel()
+checkSwitchExpr#?#4:getLevel()
+checkIndentation#?#6:getLevel()" shape=ellipse]
+2 [label="checkCondExpr#?#4:checkExpressionSubtree(condAst, getLevel(), false, false)
+checkSwitchExpr#?#3:checkExpressionSubtree(getMainAst().findFirstToken(LPAREN).getNextSibling(), getLevel(), false, false)
+checkIndentation#?#6:checkExpressionSubtree(type, getLevel(), false, false)" shape=ellipse]
+3 [label="checkCondExpr#?#2:\{
+    final DetailAST condAst = getMainAst().findFirstToken(LPAREN).getNextSibling();
+    checkExpressionSubtree(condAst, getLevel(), false, false);
+\}
+checkSwitchExpr#?#2:\{
+    checkExpressionSubtree(getMainAst().findFirstToken(LPAREN).getNextSibling(), getLevel(), false, false);
+\}
+checkIndentation#?#5:\{
+    checkExpressionSubtree(type, getLevel(), false, false);
+\}" shape=ellipse]
+4 [label="checkCondExpr#?#4:checkExpressionSubtree
+checkSwitchExpr#?#3:checkExpressionSubtree" shape=ellipse]
+5 [label="checkCondExpr#?#4:
+checkSwitchExpr#?#3:
+checkIndentation#?#6:" shape=ellipse]
+6 [label="checkCondExpr#?#4:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)
+checkSwitchExpr#?#3:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)
+checkIndentation#?#6:checkExpressionSubtree(<unknown>,<unknown>,boolean,boolean)" shape=ellipse]
+7 [label="checkCondExpr#?#4:condAst
+checkIndentation#?#6:type" shape=ellipse]
+8 [label="checkCondExpr#?#4:false
+checkSwitchExpr#?#4:false
+checkIndentation#?#6:false" shape=ellipse]
+9 [label="checkCondExpr#?#4:false
+checkSwitchExpr#?#4:false
+checkIndentation#?#6:false" shape=ellipse]
+10 [label="checkCondExpr#?#4:getLevel
+checkSwitchExpr#?#4:getLevel
+checkIndentation#?#6:getLevel" shape=ellipse]
+11 [label="checkCondExpr#?#4:
+checkSwitchExpr#?#4:
+checkIndentation#?#6:" shape=ellipse]
+12 [label="checkCondExpr#?#4:PlaceHold
+checkSwitchExpr#?#4:PlaceHold" shape=ellipse]
+13 [label="checkCondExpr#?#4:PlaceHold
+checkSwitchExpr#?#4:PlaceHold
+checkIndentation#?#6:PlaceHold" shape=ellipse]
+14 [label="checkCondExpr#?#4:getLevel()
+checkSwitchExpr#?#4:getLevel()
+checkIndentation#?#6:getLevel()" shape=ellipse]
+15 [label="checkCondExpr#?#4:getIndent
+checkSwitchExpr#?#4:getIndent
+checkIndentation#?#6:getIndent" shape=ellipse]
+16 [label="checkCondExpr#?#4:getIndent()
+checkSwitchExpr#?#4:getIndent()" shape=ellipse]
+17 [label="checkSwitchExpr#?#4:getMainAst().findFirstToken(LPAREN).getNextSibling()" shape=ellipse]
+18 [label="checkIndentation#?#5:type != null" shape=ellipse]
+19 [label="checkIndentation#?#5:if (type != null) \{
+    checkExpressionSubtree(type, getLevel(), false, false);
+\}" shape=ellipse]
+20 [label="checkIndentation#?#5:type" shape=ellipse]
+21 [label="checkIndentation#?#5:null" shape=ellipse]
+22 [label="checkIndentation#?#6:PlaceHold" shape=ellipse]
+1 -> 0 [label="Action:3"];
+1 -> 10 [label="AST:3"];
+1 -> 11 [label="AST:3"];
+1 -> 14 [label="AST:3"];
+2 -> 1 [label="AST:3"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:3"];
+2 -> 6 [label="AST:3"];
+2 -> 7 [label="AST:2"];
+2 -> 8 [label="AST:3"];
+2 -> 9 [label="AST:3"];
+2 -> 17 [label="AST:1"];
+3 -> 2 [label="AST:3"];
+5 -> 22 [label="AST:1"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:3"];
+18 -> 20 [label="AST:1"];
+18 -> 21 [label="AST:1"];
+18 -> 3 [label="Control Dep:1"];
+18 -> 2 [label="Control Dep:1"];
+18 -> 6 [label="Control Dep:1"];
+18 -> 5 [label="Control Dep:1"];
+18 -> 22 [label="Control Dep:1"];
+18 -> 7 [label="Control Dep:1"];
+18 -> 1 [label="Control Dep:1"];
+18 -> 14 [label="Control Dep:1"];
+18 -> 11 [label="Control Dep:1"];
+18 -> 13 [label="Control Dep:1"];
+18 -> 8 [label="Control Dep:1"];
+18 -> 9 [label="Control Dep:1"];
+19 -> 18 [label="AST:1"];
+19 -> 3 [label="AST:1"];
+}

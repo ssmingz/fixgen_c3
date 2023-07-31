@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1994/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1994/1/after.java
+@@ -4,1 +4,5 @@
+-    return ((int) (nsColumn.width()));
++    int width = ((int) (nsColumn.width()));
++    if (width > 0) {
++      width += Tree.CELL_GAP;
++    }
++    return width;

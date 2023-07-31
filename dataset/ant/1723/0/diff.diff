@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/1723/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/1723/0/after.java
+@@ -2,1 +2,4 @@
+-  public void startTest(Test t) {}
++  public void startTest(Test t) {
++    String testName = JUnitVersionHelper.getTestCaseName(t);
++    logTestListenerEvent(("startTest(" + testName) + ")");
++  }

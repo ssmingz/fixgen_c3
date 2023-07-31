@@ -1,0 +1,55 @@
+digraph "Pattern" {
+0 [label="testExitAndOtherException#?#4:UPDATE
+testSingleExit#?#4:UPDATE" shape=ellipse]
+1 [label="testExitAndOtherException#?#4:executeTarget(\"testExitAndOtherException\")
+testSingleExit#?#4:executeTarget(\"testSingleExit\")" shape=ellipse]
+2 [label="testExitAndOtherException#?#3:\{
+    executeTarget(\"testExitAndOtherException\");
+\}
+testSingleExit#?#3:\{
+    executeTarget(\"testSingleExit\");
+\}" shape=ellipse]
+3 [label="testExitAndOtherException#?#3:try \{
+    executeTarget(\"testExitAndOtherException\");
+\} catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}
+testSingleExit#?#3:try \{
+    executeTarget(\"testSingleExit\");
+\} catch (ExitStatusException ex) \{
+    assertEquals(42, ex.getStatus());
+\}" shape=ellipse]
+4 [label="testExitAndOtherException#?#4:executeTarget
+testSingleExit#?#4:executeTarget" shape=ellipse]
+5 [label="testExitAndOtherException#?#-1:
+testSingleExit#?#-1:" shape=ellipse]
+6 [label="testExitAndOtherException#?#-1:PlaceHold
+testSingleExit#?#-1:PlaceHold" shape=ellipse]
+7 [label="testExitAndOtherException#?#-1:PlaceHold
+testSingleExit#?#-1:PlaceHold" shape=ellipse]
+8 [label="testExitAndOtherException#?#4:executeTarget(java.lang.String)
+testSingleExit#?#4:executeTarget(java.lang.String)" shape=ellipse]
+9 [label="testExitAndOtherException#?#-1:String
+testSingleExit#?#-1:String" shape=ellipse]
+10 [label="testExitAndOtherException#?#4:\"testExitAndOtherException\"
+testSingleExit#?#4:\"testSingleExit\"" shape=ellipse]
+11 [label="testExitAndOtherException#?#-1:String
+testSingleExit#?#-1:String" shape=ellipse]
+12 [label="testExitAndOtherException#?#4:UPDATE
+testSingleExit#?#4:UPDATE" shape=ellipse]
+13 [label="testExitAndOtherException#?#6:fail(\"ExitStatusException should have been thrown\")
+testSingleExit#?#6:fail(\"ExitStatusException should have been thrown\")" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 4 [label="AST:2"];
+1 -> 5 [label="AST:2"];
+1 -> 8 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+2 -> 1 [label="AST:2"];
+3 -> 2 [label="AST:2"];
+5 -> 6 [label="AST:2"];
+5 -> 7 [label="AST:2"];
+8 -> 9 [label="AST:2"];
+10 -> 11 [label="AST:2"];
+10 -> 12 [label="Action:2"];
+}

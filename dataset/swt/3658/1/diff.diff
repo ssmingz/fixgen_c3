@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/3658/1/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/3658/1/after.java
+@@ -3,1 +3,5 @@
+-    int code = SWT.TRAVERSE_ESCAPE | SWT.TRAVERSE_RETURN;
++    int code = (SWT.TRAVERSE_RETURN | SWT.TRAVERSE_TAB_NEXT) | SWT.TRAVERSE_TAB_PREVIOUS;
++    Shell shell = getShell();
++    if (shell.parent != null) {
++      code |= SWT.TRAVERSE_ESCAPE;
++    }

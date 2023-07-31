@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/ant/477/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/ant/477/0/after.java
+@@ -2,0 +2,1 @@
++  @Test
+@@ -3,2 +4,6 @@
+-    expectBuildExceptionContaining(
+-        "test4", "Manifest is invalid - section starts with continuation line", "Invalid Manifest");
++    try {
++      buildRule.executeTarget("test4");
++      fail("BuildException expected: Manifest is invalid - section starts with continuation line");
++    } catch (BuildException ex) {
++      assertContains("Invalid Manifest", ex.getMessage());
++    }

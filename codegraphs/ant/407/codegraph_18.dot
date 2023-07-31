@@ -1,0 +1,37 @@
+digraph "testEchoToLog#?" {
+0 [label="2:CtTypeReferenceImpl@void" shape=ellipse]
+1 [label="2:CtVirtualElement@testEchoToLog" shape=ellipse]
+2 [label="3:CtExecutableReferenceImpl@expectLogContaining(java.lang.String,java.lang.String)" shape=ellipse]
+3 [label="3:CtVirtualElement@expectLogContaining" shape=ellipse]
+4 [label="3:CtLiteralImpl@\"testEchoToLog\"" shape=ellipse]
+5 [label="3:CtLiteralImpl@\"Processing File\"" shape=ellipse]
+6 [label="3:CtInvocationImpl@expectLogContaining(\"testEchoToLog\", \"Processing File\")" shape=ellipse]
+7 [label="2:CtBlockImpl@\{
+    expectLogContaining(\"testEchoToLog\", \"Processing File\");
+\}" shape=ellipse]
+8 [label="2:CtMethodImpl@public void testEchoToLog() \{
+    expectLogContaining(\"testEchoToLog\", \"Processing File\");
+\}" shape=ellipse]
+9 [label="3:Update@UPDATE" shape=ellipse]
+10 [label="5:CtInvocationImpl@AntAssert.assertContains(\"Processing File\", buildRule.getLog())" shape=ellipse]
+11 [label="5:CtTypeAccessImpl@AntAssert" shape=ellipse]
+12 [label="2:Insert@INSERT" shape=ellipse]
+13 [label="2:CtAnnotationImpl@@Test" shape=ellipse]
+14 [label="4:Insert@INSERT" shape=ellipse]
+15 [label="4:CtInvocationImpl@buildRule.executeTarget(\"testEchoToLog\")" shape=ellipse]
+6 -> 3 [label="AST"];
+6 -> 2 [label="AST"];
+6 -> 4 [label="AST"];
+6 -> 5 [label="AST"];
+6 -> 9 [label="Action"];
+7 -> 6 [label="AST"];
+8 -> 1 [label="AST"];
+8 -> 0 [label="AST"];
+8 -> 7 [label="AST"];
+8 -> 12 [label="Action"];
+8 -> 14 [label="Action"];
+9 -> 10 [label="Action"];
+10 -> 11 [label="AST"];
+12 -> 13 [label="Action"];
+14 -> 15 [label="Action"];
+}

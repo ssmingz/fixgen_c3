@@ -1,0 +1,644 @@
+digraph "Pattern" {
+0 [label="getCCN#?,File,boolean#3:INSERT
+getCCNForMethod#?,ClassData,String,String#3:INSERT
+getBranchCoverageRate#?#5:INSERT" shape=ellipse]
+1 [label="getCCN#?,File,boolean#2:\{
+    int ccnAccumulator = 0;
+    Vector files = getListOfFiles(file, recursive);
+    if (files.isEmpty()) \{
+        logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+        return 0;
+    \}
+    Javancss javancss = new Javancss(files);
+    List functionMetrics = javancss.getFunctionMetrics();
+    if (functionMetrics.size() <= 0) \{
+        return 0;
+    \}
+    Iterator iter = functionMetrics.iterator();
+    while (iter.hasNext()) \{
+        Vector functionMetric = ((Vector) (iter.next()));
+        ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+    \} 
+    return ((double) (ccnAccumulator)) / functionMetrics.size();
+\}
+getCCNForMethod#?,ClassData,String,String#2:\{
+    Validate.notNull(classData, \"classData must not be null\");
+    Validate.notNull(methodName, \"methodName must not be null\");
+    Validate.notNull(methodDescriptor, \"methodDescriptor must not be null\");
+    int complexity = 0;
+    List<FunctionMetric> methodMetrics = getFunctionMetricsForSingleFile(classData.getSourceFileName());
+    String goldenMethodName = methodName;
+    boolean isConstructor = false;
+    if (goldenMethodName.equals(\"<init>\")) \{
+        isConstructor = true;
+        goldenMethodName = classData.getBaseName();
+    \}
+    goldenMethodName = (classData.getName() + \".\") + goldenMethodName;
+    goldenMethodName = goldenMethodName.replaceAll(Pattern.quote(\"$\"), \".\");
+    TraceSignatureVisitor v = new TraceSignatureVisitor(Opcodes.ACC_PUBLIC);
+    SignatureReader r = new SignatureReader(methodDescriptor);
+    r.accept(v);
+    String goldenSignature = v.getDeclaration();
+    goldenSignature = goldenSignature.substring(1, goldenSignature.length() - 1);
+    Map<String, Integer> candidateSignatureToCcn = new HashMap<String, Integer>();
+    for (FunctionMetric singleMethodMetrics : methodMetrics) \{
+        String candidateMethodName = singleMethodMetrics.name.substring(0, singleMethodMetrics.name.indexOf('('));
+        String candidateSignature = stripTypeParameters(singleMethodMetrics.name.substring(singleMethodMetrics.name.indexOf('(') + 1, singleMethodMetrics.name.length() - 1));
+        if (goldenMethodName.equals(candidateMethodName)) \{
+            candidateSignatureToCcn.put(candidateSignature, singleMethodMetrics.ccn);
+        \}
+    \}
+    if (candidateSignatureToCcn.size() == 1) \{
+        return candidateSignatureToCcn.values().iterator().next();
+    \}
+    if (!goldenSignature.isEmpty()) \{
+        try \{
+            String[] goldenParameterTypeStrings = goldenSignature.split(\",\");
+            Class<?>[] goldenParameterTypes = new Class[goldenParameterTypeStrings.length];
+            for (int i = 0; i < goldenParameterTypeStrings.length; i++) \{
+                goldenParameterTypes[i] = ClassUtils.getClass(goldenParameterTypeStrings[i].trim(), false);
+            \}
+            Class<?> klass = ClassUtils.getClass(classData.getName(), false);
+            if (isConstructor) \{
+                Constructor<?> realMethod = klass.getDeclaredConstructor(goldenParameterTypes);
+                goldenSignature = realMethod.toGenericString();
+            \} else \{
+                Method realMethod = klass.getDeclaredMethod(methodName, goldenParameterTypes);
+                goldenSignature = realMethod.toGenericString();
+            \}
+            goldenSignature = goldenSignature.replaceAll(\"\\.\\.\\.\", \"[]\");
+            goldenSignature = goldenSignature.substring(goldenSignature.indexOf(\"(\") + 1, goldenSignature.length() - 1);
+            goldenSignature = stripTypeParameters(goldenSignature);
+        \} catch (Exception e) \{
+            logger.error(\"Error while getting method CC for \" + goldenMethodName, e);
+            return 0;
+        \}
+    \}
+    goldenSignature = goldenSignature.replaceAll(Pattern.quote(\"$\"), \".\");
+    double signatureMatchPercentTillNow = 0;
+    for (Entry<String, Integer> candidateSignatureToCcnEntry : candidateSignatureToCcn.entrySet()) \{
+        String candidateSignature = candidateSignatureToCcnEntry.getKey();
+        double currentMatchPercent = matchSignatures(candidateSignature, goldenSignature);
+        if (currentMatchPercent == 1) \{
+            return candidateSignatureToCcnEntry.getValue();
+        \}
+        if (currentMatchPercent > signatureMatchPercentTillNow) \{
+            complexity = candidateSignatureToCcnEntry.getValue();
+            signatureMatchPercentTillNow = currentMatchPercent;
+        \}
+    \}
+    return complexity;
+\}
+getBranchCoverageRate#?#4:\{
+    return 1;
+\}" shape=ellipse]
+2 [label="getCCN#?,File,boolean#2:public static double getCCN(File file, boolean recursive) \{
+    int ccnAccumulator = 0;
+    Vector files = getListOfFiles(file, recursive);
+    if (files.isEmpty()) \{
+        logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+        return 0;
+    \}
+    Javancss javancss = new Javancss(files);
+    List functionMetrics = javancss.getFunctionMetrics();
+    if (functionMetrics.size() <= 0) \{
+        return 0;
+    \}
+    Iterator iter = functionMetrics.iterator();
+    while (iter.hasNext()) \{
+        Vector functionMetric = ((Vector) (iter.next()));
+        ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+    \} 
+    return ((double) (ccnAccumulator)) / functionMetrics.size();
+\}
+getCCNForMethod#?,ClassData,String,String#2:public int getCCNForMethod(ClassData classData, String methodName, String methodDescriptor) \{
+    Validate.notNull(classData, \"classData must not be null\");
+    Validate.notNull(methodName, \"methodName must not be null\");
+    Validate.notNull(methodDescriptor, \"methodDescriptor must not be null\");
+    int complexity = 0;
+    List<FunctionMetric> methodMetrics = getFunctionMetricsForSingleFile(classData.getSourceFileName());
+    String goldenMethodName = methodName;
+    boolean isConstructor = false;
+    if (goldenMethodName.equals(\"<init>\")) \{
+        isConstructor = true;
+        goldenMethodName = classData.getBaseName();
+    \}
+    goldenMethodName = (classData.getName() + \".\") + goldenMethodName;
+    goldenMethodName = goldenMethodName.replaceAll(Pattern.quote(\"$\"), \".\");
+    TraceSignatureVisitor v = new TraceSignatureVisitor(Opcodes.ACC_PUBLIC);
+    SignatureReader r = new SignatureReader(methodDescriptor);
+    r.accept(v);
+    String goldenSignature = v.getDeclaration();
+    goldenSignature = goldenSignature.substring(1, goldenSignature.length() - 1);
+    Map<String, Integer> candidateSignatureToCcn = new HashMap<String, Integer>();
+    for (FunctionMetric singleMethodMetrics : methodMetrics) \{
+        String candidateMethodName = singleMethodMetrics.name.substring(0, singleMethodMetrics.name.indexOf('('));
+        String candidateSignature = stripTypeParameters(singleMethodMetrics.name.substring(singleMethodMetrics.name.indexOf('(') + 1, singleMethodMetrics.name.length() - 1));
+        if (goldenMethodName.equals(candidateMethodName)) \{
+            candidateSignatureToCcn.put(candidateSignature, singleMethodMetrics.ccn);
+        \}
+    \}
+    if (candidateSignatureToCcn.size() == 1) \{
+        return candidateSignatureToCcn.values().iterator().next();
+    \}
+    if (!goldenSignature.isEmpty()) \{
+        try \{
+            String[] goldenParameterTypeStrings = goldenSignature.split(\",\");
+            Class<?>[] goldenParameterTypes = new Class[goldenParameterTypeStrings.length];
+            for (int i = 0; i < goldenParameterTypeStrings.length; i++) \{
+                goldenParameterTypes[i] = ClassUtils.getClass(goldenParameterTypeStrings[i].trim(), false);
+            \}
+            Class<?> klass = ClassUtils.getClass(classData.getName(), false);
+            if (isConstructor) \{
+                Constructor<?> realMethod = klass.getDeclaredConstructor(goldenParameterTypes);
+                goldenSignature = realMethod.toGenericString();
+            \} else \{
+                Method realMethod = klass.getDeclaredMethod(methodName, goldenParameterTypes);
+                goldenSignature = realMethod.toGenericString();
+            \}
+            goldenSignature = goldenSignature.replaceAll(\"\\.\\.\\.\", \"[]\");
+            goldenSignature = goldenSignature.substring(goldenSignature.indexOf(\"(\") + 1, goldenSignature.length() - 1);
+            goldenSignature = stripTypeParameters(goldenSignature);
+        \} catch (Exception e) \{
+            logger.error(\"Error while getting method CC for \" + goldenMethodName, e);
+            return 0;
+        \}
+    \}
+    goldenSignature = goldenSignature.replaceAll(Pattern.quote(\"$\"), \".\");
+    double signatureMatchPercentTillNow = 0;
+    for (Entry<String, Integer> candidateSignatureToCcnEntry : candidateSignatureToCcn.entrySet()) \{
+        String candidateSignature = candidateSignatureToCcnEntry.getKey();
+        double currentMatchPercent = matchSignatures(candidateSignature, goldenSignature);
+        if (currentMatchPercent == 1) \{
+            return candidateSignatureToCcnEntry.getValue();
+        \}
+        if (currentMatchPercent > signatureMatchPercentTillNow) \{
+            complexity = candidateSignatureToCcnEntry.getValue();
+            signatureMatchPercentTillNow = currentMatchPercent;
+        \}
+    \}
+    return complexity;
+\}" shape=ellipse]
+3 [label="getCCN#?,File,boolean#2:getCCN
+getCCNForMethod#?,ClassData,String,String#2:getCCNForMethod" shape=ellipse]
+4 [label="getCCN#?,File,boolean#2:double
+getCCNForMethod#?,ClassData,String,String#2:int
+getBranchCoverageRate#?#4:boolean" shape=ellipse]
+5 [label="getCCN#?,File,boolean#2:File file
+getCCNForMethod#?,ClassData,String,String#2:String methodName" shape=ellipse]
+6 [label="getCCN#?,File,boolean#2:boolean recursive
+getCCNForMethod#?,ClassData,String,String#2:String methodDescriptor" shape=ellipse]
+7 [label="getCCN#?,File,boolean#3:int ccnAccumulator = 0
+getCCNForMethod#?,ClassData,String,String#10:boolean isConstructor = false
+getBranchCoverageRate#?#5:return 1" shape=ellipse]
+8 [label="getCCN#?,File,boolean#3:ccnAccumulator
+getCCNForMethod#?,ClassData,String,String#10:isConstructor" shape=ellipse]
+9 [label="getCCN#?,File,boolean#3:int
+getCCNForMethod#?,ClassData,String,String#10:boolean" shape=ellipse]
+10 [label="getCCN#?,File,boolean#3:0
+getCCNForMethod#?,ClassData,String,String#10:false
+getBranchCoverageRate#?#5:1" shape=ellipse]
+11 [label="getCCN#?,File,boolean#4:Vector files = getListOfFiles(file, recursive)
+getCCNForMethod#?,ClassData,String,String#20:String goldenSignature = v.getDeclaration()" shape=ellipse]
+12 [label="getCCN#?,File,boolean#4:files
+getCCNForMethod#?,ClassData,String,String#20:goldenSignature
+getBranchCoverageRate#?#4:numberOfBranches" shape=ellipse]
+13 [label="getCCN#?,File,boolean#4:Vector
+getCCNForMethod#?,ClassData,String,String#20:String
+getBranchCoverageRate#?#5:getNumberOfCoveredLines()" shape=ellipse]
+14 [label="getCCN#?,File,boolean#4:getListOfFiles(file, recursive)
+getCCNForMethod#?,ClassData,String,String#20:v.getDeclaration()" shape=ellipse]
+15 [label="getCCN#?,File,boolean#5:if (files.isEmpty()) \{
+    logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#38:if (!goldenSignature.isEmpty()) \{
+    try \{
+        String[] goldenParameterTypeStrings = goldenSignature.split(\",\");
+        Class<?>[] goldenParameterTypes = new Class[goldenParameterTypeStrings.length];
+        for (int i = 0; i < goldenParameterTypeStrings.length; i++) \{
+            goldenParameterTypes[i] = ClassUtils.getClass(goldenParameterTypeStrings[i].trim(), false);
+        \}
+        Class<?> klass = ClassUtils.getClass(classData.getName(), false);
+        if (isConstructor) \{
+            Constructor<?> realMethod = klass.getDeclaredConstructor(goldenParameterTypes);
+            goldenSignature = realMethod.toGenericString();
+        \} else \{
+            Method realMethod = klass.getDeclaredMethod(methodName, goldenParameterTypes);
+            goldenSignature = realMethod.toGenericString();
+        \}
+        goldenSignature = goldenSignature.replaceAll(\"\\.\\.\\.\", \"[]\");
+        goldenSignature = goldenSignature.substring(goldenSignature.indexOf(\"(\") + 1, goldenSignature.length() - 1);
+        goldenSignature = stripTypeParameters(goldenSignature);
+    \} catch (Exception e) \{
+        logger.error(\"Error while getting method CC for \" + goldenMethodName, e);
+        return 0;
+    \}
+\}" shape=ellipse]
+16 [label="getCCN#?,File,boolean#5:files.isEmpty()" shape=ellipse]
+17 [label="getCCN#?,File,boolean#5:\{
+    logger.warn(((\"Cannot find files to compute CCN, file=\" + file.getAbsolutePath()) + \", recursive=\") + recursive);
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#38:\{
+    try \{
+        String[] goldenParameterTypeStrings = goldenSignature.split(\",\");
+        Class<?>[] goldenParameterTypes = new Class[goldenParameterTypeStrings.length];
+        for (int i = 0; i < goldenParameterTypeStrings.length; i++) \{
+            goldenParameterTypes[i] = ClassUtils.getClass(goldenParameterTypeStrings[i].trim(), false);
+        \}
+        Class<?> klass = ClassUtils.getClass(classData.getName(), false);
+        if (isConstructor) \{
+            Constructor<?> realMethod = klass.getDeclaredConstructor(goldenParameterTypes);
+            goldenSignature = realMethod.toGenericString();
+        \} else \{
+            Method realMethod = klass.getDeclaredMethod(methodName, goldenParameterTypes);
+            goldenSignature = realMethod.toGenericString();
+        \}
+        goldenSignature = goldenSignature.replaceAll(\"\\.\\.\\.\", \"[]\");
+        goldenSignature = goldenSignature.substring(goldenSignature.indexOf(\"(\") + 1, goldenSignature.length() - 1);
+        goldenSignature = stripTypeParameters(goldenSignature);
+    \} catch (Exception e) \{
+        logger.error(\"Error while getting method CC for \" + goldenMethodName, e);
+        return 0;
+    \}
+\}
+getBranchCoverageRate#?#5:\{
+    return 0;
+\}" shape=ellipse]
+18 [label="getCCN#?,File,boolean#11:Javancss javancss = new Javancss(files)
+getCCNForMethod#?,ClassData,String,String#35:if (candidateSignatureToCcn.size() == 1) \{
+    return candidateSignatureToCcn.values().iterator().next();
+\}" shape=ellipse]
+19 [label="getCCN#?,File,boolean#11:javancss
+getBranchCoverageRate#?#5:" shape=ellipse]
+20 [label="getCCN#?,File,boolean#11:Javancss
+getBranchCoverageRate#?#6:int" shape=ellipse]
+21 [label="getCCN#?,File,boolean#11:new Javancss(files)" shape=ellipse]
+22 [label="getCCN#?,File,boolean#12:List functionMetrics = javancss.getFunctionMetrics()
+getCCNForMethod#?,ClassData,String,String#7:List<FunctionMetric> methodMetrics = getFunctionMetricsForSingleFile(classData.getSourceFileName())" shape=ellipse]
+23 [label="getCCN#?,File,boolean#12:functionMetrics
+getCCNForMethod#?,ClassData,String,String#7:methodMetrics" shape=ellipse]
+24 [label="getCCN#?,File,boolean#12:List
+getCCNForMethod#?,ClassData,String,String#7:List<FunctionMetric>" shape=ellipse]
+25 [label="getCCN#?,File,boolean#12:javancss.getFunctionMetrics()
+getCCNForMethod#?,ClassData,String,String#8:getFunctionMetricsForSingleFile(classData.getSourceFileName())" shape=ellipse]
+26 [label="getCCN#?,File,boolean#13:if (functionMetrics.size() <= 0) \{
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#11:if (goldenMethodName.equals(\"<init>\")) \{
+    isConstructor = true;
+    goldenMethodName = classData.getBaseName();
+\}" shape=ellipse]
+27 [label="getCCN#?,File,boolean#13:functionMetrics.size() <= 0" shape=ellipse]
+28 [label="getCCN#?,File,boolean#13:\{
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#11:\{
+    isConstructor = true;
+    goldenMethodName = classData.getBaseName();
+\}" shape=ellipse]
+29 [label="getCCN#?,File,boolean#16:Iterator iter = functionMetrics.iterator()
+getCCNForMethod#?,ClassData,String,String#22:Map<String, Integer> candidateSignatureToCcn = new HashMap<String, Integer>()" shape=ellipse]
+30 [label="getCCN#?,File,boolean#16:iter
+getCCNForMethod#?,ClassData,String,String#22:candidateSignatureToCcn" shape=ellipse]
+31 [label="getCCN#?,File,boolean#16:Iterator
+getCCNForMethod#?,ClassData,String,String#22:Map<String, Integer>" shape=ellipse]
+32 [label="getCCN#?,File,boolean#16:functionMetrics.iterator()" shape=ellipse]
+33 [label="getCCN#?,File,boolean#17:while (iter.hasNext()) \{
+    Vector functionMetric = ((Vector) (iter.next()));
+    ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+\} 
+getCCNForMethod#?,ClassData,String,String#66:for (Entry<String, Integer> candidateSignatureToCcnEntry : candidateSignatureToCcn.entrySet()) \{
+    String candidateSignature = candidateSignatureToCcnEntry.getKey();
+    double currentMatchPercent = matchSignatures(candidateSignature, goldenSignature);
+    if (currentMatchPercent == 1) \{
+        return candidateSignatureToCcnEntry.getValue();
+    \}
+    if (currentMatchPercent > signatureMatchPercentTillNow) \{
+        complexity = candidateSignatureToCcnEntry.getValue();
+        signatureMatchPercentTillNow = currentMatchPercent;
+    \}
+\}" shape=ellipse]
+34 [label="getCCN#?,File,boolean#17:iter.hasNext()
+getCCNForMethod#?,ClassData,String,String#66:candidateSignatureToCcn.entrySet()" shape=ellipse]
+35 [label="getCCN#?,File,boolean#17:\{
+    Vector functionMetric = ((Vector) (iter.next()));
+    ccnAccumulator += ((Integer) (functionMetric.elementAt(FCT_CCN))).intValue();
+\}
+getCCNForMethod#?,ClassData,String,String#66:\{
+    String candidateSignature = candidateSignatureToCcnEntry.getKey();
+    double currentMatchPercent = matchSignatures(candidateSignature, goldenSignature);
+    if (currentMatchPercent == 1) \{
+        return candidateSignatureToCcnEntry.getValue();
+    \}
+    if (currentMatchPercent > signatureMatchPercentTillNow) \{
+        complexity = candidateSignatureToCcnEntry.getValue();
+        signatureMatchPercentTillNow = currentMatchPercent;
+    \}
+\}" shape=ellipse]
+36 [label="getCCN#?,File,boolean#21:return ((double) (ccnAccumulator)) / functionMetrics.size()
+getCCNForMethod#?,ClassData,String,String#21:goldenSignature = goldenSignature.substring(1, goldenSignature.length() - 1)" shape=ellipse]
+37 [label="getCCN#?,File,boolean#21:((double) (ccnAccumulator)) / functionMetrics.size()" shape=ellipse]
+38 [label="getCCN#?,File,boolean#3:if (file == null) \{
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#3:if (!calculateMethodComplexity) \{
+    return 0;
+\}" shape=ellipse]
+39 [label="getCCN#?,File,boolean#3:file == null" shape=ellipse]
+40 [label="getCCN#?,File,boolean#3:file
+getCCNForMethod#?,ClassData,String,String#6:complexity" shape=ellipse]
+41 [label="getCCN#?,File,boolean#3:file" shape=ellipse]
+42 [label="getCCN#?,File,boolean#3:File
+getCCNForMethod#?,ClassData,String,String#65:double" shape=ellipse]
+43 [label="getCCN#?,File,boolean#3:" shape=ellipse]
+44 [label="getCCN#?,File,boolean#3:null
+getCCNForMethod#?,ClassData,String,String#3:\"classData must not be null\"
+getBranchCoverageRate#?#4:0" shape=ellipse]
+45 [label="getCCN#?,File,boolean#3:<nulltype>" shape=ellipse]
+46 [label="getCCN#?,File,boolean#3:\{
+    return 0;
+\}
+getCCNForMethod#?,ClassData,String,String#3:\{
+    return 0;
+\}" shape=ellipse]
+47 [label="getCCN#?,File,boolean#4:return 0
+getCCNForMethod#?,ClassData,String,String#4:return 0" shape=ellipse]
+48 [label="getCCN#?,File,boolean#4:0
+getCCNForMethod#?,ClassData,String,String#4:0
+getBranchCoverageRate#?#5:0" shape=ellipse]
+49 [label="getCCN#?,File,boolean#4:int
+getCCNForMethod#?,ClassData,String,String#4:int" shape=ellipse]
+50 [label="getCCNForMethod#?,ClassData,String,String#3:Validate" shape=ellipse]
+51 [label="getCCNForMethod#?,ClassData,String,String#3:Validate.notNull(classData, \"classData must not be null\")" shape=ellipse]
+52 [label="getCCNForMethod#?,ClassData,String,String#3:classData" shape=ellipse]
+53 [label="getCCNForMethod#?,ClassData,String,String#6:0" shape=ellipse]
+54 [label="getCCNForMethod#?,ClassData,String,String#16:goldenMethodName = goldenMethodName.replaceAll(Pattern.quote(\"$\"), \".\")" shape=ellipse]
+55 [label="getCCNForMethod#?,ClassData,String,String#3:" shape=ellipse]
+56 [label="getCCNForMethod#?,ClassData,String,String#22:new HashMap<String, Integer>()" shape=ellipse]
+57 [label="getCCNForMethod#?,ClassData,String,String#16:goldenMethodName.replaceAll(Pattern.quote(\"$\"), \".\")" shape=ellipse]
+58 [label="getCCNForMethod#?,ClassData,String,String#4:Validate.notNull(methodName, \"methodName must not be null\")" shape=ellipse]
+59 [label="getCCNForMethod#?,ClassData,String,String#19:r.accept(v)" shape=ellipse]
+60 [label="getCCNForMethod#?,ClassData,String,String#35:\{
+    return candidateSignatureToCcn.values().iterator().next();
+\}" shape=ellipse]
+61 [label="getCCNForMethod#?,ClassData,String,String#65:0" shape=ellipse]
+62 [label="getCCNForMethod#?,ClassData,String,String#23:for (FunctionMetric singleMethodMetrics : methodMetrics) \{
+    String candidateMethodName = singleMethodMetrics.name.substring(0, singleMethodMetrics.name.indexOf('('));
+    String candidateSignature = stripTypeParameters(singleMethodMetrics.name.substring(singleMethodMetrics.name.indexOf('(') + 1, singleMethodMetrics.name.length() - 1));
+    if (goldenMethodName.equals(candidateMethodName)) \{
+        candidateSignatureToCcn.put(candidateSignature, singleMethodMetrics.ccn);
+    \}
+\}" shape=ellipse]
+63 [label="getCCNForMethod#?,ClassData,String,String#11:goldenMethodName.equals(\"<init>\")" shape=ellipse]
+64 [label="getCCNForMethod#?,ClassData,String,String#15:(classData.getName() + \".\") + goldenMethodName" shape=ellipse]
+65 [label="getCCNForMethod#?,ClassData,String,String#64:goldenSignature" shape=ellipse]
+66 [label="getCCNForMethod#?,ClassData,String,String#21:goldenSignature" shape=ellipse]
+67 [label="getCCNForMethod#?,ClassData,String,String#17:new TraceSignatureVisitor(Opcodes.ACC_PUBLIC)" shape=ellipse]
+68 [label="getCCNForMethod#?,ClassData,String,String#19:r" shape=ellipse]
+69 [label="getCCNForMethod#?,ClassData,String,String#4:Validate" shape=ellipse]
+70 [label="getCCNForMethod#?,ClassData,String,String#77:complexity" shape=ellipse]
+71 [label="getCCNForMethod#?,ClassData,String,String#3:!calculateMethodComplexity" shape=ellipse]
+72 [label="getCCNForMethod#?,ClassData,String,String#9:methodName" shape=ellipse]
+73 [label="getCCNForMethod#?,ClassData,String,String#16:goldenMethodName" shape=ellipse]
+74 [label="getCCNForMethod#?,ClassData,String,String#4:methodName" shape=ellipse]
+75 [label="getCCNForMethod#?,ClassData,String,String#64:goldenSignature = goldenSignature.replaceAll(Pattern.quote(\"$\"), \".\")" shape=ellipse]
+76 [label="getCCNForMethod#?,ClassData,String,String#21:goldenSignature.substring(1, goldenSignature.length() - 1)" shape=ellipse]
+77 [label="getCCNForMethod#?,ClassData,String,String#64:goldenSignature.replaceAll(Pattern.quote(\"$\"), \".\")" shape=ellipse]
+78 [label="getCCNForMethod#?,ClassData,String,String#77:return complexity" shape=ellipse]
+79 [label="getCCNForMethod#?,ClassData,String,String#15:goldenMethodName = (classData.getName() + \".\") + goldenMethodName" shape=ellipse]
+80 [label="getCCNForMethod#?,ClassData,String,String#15:goldenMethodName" shape=ellipse]
+81 [label="getCCNForMethod#?,ClassData,String,String#18:new SignatureReader(methodDescriptor)" shape=ellipse]
+82 [label="getCCNForMethod#?,ClassData,String,String#4:\"methodName must not be null\"" shape=ellipse]
+83 [label="getCCNForMethod#?,ClassData,String,String#5:\"methodDescriptor must not be null\"" shape=ellipse]
+84 [label="getCCNForMethod#?,ClassData,String,String#3:calculateMethodComplexity" shape=ellipse]
+85 [label="getCCNForMethod#?,ClassData,String,String#35:candidateSignatureToCcn.size() == 1" shape=ellipse]
+86 [label="getCCNForMethod#?,ClassData,String,String#38:!goldenSignature.isEmpty()" shape=ellipse]
+87 [label="getCCNForMethod#?,ClassData,String,String#5:Validate.notNull(methodDescriptor, \"methodDescriptor must not be null\")" shape=ellipse]
+88 [label="getCCNForMethod#?,ClassData,String,String#5:Validate" shape=ellipse]
+89 [label="getCCNForMethod#?,ClassData,String,String#19:v" shape=ellipse]
+90 [label="getCCNForMethod#?,ClassData,String,String#23:\{
+    String candidateMethodName = singleMethodMetrics.name.substring(0, singleMethodMetrics.name.indexOf('('));
+    String candidateSignature = stripTypeParameters(singleMethodMetrics.name.substring(singleMethodMetrics.name.indexOf('(') + 1, singleMethodMetrics.name.length() - 1));
+    if (goldenMethodName.equals(candidateMethodName)) \{
+        candidateSignatureToCcn.put(candidateSignature, singleMethodMetrics.ccn);
+    \}
+\}" shape=ellipse]
+91 [label="getCCNForMethod#?,ClassData,String,String#23:methodMetrics" shape=ellipse]
+92 [label="getCCNForMethod#?,ClassData,String,String#5:methodDescriptor" shape=ellipse]
+93 [label="getCCNForMethod#?,ClassData,String,String#3:notNull" shape=ellipse]
+94 [label="getCCNForMethod#?,ClassData,String,String#4:notNull" shape=ellipse]
+95 [label="getCCNForMethod#?,ClassData,String,String#5:notNull" shape=ellipse]
+96 [label="getCCNForMethod#?,ClassData,String,String#19:accept" shape=ellipse]
+97 [label="getCCNForMethod#?,ClassData,String,String#9:String" shape=ellipse]
+98 [label="getCCNForMethod#?,ClassData,String,String#15:String" shape=ellipse]
+99 [label="getCCNForMethod#?,ClassData,String,String#16:String" shape=ellipse]
+100 [label="getCCNForMethod#?,ClassData,String,String#21:String" shape=ellipse]
+101 [label="getCCNForMethod#?,ClassData,String,String#64:String" shape=ellipse]
+102 [label="getCCNForMethod#?,ClassData,String,String#3:calculateMethodComplexity" shape=ellipse]
+103 [label="getCCNForMethod#?,ClassData,String,String#3:notNull(ClassData,java.lang.String)" shape=ellipse]
+104 [label="getCCNForMethod#?,ClassData,String,String#4:notNull(java.lang.String,java.lang.String)" shape=ellipse]
+105 [label="getCCNForMethod#?,ClassData,String,String#5:notNull(java.lang.String,java.lang.String)" shape=ellipse]
+106 [label="getCCNForMethod#?,ClassData,String,String#2:ClassData classData" shape=ellipse]
+107 [label="getCCNForMethod#?,ClassData,String,String#19:accept(TraceSignatureVisitor)" shape=ellipse]
+108 [label="getCCNForMethod#?,ClassData,String,String#17:TraceSignatureVisitor" shape=ellipse]
+109 [label="getCCNForMethod#?,ClassData,String,String#6:int complexity = 0" shape=ellipse]
+110 [label="getCCNForMethod#?,ClassData,String,String#9:goldenMethodName" shape=ellipse]
+111 [label="getCCNForMethod#?,ClassData,String,String#9:String goldenMethodName = methodName" shape=ellipse]
+112 [label="getCCNForMethod#?,ClassData,String,String#23:FunctionMetric singleMethodMetrics" shape=ellipse]
+113 [label="getCCNForMethod#?,ClassData,String,String#18:SignatureReader" shape=ellipse]
+114 [label="getCCNForMethod#?,ClassData,String,String#65:signatureMatchPercentTillNow" shape=ellipse]
+115 [label="getCCNForMethod#?,ClassData,String,String#6:int" shape=ellipse]
+116 [label="getCCNForMethod#?,ClassData,String,String#65:double signatureMatchPercentTillNow = 0" shape=ellipse]
+117 [label="getCCNForMethod#?,ClassData,String,String#18:SignatureReader r = new SignatureReader(methodDescriptor)" shape=ellipse]
+118 [label="getCCNForMethod#?,ClassData,String,String#18:r" shape=ellipse]
+119 [label="getCCNForMethod#?,ClassData,String,String#17:TraceSignatureVisitor v = new TraceSignatureVisitor(Opcodes.ACC_PUBLIC)" shape=ellipse]
+120 [label="getCCNForMethod#?,ClassData,String,String#17:v" shape=ellipse]
+121 [label="getCCNForMethod#?,ClassData,String,String#3:PlaceHold" shape=ellipse]
+122 [label="getCCNForMethod#?,ClassData,String,String#66:Entry<String, Integer> candidateSignatureToCcnEntry" shape=ellipse]
+123 [label="getBranchCoverageRate#?#4:numberOfBranches == 0" shape=ellipse]
+124 [label="getBranchCoverageRate#?#4:if (numberOfBranches == 0) \{
+    return 1;
+\}" shape=ellipse]
+125 [label="getBranchCoverageRate#?#5:PlaceHold" shape=ellipse]
+126 [label="getBranchCoverageRate#?#5:getNumberOfCoveredLines()" shape=ellipse]
+127 [label="getBranchCoverageRate#?#5:getNumberOfCoveredLines() == 0" shape=ellipse]
+128 [label="getBranchCoverageRate#?#5:if (getNumberOfCoveredLines() == 0) \{
+    return 0;
+\}" shape=ellipse]
+129 [label="getBranchCoverageRate#?#6:return 0" shape=ellipse]
+130 [label="getBranchCoverageRate#?#6:0" shape=ellipse]
+0 -> 38 [label="Action:2"];
+0 -> 128 [label="Action:1"];
+1 -> 0 [label="Action:3"];
+1 -> 7 [label="AST:3"];
+1 -> 11 [label="AST:2"];
+1 -> 15 [label="AST:2"];
+1 -> 18 [label="AST:2"];
+1 -> 22 [label="AST:2"];
+1 -> 26 [label="AST:2"];
+1 -> 29 [label="AST:2"];
+1 -> 33 [label="AST:2"];
+1 -> 36 [label="AST:2"];
+1 -> 51 [label="AST:1"];
+1 -> 54 [label="AST:1"];
+1 -> 58 [label="AST:1"];
+1 -> 59 [label="AST:1"];
+1 -> 62 [label="AST:1"];
+1 -> 75 [label="AST:1"];
+1 -> 78 [label="AST:1"];
+1 -> 79 [label="AST:1"];
+1 -> 87 [label="AST:1"];
+1 -> 109 [label="AST:1"];
+1 -> 111 [label="AST:1"];
+1 -> 116 [label="AST:1"];
+1 -> 117 [label="AST:1"];
+1 -> 119 [label="AST:1"];
+2 -> 1 [label="AST:2"];
+2 -> 3 [label="AST:2"];
+2 -> 4 [label="AST:2"];
+2 -> 5 [label="AST:2"];
+2 -> 6 [label="AST:2"];
+2 -> 106 [label="AST:1"];
+7 -> 8 [label="AST:2"];
+7 -> 9 [label="AST:2"];
+7 -> 10 [label="AST:3"];
+11 -> 12 [label="AST:2"];
+11 -> 13 [label="AST:2"];
+11 -> 14 [label="AST:2"];
+15 -> 16 [label="AST:1"];
+15 -> 17 [label="AST:2"];
+15 -> 86 [label="AST:1"];
+16 -> 17 [label="Control Dep:1"];
+17 -> 129 [label="AST:1"];
+18 -> 19 [label="AST:1"];
+18 -> 20 [label="AST:1"];
+18 -> 21 [label="AST:1"];
+18 -> 60 [label="AST:1"];
+18 -> 85 [label="AST:1"];
+19 -> 125 [label="AST:1"];
+22 -> 23 [label="AST:2"];
+22 -> 24 [label="AST:2"];
+22 -> 25 [label="AST:2"];
+23 -> 91 [label="Define Use:1"];
+26 -> 27 [label="AST:1"];
+26 -> 28 [label="AST:2"];
+26 -> 63 [label="AST:1"];
+27 -> 28 [label="Control Dep:1"];
+29 -> 30 [label="AST:2"];
+29 -> 31 [label="AST:2"];
+29 -> 32 [label="AST:1"];
+29 -> 56 [label="AST:1"];
+33 -> 34 [label="AST:2"];
+33 -> 35 [label="AST:2"];
+33 -> 122 [label="AST:1"];
+34 -> 35 [label="Control Dep:2"];
+36 -> 37 [label="AST:1"];
+36 -> 66 [label="AST:1"];
+36 -> 76 [label="AST:1"];
+36 -> 100 [label="AST:1"];
+38 -> 39 [label="AST:1"];
+38 -> 46 [label="AST:2"];
+38 -> 71 [label="AST:1"];
+39 -> 40 [label="AST:1"];
+39 -> 44 [label="AST:1"];
+39 -> 46 [label="Control Dep:1"];
+39 -> 47 [label="Control Dep:1"];
+39 -> 48 [label="Control Dep:1"];
+40 -> 41 [label="AST:1"];
+40 -> 70 [label="Define Use:1"];
+41 -> 42 [label="AST:1"];
+42 -> 43 [label="AST:1"];
+44 -> 45 [label="AST:1"];
+46 -> 47 [label="AST:2"];
+47 -> 48 [label="AST:2"];
+48 -> 49 [label="AST:2"];
+51 -> 50 [label="AST:1"];
+51 -> 93 [label="AST:1"];
+51 -> 103 [label="AST:1"];
+51 -> 52 [label="AST:1"];
+51 -> 44 [label="AST:1"];
+54 -> 99 [label="AST:1"];
+54 -> 73 [label="AST:1"];
+54 -> 57 [label="AST:1"];
+58 -> 94 [label="AST:1"];
+58 -> 69 [label="AST:1"];
+58 -> 104 [label="AST:1"];
+58 -> 74 [label="AST:1"];
+58 -> 82 [label="AST:1"];
+59 -> 96 [label="AST:1"];
+59 -> 68 [label="AST:1"];
+59 -> 107 [label="AST:1"];
+59 -> 89 [label="AST:1"];
+62 -> 112 [label="AST:1"];
+62 -> 91 [label="AST:1"];
+62 -> 90 [label="AST:1"];
+63 -> 28 [label="Control Dep:1"];
+71 -> 84 [label="AST:1"];
+71 -> 46 [label="Control Dep:1"];
+71 -> 47 [label="Control Dep:1"];
+71 -> 48 [label="Control Dep:1"];
+72 -> 110 [label="Data Dep:1"];
+75 -> 65 [label="AST:1"];
+75 -> 101 [label="AST:1"];
+75 -> 77 [label="AST:1"];
+78 -> 70 [label="AST:1"];
+79 -> 64 [label="AST:1"];
+79 -> 98 [label="AST:1"];
+79 -> 80 [label="AST:1"];
+84 -> 102 [label="AST:1"];
+85 -> 60 [label="Control Dep:1"];
+86 -> 17 [label="Control Dep:1"];
+87 -> 83 [label="AST:1"];
+87 -> 95 [label="AST:1"];
+87 -> 88 [label="AST:1"];
+87 -> 105 [label="AST:1"];
+87 -> 92 [label="AST:1"];
+91 -> 90 [label="Control Dep:1"];
+102 -> 121 [label="AST:1"];
+109 -> 53 [label="AST:1"];
+109 -> 40 [label="AST:1"];
+109 -> 115 [label="AST:1"];
+111 -> 72 [label="AST:1"];
+111 -> 97 [label="AST:1"];
+111 -> 110 [label="AST:1"];
+116 -> 61 [label="AST:1"];
+116 -> 114 [label="AST:1"];
+116 -> 42 [label="AST:1"];
+117 -> 81 [label="AST:1"];
+117 -> 113 [label="AST:1"];
+117 -> 118 [label="AST:1"];
+118 -> 68 [label="Define Use:1"];
+119 -> 67 [label="AST:1"];
+119 -> 108 [label="AST:1"];
+119 -> 120 [label="AST:1"];
+120 -> 89 [label="Define Use:1"];
+121 -> 55 [label="AST:1"];
+123 -> 4 [label="AST:1"];
+123 -> 12 [label="AST:1"];
+123 -> 44 [label="AST:1"];
+123 -> 1 [label="Control Dep:1"];
+123 -> 7 [label="Control Dep:1"];
+123 -> 10 [label="Control Dep:1"];
+123 -> 125 [label="Control Dep:1"];
+123 -> 19 [label="Control Dep:1"];
+123 -> 13 [label="Control Dep:1"];
+123 -> 126 [label="Control Dep:1"];
+123 -> 48 [label="Control Dep:1"];
+123 -> 127 [label="Control Dep:1"];
+123 -> 128 [label="Control Dep:1"];
+124 -> 123 [label="AST:1"];
+124 -> 1 [label="AST:1"];
+126 -> 19 [label="AST:1"];
+126 -> 13 [label="AST:1"];
+127 -> 126 [label="AST:1"];
+127 -> 48 [label="AST:1"];
+127 -> 17 [label="Control Dep:1"];
+127 -> 129 [label="Control Dep:1"];
+127 -> 130 [label="Control Dep:1"];
+128 -> 127 [label="AST:1"];
+128 -> 17 [label="AST:1"];
+129 -> 130 [label="AST:1"];
+130 -> 20 [label="AST:1"];
+}

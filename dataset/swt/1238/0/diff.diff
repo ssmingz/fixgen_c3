@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/c3/dataset/swt/1238/0/before.java
++++ /Users/yumeng/PycharmProjects/c3/dataset/swt/1238/0/after.java
+@@ -37,1 +37,6 @@
+-          long visibleRegion = OS.gdk_drawable_get_visible_region(drawable);
++          long visibleRegion;
++          if (OS.GTK_VERSION >= OS.VERSION(3, 0, 0)) {
++            visibleRegion = OS.gdk_window_get_visible_region(drawable);
++          } else {
++            visibleRegion = OS.gdk_drawable_get_visible_region(drawable);
++          }

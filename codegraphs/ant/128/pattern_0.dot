@@ -1,0 +1,156 @@
+digraph "Pattern" {
+0 [label="validate#?#7:INSERT
+execute#?#6:INSERT" shape=ellipse]
+1 [label="validate#?#2:public void validate() throws BuildException \{
+    if (token == null) \{
+        String message = \"token is a mandatory attribute \" + \"of replacefilter.\";
+        throw new BuildException(message);
+    \}
+    if ((value != null) && (property != null)) \{
+        String message = (\"Either value or property \" + \"can be specified, but a replacefilter \") + \"element cannot have both.\";
+        throw new BuildException(message);
+    \}
+    if (property != null) \{
+        if (propertyFile == null) \{
+            String message = (\"The replacefilter's property attribute \" + \"can only be used with the replacetask's \") + \"propertyFile attribute.\";
+            throw new BuildException(message);
+        \}
+        if ((properties == null) || (properties.getProperty(property) == null)) \{
+            String message = ((\"property \\"\" + property) + \"\\" was not found in \") + propertyFile.getPath();
+            throw new BuildException(message);
+        \}
+    \}
+\}
+execute#?#2:public void execute() throws BuildException \{
+    if (token == null) \{
+        throw new BuildException(\"replace token must not be null\", location);
+    \}
+    if ((src == null) && (dir == null)) \{
+        throw new BuildException(\"Either the file or the dir attribute must be specified\", location);
+    \}
+    log(((\"Replacing \" + token.getText()) + \" --> \") + value.getText());
+    if (src != null) \{
+        processFile(src);
+    \}
+    if (dir != null) \{
+        DirectoryScanner ds = super.getDirectoryScanner(dir);
+        String[] srcs = ds.getIncludedFiles();
+        for (int i = 0; i < srcs.length; i++) \{
+            File file = new File(dir, srcs[i]);
+            processFile(file);
+        \}
+    \}
+\}" shape=ellipse]
+2 [label="validate#?#2:validate
+execute#?#2:VE: Modifiers_Method" shape=ellipse]
+3 [label="validate#?#2:void
+execute#?#2:void" shape=ellipse]
+4 [label="validate#?#2:BuildException
+execute#?#2:BuildException" shape=ellipse]
+5 [label="validate#?#-1:
+execute#?#-1:" shape=ellipse]
+6 [label="validate#?#2:\{
+    if (token == null) \{
+        String message = \"token is a mandatory attribute \" + \"of replacefilter.\";
+        throw new BuildException(message);
+    \}
+    if ((value != null) && (property != null)) \{
+        String message = (\"Either value or property \" + \"can be specified, but a replacefilter \") + \"element cannot have both.\";
+        throw new BuildException(message);
+    \}
+    if (property != null) \{
+        if (propertyFile == null) \{
+            String message = (\"The replacefilter's property attribute \" + \"can only be used with the replacetask's \") + \"propertyFile attribute.\";
+            throw new BuildException(message);
+        \}
+        if ((properties == null) || (properties.getProperty(property) == null)) \{
+            String message = ((\"property \\"\" + property) + \"\\" was not found in \") + propertyFile.getPath();
+            throw new BuildException(message);
+        \}
+    \}
+\}
+execute#?#2:\{
+    if (token == null) \{
+        throw new BuildException(\"replace token must not be null\", location);
+    \}
+    if ((src == null) && (dir == null)) \{
+        throw new BuildException(\"Either the file or the dir attribute must be specified\", location);
+    \}
+    log(((\"Replacing \" + token.getText()) + \" --> \") + value.getText());
+    if (src != null) \{
+        processFile(src);
+    \}
+    if (dir != null) \{
+        DirectoryScanner ds = super.getDirectoryScanner(dir);
+        String[] srcs = ds.getIncludedFiles();
+        for (int i = 0; i < srcs.length; i++) \{
+            File file = new File(dir, srcs[i]);
+            processFile(file);
+        \}
+    \}
+\}" shape=ellipse]
+7 [label="validate#?#3:if (token == null) \{
+    String message = \"token is a mandatory attribute \" + \"of replacefilter.\";
+    throw new BuildException(message);
+\}
+execute#?#3:if (token == null) \{
+    throw new BuildException(\"replace token must not be null\", location);
+\}" shape=ellipse]
+8 [label="validate#?#7:if ((value != null) && (property != null)) \{
+    String message = (\"Either value or property \" + \"can be specified, but a replacefilter \") + \"element cannot have both.\";
+    throw new BuildException(message);
+\}
+execute#?#6:if ((src == null) && (dir == null)) \{
+    throw new BuildException(\"Either the file or the dir attribute must be specified\", location);
+\}" shape=ellipse]
+9 [label="validate#?#13:if (property != null) \{
+    if (propertyFile == null) \{
+        String message = (\"The replacefilter's property attribute \" + \"can only be used with the replacetask's \") + \"propertyFile attribute.\";
+        throw new BuildException(message);
+    \}
+    if ((properties == null) || (properties.getProperty(property) == null)) \{
+        String message = ((\"property \\"\" + property) + \"\\" was not found in \") + propertyFile.getPath();
+        throw new BuildException(message);
+    \}
+\}
+execute#?#13:if (dir != null) \{
+    DirectoryScanner ds = super.getDirectoryScanner(dir);
+    String[] srcs = ds.getIncludedFiles();
+    for (int i = 0; i < srcs.length; i++) \{
+        File file = new File(dir, srcs[i]);
+        processFile(file);
+    \}
+\}" shape=ellipse]
+10 [label="validate#?#2:public
+execute#?#2:public" shape=ellipse]
+11 [label="validate#?#2:VE: ThrownTypes_validate
+execute#?#2:VE: ThrownTypes_execute" shape=ellipse]
+12 [label="validate#?#2:VE: Modifiers_Method
+execute#?#2:execute" shape=ellipse]
+13 [label="validate#?#7:if (\"\".equals(token)) \{
+    String message = \"The token attribute must not be an empty string.\";
+    throw new BuildException(message);
+\}
+execute#?#6:if (token.getText().equals(\"\")) \{
+    throw new BuildException(\"replace token must not be empty\", location);
+\}" shape=ellipse]
+14 [label="execute#?#9:log(((\"Replacing \" + token.getText()) + \" --> \") + value.getText())" shape=ellipse]
+15 [label="execute#?#10:if (src != null) \{
+    processFile(src);
+\}" shape=ellipse]
+0 -> 13 [label="Action:2"];
+1 -> 0 [label="Action:2"];
+1 -> 2 [label="AST:2"];
+1 -> 3 [label="AST:2"];
+1 -> 4 [label="AST:2"];
+1 -> 6 [label="AST:2"];
+1 -> 10 [label="AST:2"];
+1 -> 11 [label="AST:2"];
+1 -> 12 [label="AST:2"];
+4 -> 5 [label="AST:2"];
+6 -> 7 [label="AST:2"];
+6 -> 8 [label="AST:2"];
+6 -> 9 [label="AST:2"];
+6 -> 14 [label="AST:1"];
+6 -> 15 [label="AST:1"];
+}
