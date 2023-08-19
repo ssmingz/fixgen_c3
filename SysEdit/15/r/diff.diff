@@ -1,0 +1,21 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/15/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/15/r/after.java
+@@ -1,2 +1,2 @@
+-private org.eclipse.compare.contentmergeviewer.RGB getFillColor(Diff diff) {
+-    boolean selected = (fCurrentDiff != null) && (fCurrentDiff.fParent == diff);
++private org.eclipse.compare.contentmergeviewer.RGB getFillColor(org.eclipse.compare.internal.merge.DocumentMerger.Diff diff) {
++    boolean selected = (fCurrentDiff != null) && (fCurrentDiff.getParent() == diff);
+@@ -5,2 +5,2 @@
+-        switch (diff.fDirection) {
+-            case RangeDifference.RIGHT :
++        switch (diff.getKind()) {
++            case org.eclipse.compare.rangedifferencer.RangeDifference.RIGHT :
+@@ -11,1 +11,1 @@
+-            case RangeDifference.ANCESTOR :
++            case org.eclipse.compare.rangedifferencer.RangeDifference.ANCESTOR :
+@@ -13,1 +13,1 @@
+-            case RangeDifference.LEFT :
++            case org.eclipse.compare.rangedifferencer.RangeDifference.LEFT :
+@@ -18,1 +18,1 @@
+-            case RangeDifference.CONFLICT :
++            case org.eclipse.compare.rangedifferencer.RangeDifference.CONFLICT :

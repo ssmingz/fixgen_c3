@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/35/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/35/r/after.java
+@@ -5,1 +5,1 @@
+-            return internalSetFocus();
++            return org.eclipse.compare.contentmergeviewer.ContentMergeViewer.this.handleSetFocus();
+@@ -22,1 +22,1 @@
+-        fCenter = createCenter(fComposite);
++        fCenter = createCenterControl(fComposite);
+@@ -25,2 +25,2 @@
+-    org.eclipse.ui.IWorkbenchPartSite ps = Utilities.findSite(fComposite);
+-    fHandlerService = (ps != null) ? ((org.eclipse.ui.handlers.IHandlerService) (ps.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;
++    org.eclipse.ui.services.IServiceLocator locator = getCompareConfiguration().getContainer().getServiceLocator();
++    fHandlerService = (locator != null) ? ((org.eclipse.ui.handlers.IHandlerService) (locator.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;

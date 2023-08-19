@@ -1,0 +1,19 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/34/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/34/r/after.java
+@@ -1,3 +1,3 @@
+-protected org.eclipse.swt.widgets.Control createDialogArea(org.eclipse.swt.widgets.Composite parent2) {
+-    org.eclipse.swt.widgets.Composite parent = ((org.eclipse.swt.widgets.Composite) (super.createDialogArea(parent2)));
+-    org.eclipse.swt.widgets.Control c = fCompareEditorInput.createContents(parent);
++protected org.eclipse.compare.internal.Control createDialogArea(Composite parent2) {
++    Composite parent = ((Composite) (super.createDialogArea(parent2)));
++    Control c = fCompareEditorInput.createContents(parent);
+@@ -5,1 +5,8 @@
+-    org.eclipse.swt.widgets.Shell shell = c.getShell();
++    org.eclipse.jface.preference.IPreferenceStore store = fCompareEditorInput.getCompareConfiguration().getPreferenceStore();
++    if (store != null) {
++        if (store.getBoolean(ComparePreferencePage.SHOW_MORE_INFO)) {
++            statusLabel = new Label(parent, org.eclipse.swt.SWT.NONE);
++            statusLabel.setLayoutData(new org.eclipse.swt.layout.GridData(org.eclipse.swt.layout.GridData.FILL_HORIZONTAL));
++        }
++    }
++    Shell shell = c.getShell();

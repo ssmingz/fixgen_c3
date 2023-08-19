@@ -1,0 +1,18 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/39/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/39/l/after.java
+@@ -23,1 +23,1 @@
+-    if (fChangeDiffs != null) {
++    if (fMerger.hasChanges()) {
+@@ -26,3 +26,3 @@
+-        Iterator e = fChangeDiffs.iterator();
+-        while (e.hasNext()) {
+-            Diff diff = ((Diff) (e.next()));
++        char leg = getLeg(tp);
++        for (Iterator iterator = fMerger.changesIterator(); iterator.hasNext();) {
++            org.eclipse.compare.internal.merge.DocumentMerger.Diff diff = ((org.eclipse.compare.internal.merge.DocumentMerger.Diff) (iterator.next()));
+@@ -35,1 +35,1 @@
+-            tp.getLineRange(diff.getPosition(tp), region);
++            tp.getLineRange(diff.getPosition(leg), region);
+@@ -58,1 +58,1 @@
+-        } 
++        }

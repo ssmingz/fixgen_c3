@@ -1,0 +1,8 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/5/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/5/l/after.java
+@@ -4,1 +4,4 @@
+-        fireDirtyState(dirty);
++        // Only fire the event if the combined dirty state has changed
++        if (((!isRightDirty()) && (!isLeftDirty())) || ((!isRightDirty()) && isLeftDirty()))
++            fireDirtyState(dirty);
++

@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/2/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/2/r/after.java
+@@ -2,1 +2,5 @@
+-    // TODO The file was deleted.
++    IEditorInput input = getDocumentKey();
++    if ((input != null) && input.equals(element)) {
++        // This method will only get called if the buffer is not dirty
++        resetDocument();
++    }

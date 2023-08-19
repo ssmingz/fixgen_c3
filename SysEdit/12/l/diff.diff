@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/12/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/12/l/after.java
+@@ -2,1 +2,5 @@
+-    fContainer.removeCompareInputChangeListener(input, listener);
++    if (fContainer == null) {
++        input.removeCompareInputChangeListener(listener);
++    } else {
++        fContainer.removeCompareInputChangeListener(input, listener);
++    }

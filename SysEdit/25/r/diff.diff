@@ -1,0 +1,18 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/25/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/25/r/after.java
+@@ -2,12 +2,3 @@
+-    if (getAttribute(MIGRATION_DELEGATE) != null) {
+-        if (fDelegates == null) {
+-            fDelegates = new Hashtable();
+-        }
+-        Object delegate = fDelegates.get(MIGRATION_DELEGATE);
+-        if (delegate == null) {
+-            delegate = getConfigurationElement().createExecutableExtension(MIGRATION_DELEGATE);
+-            fDelegates.put(MIGRATION_DELEGATE, delegate);
+-        }
+-        if (delegate instanceof org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) {
+-            return ((org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) (delegate)).isCandidate(candidate);
+-        }
++    initializeMigrationDelegate();
++    if (fMigrationDelegate != null) {
++        return fMigrationDelegate.isCandidate(candidate);

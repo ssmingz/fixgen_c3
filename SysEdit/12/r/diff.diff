@@ -1,0 +1,9 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/12/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/12/r/after.java
+@@ -2,1 +2,5 @@
+-    fContainer.addCompareInputChangeListener(input, listener);
++    if (fContainer == null) {
++        input.addCompareInputChangeListener(listener);
++    } else {
++        fContainer.addCompareInputChangeListener(input, listener);
++    }

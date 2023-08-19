@@ -1,0 +1,35 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/30/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/30/l/after.java
+@@ -1,29 +1,3 @@
+-protected void handleDispose(DisposeEvent event) {
+-    if (fKeyBindingService != null) {
+-        IAction a;
+-        if (fNextItem != null) {
+-            a = fNextItem.getAction();
+-            if (a != null)
+-                fKeyBindingService.unregisterAction(a);
+-
+-        }
+-        if (fPreviousItem != null) {
+-            a = fPreviousItem.getAction();
+-            if (a != null)
+-                fKeyBindingService.unregisterAction(a);
+-
+-        }
+-        if (fCopyDiffLeftToRightItem != null) {
+-            a = fCopyDiffLeftToRightItem.getAction();
+-            if (a != null)
+-                fKeyBindingService.unregisterAction(a);
+-
+-        }
+-        if (fCopyDiffRightToLeftItem != null) {
+-            a = fCopyDiffRightToLeftItem.getAction();
+-            if (a != null)
+-                fKeyBindingService.unregisterAction(a);
+-
+-        }
+-        fKeyBindingService = null;
+-    }
++protected void handleDispose(org.eclipse.swt.events.DisposeEvent event) {
++    org.eclipse.compare.internal.Utilities.deregisterActions(fHandlerService, fActivations);
++    fHandlerService = null;

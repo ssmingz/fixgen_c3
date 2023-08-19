@@ -1,0 +1,28 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/16/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/16/r/after.java
+@@ -3,8 +3,0 @@
+-    /* if ( operation == CLASS )
+-    if ( obj instanceof BSHAmbiguousName ) {
+-    NameSpace namespace = callstack.top();
+-    return ((BSHAmbiguousName)obj).toClass( namespace );
+-    } else
+-    throw new EvalError(
+-    "Attemp to .class on non class...", this);
+-     */
+@@ -14,1 +6,1 @@
+-            return ((bsh.BSHType) (obj)).getType(namespace);
++            return ((bsh.BSHType) (obj)).getType(callstack, interpreter);
+@@ -16,1 +8,1 @@
+-            throw new bsh.EvalError("Attemp to invoke .class on non class.", this);
++            throw new bsh.EvalError("Attempt to use .class suffix on non class.", this, callstack);
+@@ -25,0 +17,4 @@
++
++    The point is that we can't just eval() - we need to direct the
++    evaluation to the context sensitive type of result; namely
++    object, class, etc.
+@@ -45,1 +41,1 @@
+-        throw new bsh.EvalError("reflection error: " + e, this);
++        throw new bsh.EvalError("reflection error: " + e, this, callstack);
+@@ -47,1 +43,1 @@
+-        throw new bsh.TargetError(e.getTargetException(), this);
++        throw new bsh.TargetError("target exception", e.getTargetException(), this, callstack, true);

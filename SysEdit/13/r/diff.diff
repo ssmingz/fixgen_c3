@@ -1,0 +1,13 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/13/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/13/r/after.java
+@@ -4,3 +4,5 @@
+-        MergeViewerAction action = ((MergeViewerAction) (e.next()));
+-        if (action.isSelectionDependent())
+-            action.update();
++        Object next = e.next();
++        if (next instanceof MergeViewerAction) {
++            MergeViewerAction action = ((MergeViewerAction) (next));
++            if (action.isSelectionDependent())
++                action.update();
+@@ -8,0 +10,1 @@
++        }

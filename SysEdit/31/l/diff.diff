@@ -1,0 +1,50 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/31/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/31/l/after.java
+@@ -1,2 +1,2 @@
+-protected final org.eclipse.compare.contentmergeviewer.Control buildControl(Composite parent) {
+-    fComposite = new Composite(parent, fStyles | org.eclipse.swt.SWT.LEFT_TO_RIGHT) {
++protected final org.eclipse.swt.widgets.Control buildControl(org.eclipse.swt.widgets.Composite parent) {
++    fComposite = new org.eclipse.swt.widgets.Composite(parent, fStyles | org.eclipse.swt.SWT.LEFT_TO_RIGHT) {
+@@ -25,3 +25,3 @@
+-    org.eclipse.ui.IWorkbenchPartSite ps = Utilities.findSite(fComposite);
+-    fKeyBindingService = (ps != null) ? ps.getKeyBindingService() : null;
+-    ToolBarManager tbm = CompareViewerPane.getToolBarManager(parent);
++    org.eclipse.ui.IWorkbenchPartSite ps = org.eclipse.compare.internal.Utilities.findSite(fComposite);
++    fHandlerService = (ps != null) ? ((org.eclipse.ui.handlers.IHandlerService) (ps.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;
++    org.eclipse.jface.action.ToolBarManager tbm = org.eclipse.compare.CompareViewerPane.getToolBarManager(parent);
+@@ -31,1 +31,1 @@
+-        tbm.add(new Separator("modes"));// $NON-NLS-1$
++        tbm.add(new org.eclipse.jface.action.Separator("modes"));// $NON-NLS-1$
+@@ -33,1 +33,1 @@
+-        tbm.add(new Separator("merge"));// $NON-NLS-1$
++        tbm.add(new org.eclipse.jface.action.Separator("merge"));// $NON-NLS-1$
+@@ -35,1 +35,1 @@
+-        tbm.add(new Separator("navigation"));// $NON-NLS-1$
++        tbm.add(new org.eclipse.jface.action.Separator("navigation"));// $NON-NLS-1$
+@@ -37,1 +37,1 @@
+-        CompareConfiguration cc = getCompareConfiguration();
++        org.eclipse.compare.CompareConfiguration cc = getCompareConfiguration();
+@@ -39,1 +39,1 @@
+-            fCopyLeftToRightAction = new Action() {
++            fCopyLeftToRightAction = new org.eclipse.jface.action.Action() {
+@@ -44,1 +44,1 @@
+-            Utilities.initAction(fCopyLeftToRightAction, getResourceBundle(), "action.CopyLeftToRight.");// $NON-NLS-1$
++            org.eclipse.compare.internal.Utilities.initAction(fCopyLeftToRightAction, getResourceBundle(), "action.CopyLeftToRight.");// $NON-NLS-1$
+@@ -48,1 +48,1 @@
+-            Utilities.registerAction(fKeyBindingService, fCopyLeftToRightAction, "org.eclipse.compare.copyAllLeftToRight");// $NON-NLS-1$
++            org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, fCopyLeftToRightAction, "org.eclipse.compare.copyAllLeftToRight", fActivations);// $NON-NLS-1$
+@@ -52,1 +52,1 @@
+-            fCopyRightToLeftAction = new Action() {
++            fCopyRightToLeftAction = new org.eclipse.jface.action.Action() {
+@@ -57,1 +57,1 @@
+-            Utilities.initAction(fCopyRightToLeftAction, getResourceBundle(), "action.CopyRightToLeft.");// $NON-NLS-1$
++            org.eclipse.compare.internal.Utilities.initAction(fCopyRightToLeftAction, getResourceBundle(), "action.CopyRightToLeft.");// $NON-NLS-1$
+@@ -61,1 +61,1 @@
+-            Utilities.registerAction(fKeyBindingService, fCopyRightToLeftAction, "org.eclipse.compare.copyAllRightToLeft");// $NON-NLS-1$
++            org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, fCopyRightToLeftAction, "org.eclipse.compare.copyAllRightToLeft", fActivations);// $NON-NLS-1$
+@@ -64,1 +64,1 @@
+-        Action a = new ChangePropertyAction(fBundle, fCompareConfiguration, "action.EnableAncestor.", ANCESTOR_ENABLED);// $NON-NLS-1$
++        org.eclipse.jface.action.Action a = new org.eclipse.compare.internal.ChangePropertyAction(fBundle, fCompareConfiguration, "action.EnableAncestor.", ANCESTOR_ENABLED);// $NON-NLS-1$
+@@ -67,1 +67,1 @@
+-        fAncestorItem = new ActionContributionItem(a);
++        fAncestorItem = new org.eclipse.jface.action.ActionContributionItem(a);

@@ -1,0 +1,27 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/21/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/21/r/after.java
+@@ -1,3 +1,3 @@
+-public synchronized void contentRemoved(int offset, int length) {
+-    if (positions.size() == 0)
+-        return;
++void contentRemoved(int offset, int length) {
++    if (offset > this.offset)
++        throw new ArrayIndexOutOfBoundsException();
+@@ -5,9 +5,4 @@
+-    /* get all positions from offset to the end, inclusive */
+-    Iterator iter = positions.tailMap(new PosBottomHalf(offset)).keySet().iterator();
+-    iteration = true;
+-    while (iter.hasNext()) {
+-        PosBottomHalf bh = ((PosBottomHalf) (iter.next()));
+-        if (bh.offset <= (offset + length))
+-            bh.offset = offset;
+-        else
+-            bh.offset -= length;
++    if (this.offset <= (offset + length))
++        this.offset = offset;
++    else
++        this.offset -= length;
+@@ -15,2 +10,1 @@
+-    } 
+-    iteration = false;
++    checkInvariants();

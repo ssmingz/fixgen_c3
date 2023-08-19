@@ -1,0 +1,12 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/38/r/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/38/r/after.java
+@@ -2,2 +2,3 @@
+-    Utilities.deregisterActions(fHandlerService, fActivations);
+-    fHandlerService = null;
++    if (fHandlerService != null)
++        fHandlerService.dispose();
++
+@@ -50,0 +51,3 @@
++    if (fIgnoreWhitespace != null)
++        fIgnoreWhitespace.dispose();
++

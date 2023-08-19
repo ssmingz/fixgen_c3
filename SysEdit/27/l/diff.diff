@@ -1,0 +1,10 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/27/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/27/l/after.java
+@@ -2,6 +2,1 @@
+-    if (element instanceof org.eclipse.debug.core.model.IDisconnect) {
+-        return element;
+-    } else if (element instanceof org.eclipse.core.runtime.IAdaptable) {
+-        return ((org.eclipse.core.runtime.IAdaptable) (element)).getAdapter(org.eclipse.debug.core.model.IDisconnect.class);
+-    }
+-    return null;
++    return getAdapter(element, org.eclipse.debug.core.model.IDisconnect.class);

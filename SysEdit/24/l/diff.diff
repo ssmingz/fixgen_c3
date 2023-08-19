@@ -1,0 +1,25 @@
+--- /Users/yumeng/PycharmProjects/SysEdit/24/l/before.java
++++ /Users/yumeng/PycharmProjects/SysEdit/24/l/after.java
+@@ -2,2 +2,1 @@
+-    String listKey = element.getAttribute("key");// $NON-NLS-1$
+-
++    String listKey = element.getAttribute(KEY);
+@@ -7,0 +6,2 @@
++    Node node = null;
++    Element selement = null;
+@@ -8,7 +9,4 @@
+-        Node node = nodeList.item(i);
+-        short type = node.getNodeType();
+-        if (type == Node.ELEMENT_NODE) {
+-            Element subElement = ((Element) (node));
+-            String nodeName = subElement.getNodeName();
+-            if (!nodeName.equalsIgnoreCase("listEntry")) {
+-                // $NON-NLS-1$
++        node = nodeList.item(i);
++        if (node.getNodeType() == Node.ELEMENT_NODE) {
++            selement = ((Element) (node));
++            if (!selement.getNodeName().equalsIgnoreCase(LIST_ENTRY)) {
+@@ -17,2 +15,1 @@
+-            String value = getValueAttribute(subElement);
+-            list.add(value);
++            list.add(getValueAttribute(selement));
