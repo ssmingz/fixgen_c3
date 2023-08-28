@@ -1,7 +1,7 @@
 MORE_THAN_ONE="[warn]More than one pattern:"
 LESS_THEN_SIMILARITY_THRES="[warn]Not satisfy SIMILARITY_THRESHOLD:"
 ALL_ABS="[error]all abstracted actions:"
-INVALID_ACTION_ABS="[error]action node has invalid-abstracted source or target:"
+INVALID_ACTION_ABS="[error]action node has invalid-abstracted source:"
 INDEX_NOT_FIND="[error]Pattern and json result not match:"
 
 filepath="/Users/yumeng/JavaProjects/FixGen/model_log/progress.log"
