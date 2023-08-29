@@ -1,26 +1,24 @@
---- /Users/yumeng/PycharmProjects/SysEdit/24/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/24/r/after.java
-@@ -2,2 +2,1 @@
--    String mapKey = element.getAttribute("key");// $NON-NLS-1$
--
+--- D:\expdata\c3\SysEdit\24/r/before.java
++++ D:\expdata\c3\SysEdit\24/r/after.java
+@@ -3,1 +3,1 @@
+-    String mapKey = element.getAttribute("key");
 +    String mapKey = element.getAttribute(KEY);
-@@ -7,0 +6,2 @@
+@@ -7,0 +7,2 @@
 +    Node node = null;
 +    Element selement = null;
-@@ -8,7 +9,4 @@
--        Node node = nodeList.item(i);
--        short type = node.getNodeType();
--        if (type == Node.ELEMENT_NODE) {
--            Element subElement = ((Element) (node));
--            String nodeName = subElement.getNodeName();
--            if (!nodeName.equalsIgnoreCase("mapEntry")) {
--                // $NON-NLS-1$
-+        node = nodeList.item(i);
-+        if (node.getNodeType() == Node.ELEMENT_NODE) {
-+            selement = ((Element) (node));
-+            if (!selement.getNodeName().equalsIgnoreCase(MAP_ENTRY)) {
-@@ -17,3 +15,1 @@
--            String key = getKeyAttribute(subElement);
--            String value = getValueAttribute(subElement);
--            map.put(key, value);
-+            map.put(getKeyAttribute(selement), getValueAttribute(selement));
+@@ -8,6 +10,4 @@
+-      Node node = nodeList.item(i);
+-      short type = node.getNodeType();
+-      if (type == Node.ELEMENT_NODE) {
+-        Element subElement = (Element) node;
+-        String nodeName = subElement.getNodeName();
+-        if (!nodeName.equalsIgnoreCase("mapEntry")) {
++      node = nodeList.item(i);
++      if (node.getNodeType() == Node.ELEMENT_NODE) {
++        selement = (Element) node;
++        if (!selement.getNodeName().equalsIgnoreCase(MAP_ENTRY)) {
+@@ -16,3 +16,1 @@
+-        String key = getKeyAttribute(subElement);
+-        String value = getValueAttribute(subElement);
+-        map.put(key, value);
++        map.put(getKeyAttribute(selement), getValueAttribute(selement));

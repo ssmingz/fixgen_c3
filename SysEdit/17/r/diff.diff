@@ -1,14 +1,13 @@
---- /Users/yumeng/PycharmProjects/SysEdit/17/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/17/r/after.java
-@@ -4,1 +4,1 @@
--        int size = compoundEdit.getSize();
-+        int size = compoundEdit.undos.size();
-@@ -6,1 +6,1 @@
--            toMerge = ((Edit) (compoundEdit.undos.elementAt(size - 1)));
-+            toMerge = ((Edit) (compoundEdit.undos.get(size - 1)));
-@@ -9,1 +9,1 @@
--        toMerge = ((Edit) (undos.elementAt(undoPos - 1)));
-+        toMerge = ((Edit) (undos.get(undoPos - 1)));
-@@ -31,1 +31,1 @@
--        compoundEdit.addEdit(rem);
-+        compoundEdit.undos.add(rem);
+--- D:\expdata\c3\SysEdit\17/r/before.java
++++ D:\expdata\c3\SysEdit\17/r/after.java
+@@ -5,2 +5,2 @@
+-      int size = compoundEdit.getSize();
+-      if (size != 0) toMerge = ((Edit) (compoundEdit.undos.elementAt(size - 1)));
++      int size = compoundEdit.undos.size();
++      if (size != 0) toMerge = ((Edit) (compoundEdit.undos.get(size - 1)));
+@@ -8,1 +8,1 @@
+-    } else if (undoPos != 0) toMerge = ((Edit) (undos.elementAt(undoPos - 1)));
++    } else if (undoPos != 0) toMerge = ((Edit) (undos.get(undoPos - 1)));
+@@ -28,1 +28,1 @@
+-    if (compoundEdit != null) compoundEdit.addEdit(rem);
++    if (compoundEdit != null) compoundEdit.undos.add(rem);

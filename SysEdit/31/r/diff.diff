@@ -1,55 +1,20 @@
---- /Users/yumeng/PycharmProjects/SysEdit/31/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/31/r/after.java
-@@ -1,1 +1,1 @@
--protected void createToolItems(ToolBarManager tbm) {
-+protected void createToolItems(org.eclipse.jface.action.ToolBarManager tbm) {
-@@ -3,1 +3,1 @@
--    fKeyBindingService = (ps != null) ? ps.getKeyBindingService() : null;
-+    fHandlerService = (ps != null) ? ((org.eclipse.ui.handlers.IHandlerService) (ps.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;
-@@ -6,1 +6,1 @@
--    Action ignoreAncestorAction = new Action() {
-+    org.eclipse.jface.action.Action ignoreAncestorAction = new org.eclipse.jface.action.Action() {
-@@ -15,1 +15,1 @@
--    fIgnoreAncestorItem = new ActionContributionItem(ignoreAncestorAction);
-+    fIgnoreAncestorItem = new org.eclipse.jface.action.ActionContributionItem(ignoreAncestorAction);
-@@ -19,2 +19,2 @@
--    tbm.add(new Separator());
--    Action a = new Action() {
-+    tbm.add(new org.eclipse.jface.action.Separator());
-+    org.eclipse.jface.action.Action a = new org.eclipse.jface.action.Action() {
-@@ -27,1 +27,1 @@
--    fNextItem = new ActionContributionItem(a);
-+    fNextItem = new org.eclipse.jface.action.ActionContributionItem(a);
-@@ -30,1 +30,1 @@
--    org.eclipse.compare.internal.Utilities.registerAction(fKeyBindingService, a, "org.eclipse.compare.selectNextChange");// $NON-NLS-1$
-+    org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, a, "org.eclipse.compare.selectNextChange", fActivations);// $NON-NLS-1$
-@@ -32,1 +32,1 @@
--    a = new Action() {
-+    a = new org.eclipse.jface.action.Action() {
-@@ -39,1 +39,1 @@
--    fPreviousItem = new ActionContributionItem(a);
-+    fPreviousItem = new org.eclipse.jface.action.ActionContributionItem(a);
-@@ -42,1 +42,1 @@
--    org.eclipse.compare.internal.Utilities.registerAction(fKeyBindingService, a, "org.eclipse.compare.selectPreviousChange");// $NON-NLS-1$
-+    org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, a, "org.eclipse.compare.selectPreviousChange", fActivations);// $NON-NLS-1$
-@@ -44,1 +44,1 @@
--    CompareConfiguration cc = getCompareConfiguration();
-+    org.eclipse.compare.CompareConfiguration cc = getCompareConfiguration();
-@@ -46,1 +46,1 @@
--        a = new Action() {
-+        a = new org.eclipse.jface.action.Action() {
-@@ -53,1 +53,1 @@
--        fCopyDiffLeftToRightItem = new ActionContributionItem(a);
-+        fCopyDiffLeftToRightItem = new org.eclipse.jface.action.ActionContributionItem(a);
-@@ -57,1 +57,1 @@
--        org.eclipse.compare.internal.Utilities.registerAction(fKeyBindingService, a, "org.eclipse.compare.copyLeftToRight");// $NON-NLS-1$
-+        org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, a, "org.eclipse.compare.copyLeftToRight", fActivations);// $NON-NLS-1$
-@@ -61,1 +61,1 @@
--        a = new Action() {
-+        a = new org.eclipse.jface.action.Action() {
-@@ -68,1 +68,1 @@
--        fCopyDiffRightToLeftItem = new ActionContributionItem(a);
-+        fCopyDiffRightToLeftItem = new org.eclipse.jface.action.ActionContributionItem(a);
-@@ -72,1 +72,1 @@
--        org.eclipse.compare.internal.Utilities.registerAction(fKeyBindingService, a, "org.eclipse.compare.copyRightToLeft");// $NON-NLS-1$
-+        org.eclipse.compare.internal.Utilities.registerAction(fHandlerService, a, "org.eclipse.compare.copyRightToLeft", fActivations);// $NON-NLS-1$
+--- D:\expdata\c3\SysEdit\31/r/before.java
++++ D:\expdata\c3\SysEdit\31/r/after.java
+@@ -5,1 +5,1 @@
+-    fKeyBindingService = ps != null ? ps.getKeyBindingService() : null;
++    fHandlerService = ps != null ? (IHandlerService) ps.getService(IHandlerService.class) : null;
+@@ -37,1 +37,1 @@
+-        fKeyBindingService, a, "org.eclipse.compare.selectNextChange"); // $NON-NLS-1$
++        fHandlerService, a, "org.eclipse.compare.selectNextChange", fActivations); // $NON-NLS-1$
+@@ -49,1 +49,4 @@
+-        fKeyBindingService, a, "org.eclipse.compare.selectPreviousChange"); // $NON-NLS-1$
++        fHandlerService,
++        a,
++        "org.eclipse.compare.selectPreviousChange",
++        fActivations); //$NON-NLS-1$
+@@ -65,1 +68,1 @@
+-          fKeyBindingService, a, "org.eclipse.compare.copyLeftToRight"); // $NON-NLS-1$
++          fHandlerService, a, "org.eclipse.compare.copyLeftToRight", fActivations); // $NON-NLS-1$
+@@ -80,1 +83,1 @@
+-          fKeyBindingService, a, "org.eclipse.compare.copyRightToLeft"); // $NON-NLS-1$
++          fHandlerService, a, "org.eclipse.compare.copyRightToLeft", fActivations); // $NON-NLS-1$

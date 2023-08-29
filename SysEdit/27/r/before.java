@@ -1,10 +1,9 @@
 class PlaceHold {
   protected Object getTarget(Object element) {
-    if (element instanceof org.eclipse.debug.core.model.IDropToFrame) {
+    if (element instanceof IDropToFrame) {
       return element;
-    } else if (element instanceof org.eclipse.core.runtime.IAdaptable) {
-      return ((org.eclipse.core.runtime.IAdaptable) (element))
-          .getAdapter(org.eclipse.debug.core.model.IDropToFrame.class);
+    } else if (element instanceof IAdaptable) {
+      return ((IAdaptable) element).getAdapter(IDropToFrame.class);
     }
     return null;
   }

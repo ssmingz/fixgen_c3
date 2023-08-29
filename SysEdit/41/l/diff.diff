@@ -1,0 +1,9 @@
+--- D:\expdata\c3\SysEdit\41/l/before.java
++++ D:\expdata\c3\SysEdit\41/l/after.java
+@@ -3,1 +3,1 @@
+-    BreakStatement breakStatement = this.ast.newBreakStatement();
++    BreakStatement breakStatement = new BreakStatement(this.ast);
+@@ -7,1 +7,2 @@
+-      SimpleName name = this.ast.newSimpleName(new String(statement.label));
++      final SimpleName name = new SimpleName(this.ast);
++      name.internalSetIdentifier(new String(statement.label));

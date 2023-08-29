@@ -17,11 +17,13 @@ class PlaceHold {
               // implicitly falling through the FALSE case
               codeStream.ifle(trueLabel);
             }
-          } else if (trueLabel == null) {
-            // implicitly falling through the TRUE case
-            codeStream.ifgt(falseLabel);
           } else {
-            // no implicit fall through TRUE/FALSE --> should never occur
+            if (trueLabel == null) {
+              // implicitly falling through the TRUE case
+              codeStream.ifgt(falseLabel);
+            } else {
+              // no implicit fall through TRUE/FALSE --> should never occur
+            }
           }
         }
         // reposition the endPC
@@ -37,11 +39,13 @@ class PlaceHold {
               // implicitly falling through the FALSE case
               codeStream.ifge(trueLabel);
             }
-          } else if (trueLabel == null) {
-            // implicitly falling through the TRUE case
-            codeStream.iflt(falseLabel);
           } else {
-            // no implicit fall through TRUE/FALSE --> should never occur
+            if (trueLabel == null) {
+              // implicitly falling through the TRUE case
+              codeStream.iflt(falseLabel);
+            } else {
+              // no implicit fall through TRUE/FALSE --> should never occur
+            }
           }
         }
         // reposition the endPC
@@ -76,29 +80,31 @@ class PlaceHold {
           codeStream.recordPositionsFrom(codeStream.position, this.sourceEnd);
           return;
         }
-      } else if (trueLabel == null) {
-        // implicit falling through the TRUE case
-        switch (promotedTypeID) {
-          case T_int:
-            codeStream.if_icmplt(falseLabel);
-            break;
-          case T_float:
-            codeStream.fcmpl();
-            codeStream.iflt(falseLabel);
-            break;
-          case T_long:
-            codeStream.lcmp();
-            codeStream.iflt(falseLabel);
-            break;
-          case T_double:
-            codeStream.dcmpl();
-            codeStream.iflt(falseLabel);
-        }
-        // reposition the endPC
-        codeStream.recordPositionsFrom(codeStream.position, this.sourceEnd);
-        return;
       } else {
-        // no implicit fall through TRUE/FALSE --> should never occur
+        if (trueLabel == null) {
+          // implicit falling through the TRUE case
+          switch (promotedTypeID) {
+            case T_int:
+              codeStream.if_icmplt(falseLabel);
+              break;
+            case T_float:
+              codeStream.fcmpl();
+              codeStream.iflt(falseLabel);
+              break;
+            case T_long:
+              codeStream.lcmp();
+              codeStream.iflt(falseLabel);
+              break;
+            case T_double:
+              codeStream.dcmpl();
+              codeStream.iflt(falseLabel);
+          }
+          // reposition the endPC
+          codeStream.recordPositionsFrom(codeStream.position, this.sourceEnd);
+          return;
+        } else {
+          // no implicit fall through TRUE/FALSE --> should never occur
+        }
       }
     }
   }

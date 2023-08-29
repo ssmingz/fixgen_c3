@@ -1,21 +1,20 @@
 class PlaceHold {
   public void openCompareDialog(final CompareEditorInput input) {
     if (input.canRunAsJob()) {
-      org.eclipse.core.runtime.jobs.Job job =
-          new org.eclipse.core.runtime.jobs.Job("Opening Compare Dialog") {
-            protected org.eclipse.compare.internal.IStatus run(IProgressMonitor monitor) {
+      Job job =
+          new Job("Opening Compare Dialog") {
+            protected IStatus run(IProgressMonitor monitor) {
               IStatus status = prepareInput(input, monitor);
               if (status.isOK()) {
                 internalOpenDialog(input);
                 return Status.OK_STATUS;
               }
               if (status.getCode() == NO_DIFFERENCE) {
-                org.eclipse.jface.dialogs.MessageDialog.openInformation(
+                MessageDialog.openInformation(
                     getShell(),
                     Utilities.getString("CompareUIPlugin.dialogTitle"),
                     Utilities.getString(
-                        "CompareUIPlugin.noDifferences")); // $NON-NLS-1$//$NON-NLS-2$
-
+                        "CompareUIPlugin.noDifferences")); //$NON-NLS-1$//$NON-NLS-2$
                 return Status.OK_STATUS;
               }
               return status;
@@ -27,8 +26,10 @@ class PlaceHold {
           };
       job.setUser(true);
       job.schedule();
-    } else if (compareResultOK(input, null)) {
-      internalOpenDialog(input);
+    } else {
+      if (compareResultOK(input, null)) {
+        internalOpenDialog(input);
+      }
     }
   }
 }

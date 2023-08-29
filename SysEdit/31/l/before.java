@@ -1,41 +1,49 @@
 class PlaceHold {
-  protected final org.eclipse.compare.contentmergeviewer.Control buildControl(Composite parent) {
+  protected final Control buildControl(Composite parent) {
+
     fComposite =
-        new Composite(parent, fStyles | org.eclipse.swt.SWT.LEFT_TO_RIGHT) {
-          // we force a specific direction
+        new Composite(parent, fStyles | SWT.LEFT_TO_RIGHT) { // we force a specific direction
           public boolean setFocus() {
             return internalSetFocus();
           }
         };
     fComposite.setData(CompareUI.COMPARE_VIEWER_TITLE, getTitle());
+
     hookControl(fComposite); // hook help & dispose listener
 
     fComposite.setLayout(new ContentMergeViewerLayout());
-    int style = org.eclipse.swt.SWT.SHADOW_OUT;
-    fAncestorLabel = new org.eclipse.swt.custom.CLabel(fComposite, style);
-    fLeftLabel = new org.eclipse.swt.custom.CLabel(fComposite, style);
+
+    int style = SWT.SHADOW_OUT;
+    fAncestorLabel = new CLabel(fComposite, style);
+
+    fLeftLabel = new CLabel(fComposite, style);
     new Resizer(fLeftLabel, VERTICAL);
-    fDirectionLabel = new org.eclipse.swt.custom.CLabel(fComposite, style);
+
+    fDirectionLabel = new CLabel(fComposite, style);
     fDirectionLabel.setAlignment(SWT.CENTER);
     new Resizer(fDirectionLabel, HORIZONTAL | VERTICAL);
-    fRightLabel = new org.eclipse.swt.custom.CLabel(fComposite, style);
+
+    fRightLabel = new CLabel(fComposite, style);
     new Resizer(fRightLabel, VERTICAL);
-    if ((fCenter == null) || fCenter.isDisposed()) fCenter = createCenter(fComposite);
+
+    if (fCenter == null || fCenter.isDisposed()) fCenter = createCenter(fComposite);
 
     createControls(fComposite);
-    org.eclipse.ui.IWorkbenchPartSite ps = Utilities.findSite(fComposite);
-    fKeyBindingService = (ps != null) ? ps.getKeyBindingService() : null;
+
+    IWorkbenchPartSite ps = Utilities.findSite(fComposite);
+    fKeyBindingService = ps != null ? ps.getKeyBindingService() : null;
+
     ToolBarManager tbm = CompareViewerPane.getToolBarManager(parent);
     if (tbm != null) {
       tbm.removeAll();
+
       // define groups
       tbm.add(new Separator("modes")); // $NON-NLS-1$
-
       tbm.add(new Separator("merge")); // $NON-NLS-1$
-
       tbm.add(new Separator("navigation")); // $NON-NLS-1$
 
       CompareConfiguration cc = getCompareConfiguration();
+
       if (cc.isRightEditable()) {
         fCopyLeftToRightAction =
             new Action() {
@@ -45,14 +53,13 @@ class PlaceHold {
             };
         Utilities.initAction(
             fCopyLeftToRightAction, getResourceBundle(), "action.CopyLeftToRight."); // $NON-NLS-1$
-
         tbm.appendToGroup("merge", fCopyLeftToRightAction); // $NON-NLS-1$
-
         Utilities.registerAction(
             fKeyBindingService,
             fCopyLeftToRightAction,
-            "org.eclipse.compare.copyAllLeftToRight"); // $NON-NLS-1$
+            "org.eclipse.compare.copyAllLeftToRight"); //$NON-NLS-1$
       }
+
       if (cc.isLeftEditable()) {
         fCopyRightToLeftAction =
             new Action() {
@@ -62,21 +69,19 @@ class PlaceHold {
             };
         Utilities.initAction(
             fCopyRightToLeftAction, getResourceBundle(), "action.CopyRightToLeft."); // $NON-NLS-1$
-
         tbm.appendToGroup("merge", fCopyRightToLeftAction); // $NON-NLS-1$
-
         Utilities.registerAction(
             fKeyBindingService,
             fCopyRightToLeftAction,
-            "org.eclipse.compare.copyAllRightToLeft"); // $NON-NLS-1$
+            "org.eclipse.compare.copyAllRightToLeft"); //$NON-NLS-1$
       }
+
       Action a =
           new ChangePropertyAction(
               fBundle,
               fCompareConfiguration,
               "action.EnableAncestor.",
-              ANCESTOR_ENABLED); // $NON-NLS-1$
-
+              ANCESTOR_ENABLED); //$NON-NLS-1$
       a.setChecked(fAncestorEnabled);
       fAncestorItem = new ActionContributionItem(a);
       fAncestorItem.setVisible(false);
@@ -84,8 +89,10 @@ class PlaceHold {
 
       createToolItems(tbm);
       updateToolItems();
+
       tbm.update(true);
     }
+
     return fComposite;
   }
 }

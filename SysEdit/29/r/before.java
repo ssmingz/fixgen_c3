@@ -1,18 +1,17 @@
 class PlaceHold {
-  public Object[] findSourceElements(Object object) throws org.eclipse.core.runtime.CoreException {
+  public Object[] findSourceElements(Object object) throws CoreException {
     List results = null;
-    org.eclipse.core.runtime.CoreException single = null;
-    org.eclipse.core.runtime.MultiStatus multiStatus = null;
+    CoreException single = null;
+    MultiStatus multiStatus = null;
     if (isFindDuplicates()) {
       results = new ArrayList();
     }
     String name = getSourceName(object);
     if (name != null) {
-      org.eclipse.debug.core.sourcelookup.ISourceContainer[] containers = getSourceContainers();
+      ISourceContainer[] containers = getSourceContainers();
       for (int i = 0; i < containers.length; i++) {
         try {
-          org.eclipse.debug.core.sourcelookup.ISourceContainer container =
-              getDelegateContainer(containers[i]);
+          ISourceContainer container = getDelegateContainer(containers[i]);
           if (container != null) {
             Object[] objects = container.findSourceElements(name);
             if (objects.length > 0) {
@@ -28,17 +27,16 @@ class PlaceHold {
               }
             }
           }
-        } catch (org.eclipse.core.runtime.CoreException e) {
+        } catch (CoreException e) {
           if (single == null) {
             single = e;
           } else if (multiStatus == null) {
             multiStatus =
-                new org.eclipse.core.runtime.MultiStatus(
-                    org.eclipse.debug.core.DebugPlugin.getUniqueIdentifier(),
-                    org.eclipse.debug.core.DebugPlugin.ERROR,
-                    new org.eclipse.core.runtime.IStatus[] {single.getStatus()},
-                    org.eclipse.debug.internal.core.sourcelookup.SourceLookupMessages
-                        .Source_Lookup_Error,
+                new MultiStatus(
+                    DebugPlugin.getUniqueIdentifier(),
+                    DebugPlugin.ERROR,
+                    new IStatus[] {single.getStatus()},
+                    SourceLookupMessages.Source_Lookup_Error,
                     null);
             multiStatus.add(e.getStatus());
           } else {
@@ -49,7 +47,7 @@ class PlaceHold {
     }
     if (results == null) {
       if (multiStatus != null) {
-        throw new org.eclipse.core.runtime.CoreException(multiStatus);
+        throw new CoreException(multiStatus);
       } else if (single != null) {
         throw single;
       }

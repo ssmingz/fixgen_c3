@@ -1,5 +1,5 @@
 class PlaceHold {
-  org.eclipse.compare.contentmergeviewer.Position getPosition(char type) {
+  Position getPosition(char type) {
     switch (type) {
       case 'A':
         return fAncestorPos;

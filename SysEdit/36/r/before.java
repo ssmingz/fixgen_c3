@@ -1,6 +1,6 @@
 class PlaceHold {
   private void initLabels() {
-    org.eclipse.compare.CompareConfiguration cc = getCompareConfiguration();
+    CompareConfiguration cc = getCompareConfiguration();
     cc.setCalculateDiffs(false);
     cc.setLeftEditable(true);
     cc.setRightEditable(false);

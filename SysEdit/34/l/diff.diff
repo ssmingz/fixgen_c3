@@ -1,29 +1,11 @@
---- /Users/yumeng/PycharmProjects/SysEdit/34/l/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/34/l/after.java
-@@ -1,2 +1,2 @@
--protected synchronized org.eclipse.swt.widgets.Control createDialogArea(org.eclipse.swt.widgets.Composite parent2) {
--    org.eclipse.swt.widgets.Composite parent = ((org.eclipse.swt.widgets.Composite) (super.createDialogArea(parent2)));
-+protected synchronized org.eclipse.compare.Control createDialogArea(Composite parent2) {
-+    Composite parent = ((Composite) (super.createDialogArea(parent2)));
-@@ -33,1 +33,1 @@
--        fMemberTable = new org.eclipse.swt.widgets.Table(fMemberPane, flags);
-+        fMemberTable = new Table(fMemberPane, flags);
-@@ -37,2 +37,2 @@
--                    if (e.item instanceof org.eclipse.swt.widgets.TableItem) {
--                        org.eclipse.swt.widgets.TableItem ti = ((org.eclipse.swt.widgets.TableItem) (e.item));
-+                    if (e.item instanceof TableItem) {
-+                        TableItem ti = ((TableItem) (e.item));
-@@ -48,1 +48,1 @@
--                        fMemberTable.setSelection(new org.eclipse.swt.widgets.TableItem[]{ ti });
-+                        fMemberTable.setSelection(new TableItem[]{ ti });
-@@ -90,1 +90,1 @@
--    fEditionTree = new org.eclipse.swt.widgets.Tree(fEditionPane, org.eclipse.swt.SWT.H_SCROLL | org.eclipse.swt.SWT.V_SCROLL);
-+    fEditionTree = new Tree(fEditionPane, org.eclipse.swt.SWT.H_SCROLL | org.eclipse.swt.SWT.V_SCROLL);
-@@ -111,0 +111,7 @@
-+    org.eclipse.jface.preference.IPreferenceStore store = getCompareConfiguration().getPreferenceStore();
+--- D:\expdata\c3\SysEdit\34/l/before.java
++++ D:\expdata\c3\SysEdit\34/l/after.java
+@@ -124,0 +124,8 @@
++    IPreferenceStore store = getCompareConfiguration().getPreferenceStore();
 +    if (store != null) {
-+        if (store.getBoolean(ComparePreferencePage.SHOW_MORE_INFO)) {
-+            statusLabel = new Label(parent, org.eclipse.swt.SWT.NONE);
-+            statusLabel.setLayoutData(new org.eclipse.swt.layout.GridData(org.eclipse.swt.layout.GridData.FILL_HORIZONTAL));
-+        }
++      if (store.getBoolean(ComparePreferencePage.SHOW_MORE_INFO)) {
++        statusLabel = new Label(parent, SWT.NONE);
++        statusLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
++      }
 +    }
++

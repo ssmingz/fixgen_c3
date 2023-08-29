@@ -2,7 +2,7 @@ class PlaceHold {
   private void setError(char type, String message) {
     IMergeViewerContentProvider cp = getMergeContentProvider();
     if (cp instanceof MergeViewerContentProvider) {
-      MergeViewerContentProvider mcp = ((MergeViewerContentProvider) (cp));
+      MergeViewerContentProvider mcp = (MergeViewerContentProvider) cp;
       switch (type) {
         case ANCESTOR_CONTRIBUTOR:
           mcp.setAncestorError(message);

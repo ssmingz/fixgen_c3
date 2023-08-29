@@ -1,5 +1,5 @@
 class PlaceHold {
-  public void runAsynchronously(org.eclipse.jface.operation.IRunnableWithProgress runnable) {
+  public void runAsynchronously(IRunnableWithProgress runnable) {
     if (fContainer != null) fContainer.runAsynchronously(runnable);
   }
 }

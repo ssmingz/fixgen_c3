@@ -1,50 +1,38 @@
---- /Users/yumeng/PycharmProjects/SysEdit/20/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/20/r/after.java
-@@ -14,1 +14,1 @@
--        String actionName = ((String) (st.nextToken()));
-+        String actionName = st.nextToken();
-@@ -34,1 +34,5 @@
--                    continue;
-+                    icon = GUIUtilities.loadIcon("BrokenImage.png");
-+                else {
-+                    icon = GUIUtilities.loadIcon(iconName);
-+                    if (icon == null)
-+                        icon = GUIUtilities.loadIcon("BrokenImage.png");
-@@ -36,1 +40,1 @@
--                icon = GUIUtilities.loadIcon(iconName);
-+                }
-@@ -46,0 +50,1 @@
-+    // {{{ Create buttons
-@@ -49,1 +54,0 @@
--    buttons.add(javax.swing.Box.createGlue());
-@@ -51,1 +55,2 @@
--    add = new javax.swing.JButton(jEdit.getProperty("options.toolbar.add"));
+--- D:\expdata\c3\SysEdit\20/r/before.java
++++ D:\expdata\c3\SysEdit\20/r/after.java
+@@ -20,1 +20,1 @@
+-      String actionName = (String) st.nextToken();
++      String actionName = st.nextToken();
+@@ -36,3 +36,5 @@
+-          if (iconName == null) continue;
+-
+-          icon = GUIUtilities.loadIcon(iconName);
++          if (iconName == null) icon = GUIUtilities.loadIcon("BrokenImage.png");
++          else {
++            icon = GUIUtilities.loadIcon(iconName);
++            if (icon == null) icon = GUIUtilities.loadIcon("BrokenImage.png");
++          }
+@@ -54,1 +56,0 @@
+-    buttons.add(Box.createGlue());
+@@ -56,1 +57,2 @@
+-    add = new JButton(jEdit.getProperty("options.toolbar.add"));
 +    add = new RolloverButton(GUIUtilities.loadIcon("Plus.png"));
 +    add.setToolTipText(jEdit.getProperty("options.toolbar.add"));
-@@ -55,1 +60,2 @@
--    remove = new javax.swing.JButton(jEdit.getProperty("options.toolbar.remove"));
+@@ -60,1 +62,2 @@
+-    remove = new JButton(jEdit.getProperty("options.toolbar.remove"));
 +    remove = new RolloverButton(GUIUtilities.loadIcon("Minus.png"));
 +    remove.setToolTipText(jEdit.getProperty("options.toolbar.remove"));
-@@ -59,1 +65,2 @@
--    moveUp = new javax.swing.JButton(jEdit.getProperty("options.toolbar.moveUp"));
+@@ -64,1 +67,2 @@
+-    moveUp = new JButton(jEdit.getProperty("options.toolbar.moveUp"));
 +    moveUp = new RolloverButton(GUIUtilities.loadIcon("ArrowU.png"));
 +    moveUp.setToolTipText(jEdit.getProperty("options.toolbar.moveUp"));
-@@ -63,1 +70,2 @@
--    moveDown = new javax.swing.JButton(jEdit.getProperty("options.toolbar.moveDown"));
+@@ -68,1 +72,2 @@
+-    moveDown = new JButton(jEdit.getProperty("options.toolbar.moveDown"));
 +    moveDown = new RolloverButton(GUIUtilities.loadIcon("ArrowD.png"));
 +    moveDown.setToolTipText(jEdit.getProperty("options.toolbar.moveDown"));
-@@ -66,0 +74,5 @@
-+    buttons.add(javax.swing.Box.createHorizontalStrut(6));
+@@ -71,0 +76,5 @@
++    buttons.add(Box.createHorizontalStrut(6));
 +    edit = new RolloverButton(GUIUtilities.loadIcon("ButtonProperties.png"));
 +    edit.setToolTipText(jEdit.getProperty("options.toolbar.edit"));
 +    edit.addActionListener(actionHandler);
 +    buttons.add(edit);
-@@ -67,0 +80,1 @@
-+    // }}}
-@@ -69,1 +83,1 @@
--    // create icons list
-+    // {{{ Ceate icons list
-@@ -75,1 +89,2 @@
--    } 
-+    } // }}}
-+

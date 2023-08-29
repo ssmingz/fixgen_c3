@@ -1,13 +1,14 @@
---- /Users/yumeng/PycharmProjects/SysEdit/35/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/35/r/after.java
-@@ -5,1 +5,1 @@
+--- D:\expdata\c3\SysEdit\35/r/before.java
++++ D:\expdata\c3\SysEdit\35/r/after.java
+@@ -7,1 +7,1 @@
 -            return internalSetFocus();
-+            return org.eclipse.compare.contentmergeviewer.ContentMergeViewer.this.handleSetFocus();
-@@ -22,1 +22,1 @@
--        fCenter = createCenter(fComposite);
-+        fCenter = createCenterControl(fComposite);
-@@ -25,2 +25,2 @@
--    org.eclipse.ui.IWorkbenchPartSite ps = Utilities.findSite(fComposite);
--    fHandlerService = (ps != null) ? ((org.eclipse.ui.handlers.IHandlerService) (ps.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;
-+    org.eclipse.ui.services.IServiceLocator locator = getCompareConfiguration().getContainer().getServiceLocator();
-+    fHandlerService = (locator != null) ? ((org.eclipse.ui.handlers.IHandlerService) (locator.getService(org.eclipse.ui.handlers.IHandlerService.class))) : null;
++            return ContentMergeViewer.this.handleSetFocus();
+@@ -29,1 +29,1 @@
+-    if (fCenter == null || fCenter.isDisposed()) fCenter = createCenter(fComposite);
++    if (fCenter == null || fCenter.isDisposed()) fCenter = createCenterControl(fComposite);
+@@ -33,2 +33,3 @@
+-    IWorkbenchPartSite ps = Utilities.findSite(fComposite);
+-    fHandlerService = ps != null ? (IHandlerService) ps.getService(IHandlerService.class) : null;
++    IServiceLocator locator = getCompareConfiguration().getContainer().getServiceLocator();
++    fHandlerService =
++        locator != null ? (IHandlerService) locator.getService(IHandlerService.class) : null;

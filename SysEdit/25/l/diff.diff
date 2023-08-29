@@ -1,18 +1,18 @@
---- /Users/yumeng/PycharmProjects/SysEdit/25/l/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/25/l/after.java
-@@ -2,12 +2,3 @@
+--- D:\expdata\c3\SysEdit\25/l/before.java
++++ D:\expdata\c3\SysEdit\25/l/after.java
+@@ -3,12 +3,3 @@
 -    if (getAttribute(MIGRATION_DELEGATE) != null) {
--        if (fDelegates == null) {
--            fDelegates = new Hashtable();
--        }
--        Object delegate = fDelegates.get(MIGRATION_DELEGATE);
--        if (delegate == null) {
--            delegate = getConfigurationElement().createExecutableExtension(MIGRATION_DELEGATE);
--            fDelegates.put(MIGRATION_DELEGATE, delegate);
--        }
--        if (delegate instanceof org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) {
--            ((org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) (delegate)).migrate(candidate);
--        }
+-      if (fDelegates == null) {
+-        fDelegates = new Hashtable();
+-      }
+-      Object delegate = fDelegates.get(MIGRATION_DELEGATE);
+-      if (delegate == null) {
+-        delegate = getConfigurationElement().createExecutableExtension(MIGRATION_DELEGATE);
+-        fDelegates.put(MIGRATION_DELEGATE, delegate);
+-      }
+-      if (delegate instanceof ILaunchConfigurationMigrationDelegate) {
+-        ((ILaunchConfigurationMigrationDelegate) delegate).migrate(candidate);
+-      }
 +    initializeMigrationDelegate();
 +    if (fMigrationDelegate != null) {
-+        fMigrationDelegate.migrate(candidate);
++      fMigrationDelegate.migrate(candidate);

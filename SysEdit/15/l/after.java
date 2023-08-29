@@ -1,20 +1,18 @@
 class PlaceHold {
-  private org.eclipse.compare.contentmergeviewer.RGB getStrokeColor(
-      org.eclipse.compare.internal.merge.DocumentMerger.Diff diff) {
-    boolean selected = (fCurrentDiff != null) && (fCurrentDiff.getParent() == diff);
-    if (isThreeWay() && (!isIgnoreAncestor())) {
+  private RGB getStrokeColor(Diff diff) {
+    boolean selected = fCurrentDiff != null && fCurrentDiff.getParent() == diff;
+
+    if (isThreeWay() && !isIgnoreAncestor()) {
       switch (diff.getKind()) {
-        case org.eclipse.compare.rangedifferencer.RangeDifference.RIGHT:
+        case RangeDifference.RIGHT:
           if (fLeftIsLocal) return selected ? SELECTED_INCOMING : INCOMING;
-
           return selected ? SELECTED_OUTGOING : OUTGOING;
-        case org.eclipse.compare.rangedifferencer.RangeDifference.ANCESTOR:
+        case RangeDifference.ANCESTOR:
           return selected ? SELECTED_CONFLICT : CONFLICT;
-        case org.eclipse.compare.rangedifferencer.RangeDifference.LEFT:
+        case RangeDifference.LEFT:
           if (fLeftIsLocal) return selected ? SELECTED_OUTGOING : OUTGOING;
-
           return selected ? SELECTED_INCOMING : INCOMING;
-        case org.eclipse.compare.rangedifferencer.RangeDifference.CONFLICT:
+        case RangeDifference.CONFLICT:
           return selected ? SELECTED_CONFLICT : CONFLICT;
       }
       return null;

@@ -1,21 +1,15 @@
---- /Users/yumeng/PycharmProjects/SysEdit/39/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/39/r/after.java
-@@ -1,1 +1,1 @@
--private Diff handleMouseInSides(Canvas canvas, MergeSourceViewer tp, int my) {
-+private org.eclipse.compare.internal.merge.DocumentMerger.Diff handleMouseInSides(Canvas canvas, MergeSourceViewer tp, int my) {
-@@ -7,1 +7,1 @@
+--- D:\expdata\c3\SysEdit\39/r/before.java
++++ D:\expdata\c3\SysEdit\39/r/after.java
+@@ -9,1 +9,1 @@
 -    if (fChangeDiffs != null) {
 +    if (fMerger.hasChanges()) {
-@@ -10,3 +10,3 @@
--        Iterator e = fChangeDiffs.iterator();
--        while (e.hasNext()) {
--            Diff diff = ((Diff) (e.next()));
-+        char leg = getLeg(tp);
-+        for (Iterator iterator = fMerger.changesIterator(); iterator.hasNext();) {
-+            org.eclipse.compare.internal.merge.DocumentMerger.Diff diff = ((org.eclipse.compare.internal.merge.DocumentMerger.Diff) (iterator.next()));
-@@ -19,1 +19,1 @@
--            tp.getLineRange(diff.getPosition(tp), region);
-+            tp.getLineRange(diff.getPosition(leg), region);
-@@ -31,1 +31,1 @@
--        } 
-+        }
+@@ -13,3 +13,3 @@
+-      Iterator e = fChangeDiffs.iterator();
+-      while (e.hasNext()) {
+-        Diff diff = (Diff) e.next();
++      char leg = getLeg(tp);
++      for (Iterator iterator = fMerger.changesIterator(); iterator.hasNext(); ) {
++        Diff diff = (Diff) iterator.next();
+@@ -20,1 +20,1 @@
+-        tp.getLineRange(diff.getPosition(tp), region);
++        tp.getLineRange(diff.getPosition(leg), region);

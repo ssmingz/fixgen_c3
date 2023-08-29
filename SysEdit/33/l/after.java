@@ -1,5 +1,5 @@
 class PlaceHold {
-  public void saveChanges(IProgressMonitor pm) throws org.eclipse.compare.CoreException {
+  public void saveChanges(IProgressMonitor pm) throws CoreException {
     flushViewers(pm);
     save(pm);
   }

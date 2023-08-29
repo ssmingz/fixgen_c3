@@ -1,19 +1,16 @@
 class PlaceHold {
   public Object getAdapter(Class adapter) {
-    if (org.eclipse.compare.ICompareNavigator.class.equals(adapter)
-        || org.eclipse.compare.CompareNavigator.class.equals(adapter)) {
+    if (ICompareNavigator.class.equals(adapter) || CompareNavigator.class.equals(adapter)) {
       if (fNavigator == null)
         fNavigator =
             new CompareNavigator(
                 new CompareViewerSwitchingPane[] {
                   fStructureInputPane, fStructurePane1, fStructurePane2, fContentInputPane
                 });
-
       return fNavigator;
     }
-    if (org.eclipse.core.resources.IFile.class.equals(adapter)) {
+    if (IFile.class.equals(adapter)) {
       IProgressMonitor pm = new NullProgressMonitor();
-      // flush changes in any dirty viewer
       try {
         flushViewer(fStructureInputPane, pm);
         flushViewer(fStructurePane1, pm);
@@ -22,12 +19,8 @@ class PlaceHold {
       } catch (CoreException e) {
         CompareUIPlugin.log(e);
       }
-      org.eclipse.core.resources.IFile[] files =
-          ((org.eclipse.core.resources.IFile[])
-              (getAdapter(org.eclipse.core.resources.IFile[].class)));
-      if ((files != null) && (files.length > 0)) return files[0];
-      // can only return one: limitation on IDE.saveAllEditors; see #64617
-
+      IFile[] files = (IFile[]) getAdapter(IFile[].class);
+      if (files != null && files.length > 0) return files[0];
       return null;
     }
     return null;

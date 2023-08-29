@@ -1,6 +1,5 @@
 class PlaceHold {
-  public void saveChanges(IProgressMonitor pm) throws org.eclipse.compare.CoreException {
-    // flush changes in any dirty viewer
+  public void saveChanges(IProgressMonitor pm) throws CoreException {
     flushViewer(fStructureInputPane, pm);
     flushViewer(fStructurePane1, pm);
     flushViewer(fStructurePane2, pm);

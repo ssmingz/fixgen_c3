@@ -1,26 +1,15 @@
 class PlaceHold {
-  public void convert(Javadoc javadoc, BodyDeclaration bodyDeclaration) {
-    if (bodyDeclaration.getJavadoc() == null) {
-      if (javadoc != null) {
-        if ((this.commentMapper == null)
-            || (!this.commentMapper.hasSameTable(this.commentsTable))) {
-          this.commentMapper = new DefaultCommentMapper(this.commentsTable);
-        }
-        Comment comment = this.commentMapper.getComment(javadoc.sourceStart);
-        if (((comment != null) && comment.isDocComment()) && (comment.getParent() == null)) {
-          org.eclipse.jdt.core.dom.Javadoc docComment =
-              ((org.eclipse.jdt.core.dom.Javadoc) (comment));
-          if (this.resolveBindings) {
-            recordNodes(docComment, javadoc);
-            // resolve member and method references binding
-            Iterator tags = docComment.tags().listIterator();
-            while (tags.hasNext()) {
-              recordNodes(javadoc, ((TagElement) (tags.next())));
-            }
-          }
-          bodyDeclaration.setJavadoc(docComment);
-        }
-      }
+  public ContinueStatement convert(
+      org.eclipse.jdt.internal.compiler.ast.ContinueStatement statement) {
+    ContinueStatement continueStatement = this.ast.newContinueStatement();
+    continueStatement.setSourceRange(
+        statement.sourceStart, statement.sourceEnd - statement.sourceStart + 1);
+    if (statement.label != null) {
+      SimpleName name = this.ast.newSimpleName(new String(statement.label));
+      retrieveIdentifierAndSetPositions(statement.sourceStart, statement.sourceEnd, name);
+      continueStatement.setLabel(name);
     }
+    retrieveSemiColonPosition(continueStatement);
+    return continueStatement;
   }
 }

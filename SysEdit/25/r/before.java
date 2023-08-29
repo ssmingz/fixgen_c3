@@ -1,6 +1,5 @@
 class PlaceHold {
-  public boolean isMigrationCandidate(org.eclipse.debug.core.ILaunchConfiguration candidate)
-      throws org.eclipse.core.runtime.CoreException {
+  public boolean isMigrationCandidate(ILaunchConfiguration candidate) throws CoreException {
     if (getAttribute(MIGRATION_DELEGATE) != null) {
       if (fDelegates == null) {
         fDelegates = new Hashtable();
@@ -10,9 +9,8 @@ class PlaceHold {
         delegate = getConfigurationElement().createExecutableExtension(MIGRATION_DELEGATE);
         fDelegates.put(MIGRATION_DELEGATE, delegate);
       }
-      if (delegate instanceof org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) {
-        return ((org.eclipse.debug.core.ILaunchConfigurationMigrationDelegate) (delegate))
-            .isCandidate(candidate);
+      if (delegate instanceof ILaunchConfigurationMigrationDelegate) {
+        return ((ILaunchConfigurationMigrationDelegate) delegate).isCandidate(candidate);
       }
     }
     return false;

@@ -1,21 +1,24 @@
 class PlaceHold {
-  protected void handleDispose(org.eclipse.swt.events.DisposeEvent event) {
-    org.eclipse.compare.internal.Utilities.deregisterActions(fHandlerService, fActivations);
-    fHandlerService = null;
-    Object input = getInput();
-    if (input instanceof org.eclipse.compare.structuremergeviewer.ICompareInput)
-      ((org.eclipse.compare.structuremergeviewer.ICompareInput) (input))
-          .removeCompareInputChangeListener(fCompareInputChangeListener);
+  protected void handleDispose(DisposeEvent event) {
 
-    if ((fCompareConfiguration != null) && (fPropertyChangeListener != null)) {
+    Utilities.deregisterActions(fHandlerService, fActivations);
+    fHandlerService = null;
+
+    Object input = getInput();
+    if (input instanceof ICompareInput)
+      ((ICompareInput) input).removeCompareInputChangeListener(fCompareInputChangeListener);
+
+    if (fCompareConfiguration != null && fPropertyChangeListener != null) {
       fCompareConfiguration.removePropertyChangeListener(fPropertyChangeListener);
       fPropertyChangeListener = null;
     }
+
     fAncestorLabel = null;
     fLeftLabel = null;
     fDirectionLabel = null;
     fRightLabel = null;
     fCenter = null;
+
     if (fRightArrow != null) {
       fRightArrow.dispose();
       fRightArrow = null;
@@ -28,6 +31,7 @@ class PlaceHold {
       fBothArrow.dispose();
       fBothArrow = null;
     }
+
     if (fNormalCursor != null) {
       fNormalCursor.dispose();
       fNormalCursor = null;
@@ -44,6 +48,7 @@ class PlaceHold {
       fHVSashCursor.dispose();
       fHVSashCursor = null;
     }
+
     super.handleDispose(event);
   }
 }

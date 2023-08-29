@@ -1,5 +1,5 @@
 class PlaceHold {
-  private org.eclipse.compare.contentmergeviewer.Position getNewRange(char type, Object input) {
+  private Position getNewRange(char type, Object input) {
     switch (type) {
       case 'A':
         return ((Position) (fNewAncestorRanges.get(input)));

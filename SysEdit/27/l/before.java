@@ -1,10 +1,9 @@
 class PlaceHold {
   protected Object getTarget(Object element) {
-    if (element instanceof org.eclipse.debug.core.model.IDisconnect) {
+    if (element instanceof IDisconnect) {
       return element;
-    } else if (element instanceof org.eclipse.core.runtime.IAdaptable) {
-      return ((org.eclipse.core.runtime.IAdaptable) (element))
-          .getAdapter(org.eclipse.debug.core.model.IDisconnect.class);
+    } else if (element instanceof IAdaptable) {
+      return ((IAdaptable) element).getAdapter(IDisconnect.class);
     }
     return null;
   }

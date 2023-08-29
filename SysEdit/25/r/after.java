@@ -1,6 +1,5 @@
 class PlaceHold {
-  public boolean isMigrationCandidate(org.eclipse.debug.core.ILaunchConfiguration candidate)
-      throws org.eclipse.core.runtime.CoreException {
+  public boolean isMigrationCandidate(ILaunchConfiguration candidate) throws CoreException {
     initializeMigrationDelegate();
     if (fMigrationDelegate != null) {
       return fMigrationDelegate.isCandidate(candidate);

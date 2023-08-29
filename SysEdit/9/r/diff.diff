@@ -1,16 +1,20 @@
---- /Users/yumeng/PycharmProjects/SysEdit/9/r/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/9/r/after.java
-@@ -34,1 +34,0 @@
--                List result = null;
-@@ -39,2 +38,4 @@
--                        result = apply(diff, file, true, failed);
--                        store(createString(result), file, new SubProgressMonitor(pm, workTicks));
-+                        List result = apply(diff, file, true, failed);
-+                        if (result != null)
-+                            store(createString(isPreserveLineDelimeters(), result), file, new SubProgressMonitor(pm, workTicks));
-+
-@@ -50,1 +51,3 @@
--                        store(createString(result), file, new SubProgressMonitor(pm, workTicks));
-+                        if (result != null)
-+                            store(createString(isPreserveLineDelimeters(), result), file, new SubProgressMonitor(pm, workTicks));
-+
+--- D:\expdata\c3\SysEdit\9/r/before.java
++++ D:\expdata\c3\SysEdit\9/r/after.java
+@@ -36,1 +36,0 @@
+-          List result = null;
+@@ -42,2 +41,6 @@
+-              result = apply(diff, file, true, failed);
+-              store(createString(result), file, new SubProgressMonitor(pm, workTicks));
++              List result = apply(diff, file, true, failed);
++              if (result != null)
++                store(
++                    createString(isPreserveLineDelimeters(), result),
++                    file,
++                    new SubProgressMonitor(pm, workTicks));
+@@ -53,1 +56,5 @@
+-              store(createString(result), file, new SubProgressMonitor(pm, workTicks));
++              if (result != null)
++                store(
++                    createString(isPreserveLineDelimeters(), result),
++                    file,
++                    new SubProgressMonitor(pm, workTicks));

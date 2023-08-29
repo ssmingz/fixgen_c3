@@ -1,27 +1,29 @@
---- /Users/yumeng/PycharmProjects/SysEdit/9/l/before.java
-+++ /Users/yumeng/PycharmProjects/SysEdit/9/l/after.java
-@@ -48,1 +48,0 @@
--            List result = null;
-@@ -53,2 +52,4 @@
--                    result = apply(diff, file, true, failed);
--                    store(createString(result), file, new SubProgressMonitor(pm, workTicks));
-+                    List result = apply(diff, file, true, failed);
-+                    if (result != null)
-+                        store(createString(isPreserveLineDelimeters(), result), file, new SubProgressMonitor(pm, workTicks));
-+
-@@ -64,1 +65,3 @@
--                    store(createString(result), file, new SubProgressMonitor(pm, workTicks));
-+                    if (result != null)
-+                        store(createString(isPreserveLineDelimeters(), result), file, new SubProgressMonitor(pm, workTicks));
-+
-@@ -68,8 +71,2 @@
--            if (fGenerateRejectFile && (failed.size() > 0)) {
--                IPath pp = null;
--                if (path.segmentCount() > 1) {
--                    pp = path.removeLastSegments(1);
--                    pp = pp.append(path.lastSegment() + REJECT_FILE_EXTENSION);
--                } else
--                    pp = new Path(path.lastSegment() + REJECT_FILE_EXTENSION);
--
-+            if (isGenerateRejectFile() && (failed.size() > 0)) {
-+                IPath pp = getRejectFilePath(path);
+--- D:\expdata\c3\SysEdit\9/l/before.java
++++ D:\expdata\c3\SysEdit\9/l/after.java
+@@ -53,1 +53,0 @@
+-        List result = null;
+@@ -59,2 +58,6 @@
+-            result = apply(diff, file, true, failed);
+-            store(createString(result), file, new SubProgressMonitor(pm, workTicks));
++            List result = apply(diff, file, true, failed);
++            if (result != null)
++              store(
++                  createString(isPreserveLineDelimeters(), result),
++                  file,
++                  new SubProgressMonitor(pm, workTicks));
+@@ -70,1 +73,5 @@
+-            store(createString(result), file, new SubProgressMonitor(pm, workTicks));
++            if (result != null)
++              store(
++                  createString(isPreserveLineDelimeters(), result),
++                  file,
++                  new SubProgressMonitor(pm, workTicks));
+@@ -75,6 +82,2 @@
+-        if (fGenerateRejectFile && failed.size() > 0) {
+-          IPath pp = null;
+-          if (path.segmentCount() > 1) {
+-            pp = path.removeLastSegments(1);
+-            pp = pp.append(path.lastSegment() + REJECT_FILE_EXTENSION);
+-          } else pp = new Path(path.lastSegment() + REJECT_FILE_EXTENSION);
++        if (isGenerateRejectFile() && failed.size() > 0) {
++          IPath pp = getRejectFilePath(path);
