@@ -1,0 +1,18 @@
+--- D:\expdata\c3\SysEdit\25/r/before.java
++++ D:\expdata\c3\SysEdit\25/r/after.java
+@@ -3,12 +3,3 @@
+-    if (getAttribute(MIGRATION_DELEGATE) != null) {
+-      if (fDelegates == null) {
+-        fDelegates = new Hashtable();
+-      }
+-      Object delegate = fDelegates.get(MIGRATION_DELEGATE);
+-      if (delegate == null) {
+-        delegate = getConfigurationElement().createExecutableExtension(MIGRATION_DELEGATE);
+-        fDelegates.put(MIGRATION_DELEGATE, delegate);
+-      }
+-      if (delegate instanceof ILaunchConfigurationMigrationDelegate) {
+-        return ((ILaunchConfigurationMigrationDelegate) delegate).isCandidate(candidate);
+-      }
++    initializeMigrationDelegate();
++    if (fMigrationDelegate != null) {
++      return fMigrationDelegate.isCandidate(candidate);

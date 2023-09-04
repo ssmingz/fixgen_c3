@@ -1,0 +1,9 @@
+--- D:\expdata\c3\SysEdit\12/r/before.java
++++ D:\expdata\c3\SysEdit\12/r/after.java
+@@ -4,1 +4,5 @@
+-    fContainer.addCompareInputChangeListener(input, listener);
++    if (fContainer == null) {
++      input.addCompareInputChangeListener(listener);
++    } else {
++      fContainer.addCompareInputChangeListener(input, listener);
++    }

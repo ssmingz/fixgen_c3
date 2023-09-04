@@ -1,0 +1,20 @@
+--- D:\expdata\c3\SysEdit\31/r/before.java
++++ D:\expdata\c3\SysEdit\31/r/after.java
+@@ -5,1 +5,1 @@
+-    fKeyBindingService = ps != null ? ps.getKeyBindingService() : null;
++    fHandlerService = ps != null ? (IHandlerService) ps.getService(IHandlerService.class) : null;
+@@ -37,1 +37,1 @@
+-        fKeyBindingService, a, "org.eclipse.compare.selectNextChange"); // $NON-NLS-1$
++        fHandlerService, a, "org.eclipse.compare.selectNextChange", fActivations); // $NON-NLS-1$
+@@ -49,1 +49,4 @@
+-        fKeyBindingService, a, "org.eclipse.compare.selectPreviousChange"); // $NON-NLS-1$
++        fHandlerService,
++        a,
++        "org.eclipse.compare.selectPreviousChange",
++        fActivations); //$NON-NLS-1$
+@@ -65,1 +68,1 @@
+-          fKeyBindingService, a, "org.eclipse.compare.copyLeftToRight"); // $NON-NLS-1$
++          fHandlerService, a, "org.eclipse.compare.copyLeftToRight", fActivations); // $NON-NLS-1$
+@@ -80,1 +83,1 @@
+-          fKeyBindingService, a, "org.eclipse.compare.copyRightToLeft"); // $NON-NLS-1$
++          fHandlerService, a, "org.eclipse.compare.copyRightToLeft", fActivations); // $NON-NLS-1$

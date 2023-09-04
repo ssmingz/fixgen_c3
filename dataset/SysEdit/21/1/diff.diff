@@ -1,0 +1,18 @@
+--- D:\expdata\c3\SysEdit\21/r/before.java
++++ D:\expdata\c3\SysEdit\21/r/after.java
+@@ -2,10 +2,5 @@
+-  public synchronized void contentRemoved(int offset, int length) {
+-    if (positions.size() == 0) return;
+-    Iterator iter = positions.tailMap(new PosBottomHalf(offset)).keySet().iterator();
+-    iteration = true;
+-    while (iter.hasNext()) {
+-      PosBottomHalf bh = ((PosBottomHalf) (iter.next()));
+-      if (bh.offset <= (offset + length)) bh.offset = offset;
+-      else bh.offset -= length;
+-    }
+-    iteration = false;
++  void contentRemoved(int offset, int length) {
++    if (offset > this.offset) throw new ArrayIndexOutOfBoundsException();
++    if (this.offset <= (offset + length)) this.offset = offset;
++    else this.offset -= length;
++    checkInvariants();

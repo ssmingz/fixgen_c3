@@ -1,0 +1,14 @@
+--- D:\expdata\c3\SysEdit\35/r/before.java
++++ D:\expdata\c3\SysEdit\35/r/after.java
+@@ -7,1 +7,1 @@
+-            return internalSetFocus();
++            return ContentMergeViewer.this.handleSetFocus();
+@@ -29,1 +29,1 @@
+-    if (fCenter == null || fCenter.isDisposed()) fCenter = createCenter(fComposite);
++    if (fCenter == null || fCenter.isDisposed()) fCenter = createCenterControl(fComposite);
+@@ -33,2 +33,3 @@
+-    IWorkbenchPartSite ps = Utilities.findSite(fComposite);
+-    fHandlerService = ps != null ? (IHandlerService) ps.getService(IHandlerService.class) : null;
++    IServiceLocator locator = getCompareConfiguration().getContainer().getServiceLocator();
++    fHandlerService =
++        locator != null ? (IHandlerService) locator.getService(IHandlerService.class) : null;

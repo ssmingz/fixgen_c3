@@ -1,0 +1,15 @@
+--- D:\expdata\c3\SysEdit\39/l/before.java
++++ D:\expdata\c3\SysEdit\39/l/after.java
+@@ -26,1 +26,1 @@
+-    if (fChangeDiffs != null) {
++    if (fMerger.hasChanges()) {
+@@ -30,3 +30,3 @@
+-      Iterator e = fChangeDiffs.iterator();
+-      while (e.hasNext()) {
+-        Diff diff = (Diff) e.next();
++      char leg = getLeg(tp);
++      for (Iterator iterator = fMerger.changesIterator(); iterator.hasNext(); ) {
++        Diff diff = (Diff) iterator.next();
+@@ -37,1 +37,1 @@
+-        tp.getLineRange(diff.getPosition(tp), region);
++        tp.getLineRange(diff.getPosition(leg), region);

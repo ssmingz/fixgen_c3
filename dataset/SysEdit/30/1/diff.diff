@@ -1,0 +1,12 @@
+--- D:\expdata\c3\SysEdit\30/r/before.java
++++ D:\expdata\c3\SysEdit\30/r/after.java
+@@ -4,7 +4,2 @@
+-    if (fKeyBindingService != null) {
+-      if (fCopyLeftToRightAction != null)
+-        fKeyBindingService.unregisterAction(fCopyLeftToRightAction);
+-      if (fCopyRightToLeftAction != null)
+-        fKeyBindingService.unregisterAction(fCopyRightToLeftAction);
+-      fKeyBindingService = null;
+-    }
++    Utilities.deregisterActions(fHandlerService, fActivations);
++    fHandlerService = null;

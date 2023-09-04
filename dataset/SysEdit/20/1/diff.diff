@@ -1,0 +1,38 @@
+--- D:\expdata\c3\SysEdit\20/r/before.java
++++ D:\expdata\c3\SysEdit\20/r/after.java
+@@ -20,1 +20,1 @@
+-      String actionName = (String) st.nextToken();
++      String actionName = st.nextToken();
+@@ -36,3 +36,5 @@
+-          if (iconName == null) continue;
+-
+-          icon = GUIUtilities.loadIcon(iconName);
++          if (iconName == null) icon = GUIUtilities.loadIcon("BrokenImage.png");
++          else {
++            icon = GUIUtilities.loadIcon(iconName);
++            if (icon == null) icon = GUIUtilities.loadIcon("BrokenImage.png");
++          }
+@@ -54,1 +56,0 @@
+-    buttons.add(Box.createGlue());
+@@ -56,1 +57,2 @@
+-    add = new JButton(jEdit.getProperty("options.toolbar.add"));
++    add = new RolloverButton(GUIUtilities.loadIcon("Plus.png"));
++    add.setToolTipText(jEdit.getProperty("options.toolbar.add"));
+@@ -60,1 +62,2 @@
+-    remove = new JButton(jEdit.getProperty("options.toolbar.remove"));
++    remove = new RolloverButton(GUIUtilities.loadIcon("Minus.png"));
++    remove.setToolTipText(jEdit.getProperty("options.toolbar.remove"));
+@@ -64,1 +67,2 @@
+-    moveUp = new JButton(jEdit.getProperty("options.toolbar.moveUp"));
++    moveUp = new RolloverButton(GUIUtilities.loadIcon("ArrowU.png"));
++    moveUp.setToolTipText(jEdit.getProperty("options.toolbar.moveUp"));
+@@ -68,1 +72,2 @@
+-    moveDown = new JButton(jEdit.getProperty("options.toolbar.moveDown"));
++    moveDown = new RolloverButton(GUIUtilities.loadIcon("ArrowD.png"));
++    moveDown.setToolTipText(jEdit.getProperty("options.toolbar.moveDown"));
+@@ -71,0 +76,5 @@
++    buttons.add(Box.createHorizontalStrut(6));
++    edit = new RolloverButton(GUIUtilities.loadIcon("ButtonProperties.png"));
++    edit.setToolTipText(jEdit.getProperty("options.toolbar.edit"));
++    edit.addActionListener(actionHandler);
++    buttons.add(edit);

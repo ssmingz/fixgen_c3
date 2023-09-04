@@ -1,0 +1,9 @@
+--- D:\expdata\c3\SysEdit\41/r/before.java
++++ D:\expdata\c3\SysEdit\41/r/after.java
+@@ -4,1 +4,1 @@
+-    ContinueStatement continueStatement = this.ast.newContinueStatement();
++    ContinueStatement continueStatement = new ContinueStatement(this.ast);
+@@ -8,1 +8,2 @@
+-      SimpleName name = this.ast.newSimpleName(new String(statement.label));
++      final SimpleName name = new SimpleName(this.ast);
++      name.internalSetIdentifier(new String(statement.label));

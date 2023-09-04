@@ -1,0 +1,10 @@
+--- D:\expdata\c3\SysEdit\2/r/before.java
++++ D:\expdata\c3\SysEdit\2/r/after.java
+@@ -2,1 +2,6 @@
+-  public void elementDeleted(Object element) {}
++  public void elementDeleted(Object element) {
++    IEditorInput input = getDocumentKey();
++    if ((input != null) && input.equals(element)) {
++      resetDocument();
++    }
++  }

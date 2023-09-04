@@ -1,0 +1,13 @@
+--- D:\expdata\c3\SysEdit\16/r/before.java
++++ D:\expdata\c3\SysEdit\16/r/after.java
+@@ -7,2 +7,2 @@
+-        return ((bsh.BSHType) (obj)).getType(namespace);
+-      } else throw new bsh.EvalError("Attemp to invoke .class on non class.", this);
++        return ((bsh.BSHType) (obj)).getType(callstack, interpreter);
++      } else throw new bsh.EvalError("Attempt to use .class suffix on non class.", this, callstack);
+@@ -27,1 +27,1 @@
+-      throw new bsh.EvalError("reflection error: " + e, this);
++      throw new bsh.EvalError("reflection error: " + e, this, callstack);
+@@ -29,1 +29,1 @@
+-      throw new bsh.TargetError(e.getTargetException(), this);
++      throw new bsh.TargetError("target exception", e.getTargetException(), this, callstack, true);

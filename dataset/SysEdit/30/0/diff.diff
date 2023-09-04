@@ -1,0 +1,25 @@
+--- D:\expdata\c3\SysEdit\30/l/before.java
++++ D:\expdata\c3\SysEdit\30/l/after.java
+@@ -4,20 +4,2 @@
+-    if (fKeyBindingService != null) {
+-      IAction a;
+-      if (fNextItem != null) {
+-        a = fNextItem.getAction();
+-        if (a != null) fKeyBindingService.unregisterAction(a);
+-      }
+-      if (fPreviousItem != null) {
+-        a = fPreviousItem.getAction();
+-        if (a != null) fKeyBindingService.unregisterAction(a);
+-      }
+-      if (fCopyDiffLeftToRightItem != null) {
+-        a = fCopyDiffLeftToRightItem.getAction();
+-        if (a != null) fKeyBindingService.unregisterAction(a);
+-      }
+-      if (fCopyDiffRightToLeftItem != null) {
+-        a = fCopyDiffRightToLeftItem.getAction();
+-        if (a != null) fKeyBindingService.unregisterAction(a);
+-      }
+-      fKeyBindingService = null;
+-    }
++    Utilities.deregisterActions(fHandlerService, fActivations);
++    fHandlerService = null;
